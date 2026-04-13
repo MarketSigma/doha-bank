@@ -1,769 +1,418 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>Doha Bank — Market Intelligence Dashboard</title>
-<script src="https://cdn.jsdelivr.net/npm/react@18/umd/react.production.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/react-dom@18/umd/react-dom.production.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@babel/standalone@7/babel.min.js"></script>
-<style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f0f4f8;color:#1a2a3a;min-height:100vh}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Doha Bank Market Intelligence Dashboard</title>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <style>
+    *{box-sizing:border-box} body{margin:0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f0f4f8;color:#1a2a3a}
+    .wrap{max-width:1200px;margin:0 auto;padding:24px}
+    .header{background:#0d2c5e;color:#fff}.header-inner{max-width:1200px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between}
+    .brand{display:flex;align-items:center;gap:14px}.logo{width:38px;height:38px;border-radius:6px;background:#fff;color:#1a5fa8;border:1px solid #00aeef;display:flex;align-items:center;justify-content:center;font-weight:700}
+    .cyanbar{height:3px;background:#00aeef}.tabs{display:flex;gap:2px;background:#fff;border-bottom:1px solid #c5d8ee;padding:0 24px}.tab{padding:12px 18px;cursor:pointer;border-bottom:2px solid transparent;color:#5a7a96;font-size:13px;font-weight:600}.tab.active{color:#1a5fa8;border-color:#1a5fa8}
+    .card{background:#fff;border:1px solid #c5d8ee;border-radius:8px;padding:18px;margin-bottom:16px}
+    .grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}.grid6{display:grid;grid-template-columns:repeat(6,1fr);gap:12px}
+    .kpi{background:#fff;border:1px solid #c5d8ee;border-radius:8px;padding:12px 14px;border-top:3px solid #00aeef}.kval{font-size:18px;font-weight:700;color:#0d2c5e}.klbl{font-size:11px;font-weight:700;margin-top:4px}.ksub{font-size:10px;color:#5a7a96;margin-top:2px}
+    table{width:100%;border-collapse:collapse;font-size:12px} thead tr{background:#0d2c5e} th{padding:7px 10px;text-align:left;color:#fff;font-size:11px} th.r{text-align:right} td{padding:6px 10px;border-bottom:1px solid #c5d8ee}
+    td.r{text-align:right} tbody tr:nth-child(odd){background:#f5f8fc}.sec{display:flex;align-items:center;gap:8px;margin-bottom:10px}.line{width:3px;height:16px;background:#00aeef;border-radius:2px}.sectitle{font-size:11px;font-weight:700;color:#1a5fa8;letter-spacing:1px;text-transform:uppercase}
+    .news-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.news-card{background:#fff;border:1px solid #c5d8ee;border-radius:6px;display:flex;overflow:hidden;border-top:2px solid #00aeef}
+    .news-body{flex:1;padding:10px 12px}.news-title{font-size:12px;font-weight:700;color:#0d2c5e;margin-bottom:4px;line-height:1.35}.news-source{font-size:11px;font-weight:700;color:#00aeef;margin-bottom:4px}.news-sum{font-size:11px;color:#5a7a96;line-height:1.45}
+    .news-badge{width:74px;min-width:74px;background:#0d2c5e;border-left:2px solid #00aeef;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:8px 4px}
+    .news-metric{font-size:12px;font-weight:700;color:#00aeef;text-align:center;line-height:1.2;margin-bottom:4px}.news-mlbl{font-size:9px;color:#9ac4e8;text-align:center;line-height:1.25}
+    .btn{padding:8px 14px;border:none;border-radius:6px;background:#1a5fa8;color:#fff;font-size:12px;font-weight:700;cursor:pointer}.btn.alt{background:#6c757d}.btn.danger{background:#c0392b}
+    .row{display:grid;grid-template-columns:1fr 1fr auto;gap:8px;margin-bottom:8px}.input,select{width:100%;padding:8px 10px;border:1px solid #c5d8ee;border-radius:6px;font-size:13px}
+    .badge{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:16px;font-size:11px;font-weight:700}.ok{background:#edf7f1;color:#1a7a45}.bad{background:#faedef;color:#c0392b}
+    .muted{color:#5a7a96;font-size:12px}.empty{padding:24px;text-align:center;color:#5a7a96}
+    .login{min-height:100vh;display:flex;align-items:center;justify-content:center;background:#0d2c5e}.loginbox{background:#fff;border-radius:12px;padding:36px;width:360px;box-shadow:0 8px 32px rgba(0,0,0,.25)}
+    .flex{display:flex;align-items:center;justify-content:space-between;gap:12px}
+  </style>
 </head>
 <body>
-<div id="root"></div>
-<script type="text/babel">
-const {useState,useEffect,useCallback}=React;
+<div id="app"></div>
+<script>
+const PASS_HASH = "db_mi_2026";
+const SUPABASE_URL = "https://wanqirnlsnfrrzvkxeby.supabase.co";
+const SUPABASE_ANON_KEY = "sb_secret_lNBV5l5txBX32Qmqd73fjA_6EE54Bja";
+const sb = (SUPABASE_URL.startsWith("http") && !SUPABASE_ANON_KEY.startsWith("PASTE_")) ? supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY) : null;
 
-/* ── CONFIG ─────────────────────────────────────────────────────────── */
-const PASS_HASH = "db_mi_2026";   /* Change this — simple shared password */
-const GITHUB_OWNER = "YOUR_GITHUB_USERNAME";
-const GITHUB_REPO  = "doha-bank-mi";
-const GITHUB_TOKEN_KEY = "db_gh_token"; /* stored in sessionStorage only */
-
-/* ── PALETTE ─────────────────────────────────────────────────────────── */
-const C = {
-  blue:'#1a5fa8', navy:'#0d2c5e', cyan:'#00aeef',
-  gold:'#c9a84c', light:'#e8f2fb', white:'#ffffff',
-  up:'#1a7a45',   down:'#c0392b', muted:'#5a7a96',
-  border:'#c5d8ee', bg:'#f0f4f8', text:'#1a2a3a'
+const state = {
+  loggedIn: sessionStorage.getItem("db_logged_in") === "1",
+  tab: "Market Snapshot",
+  market: null,
+  recipients: [],
+  logs: [],
 };
 
-/* ── STYLES ──────────────────────────────────────────────────────────── */
-const S = {
-  page:    {minHeight:'100vh',background:C.bg},
-  header:  {background:C.navy,color:'#fff',padding:'0',boxShadow:'0 2px 8px rgba(0,0,0,0.2)'},
-  hdrInner:{maxWidth:1200,margin:'0 auto',display:'flex',alignItems:'center',
-            justifyContent:'space-between',padding:'14px 24px'},
-  hdrLeft: {display:'flex',alignItems:'center',gap:14},
-  dBox:    {width:36,height:36,background:C.white,borderRadius:4,display:'flex',
-            alignItems:'center',justifyContent:'center',border:`1px solid ${C.cyan}`},
-  dLetter: {color:C.blue,fontWeight:700,fontSize:18},
-  bankName:{},
-  bankAr:  {fontSize:10,color:'#9ac4e8',lineHeight:1.2},
-  bankEn:  {fontSize:13,fontWeight:700,color:'#fff',letterSpacing:1},
-  hdrTitle:{fontSize:14,fontWeight:600,color:'#fff',letterSpacing:2},
-  cyanBar: {height:3,background:C.cyan},
-  main:    {maxWidth:1200,margin:'0 auto',padding:'24px'},
-  tabs:    {display:'flex',gap:2,marginBottom:24,borderBottom:`2px solid ${C.border}`},
-  tab:     (active)=>({
-    padding:'10px 20px',cursor:'pointer',fontSize:13,fontWeight:500,
-    border:'none',background:'none',
-    borderBottom: active ? `2px solid ${C.blue}` : '2px solid transparent',
-    color: active ? C.blue : C.muted, marginBottom:-2, transition:'all .15s'
-  }),
-  card:    {background:C.white,borderRadius:8,border:`1px solid ${C.border}`,
-            padding:20,marginBottom:16},
-  cardHdr: {display:'flex',alignItems:'center',justifyContent:'space-between',
-            marginBottom:14},
-  cardTitle:{fontSize:13,fontWeight:700,color:C.navy,letterSpacing:0.5,
-             textTransform:'uppercase'},
-  secBar:  {display:'flex',alignItems:'center',gap:8,marginBottom:10},
-  secLine: {width:3,height:16,background:C.cyan,borderRadius:2},
-  secTxt:  {fontSize:11,fontWeight:700,color:C.blue,letterSpacing:1,textTransform:'uppercase'},
-  kpiGrid: {display:'grid',gridTemplateColumns:'repeat(6,1fr)',gap:12,marginBottom:20},
-  kpiCard: {background:C.white,border:`1px solid ${C.border}`,borderRadius:8,
-            padding:'12px 14px',borderTop:`3px solid ${C.cyan}`},
-  kpiVal:  {fontSize:18,fontWeight:700,color:C.navy,lineHeight:1.2},
-  kpiLbl:  {fontSize:11,fontWeight:600,color:C.text,marginTop:4},
-  kpiSub:  {fontSize:10,color:C.muted,marginTop:2},
-  table:   {width:'100%',borderCollapse:'collapse',fontSize:12},
-  tHead:   {background:C.navy},
-  th:      {padding:'7px 10px',textAlign:'left',color:'#fff',fontSize:11,
-            fontWeight:600,letterSpacing:0.5},
-  thR:     {padding:'7px 10px',textAlign:'right',color:'#fff',fontSize:11,fontWeight:600},
-  tdE:     {padding:'6px 10px',borderBottom:`1px solid ${C.border}`,background:'#f5f8fc'},
-  tdO:     {padding:'6px 10px',borderBottom:`1px solid ${C.border}`,background:C.white},
-  tdR:     (bg)=>({padding:'6px 10px',borderBottom:`1px solid ${C.border}`,
-                   background:bg,textAlign:'right',fontWeight:600}),
-  btn:     (variant='primary')=>({
-    padding:'8px 18px',borderRadius:6,border:'none',cursor:'pointer',
-    fontSize:12,fontWeight:600,letterSpacing:0.3,transition:'opacity .15s',
-    background: variant==='primary' ? C.blue :
-                variant==='danger'  ? '#e74c3c' :
-                variant==='success' ? '#27ae60' : '#6c757d',
-    color:'#fff'
-  }),
-  btnSm:   (v='primary')=>({...{padding:'5px 12px',borderRadius:4,border:'none',
-            cursor:'pointer',fontSize:11,fontWeight:600,transition:'opacity .15s',
-            background: v==='danger'?'#e74c3c':v==='success'?'#27ae60':C.blue,
-            color:'#fff'}}),
-  input:   {width:'100%',padding:'8px 12px',border:`1px solid ${C.border}`,
-            borderRadius:6,fontSize:13,outline:'none',color:C.text},
-  badge:   (ok)=>({display:'inline-flex',alignItems:'center',gap:4,
-            padding:'3px 10px',borderRadius:20,fontSize:11,fontWeight:600,
-            background: ok ? '#edf7f1' : '#faedef',
-            color: ok ? C.up : C.down}),
-  dot:     (ok)=>({width:7,height:7,borderRadius:'50%',
-            background: ok ? C.up : C.down}),
-  loginWrap:{minHeight:'100vh',display:'flex',alignItems:'center',
-             justifyContent:'center',background:C.navy},
-  loginBox: {background:C.white,borderRadius:12,padding:40,width:360,
-             boxShadow:'0 8px 32px rgba(0,0,0,0.3)'},
-};
+const app = document.getElementById("app");
 
-/* ── HELPERS ─────────────────────────────────────────────────────────── */
 function pctColor(v){
-  if(!v||v==='—'||v==='Pegged') return C.muted;
-  if(String(v).startsWith('+')) return C.up;
-  if(String(v).startsWith('-')) return C.down;
-  return C.muted;
+  v = String(v || "");
+  if(v.startsWith("+")) return "#1a7a45";
+  if(v.startsWith("-")) return "#c0392b";
+  return "#5a7a96";
 }
-function PctCell({v,bg}){
-  return <td style={{...S.tdR(bg||C.white),color:pctColor(v)}}>{v||'—'}</td>;
+
+function formatPx(v){
+  if(typeof v === "number") return v.toLocaleString(undefined, {maximumFractionDigits: 2, minimumFractionDigits: 2});
+  return v ?? "N/A";
 }
-function TableSection({title,headers,rows,cw}){
-  return(
-    <div style={{marginBottom:12}}>
-      <div style={S.secBar}><div style={S.secLine}/><span style={S.secTxt}>{title}</span></div>
-      <table style={S.table}>
-        <thead><tr style={{background:C.navy}}>
-          {headers.map((h,i)=><th key={i} style={i===0?S.th:S.thR}>{h}</th>)}
-        </tr></thead>
-        <tbody>{rows.map((row,ri)=>{
-          const bg=ri%2===0?'#f5f8fc':C.white;
-          return<tr key={ri}>
-            <td style={{...S.tdE,background:bg,fontWeight:600}}>{row[0]}</td>
-            <td style={{...S.tdR(bg)}}>{row[1]}</td>
-            <PctCell v={row[2]} bg={bg}/>
-            <PctCell v={row[3]} bg={bg}/>
-            <PctCell v={row[4]} bg={bg}/>
-          </tr>;
-        })}</tbody>
+
+function render(){
+  app.innerHTML = "";
+  if(!state.loggedIn){
+    return renderLogin();
+  }
+
+  const root = document.createElement("div");
+  root.innerHTML = `
+    <div class="header">
+      <div class="header-inner">
+        <div class="brand">
+          <div class="logo">D</div>
+          <div>
+            <div style="font-size:10px;color:#9ac4e8">بنك الدوحة</div>
+            <div style="font-size:14px;font-weight:700;letter-spacing:1px">DOHA BANK</div>
+          </div>
+          <div style="width:1px;height:28px;background:rgba(255,255,255,.2);margin:0 8px"></div>
+          <div style="font-size:14px;font-weight:700;letter-spacing:1px">Market Intelligence Dashboard</div>
+        </div>
+        <button class="btn alt" id="logoutBtn">Sign out</button>
+      </div>
+    </div>
+    <div class="cyanbar"></div>
+    <div class="tabs">
+      ${["Market Snapshot","Recipients","Report Log"].map(t=>`<div class="tab ${state.tab===t?'active':''}" data-tab="${t}">${t}</div>`).join("")}
+    </div>
+    <div class="wrap" id="content"></div>
+  `;
+  app.appendChild(root);
+
+  document.querySelectorAll(".tab").forEach(el => el.onclick = () => { state.tab = el.dataset.tab; render(); });
+  document.getElementById("logoutBtn").onclick = () => { sessionStorage.removeItem("db_logged_in"); state.loggedIn = false; render(); };
+
+  const content = document.getElementById("content");
+  if(state.tab === "Market Snapshot") renderMarket(content);
+  if(state.tab === "Recipients") renderRecipients(content);
+  if(state.tab === "Report Log") renderLogs(content);
+}
+
+function renderLogin(){
+  const div = document.createElement("div");
+  div.className = "login";
+  div.innerHTML = `
+    <div class="loginbox">
+      <div style="text-align:center;margin-bottom:24px">
+        <div style="display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:12px">
+          <div class="logo" style="width:44px;height:44px;border-width:2px">D</div>
+          <div>
+            <div style="font-size:9px;color:#5a7a96">بنك الدوحة</div>
+            <div style="font-size:16px;font-weight:700;color:#0d2c5e">DOHA BANK</div>
+          </div>
+        </div>
+        <div style="font-size:16px;font-weight:700;color:#0d2c5e">Market Intelligence</div>
+        <div class="muted" style="margin-top:4px">Dashboard Staff Access</div>
+      </div>
+      <div style="margin-bottom:8px;font-size:12px;font-weight:700;color:#0d2c5e">Password</div>
+      <input id="pw" class="input" type="password" placeholder="Enter dashboard password" />
+      <div id="err" style="color:#c0392b;font-size:11px;margin-top:6px;display:none">Incorrect password</div>
+      <button class="btn" id="loginBtn" style="width:100%;margin-top:14px">Sign In</button>
+    </div>
+  `;
+  app.appendChild(div);
+  document.getElementById("loginBtn").onclick = () => {
+    const pw = document.getElementById("pw").value;
+    if(pw === PASS_HASH){
+      sessionStorage.setItem("db_logged_in","1");
+      state.loggedIn = true;
+      init();
+    } else {
+      document.getElementById("err").style.display = "block";
+    }
+  };
+}
+
+function renderMarket(container){
+  if(!state.market){
+    container.innerHTML = `<div class="card">Loading live market data...</div>`;
+    return;
+  }
+
+  const d = state.market;
+  const kpis = d.kpis || [];
+  const globalNews = d.global_news || [];
+  const qatarNews = d.qatar_news || [];
+
+  container.innerHTML = `
+    <div class="flex" style="margin-bottom:16px">
+      <div class="muted">Last updated: ${d.generated_at ? new Date(d.generated_at).toLocaleString() : "N/A"}</div>
+      <div class="badge ok">Live Data</div>
+    </div>
+
+    <div class="grid6">
+      ${kpis.map(k => `
+        <div class="kpi">
+          <div class="kval" style="color:${String(k.value||'').startsWith('+') ? '#1a7a45' : String(k.value||'').startsWith('-') ? '#c0392b' : '#0d2c5e'}">${k.value ?? "N/A"}</div>
+          <div class="klbl">${k.label ?? ""}</div>
+          <div class="ksub">${k.sublabel ?? ""}</div>
+        </div>
+      `).join("")}
+    </div>
+
+    <div class="grid2" style="margin-top:16px">
+      <div class="card">${tableSection("Global Indices", d.global_indices)}
+                      ${tableSection("Spot Currency", d.spot_currency)}
+                      ${tableSection("QAR Cross Rates", d.qar_cross_rates)}
+                      ${tableSection("Fixed Income — UST Yields", d.fixed_income)}</div>
+      <div class="card">${tableSection("GCC & Regional Indices", d.gcc_indices)}
+                      ${tableSection("Qatari Banks", d.qatari_banks)}
+                      ${tableSection("Commodities & Energy", d.commodities)}</div>
+    </div>
+
+    <div class="card">
+      <div class="sec"><div class="line"></div><div class="sectitle">Regional & Global News</div></div>
+      <div class="news-grid">${globalNews.map(newsCard).join("")}</div>
+    </div>
+
+    <div class="card">
+      <div class="sec"><div class="line"></div><div class="sectitle">Qatar News</div></div>
+      <div class="news-grid">${qatarNews.map(newsCard).join("")}</div>
+    </div>
+  `;
+}
+
+function tableSection(title, rows){
+  const arr = Array.isArray(rows) ? rows : [];
+  const hdr1 = title.includes("Fixed Income") ? "Yield" : "PX Last";
+  return `
+    <div style="margin-bottom:12px">
+      <div class="sec"><div class="line"></div><div class="sectitle">${title}</div></div>
+      <table>
+        <thead><tr><th>${title.includes("Fixed Income") ? "Instrument" : (title.includes("Banks") ? "Bank" : (title.includes("Currency") || title.includes("Rates") ? "Pair" : (title.includes("Commodities") ? "Asset" : "Market / Index")))}</th><th class="r">${hdr1}</th><th class="r">1D %</th><th class="r">MTD %</th><th class="r">YTD %</th></tr></thead>
+        <tbody>
+          ${arr.length ? arr.map(r => `
+            <tr>
+              <td><strong>${r.name ?? ""}</strong></td>
+              <td class="r">${formatPx(r.px_last)}</td>
+              <td class="r" style="color:${pctColor(r.change_1d)}">${r.change_1d ?? "N/A"}</td>
+              <td class="r" style="color:${pctColor(r.mtd)}">${r.mtd ?? "N/A"}</td>
+              <td class="r" style="color:${pctColor(r.ytd)}">${r.ytd ?? "N/A"}</td>
+            </tr>
+          `).join("") : `<tr><td colspan="5" class="empty">No data</td></tr>`}
+        </tbody>
       </table>
     </div>
-  );
+  `;
 }
 
-/* ── SAMPLE DATA (replaced by live data in production) ──────────────── */
-const SAMPLE = {
-  report_date:'10 April 2026',
-  generated_at: new Date().toISOString(),
-  kpis:[
-    {value:'Positive',label:'Global Equities', sublabel:'S&P +0.08% · FTSE +0.06%'},
-    {value:'$96.66',  label:'Brent Crude',      sublabel:'+0.77% · +49.3% YTD'},
-    {value:'17,279',  label:'Gold (QAR/oz)',    sublabel:'-0.30% · +46.7% YTD'},
-    {value:'10,642',  label:'QSE Index',         sublabel:'-0.19% · +5.4% YTD'},
-    {value:'4.41%',   label:'UST 10Y Yield',    sublabel:'+3bps · Rising yields'},
-    {value:'4.50%',   label:'QCB Sukuk',         sublabel:'QR3bn · 2.7x subscribed'},
-  ],
-  global_indices:[
-    {name:'US S&P 500',   px:'6,616.85',d:'+0.08%',m:'+0.8%',y:'-2.8%'},
-    {name:'UK FTSE 100',  px:'10,610.27',d:'+0.06%',m:'+2.4%',y:'+5.2%'},
-    {name:'Japan Nikkei', px:'56,924.11',d:'+1.84%',m:'+4.1%',y:'+5.9%'},
-    {name:'Germany DAX',  px:'23,896.64',d:'+0.38%',m:'+3.3%',y:'-3.1%'},
-    {name:'Hong Kong HSI',px:'25,893.54',d:'+0.55%',m:'+3.8%',y:'+2.6%'},
-    {name:'India Sensex', px:'77,550.25',d:'+1.20%',m:'+2.9%',y:'-4.2%'},
-  ],
-  gcc_indices:[
-    {name:'Qatar QE',      px:'10,642',d:'-0.19%',m:'+1.9%',y:'+5.4%'},
-    {name:'Saudi Tadawul', px:'11,510',d:'+1.20%',m:'+3.1%',y:'+8.4%'},
-    {name:'Dubai DFM',     px:'5,320', d:'+0.80%',m:'+1.8%',y:'-5.1%'},
-    {name:'Abu Dhabi ADX', px:'9,780', d:'+0.60%',m:'+1.5%',y:'-2.1%'},
-    {name:'Kuwait Boursa', px:'9,120', d:'+0.35%',m:'+1.1%',y:'-3.9%'},
-    {name:'Oman',          px:'4,580', d:'+0.18%',m:'+0.6%',y:'+12.4%'},
-    {name:'Bahrain',       px:'8,210', d:'+0.25%',m:'+0.8%',y:'+38.9%'},
-  ],
-  qatari_banks:[
-    {name:'Doha Bank',px:'3.10', d:'-0.60%',m:'-0.60%',y:'+8.00%'},
-    {name:'QNB',      px:'17.85',d:'+0.30%',m:'+0.90%',y:'-5.00%'},
-    {name:'QIB',      px:'23.30',d:'+0.40%',m:'-0.30%',y:'-3.20%'},
-    {name:'CBQ',      px:'4.40', d:'+1.20%',m:'+2.50%',y:'+4.80%'},
-    {name:'QIIB',     px:'11.15',d:'-0.40%',m:'-0.50%',y:'-2.90%'},
-    {name:'Al Rayan', px:'2.21', d:'+0.90%',m:'+1.30%',y:'+0.90%'},
-    {name:'Dukhan',   px:'3.48', d:'-0.30%',m:'-0.10%',y:'-2.60%'},
-    {name:'Ahli',     px:'3.80', d:'+1.30%',m:'+0.50%',y:'+1.30%'},
-    {name:'Lesha',    px:'1.85', d:'+0.50%',m:'+2.20%',y:'-1.60%'},
-  ],
-  commodities:[
-    {name:'Brent Crude',   px:'$96.66',d:'+0.77%',m:'+5.1%',y:'+49.3%'},
-    {name:'Gold QAR/oz',   px:'17,279', d:'-0.30%',m:'-8.3%',y:'+46.7%'},
-    {name:'Silver USD/oz', px:'75.60',  d:'+2.10%',m:'+4.0%',y:'+11.0%'},
-    {name:'LNG JP/KR',     px:'$4.12',  d:'-1.50%',m:'-2.1%',y:'+18.4%'},
-  ],
-  spot_currency:[
-    {name:'USD Index',px:'100.25',d:'+0.20%',m:'+0.30%',y:'+1.90%'},
-    {name:'EUR/USD',  px:'1.1420', d:'-0.30%',m:'-0.10%',y:'-2.80%'},
-    {name:'GBP/USD',  px:'1.3444', d:'+0.07%',m:'+0.40%',y:'-1.20%'},
-    {name:'CHF/USD',  px:'0.8010', d:'-0.20%',m:'+0.20%',y:'-0.50%'},
-    {name:'USD/JPY',  px:'157.20', d:'-0.60%',m:'-0.80%',y:'-2.40%'},
-    {name:'CNY/USD',  px:'6.8750', d:'-0.10%',m:'+0.20%',y:'+1.60%'},
-  ],
-  qar_cross:[
-    {name:'USD/QAR',px:'3.6415',d:'—',m:'—',y:'Pegged'},
-    {name:'EUR/QAR',px:'4.1620',d:'-0.30%',m:'-0.10%',y:'+1.50%'},
-    {name:'GBP/QAR',px:'4.8930',d:'+0.10%',m:'+0.40%',y:'+2.20%'},
-    {name:'CHF/QAR',px:'4.5880',d:'-0.20%',m:'+0.20%',y:'+0.90%'},
-    {name:'CNY/QAR',px:'0.5292',d:'-0.10%',m:'+0.10%',y:'-1.40%'},
-  ],
-  fixed_income:[
-    {name:'UST 5-Year', px:'3.98%',d:'+2bps',m:'+8bps', y:'+22bps'},
-    {name:'UST 10-Year',px:'4.41%',d:'+3bps',m:'+10bps',y:'+31bps'},
-  ],
-  global_news:[
-    {metric:'HIGH',    metric_label:'Global Risk Level', source:'Reuters',
-     headline:'IMF, World Bank & IEA Coordinate on Iran War Impact',
-     summary:'Three institutions will share data, coordinate policy advice and assess financing needs as the conflict disrupts supply chains, driving oil, gas, fertiliser and food prices higher globally.'},
-    {metric:'$107.74', metric_label:'Brent per barrel',  source:'Reuters',
-     headline:'OPEC Output Falls 7.3mn bpd — Hormuz Disruption',
-     summary:'Output at 21.57mn bpd after cuts in Kuwait, Iraq, Saudi Arabia and UAE following Strait of Hormuz disruptions. Brent at $107.74, +78.8% YTD — Qatar fiscal position strengthens.'},
-    {metric:'+6%',     metric_label:'LME Al Futures 1D', source:'Bloomberg',
-     headline:'Iran Strikes Gulf Aluminium — LME Futures +6%',
-     summary:'Iranian strikes on Gulf aluminium facilities pushed LME futures sharply higher. Markets face tighter inventories and limited capacity to absorb further supply shocks.'},
-    {metric:'WTI $105',metric_label:'WTI Crude Price',   source:'Reuters',
-     headline:'Oil +5% After Trump Confirms Continued Iran Strikes',
-     summary:'Brent rose to $107.49 and WTI to $105.40 after President Trump confirmed US strikes continue — prolonged Gulf supply disruption concerns push oil higher.'},
-  ],
-  qatar_news:[
-    {metric:'+12.6%', metric_label:'Q3 Rental Growth',   source:'The Peninsula',
-     headline:'Rental Market Strong Growth in 2025',
-     summary:'Aqarat reports rental contracts in 2025 exceeded 2024 levels across all quarters. Q3 growth +12.6%; Q4 reached 35,957 agreements — robust demand in residential and commercial segments.'},
-    {metric:'1 Apr',  metric_label:'Service Launch Date', source:'Qatar Tribune',
-     headline:'GTA Launches Excise Tax Warehouse Licensing',
-     summary:'General Tax Authority introduces licensed premises service for excise goods under tax-suspension regime. Rollout begins 1 April 2026 for producers — key compliance milestone.'},
-    {metric:'125K',   metric_label:'Absher Points Max',   source:'The Peninsula',
-     headline:'QIB Rewards — Up to 125,000 Absher Points',
-     summary:'Campaign runs 1 April – 30 June 2026 for eligible salary-transfer customers on selected QIB cards. Rewards linked to sign-on and spending thresholds.'},
-    {metric:'2.7x',   metric_label:'Bid-to-Cover Ratio',  source:'Qatar Tribune',
-     headline:'QCB Issues QR3bn Government Ijara Sukuk',
-     summary:'Issued on behalf of Ministry of Finance at 4.5% yield. Total bids reached QR8bn — 2.7x oversubscribed, confirming deep market demand.'},
-  ],
-  send_log:[
-    {date:'2026-04-10',time:'07:01',status:'success',email_count:3,wa_count:5},
-    {date:'2026-04-09',time:'07:00',status:'success',email_count:3,wa_count:5},
-    {date:'2026-04-08',time:'07:02',status:'success',email_count:3,wa_count:5},
-    {date:'2026-04-07',time:'07:00',status:'failed', email_count:0,wa_count:0},
-    {date:'2026-04-04',time:'07:01',status:'success',email_count:3,wa_count:5},
-  ],
-};
+function newsCard(item){
+  return `
+    <div class="news-card">
+      <div class="news-body">
+        <div class="news-title">${item.headline ?? ""}</div>
+        <div class="news-source">${item.source ?? ""}</div>
+        <div class="news-sum">${item.summary ?? ""}</div>
+      </div>
+      <div class="news-badge">
+        <div class="news-metric">${item.metric ?? "—"}</div>
+        <div class="news-mlbl">${item.metric_label ?? ""}</div>
+      </div>
+    </div>
+  `;
+}
 
-/* ── LOGIN ───────────────────────────────────────────────────────────── */
-function Login({onLogin}){
-  const [pw,setPw]=useState('');
-  const [err,setErr]=useState('');
-  function submit(e){
-    e.preventDefault();
-    if(pw===PASS_HASH){onLogin();}
-    else{setErr('Incorrect password. Please try again.');}
+function renderRecipients(container){
+  if(!sb){
+    container.innerHTML = `<div class="card">Set SUPABASE_URL and SUPABASE_ANON_KEY in docs/index.html first.</div>`;
+    return;
   }
-  return(
-    <div style={S.loginWrap}>
-      <div style={S.loginBox}>
-        <div style={{textAlign:'center',marginBottom:28}}>
-          <div style={{display:'flex',alignItems:'center',justifyContent:'center',gap:12,marginBottom:16}}>
-            <div style={{...S.dBox,width:44,height:44,border:`2px solid ${C.cyan}`}}>
-              <span style={{...S.dLetter,fontSize:22}}>D</span>
-            </div>
-            <div>
-              <div style={{fontSize:9,color:C.muted}}>بنك الدوحة</div>
-              <div style={{fontSize:16,fontWeight:700,color:C.navy,letterSpacing:1}}>DOHA BANK</div>
-            </div>
+
+  const emails = state.recipients.filter(r => r.channel === "email");
+  const whats = state.recipients.filter(r => r.channel === "whatsapp");
+
+  container.innerHTML = `
+    <div class="grid2">
+      <div class="card">
+        <div class="flex" style="margin-bottom:14px"><div style="font-size:13px;font-weight:700;color:#0d2c5e;text-transform:uppercase">WhatsApp Recipients (${whats.filter(x=>x.active).length} active)</div></div>
+        ${recipientTable(whats, "whatsapp")}
+        <div style="background:#f5f8fc;border:1px solid #c5d8ee;border-radius:6px;padding:14px;margin-top:12px">
+          <div style="font-size:11px;font-weight:700;color:#0d2c5e;margin-bottom:10px;text-transform:uppercase">Add WhatsApp Recipient</div>
+          <div class="row">
+            <input class="input" id="wa_name" placeholder="Full name" />
+            <input class="input" id="wa_number" placeholder="Number, example 97455512345" />
+            <select id="wa_tier"><option>HNWI</option><option>VIP</option><option>Staff</option></select>
           </div>
-          <div style={{fontSize:15,fontWeight:600,color:C.navy}}>Market Intelligence</div>
-          <div style={{fontSize:12,color:C.muted,marginTop:4}}>Dashboard — Staff Access</div>
+          <button class="btn" id="addWaBtn">Add Recipient</button>
         </div>
-        <form onSubmit={submit}>
-          <div style={{marginBottom:16}}>
-            <label style={{fontSize:12,fontWeight:600,color:C.navy,display:'block',marginBottom:6}}>
-              Password
-            </label>
-            <input type="password" value={pw} onChange={e=>setPw(e.target.value)}
-              style={{...S.input,borderColor:err?'#e74c3c':C.border}}
-              placeholder="Enter dashboard password" autoFocus/>
-            {err&&<div style={{color:'#e74c3c',fontSize:11,marginTop:6}}>{err}</div>}
+      </div>
+
+      <div class="card">
+        <div class="flex" style="margin-bottom:14px"><div style="font-size:13px;font-weight:700;color:#0d2c5e;text-transform:uppercase">Email Recipients (${emails.filter(x=>x.active).length} active)</div></div>
+        ${recipientTable(emails, "email")}
+        <div style="background:#f5f8fc;border:1px solid #c5d8ee;border-radius:6px;padding:14px;margin-top:12px">
+          <div style="font-size:11px;font-weight:700;color:#0d2c5e;margin-bottom:10px;text-transform:uppercase">Add Email Recipient</div>
+          <div class="row" style="grid-template-columns:1fr 1fr">
+            <input class="input" id="em_name" placeholder="Full name" />
+            <input class="input" id="em_addr" placeholder="Email address" />
           </div>
-          <button type="submit" style={{...S.btn('primary'),width:'100%',padding:'10px'}}>
-            Sign In
-          </button>
-        </form>
-        <div style={{marginTop:20,fontSize:11,color:C.muted,textAlign:'center',
-             borderTop:`1px solid ${C.border}`,paddingTop:14}}>
-          Strictly Confidential — Doha Bank Staff Only
+          <button class="btn" id="addEmBtn">Add Recipient</button>
         </div>
       </div>
     </div>
-  );
+  `;
+
+  document.getElementById("addWaBtn").onclick = async () => {
+    const name = document.getElementById("wa_name").value.trim();
+    const phone_number = document.getElementById("wa_number").value.trim();
+    const tier = document.getElementById("wa_tier").value;
+    if(!name || !phone_number) return alert("Name and number are required.");
+    await sb.from("recipients").insert([{name, channel:"whatsapp", phone_number, tier, active:true}]);
+    await loadRecipients();
+    render();
+  };
+
+  document.getElementById("addEmBtn").onclick = async () => {
+    const name = document.getElementById("em_name").value.trim();
+    const email = document.getElementById("em_addr").value.trim();
+    if(!name || !email) return alert("Name and email are required.");
+    await sb.from("recipients").insert([{name, channel:"email", email, tier:"HNWI", active:true}]);
+    await loadRecipients();
+    render();
+  };
+
+  document.querySelectorAll("[data-toggle-id]").forEach(el => {
+    el.onclick = async () => {
+      const id = el.dataset.toggleId;
+      const active = el.dataset.active === "true";
+      await sb.from("recipients").update({active: !active}).eq("id", id);
+      await loadRecipients();
+      render();
+    };
+  });
+
+  document.querySelectorAll("[data-del-id]").forEach(el => {
+    el.onclick = async () => {
+      if(!confirm("Delete this recipient?")) return;
+      await sb.from("recipients").delete().eq("id", el.dataset.delId);
+      await loadRecipients();
+      render();
+    };
+  });
 }
 
-/* ── HEADER ──────────────────────────────────────────────────────────── */
-function Header({tab,setTab,onLogout}){
-  const tabs=['Market Snapshot','Recipients','Report Log','Send Now'];
-  return(
-    <div>
-      <div style={S.header}>
-        <div style={S.hdrInner}>
-          <div style={S.hdrLeft}>
-            <div style={S.dBox}><span style={S.dLetter}>D</span></div>
-            <div style={S.bankName}>
-              <div style={S.bankAr}>بنك الدوحة</div>
-              <div style={S.bankEn}>DOHA BANK</div>
-            </div>
-            <div style={{width:1,height:28,background:'rgba(255,255,255,0.2)',margin:'0 8px'}}/>
-            <div style={S.hdrTitle}>Market Intelligence Dashboard</div>
-          </div>
-          <button onClick={onLogout} style={{...S.btnSm('secondary'),background:'rgba(255,255,255,0.15)',border:'1px solid rgba(255,255,255,0.3)'}}>
-            Sign out
-          </button>
-        </div>
-      </div>
-      <div style={S.cyanBar}/>
-      <div style={{background:C.white,borderBottom:`1px solid ${C.border}`,padding:'0 24px'}}>
-        <div style={{maxWidth:1200,margin:'0 auto',display:'flex'}}>
-          {tabs.map(t=>(
-            <button key={t} style={S.tab(tab===t)} onClick={()=>setTab(t)}>{t}</button>
-          ))}
-        </div>
-      </div>
-    </div>
-  );
-}
-
-/* ── MARKET SNAPSHOT TAB ─────────────────────────────────────────────── */
-function MarketTab({data}){
-  const d=data||SAMPLE;
-  const hdrs=['Name','PX Last','1D %','MTD %','YTD %'];
-  const toRows=arr=>arr.map(r=>[r.name,r.px,r.d,r.m,r.y]);
-  return(
-    <div>
-      <div style={{display:'flex',alignItems:'center',justifyContent:'space-between',marginBottom:16}}>
-        <div style={{fontSize:13,color:C.muted}}>
-          Last updated: {d.generated_at ? new Date(d.generated_at).toLocaleString('en-GB',{timeZone:'Asia/Qatar'}) : 'Today 07:00 AST'}
-        </div>
-        <div style={S.badge(true)}>
-          <div style={S.dot(true)}/> Live Data
-        </div>
-      </div>
-
-      {/* KPI Strip */}
-      <div style={S.kpiGrid}>
-        {d.kpis.map((k,i)=>(
-          <div key={i} style={S.kpiCard}>
-            <div style={{...S.kpiVal,color:
-              String(k.value).startsWith('+')?C.up:
-              String(k.value).startsWith('-')?C.down:C.navy
-            }}>{k.value}</div>
-            <div style={S.kpiLbl}>{k.label}</div>
-            <div style={S.kpiSub}>{k.sublabel}</div>
-          </div>
-        ))}
-      </div>
-
-      {/* Tables: 2 columns */}
-      <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:16,marginBottom:16}}>
-        <div style={S.card}>
-          <TableSection title="Global Indices"    headers={hdrs} rows={toRows(d.global_indices)}/>
-          <TableSection title="Spot Currency"     headers={hdrs} rows={toRows(d.spot_currency)}/>
-          <TableSection title="QAR Cross Rates"   headers={hdrs} rows={toRows(d.qar_cross)}/>
-          <TableSection title="Fixed Income — UST Yields" headers={hdrs} rows={toRows(d.fixed_income)}/>
-        </div>
-        <div style={S.card}>
-          <TableSection title="GCC & Regional Indices" headers={hdrs} rows={toRows(d.gcc_indices)}/>
-          <TableSection title="Qatari Banks"           headers={hdrs} rows={toRows(d.qatari_banks)}/>
-          <TableSection title="Commodities & Energy"   headers={hdrs} rows={toRows(d.commodities)}/>
-        </div>
-      </div>
-
-      <NewsSection title="Regional & Global News" items={d.global_news||[]}/>
-      <div style={{marginTop:16}}>
-        <NewsSection title="Qatar News" items={d.qatar_news||[]}/>
-      </div>
-    </div>
-  );
-}
-
-function NewsCard({item}){
-  return(
-    <div style={{background:C.white,border:`1px solid ${C.border}`,borderRadius:6,
-         display:'flex',overflow:'hidden',borderTop:`2px solid ${C.cyan}`}}>
-      <div style={{flex:1,padding:'10px 12px'}}>
-        <div style={{fontSize:12,fontWeight:700,color:C.navy,marginBottom:4,lineHeight:1.4}}>
-          {item.headline}
-        </div>
-        <div style={{fontSize:11,fontWeight:700,color:C.cyan,marginBottom:4,letterSpacing:0.5}}>
-          {item.source}
-        </div>
-        <div style={{fontSize:11,color:C.muted,lineHeight:1.5}}>
-          {item.summary}
-        </div>
-      </div>
-      <div style={{width:72,minWidth:72,background:C.navy,display:'flex',
-           flexDirection:'column',alignItems:'center',justifyContent:'center',
-           padding:'8px 4px',borderLeft:`2px solid ${C.cyan}`}}>
-        <div style={{fontSize:12,fontWeight:700,color:C.cyan,textAlign:'center',
-             lineHeight:1.2,marginBottom:4,wordBreak:'break-word'}}>
-          {item.metric}
-        </div>
-        <div style={{fontSize:9,color:'#9ac4e8',textAlign:'center',lineHeight:1.3}}>
-          {item.metric_label}
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function NewsSection({title,items}){
-  if(!items||items.length===0) return null;
-  return(
-    <div style={S.card}>
-      <div style={S.cardHdr}>
-        <div style={{display:'flex',alignItems:'center',gap:8}}>
-          <div style={{width:3,height:16,background:C.cyan,borderRadius:2}}/>
-          <div style={{fontSize:11,fontWeight:700,color:C.blue,
-               letterSpacing:1,textTransform:'uppercase'}}>{title}</div>
-        </div>
-      </div>
-      <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:10}}>
-        {items.map((item,i)=><NewsCard key={i} item={item}/>)}
-      </div>
-    </div>
-  );
-}
-
-/* ── RECIPIENTS TAB ──────────────────────────────────────────────────── */
-function RecipientsTab(){
-  const saved=JSON.parse(localStorage.getItem('db_recipients')||'null');
-  const [waList, setWaList]=useState(saved?.whatsapp||[
-    {id:1,name:'Recipient One',  number:'97455500001',active:true,tier:'HNWI'},
-    {id:2,name:'Recipient Two',  number:'97455500002',active:true,tier:'HNWI'},
-  ]);
-  const [emailList,setEmailList]=useState(saved?.email||[
-    {id:1,name:'Recipient One',address:'recipient1@example.com',active:true},
-    {id:2,name:'Recipient Two',address:'recipient2@example.com',active:true},
-  ]);
-  const [newWa,setNewWa]=useState({name:'',number:'',tier:'HNWI'});
-  const [newEm,setNewEm]=useState({name:'',address:''});
-  const [saved2,setSaved2]=useState(false);
-
-  function save(){
-    localStorage.setItem('db_recipients',JSON.stringify({whatsapp:waList,email:emailList}));
-    setSaved2(true); setTimeout(()=>setSaved2(false),2000);
-  }
-  function addWa(){
-    if(!newWa.name||!newWa.number) return;
-    setWaList(p=>[...p,{...newWa,id:Date.now(),active:true}]);
-    setNewWa({name:'',number:'',tier:'HNWI'});
-  }
-  function addEm(){
-    if(!newEm.name||!newEm.address) return;
-    setEmailList(p=>[...p,{...newEm,id:Date.now(),active:true}]);
-    setNewEm({name:'',address:''});
-  }
-  function toggleWa(id){setWaList(p=>p.map(r=>r.id===id?{...r,active:!r.active}:r));}
-  function removeWa(id){setWaList(p=>p.filter(r=>r.id!==id));}
-  function toggleEm(id){setEmailList(p=>p.map(r=>r.id===id?{...r,active:!r.active}:r));}
-  function removeEm(id){setEmailList(p=>p.filter(r=>r.id!==id));}
-
-  const Row=({children,even})=>(
-    <tr style={{background:even?'#f5f8fc':C.white}}>{children}</tr>
-  );
-  const Td=({children,even,bold})=>(
-    <td style={{padding:'8px 12px',borderBottom:`1px solid ${C.border}`,
-      background:even?'#f5f8fc':C.white,fontWeight:bold?600:'normal',fontSize:12}}>
-      {children}
-    </td>
-  );
-
-  return(
-    <div>
-      <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:16}}>
-
-        {/* WhatsApp */}
-        <div style={S.card}>
-          <div style={S.cardHdr}>
-            <div style={S.cardTitle}>WhatsApp Recipients ({waList.filter(r=>r.active).length} active)</div>
-          </div>
-          <table style={{...S.table,marginBottom:16}}>
-            <thead><tr style={{background:C.navy}}>
-              <th style={S.th}>Name</th>
-              <th style={S.th}>Number</th>
-              <th style={S.th}>Tier</th>
-              <th style={S.th}>Status</th>
-              <th style={S.th}>Actions</th>
-            </tr></thead>
-            <tbody>{waList.map((r,i)=>(
-              <Row key={r.id} even={i%2===0}>
-                <Td even={i%2===0} bold>{r.name}</Td>
-                <Td even={i%2===0}><code style={{fontSize:11}}>{r.number}</code></Td>
-                <Td even={i%2===0}>{r.tier}</Td>
-                <Td even={i%2===0}>
-                  <span style={S.badge(r.active)}>
-                    <div style={S.dot(r.active)}/>{r.active?'Active':'Paused'}
-                  </span>
-                </Td>
-                <Td even={i%2===0}>
-                  <div style={{display:'flex',gap:6}}>
-                    <button onClick={()=>toggleWa(r.id)}
-                      style={S.btnSm(r.active?'secondary':'success')}>
-                      {r.active?'Pause':'Resume'}
-                    </button>
-                    <button onClick={()=>removeWa(r.id)} style={S.btnSm('danger')}>
-                      Remove
-                    </button>
-                  </div>
-                </Td>
-              </Row>
-            ))}</tbody>
-          </table>
-          {/* Add form */}
-          <div style={{background:'#f5f8fc',borderRadius:6,padding:14,border:`1px solid ${C.border}`}}>
-            <div style={{fontSize:11,fontWeight:700,color:C.navy,marginBottom:10,textTransform:'uppercase',letterSpacing:0.5}}>
-              Add WhatsApp Recipient
-            </div>
-            <div style={{display:'grid',gridTemplateColumns:'1fr 1fr 80px',gap:8,marginBottom:8}}>
-              <input style={S.input} placeholder="Full name"
-                value={newWa.name} onChange={e=>setNewWa(p=>({...p,name:e.target.value}))}/>
-              <input style={S.input} placeholder="Number (e.g. 97455512345)"
-                value={newWa.number} onChange={e=>setNewWa(p=>({...p,number:e.target.value}))}/>
-              <select style={S.input} value={newWa.tier}
-                onChange={e=>setNewWa(p=>({...p,tier:e.target.value}))}>
-                <option>HNWI</option><option>Staff</option><option>VIP</option>
-              </select>
-            </div>
-            <button onClick={addWa} style={S.btn('primary')}>Add Recipient</button>
-          </div>
-        </div>
-
-        {/* Email */}
-        <div style={S.card}>
-          <div style={S.cardHdr}>
-            <div style={S.cardTitle}>Email Recipients ({emailList.filter(r=>r.active).length} active)</div>
-          </div>
-          <table style={{...S.table,marginBottom:16}}>
-            <thead><tr style={{background:C.navy}}>
-              <th style={S.th}>Name</th>
-              <th style={S.th}>Email Address</th>
-              <th style={S.th}>Status</th>
-              <th style={S.th}>Actions</th>
-            </tr></thead>
-            <tbody>{emailList.map((r,i)=>(
-              <Row key={r.id} even={i%2===0}>
-                <Td even={i%2===0} bold>{r.name}</Td>
-                <Td even={i%2===0}><code style={{fontSize:11}}>{r.address}</code></Td>
-                <Td even={i%2===0}>
-                  <span style={S.badge(r.active)}>
-                    <div style={S.dot(r.active)}/>{r.active?'Active':'Paused'}
-                  </span>
-                </Td>
-                <Td even={i%2===0}>
-                  <div style={{display:'flex',gap:6}}>
-                    <button onClick={()=>toggleEm(r.id)}
-                      style={S.btnSm(r.active?'secondary':'success')}>
-                      {r.active?'Pause':'Resume'}
-                    </button>
-                    <button onClick={()=>removeEm(r.id)} style={S.btnSm('danger')}>
-                      Remove
-                    </button>
-                  </div>
-                </Td>
-              </Row>
-            ))}</tbody>
-          </table>
-          <div style={{background:'#f5f8fc',borderRadius:6,padding:14,border:`1px solid ${C.border}`}}>
-            <div style={{fontSize:11,fontWeight:700,color:C.navy,marginBottom:10,textTransform:'uppercase',letterSpacing:0.5}}>
-              Add Email Recipient
-            </div>
-            <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:8,marginBottom:8}}>
-              <input style={S.input} placeholder="Full name"
-                value={newEm.name} onChange={e=>setNewEm(p=>({...p,name:e.target.value}))}/>
-              <input style={S.input} placeholder="Email address"
-                value={newEm.address} onChange={e=>setNewEm(p=>({...p,address:e.target.value}))}/>
-            </div>
-            <button onClick={addEm} style={S.btn('primary')}>Add Recipient</button>
-          </div>
-        </div>
-      </div>
-
-      <div style={{display:'flex',justifyContent:'flex-end',marginTop:8}}>
-        <button onClick={save} style={S.btn(saved2?'success':'primary')}>
-          {saved2 ? 'Saved!' : 'Save Changes'}
-        </button>
-      </div>
-    </div>
-  );
-}
-
-/* ── REPORT LOG TAB ──────────────────────────────────────────────────── */
-function ReportLogTab({data}){
-  const log=(data||SAMPLE).send_log||[];
-  const today=new Date().toISOString().split('T')[0];
-  const todayEntry=log.find(l=>l.date===today);
-  return(
-    <div>
-      {/* Today status card */}
-      <div style={{...S.card,borderTop:`4px solid ${todayEntry&&todayEntry.status==='success'?C.up:C.down}`}}>
-        <div style={S.cardHdr}>
-          <div style={S.cardTitle}>Today's Report Status</div>
-          <span style={S.badge(todayEntry&&todayEntry.status==='success')}>
-            <div style={S.dot(todayEntry&&todayEntry.status==='success')}/>
-            {todayEntry ? (todayEntry.status==='success'?'Sent Successfully':'Send Failed') : 'Not Sent Yet'}
-          </span>
-        </div>
-        {todayEntry ? (
-          <div style={{display:'grid',gridTemplateColumns:'repeat(4,1fr)',gap:16}}>
-            {[
-              ['Date',todayEntry.date],
-              ['Time',todayEntry.time+' AST'],
-              ['Emails sent',todayEntry.email_count],
-              ['WhatsApp sent',todayEntry.wa_count],
-            ].map(([l,v])=>(
-              <div key={l} style={{background:'#f5f8fc',borderRadius:6,padding:'10px 14px'}}>
-                <div style={{fontSize:11,color:C.muted,marginBottom:4}}>{l}</div>
-                <div style={{fontSize:16,fontWeight:700,color:C.navy}}>{v}</div>
+function recipientTable(arr, kind){
+  const isWa = kind === "whatsapp";
+  return `
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>${isWa ? "Number" : "Email Address"}</th>
+          <th>Status</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        ${arr.length ? arr.map(r => `
+          <tr>
+            <td><strong>${r.name ?? ""}</strong></td>
+            <td>${isWa ? (r.phone_number ?? "") : (r.email ?? "")}</td>
+            <td><span class="badge ${r.active ? 'ok':'bad'}">${r.active ? 'Active':'Paused'}</span></td>
+            <td>
+              <div style="display:flex;gap:6px">
+                <button class="btn alt" data-toggle-id="${r.id}" data-active="${r.active}">${r.active ? 'Pause':'Resume'}</button>
+                <button class="btn danger" data-del-id="${r.id}">Remove</button>
               </div>
-            ))}
-          </div>
-        ):(
-          <div style={{color:C.muted,fontSize:13,padding:'8px 0'}}>
-            The report has not been sent today. It is scheduled for 07:00 AST on weekdays.
-          </div>
-        )}
-      </div>
-
-      {/* History */}
-      <div style={S.card}>
-        <div style={S.cardTitle} >Send History</div>
-        <table style={{...S.table,marginTop:12}}>
-          <thead><tr style={{background:C.navy}}>
-            <th style={S.th}>Date</th>
-            <th style={S.th}>Time (AST)</th>
-            <th style={S.th}>Status</th>
-            <th style={S.thR}>Emails</th>
-            <th style={S.thR}>WhatsApp</th>
-          </tr></thead>
-          <tbody>{log.map((l,i)=>{
-            const ok=l.status==='success';
-            const bg=i%2===0?'#f5f8fc':C.white;
-            return<tr key={i}>
-              <td style={{...S.tdE,background:bg,fontWeight:600}}>{l.date}</td>
-              <td style={{...S.tdE,background:bg}}>{l.time}</td>
-              <td style={{...S.tdE,background:bg}}>
-                <span style={S.badge(ok)}>
-                  <div style={S.dot(ok)}/>{ok?'Success':'Failed'}
-                </span>
-              </td>
-              <td style={{...S.tdR(bg),color:C.text}}>{l.email_count}</td>
-              <td style={{...S.tdR(bg),color:C.text}}>{l.wa_count}</td>
-            </tr>;
-          })}</tbody>
-        </table>
-      </div>
-    </div>
-  );
+            </td>
+          </tr>
+        `).join("") : `<tr><td colspan="4" class="empty">No recipients found</td></tr>`}
+      </tbody>
+    </table>
+  `;
 }
 
-/* ── SEND NOW TAB ────────────────────────────────────────────────────── */
-function SendNowTab(){
-  const [status,setStatus]=useState('idle');
-  const [log,setLog]=useState([]);
-  const [waCount,setWaCount]=useState(0);
-  const [emCount,setEmCount]=useState(0);
+function renderLogs(container){
+  container.innerHTML = `
+    <div class="card">
+      <div class="flex" style="margin-bottom:14px">
+        <div style="font-size:13px;font-weight:700;color:#0d2c5e;text-transform:uppercase">Report Delivery Log</div>
+        <div class="muted">${state.logs.length} records</div>
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th>Date</th><th>Time</th><th>Status</th><th class="r">Email Count</th><th class="r">WhatsApp Count</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${state.logs.length ? state.logs.map(r => `
+            <tr>
+              <td>${r.date ?? (r.report_date || "").slice(0,10)}</td>
+              <td>${r.time ?? formatTime(r.sent_at)}</td>
+              <td><span class="badge ${String(r.status).toLowerCase()==='success' ? 'ok':'bad'}">${r.status ?? "N/A"}</span></td>
+              <td class="r">${r.email_count ?? 0}</td>
+              <td class="r">${r.wa_count ?? 0}</td>
+            </tr>
+          `).join("") : `<tr><td colspan="5" class="empty">No delivery records yet</td></tr>`}
+        </tbody>
+      </table>
+    </div>
+  `;
+}
 
-  useEffect(()=>{
-    const saved=JSON.parse(localStorage.getItem('db_recipients')||'null');
-    if(saved){
-      setWaCount(saved.whatsapp?.filter(r=>r.active).length||0);
-      setEmCount(saved.email?.filter(r=>r.active).length||0);
-    } else {
-      setWaCount(5); setEmCount(3);
+function formatTime(v){
+  if(!v) return "";
+  try { return new Date(v).toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'}); }
+  catch { return ""; }
+}
+
+async function loadMarket(){
+  try{
+    const res = await fetch(`../market_data.json?_=${Date.now()}`, {cache: "no-store"});
+    if(!res.ok) throw new Error("market_data.json not found");
+    state.market = await res.json();
+  } catch(e){
+    console.error(e);
+    state.market = null;
+  }
+}
+
+async function loadRecipients(){
+  if(!sb) return;
+  const { data, error } = await sb.from("recipients").select("*").order("created_at", {ascending:false});
+  if(error){ console.error(error); return; }
+  state.recipients = data || [];
+}
+
+async function loadLogs(){
+  if(sb){
+    const { data, error } = await sb.from("send_log").select("*").order("sent_at", {ascending:false}).limit(30);
+    if(!error && data){
+      state.logs = data.map(r => ({
+        ...r,
+        date: r.report_date,
+        time: formatTime(r.sent_at)
+      }));
+      return;
     }
-  },[]);
-
-  function trigger(){
-    setStatus('sending');
-    setLog(['Triggering GitHub Actions workflow...']);
-    // Simulate the dispatch steps
-    const steps=[
-      [800,  'Fetching today\'s market data from cache...'],
-      [1600, 'Loading today\'s PDF (report.pdf)...'],
-      [2400, 'Sending email to '+emCount+' recipient(s) via Resend...'],
-      [3200, 'Triggering Make.com webhook for '+waCount+' WhatsApp number(s)...'],
-      [4000, 'All deliveries confirmed.'],
-    ];
-    steps.forEach(([delay,msg])=>{
-      setTimeout(()=>setLog(p=>[...p,msg]),delay);
-    });
-    setTimeout(()=>setStatus('done'),4200);
   }
 
-  return(
-    <div>
-      <div style={S.card}>
-        <div style={S.cardHdr}>
-          <div style={S.cardTitle}>Manual Send — Today's Report</div>
-        </div>
-        <div style={{background:'#fff8e8',border:`1px solid ${C.gold}`,borderRadius:6,
-             padding:'12px 16px',marginBottom:20,fontSize:12,color:'#7a5a00'}}>
-          This will resend today's already-generated PDF report to all active recipients.
-          It does not regenerate data — it sends the same report that was delivered at 07:00 AST.
-        </div>
-        <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:12,marginBottom:20}}>
-          <div style={{background:'#f5f8fc',borderRadius:6,padding:'12px 16px'}}>
-            <div style={{fontSize:11,color:C.muted,marginBottom:4}}>WhatsApp Recipients</div>
-            <div style={{fontSize:20,fontWeight:700,color:C.navy}}>{waCount} active</div>
-          </div>
-          <div style={{background:'#f5f8fc',borderRadius:6,padding:'12px 16px'}}>
-            <div style={{fontSize:11,color:C.muted,marginBottom:4}}>Email Recipients</div>
-            <div style={{fontSize:20,fontWeight:700,color:C.navy}}>{emCount} active</div>
-          </div>
-        </div>
-        <button onClick={trigger} disabled={status!=='idle'}
-          style={{...S.btn(status==='done'?'success':'primary'),
-            opacity:status==='sending'?0.7:1,
-            padding:'10px 28px',fontSize:13}}>
-          {status==='idle'   ? 'Send Report Now' :
-           status==='sending'? 'Sending...' : 'Report Sent'}
-        </button>
-
-        {log.length>0&&(
-          <div style={{marginTop:20,background:'#f5f8fc',borderRadius:6,
-               padding:14,border:`1px solid ${C.border}`}}>
-            <div style={{fontSize:11,fontWeight:700,color:C.navy,
-                 marginBottom:10,textTransform:'uppercase',letterSpacing:0.5}}>
-              Delivery Log
-            </div>
-            {log.map((l,i)=>(
-              <div key={i} style={{fontSize:12,color:
-                l.includes('confirmed')?C.up:C.text,
-                padding:'3px 0',display:'flex',alignItems:'center',gap:8}}>
-                <span style={{color:l.includes('confirmed')?C.up:C.cyan}}>
-                  {l.includes('confirmed')?'✓':'›'}
-                </span>
-                {l}
-              </div>
-            ))}
-          </div>
-        )}
-      </div>
-    </div>
-  );
+  try{
+    const res = await fetch(`../send_log.json?_=${Date.now()}`, {cache:"no-store"});
+    if(!res.ok) throw new Error("send_log.json not found");
+    state.logs = await res.json();
+  } catch(e){
+    console.error(e);
+    state.logs = [];
+  }
 }
 
-/* ── APP ─────────────────────────────────────────────────────────────── */
-function App(){
-  const [authed,setAuthed]=useState(()=>sessionStorage.getItem('db_auth')==='1');
-  const [tab,setTab]=useState('Market Snapshot');
-
-  function login(){sessionStorage.setItem('db_auth','1');setAuthed(true);}
-  function logout(){sessionStorage.removeItem('db_auth');setAuthed(false);}
-
-  if(!authed) return <Login onLogin={login}/>;
-
-  return(
-    <div style={S.page}>
-      <Header tab={tab} setTab={setTab} onLogout={logout}/>
-      <div style={S.main}>
-        {tab==='Market Snapshot' && <MarketTab data={SAMPLE}/>}
-        {tab==='Recipients'      && <RecipientsTab/>}
-        {tab==='Report Log'      && <ReportLogTab data={SAMPLE}/>}
-        {tab==='Send Now'        && <SendNowTab/>}
-      </div>
-    </div>
-  );
+async function init(){
+  await Promise.all([loadMarket(), loadRecipients(), loadLogs()]);
+  render();
 }
 
-ReactDOM.createRoot(document.getElementById('root')).render(<App/>);
+init();
 </script>
 </body>
 </html>
