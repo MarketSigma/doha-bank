@@ -15,60 +15,60 @@
       "qatar_news": true
     }
   },
-  "generated_at": "2026-04-13T18:06:33.388905",
+  "generated_at": "2026-04-13T18:16:45.175390",
   "global_indices": [
     {
       "name": "US S&P 500",
       "ticker": "^GSPC",
-      "px_last": "N/A",
-      "change_1d": "N/A",
-      "mtd": "N/A",
-      "ytd": "N/A",
+      "px_last": 6849.74,
+      "change_1d": "+0.5%",
+      "mtd": "+4.2%",
+      "ytd": "-0.1%",
       "source": "Yahoo Finance"
     },
     {
       "name": "UK FTSE 100",
       "ticker": "^FTSE",
-      "px_last": "N/A",
-      "change_1d": "N/A",
-      "mtd": "N/A",
-      "ytd": "N/A",
+      "px_last": 10582.96,
+      "change_1d": "-0.2%",
+      "mtd": "+2.1%",
+      "ytd": "+6.3%",
       "source": "Yahoo Finance"
     },
     {
       "name": "Japan Nikkei",
       "ticker": "^N225",
-      "px_last": "N/A",
-      "change_1d": "N/A",
-      "mtd": "N/A",
-      "ytd": "N/A",
+      "px_last": 56924.11,
+      "change_1d": "+1.8%",
+      "mtd": "+5.9%",
+      "ytd": "+9.8%",
       "source": "Yahoo Finance"
     },
     {
       "name": "Germany DAX",
       "ticker": "^GDAXI",
-      "px_last": "N/A",
-      "change_1d": "N/A",
-      "mtd": "N/A",
-      "ytd": "N/A",
+      "px_last": 23742.44,
+      "change_1d": "-0.3%",
+      "mtd": "+1.9%",
+      "ytd": "-3.2%",
       "source": "Yahoo Finance"
     },
     {
       "name": "Hong Kong HSI",
       "ticker": "^HSI",
-      "px_last": "N/A",
-      "change_1d": "N/A",
-      "mtd": "N/A",
-      "ytd": "N/A",
+      "px_last": 25893.54,
+      "change_1d": "+0.5%",
+      "mtd": "+2.4%",
+      "ytd": "-1.7%",
       "source": "Yahoo Finance"
     },
     {
       "name": "India Sensex",
       "ticker": "^BSESN",
-      "px_last": "N/A",
-      "change_1d": "N/A",
-      "mtd": "N/A",
-      "ytd": "N/A",
+      "px_last": 76847.57,
+      "change_1d": "-0.9%",
+      "mtd": "+5.1%",
+      "ytd": "-9.8%",
       "source": "Yahoo Finance"
     }
   ],
@@ -85,10 +85,10 @@
     {
       "name": "Saudi Tadawul",
       "ticker": "^TASI.SR",
-      "px_last": "N/A",
-      "change_1d": "N/A",
-      "mtd": "N/A",
-      "ytd": "N/A",
+      "px_last": 11426.77,
+      "change_1d": "+0.7%",
+      "mtd": "+1.3%",
+      "ytd": "+8.3%",
       "source": "Yahoo Finance"
     },
     {
@@ -132,55 +132,55 @@
     {
       "name": "USD Index",
       "ticker": "DX-Y.NYB",
-      "px_last": "N/A",
-      "change_1d": "N/A",
-      "mtd": "N/A",
-      "ytd": "N/A",
+      "px_last": 98.54,
+      "change_1d": "-0.1%",
+      "mtd": "-1.1%",
+      "ytd": "+0.1%",
       "source": "Yahoo Finance"
     },
     {
       "name": "EUR/USD",
       "ticker": "EURUSD=X",
-      "px_last": "N/A",
-      "change_1d": "N/A",
-      "mtd": "N/A",
-      "ytd": "N/A",
+      "px_last": 1.17,
+      "change_1d": "+0.4%",
+      "mtd": "+1.4%",
+      "ytd": "-0.1%",
       "source": "Yahoo Finance"
     },
     {
       "name": "GBP/USD",
       "ticker": "GBPUSD=X",
-      "px_last": "N/A",
-      "change_1d": "N/A",
-      "mtd": "N/A",
-      "ytd": "N/A",
+      "px_last": 1.35,
+      "change_1d": "+0.5%",
+      "mtd": "+1.9%",
+      "ytd": "+0.1%",
       "source": "Yahoo Finance"
     },
     {
       "name": "CHF/USD",
       "ticker": "CHFUSD=X",
-      "px_last": "N/A",
-      "change_1d": "N/A",
-      "mtd": "N/A",
-      "ytd": "N/A",
+      "px_last": 1.27,
+      "change_1d": "+0.8%",
+      "mtd": "+1.6%",
+      "ytd": "+0.9%",
       "source": "Yahoo Finance"
     },
     {
       "name": "USD/JPY",
       "ticker": "JPY=X",
-      "px_last": "N/A",
-      "change_1d": "N/A",
-      "mtd": "N/A",
-      "ytd": "N/A",
+      "px_last": 159.35,
+      "change_1d": "+0.1%",
+      "mtd": "+0.5%",
+      "ytd": "+1.7%",
       "source": "Yahoo Finance"
     },
     {
       "name": "CNY/USD",
       "ticker": "CNYUSD=X",
-      "px_last": "N/A",
-      "change_1d": "N/A",
-      "mtd": "N/A",
-      "ytd": "N/A",
+      "px_last": 0.15,
+      "change_1d": "+0.0%",
+      "mtd": "+0.9%",
+      "ytd": "+2.4%",
       "source": "Yahoo Finance"
     }
   ],
@@ -188,111 +188,120 @@
     {
       "name": "USD/QAR",
       "ticker": "USDQAR=X",
-      "px_last": "N/A",
-      "change_1d": "N/A",
-      "mtd": "N/A",
-      "ytd": "N/A",
+      "px_last": 3.64,
+      "change_1d": "-0.1%",
+      "mtd": "-0.1%",
+      "ytd": "+3.6%",
       "source": "Yahoo Finance"
     },
     {
       "name": "EUR/QAR",
       "ticker": "EURQAR=X",
-      "px_last": "N/A",
-      "change_1d": "N/A",
-      "mtd": "N/A",
-      "ytd": "N/A",
+      "px_last": 4.27,
+      "change_1d": "+3.8%",
+      "mtd": "+6.0%",
+      "ytd": "+3.6%",
       "source": "Yahoo Finance"
     },
     {
       "name": "GBP/QAR",
       "ticker": "GBPQAR=X",
-      "px_last": "N/A",
-      "change_1d": "N/A",
-      "mtd": "N/A",
-      "ytd": "N/A",
+      "px_last": 4.91,
+      "change_1d": "+0.2%",
+      "mtd": "+2.2%",
+      "ytd": "-0.1%",
       "source": "Yahoo Finance"
     },
     {
       "name": "CHF/QAR",
       "ticker": "CHFQAR=X",
-      "px_last": "N/A",
+      "px_last": 4.64,
       "change_1d": "N/A",
-      "mtd": "N/A",
-      "ytd": "N/A",
+      "mtd": "+0.0%",
+      "ytd": "+0.0%",
       "source": "Yahoo Finance"
+    },
+    {
+      "name": "CNY/QAR",
+      "ticker": "DERIVED",
+      "px_last": 0.546,
+      "change_1d": "+0.0%",
+      "mtd": "+0.9%",
+      "ytd": "+2.4%",
+      "source": "Derived from Yahoo Finance CNY/USD and USD/QAR"
     }
   ],
   "qatari_banks": [
     {
       "name": "Doha",
       "ticker": "BRES.QA",
-      "px_last": "N/A",
-      "change_1d": "N/A",
-      "mtd": "N/A",
-      "ytd": "N/A",
+      "px_last": 2.35,
+      "change_1d": "+0.0%",
+      "mtd": "-1.6%",
+      "ytd": "-3.7%",
       "source": "Yahoo Finance"
     },
     {
       "name": "QNB",
       "ticker": "QNBK.QA",
-      "px_last": "N/A",
-      "change_1d": "N/A",
-      "mtd": "N/A",
-      "ytd": "N/A",
+      "px_last": 17.89,
+      "change_1d": "+0.5%",
+      "mtd": "+4.6%",
+      "ytd": "-3.0%",
       "source": "Yahoo Finance"
     },
     {
       "name": "QIB",
       "ticker": "QIBK.QA",
-      "px_last": "N/A",
-      "change_1d": "N/A",
-      "mtd": "N/A",
-      "ytd": "N/A",
+      "px_last": 23.6,
+      "change_1d": "+0.7%",
+      "mtd": "+4.9%",
+      "ytd": "+0.7%",
       "source": "Yahoo Finance"
     },
     {
       "name": "CBQ",
       "ticker": "CBQK.QA",
-      "px_last": "N/A",
-      "change_1d": "N/A",
-      "mtd": "N/A",
-      "ytd": "N/A",
+      "px_last": 4.33,
+      "change_1d": "-2.7%",
+      "mtd": "-0.4%",
+      "ytd": "+9.0%",
       "source": "Yahoo Finance"
     },
     {
       "name": "QIIB",
       "ticker": "QIIK.QA",
-      "px_last": "N/A",
-      "change_1d": "N/A",
-      "mtd": "N/A",
-      "ytd": "N/A",
+      "px_last": 11.12,
+      "change_1d": "+0.2%",
+      "mtd": "+0.9%",
+      "ytd": "+0.2%",
       "source": "Yahoo Finance"
     },
     {
       "name": "Al Rayan",
       "ticker": "MARK.QA",
-      "px_last": "N/A",
-      "change_1d": "N/A",
-      "mtd": "N/A",
-      "ytd": "N/A",
+      "px_last": 2.2,
+      "change_1d": "-0.5%",
+      "mtd": "+0.4%",
+      "ytd": "+5.0%",
       "source": "Yahoo Finance"
     },
     {
       "name": "Dukhan",
       "ticker": "DBIS.QA",
-      "px_last": "N/A",
-      "change_1d": "N/A",
-      "mtd": "N/A",
-      "ytd": "N/A",
+      "px_last": 1.09,
+      "change_1d": "+4.8%",
+      "mtd": "+17.8%",
+      "ytd": "+10.7%",
       "source": "Yahoo Finance"
     },
     {
       "name": "Ahli",
       "ticker": "ABQK.QA",
-      "px_last": "N/A",
-      "change_1d": "N/A",
-      "mtd": "N/A",
-      "ytd": "N/A",
+      "px_last": 3.73,
+      "change_1d": "-0.2%",
+      "mtd": "-0.5%",
+      "ytd": "+6.3%",
       "source": "Yahoo Finance"
     }
   ],
@@ -300,39 +309,48 @@
     {
       "name": "Brent Crude",
       "ticker": "BZ=F",
-      "px_last": "N/A",
-      "change_1d": "N/A",
-      "mtd": "N/A",
-      "ytd": "N/A",
+      "px_last": 99.11,
+      "change_1d": "+4.1%",
+      "mtd": "-2.0%",
+      "ytd": "+63.1%",
       "source": "Yahoo Finance"
     },
     {
       "name": "Silver",
       "ticker": "SI=F",
-      "px_last": "N/A",
-      "change_1d": "N/A",
-      "mtd": "N/A",
-      "ytd": "N/A",
+      "px_last": 75.34,
+      "change_1d": "-1.3%",
+      "mtd": "-0.7%",
+      "ytd": "+6.8%",
       "source": "Yahoo Finance"
+    },
+    {
+      "name": "Gold (QAR)",
+      "ticker": "DERIVED",
+      "px_last": 17306.38,
+      "change_1d": "-0.2%",
+      "mtd": "-0.6%",
+      "ytd": "+10.2%",
+      "source": "Derived from Yahoo Finance GC=F and USD/QAR"
     }
   ],
   "fixed_income": [
     {
       "name": "UST 5-Year",
       "ticker": "^FVX",
-      "px_last": "N/A",
-      "change_1d": "N/A",
-      "mtd": "N/A",
-      "ytd": "N/A",
+      "px_last": 3.92,
+      "change_1d": "-0.4%",
+      "mtd": "-0.8%",
+      "ytd": "+4.9%",
       "source": "Yahoo Finance"
     },
     {
       "name": "UST 10-Year",
       "ticker": "^TNX",
-      "px_last": "N/A",
-      "change_1d": "N/A",
-      "mtd": "N/A",
-      "ytd": "N/A",
+      "px_last": 4.3,
+      "change_1d": "-0.3%",
+      "mtd": "-0.3%",
+      "ytd": "+2.8%",
       "source": "Yahoo Finance"
     }
   ],
@@ -389,19 +407,19 @@
   "qatar_news": [],
   "kpis": [
     {
-      "value": "Mixed",
+      "value": "Positive",
       "label": "Global Equities",
-      "sublabel": "US N/A \u00b7 UK N/A"
+      "sublabel": "US +0.5% \u00b7 UK -0.2%"
     },
     {
-      "value": "$N/A",
+      "value": "$99.11",
       "label": "Brent Crude",
-      "sublabel": "N/A Year-to-Date"
+      "sublabel": "+63.1% Year-to-Date"
     },
     {
-      "value": "N/A",
+      "value": "17,306.38",
       "label": "Gold (QAR)",
-      "sublabel": "N/A YTD \u00b7 Safe-haven demand"
+      "sublabel": "+10.2% YTD \u00b7 Safe-haven demand"
     },
     {
       "value": "N/A",
@@ -409,9 +427,9 @@
       "sublabel": "N/A today \u00b7 N/A YTD"
     },
     {
-      "value": "N/A%",
+      "value": "4.3%",
       "label": "UST 10Y Yield",
-      "sublabel": "N/A YTD \u00b7 Rising yields"
+      "sublabel": "+2.8% YTD \u00b7 Rising yields"
     },
     {
       "value": "4.50%",
