@@ -7,10 +7,13 @@ from supabase_client import get_supabase
 MAKE_WEBHOOK_URL = os.environ["MAKE_WEBHOOK_URL"]
 REPORT_DATE = datetime.date.today().strftime("%d %B %Y")
 GITHUB_OWNER = os.environ.get("GITHUB_OWNER", "wiekan-ou")
-PDF_URL = f"https://raw.githubusercontent.com/{GITHUB_OWNER}/doha-bank-mi/main/report.pdf"
+GITHUB_REPO = os.environ.get("GITHUB_REPO", "doha-bank-mi")
+PDF_URL = f"https://raw.githubusercontent.com/{GITHUB_OWNER}/{GITHUB_REPO}/main/report.pdf"
+
 
 def load_active_numbers() -> list[dict]:
     sb = get_supabase()
+
     resp = (
         sb.table("recipients")
         .select("name, phone_number, tier")
@@ -18,7 +21,9 @@ def load_active_numbers() -> list[dict]:
         .eq("active", True)
         .execute()
     )
+
     return resp.data or []
+
 
 def send():
     recipients = load_active_numbers()
@@ -30,8 +35,8 @@ def send():
     caption = (
         f"Doha Bank Market Intelligence\n"
         f"{REPORT_DATE}\n\n"
-        f"Daily report covering global indices, GCC markets, "
-        f"currencies, commodities and latest news."
+        f"Please find attached today's market intelligence report covering "
+        f"global indices, GCC markets, currencies, commodities, and latest news."
     )
 
     success_count = 0
@@ -42,7 +47,7 @@ def send():
         name = recipient.get("name", "Unknown")
 
         if not number:
-            print(f"[WARN] Skipping {name} — no number defined")
+            print(f"[WARN] Skipping {name}, no phone number defined")
             continue
 
         payload = {
@@ -59,12 +64,14 @@ def send():
                 json=payload,
                 timeout=60,
             )
+
             if resp.status_code == 200:
                 print(f"✓ Sent to {name} ({number})")
                 success_count += 1
             else:
-                print(f"[ERROR] {name} ({number}): {resp.status_code} – {resp.text}")
+                print(f"[ERROR] {name} ({number}): {resp.status_code} | {resp.text}")
                 fail_count += 1
+
         except Exception as e:
             print(f"[ERROR] {name} ({number}): {e}")
             fail_count += 1
@@ -75,6 +82,7 @@ def send():
 
     if fail_count > 0:
         raise SystemExit(1)
+
 
 if __name__ == "__main__":
     send()
