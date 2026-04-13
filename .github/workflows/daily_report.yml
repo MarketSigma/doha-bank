@@ -51,6 +51,8 @@ jobs:
       - name: Send email via Resend
         env:
           RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
         run: python send_email.py
 
       - name: Send WhatsApp via Make.com and 2Chat
@@ -58,26 +60,88 @@ jobs:
           MAKE_WEBHOOK_URL: ${{ secrets.MAKE_WEBHOOK_URL }}
           GITHUB_OWNER: ${{ secrets.GITHUB_OWNER }}
           GITHUB_REPO: "doha-bank-mi"
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
         run: python send_whatsapp.py
 
-      - name: Write send log
+      - name: Write send log to JSON and Supabase
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          GITHUB_OWNER: ${{ secrets.GITHUB_OWNER }}
         run: |
-          python3 -c "
-          import json, os
+          python3 - << 'PYEOF'
+          import json
+          import os
           from datetime import datetime, timezone, timedelta
+          from supabase import create_client
+
           ast = timezone(timedelta(hours=3))
           now = datetime.now(ast)
-          recips = json.load(open('recipients.json'))
-          wa = len([r for r in recips.get('whatsapp',[]) if r.get('active')])
-          em = len([r for r in recips.get('email',[]) if r.get('active')])
-          entry = {'date': now.strftime('%Y-%m-%d'), 'time': now.strftime('%H:%M'), 'status': 'success', 'email_count': em, 'wa_count': wa}
+
+          sb = create_client(
+              os.environ["SUPABASE_URL"],
+              os.environ["SUPABASE_SERVICE_ROLE_KEY"]
+          )
+
+          # Pull active recipient counts from Supabase
+          email_resp = (
+              sb.table("recipients")
+              .select("id", count="exact")
+              .eq("channel", "email")
+              .eq("active", True)
+              .execute()
+          )
+          wa_resp = (
+              sb.table("recipients")
+              .select("id", count="exact")
+              .eq("channel", "whatsapp")
+              .eq("active", True)
+              .execute()
+          )
+
+          email_count = email_resp.count or 0
+          wa_count = wa_resp.count or 0
+
+          pdf_url = f"https://raw.githubusercontent.com/{os.environ['GITHUB_OWNER']}/doha-bank-mi/main/report.pdf"
+
+          entry = {
+              "date": now.strftime("%Y-%m-%d"),
+              "time": now.strftime("%H:%M"),
+              "status": "success",
+              "email_count": email_count,
+              "wa_count": wa_count
+          }
+
+          # Write local JSON log for dashboard/backward compatibility
           log = []
-          if os.path.exists('send_log.json'):
-              log = json.load(open('send_log.json'))
+          if os.path.exists("send_log.json"):
+              with open("send_log.json", "r", encoding="utf-8") as f:
+                  try:
+                      log = json.load(f)
+                  except Exception:
+                      log = []
+
           log.insert(0, entry)
-          json.dump(log[:30], open('send_log.json','w'), indent=2)
-          print('Log updated:', entry)
-          "
+
+          with open("send_log.json", "w", encoding="utf-8") as f:
+              json.dump(log[:30], f, indent=2)
+
+          print("Local JSON log updated:", entry)
+
+          # Write log to Supabase
+          sb.table("send_log").insert({
+              "report_date": now.strftime("%Y-%m-%d"),
+              "sent_at": now.isoformat(),
+              "status": "success",
+              "email_count": email_count,
+              "wa_count": wa_count,
+              "pdf_url": pdf_url,
+              "notes": "Workflow completed successfully"
+          }).execute()
+
+          print("Supabase send_log inserted successfully")
+          PYEOF
 
       - name: Commit send log
         run: |
