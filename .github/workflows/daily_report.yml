@@ -1,9 +1,9 @@
-name: Market Intelligence – Daily Report
+name: Market Intelligence Daily Report
 
 on:
   schedule:
-    - cron: "0 4 * * 1-5"   # Mon–Fri 07:00 AST (04:00 UTC)
-  workflow_dispatch:          # manual trigger from dashboard
+    - cron: "0 4 * * 1-5"
+  workflow_dispatch:
 
 jobs:
   generate-report:
@@ -33,65 +33,49 @@ jobs:
       - name: Generate PDF report
         run: python pdf_generator.py market_data.json report.pdf
 
+      - name: Commit PDF and data to repo
+        run: |
+          git config user.name "Doha Bank MI Bot"
+          git config user.email "mi-bot@dohabank.com"
+          git add market_data.json report.pdf
+          git diff --staged --quiet || git commit -m "Daily report $(date +'%Y-%m-%d')"
+          git push
+
       - name: Send email via Resend
         env:
           RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
         run: python send_email.py
 
-      - name: Trigger Make.com webhook (WhatsApp)
+      - name: Send WhatsApp via Make.com and 2Chat
         env:
           MAKE_WEBHOOK_URL: ${{ secrets.MAKE_WEBHOOK_URL }}
+          GITHUB_OWNER: ${{ secrets.GITHUB_OWNER }}
+          GITHUB_REPO: "doha-bank-mi"
         run: python send_whatsapp.py
 
       - name: Write send log
         run: |
-          python3 - << 'PYEOF'
+          python3 -c "
           import json, os
           from datetime import datetime, timezone, timedelta
-
           ast = timezone(timedelta(hours=3))
           now = datetime.now(ast)
-
           recips = json.load(open('recipients.json'))
-          wa_count = len([r for r in recips.get('whatsapp',[]) if r.get('active')])
-          em_count = len([r for r in recips.get('email',[])    if r.get('active')])
-
-          entry = {
-            "date":        now.strftime('%Y-%m-%d'),
-            "time":        now.strftime('%H:%M'),
-            "status":      "success",
-            "email_count": em_count,
-            "wa_count":    wa_count,
-          }
-
+          wa = len([r for r in recips.get('whatsapp',[]) if r.get('active')])
+          em = len([r for r in recips.get('email',[]) if r.get('active')])
+          entry = {'date': now.strftime('%Y-%m-%d'), 'time': now.strftime('%H:%M'), 'status': 'success', 'email_count': em, 'wa_count': wa}
           log = []
           if os.path.exists('send_log.json'):
               log = json.load(open('send_log.json'))
           log.insert(0, entry)
-          log = log[:30]   # keep last 30 entries
-          json.dump(log, open('send_log.json','w'), indent=2)
-          print(f"Log updated: {entry}")
-          PYEOF
+          json.dump(log[:30], open('send_log.json','w'), indent=2)
+          print('Log updated:', entry)
+          "
 
-      - name: Commit updated data files to repo
+      - name: Commit send log
         run: |
-          git config user.name  "Doha Bank MI Bot"
+          git config user.name "Doha Bank MI Bot"
           git config user.email "mi-bot@dohabank.com"
-          git add market_data.json report.pdf send_log.json
-          git diff --staged --quiet || git commit -m "Daily report: $(date +'%Y-%m-%d')"
+          git add send_log.json
+          git diff --staged --quiet || git commit -m "Send log $(date +'%Y-%m-%d')"
           git push
-
-      - name: Upload PDF as artifact (30-day retention)
-        uses: actions/upload-artifact@v4
-        with:
-          name: market-intelligence-${{ github.run_id }}
-          path: report.pdf
-          retention-days: 30
-TwinMind
-TwinMind
-
-Ask TwinMind
-Page icon
-Summarize
-Disable for this site
-Disable for all sites
