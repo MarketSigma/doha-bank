@@ -1,1 +1,346 @@
-{}
+{
+  "config": {
+    "client_name": "Doha Bank",
+    "report_date": "13 April 2026",
+    "delivery_time_ast": "07:00",
+    "sections": {
+      "global_indices": true,
+      "gcc_indices": true,
+      "spot_currency": true,
+      "qar_cross_rates": true,
+      "fixed_income": true,
+      "qatari_banks": true,
+      "commodities": true,
+      "global_news": true,
+      "qatar_news": true
+    }
+  },
+  "generated_at": "2026-04-13T15:06:59.200228",
+  "global_indices": [
+    {
+      "name": "US S&P 500",
+      "ticker": "^GSPC",
+      "px_last": 6822.41,
+      "change_1d": "+0.1%",
+      "ytd": "N/A"
+    },
+    {
+      "name": "UK FTSE 100",
+      "ticker": "^FTSE",
+      "px_last": 10581.01,
+      "change_1d": "-0.2%",
+      "ytd": "N/A"
+    },
+    {
+      "name": "Japan Nikkei",
+      "ticker": "^N225",
+      "px_last": 56924.11,
+      "change_1d": "N/A",
+      "ytd": "N/A"
+    },
+    {
+      "name": "Germany DAX",
+      "ticker": "^GDAXI",
+      "px_last": 23708.56,
+      "change_1d": "-0.4%",
+      "ytd": "N/A"
+    },
+    {
+      "name": "Hong Kong HSI",
+      "ticker": "^HSI",
+      "px_last": 25660.85,
+      "change_1d": "-0.9%",
+      "ytd": "N/A"
+    },
+    {
+      "name": "India Sensex",
+      "ticker": "^BSESN",
+      "px_last": 76847.57,
+      "change_1d": "-0.9%",
+      "ytd": "N/A"
+    }
+  ],
+  "gcc_indices": [
+    {
+      "name": "Qatar QE Index",
+      "ticker": "^QSI",
+      "px_last": "N/A",
+      "change_1d": "N/A",
+      "ytd": "N/A"
+    },
+    {
+      "name": "Saudi Tadawul",
+      "ticker": "^TASI.SR",
+      "px_last": 11426.77,
+      "change_1d": "N/A",
+      "ytd": "N/A"
+    },
+    {
+      "name": "Dubai DFM",
+      "ticker": "^DFMGI",
+      "px_last": "N/A",
+      "change_1d": "N/A",
+      "ytd": "N/A"
+    },
+    {
+      "name": "Abu Dhabi ADX",
+      "ticker": "ADSMI.AD",
+      "px_last": "N/A",
+      "change_1d": "N/A",
+      "ytd": "N/A"
+    },
+    {
+      "name": "Kuwait Boursa",
+      "ticker": "^BKW",
+      "px_last": "N/A",
+      "change_1d": "N/A",
+      "ytd": "N/A"
+    },
+    {
+      "name": "Bahrain",
+      "ticker": "^BHSE",
+      "px_last": "N/A",
+      "change_1d": "N/A",
+      "ytd": "N/A"
+    }
+  ],
+  "spot_currency": [
+    {
+      "name": "USD Index",
+      "ticker": "DX-Y.NYB",
+      "px_last": 98.73,
+      "change_1d": "N/A"
+    },
+    {
+      "name": "EUR/USD",
+      "ticker": "EURUSD=X",
+      "px_last": 1.17,
+      "change_1d": "+0.0%"
+    },
+    {
+      "name": "GBP/USD",
+      "ticker": "GBPUSD=X",
+      "px_last": 1.35,
+      "change_1d": "+0.7%"
+    },
+    {
+      "name": "CHF/USD",
+      "ticker": "CHFUSD=X",
+      "px_last": 1.27,
+      "change_1d": "+0.8%"
+    },
+    {
+      "name": "USD/JPY",
+      "ticker": "JPY=X",
+      "px_last": 159.58,
+      "change_1d": "+0.3%"
+    },
+    {
+      "name": "CNY/USD",
+      "ticker": "CNYUSD=X",
+      "px_last": 0.15,
+      "change_1d": "+0.0%"
+    }
+  ],
+  "qar_cross_rates": [
+    {
+      "name": "USD/QAR",
+      "ticker": "USDQAR=X",
+      "px_last": 3.64,
+      "change_1d": "-0.3%"
+    },
+    {
+      "name": "EUR/QAR",
+      "ticker": "EURQAR=X",
+      "px_last": 4.26,
+      "change_1d": "+3.4%"
+    },
+    {
+      "name": "GBP/QAR",
+      "ticker": "GBPQAR=X",
+      "px_last": 4.9,
+      "change_1d": "+0.0%"
+    },
+    {
+      "name": "CHF/QAR",
+      "ticker": "CHFQAR=X",
+      "px_last": 4.62,
+      "change_1d": "N/A"
+    },
+    {
+      "name": "CNY/QAR",
+      "ticker": "CNYQAR=X",
+      "px_last": "N/A",
+      "change_1d": "N/A"
+    }
+  ],
+  "qatari_banks": [
+    {
+      "name": "Doha",
+      "ticker": "BRES.QA",
+      "px_last": 2.35,
+      "change_1d": "+0.0%"
+    },
+    {
+      "name": "QNB",
+      "ticker": "QNBK.QA",
+      "px_last": 17.89,
+      "change_1d": "+0.5%"
+    },
+    {
+      "name": "QIB",
+      "ticker": "QIBK.QA",
+      "px_last": 23.6,
+      "change_1d": "+0.7%"
+    },
+    {
+      "name": "CBQ",
+      "ticker": "CBQK.QA",
+      "px_last": 4.33,
+      "change_1d": "-2.7%"
+    },
+    {
+      "name": "QIIB",
+      "ticker": "QIIK.QA",
+      "px_last": 11.12,
+      "change_1d": "+0.2%"
+    },
+    {
+      "name": "Al Rayan",
+      "ticker": "MARK.QA",
+      "px_last": 2.2,
+      "change_1d": "-0.5%"
+    },
+    {
+      "name": "Dukhan",
+      "ticker": "DBIS.QA",
+      "px_last": 1.09,
+      "change_1d": "+4.8%"
+    },
+    {
+      "name": "Ahli",
+      "ticker": "ABQK.QA",
+      "px_last": 3.73,
+      "change_1d": "-0.3%"
+    },
+    {
+      "name": "Lesha",
+      "ticker": "IQCD.QA",
+      "px_last": 11.9,
+      "change_1d": "-0.3%"
+    }
+  ],
+  "commodities": [
+    {
+      "name": "Brent Crude",
+      "ticker": "BZ=F",
+      "px_last": 100.57,
+      "change_1d": "N/A",
+      "ytd": "N/A"
+    },
+    {
+      "name": "Gold (QAR)",
+      "ticker": "GC=F",
+      "px_last": 4740.1,
+      "change_1d": "N/A",
+      "ytd": "N/A"
+    },
+    {
+      "name": "Silver",
+      "ticker": "SI=F",
+      "px_last": 74.1,
+      "change_1d": "N/A",
+      "ytd": "N/A"
+    },
+    {
+      "name": "LNG JP/KR",
+      "ticker": "NG=F",
+      "px_last": 2.66,
+      "change_1d": "N/A",
+      "ytd": "N/A"
+    }
+  ],
+  "fixed_income": [
+    {
+      "name": "UST 5-Year",
+      "ticker": "^FVX",
+      "px_last": 3.95,
+      "change_1d": "+0.3%",
+      "ytd": "N/A"
+    },
+    {
+      "name": "UST 10-Year",
+      "ticker": "^TNX",
+      "px_last": 4.33,
+      "change_1d": "+0.2%",
+      "ytd": "N/A"
+    }
+  ],
+  "global_news": [
+    {
+      "headline": "Goldman Sachs Looks to Raise at Least $5 Billion From Bond S",
+      "summary": "Goldman Sachs Group Inc. is seeking to raise at least $5 billion from selling investment-grade bonds, according to peopl",
+      "source": "Bloomberg",
+      "url": "https://www.bloomberg.com/news/articles/2026-04-13/goldman-sachs-kicks-off-three-part-investment-grade-bond-sale",
+      "metric": "\u2014",
+      "metric_label": ""
+    },
+    {
+      "headline": "Citi Is a Top Bank Pick: McGratty",
+      "summary": "KBW Head of US Bank Research Chris McGratty breaks down Goldman Sachs\u2019 mixed reaction despite strong earnings. He joins ",
+      "source": "Bloomberg",
+      "url": "https://www.bloomberg.com/news/videos/2026-04-13/citi-is-a-top-bank-pick-mcgratty",
+      "metric": "\u2014",
+      "metric_label": ""
+    },
+    {
+      "headline": "US Blockade Risks Global Conflict",
+      "summary": "Leslie Vinjamuri, the President and CEO of the Chicago Council on Global Affairs joined Bloomberg Open Interest to break",
+      "source": "Bloomberg",
+      "url": "https://www.bloomberg.com/news/videos/2026-04-13/us-blockade-risks-global-conflict",
+      "metric": "\u2014",
+      "metric_label": ""
+    },
+    {
+      "headline": "Shell CEO Wael Sawan on Oil, Renewables and the Future of En",
+      "summary": "Shell Chief Executive Officer Wael Sawan joins Francine Lacqua to discuss the oil major's controversial strategy around ",
+      "source": "Bloomberg",
+      "url": "https://www.bloomberg.com/news/videos/2026-04-13/shell-ceo-wael-sawan-on-oil-renewables-and-the-future-of-energy-mnwq4v8f",
+      "metric": "\u2014",
+      "metric_label": ""
+    }
+  ],
+  "qatar_news": [],
+  "kpis": [
+    {
+      "value": "Positive",
+      "label": "Global Equities",
+      "sublabel": "US +0.1% YTD \u00b7 UK N/A YTD"
+    },
+    {
+      "value": "$100.57",
+      "label": "Brent Crude",
+      "sublabel": "+N/A Year-to-Date"
+    },
+    {
+      "value": "4,740.1",
+      "label": "Gold (QAR)",
+      "sublabel": "Safe-haven demand"
+    },
+    {
+      "value": "N/A",
+      "label": "QSE Index",
+      "sublabel": "N/A today"
+    },
+    {
+      "value": "4.33%",
+      "label": "UST 10Y Yield",
+      "sublabel": "N/A YTD \u00b7 Rising yields"
+    },
+    {
+      "value": "4.50%",
+      "label": "QCB Sukuk Yield",
+      "sublabel": "QR3bn \u00b7 2.7x oversubscribed"
+    }
+  ]
+}
