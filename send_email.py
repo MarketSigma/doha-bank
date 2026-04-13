@@ -10,7 +10,7 @@ import datetime
 import requests
 
 RESEND_API_KEY   = os.environ["RESEND_API_KEY"]
-FROM_EMAIL       = "reports@yourdomain.com"   # ← replace with your Resend verified domain
+FROM_EMAIL       = "reports@mail.wiekan.com"
 REPORT_DATE      = datetime.date.today().strftime("%d %B %Y")
 PDF_PATH         = "report.pdf"
 RECIPIENTS_FILE  = "recipients.json"
