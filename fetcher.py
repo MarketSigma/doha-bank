@@ -57,6 +57,7 @@ QAR_CROSS = {
     "EUR/QAR": "EURQAR=X",
     "GBP/QAR": "GBPQAR=X",
     "CHF/QAR": "CHFQAR=X",
+    # CNY/QAR will be derived
 }
 
 QATARI_BANKS = {
@@ -83,12 +84,28 @@ FIXED_INCOME = {
 
 NEWS_FEEDS = {
     "global": [
-        {"source": "Reuters", "url": "https://feeds.reuters.com/reuters/businessNews", "max": 10},
-        {"source": "Bloomberg", "url": "https://feeds.bloomberg.com/markets/news.rss", "max": 10},
+        {
+            "source": "Reuters",
+            "url": "https://feeds.reuters.com/reuters/businessNews",
+            "max": 10,
+        },
+        {
+            "source": "Bloomberg",
+            "url": "https://feeds.bloomberg.com/markets/news.rss",
+            "max": 10,
+        },
     ],
     "qatar": [
-        {"source": "The Peninsula", "url": "https://thepeninsulaqatar.com/rss/business", "max": 8},
-        {"source": "Qatar Tribune", "url": "https://www.qatar-tribune.com/rss", "max": 8},
+        {
+            "source": "The Peninsula",
+            "url": "https://thepeninsulaqatar.com/rss/business",
+            "max": 8,
+        },
+        {
+            "source": "Qatar Tribune",
+            "url": "https://www.qatar-tribune.com/rss",
+            "max": 8,
+        },
     ],
 }
 
@@ -153,8 +170,16 @@ def fetch_stats(name: str, sym: str, today: datetime.date) -> dict:
     year_base = None
 
     for dt_idx, px in closes.items():
-        d = dt_idx.date()
+        try:
+            if hasattr(dt_idx, "date"):
+                d = dt_idx.date()
+            else:
+                d = datetime.datetime.strptime(str(dt_idx)[:10], "%Y-%m-%d").date()
+        except Exception:
+            continue
+
         fpx = _to_float(px)
+
         if year_base is None and d >= year_start:
             year_base = fpx
         if month_base is None and d >= month_start:
@@ -192,6 +217,7 @@ def add_derived_rows(data: dict) -> None:
     gold_usd = _find_row(comm, "Gold (USD)")
     usd_qar = _find_row(qar, "USD/QAR")
 
+    # Gold (QAR) = Gold (USD) × USD/QAR
     if gold_usd and usd_qar:
         g = _to_float(gold_usd.get("px_last"))
         q = _to_float(usd_qar.get("px_last"))
@@ -206,6 +232,7 @@ def add_derived_rows(data: dict) -> None:
                 "source": "Derived from Yahoo Finance GC=F and USD/QAR",
             })
 
+    # CNY/QAR = CNY/USD × USD/QAR
     cny_usd = _find_row(spot, "CNY/USD")
     if cny_usd and usd_qar:
         c = _to_float(cny_usd.get("px_last"))
@@ -221,6 +248,7 @@ def add_derived_rows(data: dict) -> None:
                 "source": "Derived from Yahoo Finance CNY/USD and USD/QAR",
             })
 
+    # Remove Gold (USD) from final display
     data["commodities"] = [r for r in comm if r["name"] != "Gold (USD)"]
 
 
