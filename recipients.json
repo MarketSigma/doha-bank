@@ -1,0 +1,11 @@
+{
+  "_comment": "Edit recipient list here OR use the dashboard UI at your GitHub Pages URL",
+  "whatsapp": [
+    {"name": "Recipient One",   "number": "97455500001", "active": true, "tier": "HNWI"},
+    {"name": "Recipient Two",   "number": "97455500002", "active": true, "tier": "HNWI"}
+  ],
+  "email": [
+    {"name": "Recipient One",   "address": "recipient1@example.com", "active": true},
+    {"name": "Recipient Two",   "address": "recipient2@example.com", "active": true}
+  ]
+}
