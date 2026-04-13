@@ -15,19 +15,19 @@
       "qatar_news": true
     }
   },
-  "generated_at": "2026-04-13T15:17:02.441802",
+  "generated_at": "2026-04-13T15:23:48.405194",
   "global_indices": [
     {
       "name": "US S&P 500",
       "ticker": "^GSPC",
-      "px_last": 6823.25,
+      "px_last": 6822.41,
       "change_1d": "+0.1%",
       "ytd": "N/A"
     },
     {
       "name": "UK FTSE 100",
       "ticker": "^FTSE",
-      "px_last": 10580.24,
+      "px_last": 10576.14,
       "change_1d": "-0.2%",
       "ytd": "N/A"
     },
@@ -41,7 +41,7 @@
     {
       "name": "Germany DAX",
       "ticker": "^GDAXI",
-      "px_last": 23735.12,
+      "px_last": 23729.95,
       "change_1d": "-0.3%",
       "ytd": "N/A"
     },
@@ -108,7 +108,7 @@
     {
       "name": "USD Index",
       "ticker": "DX-Y.NYB",
-      "px_last": 98.75,
+      "px_last": 98.78,
       "change_1d": "N/A"
     },
     {
@@ -132,7 +132,7 @@
     {
       "name": "USD/JPY",
       "ticker": "JPY=X",
-      "px_last": 159.69,
+      "px_last": 159.72,
       "change_1d": "+0.4%"
     },
     {
@@ -234,21 +234,21 @@
     {
       "name": "Brent Crude",
       "ticker": "BZ=F",
-      "px_last": 101.1,
+      "px_last": 100.98,
       "change_1d": "N/A",
       "ytd": "N/A"
     },
     {
       "name": "Gold (QAR)",
       "ticker": "GC=F",
-      "px_last": 4729.5,
+      "px_last": 4728.5,
       "change_1d": "N/A",
       "ytd": "N/A"
     },
     {
       "name": "Silver",
       "ticker": "SI=F",
-      "px_last": 73.92,
+      "px_last": 74.0,
       "change_1d": "N/A",
       "ytd": "N/A"
     },
@@ -271,12 +271,28 @@
     {
       "name": "UST 10-Year",
       "ticker": "^TNX",
-      "px_last": 4.32,
-      "change_1d": "+0.0%",
+      "px_last": 4.33,
+      "change_1d": "+0.2%",
       "ytd": "N/A"
     }
   ],
   "global_news": [
+    {
+      "headline": "Goldman Shares Fall as Bond Trading Miss Outweighs Equity Re",
+      "summary": "Goldman Sachs Group Inc. shares fell after the bank reported a surprise drop in bond-trading revenue, casting a shadow o",
+      "source": "Bloomberg",
+      "url": "https://www.bloomberg.com/news/articles/2026-04-13/goldman-stock-traders-trounce-wall-street-record-by-1-billion",
+      "metric": "\u2014",
+      "metric_label": ""
+    },
+    {
+      "headline": "Emerging Market Assets Slide as US Blockade of Hormuz Begins",
+      "summary": "Emerging-market stocks declined along with most currencies and bonds as traders pulled back from riskier assets after US",
+      "source": "Bloomberg",
+      "url": "https://www.bloomberg.com/news/articles/2026-04-13/emerging-assets-slide-as-us-hormuz-blockade-saps-risk-sentiment",
+      "metric": "\u2014",
+      "metric_label": ""
+    },
     {
       "headline": "Ex-Lafarge CEO Jailed Six-Years for Syria Terrorist Payments",
       "summary": "Lafarge\u2019s former chief executive was jailed for six years and the Holcim Ltd. subsidiary was fined nearly \u20ac5.7 million (",
@@ -292,22 +308,6 @@
       "url": "https://www.bloomberg.com/news/videos/2026-04-13/slate-auto-aims-to-reinvent-ev-affordability-video",
       "metric": "\u2014",
       "metric_label": ""
-    },
-    {
-      "headline": "Dollar Gains as Hormuz Blockade Sparks Oil Rally, Risk-Off M",
-      "summary": "The dollar gained after President Donald Trump ordered a blockade of the Strait of Hormuz following the weekend\u2019s deadlo",
-      "source": "Bloomberg",
-      "url": "https://www.bloomberg.com/news/articles/2026-04-13/dollar-gains-as-hormuz-blockade-sparks-oil-rally-risk-off-mode",
-      "metric": "\u2014",
-      "metric_label": ""
-    },
-    {
-      "headline": "Goldman Sachs Looks to Raise at Least $5 Billion From Bond S",
-      "summary": "Goldman Sachs Group Inc. is seeking to raise at least $5 billion from selling investment-grade bonds, according to peopl",
-      "source": "Bloomberg",
-      "url": "https://www.bloomberg.com/news/articles/2026-04-13/goldman-sachs-kicks-off-three-part-investment-grade-bond-sale",
-      "metric": "\u2014",
-      "metric_label": ""
     }
   ],
   "qatar_news": [],
@@ -318,12 +318,12 @@
       "sublabel": "US +0.1% YTD \u00b7 UK N/A YTD"
     },
     {
-      "value": "$101.1",
+      "value": "$100.98",
       "label": "Brent Crude",
       "sublabel": "+N/A Year-to-Date"
     },
     {
-      "value": "4,729.5",
+      "value": "4,728.5",
       "label": "Gold (QAR)",
       "sublabel": "Safe-haven demand"
     },
@@ -333,7 +333,7 @@
       "sublabel": "N/A today"
     },
     {
-      "value": "4.32%",
+      "value": "4.33%",
       "label": "UST 10Y Yield",
       "sublabel": "N/A YTD \u00b7 Rising yields"
     },
