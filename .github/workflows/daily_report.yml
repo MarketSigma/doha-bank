@@ -39,12 +39,11 @@ jobs:
       - name: Generate PDF report
         run: python pdf_generator.py market_data.json report.pdf
 
-      - name: Upload PDF to Supabase Storage and generate signed URL
+      - name: Upload PDF to public Supabase Storage
         env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
-          SUPABASE_STORAGE_BUCKET: ${{ secrets.SUPABASE_STORAGE_BUCKET }}
-          SIGNED_URL_EXPIRES_IN: "86400"
+          SUPABASE_PUBLIC_STORAGE_BUCKET: ${{ secrets.SUPABASE_PUBLIC_STORAGE_BUCKET }}
         run: python upload_pdf_to_storage.py
 
       - name: Send email via Resend
@@ -65,7 +64,6 @@ jobs:
         env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
-          GITHUB_OWNER: ${{ secrets.GITHUB_OWNER }}
         run: |
           python3 - << 'PYEOF'
           import json
@@ -120,8 +118,6 @@ jobs:
           with open("send_log.json", "w", encoding="utf-8") as f:
               json.dump(log[:30], f, indent=2)
 
-          print("Local JSON log updated:", entry)
-
           sb.table("send_log").insert({
               "report_date": now.strftime("%Y-%m-%d"),
               "sent_at": now.isoformat(),
@@ -131,8 +127,6 @@ jobs:
               "pdf_url": "",
               "notes": "Workflow completed successfully"
           }).execute()
-
-          print("Supabase send_log inserted successfully")
           PYEOF
 
       - name: Copy live JSON files to docs for dashboard
@@ -154,11 +148,9 @@ jobs:
           git add market_data.json
           git add report.pdf
           git add send_log.json
-          git add signed_pdf_url.json
+          git add public_pdf_url.json
           git add docs/market_data.json
           git add docs/send_log.json
-
-          git status
 
           git diff --staged --quiet || git commit -m "Daily report $(date +'%Y-%m-%d')"
           git push
