@@ -8,7 +8,7 @@ from supabase_client import get_supabase
 
 MAKE_WEBHOOK_URL = os.environ["MAKE_WEBHOOK_URL"]
 REPORT_DATE = datetime.date.today().strftime("%d %B %Y")
-SIGNED_URL_FILE = "signed_pdf_url.json"
+PUBLIC_URL_FILE = "public_pdf_url.json"
 
 
 def load_active_numbers() -> list[dict]:
@@ -28,13 +28,6 @@ def load_active_numbers() -> list[dict]:
 
 
 def normalize_number(number: str) -> str:
-    """
-    Require strict international format only.
-    Example:
-      +97455512345
-      +96170123456
-      +447700900123
-    """
     if not number:
         return ""
 
@@ -49,20 +42,32 @@ def normalize_number(number: str) -> str:
     return number
 
 
-def load_signed_pdf_url() -> str:
-    if not os.path.exists(SIGNED_URL_FILE):
-        print(f"[ERROR] Signed URL file not found: {SIGNED_URL_FILE}")
+def load_public_pdf_url() -> str:
+    if not os.path.exists(PUBLIC_URL_FILE):
+        print(f"[ERROR] Public URL file not found: {PUBLIC_URL_FILE}")
         raise SystemExit(1)
 
-    with open(SIGNED_URL_FILE, "r", encoding="utf-8") as f:
+    with open(PUBLIC_URL_FILE, "r", encoding="utf-8") as f:
         data = json.load(f)
 
-    url = data.get("signed_url", "").strip()
+    url = data.get("public_url", "").strip()
     if not url:
-        print("[ERROR] signed_url missing in signed_pdf_url.json")
+        print("[ERROR] public_url missing in public_pdf_url.json")
         raise SystemExit(1)
 
     return url
+
+
+def validate_pdf_url(url: str) -> bool:
+    try:
+        r = requests.get(url, timeout=20)
+        print(f"[INFO] PDF URL validation status: {r.status_code}")
+        content_type = r.headers.get("content-type", "")
+        print(f"[INFO] PDF URL content-type: {content_type}")
+        return r.status_code == 200 and "pdf" in content_type.lower()
+    except Exception as e:
+        print(f"[ERROR] PDF URL validation failed: {e}")
+        return False
 
 
 def send():
@@ -72,8 +77,12 @@ def send():
         print("[WARN] No active WhatsApp recipients found in Supabase")
         return
 
-    pdf_url = load_signed_pdf_url()
-    print(f"[INFO] Using signed PDF URL: {pdf_url}")
+    pdf_url = load_public_pdf_url()
+    print(f"[INFO] Using public PDF URL: {pdf_url}")
+
+    if not validate_pdf_url(pdf_url):
+        print("[ERROR] Public PDF URL is not reachable as a PDF")
+        raise SystemExit(1)
 
     caption = (
         f"Doha Bank Market Intelligence\n"
