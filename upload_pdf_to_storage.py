@@ -4,7 +4,7 @@ import datetime
 from supabase_client import get_supabase
 
 PDF_PATH = "report.pdf"
-SIGNED_URL_OUTPUT = "signed_pdf_url.json"
+PUBLIC_URL_OUTPUT = "public_pdf_url.json"
 
 
 def main():
@@ -12,17 +12,15 @@ def main():
         print(f"[ERROR] PDF file not found: {PDF_PATH}")
         raise SystemExit(1)
 
-    bucket = os.environ.get("SUPABASE_STORAGE_BUCKET", "reports")
-    expires_in = int(os.environ.get("SIGNED_URL_EXPIRES_IN", "86400"))  # 24 hours
-
+    bucket = os.environ.get("SUPABASE_PUBLIC_STORAGE_BUCKET", "reports-public")
     today = datetime.date.today().strftime("%Y-%m-%d")
-    storage_path = f"daily-reports/{today}/report.pdf"
+    timestamp = datetime.datetime.utcnow().strftime("%H%M%S")
+    storage_path = f"daily-reports/{today}/report-{timestamp}.pdf"
 
     sb = get_supabase()
 
-    print(f"[INFO] Uploading PDF to Supabase Storage bucket={bucket} path={storage_path}")
+    print(f"[INFO] Uploading PDF to public Supabase bucket={bucket} path={storage_path}")
 
-    # Try upload first, then update if file already exists
     try:
         with open(PDF_PATH, "rb") as f:
             sb.storage.from_(bucket).upload(
@@ -36,41 +34,26 @@ def main():
             )
         print("[INFO] PDF uploaded successfully")
     except Exception as e:
-        print(f"[WARN] Upload failed, trying update instead: {e}")
-        with open(PDF_PATH, "rb") as f:
-            sb.storage.from_(bucket).update(
-                path=storage_path,
-                file=f,
-                file_options={
-                    "content-type": "application/pdf",
-                    "cache-control": "3600",
-                },
-            )
-        print("[INFO] PDF updated successfully")
-
-    print(f"[INFO] Creating signed URL, expires_in={expires_in} seconds")
-    signed = sb.storage.from_(bucket).create_signed_url(
-        storage_path,
-        expires_in,
-        {"download": True},
-    )
-
-    signed_url = None
-
-    if isinstance(signed, dict):
-        signed_url = signed.get("signedUrl") or signed.get("signed_url")
-    else:
-        signed_url = getattr(signed, "get", lambda *_: None)("signedUrl") or getattr(signed, "get", lambda *_: None)("signed_url")
-
-    if not signed_url:
-        print(f"[ERROR] Failed to create signed URL. Response: {signed}")
+        print(f"[ERROR] Upload failed: {e}")
         raise SystemExit(1)
 
-    with open(SIGNED_URL_OUTPUT, "w", encoding="utf-8") as f:
-        json.dump({"signed_url": signed_url}, f, indent=2)
+    public_data = sb.storage.from_(bucket).get_public_url(storage_path)
 
-    print(f"[INFO] Signed URL written to {SIGNED_URL_OUTPUT}")
-    print(f"[INFO] Signed URL: {signed_url}")
+    public_url = None
+    if isinstance(public_data, dict):
+        public_url = public_data.get("publicUrl") or public_data.get("public_url")
+    else:
+        public_url = getattr(public_data, "get", lambda *_: None)("publicUrl") or getattr(public_data, "get", lambda *_: None)("public_url")
+
+    if not public_url:
+        print(f"[ERROR] Failed to get public URL. Response: {public_data}")
+        raise SystemExit(1)
+
+    with open(PUBLIC_URL_OUTPUT, "w", encoding="utf-8") as f:
+        json.dump({"public_url": public_url}, f, indent=2)
+
+    print(f"[INFO] Public URL written to {PUBLIC_URL_OUTPUT}")
+    print(f"[INFO] Public URL: {public_url}")
 
 
 if __name__ == "__main__":
