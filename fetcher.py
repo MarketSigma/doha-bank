@@ -96,7 +96,7 @@ NEWS_FEEDS = {
             "max": 10,
         },
     ],
-    "qatar": [
+    "qatar_primary": [
         {
             "source": "The Peninsula",
             "url": "https://thepeninsulaqatar.com/rss/business",
@@ -107,6 +107,13 @@ NEWS_FEEDS = {
             "url": "https://www.qatar-tribune.com/rss",
             "max": 8,
         },
+    ],
+    "qatar_fallback": [
+        {
+            "source": "Google News",
+            "url": "https://news.google.com/rss/search?q=Qatar+business+OR+Qatar+economy&hl=en-US&gl=US&ceid=US:en",
+            "max": 10,
+        }
     ],
 }
 
@@ -127,10 +134,15 @@ def _fmt_pct(current: Optional[float], base: Optional[float]) -> str:
     return f"{pct:+.1f}%"
 
 
+def _clean_text(text: str) -> str:
+    if not text:
+        return ""
+    text = re.sub(r"<[^>]+>", "", text)
+    text = re.sub(r"\s+", " ", text).strip()
+    return text
+
+
 def _safe_history(sym: str, start: datetime.date):
-    """
-    More stable than yf.download for GitHub Actions.
-    """
     try:
         ticker = yf.Ticker(sym)
         df = ticker.history(
@@ -236,16 +248,17 @@ def add_derived_rows(data: dict) -> None:
         g = _to_float(gold_usd.get("px_last"))
         q = _to_float(usd_qar.get("px_last"))
         if g is not None and q is not None:
+            gold_qar = round(g * q, 2)
             comm.append({
                 "name": "Gold (QAR)",
                 "ticker": "DERIVED",
-                "px_last": round(g * q, 2),
+                "px_last": gold_qar,
                 "change_1d": gold_usd.get("change_1d", "N/A"),
                 "mtd": gold_usd.get("mtd", "N/A"),
                 "ytd": gold_usd.get("ytd", "N/A"),
                 "source": "Derived from Yahoo Finance GC=F and USD/QAR",
             })
-            print(f"    Gold (QAR) derived: {round(g * q, 2)}")
+            print(f"    Gold (QAR) derived: {gold_qar}")
 
     # CNY/QAR = CNY/USD × USD/QAR
     cny_usd = _find_row(spot, "CNY/USD")
@@ -253,16 +266,17 @@ def add_derived_rows(data: dict) -> None:
         c = _to_float(cny_usd.get("px_last"))
         q = _to_float(usd_qar.get("px_last"))
         if c is not None and q is not None:
+            cny_qar = round(c * q, 4)
             qar.append({
                 "name": "CNY/QAR",
                 "ticker": "DERIVED",
-                "px_last": round(c * q, 4),
+                "px_last": cny_qar,
                 "change_1d": cny_usd.get("change_1d", "N/A"),
                 "mtd": cny_usd.get("mtd", "N/A"),
                 "ytd": cny_usd.get("ytd", "N/A"),
                 "source": "Derived from Yahoo Finance CNY/USD and USD/QAR",
             })
-            print(f"    CNY/QAR derived: {round(c * q, 4)}")
+            print(f"    CNY/QAR derived: {cny_qar}")
 
     # Remove Gold (USD) from final display
     data["commodities"] = [r for r in comm if r["name"] != "Gold (USD)"]
@@ -274,18 +288,87 @@ def fetch_news(feed_list: list[dict]) -> list[dict]:
         try:
             feed = feedparser.parse(feed_cfg["url"])
             for entry in feed.entries[: feed_cfg["max"]]:
-                summary = getattr(entry, "summary", "")
-                summary = re.sub(r"<[^>]+>", "", summary).strip()
+                title = _clean_text(entry.get("title", ""))
+                summary = _clean_text(getattr(entry, "summary", ""))
+                link = entry.get("link", "")
+                published = entry.get("published", "")
+
+                if not title:
+                    continue
+
                 items.append({
                     "source": feed_cfg["source"],
-                    "title": entry.get("title", ""),
-                    "summary": summary[:400],
-                    "link": entry.get("link", ""),
-                    "published": entry.get("published", ""),
+                    "title": title,
+                    "summary": summary[:500],
+                    "link": link,
+                    "published": published,
                 })
         except Exception as e:
             print(f"[WARN] RSS {feed_cfg['source']}: {e}")
     return items
+
+
+def dedupe_news(items: list[dict]) -> list[dict]:
+    seen = set()
+    out = []
+    for item in items:
+        key = re.sub(r"[^a-z0-9]+", "", item.get("title", "").lower())[:120]
+        if not key or key in seen:
+            continue
+        seen.add(key)
+        out.append(item)
+    return out
+
+
+def fetch_qatar_news() -> list[dict]:
+    """
+    Primary source: Peninsula + Qatar Tribune RSS
+    Fallback source: Google News RSS for Qatar business/economy
+    """
+    primary = dedupe_news(fetch_news(NEWS_FEEDS["qatar_primary"]))
+    if len(primary) >= 4:
+        print(f"    Qatar primary news found: {len(primary)}")
+        return primary[:8]
+
+    print(f"[WARN] Qatar primary news insufficient: {len(primary)}. Using fallback.")
+    fallback = dedupe_news(fetch_news(NEWS_FEEDS["qatar_fallback"]))
+
+    merged = dedupe_news(primary + fallback)
+
+    if not merged:
+        print("[WARN] Qatar news completely unavailable, injecting fallback placeholders.")
+        merged = [
+            {
+                "source": "System Fallback",
+                "title": "Qatar economic activity updates pending live source refresh",
+                "summary": "Primary and fallback Qatar news feeds returned no usable items in this cycle.",
+                "link": "",
+                "published": "",
+            },
+            {
+                "source": "System Fallback",
+                "title": "Qatar business headlines temporarily unavailable",
+                "summary": "Dashboard and PDF fallback card inserted to avoid empty news section.",
+                "link": "",
+                "published": "",
+            },
+            {
+                "source": "System Fallback",
+                "title": "Qatar market news feed reconnect in progress",
+                "summary": "Live Qatar-specific sources did not return articles during this run.",
+                "link": "",
+                "published": "",
+            },
+            {
+                "source": "System Fallback",
+                "title": "Qatar macro and corporate news source retry scheduled",
+                "summary": "The next workflow run will attempt source refresh automatically.",
+                "link": "",
+                "published": "",
+            },
+        ]
+
+    return merged[:8]
 
 
 def summarise_news(raw_items: list[dict], scope: str, count: int) -> list[dict]:
@@ -300,50 +383,125 @@ def summarise_news(raw_items: list[dict], scope: str, count: int) -> list[dict]:
     )
 
     system = (
-        "You are a financial news editor for a Gulf bank's daily Market Intelligence report. "
-        "Select the most market-relevant stories. Return ONLY valid JSON."
+        "You are a financial news editor for a Gulf bank daily market intelligence report. "
+        "Return only valid JSON. Select the most relevant stories and produce clean metric boxes."
     )
 
     prompt = f"""
-From the following {scope} news headlines, select the {count} most market-relevant stories.
-For each, return a JSON object with these exact keys:
-headline, summary, source, url, metric, metric_label
+From the following {scope} news items, select the {count} most market-relevant stories.
+
+Return a JSON array of exactly {count} objects.
+
+Each object must contain exactly these keys:
+- headline
+- summary
+- source
+- url
+- metric
+- metric_label
 
 Rules:
-- headline max 10 words
-- summary max 40 words
-- metric max 8 characters
-- return exactly {count} objects
-- no markdown fences
-- no extra keys
+- headline: maximum 10 words
+- summary: maximum 40 words
+- source: publication/source name
+- url: original article URL
+- metric: must be a short meaningful signal, for example HIGH, +6%, $107.74, 2.7x, 1 Apr, Tax, QIB, Oil
+- metric_label: short explanation of the metric
+- Do NOT use "—" unless absolutely impossible
+- No markdown fences
+- No preamble
 
-Headlines:
+News:
 {headlines_txt}
 """
 
     try:
         response = client.messages.create(
             model="claude-sonnet-4-20250514",
-            max_tokens=1400,
+            max_tokens=1600,
             system=system,
             messages=[{"role": "user", "content": prompt}],
         )
         text = response.content[0].text.strip()
         text = re.sub(r"```json|```", "", text).strip()
-        return json.loads(text)
+        parsed = json.loads(text)
+
+        if not isinstance(parsed, list):
+            raise ValueError("Claude did not return a list")
+
+        cleaned = []
+        for item in parsed[:count]:
+            cleaned.append({
+                "headline": item.get("headline", "")[:120],
+                "summary": item.get("summary", "")[:240],
+                "source": item.get("source", ""),
+                "url": item.get("url", ""),
+                "metric": item.get("metric", "")[:16] or "NEWS",
+                "metric_label": item.get("metric_label", "")[:32] or "Signal",
+            })
+
+        while len(cleaned) < count:
+            cleaned.append({
+                "headline": raw_items[len(cleaned)].get("title", "Market update")[:120] if len(raw_items) > len(cleaned) else "Market update",
+                "summary": raw_items[len(cleaned)].get("summary", "Latest development relevant to markets.")[:240] if len(raw_items) > len(cleaned) else "Latest development relevant to markets.",
+                "source": raw_items[len(cleaned)].get("source", "Feed") if len(raw_items) > len(cleaned) else "Feed",
+                "url": raw_items[len(cleaned)].get("link", "") if len(raw_items) > len(cleaned) else "",
+                "metric": "NEWS",
+                "metric_label": "Signal",
+            })
+
+        return cleaned[:count]
+
     except Exception as e:
         print(f"[WARN] Claude summarisation failed ({scope}): {e}")
-        return [
-            {
-                "headline": item["title"][:60],
-                "summary": item["summary"][:120],
-                "source": item["source"],
-                "url": item["link"],
-                "metric": "—",
-                "metric_label": "",
-            }
-            for item in raw_items[:count]
-        ]
+
+        fallback = []
+        for item in raw_items[:count]:
+            source = item.get("source", "Feed")
+            title = item.get("title", "")[:120]
+            summary = item.get("summary", "")[:240]
+
+            metric = source.upper()[:8] if source else "NEWS"
+            metric_label = "Source"
+
+            # light business-specific metric heuristics
+            title_lower = title.lower()
+            summary_lower = summary.lower()
+            blob = f"{title_lower} {summary_lower}"
+
+            if "oil" in blob or "brent" in blob or "wti" in blob:
+                metric = "OIL"
+                metric_label = "Energy"
+            elif "bank" in blob or "qnb" in blob or "qib" in blob or "cbq" in blob:
+                metric = "BANK"
+                metric_label = "Financials"
+            elif "tax" in blob:
+                metric = "TAX"
+                metric_label = "Policy"
+            elif "qatar" in blob:
+                metric = "QATAR"
+                metric_label = "Domestic"
+
+            fallback.append({
+                "headline": title,
+                "summary": summary or "Latest development relevant to markets.",
+                "source": source,
+                "url": item.get("link", ""),
+                "metric": metric,
+                "metric_label": metric_label,
+            })
+
+        while len(fallback) < count:
+            fallback.append({
+                "headline": "Market update",
+                "summary": "Latest development relevant to markets.",
+                "source": "Feed",
+                "url": "",
+                "metric": "NEWS",
+                "metric_label": "Signal",
+            })
+
+        return fallback[:count]
 
 
 def build_kpis(market_data: dict) -> list[dict]:
@@ -433,12 +591,13 @@ def run() -> dict:
 
     if cfg["sections"].get("global_news", True):
         print("  · global news")
-        raw_global = fetch_news(NEWS_FEEDS["global"])
+        raw_global = dedupe_news(fetch_news(NEWS_FEEDS["global"]))
         data["global_news"] = summarise_news(raw_global, "regional & global", 6)
 
     if cfg["sections"].get("qatar_news", True):
         print("  · qatar news")
-        raw_qatar = fetch_news(NEWS_FEEDS["qatar"])
+        raw_qatar = fetch_qatar_news()
+        print(f"    Qatar raw items available: {len(raw_qatar)}")
         data["qatar_news"] = summarise_news(raw_qatar, "qatar", 4)
 
     data["kpis"] = build_kpis(data)
