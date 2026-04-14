@@ -1,3 +1,4 @@
+import json
 import os
 import datetime
 import requests
@@ -7,9 +8,7 @@ from supabase_client import get_supabase
 
 MAKE_WEBHOOK_URL = os.environ["MAKE_WEBHOOK_URL"]
 REPORT_DATE = datetime.date.today().strftime("%d %B %Y")
-GITHUB_OWNER = os.environ.get("GITHUB_OWNER", "wiekan-ou")
-GITHUB_REPO = os.environ.get("GITHUB_REPO", "doha-bank-mi")
-PDF_URL = f"https://raw.githubusercontent.com/{GITHUB_OWNER}/{GITHUB_REPO}/main/report.pdf"
+SIGNED_URL_FILE = "signed_pdf_url.json"
 
 
 def load_active_numbers() -> list[dict]:
@@ -30,8 +29,8 @@ def load_active_numbers() -> list[dict]:
 
 def normalize_number(number: str) -> str:
     """
-    Keep international format only.
-    Valid examples:
+    Require strict international format only.
+    Example:
       +97455512345
       +96170123456
       +447700900123
@@ -41,15 +40,29 @@ def normalize_number(number: str) -> str:
 
     number = number.strip().replace(" ", "")
 
-    # Must start with +
     if not number.startswith("+"):
         return ""
 
-    # Must be + followed by digits only, reasonable length
     if not re.fullmatch(r"\+\d{8,15}", number):
         return ""
 
     return number
+
+
+def load_signed_pdf_url() -> str:
+    if not os.path.exists(SIGNED_URL_FILE):
+        print(f"[ERROR] Signed URL file not found: {SIGNED_URL_FILE}")
+        raise SystemExit(1)
+
+    with open(SIGNED_URL_FILE, "r", encoding="utf-8") as f:
+        data = json.load(f)
+
+    url = data.get("signed_url", "").strip()
+    if not url:
+        print("[ERROR] signed_url missing in signed_pdf_url.json")
+        raise SystemExit(1)
+
+    return url
 
 
 def send():
@@ -58,6 +71,9 @@ def send():
     if not recipients:
         print("[WARN] No active WhatsApp recipients found in Supabase")
         return
+
+    pdf_url = load_signed_pdf_url()
+    print(f"[INFO] Using signed PDF URL: {pdf_url}")
 
     caption = (
         f"Doha Bank Market Intelligence\n"
@@ -85,7 +101,7 @@ def send():
             "to": number,
             "name": name,
             "report_date": REPORT_DATE,
-            "pdf_url": PDF_URL,
+            "pdf_url": pdf_url,
             "caption": caption,
         }
 
