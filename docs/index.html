@@ -12,81 +12,410 @@
       --navy:#0d2c5e;
       --cyan:#00aeef;
       --border:#b9d2ef;
-      --bg:#eef3f9;
       --card:#ffffff;
       --text:#17324d;
       --muted:#6b86a3;
       --green:#1a7a45;
       --red:#c0392b;
+      --bg:#dfe6ee;
+      --light:#f8fbff;
     }
     *{box-sizing:border-box}
-    body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#dfe6ee;color:var(--text)}
-    .topbar{background:var(--navy);color:#fff;padding:14px 20px;border-bottom:4px solid var(--cyan);display:flex;align-items:center;justify-content:space-between;gap:16px}
-    .brand{display:flex;align-items:center;gap:18px;min-width:0}
-    .logo{width:62px;height:62px;border-radius:12px;background:#fff;border:3px solid var(--cyan);display:flex;align-items:center;justify-content:center;color:var(--blue2);font-weight:700;font-size:22px;flex:0 0 auto}
-    .brand-text{display:flex;align-items:center;gap:18px;min-width:0}
-    .brand-bank{display:flex;flex-direction:column;line-height:1.05;padding-right:18px;border-right:2px solid rgba(255,255,255,.18);flex:0 0 auto}
-    .brand-bank .ar{font-size:14px;opacity:.9}
-    .brand-bank .en{font-size:18px;font-weight:700;letter-spacing:.8px}
-    .brand-title{font-size:18px;font-weight:700;letter-spacing:.6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-    .btn{border:none;border-radius:10px;background:var(--blue2);color:#fff;padding:12px 18px;font-weight:700;cursor:pointer}
+    body{
+      margin:0;
+      font-family:Arial, Helvetica, sans-serif;
+      background:var(--bg);
+      color:var(--text);
+    }
+    .topbar{
+      background:var(--navy);
+      color:#fff;
+      padding:14px 20px;
+      border-bottom:4px solid var(--cyan);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:18px;
+      min-width:0;
+    }
+    .logo{
+      width:62px;
+      height:62px;
+      border-radius:12px;
+      background:#fff;
+      border:3px solid var(--cyan);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:var(--blue2);
+      font-weight:700;
+      font-size:22px;
+      flex:0 0 auto;
+    }
+    .brand-text{
+      display:flex;
+      align-items:center;
+      gap:18px;
+      min-width:0;
+    }
+    .brand-bank{
+      display:flex;
+      flex-direction:column;
+      line-height:1.05;
+      padding-right:18px;
+      border-right:2px solid rgba(255,255,255,.18);
+      flex:0 0 auto;
+    }
+    .brand-bank .ar{
+      font-size:14px;
+      opacity:.9;
+    }
+    .brand-bank .en{
+      font-size:18px;
+      font-weight:700;
+      letter-spacing:.8px;
+    }
+    .brand-title{
+      font-size:18px;
+      font-weight:700;
+      letter-spacing:.6px;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+
+    .btn{
+      border:none;
+      border-radius:10px;
+      background:var(--blue2);
+      color:#fff;
+      padding:12px 18px;
+      font-weight:700;
+      cursor:pointer;
+    }
     .btn.gray{background:#7f8b99}
     .btn.small{padding:8px 12px;border-radius:8px;font-size:13px}
     .btn.red{background:#b64035}
-    .btn.outline{background:#fff;color:var(--blue2);border:1px solid var(--border)}
-    .tabs{display:flex;gap:8px;background:#f6f8fb;border-bottom:1px solid var(--border);padding:0 14px;overflow:auto}
-    .tab{padding:18px 16px 16px;color:#4e6d90;font-size:15px;font-weight:700;border-bottom:3px solid transparent;cursor:pointer;white-space:nowrap}
-    .tab.active{color:var(--blue2);border-bottom-color:var(--blue2)}
-    .page{padding:22px}
-    .card{background:var(--card);border:2px solid var(--border);border-radius:14px;padding:18px;box-shadow:0 1px 0 rgba(0,0,0,.02)}
-    .mb16{margin-bottom:16px}
-    .grid{display:grid;gap:18px}
-    .data-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-    .meta-row{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px;color:var(--muted);font-size:13px}
-    .live{color:var(--green);font-weight:700}
-    .kpis{display:grid;grid-template-columns:repeat(6, 1fr);gap:10px;margin-bottom:14px}
-    .kpi{background:#fff;border:2px solid var(--border);border-top:4px solid var(--cyan);border-radius:8px;padding:10px 10px 8px;min-height:72px}
-    .kpi .value{font-size:28px;font-weight:700;color:var(--navy);line-height:1;margin-bottom:6px}
-    .kpi .label{font-size:13px;font-weight:700;color:var(--navy);margin-bottom:4px}
-    .kpi .sub{font-size:11px;color:var(--muted);line-height:1.2}
-    .panel-title{color:var(--navy);font-size:15px;font-weight:700;text-transform:uppercase;letter-spacing:1.6px;margin-bottom:10px;display:flex;align-items:center;gap:10px}
-    .panel-title::before{content:"";width:3px;height:20px;background:var(--cyan);border-radius:2px;display:block}
-    table{width:100%;border-collapse:collapse;table-layout:fixed}
-    th{background:var(--navy);color:#fff;font-size:12px;padding:8px;text-align:right}
-    th:first-child, td:first-child{text-align:left}
-    td{font-size:12px;padding:7px 8px;border-bottom:1px solid #d7e3f2;text-align:right;background:#fff}
-    tr:nth-child(even) td{background:#f8fbff}
+    .btn.outline{
+      background:#fff;
+      color:var(--blue2);
+      border:1px solid var(--border);
+    }
+
+    .tabs{
+      display:flex;
+      gap:8px;
+      background:#f6f8fb;
+      border-bottom:1px solid var(--border);
+      padding:0 14px;
+      overflow:auto;
+    }
+    .tab{
+      padding:18px 16px 16px;
+      color:#4e6d90;
+      font-size:15px;
+      font-weight:700;
+      border-bottom:3px solid transparent;
+      cursor:pointer;
+      white-space:nowrap;
+    }
+    .tab.active{
+      color:var(--blue2);
+      border-bottom-color:var(--blue2);
+    }
+
+    .page{
+      padding:22px;
+    }
+    .card{
+      background:var(--card);
+      border:2px solid var(--border);
+      border-radius:14px;
+      padding:18px;
+      box-shadow:0 1px 0 rgba(0,0,0,.02);
+    }
+
+    .meta-row{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      margin-bottom:14px;
+      color:var(--muted);
+      font-size:13px;
+    }
+    .live{
+      color:var(--green);
+      font-weight:700;
+    }
+
+    .kpis{
+      display:grid;
+      grid-template-columns:repeat(6, 1fr);
+      gap:10px;
+      margin-bottom:14px;
+    }
+    .kpi{
+      background:#fff;
+      border:2px solid var(--border);
+      border-top:4px solid var(--cyan);
+      border-radius:8px;
+      padding:10px 10px 8px;
+      min-height:72px;
+    }
+    .kpi .value{
+      font-size:28px;
+      font-weight:700;
+      color:var(--navy);
+      line-height:1;
+      margin-bottom:6px;
+    }
+    .kpi .label{
+      font-size:13px;
+      font-weight:700;
+      color:var(--navy);
+      margin-bottom:4px;
+    }
+    .kpi .sub{
+      font-size:11px;
+      color:var(--muted);
+      line-height:1.2;
+    }
+
+    .panel-title{
+      color:var(--navy);
+      font-size:15px;
+      font-weight:700;
+      text-transform:uppercase;
+      letter-spacing:1.6px;
+      margin-bottom:10px;
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+    .panel-title::before{
+      content:"";
+      width:3px;
+      height:20px;
+      background:var(--cyan);
+      border-radius:2px;
+      display:block;
+    }
+
+    .data-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:16px;
+    }
+    .grid{
+      display:grid;
+      gap:18px;
+    }
+
+    table{
+      width:100%;
+      border-collapse:collapse;
+      table-layout:fixed;
+    }
+    th{
+      background:var(--navy);
+      color:#fff;
+      font-size:12px;
+      padding:8px;
+      text-align:right;
+    }
+    th:first-child, td:first-child{
+      text-align:left;
+    }
+    td{
+      font-size:12px;
+      padding:7px 8px;
+      border-bottom:1px solid #d7e3f2;
+      text-align:right;
+      background:#fff;
+    }
+    tr:nth-child(even) td{
+      background:var(--light);
+    }
     .pos{color:var(--green);font-weight:700}
     .neg{color:var(--red);font-weight:700}
     .neu{color:#5f7d9d;font-weight:700}
-    .empty{text-align:center;color:var(--muted);padding:36px 16px}
-    .news-section{margin-top:18px}
-    .news-grid-6{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-    .news-card{border:2px solid var(--border);background:#fff;min-height:102px;display:grid;grid-template-columns:1fr 82px;border-radius:4px;overflow:hidden}
-    .news-body{padding:10px 12px}
-    .news-head{font-size:13px;font-weight:700;color:#1f344f;line-height:1.2;margin-bottom:6px}
-    .news-src{font-size:11px;font-weight:700;color:var(--blue2);margin-bottom:5px}
-    .news-sum{font-size:11px;color:#5b7593;line-height:1.25}
-    .news-metric{background:#f8fafc;border-left:1px solid #d6e2f0;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:6px;text-align:center}
-    .news-metric .metric{color:var(--blue2);font-weight:700;font-size:15px;line-height:1.05;margin-bottom:4px}
-    .news-metric .metric-label{color:#7a8da5;font-size:10px;line-height:1.15}
-    .split{display:grid;grid-template-columns:1fr 1fr;gap:26px}
-    .subcard{border:2px solid var(--border);border-radius:12px;background:#fff;padding:18px}
-    .subcard h3{margin:0 0 16px;color:var(--navy);font-size:17px;font-weight:800;text-transform:uppercase}
-    .recipient-form{display:grid;grid-template-columns:1.2fr 1.2fr .55fr auto;gap:10px;margin-top:14px}
-    .recipient-form.email{grid-template-columns:1fr 1.2fr auto}
-    input, select{width:100%;padding:12px 14px;border:2px solid var(--border);border-radius:10px;font-size:14px;outline:none;background:#fff}
-    .pill{display:inline-block;padding:5px 10px;border-radius:999px;font-size:12px;font-weight:700;background:#eaf8ef;color:var(--green)}
-    .pill.off{background:#fdeceb;color:var(--red)}
-    .actions{display:flex;gap:8px;justify-content:flex-end;flex-wrap:wrap}
-    .log-list{display:grid;gap:10px}
-    .log-item{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px;border:2px solid var(--border);border-radius:12px;background:#fff}
-    .log-item .left{display:flex;flex-direction:column;gap:4px}
-    .log-item .title{font-weight:700;color:var(--navy)}
-    .log-item .meta{color:var(--muted);font-size:13px}
-    .notice{font-size:13px;color:#6b7f95;margin-top:8px}
-    @media (max-width: 1200px){.kpis{grid-template-columns:repeat(3,1fr)}.data-grid{grid-template-columns:1fr}.split{grid-template-columns:1fr}}
-    @media (max-width: 800px){.kpis{grid-template-columns:repeat(2,1fr)}.news-grid-6{grid-template-columns:1fr}.recipient-form,.recipient-form.email{grid-template-columns:1fr}.brand-title{display:none}.page{padding:14px}.topbar{padding:12px 14px}}
+    .empty{
+      text-align:center;
+      color:var(--muted);
+      padding:36px 16px;
+    }
+
+    .news-section{
+      margin-top:18px;
+    }
+    .news-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:10px;
+    }
+    .news-card{
+      border:2px solid var(--border);
+      background:#fff;
+      min-height:102px;
+      display:grid;
+      grid-template-columns:1fr 82px;
+      border-radius:4px;
+      overflow:hidden;
+    }
+    .news-body{
+      padding:10px 12px;
+    }
+    .news-head{
+      font-size:13px;
+      font-weight:700;
+      color:#1f344f;
+      line-height:1.2;
+      margin-bottom:6px;
+    }
+    .news-src{
+      font-size:11px;
+      font-weight:700;
+      color:var(--blue2);
+      margin-bottom:5px;
+    }
+    .news-sum{
+      font-size:11px;
+      color:#5b7593;
+      line-height:1.25;
+    }
+    .news-metric{
+      background:#f8fafc;
+      border-left:1px solid #d6e2f0;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      padding:6px;
+      text-align:center;
+    }
+    .news-metric .metric{
+      color:var(--blue2);
+      font-weight:700;
+      font-size:15px;
+      line-height:1.05;
+      margin-bottom:4px;
+    }
+    .news-metric .metric-label{
+      color:#7a8da5;
+      font-size:10px;
+      line-height:1.15;
+    }
+
+    .split{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:26px;
+    }
+    .subcard{
+      border:2px solid var(--border);
+      border-radius:12px;
+      background:#fff;
+      padding:18px;
+    }
+    .subcard h3{
+      margin:0 0 16px;
+      color:var(--navy);
+      font-size:17px;
+      font-weight:800;
+      text-transform:uppercase;
+    }
+
+    .recipient-form{
+      display:grid;
+      grid-template-columns:1.2fr 1.2fr .55fr auto;
+      gap:10px;
+      margin-top:14px;
+    }
+    .recipient-form.email{
+      grid-template-columns:1fr 1.2fr auto;
+    }
+    input, select{
+      width:100%;
+      padding:12px 14px;
+      border:2px solid var(--border);
+      border-radius:10px;
+      font-size:14px;
+      outline:none;
+      background:#fff;
+    }
+    .pill{
+      display:inline-block;
+      padding:5px 10px;
+      border-radius:999px;
+      font-size:12px;
+      font-weight:700;
+      background:#eaf8ef;
+      color:var(--green);
+    }
+    .pill.off{
+      background:#fdeceb;
+      color:var(--red);
+    }
+    .actions{
+      display:flex;
+      gap:8px;
+      justify-content:flex-end;
+      flex-wrap:wrap;
+    }
+
+    .log-list{
+      display:grid;
+      gap:10px;
+    }
+    .log-item{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      padding:14px;
+      border:2px solid var(--border);
+      border-radius:12px;
+      background:#fff;
+    }
+    .log-item .left{
+      display:flex;
+      flex-direction:column;
+      gap:4px;
+    }
+    .log-item .title{
+      font-weight:700;
+      color:var(--navy);
+    }
+    .log-item .meta{
+      color:var(--muted);
+      font-size:13px;
+    }
+    .notice{
+      font-size:13px;
+      color:#6b7f95;
+      margin-top:8px;
+    }
+
+    @media (max-width: 1200px){
+      .kpis{grid-template-columns:repeat(3,1fr)}
+      .data-grid{grid-template-columns:1fr}
+      .split{grid-template-columns:1fr}
+    }
+    @media (max-width: 800px){
+      .kpis{grid-template-columns:repeat(2,1fr)}
+      .news-grid{grid-template-columns:1fr}
+      .recipient-form,
+      .recipient-form.email{grid-template-columns:1fr}
+      .brand-title{display:none}
+      .page{padding:14px}
+      .topbar{padding:12px 14px}
+    }
   </style>
 </head>
 <body>
@@ -219,8 +548,8 @@
               <div class="news-sum">${escapeHtml(item.summary || "")}</div>
             </div>
             <div class="news-metric">
-              <div class="metric">${escapeHtml(item.metric || "—")}</div>
-              <div class="metric-label">${escapeHtml(item.metric_label || "")}</div>
+              <div class="metric">${escapeHtml(item.metric || "NEWS")}</div>
+              <div class="metric-label">${escapeHtml(item.metric_label || "Signal")}</div>
             </div>
           </div>
         `).join("")
@@ -229,7 +558,7 @@
       return `
         <div class="news-section card">
           <div class="panel-title">${escapeHtml(title)}</div>
-          <div class="news-grid-6">${cards}</div>
+          <div class="news-grid">${cards}</div>
         </div>
       `;
     }
@@ -311,7 +640,7 @@
         <div class="split">
           <div class="subcard">
             <h3>WhatsApp Recipients (${waActive} Active)</h3>
-            <table class="mb16">
+            <table>
               <thead>
                 <tr>
                   <th style="text-align:left">Name</th>
@@ -323,11 +652,11 @@
               <tbody>${recipientRows(waRecipients, "whatsapp")}</tbody>
             </table>
 
-            <div class="subcard" style="padding:18px;">
+            <div class="subcard" style="padding:18px;margin-top:18px;">
               <h3 style="margin-top:0;">Add WhatsApp Recipient</h3>
               <div class="recipient-form">
                 <input id="waName" placeholder="Full name" />
-                <input id="waNumber" placeholder="Number, example +97455512345" />
+                <input id="waNumber" placeholder="Number in full international format, example +96170123456" />
                 <select id="waTier">
                   <option value="HNWI">HNWI</option>
                   <option value="VIP">VIP</option>
@@ -340,7 +669,7 @@
 
           <div class="subcard">
             <h3>Email Recipients (${emActive} Active)</h3>
-            <table class="mb16">
+            <table>
               <thead>
                 <tr>
                   <th style="text-align:left">Name</th>
@@ -352,7 +681,7 @@
               <tbody>${recipientRows(emailRecipients, "email")}</tbody>
             </table>
 
-            <div class="subcard" style="padding:18px;">
+            <div class="subcard" style="padding:18px;margin-top:18px;">
               <h3 style="margin-top:0;">Add Email Recipient</h3>
               <div class="recipient-form email">
                 <input id="emName" placeholder="Full name" />
@@ -463,7 +792,7 @@
 
     async function addWhatsAppRecipient() {
       const name = document.getElementById("waName").value.trim();
-      let phone = document.getElementById("waNumber").value.trim();
+      const phone = document.getElementById("waNumber").value.trim().replace(/\s+/g, "");
       const tier = document.getElementById("waTier").value;
 
       if (!name || !phone) {
@@ -471,8 +800,10 @@
         return;
       }
 
-      if (!phone.startsWith("+")) {
-        phone = "+" + phone.replace(/^\+/, "");
+      const phoneRegex = /^\+\d{8,15}$/;
+      if (!phoneRegex.test(phone)) {
+        alert("WhatsApp number must be in full international format, starting with + followed by country code and number. Example: +96170123456");
+        return;
       }
 
       const { error } = await sb.from("recipients").insert({
@@ -500,6 +831,12 @@
 
       if (!name || !email) {
         alert("Please enter name and email.");
+        return;
+      }
+
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email)) {
+        alert("Please enter a valid email address.");
         return;
       }
 
