@@ -15,7 +15,7 @@
       "qatar_news": true
     }
   },
-  "generated_at": "2026-04-14T09:06:08.520380",
+  "generated_at": "2026-04-14T10:52:56.695101",
   "global_indices": [
     {
       "name": "US S&P 500",
@@ -29,10 +29,10 @@
     {
       "name": "UK FTSE 100",
       "ticker": "^FTSE",
-      "px_last": 10606.76,
-      "change_1d": "+0.2%",
-      "mtd": "+2.3%",
-      "ytd": "+6.6%",
+      "px_last": 10585.64,
+      "change_1d": "+0.0%",
+      "mtd": "+2.1%",
+      "ytd": "+6.4%",
       "source": "Yahoo Finance"
     },
     {
@@ -47,10 +47,10 @@
     {
       "name": "Germany DAX",
       "ticker": "^GDAXI",
-      "px_last": 24003.57,
-      "change_1d": "+1.1%",
-      "mtd": "+3.0%",
-      "ytd": "-2.2%",
+      "px_last": 23959.01,
+      "change_1d": "+0.9%",
+      "mtd": "+2.8%",
+      "ytd": "-2.4%",
       "source": "Yahoo Finance"
     },
     {
@@ -85,10 +85,10 @@
     {
       "name": "Saudi Tadawul",
       "ticker": "^TASI.SR",
-      "px_last": 11452.26,
-      "change_1d": "+0.2%",
-      "mtd": "+1.6%",
-      "ytd": "+8.6%",
+      "px_last": 11474.25,
+      "change_1d": "+0.4%",
+      "mtd": "+1.8%",
+      "ytd": "+8.8%",
       "source": "Yahoo Finance"
     },
     {
@@ -132,46 +132,46 @@
     {
       "name": "USD Index",
       "ticker": "DX-Y.NYB",
-      "px_last": 98.21,
-      "change_1d": "-0.2%",
-      "mtd": "-1.4%",
-      "ytd": "-0.2%",
+      "px_last": 98.11,
+      "change_1d": "-0.3%",
+      "mtd": "-1.5%",
+      "ytd": "-0.3%",
       "source": "Yahoo Finance"
     },
     {
       "name": "EUR/USD",
       "ticker": "EURUSD=X",
       "px_last": 1.18,
-      "change_1d": "+1.0%",
+      "change_1d": "+1.1%",
       "mtd": "+1.9%",
-      "ytd": "+0.3%",
+      "ytd": "+0.4%",
       "source": "Yahoo Finance"
     },
     {
       "name": "GBP/USD",
       "ticker": "GBPUSD=X",
-      "px_last": 1.35,
-      "change_1d": "+1.1%",
-      "mtd": "+2.3%",
-      "ytd": "+0.5%",
+      "px_last": 1.36,
+      "change_1d": "+1.2%",
+      "mtd": "+2.4%",
+      "ytd": "+0.6%",
       "source": "Yahoo Finance"
     },
     {
       "name": "CHF/USD",
       "ticker": "CHFUSD=X",
-      "px_last": 1.28,
-      "change_1d": "+1.6%",
-      "mtd": "+2.2%",
-      "ytd": "+1.5%",
+      "px_last": 1.26,
+      "change_1d": "-0.2%",
+      "mtd": "+0.6%",
+      "ytd": "-0.1%",
       "source": "Yahoo Finance"
     },
     {
       "name": "USD/JPY",
       "ticker": "JPY=X",
-      "px_last": 159.68,
-      "change_1d": "+0.4%",
-      "mtd": "+0.7%",
-      "ytd": "+1.9%",
+      "px_last": 158.83,
+      "change_1d": "-0.5%",
+      "mtd": "+0.2%",
+      "ytd": "+1.3%",
       "source": "Yahoo Finance"
     },
     {
@@ -180,7 +180,7 @@
       "px_last": 0.15,
       "change_1d": "+0.2%",
       "mtd": "+1.2%",
-      "ytd": "+2.6%",
+      "ytd": "+2.7%",
       "source": "Yahoo Finance"
     }
   ],
@@ -227,7 +227,7 @@
       "px_last": 0.546,
       "change_1d": "+0.2%",
       "mtd": "+1.2%",
-      "ytd": "+2.6%",
+      "ytd": "+2.7%",
       "source": "Derived from Yahoo Finance CNY/USD and USD/QAR"
     }
   ],
@@ -236,18 +236,18 @@
       "name": "Doha",
       "ticker": "BRES.QA",
       "px_last": 2.36,
-      "change_1d": "+0.3%",
-      "mtd": "-1.3%",
-      "ytd": "-3.5%",
+      "change_1d": "+0.4%",
+      "mtd": "-1.1%",
+      "ytd": "-3.3%",
       "source": "Yahoo Finance"
     },
     {
       "name": "QNB",
       "ticker": "QNBK.QA",
-      "px_last": 17.97,
-      "change_1d": "+0.4%",
-      "mtd": "+5.1%",
-      "ytd": "-2.6%",
+      "px_last": 18.05,
+      "change_1d": "+0.9%",
+      "mtd": "+5.6%",
+      "ytd": "-2.1%",
       "source": "Yahoo Finance"
     },
     {
@@ -262,28 +262,28 @@
     {
       "name": "CBQ",
       "ticker": "CBQK.QA",
-      "px_last": 4.41,
-      "change_1d": "+1.7%",
-      "mtd": "+1.3%",
-      "ytd": "+10.9%",
+      "px_last": 4.4,
+      "change_1d": "+1.6%",
+      "mtd": "+1.1%",
+      "ytd": "+10.7%",
       "source": "Yahoo Finance"
     },
     {
       "name": "QIIB",
       "ticker": "QIIK.QA",
-      "px_last": 11.13,
-      "change_1d": "+0.1%",
-      "mtd": "+1.0%",
-      "ytd": "+0.3%",
+      "px_last": 11.1,
+      "change_1d": "-0.2%",
+      "mtd": "+0.7%",
+      "ytd": "-0.0%",
       "source": "Yahoo Finance"
     },
     {
       "name": "Al Rayan",
       "ticker": "MARK.QA",
       "px_last": 2.21,
-      "change_1d": "+0.6%",
-      "mtd": "+1.0%",
-      "ytd": "+5.7%",
+      "change_1d": "+0.7%",
+      "mtd": "+1.1%",
+      "ytd": "+5.8%",
       "source": "Yahoo Finance"
     },
     {
@@ -299,9 +299,9 @@
       "name": "Ahli",
       "ticker": "ABQK.QA",
       "px_last": 3.72,
-      "change_1d": "-0.5%",
-      "mtd": "-0.9%",
-      "ytd": "+5.8%",
+      "change_1d": "-0.3%",
+      "mtd": "-0.7%",
+      "ytd": "+6.0%",
       "source": "Yahoo Finance"
     }
   ],
@@ -309,28 +309,28 @@
     {
       "name": "Brent Crude",
       "ticker": "BZ=F",
-      "px_last": 98.2,
-      "change_1d": "-1.2%",
-      "mtd": "-2.9%",
-      "ytd": "+61.6%",
+      "px_last": 99.09,
+      "change_1d": "-0.3%",
+      "mtd": "-2.0%",
+      "ytd": "+63.1%",
       "source": "Yahoo Finance"
     },
     {
       "name": "Silver",
       "ticker": "SI=F",
-      "px_last": 78.1,
-      "change_1d": "+3.4%",
-      "mtd": "+2.9%",
-      "ytd": "+10.7%",
+      "px_last": 77.65,
+      "change_1d": "+2.8%",
+      "mtd": "+2.4%",
+      "ytd": "+10.1%",
       "source": "Yahoo Finance"
     },
     {
       "name": "Gold (QAR)",
       "ticker": "DERIVED",
-      "px_last": 17501.48,
-      "change_1d": "+1.4%",
-      "mtd": "+0.5%",
-      "ytd": "+11.4%",
+      "px_last": 17426.5,
+      "change_1d": "+1.0%",
+      "mtd": "+0.1%",
+      "ytd": "+11.0%",
       "source": "Derived from Yahoo Finance GC=F and USD/QAR"
     }
   ],
@@ -356,70 +356,103 @@
   ],
   "global_news": [
     {
-      "headline": "ECB's Rehn Says Rate Hike Not Self Evident",
-      "summary": "ECB official states Iran war inflation doesn't automatically justify rate hikes, policy path remains flexible and uncommitted.",
-      "source": "Bloomberg",
-      "url": "https://www.bloomberg.com/news/articles/2026-04-14/ecb-s-rehn-says-inflation-to-quicken-but-rate-path-not-locked-in",
-      "metric": "Rates",
-      "metric_label": "Policy"
-    },
-    {
-      "headline": "Sanctioned Tanker Tests Trump Hormuz Blockade",
-      "summary": "Chinese-linked sanctioned tanker exits Strait of Hormuz, challenging President Trump's naval blockade enforcement in critical shipping lane.",
+      "headline": "US-Sanctioned Tanker Tests Trump Blockade With Hormuz Exit",
+      "summary": "Chinese-linked sanctioned tanker sailed through Strait of Hormuz into Gulf of Oman, challenging President Trump's naval blockade enforcement.",
       "source": "Bloomberg",
       "url": "https://www.bloomberg.com/news/articles/2026-04-14/us-sanctioned-tanker-tests-trump-blockade-with-hormuz-transit",
-      "metric": "Oil",
-      "metric_label": "Transit"
+      "metric": "Hormuz",
+      "metric_label": "Strategic shipping lane"
     },
     {
-      "headline": "IEA: Gulf Can Resume Half Oil Fields Quickly",
-      "summary": "International Energy Agency says Gulf producers can restore 50% of shut oil fields within two weeks post-conflict.",
+      "headline": "BlackRock Pulls In $130 Billion Client Cash as ETFs",
+      "summary": "Asset manager attracted record quarterly inflows despite market volatility and Iran war uncertainty, driven by ETF demand.",
       "source": "Bloomberg",
-      "url": "https://www.bloomberg.com/news/articles/2026-04-14/iea-says-gulf-can-resume-half-of-shut-oil-fields-weeks-after-war",
-      "metric": "50%",
-      "metric_label": "Recovery"
+      "url": "https://www.bloomberg.com/news/articles/2026-04-14/blackrock-pulls-in-130-billion-of-client-cash-driven-by-etfs",
+      "metric": "$130B",
+      "metric_label": "Q1 net inflows"
     },
     {
-      "headline": "Stocks Rise Oil Falls on Iran Deal Optimism",
-      "summary": "Markets rally as US-Iran peace talks possibility boosts expectations for Middle East ceasefire and reduced geopolitical risk.",
+      "headline": "Emerging-Market Assets Rally on Iran War Resolution Bets",
+      "summary": "EM stocks recovered losses since Middle East war began as speculation grows about US-Iran peace talks.",
       "source": "Bloomberg",
-      "url": "https://www.bloomberg.com/news/articles/2026-04-13/stock-market-today-dow-s-p-live-updates",
-      "metric": "Up",
-      "metric_label": "Markets"
+      "url": "https://www.bloomberg.com/news/articles/2026-04-14/emerging-market-assets-rally-on-iran-war-resolution-bets",
+      "metric": "Rally",
+      "metric_label": "Peace talk speculation"
     },
     {
-      "headline": "Aluminum Hits Four Year High Amid Supply Deficit",
-      "summary": "Trump's Iran blockade drives aluminum to four-year peak, ING forecasts two million ton deficit with recovery taking months.",
+      "headline": "Malaysia's Fuel Subsidy Bill Swells to $1.8 Billion",
+      "summary": "Government fuel subsidy costs jumped ten-fold to $1.8 billion in April due to Iran war impact on energy prices.",
       "source": "Bloomberg",
-      "url": "https://www.bloomberg.com/news/videos/2026-04-14/aluminum-market-faces-two-million-tons-deficit-ing-says-video",
-      "metric": "4yr High",
-      "metric_label": "Price"
+      "url": "https://www.bloomberg.com/news/articles/2026-04-14/malaysia-s-fuel-subsidy-bill-swells-to-1-8-billion-in-april",
+      "metric": "$1.8B",
+      "metric_label": "April subsidy cost"
     },
     {
-      "headline": "JPMorgan Citi Results After Goldman Trading Miss",
-      "summary": "Major banks report earnings today following Goldman Sachs' surprise bond-trading revenue decline, market watches for sector trends.",
+      "headline": "German Solar Boom Saves Gas Use This Summer",
+      "summary": "Surging German solar generation will reduce LNG import demand, helping shield Europe from Iran war energy disruptions.",
       "source": "Bloomberg",
-      "url": "https://www.bloomberg.com/news/videos/2026-04-14/jpmorgan-citi-to-report-after-goldman-s-bond-desk-miss-video",
-      "metric": "Earnings",
-      "metric_label": "Banks"
+      "url": "https://www.bloomberg.com/news/articles/2026-04-14/german-solar-boom-saves-nine-lng-cargoes-to-ease-iran-war-shock",
+      "metric": "LNG Cut",
+      "metric_label": "Energy security boost"
+    },
+    {
+      "headline": "Israel and Lebanon Set for US Peace Talks",
+      "summary": "Lebanon to begin US-hosted negotiations with Israel seeking pause in Hezbollah conflict as regional tensions persist.",
+      "source": "Bloomberg",
+      "url": "https://www.bloomberg.com/news/videos/2026-04-14/israel-and-lebanon-set-for-us-talks-video",
+      "metric": "US Talks",
+      "metric_label": "Ceasefire negotiations"
     }
   ],
-  "qatar_news": [],
+  "qatar_news": [
+    {
+      "headline": "Qatar's economy grows 3.7% in Q1 2025",
+      "summary": "Qatar reports strong economic performance with 3.7% growth in first quarter of 2025, indicating robust economic momentum.",
+      "source": "Gulf Business",
+      "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTFBXbGk5UnV6SU45VUE0SndOTDJMYUo5bDd1UlRoWWoxREZwNTlJN0RQQVNJcGxEMV9wRjd0T0V4aE1kVjUtN3pzZEpya016cDNub2U3di1DZTFEbk5pbDRfLW5rR1Vic1JjNnctSmMyWmNXYkdHNUk1d1hPWjE?oc=5",
+      "metric": "+3.7%",
+      "metric_label": "Q1 GDP growth"
+    },
+    {
+      "headline": "Qatar can keep goods flowing amid tensions",
+      "summary": "Qatar's customs chief assures continued trade flow capabilities despite regional geopolitical tensions affecting Gulf supply chains.",
+      "source": "Al Jazeera",
+      "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxOdE9jQXZ0NHpNWlFqRkZwM2R1YTBjSXExLWRUNnR2amZMazZhM3hmeWxYU2lIa1U1VUxNdVNvNE1pY3o3TWpveXRsMnIzc2w1ZVZwUGpuSEJFcExsTVg4ZVp6cFZ5dDJaQV9wZEc2bHJ2Y0VlTXZ5Q1NiZUdzbWxTWDJadTdxVUVJWjFJc3FHTTh5MG81bGp2VGc1TXdVamdURTRvWEFkOE3SAa4BQVVfeXFMUHotOS1YNV9GYUVBd2xIemItSndrVXFneEkzQ0tXT0FvOG9mbHcydFVfeWFiek9wNklIQzZ1aFlDbTBUYVRUWlZVbHBFbW1nN2JsRms5QzZLM2dCZWpWMTVYcHg1N3VCRDQ4eTNHcTl1OVctNjlqUVZHUWpJSzYtSmExVHpDS3V6dVM4NjY2cGVPQnhWRE1ZLVNJRkNwa2dRZVBxYk1VaDExRUh3bFhR?oc=5",
+      "metric": "Trade",
+      "metric_label": "Supply chain resilience"
+    },
+    {
+      "headline": "Qatar Airways expands operations out of Doha",
+      "summary": "National carrier restarts additional services from Doha hub, expanding international connectivity and boosting aviation sector recovery.",
+      "source": "Economy Class & Beyond",
+      "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxOWFJHbk1iU0ZOTXU5aVZDZmpfZzZWY0tnN0lYSVJlMnR0R3BsMTJ2NjRqV2lYeGV6b1Qtbk1JVkNNNXBUS2dXOVhQellVQ1lCYURNcXhBZFYwVFd2UF9lU1Q3YlVNYlBoWHBMOXEwZTl2MXFxRnRITkZrbmw2NjhPRHlzMUgtYXhWY0RpQjN5YmhscEZheWRYMVNuWGRQekZQM0oyS0l3?oc=5",
+      "metric": "QR",
+      "metric_label": "Route expansion"
+    },
+    {
+      "headline": "Iran war fallout impacts global economy",
+      "summary": "Regional conflict affects transportation and tourism sectors globally, with potential implications for Gulf aviation and trade.",
+      "source": "The Arab Weekly",
+      "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxPLVIxcDRUVkR6eVg0bHh6dktXM09PM25HME9URU4tb0o3Skk1blBqNGl3Tl9BZ2Noelp4QmNrbTlOQjJHZUpJTmtoTnhGNFc5UzVYMGJsQ2tLbDZ3c3FHTzNkdHU2RXgweUd1U0FkaTBrekdIWDRncHdDMHlUV0pqbjJUcENaMjN5dXpMaS1ld0FtUGtvVF9MRGlOZmFxV29QVUpkMA?oc=5",
+      "metric": "Risk",
+      "metric_label": "Geopolitical impact"
+    }
+  ],
   "kpis": [
     {
       "value": "Positive",
       "label": "Global Equities",
-      "sublabel": "US +1.0% \u00b7 UK +0.2%"
+      "sublabel": "US +1.0% \u00b7 UK +0.0%"
     },
     {
-      "value": "$98.2",
+      "value": "$99.09",
       "label": "Brent Crude",
-      "sublabel": "+61.6% Year-to-Date"
+      "sublabel": "+63.1% Year-to-Date"
     },
     {
-      "value": "17,501.48",
+      "value": "17,426.5",
       "label": "Gold (QAR)",
-      "sublabel": "+11.4% YTD \u00b7 Safe-haven demand"
+      "sublabel": "+11.0% YTD \u00b7 Safe-haven demand"
     },
     {
       "value": "N/A",
