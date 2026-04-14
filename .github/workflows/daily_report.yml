@@ -39,6 +39,14 @@ jobs:
       - name: Generate PDF report
         run: python pdf_generator.py market_data.json report.pdf
 
+      - name: Upload PDF to Supabase Storage and generate signed URL
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          SUPABASE_STORAGE_BUCKET: ${{ secrets.SUPABASE_STORAGE_BUCKET }}
+          SIGNED_URL_EXPIRES_IN: "86400"
+        run: python upload_pdf_to_storage.py
+
       - name: Send email via Resend
         env:
           RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
@@ -49,8 +57,6 @@ jobs:
       - name: Send WhatsApp via Make.com and 2Chat
         env:
           MAKE_WEBHOOK_URL: ${{ secrets.MAKE_WEBHOOK_URL }}
-          GITHUB_OWNER: ${{ secrets.GITHUB_OWNER }}
-          GITHUB_REPO: "doha-bank-mi"
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
         run: python send_whatsapp.py
@@ -93,8 +99,6 @@ jobs:
           email_count = email_resp.count or 0
           wa_count = wa_resp.count or 0
 
-          pdf_url = f"https://raw.githubusercontent.com/{os.environ['GITHUB_OWNER']}/doha-bank-mi/main/report.pdf"
-
           entry = {
               "date": now.strftime("%Y-%m-%d"),
               "time": now.strftime("%H:%M"),
@@ -124,7 +128,7 @@ jobs:
               "status": "success",
               "email_count": email_count,
               "wa_count": wa_count,
-              "pdf_url": pdf_url,
+              "pdf_url": "",
               "notes": "Workflow completed successfully"
           }).execute()
 
@@ -142,7 +146,7 @@ jobs:
             echo "[]" > docs/send_log.json
           fi
 
-      - name: Commit ALL generated files (including docs)
+      - name: Commit generated files to repo
         run: |
           git config user.name "Doha Bank MI Bot"
           git config user.email "mi-bot@dohabank.com"
@@ -150,6 +154,7 @@ jobs:
           git add market_data.json
           git add report.pdf
           git add send_log.json
+          git add signed_pdf_url.json
           git add docs/market_data.json
           git add docs/send_log.json
 
