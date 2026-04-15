@@ -15,7 +15,7 @@
       "qatar_news": true
     }
   },
-  "generated_at": "2026-04-15T09:19:35.255812",
+  "generated_at": "2026-04-15T12:02:12.766957",
   "global_indices": [
     {
       "name": "US S&P 500",
@@ -29,9 +29,9 @@
     {
       "name": "UK FTSE 100",
       "ticker": "^FTSE",
-      "px_last": 10614.64,
+      "px_last": 10619.67,
       "change_1d": "+0.1%",
-      "mtd": "+2.4%",
+      "mtd": "+2.5%",
       "ytd": "+6.7%",
       "source": "Yahoo Finance"
     },
@@ -47,10 +47,10 @@
     {
       "name": "Germany DAX",
       "ticker": "^GDAXI",
-      "px_last": 24086.41,
-      "change_1d": "+0.2%",
-      "mtd": "+3.4%",
-      "ytd": "-1.8%",
+      "px_last": 24051.59,
+      "change_1d": "+0.0%",
+      "mtd": "+3.2%",
+      "ytd": "-2.0%",
       "source": "Yahoo Finance"
     },
     {
@@ -65,8 +65,8 @@
     {
       "name": "India Sensex",
       "ticker": "^BSESN",
-      "px_last": 78121.83,
-      "change_1d": "+1.7%",
+      "px_last": 78111.24,
+      "change_1d": "+1.6%",
       "mtd": "+6.8%",
       "ytd": "-8.3%",
       "source": "Yahoo Finance"
@@ -85,9 +85,9 @@
     {
       "name": "Saudi Tadawul",
       "ticker": "^TASI.SR",
-      "px_last": 11576.8,
-      "change_1d": "+0.8%",
-      "mtd": "+2.7%",
+      "px_last": 11571.9,
+      "change_1d": "+0.7%",
+      "mtd": "+2.6%",
       "ytd": "+9.7%",
       "source": "Yahoo Finance"
     },
@@ -132,9 +132,9 @@
     {
       "name": "USD Index",
       "ticker": "DX-Y.NYB",
-      "px_last": 98.18,
+      "px_last": 98.22,
       "change_1d": "+0.1%",
-      "mtd": "-1.5%",
+      "mtd": "-1.4%",
       "ytd": "-0.2%",
       "source": "Yahoo Finance"
     },
@@ -152,7 +152,7 @@
       "ticker": "GBPUSD=X",
       "px_last": 1.36,
       "change_1d": "+0.3%",
-      "mtd": "+2.4%",
+      "mtd": "+2.3%",
       "ytd": "+0.6%",
       "source": "Yahoo Finance"
     },
@@ -160,18 +160,18 @@
       "name": "CHF/USD",
       "ticker": "CHFUSD=X",
       "px_last": 1.28,
-      "change_1d": "+1.2%",
-      "mtd": "+1.8%",
-      "ytd": "+1.1%",
+      "change_1d": "+0.1%",
+      "mtd": "+1.9%",
+      "ytd": "+1.2%",
       "source": "Yahoo Finance"
     },
     {
       "name": "USD/JPY",
       "ticker": "JPY=X",
-      "px_last": 158.79,
+      "px_last": 159.21,
       "change_1d": "-0.3%",
-      "mtd": "+0.1%",
-      "ytd": "+1.3%",
+      "mtd": "+0.4%",
+      "ytd": "+1.6%",
       "source": "Yahoo Finance"
     },
     {
@@ -244,64 +244,64 @@
     {
       "name": "QNB",
       "ticker": "QNBK.QA",
-      "px_last": 18.44,
-      "change_1d": "+2.2%",
-      "mtd": "+7.8%",
-      "ytd": "-0.0%",
+      "px_last": 18.3,
+      "change_1d": "+1.4%",
+      "mtd": "+7.0%",
+      "ytd": "-0.8%",
       "source": "Yahoo Finance"
     },
     {
       "name": "QIB",
       "ticker": "QIBK.QA",
-      "px_last": 23.62,
-      "change_1d": "+0.3%",
-      "mtd": "+5.0%",
-      "ytd": "+0.8%",
+      "px_last": 23.55,
+      "change_1d": "-0.0%",
+      "mtd": "+4.7%",
+      "ytd": "+0.5%",
       "source": "Yahoo Finance"
     },
     {
       "name": "CBQ",
       "ticker": "CBQK.QA",
-      "px_last": 4.41,
-      "change_1d": "+0.1%",
-      "mtd": "+1.3%",
-      "ytd": "+10.9%",
+      "px_last": 4.35,
+      "change_1d": "-1.1%",
+      "mtd": "+0.0%",
+      "ytd": "+9.5%",
       "source": "Yahoo Finance"
     },
     {
       "name": "QIIB",
       "ticker": "QIIK.QA",
-      "px_last": 11.13,
-      "change_1d": "+0.3%",
-      "mtd": "+1.0%",
-      "ytd": "+0.3%",
+      "px_last": 11.18,
+      "change_1d": "+0.7%",
+      "mtd": "+1.5%",
+      "ytd": "+0.7%",
       "source": "Yahoo Finance"
     },
     {
       "name": "Al Rayan",
       "ticker": "MARK.QA",
       "px_last": 2.22,
-      "change_1d": "+0.3%",
-      "mtd": "+1.4%",
-      "ytd": "+6.0%",
+      "change_1d": "+0.4%",
+      "mtd": "+1.5%",
+      "ytd": "+6.2%",
       "source": "Yahoo Finance"
     },
     {
       "name": "Dukhan",
       "ticker": "DBIS.QA",
-      "px_last": 1.09,
-      "change_1d": "+0.9%",
-      "mtd": "+17.3%",
-      "ytd": "+10.2%",
+      "px_last": 1.08,
+      "change_1d": "+0.5%",
+      "mtd": "+16.8%",
+      "ytd": "+9.6%",
       "source": "Yahoo Finance"
     },
     {
       "name": "Ahli",
       "ticker": "ABQK.QA",
-      "px_last": 3.74,
-      "change_1d": "+0.6%",
-      "mtd": "-0.2%",
-      "ytd": "+6.6%",
+      "px_last": 3.73,
+      "change_1d": "+0.2%",
+      "mtd": "-0.5%",
+      "ytd": "+6.2%",
       "source": "Yahoo Finance"
     }
   ],
@@ -309,28 +309,28 @@
     {
       "name": "Brent Crude",
       "ticker": "BZ=F",
-      "px_last": 95.8,
-      "change_1d": "+1.1%",
-      "mtd": "-5.3%",
-      "ytd": "+57.7%",
+      "px_last": 95.17,
+      "change_1d": "+0.4%",
+      "mtd": "-5.9%",
+      "ytd": "+56.7%",
       "source": "Yahoo Finance"
     },
     {
       "name": "Silver",
       "ticker": "SI=F",
-      "px_last": 78.94,
-      "change_1d": "-0.6%",
-      "mtd": "+4.1%",
-      "ytd": "+11.9%",
+      "px_last": 79.15,
+      "change_1d": "-0.3%",
+      "mtd": "+4.3%",
+      "ytd": "+12.2%",
       "source": "Yahoo Finance"
     },
     {
       "name": "Gold (QAR)",
       "ticker": "DERIVED",
-      "px_last": 17578.65,
-      "change_1d": "+0.1%",
-      "mtd": "+1.0%",
-      "ytd": "+11.9%",
+      "px_last": 17597.58,
+      "change_1d": "+0.2%",
+      "mtd": "+1.1%",
+      "ytd": "+12.1%",
       "source": "Derived from Yahoo Finance GC=F and USD/QAR"
     }
   ],
@@ -356,86 +356,86 @@
   ],
   "global_news": [
     {
-      "headline": "Herm\u00e8s Shares Fall 14% on Middle East Conflict",
-      "summary": "Luxury goods maker's sales growth crimped by regional disruption, reflecting broader industry challenges from ongoing Middle East conflict.",
+      "headline": "US Stocks Hold Near All-Time High on Peace Hopes",
+      "summary": "US equities maintain strength near record levels as traders rally on optimism surrounding potential Middle East peace deal negotiations.",
       "source": "Bloomberg",
-      "url": "https://www.bloomberg.com/news/videos/2026-04-15/hermes-falls-most-on-record-as-war-crimps-sales-video",
-      "metric": "14%",
-      "metric_label": "Share price decline"
+      "url": "https://www.bloomberg.com/news/articles/2026-04-14/stock-market-today-dow-s-p-live-updates",
+      "metric": "All-time high",
+      "metric_label": "US stock market level"
     },
     {
-      "headline": "Thames Water Rescue Deal Faces Regulatory Split",
-      "summary": "UK watchdog Ofwat board divided over approving creditor rescue deal, raising collapse risk for major utility company.",
+      "headline": "Abu Dhabi XRG Eyes European Growth, More M&A",
+      "summary": "State oil company confident about European economic prospects after completing three-way merger creating $60 billion petrochemical giant.",
       "source": "Bloomberg",
-      "url": "https://www.bloomberg.com/news/articles/2026-04-14/thames-rescue-deal-stumbles-with-ofwat-board-split-over-approval",
-      "metric": "Split Vote",
-      "metric_label": "Ofwat board approval status"
+      "url": "https://www.bloomberg.com/news/articles/2026-04-15/abu-dhabi-s-xrg-upbeat-on-european-prospects-open-to-more-m-a",
+      "metric": "$60B",
+      "metric_label": "Petrochemical merger value"
     },
     {
-      "headline": "Hedge Funds Turn Bearish on Dollar Amid Peace",
-      "summary": "Investment funds increasingly negative on USD as US-Iran peace talks prospects cause dollar to unwind war-driven gains.",
+      "headline": "US Iran Seek Further Talks Despite Hormuz Tensions",
+      "summary": "Countries move closer to extending ceasefire and restarting peace negotiations while standoff continues over Strait of Hormuz.",
       "source": "Bloomberg",
-      "url": "https://www.bloomberg.com/news/articles/2026-04-15/hedge-funds-pivot-to-bearish-dollar-bets-as-peace-hopes-build",
-      "metric": "Bearish",
-      "metric_label": "Hedge fund dollar positioning"
+      "url": "https://www.bloomberg.com/news/articles/2026-04-15/trump-says-end-to-iran-war-in-sight-spurring-market-rally",
+      "metric": "Ceasefire extens",
+      "metric_label": "Peace negotiation status"
     },
     {
-      "headline": "SEC Removes Day Trading Limits for Investors",
-      "summary": "US regulator approves sweeping changes eliminating day-trading restrictions for small investors, benefiting retail brokers significantly.",
+      "headline": "Morgan Stanley Stock Traders Post Record Breaking Quarter",
+      "summary": "Stock trading revenue jumped 25% to $5.15 billion in Q1, exceeding expectations and boosting total trading revenue.",
       "source": "Bloomberg",
-      "url": "https://www.bloomberg.com/news/articles/2026-04-14/sec-approves-plan-removing-day-trading-limit-for-small-investors",
-      "metric": "Approved",
-      "metric_label": "SEC regulatory change status"
+      "url": "https://www.bloomberg.com/news/videos/2026-04-15/morgan-stanley-stock-traders-see-record-breaking-q1-video",
+      "metric": "$5.15B",
+      "metric_label": "Q1 stock trading revenue"
     },
     {
-      "headline": "Evergrande Selects Tourism Firm for Asset Sale",
-      "summary": "Liquidators choose Guangdong Provincial Tourism Holdings for exclusive talks on property management unit majority stake acquisition.",
+      "headline": "Adani Unit Refinances Bond with Apollo Backed Funds",
+      "summary": "Adani Group unit successfully refinances June-maturing offshore bond using proceeds from $500 million private placement completed last month.",
       "source": "Bloomberg",
-      "url": "https://www.bloomberg.com/news/articles/2026-04-15/evergrande-liquidators-said-to-pick-state-owned-tourism-firm-for-exclusive-talks",
-      "metric": "Majority",
-      "metric_label": "Stake size under negotiation"
+      "url": "https://www.bloomberg.com/news/articles/2026-04-15/adani-unit-refinances-offshore-bond-with-apollo-backed-funds",
+      "metric": "$500M",
+      "metric_label": "Private placement size"
     },
     {
-      "headline": "Commerzbank CFO Rejects UniCredit Takeover Value",
-      "summary": "German bank's finance chief says Italian rival's takeover wouldn't create investor value or support economic growth.",
+      "headline": "Morgan Stanley Joins Wall Street Record Trading Windfall",
+      "summary": "Investment bank participates in industry-wide record-breaking first quarter performance driven by strong trading activity and market conditions.",
       "source": "Bloomberg",
-      "url": "https://www.bloomberg.com/news/articles/2026-04-15/commerzbank-cfo-says-unicredit-deal-would-not-create-value",
-      "metric": "No Value",
-      "metric_label": "CFO assessment of deal"
+      "url": "https://www.bloomberg.com/news/articles/2026-04-15/morgan-stanley-stock-traders-join-in-record-wall-street-windfall",
+      "metric": "Record Q1",
+      "metric_label": "Wall Street trading performance"
     }
   ],
   "qatar_news": [
     {
-      "headline": "Qatar Business News Source Temporarily Unavailable",
-      "summary": "Peninsula/Tribune Qatar business feed experiencing technical issues, returning no usable articles in current cycle.",
+      "headline": "Qatar Business News Sources Experience Technical Disruption",
+      "summary": "Multiple Peninsula/Tribune feeds temporarily unavailable due to technical issues affecting Qatar market coverage and corporate news delivery systems.",
       "source": "Peninsula/Tribune",
       "url": "",
-      "metric": "0",
-      "metric_label": "Articles Available"
+      "metric": "4",
+      "metric_label": "News feeds affected"
     },
     {
       "headline": "Qatar Corporate News Feed Refresh Pending",
-      "summary": "Workflow system scheduled to retry approved Peninsula/Tribune source on next automated run cycle.",
+      "summary": "Workflow system scheduled to retry approved Peninsula/Tribune source during next automated run cycle for corporate coverage.",
       "source": "Peninsula/Tribune",
       "url": "",
       "metric": "1",
-      "metric_label": "Retry Attempts Scheduled"
+      "metric_label": "Retry cycles pending"
     },
     {
       "headline": "Qatar Market Coverage Awaiting Source Update",
-      "summary": "Approved publisher feed insufficient items returned for comprehensive market intelligence report generation this cycle.",
+      "summary": "Approved publisher feed failed to return sufficient articles for current market intelligence report cycle requirements.",
       "source": "Peninsula/Tribune",
       "url": "",
       "metric": "0",
-      "metric_label": "Market Stories Available"
+      "metric_label": "Articles retrieved"
     },
     {
-      "headline": "Qatar Economy Headlines Stream Incomplete Coverage",
-      "summary": "Only approved publisher sources permitted for economy section, current feed showing incomplete data availability.",
+      "headline": "Qatar Economy Headlines Stream Shows Incomplete Data",
+      "summary": "Only approved publisher sources permitted for Qatar economy section, causing coverage gaps in current reporting cycle.",
       "source": "Peninsula/Tribune",
       "url": "",
       "metric": "100%",
-      "metric_label": "Approved Sources Only Policy"
+      "metric_label": "Approved sources only"
     }
   ],
   "kpis": [
@@ -445,14 +445,14 @@
       "sublabel": "US +1.2% \u00b7 UK +0.1%"
     },
     {
-      "value": "$95.8",
+      "value": "$95.17",
       "label": "Brent Crude",
-      "sublabel": "+57.7% Year-to-Date"
+      "sublabel": "+56.7% Year-to-Date"
     },
     {
-      "value": "17,578.65",
+      "value": "17,597.58",
       "label": "Gold (QAR)",
-      "sublabel": "+11.9% YTD \u00b7 Safe-haven demand"
+      "sublabel": "+12.1% YTD \u00b7 Safe-haven demand"
     },
     {
       "value": "N/A",
