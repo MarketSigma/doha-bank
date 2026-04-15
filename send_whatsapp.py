@@ -11,7 +11,7 @@ REPORT_DATE = datetime.date.today().strftime("%d %B %Y")
 PUBLIC_URL_FILE = "public_pdf_url.json"
 
 
-def load_active_numbers() -> list[dict]:
+def load_active_numbers():
     sb = get_supabase()
 
     resp = (
@@ -23,11 +23,11 @@ def load_active_numbers() -> list[dict]:
     )
 
     rows = resp.data or []
-    print(f"[INFO] Loaded {len(rows)} active WhatsApp recipients from Supabase")
+    print(f"[INFO] Loaded {len(rows)} active WhatsApp recipients")
     return rows
 
 
-def normalize_number(number: str) -> str:
+def normalize_number(number: str):
     if not number:
         return ""
 
@@ -42,17 +42,20 @@ def normalize_number(number: str) -> str:
     return number
 
 
-def load_public_pdf_url() -> str:
+def load_public_pdf_url():
     if not os.path.exists(PUBLIC_URL_FILE):
-        print(f"[ERROR] Public URL file not found: {PUBLIC_URL_FILE}")
+        print("[ERROR] public_pdf_url.json NOT FOUND")
         raise SystemExit(1)
 
-    with open(PUBLIC_URL_FILE, "r", encoding="utf-8") as f:
+    with open(PUBLIC_URL_FILE, "r") as f:
         data = json.load(f)
 
-    url = data.get("public_url", "").strip()
-    if not url:
-        print("[ERROR] public_url missing in public_pdf_url.json")
+    print(f"[DEBUG] public_pdf_url.json content: {data}")
+
+    url = data.get("public_url", "")
+
+    if not url or "githubusercontent" in url:
+        print("[ERROR] INVALID PDF URL DETECTED")
         raise SystemExit(1)
 
     return url
@@ -62,69 +65,43 @@ def send():
     recipients = load_active_numbers()
 
     if not recipients:
-        print("[WARN] No active WhatsApp recipients found in Supabase")
+        print("[WARN] No recipients found")
         return
 
     pdf_url = load_public_pdf_url()
-    print(f"[INFO] Using public PDF URL: {pdf_url}")
+
+    print(f"[INFO] FINAL PDF URL USED: {pdf_url}")
 
     caption = (
         f"Doha Bank Market Intelligence\n"
         f"{REPORT_DATE}\n\n"
-        f"Please find attached today's market intelligence report covering "
-        f"global indices, GCC markets, currencies, commodities, and latest news."
+        f"Please find attached today's market intelligence report."
     )
 
-    success_count = 0
-    fail_count = 0
-
-    for recipient in recipients:
-        recipient_id = recipient.get("id", "")
-        name = recipient.get("name", "Unknown")
-        raw_number = recipient.get("phone_number", "")
-        number = normalize_number(raw_number)
+    for r in recipients:
+        name = r.get("name")
+        number = normalize_number(r.get("phone_number"))
 
         if not number:
-            print(f"[WARN] Skipping {name}, invalid phone format: {raw_number}")
-            fail_count += 1
+            print(f"[WARN] Skipping {name}, invalid number")
             continue
 
         payload = {
-            "recipient_id": recipient_id,
             "to": number,
             "name": name,
             "report_date": REPORT_DATE,
             "pdf_url": pdf_url,
-            "caption": caption,
+            "caption": caption
         }
 
-        print(f"[INFO] Sending WhatsApp to {name} | {number}")
+        print(f"[INFO] Sending to {number}")
         print(f"[DEBUG] Payload: {payload}")
 
-        try:
-            resp = requests.post(
-                MAKE_WEBHOOK_URL,
-                json=payload,
-                timeout=60,
-            )
+        res = requests.post(MAKE_WEBHOOK_URL, json=payload)
 
-            if resp.status_code == 200:
-                print(f"✓ Sent to {name} ({number})")
-                success_count += 1
-            else:
-                print(f"[ERROR] {name} ({number}): {resp.status_code} | {resp.text}")
-                fail_count += 1
-
-        except Exception as e:
-            print(f"[ERROR] {name} ({number}): {e}")
-            fail_count += 1
+        print(f"[INFO] Response: {res.status_code} {res.text}")
 
         time.sleep(1.5)
-
-    print(f"WhatsApp delivery complete: {success_count} sent, {fail_count} failed")
-
-    if fail_count > 0:
-        raise SystemExit(1)
 
 
 if __name__ == "__main__":
