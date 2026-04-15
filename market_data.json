@@ -15,7 +15,7 @@
       "qatar_news": true
     }
   },
-  "generated_at": "2026-04-15T07:35:42.256071",
+  "generated_at": "2026-04-15T08:15:41.049475",
   "global_indices": [
     {
       "name": "US S&P 500",
@@ -29,10 +29,10 @@
     {
       "name": "UK FTSE 100",
       "ticker": "^FTSE",
-      "px_last": 10627.71,
-      "change_1d": "+0.2%",
-      "mtd": "+2.5%",
-      "ytd": "+6.8%",
+      "px_last": 10605.83,
+      "change_1d": "-0.0%",
+      "mtd": "+2.3%",
+      "ytd": "+6.6%",
       "source": "Yahoo Finance"
     },
     {
@@ -47,28 +47,28 @@
     {
       "name": "Germany DAX",
       "ticker": "^GDAXI",
-      "px_last": 24062.21,
-      "change_1d": "+0.1%",
-      "mtd": "+3.3%",
-      "ytd": "-1.9%",
+      "px_last": 24041.05,
+      "change_1d": "-0.0%",
+      "mtd": "+3.2%",
+      "ytd": "-2.0%",
       "source": "Yahoo Finance"
     },
     {
       "name": "Hong Kong HSI",
       "ticker": "^HSI",
-      "px_last": 26034.85,
-      "change_1d": "+0.6%",
-      "mtd": "+2.9%",
-      "ytd": "-1.2%",
+      "px_last": 25967.3,
+      "change_1d": "+0.4%",
+      "mtd": "+2.7%",
+      "ytd": "-1.4%",
       "source": "Yahoo Finance"
     },
     {
       "name": "India Sensex",
       "ticker": "^BSESN",
-      "px_last": 78063.87,
-      "change_1d": "+1.6%",
-      "mtd": "+6.7%",
-      "ytd": "-8.4%",
+      "px_last": 77975.89,
+      "change_1d": "+1.5%",
+      "mtd": "+6.6%",
+      "ytd": "-8.5%",
       "source": "Yahoo Finance"
     }
   ],
@@ -85,10 +85,10 @@
     {
       "name": "Saudi Tadawul",
       "ticker": "^TASI.SR",
-      "px_last": 11540.69,
-      "change_1d": "+0.5%",
-      "mtd": "+2.3%",
-      "ytd": "+9.4%",
+      "px_last": 11551.25,
+      "change_1d": "+0.6%",
+      "mtd": "+2.4%",
+      "ytd": "+9.5%",
       "source": "Yahoo Finance"
     },
     {
@@ -132,7 +132,7 @@
     {
       "name": "USD Index",
       "ticker": "DX-Y.NYB",
-      "px_last": 98.16,
+      "px_last": 98.13,
       "change_1d": "+0.0%",
       "mtd": "-1.5%",
       "ytd": "-0.3%",
@@ -151,7 +151,7 @@
       "name": "GBP/USD",
       "ticker": "GBPUSD=X",
       "px_last": 1.36,
-      "change_1d": "+0.4%",
+      "change_1d": "+0.3%",
       "mtd": "+2.4%",
       "ytd": "+0.7%",
       "source": "Yahoo Finance"
@@ -160,18 +160,18 @@
       "name": "CHF/USD",
       "ticker": "CHFUSD=X",
       "px_last": 1.28,
-      "change_1d": "+0.3%",
-      "mtd": "+2.2%",
-      "ytd": "+1.5%",
+      "change_1d": "+1.2%",
+      "mtd": "+1.8%",
+      "ytd": "+1.1%",
       "source": "Yahoo Finance"
     },
     {
       "name": "USD/JPY",
       "ticker": "JPY=X",
-      "px_last": 158.9,
-      "change_1d": "-0.2%",
-      "mtd": "+0.2%",
-      "ytd": "+1.4%",
+      "px_last": 159.21,
+      "change_1d": "-0.3%",
+      "mtd": "+0.4%",
+      "ytd": "+1.6%",
       "source": "Yahoo Finance"
     },
     {
@@ -235,10 +235,10 @@
     {
       "name": "Doha",
       "ticker": "BRES.QA",
-      "px_last": 2.36,
-      "change_1d": "+0.2%",
-      "mtd": "-0.9%",
-      "ytd": "-3.1%",
+      "px_last": 2.37,
+      "change_1d": "+0.3%",
+      "mtd": "-0.8%",
+      "ytd": "-3.0%",
       "source": "Yahoo Finance"
     },
     {
@@ -253,46 +253,46 @@
     {
       "name": "QIB",
       "ticker": "QIBK.QA",
-      "px_last": 23.62,
+      "px_last": 23.64,
       "change_1d": "+0.3%",
-      "mtd": "+5.0%",
-      "ytd": "+0.8%",
+      "mtd": "+5.1%",
+      "ytd": "+0.9%",
       "source": "Yahoo Finance"
     },
     {
       "name": "CBQ",
       "ticker": "CBQK.QA",
-      "px_last": 4.38,
-      "change_1d": "-0.5%",
-      "mtd": "+0.6%",
-      "ytd": "+10.2%",
+      "px_last": 4.4,
+      "change_1d": "+0.0%",
+      "mtd": "+1.1%",
+      "ytd": "+10.7%",
       "source": "Yahoo Finance"
     },
     {
       "name": "QIIB",
       "ticker": "QIIK.QA",
-      "px_last": 11.14,
-      "change_1d": "+0.4%",
-      "mtd": "+1.1%",
-      "ytd": "+0.3%",
+      "px_last": 11.11,
+      "change_1d": "+0.1%",
+      "mtd": "+0.8%",
+      "ytd": "+0.1%",
       "source": "Yahoo Finance"
     },
     {
       "name": "Al Rayan",
       "ticker": "MARK.QA",
       "px_last": 2.22,
-      "change_1d": "+0.2%",
-      "mtd": "+1.3%",
-      "ytd": "+5.9%",
+      "change_1d": "+0.5%",
+      "mtd": "+1.6%",
+      "ytd": "+6.2%",
       "source": "Yahoo Finance"
     },
     {
       "name": "Dukhan",
       "ticker": "DBIS.QA",
-      "px_last": 1.08,
-      "change_1d": "+0.0%",
-      "mtd": "+16.2%",
-      "ytd": "+9.1%",
+      "px_last": 1.09,
+      "change_1d": "+0.9%",
+      "mtd": "+17.3%",
+      "ytd": "+10.2%",
       "source": "Yahoo Finance"
     },
     {
@@ -309,25 +309,25 @@
     {
       "name": "Brent Crude",
       "ticker": "BZ=F",
-      "px_last": 95.23,
-      "change_1d": "+0.5%",
-      "mtd": "-5.9%",
-      "ytd": "+56.8%",
+      "px_last": 94.79,
+      "change_1d": "+0.0%",
+      "mtd": "-6.3%",
+      "ytd": "+56.0%",
       "source": "Yahoo Finance"
     },
     {
       "name": "Silver",
       "ticker": "SI=F",
-      "px_last": 79.57,
-      "change_1d": "+0.2%",
-      "mtd": "+4.9%",
-      "ytd": "+12.8%",
+      "px_last": 79.29,
+      "change_1d": "-0.1%",
+      "mtd": "+4.5%",
+      "ytd": "+12.4%",
       "source": "Yahoo Finance"
     },
     {
       "name": "Gold (QAR)",
       "ticker": "DERIVED",
-      "px_last": 17594.67,
+      "px_last": 17594.3,
       "change_1d": "+0.2%",
       "mtd": "+1.1%",
       "ytd": "+12.0%",
@@ -356,101 +356,101 @@
   ],
   "global_news": [
     {
-      "headline": "US Stocks Hold Near All-Time High on Peace Optimism",
-      "summary": "US equities maintain gains driven by Middle East peace deal hopes, with traders awaiting confirmation of new diplomatic talks.",
+      "headline": "Oil Market Takes Comfort From Iran Peace Talks",
+      "summary": "Standard Chartered analyst discusses oil outlook as Strait of Hormuz remains closed while US-Iran peace talks show potential progress.",
       "source": "Bloomberg",
-      "url": "https://www.bloomberg.com/news/articles/2026-04-14/stock-market-today-dow-s-p-live-updates",
-      "metric": "All-time high",
-      "metric_label": "US stock market level"
+      "url": "https://www.bloomberg.com/news/videos/2026-04-15/oil-market-taking-comfort-from-potential-talks-analyst-video",
+      "metric": "Closed",
+      "metric_label": "Strait of Hormuz Status"
     },
     {
-      "headline": "China Stocks Erase Iran War-Driven Losses Completely",
-      "summary": "Chinese equities recover all conflict-related declines as investors refocus on economic fundamentals and corporate earnings prospects.",
+      "headline": "Iran War Reshapes East Asia Energy Future",
+      "summary": "Regional conflict fundamentally alters energy security strategies and supply chains across East Asian markets and economies.",
       "source": "Bloomberg",
-      "url": "https://www.bloomberg.com/news/articles/2026-04-15/chinese-shares-erase-post-iran-war-losses-on-economic-resilience",
+      "url": "https://www.bloomberg.com/news/articles/2026-04-15/war-in-iran-is-already-reshaping-east-asia-s-energy-future-mnzrfv5l",
+      "metric": "Regional Impact",
+      "metric_label": "East Asia Energy Disruption"
+    },
+    {
+      "headline": "First Tanker Crosses Hormuz Since US Blockade",
+      "summary": "Iraq-bound supertanker Agios Fanourios I becomes first crude carrier to navigate Strait of Hormuz westward since blockade began.",
+      "source": "Bloomberg",
+      "url": "https://www.bloomberg.com/news/articles/2026-04-15/iraq-bound-tanker-attempts-hormuz-crossing-into-persian-gulf",
+      "metric": "1st Vessel",
+      "metric_label": "Tanker Through Hormuz"
+    },
+    {
+      "headline": "Pimco Purchases Entire Blue Owl Bond Issue",
+      "summary": "Pacific Investment Management buys all $400 million bonds from Blue Owl private credit fund in confidence vote.",
+      "source": "Bloomberg",
+      "url": "https://www.bloomberg.com/news/articles/2026-04-15/pimco-buys-all-400-million-of-bonds-sold-by-blue-owl-bdc",
+      "metric": "$400M",
+      "metric_label": "Bond Purchase Amount"
+    },
+    {
+      "headline": "Private Credit Industry Shows Resilience Signs",
+      "summary": "Pimco's full bond purchase signals market confidence despite record redemptions and valuation concerns in private credit sector.",
+      "source": "Bloomberg",
+      "url": "https://www.bloomberg.com/news/videos/2026-04-15/pimco-buys-all-400-mln-of-bonds-sold-by-blue-owl-bdc-video",
       "metric": "100%",
-      "metric_label": "War losses recovery"
+      "metric_label": "Bond Issue Subscription"
     },
     {
-      "headline": "Trump Signals Iran War End Boosts Markets",
-      "summary": "President indicates potential conflict wind-down, spurring market rally and stabilizing global energy prices across sectors.",
+      "headline": "China Markets Update April 15 2026",
+      "summary": "Bloomberg's China Show provides comprehensive coverage of mainland markets, policy developments and economic indicators for April 15.",
       "source": "Bloomberg",
-      "url": "https://www.bloomberg.com/news/articles/2026-04-15/trump-says-end-to-iran-war-in-sight-spurring-market-rally",
-      "metric": "Stabilizing",
-      "metric_label": "Global energy prices"
-    },
-    {
-      "headline": "French Inflation Exceeds Initial March Estimates",
-      "summary": "France's price growth surpassed preliminary readings as energy costs surged due to ongoing Iranian conflict impacts.",
-      "source": "Bloomberg",
-      "url": "https://www.bloomberg.com/news/articles/2026-04-15/french-inflation-was-faster-than-initially-thought-in-march",
-      "metric": "Above estimate",
-      "metric_label": "March inflation rate"
-    },
-    {
-      "headline": "Gold Wavers on US-Iran Diplomatic Talk Speculation",
-      "summary": "Precious metal fluctuates as traders evaluate fragile peace optimism despite continued Strait of Hormuz energy blockade.",
-      "source": "Bloomberg",
-      "url": "https://www.bloomberg.com/news/articles/2026-04-14/gold-holds-gain-as-renewed-push-for-us-iran-talks-eases-risks",
-      "metric": "Volatile",
-      "metric_label": "Gold price movement"
-    },
-    {
-      "headline": "AI Investment Theme Regains Market Dominance",
-      "summary": "Artificial intelligence sector resurfaces as key investment focus amid broader market stability and diplomatic developments.",
-      "source": "Bloomberg",
-      "url": "https://www.bloomberg.com/news/videos/2026-04-15/ai-theme-beginning-to-dominate-again-3-minutes-mliv-video",
-      "metric": "Dominant",
-      "metric_label": "AI sector positioning"
+      "url": "https://www.bloomberg.com/news/videos/2026-04-15/the-china-show-4-15-2026-video",
+      "metric": "Daily",
+      "metric_label": "Market Coverage"
     }
   ],
   "qatar_news": [
     {
-      "headline": "Qatar Business News Sources Experience Technical Disruptions",
-      "summary": "Multiple Qatar business news feeds from Peninsula and Tribune publishers are temporarily unavailable due to technical issues affecting market coverage.",
-      "source": "Peninsula/Tribune",
-      "url": "",
-      "metric": "4",
-      "metric_label": "News sources affected"
-    },
-    {
-      "headline": "Qatar Corporate News Feed Requires System Refresh",
-      "summary": "Corporate news workflow systems are pending retry cycles to restore normal feed operations from approved publishing sources.",
-      "source": "Peninsula/Tribune",
-      "url": "",
-      "metric": "100%",
-      "metric_label": "Feed refresh pending"
-    },
-    {
-      "headline": "Qatar Market Coverage Delayed by Source Updates",
-      "summary": "Market intelligence reporting faces delays as approved publisher feeds fail to deliver sufficient content for comprehensive coverage.",
+      "headline": "Qatar Business Source Temporarily Unavailable",
+      "summary": "Primary Qatar business news feed experiencing technical difficulties, preventing access to current market and economic updates.",
       "source": "Peninsula/Tribune",
       "url": "",
       "metric": "0",
-      "metric_label": "Articles available"
+      "metric_label": "Articles Retrieved"
     },
     {
-      "headline": "Qatar Economy Headlines Stream Shows Technical Issues",
-      "summary": "Economic news headline streams are incomplete due to technical limitations affecting only approved publisher source integrations.",
+      "headline": "Qatar Corporate News Feed Refresh Pending",
+      "summary": "Corporate news workflow system scheduled to retry approved Qatar source connections in next automated cycle.",
       "source": "Peninsula/Tribune",
       "url": "",
-      "metric": "N/A",
-      "metric_label": "Stream completion rate"
+      "metric": "Next Run",
+      "metric_label": "Retry Status"
+    },
+    {
+      "headline": "Qatar Market Coverage Awaiting Source Update",
+      "summary": "Insufficient content retrieved from approved Qatar publisher feeds during current reporting cycle for market analysis.",
+      "source": "Peninsula/Tribune",
+      "url": "",
+      "metric": "Low",
+      "metric_label": "Content Volume"
+    },
+    {
+      "headline": "Qatar Economy Headlines Stream Incomplete",
+      "summary": "Economic news section restricted to approved publisher sources only, limiting available Qatar market intelligence coverage.",
+      "source": "Peninsula/Tribune",
+      "url": "",
+      "metric": "Approved Only",
+      "metric_label": "Source Policy"
     }
   ],
   "kpis": [
     {
       "value": "Positive",
       "label": "Global Equities",
-      "sublabel": "US +1.2% \u00b7 UK +0.2%"
+      "sublabel": "US +1.2% \u00b7 UK -0.0%"
     },
     {
-      "value": "$95.23",
+      "value": "$94.79",
       "label": "Brent Crude",
-      "sublabel": "+56.8% Year-to-Date"
+      "sublabel": "+56.0% Year-to-Date"
     },
     {
-      "value": "17,594.67",
+      "value": "17,594.3",
       "label": "Gold (QAR)",
       "sublabel": "+12.0% YTD \u00b7 Safe-haven demand"
     },
