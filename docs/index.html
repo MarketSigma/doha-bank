@@ -17,401 +17,97 @@
       --muted:#6b86a3;
       --green:#1a7a45;
       --red:#c0392b;
+      --orange:#d77a00;
       --bg:#dfe6ee;
       --light:#f8fbff;
     }
     *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family:Arial, Helvetica, sans-serif;
-      background:var(--bg);
-      color:var(--text);
-    }
-    .topbar{
-      background:var(--navy);
-      color:#fff;
-      padding:14px 20px;
-      border-bottom:4px solid var(--cyan);
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:16px;
-    }
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:18px;
-      min-width:0;
-    }
-    .logo{
-      width:62px;
-      height:62px;
-      border-radius:12px;
-      background:#fff;
-      border:3px solid var(--cyan);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      color:var(--blue2);
-      font-weight:700;
-      font-size:22px;
-      flex:0 0 auto;
-    }
-    .brand-text{
-      display:flex;
-      align-items:center;
-      gap:18px;
-      min-width:0;
-    }
-    .brand-bank{
-      display:flex;
-      flex-direction:column;
-      line-height:1.05;
-      padding-right:18px;
-      border-right:2px solid rgba(255,255,255,.18);
-      flex:0 0 auto;
-    }
-    .brand-bank .ar{
-      font-size:14px;
-      opacity:.9;
-    }
-    .brand-bank .en{
-      font-size:18px;
-      font-weight:700;
-      letter-spacing:.8px;
-    }
-    .brand-title{
-      font-size:18px;
-      font-weight:700;
-      letter-spacing:.6px;
-      white-space:nowrap;
-      overflow:hidden;
-      text-overflow:ellipsis;
-    }
-
-    .btn{
-      border:none;
-      border-radius:10px;
-      background:var(--blue2);
-      color:#fff;
-      padding:12px 18px;
-      font-weight:700;
-      cursor:pointer;
-    }
+    body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--text)}
+    .topbar{background:var(--navy);color:#fff;padding:14px 20px;border-bottom:4px solid var(--cyan);display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .brand{display:flex;align-items:center;gap:18px;min-width:0}
+    .logo{width:62px;height:62px;border-radius:12px;background:#fff;border:3px solid var(--cyan);display:flex;align-items:center;justify-content:center;color:var(--blue2);font-weight:700;font-size:22px;flex:0 0 auto}
+    .brand-text{display:flex;align-items:center;gap:18px;min-width:0}
+    .brand-bank{display:flex;flex-direction:column;line-height:1.05;padding-right:18px;border-right:2px solid rgba(255,255,255,.18);flex:0 0 auto}
+    .brand-bank .ar{font-size:14px;opacity:.9}
+    .brand-bank .en{font-size:18px;font-weight:700;letter-spacing:.8px}
+    .brand-title{font-size:18px;font-weight:700;letter-spacing:.6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .btn{border:none;border-radius:10px;background:var(--blue2);color:#fff;padding:12px 18px;font-weight:700;cursor:pointer}
     .btn.gray{background:#7f8b99}
     .btn.small{padding:8px 12px;border-radius:8px;font-size:13px}
     .btn.red{background:#b64035}
-    .btn.outline{
-      background:#fff;
-      color:var(--blue2);
-      border:1px solid var(--border);
-    }
-
-    .tabs{
-      display:flex;
-      gap:8px;
-      background:#f6f8fb;
-      border-bottom:1px solid var(--border);
-      padding:0 14px;
-      overflow:auto;
-    }
-    .tab{
-      padding:18px 16px 16px;
-      color:#4e6d90;
-      font-size:15px;
-      font-weight:700;
-      border-bottom:3px solid transparent;
-      cursor:pointer;
-      white-space:nowrap;
-    }
-    .tab.active{
-      color:var(--blue2);
-      border-bottom-color:var(--blue2);
-    }
-
-    .page{
-      padding:22px;
-    }
-    .card{
-      background:var(--card);
-      border:2px solid var(--border);
-      border-radius:14px;
-      padding:18px;
-      box-shadow:0 1px 0 rgba(0,0,0,.02);
-    }
-
-    .meta-row{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:12px;
-      margin-bottom:14px;
-      color:var(--muted);
-      font-size:13px;
-    }
-    .live{
-      color:var(--green);
-      font-weight:700;
-    }
-
-    .kpis{
-      display:grid;
-      grid-template-columns:repeat(6, 1fr);
-      gap:10px;
-      margin-bottom:14px;
-    }
-    .kpi{
-      background:#fff;
-      border:2px solid var(--border);
-      border-top:4px solid var(--cyan);
-      border-radius:8px;
-      padding:10px 10px 8px;
-      min-height:72px;
-    }
-    .kpi .value{
-      font-size:28px;
-      font-weight:700;
-      color:var(--navy);
-      line-height:1;
-      margin-bottom:6px;
-    }
-    .kpi .label{
-      font-size:13px;
-      font-weight:700;
-      color:var(--navy);
-      margin-bottom:4px;
-    }
-    .kpi .sub{
-      font-size:11px;
-      color:var(--muted);
-      line-height:1.2;
-    }
-
-    .panel-title{
-      color:var(--navy);
-      font-size:15px;
-      font-weight:700;
-      text-transform:uppercase;
-      letter-spacing:1.6px;
-      margin-bottom:10px;
-      display:flex;
-      align-items:center;
-      gap:10px;
-    }
-    .panel-title::before{
-      content:"";
-      width:3px;
-      height:20px;
-      background:var(--cyan);
-      border-radius:2px;
-      display:block;
-    }
-
-    .data-grid{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:16px;
-    }
-    .grid{
-      display:grid;
-      gap:18px;
-    }
-
-    table{
-      width:100%;
-      border-collapse:collapse;
-      table-layout:fixed;
-    }
-    th{
-      background:var(--navy);
-      color:#fff;
-      font-size:12px;
-      padding:8px;
-      text-align:right;
-    }
-    th:first-child, td:first-child{
-      text-align:left;
-    }
-    td{
-      font-size:12px;
-      padding:7px 8px;
-      border-bottom:1px solid #d7e3f2;
-      text-align:right;
-      background:#fff;
-    }
-    tr:nth-child(even) td{
-      background:var(--light);
-    }
+    .btn.green{background:#1a7a45}
+    .btn.orange{background:var(--orange)}
+    .btn.outline{background:#fff;color:var(--blue2);border:1px solid var(--border)}
+    .btn:disabled{opacity:.6;cursor:not-allowed}
+    .tabs{display:flex;gap:8px;background:#f6f8fb;border-bottom:1px solid var(--border);padding:0 14px;overflow:auto}
+    .tab{padding:18px 16px 16px;color:#4e6d90;font-size:15px;font-weight:700;border-bottom:3px solid transparent;cursor:pointer;white-space:nowrap}
+    .tab.active{color:var(--blue2);border-bottom-color:var(--blue2)}
+    .page{padding:22px}
+    .card{background:var(--card);border:2px solid var(--border);border-radius:14px;padding:18px;box-shadow:0 1px 0 rgba(0,0,0,.02)}
+    .meta-row{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px;color:var(--muted);font-size:13px}
+    .live{color:var(--green);font-weight:700}
+    .kpis{display:grid;grid-template-columns:repeat(6, 1fr);gap:10px;margin-bottom:14px}
+    .kpi{background:#fff;border:2px solid var(--border);border-top:4px solid var(--cyan);border-radius:8px;padding:10px 10px 8px;min-height:72px}
+    .kpi .value{font-size:28px;font-weight:700;color:var(--navy);line-height:1;margin-bottom:6px}
+    .kpi .label{font-size:13px;font-weight:700;color:var(--navy);margin-bottom:4px}
+    .kpi .sub{font-size:11px;color:var(--muted);line-height:1.2}
+    .panel-title{color:var(--navy);font-size:15px;font-weight:700;text-transform:uppercase;letter-spacing:1.6px;margin-bottom:10px;display:flex;align-items:center;gap:10px}
+    .panel-title::before{content:"";width:3px;height:20px;background:var(--cyan);border-radius:2px;display:block}
+    .data-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .grid{display:grid;gap:18px}
+    .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    table{width:100%;border-collapse:collapse;table-layout:fixed}
+    th{background:var(--navy);color:#fff;font-size:12px;padding:8px;text-align:right}
+    th:first-child, td:first-child{text-align:left}
+    td{font-size:12px;padding:7px 8px;border-bottom:1px solid #d7e3f2;text-align:right;background:#fff;vertical-align:top}
+    tr:nth-child(even) td{background:var(--light)}
     .pos{color:var(--green);font-weight:700}
     .neg{color:var(--red);font-weight:700}
     .neu{color:#5f7d9d;font-weight:700}
-    .empty{
-      text-align:center;
-      color:var(--muted);
-      padding:36px 16px;
-    }
-
-    .news-section{
-      margin-top:18px;
-    }
-    .news-grid{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:10px;
-    }
-    .news-card{
-      border:2px solid var(--border);
-      background:#fff;
-      min-height:102px;
-      display:grid;
-      grid-template-columns:1fr 82px;
-      border-radius:4px;
-      overflow:hidden;
-    }
-    .news-body{
-      padding:10px 12px;
-    }
-    .news-head{
-      font-size:13px;
-      font-weight:700;
-      color:#1f344f;
-      line-height:1.2;
-      margin-bottom:6px;
-    }
-    .news-src{
-      font-size:11px;
-      font-weight:700;
-      color:var(--blue2);
-      margin-bottom:5px;
-    }
-    .news-sum{
-      font-size:11px;
-      color:#5b7593;
-      line-height:1.25;
-    }
-    .news-metric{
-      background:#f8fafc;
-      border-left:1px solid #d6e2f0;
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      justify-content:center;
-      padding:6px;
-      text-align:center;
-    }
-    .news-metric .metric{
-      color:var(--blue2);
-      font-weight:700;
-      font-size:15px;
-      line-height:1.05;
-      margin-bottom:4px;
-    }
-    .news-metric .metric-label{
-      color:#7a8da5;
-      font-size:10px;
-      line-height:1.15;
-    }
-
-    .split{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:26px;
-    }
-    .subcard{
-      border:2px solid var(--border);
-      border-radius:12px;
-      background:#fff;
-      padding:18px;
-    }
-    .subcard h3{
-      margin:0 0 16px;
-      color:var(--navy);
-      font-size:17px;
-      font-weight:800;
-      text-transform:uppercase;
-    }
-
-    .recipient-form{
-      display:grid;
-      grid-template-columns:1.2fr 1.2fr .55fr auto;
-      gap:10px;
-      margin-top:14px;
-    }
-    .recipient-form.email{
-      grid-template-columns:1fr 1.2fr auto;
-    }
-    input, select{
-      width:100%;
-      padding:12px 14px;
-      border:2px solid var(--border);
-      border-radius:10px;
-      font-size:14px;
-      outline:none;
-      background:#fff;
-    }
-    .pill{
-      display:inline-block;
-      padding:5px 10px;
-      border-radius:999px;
-      font-size:12px;
-      font-weight:700;
-      background:#eaf8ef;
-      color:var(--green);
-    }
-    .pill.off{
-      background:#fdeceb;
-      color:var(--red);
-    }
-    .actions{
-      display:flex;
-      gap:8px;
-      justify-content:flex-end;
-      flex-wrap:wrap;
-    }
-
-    .log-list{
-      display:grid;
-      gap:10px;
-    }
-    .log-item{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:12px;
-      padding:14px;
-      border:2px solid var(--border);
-      border-radius:12px;
-      background:#fff;
-    }
-    .log-item .left{
-      display:flex;
-      flex-direction:column;
-      gap:4px;
-    }
-    .log-item .title{
-      font-weight:700;
-      color:var(--navy);
-    }
-    .log-item .meta{
-      color:var(--muted);
-      font-size:13px;
-    }
-    .notice{
-      font-size:13px;
-      color:#6b7f95;
-      margin-top:8px;
-    }
-
+    .empty{text-align:center;color:var(--muted);padding:36px 16px}
+    .news-section{margin-top:18px}
+    .news-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+    .news-card{border:2px solid var(--border);background:#fff;min-height:102px;display:grid;grid-template-columns:1fr 82px;border-radius:4px;overflow:hidden}
+    .news-body{padding:10px 12px}
+    .news-head{font-size:13px;font-weight:700;color:#1f344f;line-height:1.2;margin-bottom:6px}
+    .news-src{font-size:11px;font-weight:700;color:var(--blue2);margin-bottom:5px}
+    .news-sum{font-size:11px;color:#5b7593;line-height:1.25}
+    .news-metric{background:#f8fafc;border-left:1px solid #d6e2f0;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:6px;text-align:center}
+    .news-metric .metric{color:var(--blue2);font-weight:700;font-size:15px;line-height:1.05;margin-bottom:4px}
+    .news-metric .metric-label{color:#7a8da5;font-size:10px;line-height:1.15}
+    .split{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+    .subcard{border:2px solid var(--border);border-radius:12px;background:#fff;padding:18px}
+    .subcard h3{margin:0 0 16px;color:var(--navy);font-size:17px;font-weight:800;text-transform:uppercase}
+    .recipient-form{display:grid;grid-template-columns:1.2fr 1.2fr .55fr auto;gap:10px;margin-top:14px}
+    .recipient-form.email{grid-template-columns:1fr 1.2fr auto}
+    input, select, textarea{width:100%;padding:12px 14px;border:2px solid var(--border);border-radius:10px;font-size:14px;outline:none;background:#fff}
+    textarea{min-height:110px;resize:vertical}
+    .pill{display:inline-block;padding:5px 10px;border-radius:999px;font-size:12px;font-weight:700;background:#eaf8ef;color:var(--green)}
+    .pill.off{background:#fdeceb;color:var(--red)}
+    .pill.orange{background:#fff1de;color:var(--orange)}
+    .pill.blue{background:#e7f2ff;color:var(--blue2)}
+    .actions{display:flex;gap:8px;justify-content:flex-end;flex-wrap:wrap}
+    .stack-actions{display:flex;gap:6px;flex-wrap:wrap}
+    .log-list{display:grid;gap:10px}
+    .log-item{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px;border:2px solid var(--border);border-radius:12px;background:#fff}
+    .log-item .left{display:flex;flex-direction:column;gap:4px}
+    .log-item .title{font-weight:700;color:var(--navy)}
+    .log-item .meta{color:var(--muted);font-size:13px}
+    .notice{font-size:13px;color:#6b7f95;margin-top:8px}
+    .report-box{display:grid;grid-template-columns:1.2fr .8fr;gap:16px}
+    .report-meta{display:grid;gap:10px}
+    .report-stat{padding:12px;border:1px solid var(--border);border-radius:10px;background:#fff}
+    .section-space{margin-top:18px}
+    .helper{font-size:12px;color:var(--muted)}
     @media (max-width: 1200px){
       .kpis{grid-template-columns:repeat(3,1fr)}
-      .data-grid{grid-template-columns:1fr}
+      .data-grid,.grid-2,.report-box{grid-template-columns:1fr}
       .split{grid-template-columns:1fr}
     }
     @media (max-width: 800px){
       .kpis{grid-template-columns:repeat(2,1fr)}
       .news-grid{grid-template-columns:1fr}
-      .recipient-form,
-      .recipient-form.email{grid-template-columns:1fr}
+      .recipient-form,.recipient-form.email{grid-template-columns:1fr}
       .brand-title{display:none}
       .page{padding:14px}
       .topbar{padding:12px 14px}
@@ -435,12 +131,14 @@
 
   <div class="tabs">
     <div class="tab active" data-tab="market">Market Snapshot</div>
+    <div class="tab" data-tab="reports">Reports</div>
     <div class="tab" data-tab="recipients">Recipients</div>
     <div class="tab" data-tab="log">Report Log</div>
   </div>
 
   <div class="page">
     <div id="marketView"></div>
+    <div id="reportsView" style="display:none;"></div>
     <div id="recipientsView" style="display:none;"></div>
     <div id="logView" style="display:none;"></div>
   </div>
@@ -456,9 +154,12 @@
     let waRecipients = [];
     let emailRecipients = [];
     let sendLog = [];
+    let reports = [];
+    let latestReport = null;
     let activeTab = "market";
 
     const marketView = document.getElementById("marketView");
+    const reportsView = document.getElementById("reportsView");
     const recipientsView = document.getElementById("recipientsView");
     const logView = document.getElementById("logView");
 
@@ -510,6 +211,19 @@
         return v.toLocaleString(undefined, { maximumFractionDigits: 2 });
       }
       return String(v ?? "N/A");
+    }
+
+    function reportStatusPill(status) {
+      const s = String(status || "").toLowerCase();
+      if (s === "approved") return `<span class="pill blue">Approved</span>`;
+      if (s === "sent") return `<span class="pill">Sent</span>`;
+      if (s === "partially_sent") return `<span class="pill orange">Partially Sent</span>`;
+      if (s === "rejected") return `<span class="pill off">Rejected</span>`;
+      return `<span class="pill orange">Draft</span>`;
+    }
+
+    function currentOperator() {
+      return "Dashboard User";
     }
 
     function renderTable(title, headers, rows) {
@@ -612,9 +326,69 @@
       `;
     }
 
+    function renderReports() {
+      if (!latestReport) {
+        reportsView.innerHTML = `<div class="card">No reports found yet.</div>`;
+        return;
+      }
+
+      const rows = reports.length
+        ? reports.map(r => `
+          <tr>
+            <td>${escapeHtml(r.report_date)}</td>
+            <td>${reportStatusPill(r.status)}</td>
+            <td>${escapeHtml(r.generated_at ? new Date(r.generated_at).toLocaleString() : "")}</td>
+            <td>${r.pdf_url ? `<a class="btn small outline" href="${escapeHtml(r.pdf_url)}" target="_blank" rel="noopener">Open PDF</a>` : ""}</td>
+          </tr>
+        `).join("")
+        : `<tr><td colspan="4" class="empty">No reports</td></tr>`;
+
+      reportsView.innerHTML = `
+        <div class="card">
+          <div class="panel-title">Latest Report Control</div>
+
+          <div class="report-box">
+            <div class="report-meta">
+              <div class="report-stat"><strong>Report Date:</strong> ${escapeHtml(latestReport.report_date)}</div>
+              <div class="report-stat"><strong>Status:</strong> ${reportStatusPill(latestReport.status)}</div>
+              <div class="report-stat"><strong>Generated:</strong> ${escapeHtml(latestReport.generated_at ? new Date(latestReport.generated_at).toLocaleString() : "")}</div>
+              <div class="report-stat"><strong>Approved By:</strong> ${escapeHtml(latestReport.approved_by || "Not approved yet")}</div>
+            </div>
+
+            <div class="report-meta">
+              <div class="stack-actions">
+                <button class="btn green" onclick="approveLatestReport()">Approve</button>
+                <button class="btn orange" onclick="queueSendAll('whatsapp')">Queue WhatsApp to All</button>
+                <button class="btn" onclick="queueSendAll('email')">Queue Email to All</button>
+              </div>
+              <div class="stack-actions">
+                ${latestReport.pdf_url ? `<a class="btn outline" href="${escapeHtml(latestReport.pdf_url)}" target="_blank" rel="noopener">Preview PDF</a>` : ""}
+              </div>
+              <div class="helper">Any Send action should only be used after reviewing the PDF. Sending now creates secure queue records for backend processing.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card section-space">
+          <div class="panel-title">Recent Reports</div>
+          <table>
+            <thead>
+              <tr>
+                <th style="text-align:left">Date</th>
+                <th style="text-align:left">Status</th>
+                <th style="text-align:left">Generated</th>
+                <th style="text-align:right">PDF</th>
+              </tr>
+            </thead>
+            <tbody>${rows}</tbody>
+          </table>
+        </div>
+      `;
+    }
+
     function recipientRows(list, kind) {
       if (!list.length) {
-        return `<tr><td colspan="4" class="empty">No recipients found</td></tr>`;
+        return `<tr><td colspan="5" class="empty">No recipients found</td></tr>`;
       }
 
       return list.map(r => `
@@ -622,10 +396,12 @@
           <td>${escapeHtml(r.name || "")}</td>
           <td>${escapeHtml(kind === "whatsapp" ? (r.phone_number || "") : (r.email || ""))}</td>
           <td>${r.active ? '<span class="pill">Active</span>' : '<span class="pill off">Paused</span>'}</td>
+          <td>${escapeHtml(r.tier || "")}</td>
           <td>
             <div class="actions">
               <button class="btn small outline" onclick="toggleRecipient('${r.id}', ${!r.active})">${r.active ? "Pause" : "Resume"}</button>
               <button class="btn small red" onclick="deleteRecipient('${r.id}')">Delete</button>
+              <button class="btn small ${kind === 'whatsapp' ? 'orange' : ''}" onclick="queueSingleSend('${r.id}','${kind}')">Send Today</button>
             </div>
           </td>
         </tr>
@@ -646,6 +422,7 @@
                   <th style="text-align:left">Name</th>
                   <th style="text-align:left">Number</th>
                   <th style="text-align:left">Status</th>
+                  <th style="text-align:left">Tier</th>
                   <th style="text-align:right">Actions</th>
                 </tr>
               </thead>
@@ -675,6 +452,7 @@
                   <th style="text-align:left">Name</th>
                   <th style="text-align:left">Email Address</th>
                   <th style="text-align:left">Status</th>
+                  <th style="text-align:left">Tier</th>
                   <th style="text-align:right">Actions</th>
                 </tr>
               </thead>
@@ -714,20 +492,75 @@
         : `<div class="card empty">No report log found</div>`;
 
       logView.innerHTML = `
-        <div class="card">
-          <div class="panel-title">Report Log</div>
-          <div class="log-list">${rows}</div>
-          <div class="notice">Live from Supabase when available, otherwise fallback from send_log.json.</div>
+        <div class="grid-2">
+          <div class="card">
+            <div class="panel-title">Report Log</div>
+            <div class="log-list">${rows}</div>
+          </div>
+
+          <div class="card">
+            <div class="panel-title">Dispatch Queue / Logs</div>
+            <div id="dispatchQueueBox" class="helper">Loading dispatch requests and logs...</div>
+          </div>
         </div>
       `;
+
+      renderDispatchQueueBox();
+    }
+
+    async function renderDispatchQueueBox() {
+      try {
+        const { data: queued } = await sb
+          .from("dispatch_requests")
+          .select("*")
+          .order("created_at", { ascending: false })
+          .limit(10);
+
+        const { data: sent } = await sb
+          .from("dispatch_logs")
+          .select("*")
+          .order("created_at", { ascending: false })
+          .limit(10);
+
+        const q = queued || [];
+        const s = sent || [];
+
+        let html = "";
+
+        html += `<div class="helper" style="margin-bottom:10px;"><strong>Queued Requests</strong></div>`;
+        html += q.length ? q.map(x => `
+          <div class="log-item">
+            <div class="left">
+              <div class="title">${escapeHtml(x.channel)} · ${escapeHtml(x.action_type)}</div>
+              <div class="meta">${escapeHtml(x.status)} · ${escapeHtml(x.requested_by || "")} · ${escapeHtml(x.created_at ? new Date(x.created_at).toLocaleString() : "")}</div>
+            </div>
+          </div>
+        `).join("") : `<div class="empty">No queued requests</div>`;
+
+        html += `<div class="helper" style="margin:14px 0 10px;"><strong>Recent Dispatch Logs</strong></div>`;
+        html += s.length ? s.map(x => `
+          <div class="log-item">
+            <div class="left">
+              <div class="title">${escapeHtml(x.channel)} · ${escapeHtml(x.recipient_name || "")}</div>
+              <div class="meta">${escapeHtml(x.status)} · ${escapeHtml(x.destination || "")}</div>
+            </div>
+          </div>
+        `).join("") : `<div class="empty">No dispatch logs</div>`;
+
+        document.getElementById("dispatchQueueBox").innerHTML = html;
+      } catch (e) {
+        document.getElementById("dispatchQueueBox").innerHTML = `<div class="empty">Failed to load dispatch data</div>`;
+      }
     }
 
     function render() {
       marketView.style.display = activeTab === "market" ? "block" : "none";
+      reportsView.style.display = activeTab === "reports" ? "block" : "none";
       recipientsView.style.display = activeTab === "recipients" ? "block" : "none";
       logView.style.display = activeTab === "log" ? "block" : "none";
 
       if (activeTab === "market") renderMarket();
+      if (activeTab === "reports") renderReports();
       if (activeTab === "recipients") renderRecipients();
       if (activeTab === "log") renderLog();
     }
@@ -736,11 +569,30 @@
       try {
         const res = await fetch(`./market_data.json?ts=${Date.now()}`);
         if (!res.ok) throw new Error(`market_data.json HTTP ${res.status}`);
-        const data = await res.json();
-        marketData = data;
+        marketData = await res.json();
       } catch (err) {
         console.error("Market data load failed:", err);
         marketData = { error: String(err) };
+      }
+      render();
+    }
+
+    async function loadReports() {
+      try {
+        const { data, error } = await sb
+          .from("reports")
+          .select("*")
+          .order("report_date", { ascending: false })
+          .limit(20);
+
+        if (error) throw error;
+
+        reports = data || [];
+        latestReport = reports.length ? reports[0] : null;
+      } catch (err) {
+        console.error("Reports load failed:", err);
+        reports = [];
+        latestReport = null;
       }
       render();
     }
@@ -788,6 +640,103 @@
         }
       }
       render();
+    }
+
+    async function approveLatestReport() {
+      if (!latestReport) {
+        alert("No report found.");
+        return;
+      }
+
+      const { error } = await sb
+        .from("reports")
+        .update({
+          status: "approved",
+          approved_by: currentOperator(),
+          approved_at: new Date().toISOString()
+        })
+        .eq("id", latestReport.id);
+
+      if (error) {
+        alert("Failed to approve report: " + error.message);
+        return;
+      }
+
+      await loadReports();
+      alert("Report approved.");
+    }
+
+    async function queueSingleSend(recipientId, channel) {
+      if (!latestReport) {
+        alert("No report is available for sending.");
+        return;
+      }
+
+      if (!confirm(`Queue today's ${channel} report for this recipient?`)) return;
+
+      if ((latestReport.status || "").toLowerCase() === "draft") {
+        await approveLatestReport();
+      }
+
+      const { error } = await sb.from("dispatch_requests").insert({
+        report_id: latestReport.id,
+        recipient_id: recipientId,
+        channel,
+        action_type: "single_send",
+        status: "queued",
+        requested_by: currentOperator(),
+        notes: "Queued from recipients tab"
+      });
+
+      if (error) {
+        alert("Failed to queue send: " + error.message);
+        return;
+      }
+
+      alert(`Queued ${channel} send successfully.`);
+      if (activeTab === "log") renderDispatchQueueBox();
+    }
+
+    async function queueSendAll(channel) {
+      if (!latestReport) {
+        alert("No report is available for sending.");
+        return;
+      }
+
+      if (!confirm(`Queue today's ${channel} report for all active ${channel} recipients?`)) return;
+
+      if ((latestReport.status || "").toLowerCase() === "draft") {
+        await approveLatestReport();
+      }
+
+      const list = channel === "whatsapp"
+        ? waRecipients.filter(r => r.active)
+        : emailRecipients.filter(r => r.active);
+
+      if (!list.length) {
+        alert(`No active ${channel} recipients found.`);
+        return;
+      }
+
+      const payload = list.map(r => ({
+        report_id: latestReport.id,
+        recipient_id: r.id,
+        channel,
+        action_type: "bulk_send",
+        status: "queued",
+        requested_by: currentOperator(),
+        notes: "Queued from reports tab"
+      }));
+
+      const { error } = await sb.from("dispatch_requests").insert(payload);
+
+      if (error) {
+        alert("Failed to queue bulk send: " + error.message);
+        return;
+      }
+
+      alert(`Queued ${payload.length} ${channel} sends successfully.`);
+      if (activeTab === "log") renderDispatchQueueBox();
     }
 
     async function addWhatsAppRecipient() {
@@ -865,7 +814,7 @@
         return;
       }
       await loadRecipients();
-    }
+    };
 
     window.deleteRecipient = async function(id) {
       if (!confirm("Delete this recipient?")) return;
@@ -875,13 +824,14 @@
         return;
       }
       await loadRecipients();
-    }
+    };
 
     async function init() {
       if (!checkLogin()) return;
       render();
       await Promise.all([
         loadMarketData(),
+        loadReports(),
         loadRecipients(),
         loadSendLog()
       ]);
