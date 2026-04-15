@@ -1,171 +1,43 @@
-name: Market Intelligence Daily Report
-
-on:
-  schedule:
-    - cron: "0 4 * * 1-5"
-  workflow_dispatch:
-
-jobs:
-  generate-report:
-    runs-on: ubuntu-latest
-    timeout-minutes: 20
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Install fonts
-        run: |
-          sudo apt-get update -qq
-          sudo apt-get install -y fonts-crosextra-caladea fonts-crosextra-carlito
-          fc-cache -f -v
-
-      - name: Set up Python 3.11
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.11"
-          cache: "pip"
-
-      - name: Install dependencies
-        run: pip install -r requirements.txt
-
-      - name: Fetch market data
+      - name: Register draft report in Supabase
         env:
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-        run: python fetcher.py
-
-      - name: Generate PDF report
-        run: python pdf_generator.py market_data.json report.pdf
-
-      - name: Upload PDF to public Supabase Storage
-        env:
-          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
-          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
-          SUPABASE_PUBLIC_STORAGE_BUCKET: ${{ secrets.SUPABASE_PUBLIC_STORAGE_BUCKET }}
-        run: python upload_pdf_to_storage.py
-
-      - name: Export public PDF URL to workflow env
-        run: |
-          python3 - << 'PYEOF'
-          import json
-          with open("public_pdf_url.json", "r", encoding="utf-8") as f:
-              data = json.load(f)
-          url = data["public_url"]
-          print(f"PUBLIC_PDF_URL={url}")
-          with open("${GITHUB_ENV}", "a", encoding="utf-8") as envf:
-              envf.write(f"PUBLIC_PDF_URL={url}\n")
-          PYEOF
-
-      - name: Send email via Resend
-        env:
-          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
-          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
-          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
-        run: python send_email.py
-
-      - name: Send WhatsApp via Make.com and 2Chat
-        env:
-          MAKE_WEBHOOK_URL: ${{ secrets.MAKE_WEBHOOK_URL }}
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
           PUBLIC_PDF_URL: ${{ env.PUBLIC_PDF_URL }}
-        run: python send_whatsapp.py
-
-      - name: Write send log to JSON and Supabase
-        env:
-          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
-          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
         run: |
           python3 - << 'PYEOF'
-          import json
           import os
-          from datetime import datetime, timezone, timedelta
+          import datetime
           from supabase import create_client
-
-          ast = timezone(timedelta(hours=3))
-          now = datetime.now(ast)
 
           sb = create_client(
               os.environ["SUPABASE_URL"],
               os.environ["SUPABASE_SERVICE_ROLE_KEY"]
           )
 
-          email_resp = (
-              sb.table("recipients")
-              .select("id", count="exact")
-              .eq("channel", "email")
-              .eq("active", True)
-              .execute()
-          )
-          wa_resp = (
-              sb.table("recipients")
-              .select("id", count="exact")
-              .eq("channel", "whatsapp")
-              .eq("active", True)
-              .execute()
-          )
+          today = datetime.date.today().isoformat()
+          pdf_url = os.environ["PUBLIC_PDF_URL"]
 
-          email_count = email_resp.count or 0
-          wa_count = wa_resp.count or 0
-
-          entry = {
-              "date": now.strftime("%Y-%m-%d"),
-              "time": now.strftime("%H:%M"),
-              "status": "success",
-              "email_count": email_count,
-              "wa_count": wa_count
+          payload = {
+              "report_date": today,
+              "title": f"Market Intelligence {today}",
+              "pdf_url": pdf_url,
+              "status": "draft"
           }
 
-          log = []
-          if os.path.exists("send_log.json"):
-              with open("send_log.json", "r", encoding="utf-8") as f:
-                  try:
-                      log = json.load(f)
-                  except Exception:
-                      log = []
+          existing = (
+              sb.table("reports")
+              .select("id")
+              .eq("report_date", today)
+              .limit(1)
+              .execute()
+          )
 
-          log.insert(0, entry)
+          rows = existing.data or []
 
-          with open("send_log.json", "w", encoding="utf-8") as f:
-              json.dump(log[:30], f, indent=2)
-
-          sb.table("send_log").insert({
-              "report_date": now.strftime("%Y-%m-%d"),
-              "sent_at": now.isoformat(),
-              "status": "success",
-              "email_count": email_count,
-              "wa_count": wa_count,
-              "pdf_url": os.environ.get("PUBLIC_PDF_URL", ""),
-              "notes": "Workflow completed successfully"
-          }).execute()
+          if rows:
+              sb.table("reports").update(payload).eq("id", rows[0]["id"]).execute()
+              print(f"[INFO] Updated draft report for {today}")
+          else:
+              sb.table("reports").insert(payload).execute()
+              print(f"[INFO] Inserted draft report for {today}")
           PYEOF
-
-      - name: Copy live JSON files to docs for dashboard
-        run: |
-          mkdir -p docs
-          cp market_data.json docs/market_data.json
-
-          if [ -f send_log.json ]; then
-            cp send_log.json docs/send_log.json
-          else
-            echo "[]" > docs/send_log.json
-          fi
-
-      - name: Commit generated files to repo
-        run: |
-          git config user.name "Doha Bank MI Bot"
-          git config user.email "mi-bot@dohabank.com"
-
-          git add market_data.json
-          git add report.pdf
-          git add send_log.json
-          git add public_pdf_url.json
-          git add docs/market_data.json
-          git add docs/send_log.json
-
-          git status
-
-          git diff --staged --quiet || git commit -m "Daily report $(date +'%Y-%m-%d')"
-          git push
