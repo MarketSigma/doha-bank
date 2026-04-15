@@ -1,3 +1,69 @@
+name: Market Intelligence Daily Report
+
+on:
+  schedule:
+    - cron: "0 4 * * 1-5"
+  workflow_dispatch:
+
+jobs:
+  generate-report:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Install fonts
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y fonts-crosextra-caladea fonts-crosextra-carlito
+          fc-cache -f -v
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Fetch market data
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: python fetcher.py
+
+      - name: Generate PDF report
+        run: python pdf_generator.py market_data.json report.pdf
+
+      - name: Upload PDF to public Supabase Storage
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          SUPABASE_PUBLIC_STORAGE_BUCKET: ${{ secrets.SUPABASE_PUBLIC_STORAGE_BUCKET }}
+        run: python upload_pdf_to_storage.py
+
+      - name: Export public PDF URL to workflow env
+        run: |
+          python3 - << 'PYEOF'
+          import json
+          import os
+
+          with open("public_pdf_url.json", "r", encoding="utf-8") as f:
+              data = json.load(f)
+
+          url = data["public_url"]
+
+          print(f"PUBLIC_PDF_URL={url}")
+
+          github_env = os.environ["GITHUB_ENV"]
+          with open(github_env, "a", encoding="utf-8") as envf:
+              envf.write(f"PUBLIC_PDF_URL={url}\n")
+          PYEOF
+
       - name: Register draft report in Supabase
         env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
@@ -21,6 +87,7 @@
               "report_date": today,
               "title": f"Market Intelligence {today}",
               "pdf_url": pdf_url,
+              "market_data_url": "",
               "status": "draft"
           }
 
@@ -41,3 +108,47 @@
               sb.table("reports").insert(payload).execute()
               print(f"[INFO] Inserted draft report for {today}")
           PYEOF
+
+      - name: Write send log JSON placeholder
+        run: |
+          python3 - << 'PYEOF'
+          import json
+          import os
+
+          if os.path.exists("send_log.json"):
+              print("[INFO] send_log.json already exists, keeping existing file")
+          else:
+              with open("send_log.json", "w", encoding="utf-8") as f:
+                  json.dump([], f, indent=2)
+              print("[INFO] Created empty send_log.json")
+          PYEOF
+
+      - name: Copy live JSON files to docs for dashboard
+        run: |
+          mkdir -p docs
+          cp market_data.json docs/market_data.json
+          cp public_pdf_url.json docs/public_pdf_url.json
+
+          if [ -f send_log.json ]; then
+            cp send_log.json docs/send_log.json
+          else
+            echo "[]" > docs/send_log.json
+          fi
+
+      - name: Commit generated files to repo
+        run: |
+          git config user.name "Doha Bank MI Bot"
+          git config user.email "mi-bot@dohabank.com"
+
+          git add market_data.json
+          git add report.pdf
+          git add public_pdf_url.json
+          git add send_log.json
+          git add docs/market_data.json
+          git add docs/public_pdf_url.json
+          git add docs/send_log.json
+
+          git status
+
+          git diff --staged --quiet || git commit -m "Daily report $(date +'%Y-%m-%d')"
+          git push
