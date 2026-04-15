@@ -1,5 +1,12 @@
 [
   {
+    "date": "2026-04-15",
+    "time": "10:36",
+    "status": "success",
+    "email_count": 1,
+    "wa_count": 1
+  },
+  {
     "date": "2026-04-14",
     "time": "16:01",
     "status": "success",
