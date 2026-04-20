@@ -15,7 +15,7 @@
       "qatar_news": true
     }
   },
-  "generated_at": "2026-04-20T20:32:45.934181",
+  "generated_at": "2026-04-20T20:49:31.388498",
   "global_indices": [
     {
       "name": "US S&P 500",
@@ -142,8 +142,8 @@
       "name": "EUR/USD",
       "ticker": "EURUSD=X",
       "px_last": 1.18,
-      "change_1d": "+0.0%",
-      "mtd": "+1.8%",
+      "change_1d": "+0.1%",
+      "mtd": "+1.9%",
       "ytd": "+0.3%",
       "source": "Yahoo Finance"
     },
@@ -153,7 +153,7 @@
       "px_last": 1.35,
       "change_1d": "+0.1%",
       "mtd": "+2.2%",
-      "ytd": "+0.4%",
+      "ytd": "+0.5%",
       "source": "Yahoo Finance"
     },
     {
@@ -162,13 +162,13 @@
       "px_last": 1.28,
       "change_1d": "+0.6%",
       "mtd": "+2.5%",
-      "ytd": "+1.7%",
+      "ytd": "+1.8%",
       "source": "Yahoo Finance"
     },
     {
       "name": "USD/JPY",
       "ticker": "JPY=X",
-      "px_last": 158.86,
+      "px_last": 158.87,
       "change_1d": "-0.2%",
       "mtd": "+0.2%",
       "ytd": "+1.4%",
@@ -309,26 +309,26 @@
     {
       "name": "Brent Crude",
       "ticker": "BZ=F",
-      "px_last": 95.09,
-      "change_1d": "+5.2%",
-      "mtd": "-6.0%",
-      "ytd": "+56.5%",
+      "px_last": 94.93,
+      "change_1d": "+5.0%",
+      "mtd": "-6.2%",
+      "ytd": "+56.3%",
       "source": "Yahoo Finance"
     },
     {
       "name": "Silver",
       "ticker": "SI=F",
-      "px_last": 79.81,
-      "change_1d": "-2.4%",
+      "px_last": 79.85,
+      "change_1d": "-2.3%",
       "mtd": "+5.2%",
-      "ytd": "+13.1%",
+      "ytd": "+13.2%",
       "source": "Yahoo Finance"
     },
     {
       "name": "Gold (QAR)",
       "ticker": "DERIVED",
-      "px_last": 17599.04,
-      "change_1d": "-0.5%",
+      "px_last": 17603.4,
+      "change_1d": "-0.4%",
       "mtd": "+1.1%",
       "ytd": "+12.1%",
       "source": "Derived from Yahoo Finance GC=F and USD/QAR"
@@ -356,86 +356,86 @@
   ],
   "global_news": [
     {
-      "headline": "South America Could Unlock 2.1M Oil Barrels Daily",
-      "summary": "South America could deliver additional 2.1 million barrels of daily oil supplies by 2035 with crude prices around $100, according to Rystad Energy analysis.",
+      "headline": "Emerging Currencies Mixed Amid Middle East Tensions",
+      "summary": "Emerging-market currencies traded mixed as global risk appetite wavered with investors monitoring US-Iran peace deal prospects.",
+      "source": "Bloomberg",
+      "url": "https://www.bloomberg.com/news/articles/2026-04-20/emerging-market-currencies-fall-as-us-iran-tensions-resurface",
+      "metric": "Mixed",
+      "metric_label": "EM currency performance"
+    },
+    {
+      "headline": "Gold Drops on Hormuz Disruption Inflation Fears",
+      "summary": "Gold declined after Middle Eastern waters flare-up renewed inflation risks from energy supply shock, complicating Iran war talks.",
+      "source": "Bloomberg",
+      "url": "https://www.bloomberg.com/news/articles/2026-04-19/gold-falls-as-renewed-hormuz-disruption-stokes-inflation-concern",
+      "metric": "Down",
+      "metric_label": "Gold price movement"
+    },
+    {
+      "headline": "US Stocks End Five-Day Rally on Ceasefire Doubts",
+      "summary": "US equities slipped as President Trump indicated unlikely extension to Iran ceasefire, dampening market sentiment on Monday.",
+      "source": "Bloomberg",
+      "url": "https://www.bloomberg.com/news/articles/2026-04-20/us-stock-futures-decline-on-dimmed-us-iran-peace-talk-prospects",
+      "metric": "Down",
+      "metric_label": "US stock performance"
+    },
+    {
+      "headline": "South America Eyes 2.1M Barrel Oil Supply Boost",
+      "summary": "Region could deliver additional 2.1 million barrels daily by 2035 with crude around $100, Rystad Energy analysis shows.",
       "source": "Bloomberg",
       "url": "https://www.bloomberg.com/news/articles/2026-04-20/south-america-could-unlock-2-1-million-barrels-a-day-on-100-oil",
       "metric": "2.1M bpd",
-      "metric_label": "Additional oil supply potential "
+      "metric_label": "Potential oil supply increase"
     },
     {
-      "headline": "US Stocks Fall on Iran Ceasefire Extension Doubts",
-      "summary": "US stocks declined as President Trump indicated extension to Iran ceasefire unlikely, raising geopolitical tensions and market uncertainty for regional stability.",
+      "headline": "Market Rally Pauses on Peace Deal Uncertainty",
+      "summary": "Comprehensive market coverage shows trading pause as investors await clarity on Middle East peace negotiations and ceasefire extensions.",
       "source": "Bloomberg",
-      "url": "https://www.bloomberg.com/news/articles/2026-04-20/us-stock-futures-decline-on-dimmed-us-iran-peace-talk-prospects",
-      "metric": "5-day rally",
-      "metric_label": "Equity rally halted by geopoliti"
+      "url": "https://www.bloomberg.com/news/videos/2026-04-20/rally-on-pause-with-peace-deal-in-limbo-closing-bell-video",
+      "metric": "Paused",
+      "metric_label": "Market rally status"
     },
     {
-      "headline": "Oil Jumps as Middle East Peace Talks Falter",
-      "summary": "Oil prices surged amid doubts over US-Iran peace prospects before fragile ceasefire expires, driving stocks lower on renewed Middle East tensions.",
+      "headline": "Music Royalties Back $500M Bond Issuance",
+      "summary": "Chord Music Partners sells bonds backed by artist royalties including Twenty One Pilots, Diplo, and Morgan Wallen catalog rights.",
       "source": "Bloomberg",
-      "url": "https://www.bloomberg.com/news/articles/2026-04-19/us-futures-fall-oil-jumps-as-iran-tensions-worsen-markets-wrap",
-      "metric": "Oil surge",
-      "metric_label": "Crude prices rise on geopolitica"
-    },
-    {
-      "headline": "Stock Rally Shows Weak Foundation Despite Records",
-      "summary": "Record US stock advance exhibits characteristics of unloved rally including narrow leadership, low trading volumes and subdued investor sentiment indicators.",
-      "source": "Bloomberg",
-      "url": "https://www.bloomberg.com/news/articles/2026-04-20/stock-market-s-rally-to-record-high-masks-weak-building-blocks",
-      "metric": "Low volume",
-      "metric_label": "Trading activity amid record hig"
-    },
-    {
-      "headline": "Warsh Emphasizes Fed Independence Before Confirmation Hearing",
-      "summary": "Trump's Fed Chair nominee Kevin Warsh will focus on monetary independence in Tuesday confirmation, taking hawkish stance on inflation responsibility.",
-      "source": "Bloomberg",
-      "url": "https://www.bloomberg.com/news/videos/2026-04-20/warsh-to-focus-on-fed-s-independence-in-confirmation-video",
-      "metric": "Tuesday",
-      "metric_label": "Fed Chair confirmation hearing d"
-    },
-    {
-      "headline": "Canada's EQB Raises C$200M Through Capital Notes",
-      "summary": "EQB Inc. successfully sold C$200 million in additional tier one securities, strengthening the Canadian bank holding company's capital position.",
-      "source": "Bloomberg",
-      "url": "https://www.bloomberg.com/news/articles/2026-04-20/eqb-inc-looks-to-sell-c-200m-limited-recourse-capital-notes",
-      "metric": "C$200M",
-      "metric_label": "Capital raised through AT1 secur"
+      "url": "https://www.bloomberg.com/news/articles/2026-04-20/diplo-twenty-one-pilots-royalties-to-back-bonds-sold-by-chord",
+      "metric": "$500M",
+      "metric_label": "Bond issuance size"
     }
   ],
   "qatar_news": [
     {
-      "headline": "Qatar Business News Sources Experiencing Technical Difficulties",
-      "summary": "Multiple Qatar business news feeds from Peninsula and Tribune publications are temporarily unavailable due to technical issues affecting content delivery.",
-      "source": "Peninsula/Tribune",
-      "url": "",
-      "metric": "4",
-      "metric_label": "News sources affected"
-    },
-    {
-      "headline": "Qatar Corporate News Feed Systems Under Maintenance",
-      "summary": "Corporate news workflow systems are pending refresh with automatic retry mechanisms activated to restore normal publication coverage.",
-      "source": "Peninsula/Tribune",
-      "url": "",
-      "metric": "100%",
-      "metric_label": "Retry system active"
-    },
-    {
-      "headline": "Qatar Market Coverage Temporarily Reduced Coverage",
-      "summary": "Market intelligence reporting experiencing reduced coverage as approved publisher feeds await technical updates and restoration.",
+      "headline": "Qatar Business Source Temporarily Unavailable",
+      "summary": "Peninsula/Tribune business news feed experiencing technical difficulties, returning no usable articles in current cycle.",
       "source": "Peninsula/Tribune",
       "url": "",
       "metric": "0",
-      "metric_label": "Articles delivered"
+      "metric_label": "Articles Retrieved"
     },
     {
-      "headline": "Qatar Economy News Stream Awaiting Publisher Restoration",
-      "summary": "Economy headline coverage limited to approved publisher sources only, with systems waiting for feed restoration.",
+      "headline": "Qatar Corporate News Feed Refresh Pending",
+      "summary": "Workflow system preparing to retry approved news source on next scheduled run cycle.",
       "source": "Peninsula/Tribune",
       "url": "",
-      "metric": "Approved only",
-      "metric_label": "Source policy status"
+      "metric": "1",
+      "metric_label": "Retry Attempts Scheduled"
+    },
+    {
+      "headline": "Qatar Market Coverage Awaiting Source Update",
+      "summary": "Approved publisher feed failed to deliver sufficient content items for current market report cycle.",
+      "source": "Peninsula/Tribune",
+      "url": "",
+      "metric": "0",
+      "metric_label": "Items Delivered"
+    },
+    {
+      "headline": "Qatar Economy Headlines Stream Incomplete",
+      "summary": "Economy section restricted to approved publisher sources only, current feed showing incomplete data.",
+      "source": "Peninsula/Tribune",
+      "url": "",
+      "metric": "100%",
+      "metric_label": "Approved Sources Only"
     }
   ],
   "kpis": [
@@ -445,12 +445,12 @@
       "sublabel": "US -0.2% \u00b7 UK -0.5%"
     },
     {
-      "value": "$95.09",
+      "value": "$94.93",
       "label": "Brent Crude",
-      "sublabel": "+56.5% Year-to-Date"
+      "sublabel": "+56.3% Year-to-Date"
     },
     {
-      "value": "17,599.04",
+      "value": "17,603.4",
       "label": "Gold (QAR)",
       "sublabel": "+12.1% YTD \u00b7 Safe-haven demand"
     },
