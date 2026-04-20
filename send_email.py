@@ -5,7 +5,7 @@ import requests
 from supabase_client import get_supabase
 
 RESEND_API_KEY = os.environ["RESEND_API_KEY"]
-FROM_EMAIL = "reports@mail.wiekan.com"
+FROM_EMAIL = "updates@market-sigma.com"
 REPORT_DATE = datetime.date.today().strftime("%d %B %Y")
 PDF_PATH = "report.pdf"
 
