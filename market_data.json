@@ -15,7 +15,7 @@
       "qatar_news": true
     }
   },
-  "generated_at": "2026-04-20T20:49:31.388498",
+  "generated_at": "2026-04-20T21:21:05.089988",
   "global_indices": [
     {
       "name": "US S&P 500",
@@ -85,10 +85,10 @@
     {
       "name": "Saudi Tadawul",
       "ticker": "^TASI.SR",
-      "px_last": 11366.79,
-      "change_1d": "-0.9%",
-      "mtd": "+0.8%",
-      "ytd": "+7.8%",
+      "px_last": 11464.54,
+      "change_1d": "-0.8%",
+      "mtd": "+1.7%",
+      "ytd": "+8.7%",
       "source": "Yahoo Finance"
     },
     {
@@ -159,8 +159,8 @@
     {
       "name": "CHF/USD",
       "ticker": "CHFUSD=X",
-      "px_last": 1.28,
-      "change_1d": "+0.6%",
+      "px_last": 1.29,
+      "change_1d": "+0.7%",
       "mtd": "+2.5%",
       "ytd": "+1.8%",
       "source": "Yahoo Finance"
@@ -168,10 +168,10 @@
     {
       "name": "USD/JPY",
       "ticker": "JPY=X",
-      "px_last": 158.87,
-      "change_1d": "-0.2%",
-      "mtd": "+0.2%",
-      "ytd": "+1.4%",
+      "px_last": 158.79,
+      "change_1d": "-0.3%",
+      "mtd": "+0.1%",
+      "ytd": "+1.3%",
       "source": "Yahoo Finance"
     },
     {
@@ -235,53 +235,53 @@
     {
       "name": "Doha",
       "ticker": "BRES.QA",
-      "px_last": 2.37,
-      "change_1d": "+0.6%",
-      "mtd": "-0.5%",
-      "ytd": "-2.7%",
+      "px_last": 2.36,
+      "change_1d": "-0.3%",
+      "mtd": "-1.1%",
+      "ytd": "-3.2%",
       "source": "Yahoo Finance"
     },
     {
       "name": "QNB",
       "ticker": "QNBK.QA",
-      "px_last": 18.35,
-      "change_1d": "+0.3%",
-      "mtd": "+7.3%",
-      "ytd": "-0.5%",
+      "px_last": 18.3,
+      "change_1d": "+0.0%",
+      "mtd": "+7.0%",
+      "ytd": "-0.8%",
       "source": "Yahoo Finance"
     },
     {
       "name": "QIB",
       "ticker": "QIBK.QA",
-      "px_last": 23.02,
-      "change_1d": "-1.8%",
-      "mtd": "+2.4%",
-      "ytd": "-1.7%",
+      "px_last": 23.44,
+      "change_1d": "+0.9%",
+      "mtd": "+4.2%",
+      "ytd": "+0.1%",
       "source": "Yahoo Finance"
     },
     {
       "name": "CBQ",
       "ticker": "CBQK.QA",
-      "px_last": 4.4,
-      "change_1d": "+0.3%",
-      "mtd": "+1.1%",
-      "ytd": "+10.7%",
+      "px_last": 4.38,
+      "change_1d": "+0.6%",
+      "mtd": "+0.8%",
+      "ytd": "+10.3%",
       "source": "Yahoo Finance"
     },
     {
       "name": "QIIB",
       "ticker": "QIIK.QA",
-      "px_last": 11.23,
-      "change_1d": "+0.5%",
-      "mtd": "+1.9%",
-      "ytd": "+1.2%",
+      "px_last": 11.17,
+      "change_1d": "-0.1%",
+      "mtd": "+1.4%",
+      "ytd": "+0.6%",
       "source": "Yahoo Finance"
     },
     {
       "name": "Al Rayan",
       "ticker": "MARK.QA",
       "px_last": 2.22,
-      "change_1d": "+0.0%",
+      "change_1d": "+0.4%",
       "mtd": "+1.6%",
       "ytd": "+6.2%",
       "source": "Yahoo Finance"
@@ -290,16 +290,16 @@
       "name": "Dukhan",
       "ticker": "DBIS.QA",
       "px_last": 1.12,
-      "change_1d": "+0.4%",
-      "mtd": "+21.5%",
-      "ytd": "+14.1%",
+      "change_1d": "+1.8%",
+      "mtd": "+21.1%",
+      "ytd": "+13.7%",
       "source": "Yahoo Finance"
     },
     {
       "name": "Ahli",
       "ticker": "ABQK.QA",
       "px_last": 3.72,
-      "change_1d": "+0.0%",
+      "change_1d": "-0.3%",
       "mtd": "-0.8%",
       "ytd": "+5.9%",
       "source": "Yahoo Finance"
@@ -309,28 +309,28 @@
     {
       "name": "Brent Crude",
       "ticker": "BZ=F",
-      "px_last": 94.93,
-      "change_1d": "+5.0%",
-      "mtd": "-6.2%",
-      "ytd": "+56.3%",
+      "px_last": 94.28,
+      "change_1d": "+4.3%",
+      "mtd": "-6.8%",
+      "ytd": "+55.2%",
       "source": "Yahoo Finance"
     },
     {
       "name": "Silver",
       "ticker": "SI=F",
-      "px_last": 79.85,
+      "px_last": 79.87,
       "change_1d": "-2.3%",
-      "mtd": "+5.2%",
+      "mtd": "+5.3%",
       "ytd": "+13.2%",
       "source": "Yahoo Finance"
     },
     {
       "name": "Gold (QAR)",
       "ticker": "DERIVED",
-      "px_last": 17603.4,
-      "change_1d": "-0.4%",
-      "mtd": "+1.1%",
-      "ytd": "+12.1%",
+      "px_last": 17621.24,
+      "change_1d": "-0.3%",
+      "mtd": "+1.2%",
+      "ytd": "+12.2%",
       "source": "Derived from Yahoo Finance GC=F and USD/QAR"
     }
   ],
@@ -356,86 +356,86 @@
   ],
   "global_news": [
     {
+      "headline": "Caesars Extends $18 Billion Takeover Talks",
+      "summary": "Caesars Entertainment extends exclusive discussions with Golden Nugget owner Tilman Fertitta for potential $18 billion acquisition deal.",
+      "source": "Bloomberg",
+      "url": "https://www.bloomberg.com/news/articles/2026-04-20/fertitta-extends-talks-for-caesars-takeover-at-18-billion",
+      "metric": "$18B",
+      "metric_label": "Takeover Value"
+    },
+    {
+      "headline": "BMO Strategist Recommends Long Dollar Position",
+      "summary": "BMO Chief FX Strategist advises maintaining long dollar positions amid current market conditions and global economic uncertainty.",
+      "source": "Bloomberg",
+      "url": "https://www.bloomberg.com/news/videos/2026-04-20/bmo-s-mccormick-says-it-s-still-right-to-be-long-dollar-video",
+      "metric": "Long USD",
+      "metric_label": "FX Strategy"
+    },
+    {
       "headline": "Emerging Currencies Mixed Amid Middle East Tensions",
-      "summary": "Emerging-market currencies traded mixed as global risk appetite wavered with investors monitoring US-Iran peace deal prospects.",
+      "summary": "Emerging market currencies show mixed performance as investors assess US-Iran deal prospects and regional war developments.",
       "source": "Bloomberg",
       "url": "https://www.bloomberg.com/news/articles/2026-04-20/emerging-market-currencies-fall-as-us-iran-tensions-resurface",
       "metric": "Mixed",
-      "metric_label": "EM currency performance"
+      "metric_label": "EM FX Performance"
     },
     {
-      "headline": "Gold Drops on Hormuz Disruption Inflation Fears",
-      "summary": "Gold declined after Middle Eastern waters flare-up renewed inflation risks from energy supply shock, complicating Iran war talks.",
+      "headline": "Apollo Private Credit ETF Reaches $800M Assets",
+      "summary": "State Street's investment-grade public and private credit ETF accumulates over $800 million since February 2025 launch.",
       "source": "Bloomberg",
-      "url": "https://www.bloomberg.com/news/articles/2026-04-19/gold-falls-as-renewed-hormuz-disruption-stokes-inflation-concern",
-      "metric": "Down",
-      "metric_label": "Gold price movement"
+      "url": "https://www.bloomberg.com/news/videos/2026-04-20/priv-owns-high-grade-private-credit-apollo-s-gosden-video",
+      "metric": "$800M",
+      "metric_label": "Assets Under Management"
     },
     {
-      "headline": "US Stocks End Five-Day Rally on Ceasefire Doubts",
-      "summary": "US equities slipped as President Trump indicated unlikely extension to Iran ceasefire, dampening market sentiment on Monday.",
+      "headline": "Baron Capital Enters ETF Market Discussing SpaceX",
+      "summary": "Baron Capital's co-president discusses firm's ETF expansion and SpaceX investment strategy on Bloomberg ETF program.",
       "source": "Bloomberg",
-      "url": "https://www.bloomberg.com/news/articles/2026-04-20/us-stock-futures-decline-on-dimmed-us-iran-peace-talk-prospects",
-      "metric": "Down",
-      "metric_label": "US stock performance"
+      "url": "https://www.bloomberg.com/news/videos/2026-04-20/michael-baron-discusses-ronb-musk-spacex-video",
+      "metric": "ETF Launch",
+      "metric_label": "New Product Entry"
     },
     {
-      "headline": "South America Eyes 2.1M Barrel Oil Supply Boost",
-      "summary": "Region could deliver additional 2.1 million barrels daily by 2035 with crude around $100, Rystad Energy analysis shows.",
+      "headline": "Trump Executive Order Eases Psychedelics Research Access",
+      "summary": "FDA Commissioner discusses Trump's executive order to accelerate psychedelics research and access, calling it historic moment.",
       "source": "Bloomberg",
-      "url": "https://www.bloomberg.com/news/articles/2026-04-20/south-america-could-unlock-2-1-million-barrels-a-day-on-100-oil",
-      "metric": "2.1M bpd",
-      "metric_label": "Potential oil supply increase"
-    },
-    {
-      "headline": "Market Rally Pauses on Peace Deal Uncertainty",
-      "summary": "Comprehensive market coverage shows trading pause as investors await clarity on Middle East peace negotiations and ceasefire extensions.",
-      "source": "Bloomberg",
-      "url": "https://www.bloomberg.com/news/videos/2026-04-20/rally-on-pause-with-peace-deal-in-limbo-closing-bell-video",
-      "metric": "Paused",
-      "metric_label": "Market rally status"
-    },
-    {
-      "headline": "Music Royalties Back $500M Bond Issuance",
-      "summary": "Chord Music Partners sells bonds backed by artist royalties including Twenty One Pilots, Diplo, and Morgan Wallen catalog rights.",
-      "source": "Bloomberg",
-      "url": "https://www.bloomberg.com/news/articles/2026-04-20/diplo-twenty-one-pilots-royalties-to-back-bonds-sold-by-chord",
-      "metric": "$500M",
-      "metric_label": "Bond issuance size"
+      "url": "https://www.bloomberg.com/news/videos/2026-04-20/fda-s-makary-on-trump-eo-to-ease-access-to-psychedelics-video",
+      "metric": "Executive Order",
+      "metric_label": "Regulatory Change"
     }
   ],
   "qatar_news": [
     {
-      "headline": "Qatar Business Source Temporarily Unavailable",
-      "summary": "Peninsula/Tribune business news feed experiencing technical difficulties, returning no usable articles in current cycle.",
+      "headline": "Qatar Business Source Feed Temporarily Unavailable",
+      "summary": "Peninsula/Tribune Qatar business news source experiencing technical difficulties, preventing access to current market updates and corporate coverage.",
       "source": "Peninsula/Tribune",
       "url": "",
       "metric": "0",
-      "metric_label": "Articles Retrieved"
+      "metric_label": "Articles Available"
     },
     {
       "headline": "Qatar Corporate News Feed Refresh Pending",
-      "summary": "Workflow system preparing to retry approved news source on next scheduled run cycle.",
+      "summary": "Approved Qatar corporate news workflow will retry source connection on next scheduled run to restore coverage.",
       "source": "Peninsula/Tribune",
       "url": "",
-      "metric": "1",
-      "metric_label": "Retry Attempts Scheduled"
+      "metric": "Next Run",
+      "metric_label": "Feed Retry Status"
     },
     {
       "headline": "Qatar Market Coverage Awaiting Source Update",
-      "summary": "Approved publisher feed failed to deliver sufficient content items for current market report cycle.",
+      "summary": "Insufficient articles returned from approved publisher feed, requiring source update to maintain comprehensive Qatar market reporting.",
       "source": "Peninsula/Tribune",
       "url": "",
-      "metric": "0",
-      "metric_label": "Items Delivered"
+      "metric": "Low",
+      "metric_label": "Content Volume"
     },
     {
-      "headline": "Qatar Economy Headlines Stream Incomplete",
-      "summary": "Economy section restricted to approved publisher sources only, current feed showing incomplete data.",
+      "headline": "Qatar Economy Headlines Stream Incomplete Coverage",
+      "summary": "Economy section restricted to approved publishers only, current feed limitations affecting comprehensive Qatar economic news delivery.",
       "source": "Peninsula/Tribune",
       "url": "",
-      "metric": "100%",
-      "metric_label": "Approved Sources Only"
+      "metric": "Restricted",
+      "metric_label": "Source Access"
     }
   ],
   "kpis": [
@@ -445,14 +445,14 @@
       "sublabel": "US -0.2% \u00b7 UK -0.5%"
     },
     {
-      "value": "$94.93",
+      "value": "$94.28",
       "label": "Brent Crude",
-      "sublabel": "+56.3% Year-to-Date"
+      "sublabel": "+55.2% Year-to-Date"
     },
     {
-      "value": "17,603.4",
+      "value": "17,621.24",
       "label": "Gold (QAR)",
-      "sublabel": "+12.1% YTD \u00b7 Safe-haven demand"
+      "sublabel": "+12.2% YTD \u00b7 Safe-haven demand"
     },
     {
       "value": "N/A",
