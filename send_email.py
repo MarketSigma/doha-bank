@@ -5,14 +5,13 @@ import requests
 from supabase_client import get_supabase
 
 RESEND_API_KEY = os.environ["RESEND_API_KEY"]
-FROM_EMAIL = "updates@market-sigma.com"
+FROM_EMAIL = "Market Intelligence <updates@market-sigma.com>"
 REPORT_DATE = datetime.date.today().strftime("%d %B %Y")
 PDF_PATH = "report.pdf"
 
 
 def load_email_recipients() -> list[str]:
     sb = get_supabase()
-
     resp = (
         sb.table("recipients")
         .select("email")
@@ -20,7 +19,6 @@ def load_email_recipients() -> list[str]:
         .eq("active", True)
         .execute()
     )
-
     rows = resp.data or []
     return [r["email"] for r in rows if r.get("email")]
 
@@ -32,24 +30,18 @@ def send():
         print("[WARN] No active email recipients found in Supabase")
         return
 
-    if not os.path.exists(PDF_PATH):
-        print("[ERROR] PDF file not found:", PDF_PATH)
-        raise SystemExit(1)
-
     with open(PDF_PATH, "rb") as f:
         pdf_b64 = base64.b64encode(f.read()).decode()
 
     payload = {
         "from": FROM_EMAIL,
         "to": recipients,
-        "subject": f"Doha Bank Market Intelligence - {REPORT_DATE}",
+        "subject": f"Market Intelligence – {REPORT_DATE}",
         "html": f"""
             <p>Dear Team,</p>
             <p>Please find attached the <strong>Doha Bank Market Intelligence Report</strong>
             for <strong>{REPORT_DATE}</strong>.</p>
             <p>This report is auto-generated daily.</p>
-            <br>
-            <p>Best regards,<br>Market Intelligence Team</p>
         """,
         "attachments": [
             {
@@ -60,28 +52,22 @@ def send():
         ],
     }
 
-    try:
-        resp = requests.post(
-            "https://api.resend.com/emails",
-            headers={
-                "Authorization": f"Bearer {RESEND_API_KEY}",
-                "Content-Type": "application/json",
-            },
-            json=payload,
-            timeout=30,
-        )
+    resp = requests.post(
+        "https://api.resend.com/emails",
+        headers={
+            "Authorization": f"Bearer {RESEND_API_KEY}",
+            "Content-Type": "application/json",
+        },
+        json=payload,
+        timeout=30,
+    )
 
-        if resp.status_code in (200, 201):
-            print(f"✓ Email sent successfully to: {recipients}")
-        else:
-            print(f"[ERROR] Resend API: {resp.status_code} – {resp.text}")
-            raise SystemExit(1)
-
-    except Exception as e:
-        print(f"[ERROR] Failed to send email: {e}")
+    if resp.status_code in (200, 201):
+        print(f"✓ Email sent to {recipients}")
+    else:
+        print(f"[ERROR] Resend API: {resp.status_code} – {resp.text}")
         raise SystemExit(1)
 
 
 if __name__ == "__main__":
     send()
-
