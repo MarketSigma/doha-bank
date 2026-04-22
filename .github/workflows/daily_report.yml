@@ -36,6 +36,30 @@ jobs:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: python fetcher.py
 
+      - name: Debug fetched market data
+        run: |
+          python3 - << 'PYEOF'
+          import json
+
+          with open("market_data.json", "r", encoding="utf-8") as f:
+              data = json.load(f)
+
+          print("REPORT STATUS:", data.get("report_status"))
+          print("VALIDATION ISSUES:", data.get("validation_issues"))
+
+          print("\nGCC INDICES:")
+          for row in data.get("gcc_indices", []):
+              print(row)
+
+          print("\nQATARI BANKS:")
+          for row in data.get("qatari_banks", []):
+              print(row)
+
+          print("\nQAR CROSS RATES:")
+          for row in data.get("qar_cross_rates", []):
+              print(row)
+          PYEOF
+
       - name: Fail if core market validation is broken
         run: |
           python3 - << 'PYEOF'
