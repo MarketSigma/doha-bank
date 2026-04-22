@@ -3,6 +3,7 @@ import os
 import re
 import datetime
 from typing import Optional, List
+from urllib.parse import quote
 
 import feedparser
 import yfinance as yf
@@ -190,7 +191,8 @@ def _safe_yahoo_chart_api(sym: str, range_str: str = "1y", interval: str = "1d")
     Useful for some regional symbols in CI environments.
     """
     try:
-        url = f"https://query1.finance.yahoo.com/v8/finance/chart/{sym}"
+        encoded_sym = quote(sym, safe="")
+        url = f"https://query1.finance.yahoo.com/v8/finance/chart/{encoded_sym}"
         params = {
             "range": range_str,
             "interval": interval,
@@ -206,7 +208,14 @@ def _safe_yahoo_chart_api(sym: str, range_str: str = "1y", interval: str = "1d")
         payload = r.json()
 
         result = payload.get("chart", {}).get("result", [])
+        error_obj = payload.get("chart", {}).get("error")
+
+        if error_obj:
+            print(f"[WARN] Yahoo chart API returned error for {sym}: {error_obj}")
+            return None
+
         if not result:
+            print(f"[WARN] Yahoo chart API returned no result for {sym}")
             return None
 
         result0 = result[0]
@@ -214,15 +223,16 @@ def _safe_yahoo_chart_api(sym: str, range_str: str = "1y", interval: str = "1d")
         indicators = result0.get("indicators", {})
 
         adjclose = indicators.get("adjclose", [])
-        quote = indicators.get("quote", [])
+        quote_block = indicators.get("quote", [])
 
         closes = None
         if adjclose and isinstance(adjclose, list):
             closes = adjclose[0].get("adjclose")
-        if not closes and quote and isinstance(quote, list):
-            closes = quote[0].get("close")
+        if not closes and quote_block and isinstance(quote_block, list):
+            closes = quote_block[0].get("close")
 
         if not timestamps or not closes:
+            print(f"[WARN] Yahoo chart API missing timestamps/closes for {sym}")
             return None
 
         pairs = []
@@ -233,6 +243,7 @@ def _safe_yahoo_chart_api(sym: str, range_str: str = "1y", interval: str = "1d")
             pairs.append((dt, float(px)))
 
         if not pairs:
+            print(f"[WARN] Yahoo chart API no usable points for {sym}")
             return None
 
         s = pd.Series(
