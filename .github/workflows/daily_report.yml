@@ -31,12 +31,11 @@ jobs:
       - name: Install dependencies
         run: python3 -m pip install -r requirements.txt
 
-      - name: Fetch QE backup value
-        run: python fetch_qe_backup.py
-
       - name: Fetch market data
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
         run: python fetcher.py
 
       - name: Debug fetched market data
@@ -61,6 +60,10 @@ jobs:
           print("\nQAR CROSS RATES:")
           for row in data.get("qar_cross_rates", []):
               print(row)
+
+          print("\nCOMMODITIES:")
+          for row in data.get("commodities", []):
+              print(row)
           PYEOF
 
       - name: Fail if core market validation is broken
@@ -76,6 +79,8 @@ jobs:
           fatal_markers = [
               "Qatar QE Index missing or invalid",
               "Doha Bank price missing or invalid",
+              "USD/QAR daily change suspicious",
+              "USD/QAR daily change unparsable",
           ]
 
           fatal = [x for x in issues if any(marker in x for marker in fatal_markers)]
@@ -181,7 +186,6 @@ jobs:
           mkdir -p docs
           cp market_data.json docs/market_data.json
           cp public_pdf_url.json docs/public_pdf_url.json
-          cp qe_backup.json docs/qe_backup.json
 
           if [ -f send_log.json ]; then
             cp send_log.json docs/send_log.json
@@ -197,11 +201,9 @@ jobs:
           git add market_data.json
           git add report.pdf
           git add public_pdf_url.json
-          git add qe_backup.json
           git add send_log.json
           git add docs/market_data.json
           git add docs/public_pdf_url.json
-          git add docs/qe_backup.json
           git add docs/send_log.json
 
           git status
