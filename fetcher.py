@@ -2,7 +2,7 @@ import json
 import os
 import re
 import datetime
-from typing import Optional, List
+from typing import Optional, List, Tuple
 from urllib.parse import quote
 
 import feedparser
@@ -249,72 +249,158 @@ def _safe_yahoo_chart_api(sym: str, range_str: str = "1y", interval: str = "1d")
         return None
 
 
-def _safe_qe_from_mubasher() -> Optional[float]:
-    """
-    Mubasher fallback for QE Index.
-    We only accept large comma-formatted numbers like 10,677.64
-    to avoid picking small values like +3.58 or 0.03%.
-    """
-    urls = [
-        "https://english.mubasher.info/markets/QE",
-        "https://english.mubasher.info/markets/QE/indices/GNRI",
-    ]
+def _parse_number(num_str: str) -> float:
+    return float(num_str.replace(",", "").strip())
 
-    headers = {
+
+def _investing_headers() -> dict:
+    return {
         "User-Agent": "Mozilla/5.0",
         "Accept-Language": "en-US,en;q=0.9",
+        "Referer": "https://www.investing.com/",
     }
 
-    strong_patterns = [
-        r"QE Index\s*([0-9]{1,3}(?:,[0-9]{3})+(?:\.[0-9]+)?)",
-        r"QE Index[^0-9]{0,40}([0-9]{1,3}(?:,[0-9]{3})+(?:\.[0-9]+)?)",
-        r"GNRI[^0-9]{0,40}([0-9]{1,3}(?:,[0-9]{3})+(?:\.[0-9]+)?)",
-    ]
 
-    for url in urls:
-        try:
-            print(f"[DEBUG][MUBASHER] Requesting URL: {url}")
-            r = requests.get(url, headers=headers, timeout=20)
-            print(f"[DEBUG][MUBASHER] Status code for {url}: {r.status_code}")
-            r.raise_for_status()
-            text = r.text or ""
-            print(f"[DEBUG][MUBASHER] Response length for {url}: {len(text)}")
+def _safe_qe_from_investing() -> Optional[dict]:
+    """
+    Investing.com fallback for QE Index.
+    Tries:
+    1. Historical data page for px_last and prev close based 1D
+    2. Main QSI page for px_last and prev close
+    3. Qatar indices page for px_last and daily change
+    Returns a row dict or None.
+    """
+    today = datetime.date.today()
 
-            for pattern in strong_patterns:
-                m = re.search(pattern, text, re.IGNORECASE)
-                print(f"[DEBUG][MUBASHER] Pattern tried: {pattern} | matched: {bool(m)}")
-                if m:
-                    raw = m.group(1).replace(",", "").strip()
-                    value = float(raw)
-                    if value > 1000:
-                        print(f"[INFO] Mubasher QE Index extracted: {value}")
-                        return value
+    # 1) Historical data page, best source for previous close and recent closes
+    hist_url = "https://www.investing.com/indices/qsi-historical-data"
+    try:
+        print(f"[DEBUG][INVESTING] Requesting historical URL: {hist_url}")
+        r = requests.get(hist_url, headers=_investing_headers(), timeout=20)
+        print(f"[DEBUG][INVESTING] Status code for historical URL: {r.status_code}")
+        r.raise_for_status()
+        text = r.text or ""
+        print(f"[DEBUG][INVESTING] Response length for historical URL: {len(text)}")
 
-            # fallback: search snippets around QE Index and then extract first large comma-formatted number
-            anchor = re.search(r"QE Index", text, re.IGNORECASE)
-            if anchor:
-                start = max(0, anchor.start() - 100)
-                end = min(len(text), anchor.end() + 300)
-                snippet = text[start:end]
-                print("[DEBUG][MUBASHER] QE snippet:")
-                print(snippet)
+        # Match rows like: Apr 15, 2026  | 10,733.95 | 10,690.77 | ...
+        row_pattern = re.compile(
+            r"([A-Z][a-z]{2}\s+\d{1,2},\s+\d{4})\s*\|\s*([0-9]{1,3}(?:,[0-9]{3})+(?:\.[0-9]+)?)\s*\|\s*([0-9]{1,3}(?:,[0-9]{3})+(?:\.[0-9]+)?)\s*\|\s*([0-9]{1,3}(?:,[0-9]{3})+(?:\.[0-9]+)?)\s*\|\s*([0-9]{1,3}(?:,[0-9]{3})+(?:\.[0-9]+)?)\s*\|",
+            re.MULTILINE,
+        )
+        rows = row_pattern.findall(text)
 
-                m2 = re.search(r"([0-9]{1,3}(?:,[0-9]{3})+(?:\.[0-9]+)?)", snippet)
-                if m2:
-                    raw = m2.group(1).replace(",", "").strip()
-                    value = float(raw)
-                    if value > 1000:
-                        print(f"[INFO] Mubasher QE Index extracted from snippet: {value}")
-                        return value
+        parsed = []
+        for row in rows[:40]:
+            try:
+                dt = datetime.datetime.strptime(row[0], "%b %d, %Y").date()
+                price = _parse_number(row[1])
+                parsed.append((dt, price))
+            except Exception:
+                continue
 
-        except Exception as e:
-            print(f"[WARN] Mubasher fallback failed for {url}: {e}")
+        if parsed:
+            parsed.sort(key=lambda x: x[0])
+            px_last = parsed[-1][1]
+            px_prev = parsed[-2][1] if len(parsed) >= 2 else None
 
-    print("[WARN] Mubasher fallback exhausted all URLs without extracting QE Index")
+            year_start = datetime.date(today.year, 1, 1)
+            month_start = datetime.date(today.year, today.month, 1)
+
+            month_base = None
+            year_base = None
+            for d, px in parsed:
+                if d < month_start:
+                    month_base = px
+                if d < year_start:
+                    year_base = px
+
+            print(f"[INFO][INVESTING] Historical fallback extracted QE Index px_last={px_last}")
+
+            return {
+                "name": "Qatar QE Index",
+                "ticker": "^GNRI.QA",
+                "px_last": round(px_last, 2),
+                "change_1d": _fmt_pct_number(px_last, px_prev, 1),
+                "mtd": _fmt_pct_number(px_last, month_base, 1),
+                "ytd": _fmt_pct_number(px_last, year_base, 1),
+                "as_of": parsed[-1][0].strftime("%Y-%m-%d"),
+                "source": "Investing.com historical fallback",
+            }
+    except Exception as e:
+        print(f"[WARN][INVESTING] Historical fallback failed: {e}")
+
+    # 2) Main QSI page
+    qsi_url = "https://www.investing.com/indices/qsi"
+    try:
+        print(f"[DEBUG][INVESTING] Requesting QSI URL: {qsi_url}")
+        r = requests.get(qsi_url, headers=_investing_headers(), timeout=20)
+        print(f"[DEBUG][INVESTING] Status code for QSI URL: {r.status_code}")
+        r.raise_for_status()
+        text = r.text or ""
+        print(f"[DEBUG][INVESTING] Response length for QSI URL: {len(text)}")
+
+        price_match = re.search(r"QSI live stock price is\s*([0-9]{1,3}(?:,[0-9]{3})+(?:\.[0-9]+)?)", text, re.IGNORECASE)
+        prev_match = re.search(r"Prev\.\s*Close\s*([0-9]{1,3}(?:,[0-9]{3})+(?:\.[0-9]+)?)", text, re.IGNORECASE)
+
+        if price_match:
+            px_last = _parse_number(price_match.group(1))
+            px_prev = _parse_number(prev_match.group(1)) if prev_match else None
+            print(f"[INFO][INVESTING] QSI page fallback extracted QE Index px_last={px_last}")
+            return {
+                "name": "Qatar QE Index",
+                "ticker": "^GNRI.QA",
+                "px_last": round(px_last, 2),
+                "change_1d": _fmt_pct_number(px_last, px_prev, 1),
+                "mtd": "N/A",
+                "ytd": "N/A",
+                "as_of": today.strftime("%Y-%m-%d"),
+                "source": "Investing.com QSI page fallback",
+            }
+    except Exception as e:
+        print(f"[WARN][INVESTING] QSI page fallback failed: {e}")
+
+    # 3) Qatar indices page
+    idx_url = "https://www.investing.com/indices/qatar-indices"
+    try:
+        print(f"[DEBUG][INVESTING] Requesting Qatar indices URL: {idx_url}")
+        r = requests.get(idx_url, headers=_investing_headers(), timeout=20)
+        print(f"[DEBUG][INVESTING] Status code for Qatar indices URL: {r.status_code}")
+        r.raise_for_status()
+        text = r.text or ""
+        print(f"[DEBUG][INVESTING] Response length for Qatar indices URL: {len(text)}")
+
+        # Match row like: QE General | 10,733.95 | 10,770.52 | 10,690.77 | +43.18 | +0.40% | 15/04
+        row_match = re.search(
+            r"QE General\s*\|\s*([0-9]{1,3}(?:,[0-9]{3})+(?:\.[0-9]+)?)\s*\|\s*([0-9]{1,3}(?:,[0-9]{3})+(?:\.[0-9]+)?)\s*\|\s*([0-9]{1,3}(?:,[0-9]{3})+(?:\.[0-9]+)?)\s*\|\s*([+\-]?[0-9]{1,3}(?:,[0-9]{3})*(?:\.[0-9]+)?)\s*\|\s*([+\-]?[0-9]+(?:\.[0-9]+)?%)",
+            text,
+            re.IGNORECASE,
+        )
+        if row_match:
+            px_last = _parse_number(row_match.group(1))
+            chg_pct = row_match.group(5)
+            print(f"[INFO][INVESTING] Qatar indices page fallback extracted QE Index px_last={px_last}")
+            return {
+                "name": "Qatar QE Index",
+                "ticker": "^GNRI.QA",
+                "px_last": round(px_last, 2),
+                "change_1d": chg_pct,
+                "mtd": "N/A",
+                "ytd": "N/A",
+                "as_of": today.strftime("%Y-%m-%d"),
+                "source": "Investing.com Qatar indices fallback",
+            }
+    except Exception as e:
+        print(f"[WARN][INVESTING] Qatar indices fallback failed: {e}")
+
+    print("[WARN][INVESTING] All Investing fallbacks exhausted without extracting QE Index")
     return None
 
 
-def _safe_qe_from_qse() -> Optional[float]:
+def _safe_qe_from_qse() -> Optional[dict]:
+    """
+    QSE current-level only fallback.
+    """
+    today = datetime.date.today()
     urls = [
         "https://www.qe.com.qa/overview",
         "https://www.qe.com.qa/en/web/guest/overview",
@@ -351,7 +437,16 @@ def _safe_qe_from_qse() -> Optional[float]:
                     value = float(raw)
                     if value > 1000:
                         print(f"[INFO] QSE fallback fetched QE Index from official site: {value}")
-                        return value
+                        return {
+                            "name": "Qatar QE Index",
+                            "ticker": "^GNRI.QA",
+                            "px_last": round(value, 2),
+                            "change_1d": "N/A",
+                            "mtd": "N/A",
+                            "ytd": "N/A",
+                            "as_of": today.strftime("%Y-%m-%d"),
+                            "source": "QSE official fallback",
+                        }
         except Exception as e:
             print(f"[WARN] QSE fallback failed for {url}: {e}")
 
@@ -398,21 +493,11 @@ def fetch_stats(name: str, sym: str, today: datetime.date, digits: int = 2) -> d
     closes = _get_series(sym, history_start)
     if closes is None or len(closes) < 2:
         if name == "Qatar QE Index":
-            qe_value = _safe_qe_from_mubasher()
-            if qe_value is None:
-                qe_value = _safe_qe_from_qse()
-
-            if qe_value is not None:
-                return {
-                    "name": name,
-                    "ticker": sym,
-                    "px_last": round(qe_value, digits),
-                    "change_1d": "N/A",
-                    "mtd": "N/A",
-                    "ytd": "N/A",
-                    "as_of": today.strftime("%Y-%m-%d"),
-                    "source": "QE Index fallback",
-                }
+            qe_row = _safe_qe_from_investing()
+            if qe_row is None:
+                qe_row = _safe_qe_from_qse()
+            if qe_row is not None:
+                return qe_row
 
         return {
             "name": name,
