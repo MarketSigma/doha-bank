@@ -20,6 +20,9 @@
       --orange:#d77a00;
       --bg:#dfe6ee;
       --light:#f8fbff;
+      --warnbg:#fff4e8;
+      --warnbd:#f0b56b;
+      --warntext:#9a4d00;
     }
     *{box-sizing:border-box}
     body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--text)}
@@ -44,8 +47,9 @@
     .tab.active{color:var(--blue2);border-bottom-color:var(--blue2)}
     .page{padding:22px}
     .card{background:var(--card);border:2px solid var(--border);border-radius:14px;padding:18px;box-shadow:0 1px 0 rgba(0,0,0,.02)}
-    .meta-row{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px;color:var(--muted);font-size:13px}
+    .meta-row{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px;color:var(--muted);font-size:13px;flex-wrap:wrap}
     .live{color:var(--green);font-weight:700}
+    .review{color:var(--orange);font-weight:700}
     .kpis{display:grid;grid-template-columns:repeat(6, 1fr);gap:10px;margin-bottom:14px}
     .kpi{background:#fff;border:2px solid var(--border);border-top:4px solid var(--cyan);border-radius:8px;padding:10px 10px 8px;min-height:72px}
     .kpi .value{font-size:28px;font-weight:700;color:var(--navy);line-height:1;margin-bottom:6px}
@@ -99,6 +103,10 @@
     .report-stat{padding:12px;border:1px solid var(--border);border-radius:10px;background:#fff}
     .section-space{margin-top:18px}
     .helper{font-size:12px;color:var(--muted)}
+    .alert{margin-bottom:14px;padding:14px 16px;border:2px solid var(--warnbd);background:var(--warnbg);color:var(--warntext);border-radius:12px}
+    .alert strong{display:block;margin-bottom:6px}
+    .alert ul{margin:6px 0 0 18px;padding:0}
+    .alert li{margin:4px 0}
     @media (max-width: 1200px){
       .kpis{grid-template-columns:repeat(3,1fr)}
       .data-grid,.grid-2,.report-box{grid-template-columns:1fr}
@@ -206,11 +214,41 @@
       return "neu";
     }
 
-    function fmtPx(v) {
-      if (typeof v === "number") {
-        return v.toLocaleString(undefined, { maximumFractionDigits: 2 });
+    function isFxLike(name = "") {
+      const n = String(name).toUpperCase();
+      return n.includes("USD/") || n.includes("EUR/") || n.includes("GBP/") || n.includes("CNY/") || n.includes("JPY") || n.includes("INDEX");
+    }
+
+    function fmtPx(v, name = "") {
+      if (typeof v !== "number") return String(v ?? "N/A");
+
+      const n = String(name || "").toUpperCase();
+
+      if (n.includes("USD/QAR") || n.includes("EUR/QAR") || n.includes("GBP/QAR") || n.includes("CNY/QAR")) {
+        return v.toLocaleString(undefined, { minimumFractionDigits: 4, maximumFractionDigits: 4 });
       }
-      return String(v ?? "N/A");
+
+      if (n.includes("EUR/USD") || n.includes("GBP/USD")) {
+        return v.toLocaleString(undefined, { minimumFractionDigits: 4, maximumFractionDigits: 4 });
+      }
+
+      if (n.includes("USD/JPY") || n.includes("USD/CNY")) {
+        return v.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+      }
+
+      if (n.includes("UST")) {
+        return v.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+      }
+
+      if (Math.abs(v) >= 1000) {
+        return v.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+      }
+
+      if (Math.abs(v) < 1) {
+        return v.toLocaleString(undefined, { minimumFractionDigits: 4, maximumFractionDigits: 4 });
+      }
+
+      return v.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
     }
 
     function reportStatusPill(status) {
@@ -222,6 +260,12 @@
       return `<span class="pill orange">Draft</span>`;
     }
 
+    function dataQualityPill(status) {
+      const s = String(status || "").toLowerCase();
+      if (s === "ok") return `<span class="live">● Validated</span>`;
+      return `<span class="review">● Needs Review</span>`;
+    }
+
     function currentOperator() {
       return "Dashboard User";
     }
@@ -231,7 +275,7 @@
         ? rows.map(r => `
           <tr>
             <td>${escapeHtml(r.name || "")}</td>
-            <td>${escapeHtml(fmtPx(r.px_last))}</td>
+            <td>${escapeHtml(fmtPx(r.px_last, r.name || ""))}</td>
             <td class="${pctClass(r.change_1d)}">${escapeHtml(r.change_1d || "N/A")}</td>
             <td class="${pctClass(r.mtd)}">${escapeHtml(r.mtd || "N/A")}</td>
             <td class="${pctClass(r.ytd)}">${escapeHtml(r.ytd || "N/A")}</td>
@@ -277,6 +321,19 @@
       `;
     }
 
+    function renderValidationAlert(issues) {
+      if (!issues || !issues.length) return "";
+      return `
+        <div class="alert">
+          <strong>Data validation warning</strong>
+          One or more core market checks failed during report generation. Review before relying on this snapshot.
+          <ul>
+            ${issues.map(x => `<li>${escapeHtml(x)}</li>`).join("")}
+          </ul>
+        </div>
+      `;
+    }
+
     function renderMarket() {
       if (!marketData) {
         marketView.innerHTML = `<div class="card">Loading live market data...</div>`;
@@ -290,6 +347,9 @@
 
       const d = marketData;
       const generatedAt = d.generated_at ? new Date(d.generated_at).toLocaleString() : "Unknown";
+      const generatedDisplay = d.generated_display_time || "Unknown";
+      const validationIssues = Array.isArray(d.validation_issues) ? d.validation_issues : [];
+      const reportStatus = d.report_status || "ok";
 
       const kpis = (d.kpis || []).map(k => `
         <div class="kpi">
@@ -300,9 +360,14 @@
       `).join("");
 
       marketView.innerHTML = `
+        ${renderValidationAlert(validationIssues)}
+
         <div class="meta-row">
-          <div>Last updated: ${escapeHtml(generatedAt)}</div>
-          <div class="live">● Live Data</div>
+          <div>
+            <div>Generated UTC: ${escapeHtml(generatedAt)}</div>
+            <div>Report display time: ${escapeHtml(generatedDisplay)}</div>
+          </div>
+          <div>${dataQualityPill(reportStatus)}</div>
         </div>
 
         <div class="kpis">${kpis}</div>
