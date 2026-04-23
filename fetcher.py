@@ -3,6 +3,7 @@ import os
 import re
 import datetime
 from html import unescape
+from email.utils import parsedate_to_datetime
 from typing import Optional, List
 from urllib.parse import quote
 
@@ -107,21 +108,31 @@ NEWS_FEEDS = {
 }
 
 QATAR_NEWS_TARGET_COUNT = 4
+QATAR_NEWS_MAX_AGE_HOURS = 24
+QATAR_NEWS_REQUIRED_KEYWORDS = [
+    "business", "economy", "economic", "investment", "investor", "investors",
+    "bank", "banking", "finance", "financial", "market", "markets", "stocks",
+    "trade", "trading", "company", "companies", "ipo", "bond", "bonds",
+    "sukuk", "merger", "acquisition", "real estate", "energy", "gas", "lng"
+]
+QATAR_NEWS_EXCLUDE_KEYWORDS = [
+    "world cup", "sports", "football", "fifa", "match", "cup", "covid-19", "covid"
+]
 QATAR_NEWS_FALLBACK_QUERIES = [
     {
-        "source": "Google News / Peninsula / Tribune",
-        "query": '("Qatar business" OR "Qatar economy" OR "Qatar market") (site:thepeninsulaqatar.com OR site:qatar-tribune.com)',
-        "max": 10,
+        "source": "Google News / Qatar business approved",
+        "query": 'Qatar (business OR economy OR investment OR bank OR banking OR finance OR market) when:1d (site:thepeninsulaqatar.com OR site:qatar-tribune.com)',
+        "max": 12,
     },
     {
-        "source": "Google News / Qatar approved set",
-        "query": '("Qatar business" OR "Qatar economy" OR "Qatar banks" OR "Qatar market") (site:thepeninsulaqatar.com OR site:qatar-tribune.com OR site:gulf-times.com OR site:reuters.com OR site:bloomberg.com)',
-        "max": 10,
+        "source": "Google News / Qatar business reputable",
+        "query": 'Qatar (business OR economy OR investment OR bank OR banking OR finance OR market) when:1d (site:thepeninsulaqatar.com OR site:qatar-tribune.com OR site:gulf-times.com OR site:reuters.com OR site:bloomberg.com)',
+        "max": 12,
     },
     {
-        "source": "Google News / Qatar broad",
-        "query": '"Qatar business" OR "Qatar economy" OR "Qatar market" OR "Qatar banks"',
-        "max": 10,
+        "source": "Google News / Qatar investment broad",
+        "query": 'Qatar (business OR economy OR investment OR bank OR banking OR finance OR market) when:1d',
+        "max": 12,
     },
 ]
 
@@ -666,6 +677,56 @@ def validate_market_data(data: dict) -> List[str]:
     return issues
 
 
+
+def _parse_published_dt(item: dict) -> Optional[datetime.datetime]:
+    raw = item.get("published", "")
+    if not raw:
+        return None
+    try:
+        dt = parsedate_to_datetime(raw)
+        if dt.tzinfo is None:
+            dt = dt.replace(tzinfo=datetime.timezone.utc)
+        return dt.astimezone(datetime.timezone.utc)
+    except Exception:
+        try:
+            dt = datetime.datetime.fromisoformat(raw.replace("Z", "+00:00"))
+            if dt.tzinfo is None:
+                dt = dt.replace(tzinfo=datetime.timezone.utc)
+            return dt.astimezone(datetime.timezone.utc)
+        except Exception:
+            return None
+
+
+def _is_recent_item(item: dict, now_utc: datetime.datetime, max_age_hours: int) -> bool:
+    dt = _parse_published_dt(item)
+    if dt is None:
+        return False
+    age = now_utc - dt
+    return datetime.timedelta(0) <= age <= datetime.timedelta(hours=max_age_hours)
+
+
+def _is_qatar_business_item(item: dict) -> bool:
+    blob = f"{item.get('title', '')} {item.get('summary', '')}".lower()
+    if "qatar" not in blob:
+        return False
+    if any(x in blob for x in QATAR_NEWS_EXCLUDE_KEYWORDS):
+        return False
+    return any(k in blob for k in QATAR_NEWS_REQUIRED_KEYWORDS)
+
+
+def _filter_recent_qatar_business_news(items: list[dict]) -> list[dict]:
+    now_utc = datetime.datetime.utcnow().replace(tzinfo=datetime.timezone.utc)
+    out = []
+    for item in items:
+        if not _is_recent_item(item, now_utc, QATAR_NEWS_MAX_AGE_HOURS):
+            continue
+        if not _is_qatar_business_item(item):
+            continue
+        out.append(item)
+    out.sort(key=lambda x: _parse_published_dt(x) or datetime.datetime(1970, 1, 1, tzinfo=datetime.timezone.utc), reverse=True)
+    return out
+
+
 def _fetch_rss_url(url: str, timeout: int = 20):
     headers = {
         "User-Agent": "Mozilla/5.0",
@@ -749,19 +810,21 @@ def fetch_news(feed_list: list[dict]) -> list[dict]:
 
 def fetch_qatar_news() -> list[dict]:
     items = dedupe_news(fetch_news(NEWS_FEEDS["qatar"]))
-    print(f"    Qatar primary source items found: {len(items)}")
+    items = _filter_recent_qatar_business_news(items)
+    print(f"    Qatar primary recent business items found: {len(items)}")
 
     if len(items) >= QATAR_NEWS_TARGET_COUNT:
-        return items
+        return items[:QATAR_NEWS_TARGET_COUNT]
 
     for query_cfg in QATAR_NEWS_FALLBACK_QUERIES:
         items.extend(_parse_google_news_query(query_cfg))
         items = dedupe_news(items)
-        print(f"    Qatar items after fallback '{query_cfg['source']}': {len(items)}")
+        items = _filter_recent_qatar_business_news(items)
+        print(f"    Qatar recent business items after fallback '{query_cfg['source']}': {len(items)}")
         if len(items) >= QATAR_NEWS_TARGET_COUNT:
             break
 
-    return items
+    return items[:QATAR_NEWS_TARGET_COUNT]
 
 
 def dedupe_news(items: list[dict]) -> list[dict]:
@@ -1066,7 +1129,7 @@ def run() -> dict:
     if cfg["sections"].get("qatar_news", True):
         print("  · qatar news")
         raw_qatar = fetch_qatar_news()
-        print(f"    Qatar source items usable: {len(raw_qatar)}")
+        print(f"    Qatar recent business items usable: {len(raw_qatar)}")
         if raw_qatar:
             data["qatar_news"] = summarise_news(raw_qatar, "qatar", min(QATAR_NEWS_TARGET_COUNT, len(raw_qatar)))
         else:
