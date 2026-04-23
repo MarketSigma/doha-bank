@@ -15,7 +15,7 @@
       "qatar_news": true
     }
   },
-  "generated_at": "2026-04-23T21:16:21Z",
+  "generated_at": "2026-04-23T21:55:37Z",
   "generated_display_time": "07:00 AST",
   "global_indices": [
     {
@@ -85,7 +85,7 @@
       "ticker": "DX-Y.NYB",
       "px_last": 98.81,
       "change_1d": "+0.2%",
-      "mtd": "-1.2%",
+      "mtd": "-1.1%",
       "ytd": "+0.5%",
       "as_of": "2026-04-23",
       "source": "Yahoo Finance"
@@ -94,7 +94,7 @@
       "name": "EUR/USD",
       "ticker": "EURUSD=X",
       "px_last": 1.17,
-      "change_1d": "-0.4%",
+      "change_1d": "-0.5%",
       "mtd": "+2.0%",
       "ytd": "-0.5%",
       "as_of": "2026-04-23",
@@ -105,15 +105,15 @@
       "ticker": "GBPUSD=X",
       "px_last": 1.35,
       "change_1d": "-0.3%",
-      "mtd": "+2.3%",
-      "ytd": "+0.0%",
+      "mtd": "+2.2%",
+      "ytd": "-0.0%",
       "as_of": "2026-04-23",
       "source": "Yahoo Finance"
     },
     {
       "name": "USD/JPY",
       "ticker": "JPY=X",
-      "px_last": 159.62,
+      "px_last": 159.67,
       "change_1d": "+0.2%",
       "mtd": "-0.1%",
       "ytd": "+2.1%",
@@ -343,9 +343,9 @@
     {
       "name": "EUR/QAR",
       "ticker": "DERIVED",
-      "px_last": 4.2558,
+      "px_last": 4.2543,
       "change_1d": "-0.6%",
-      "mtd": "+5.1%",
+      "mtd": "+5.0%",
       "ytd": "-0.5%",
       "as_of": "2026-04-23",
       "source": "Derived from Yahoo Finance EURUSD=X and QAR=X"
@@ -353,8 +353,8 @@
     {
       "name": "GBP/QAR",
       "ticker": "DERIVED",
-      "px_last": 4.9034,
-      "change_1d": "-0.4%",
+      "px_last": 4.9016,
+      "change_1d": "-0.5%",
       "mtd": "+5.3%",
       "ytd": "+0.0%",
       "as_of": "2026-04-23",
@@ -373,86 +373,86 @@
   ],
   "global_news": [
     {
-      "headline": "Gold Falls as Hormuz Standoff Drives Oil Higher",
-      "summary": "Gold declined as escalating US-Iran tensions over Strait of Hormuz drove oil prices higher, rekindling inflation concerns and market volatility.",
+      "headline": "Australia's IFM Targets Europe Defense Investment Opportunities",
+      "summary": "Australian infrastructure investor IFM Investors eyes defense opportunities in Europe, capitalizing on NATO's historic shift toward military expansion and increased defense spending.",
+      "source": "Bloomberg",
+      "url": "https://www.bloomberg.com/news/articles/2026-04-23/australia-s-ifm-targets-europe-defense-investment-as-nato-rearms",
+      "metric": "Historic shift",
+      "metric_label": "NATO military expansion level"
+    },
+    {
+      "headline": "RBC Expands Investment Banking with Industrial Specialists",
+      "summary": "Royal Bank of Canada hires industrials bankers Kinjal Gandhi and Alex Choi as Canada's largest bank continues building its investment banking franchise.",
+      "source": "Bloomberg",
+      "url": "https://www.bloomberg.com/news/articles/2026-04-23/rbc-hires-industrials-bankers-gandhi-choi-in-advisory-push",
+      "metric": "2 hires",
+      "metric_label": "New industrial banking specialis"
+    },
+    {
+      "headline": "Gold Falls Amid US-Iran Hormuz Standoff Concerns",
+      "summary": "Gold prices declined as escalating tensions over Strait of Hormuz drove oil prices higher, reigniting inflation concerns among investors and markets.",
       "source": "Bloomberg",
       "url": "https://www.bloomberg.com/news/articles/2026-04-22/gold-steadies-as-hormuz-standoff-keeps-inflation-risk-high",
-      "metric": "Oil \u2191 Gold \u2193",
-      "metric_label": "Commodities divergence on geopol"
+      "metric": "Price decline",
+      "metric_label": "Gold market movement"
     },
     {
-      "headline": "Stocks Fall as Iran Tensions Rally Oil Prices",
-      "summary": "Markets rattled by Middle East conflict escalation fears, with stocks declining as oil surged on Strait of Hormuz closure concerns.",
-      "source": "Bloomberg",
-      "url": "https://www.bloomberg.com/news/articles/2026-04-22/stock-market-today-dow-s-p-live-updates",
-      "metric": "Stocks \u2193",
-      "metric_label": "Market reaction to geopolitical "
-    },
-    {
-      "headline": "United CEO Eyes Airline Acquisition Amid Industry Challenges",
-      "summary": "Scott Kirby pursues expansion strategy to build 'best airline in history' while facing merger discussions, rising fuel costs, competitive pressures.",
+      "headline": "United CEO Pursues Airline Acquisition Strategy",
+      "summary": "Scott Kirby aims to build the best airline in history through potential mergers, while facing challenges from rising fuel costs and industry competition.",
       "source": "Bloomberg",
       "url": "https://www.bloomberg.com/news/features/2026-04-23/united-ceo-scott-kirby-faces-merger-talk-fuel-prices-turf-wars",
-      "metric": "M&A Activity",
-      "metric_label": "Airline sector consolidation tre"
+      "metric": "M&A active",
+      "metric_label": "Airline consolidation strategy"
     },
     {
-      "headline": "US Government Taps Law Firm for Spirit Rescue",
-      "summary": "Government engages Kirkland & Ellis to advise on potential rescue deal for struggling Spirit Aviation Holdings amid airline industry distress.",
+      "headline": "Former ESPN CEO Discusses NFL Draft Growth Potential",
+      "summary": "Former ESPN and NFL Network CEO Steve Bornstein says sky is the limit for NFL draft growth, discussing media deals and expansion opportunities.",
       "source": "Bloomberg",
-      "url": "https://www.bloomberg.com/news/articles/2026-04-23/us-taps-kirkland-ellis-for-advice-on-spirit-airlines-rescue",
-      "metric": "Gov Intervention",
-      "metric_label": "Airline bailout consideration"
+      "url": "https://www.bloomberg.com/news/videos/2026-04-23/fmr-nfl-network-espn-ceo-on-draft-media-deals-video",
+      "metric": "Sky's limit",
+      "metric_label": "NFL draft growth potential"
     },
     {
-      "headline": "Avis Stock Collapse Drags Down Transport Index",
-      "summary": "Transportation sector suffers worst two-day performance since spring tariff selloff, triggered by major decline in Avis rental car stock.",
-      "source": "Bloomberg",
-      "url": "https://www.bloomberg.com/news/articles/2026-04-23/avis-stock-collapse-sparks-plunge-in-dow-transports-it-lifted",
-      "metric": "2-Day Worst",
-      "metric_label": "Dow Transports performance decli"
-    },
-    {
-      "headline": "Podcast Empire Faces Internal Business Challenges",
-      "summary": "Call Her Daddy host Alex Cooper's media business encounters multiple operational difficulties, including issues involving her husband's involvement.",
+      "headline": "Alex Cooper's Podcast Empire Faces Internal Challenges",
+      "summary": "Call Her Daddy host Alex Cooper grapples with multiple business challenges, some brought about by her husband, affecting her podcast empire operations.",
       "source": "Bloomberg",
       "url": "https://www.bloomberg.com/news/videos/2026-04-23/inside-complaints-about-alex-cooper-s-podcast-empire",
-      "metric": "Media Sector",
-      "metric_label": "Digital content business pressur"
+      "metric": "Multiple issues",
+      "metric_label": "Business challenges reported"
     }
   ],
   "qatar_news": [
     {
       "headline": "Qatar Business Source Temporarily Unavailable",
-      "summary": "Primary Qatar business news source experiencing technical difficulties, preventing access to current market updates and corporate developments.",
+      "summary": "Peninsula/Tribune Qatar business news feed experiencing technical difficulties, returning no usable articles in current reporting cycle.",
       "source": "Peninsula/Tribune",
       "url": "",
       "metric": "0",
-      "metric_label": "Articles Retrieved"
+      "metric_label": "Articles Available"
     },
     {
       "headline": "Qatar Corporate News Feed Refresh Pending",
-      "summary": "Corporate news workflow experiencing delays, with system scheduled to retry approved source connections on next automated cycle.",
+      "summary": "Workflow system preparing to retry approved Peninsula/Tribune source connection on next scheduled run cycle.",
       "source": "Peninsula/Tribune",
       "url": "",
-      "metric": "1",
-      "metric_label": "Retry Attempts Scheduled"
+      "metric": "Next Run",
+      "metric_label": "Retry Status"
     },
     {
       "headline": "Qatar Market Coverage Awaiting Source Update",
-      "summary": "Insufficient market data retrieved from approved publisher feeds during current reporting cycle, affecting comprehensive coverage quality.",
+      "summary": "Approved publisher feed failed to provide sufficient news items for comprehensive Qatar market intelligence report.",
       "source": "Peninsula/Tribune",
       "url": "",
-      "metric": "0",
-      "metric_label": "Sufficient Items Retrieved"
+      "metric": "Insufficient",
+      "metric_label": "Item Count"
     },
     {
       "headline": "Qatar Economy Headlines Stream Incomplete",
-      "summary": "Economic news section limited to approved publisher sources only, currently experiencing reduced content availability and coverage gaps.",
+      "summary": "Economic news section restricted to approved publisher sources only, current feed not meeting coverage requirements.",
       "source": "Peninsula/Tribune",
       "url": "",
-      "metric": "100%",
-      "metric_label": "Source Approval Compliance"
+      "metric": "Approved Only",
+      "metric_label": "Source Policy"
     }
   ],
   "kpis": [
