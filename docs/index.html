@@ -80,6 +80,7 @@
     .news-metric .metric{color:var(--blue2);font-weight:700;font-size:15px;line-height:1.05;margin-bottom:4px}
     .news-metric .metric-label{color:#7a8da5;font-size:10px;line-height:1.15}
     .split{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+    .split.single{grid-template-columns:1fr}
     .subcard{border:2px solid var(--border);border-radius:12px;background:#fff;padding:18px}
     .subcard h3{margin:0 0 16px;color:var(--navy);font-size:17px;font-weight:800;text-transform:uppercase}
     .recipient-form{display:grid;grid-template-columns:1.2fr 1.2fr .55fr auto;gap:10px;margin-top:14px}
@@ -157,6 +158,7 @@
     const sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
     const DASHBOARD_PASSWORD = "db_mi_2026";
+    const SHOW_WHATSAPP_SECTION = false;
 
     let marketData = null;
     let waRecipients = [];
@@ -423,7 +425,7 @@
             <div class="report-meta">
               <div class="stack-actions">
                 <button class="btn green" onclick="approveLatestReport()">Approve</button>
-                <button class="btn orange" onclick="queueSendAll('whatsapp')">Queue WhatsApp to All</button>
+                ${SHOW_WHATSAPP_SECTION ? `<button class="btn orange" onclick="queueSendAll('whatsapp')">Queue WhatsApp to All</button>` : ``}
                 <button class="btn" onclick="queueSendAll('email')">Queue Email to All</button>
               </div>
               <div class="stack-actions">
@@ -478,7 +480,8 @@
       const emActive = emailRecipients.filter(r => r.active).length;
 
       recipientsView.innerHTML = `
-        <div class="split">
+        <div class="split ${SHOW_WHATSAPP_SECTION ? '' : 'single'}">
+          ${SHOW_WHATSAPP_SECTION ? `
           <div class="subcard">
             <h3>WhatsApp Recipients (${waActive} Active)</h3>
             <table>
@@ -508,8 +511,9 @@
               </div>
             </div>
           </div>
+          ` : ``}
 
-          <div class="subcard">
+          <div class="subcard" style="${SHOW_WHATSAPP_SECTION ? '' : 'max-width:100%; width:100%;'}">
             <h3>Email Recipients (${emActive} Active)</h3>
             <table>
               <thead>
