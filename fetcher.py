@@ -479,7 +479,7 @@ def add_derived_rows(data: dict, today: datetime.date) -> None:
         return cur, prev, mtd, ytd
 
     q = get_refs(qary)
-    e = getRefs = get_refs(eurusd)
+    e = get_refs(eurusd)
     g = get_refs(gbpusd)
     c = get_refs(usdcny)
     au = get_refs(goldusd)
