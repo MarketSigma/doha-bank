@@ -39,14 +39,15 @@ GLOBAL_INDICES = {
     "India Sensex": "^BSESN",
 }
 
-GCC_INDICES = {
-    "Qatar QE Index": "^GNRI.QA",
-    "Saudi Tadawul": "TASI.SR",
-    "Dubai DFM": "^DFMGI",
-    "Abu Dhabi ADX": "ADI.QA",
-    "Kuwait Boursa": "^BKW",
-    "Bahrain": "^BHSE",
-}
+# GCC is now sourced from Supabase gcc_indices_history, not Yahoo directly.
+GCC_INDEX_CONFIG = [
+    {"code": "QE", "name": "Qatar QE Index"},
+    {"code": "TASI", "name": "Saudi Tadawul"},
+    {"code": "DFMGI", "name": "Dubai DFM"},
+    {"code": "FADGI", "name": "Abu Dhabi ADX"},
+    {"code": "BKA", "name": "Kuwait Boursa"},
+    {"code": "BHBX", "name": "Bahrain"},
+]
 
 SPOT_CURRENCY = {
     "USD Index": "DX-Y.NYB",
@@ -120,6 +121,12 @@ def _fmt_pct_number(current: Optional[float], base: Optional[float], digits: int
         return "N/A"
     pct = ((current - base) / base) * 100
     return f"{pct:+.{digits}f}%"
+
+
+def _fmt_pct_value(val: Optional[float], digits: int = 1) -> str:
+    if val is None:
+        return "N/A"
+    return f"{val:+.{digits}f}%"
 
 
 def _clean_text(text: str) -> str:
@@ -248,89 +255,6 @@ def _safe_yahoo_chart_api(sym: str, range_str: str = "1y", interval: str = "1d")
         return None
 
 
-def _parse_qe_raw_description(raw_description: str) -> Optional[dict]:
-    if not raw_description:
-        return None
-
-    text = unescape(raw_description)
-
-    match = re.search(
-        r"QAR\s*·\s*([\d,]+\.\d+)\s+(-?\d+\.\d+)\s+\((-?\d+\.\d+%)\)",
-        text
-    )
-    if not match:
-        print("[WARN][SUPABASE_QE] Could not parse raw_description")
-        return None
-
-    price = float(match.group(1).replace(",", ""))
-    point_change = float(match.group(2))
-    change_1d = match.group(3)
-    prev_close = round(price - point_change, 2)
-
-    return {
-        "price": round(price, 2),
-        "prev_close": prev_close,
-        "change_1d": change_1d,
-    }
-
-
-def _safe_qe_from_supabase() -> Optional[dict]:
-    supabase_url = os.environ.get("SUPABASE_URL")
-    supabase_key = os.environ.get("SUPABASE_SERVICE_ROLE_KEY")
-
-    if not supabase_url or not supabase_key:
-        print("[WARN][SUPABASE_QE] Missing SUPABASE_URL or SUPABASE_SERVICE_ROLE_KEY")
-        return None
-
-    today_str = datetime.date.today().strftime("%Y-%m-%d")
-
-    url = (
-        f"{supabase_url}/rest/v1/qe_index_cache"
-        f"?select=*"
-        f"&status=eq.ok"
-        f"&as_of=lte.{today_str}"
-        f"&order=as_of.desc,created_at.desc"
-        f"&limit=1"
-    )
-
-    headers = {
-        "apikey": supabase_key,
-        "Authorization": f"Bearer {supabase_key}",
-    }
-
-    try:
-        r = requests.get(url, headers=headers, timeout=20)
-        r.raise_for_status()
-        rows = r.json()
-
-        if not rows:
-            print("[WARN][SUPABASE_QE] No valid QE rows found in Supabase")
-            return None
-
-        row = rows[0]
-        parsed = _parse_qe_raw_description(row.get("raw_description", ""))
-
-        if not parsed:
-            print("[WARN][SUPABASE_QE] Latest Supabase QE row could not be parsed")
-            return None
-
-        return {
-            "name": "Qatar QE Index",
-            "ticker": "^GNRI.QA",
-            "px_last": parsed["price"],
-            "change_1d": parsed["change_1d"],
-            "mtd": "N/A",
-            "ytd": "N/A",
-            "as_of": row.get("as_of"),
-            "source": row.get("source", "Supabase qe_index_cache"),
-            "prev_close": parsed["prev_close"],
-        }
-
-    except Exception as e:
-        print(f"[WARN][SUPABASE_QE] Failed to read QE from Supabase: {e}")
-        return None
-
-
 def _get_series(sym: str, start: datetime.date):
     closes = _safe_download(sym, start)
     if closes is not None and len(closes) >= 2:
@@ -363,24 +287,12 @@ def _last_value_before_or_on(closes, target_date: datetime.date) -> Optional[flo
 
 
 def _fetch_market_row(name: str, sym: str, today: datetime.date, digits: int = 2) -> dict:
-    if name == "Qatar QE Index":
-        qe_row = _safe_qe_from_supabase()
-        if qe_row is not None:
-            print("[INFO][SUPABASE_QE] Using latest QE value from Supabase")
-            return qe_row
-
     year_start = datetime.date(today.year, 1, 1)
     month_start = datetime.date(today.year, today.month, 1)
     history_start = year_start - datetime.timedelta(days=20)
 
     closes = _get_series(sym, history_start)
     if closes is None or len(closes) < 2:
-        if name == "Qatar QE Index":
-            qe_row = _safe_qe_from_supabase()
-            if qe_row is not None:
-                print("[INFO][SUPABASE_QE] Using QE value from Supabase after Yahoo fallback")
-                return qe_row
-
         return {
             "name": name,
             "ticker": sym,
@@ -411,6 +323,177 @@ def _fetch_market_row(name: str, sym: str, today: datetime.date, digits: int = 2
         "as_of": as_of_str,
         "source": "Yahoo Finance",
     }
+
+
+# ------------------------------
+# GCC indices from Supabase
+# ------------------------------
+
+def _supabase_headers() -> dict:
+    supabase_key = os.environ.get("SUPABASE_SERVICE_ROLE_KEY")
+    return {
+        "apikey": supabase_key,
+        "Authorization": f"Bearer {supabase_key}",
+        "Accept": "application/json",
+    }
+
+
+def _supabase_base_url() -> Optional[str]:
+    return os.environ.get("SUPABASE_URL")
+
+
+def _safe_gcc_history_from_supabase(instrument_code: str, today: datetime.date) -> list[dict]:
+    supabase_url = _supabase_base_url()
+    supabase_key = os.environ.get("SUPABASE_SERVICE_ROLE_KEY")
+    if not supabase_url or not supabase_key:
+        print("[WARN][SUPABASE_GCC] Missing SUPABASE_URL or SUPABASE_SERVICE_ROLE_KEY")
+        return []
+
+    today_str = today.strftime("%Y-%m-%d")
+    url = (
+        f"{supabase_url}/rest/v1/gcc_indices_history"
+        f"?select=*"
+        f"&instrument_code=eq.{quote(instrument_code, safe='')}"
+        f"&status=eq.ok"
+        f"&as_of_date=lte.{today_str}"
+        f"&order=as_of_date.asc,created_at.asc"
+    )
+
+    try:
+        r = requests.get(url, headers=_supabase_headers(), timeout=20)
+        r.raise_for_status()
+        rows = r.json()
+        return rows if isinstance(rows, list) else []
+    except Exception as e:
+        print(f"[WARN][SUPABASE_GCC] Failed reading {instrument_code}: {e}")
+        return []
+
+
+def _dedupe_history_rows(rows: list[dict]) -> list[dict]:
+    # Keep the latest created row per as_of_date.
+    by_date: dict[str, dict] = {}
+    for row in rows:
+        d = row.get("as_of_date")
+        if not d or not row.get("instrument_code"):
+            continue
+        existing = by_date.get(d)
+        if existing is None or str(row.get("created_at", "")) > str(existing.get("created_at", "")):
+            by_date[d] = row
+    return [by_date[d] for d in sorted(by_date.keys())]
+
+
+def _row_px(row: Optional[dict]) -> Optional[float]:
+    if not row:
+        return None
+    return _to_float(row.get("px_last"))
+
+
+def _find_latest_row(rows: list[dict]) -> Optional[dict]:
+    return rows[-1] if rows else None
+
+
+def _find_previous_row(rows: list[dict], latest_date: str) -> Optional[dict]:
+    prev = [r for r in rows if r.get("as_of_date") and r.get("as_of_date") < latest_date]
+    return prev[-1] if prev else None
+
+
+def _find_month_reference(rows: list[dict], latest_date: datetime.date) -> Optional[dict]:
+    month_rows = []
+    for r in rows:
+        try:
+            d = datetime.date.fromisoformat(r["as_of_date"])
+        except Exception:
+            continue
+        if d.year == latest_date.year and d.month == latest_date.month and d <= latest_date:
+            month_rows.append(r)
+    if month_rows:
+        return month_rows[0]
+
+    before_month = []
+    month_start = datetime.date(latest_date.year, latest_date.month, 1)
+    for r in rows:
+        try:
+            d = datetime.date.fromisoformat(r["as_of_date"])
+        except Exception:
+            continue
+        if d < month_start:
+            before_month.append(r)
+    return before_month[-1] if before_month else None
+
+
+def _find_year_reference(rows: list[dict], latest_date: datetime.date) -> Optional[dict]:
+    year_rows = []
+    for r in rows:
+        try:
+            d = datetime.date.fromisoformat(r["as_of_date"])
+        except Exception:
+            continue
+        if d.year == latest_date.year and d <= latest_date:
+            year_rows.append(r)
+    return year_rows[0] if year_rows else None
+
+
+def _calc_pct_from_two_values(current: Optional[float], base: Optional[float]) -> Optional[float]:
+    if current is None or base in (None, 0):
+        return None
+    return ((current - base) / base) * 100
+
+
+def _build_gcc_row(name: str, instrument_code: str, today: datetime.date) -> dict:
+    rows = _dedupe_history_rows(_safe_gcc_history_from_supabase(instrument_code, today))
+    latest = _find_latest_row(rows)
+    if not latest:
+        return {
+            "name": name,
+            "ticker": instrument_code,
+            "px_last": "N/A",
+            "change_1d": "N/A",
+            "mtd": "N/A",
+            "ytd": "N/A",
+            "as_of": None,
+            "source": "Supabase gcc_indices_history",
+        }
+
+    latest_date = datetime.date.fromisoformat(latest["as_of_date"])
+    latest_px = _row_px(latest)
+
+    prev_row = _find_previous_row(rows, latest["as_of_date"])
+    prev_px = _row_px(prev_row)
+    if prev_px is None:
+        prev_px = _to_float(latest.get("previous_close"))
+
+    month_ref = _find_month_reference(rows, latest_date)
+    month_px = _row_px(month_ref)
+
+    year_ref = _find_year_reference(rows, latest_date)
+    year_px = _row_px(year_ref)
+
+    change_1d_pct = _calc_pct_from_two_values(latest_px, prev_px)
+    if change_1d_pct is None:
+        change_1d_pct = _to_float(latest.get("change_1d_pct"))
+
+    mtd_pct = _calc_pct_from_two_values(latest_px, month_px)
+    ytd_pct = _calc_pct_from_two_values(latest_px, year_px)
+
+    return {
+        "name": name,
+        "ticker": instrument_code,
+        "px_last": round(latest_px, 2) if latest_px is not None else "N/A",
+        "change_1d": _fmt_pct_value(change_1d_pct, 1),
+        "mtd": _fmt_pct_value(mtd_pct, 1),
+        "ytd": _fmt_pct_value(ytd_pct, 1),
+        "as_of": latest.get("as_of_date"),
+        "source": latest.get("source") or "Supabase gcc_indices_history",
+    }
+
+
+def fetch_gcc_indices(today: datetime.date) -> list[dict]:
+    rows = []
+    for item in GCC_INDEX_CONFIG:
+        row = _build_gcc_row(item["name"], item["code"], today)
+        print(f"    {item['name']}: {row['px_last']} | {row['change_1d']} | {row['mtd']} | {row['ytd']}")
+        rows.append(row)
+    return rows
 
 
 def fetch_section(ticker_map: dict, today: datetime.date) -> list[dict]:
@@ -858,7 +941,6 @@ def run() -> dict:
 
     section_map = {
         "global_indices": GLOBAL_INDICES,
-        "gcc_indices": GCC_INDICES,
         "spot_currency": SPOT_CURRENCY,
         "qatari_banks": QATARI_BANKS,
         "commodities": COMMODITIES,
@@ -872,6 +954,12 @@ def run() -> dict:
             continue
         print(f"  · {section}")
         data[section] = fetch_section(tickers, today)
+
+    if cfg["sections"].get("gcc_indices", True):
+        print("  · gcc_indices")
+        data["gcc_indices"] = fetch_gcc_indices(today)
+    else:
+        data["gcc_indices"] = []
 
     if cfg["sections"].get("qar_cross_rates", True):
         add_derived_rows(data, today)
