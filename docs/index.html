@@ -141,6 +141,7 @@
   <div class="tabs">
     <div class="tab active" data-tab="market">Market Snapshot</div>
     <div class="tab" data-tab="reports">Reports</div>
+    <div class="tab" data-tab="schedule">Email Schedule</div>
     <div class="tab" data-tab="recipients">Recipients</div>
     <div class="tab" data-tab="log">Report Log</div>
   </div>
@@ -148,6 +149,7 @@
   <div class="page">
     <div id="marketView"></div>
     <div id="reportsView" style="display:none;"></div>
+    <div id="scheduleView" style="display:none;"></div>
     <div id="recipientsView" style="display:none;"></div>
     <div id="logView" style="display:none;"></div>
   </div>
@@ -166,10 +168,12 @@
     let sendLog = [];
     let reports = [];
     let latestReport = null;
+    let emailSchedule = null;
     let activeTab = "market";
 
     const marketView = document.getElementById("marketView");
     const reportsView = document.getElementById("reportsView");
+    const scheduleView = document.getElementById("scheduleView");
     const recipientsView = document.getElementById("recipientsView");
     const logView = document.getElementById("logView");
 
@@ -453,6 +457,114 @@
       `;
     }
 
+    function normalizeTimeForInput(value) {
+      if (!value) return "08:00";
+      return String(value).slice(0, 5);
+    }
+
+    function renderSchedule() {
+      const sendTime = normalizeTimeForInput(emailSchedule?.send_time || "08:00");
+      const active = emailSchedule?.active !== false;
+      const updatedAt = emailSchedule?.updated_at
+        ? new Date(emailSchedule.updated_at).toLocaleString()
+        : "Not updated yet";
+
+      scheduleView.innerHTML = `
+        <div class="card">
+          <div class="panel-title">Email Schedule</div>
+          <div class="report-box">
+            <div class="report-meta">
+              <div class="report-stat">
+                <strong>Scheduled Email Sending Time</strong>
+                <div class="helper" style="margin-top:6px;">This controls only the automatic email sending time. It does not generate, approve, or send a report manually.</div>
+              </div>
+
+              <div class="report-stat">
+                <label for="emailSendTime"><strong>Send approved report at</strong></label>
+                <input id="emailSendTime" type="time" value="${escapeHtml(sendTime)}" style="margin-top:8px;max-width:220px;" />
+                <div class="helper" style="margin-top:6px;">Timezone fixed to Qatar Time, Asia/Qatar.</div>
+              </div>
+
+              <div class="report-stat">
+                <label style="display:flex;align-items:center;gap:10px;font-weight:700;cursor:pointer;">
+                  <input id="emailScheduleActive" type="checkbox" ${active ? "checked" : ""} style="width:auto;" />
+                  Active scheduled email sending
+                </label>
+              </div>
+            </div>
+
+            <div class="report-meta">
+              <div class="report-stat"><strong>Current Saved Time:</strong> ${escapeHtml(sendTime)} Qatar Time</div>
+              <div class="report-stat"><strong>Status:</strong> ${active ? '<span class="pill">Active</span>' : '<span class="pill off">Inactive</span>'}</div>
+              <div class="report-stat"><strong>Last Updated:</strong> ${escapeHtml(updatedAt)}</div>
+              <div class="stack-actions">
+                <button class="btn green" onclick="saveEmailSchedule()">Save Schedule</button>
+              </div>
+              <div id="scheduleSaveMsg" class="helper"></div>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    async function loadEmailSchedule() {
+      try {
+        const { data, error } = await sb
+          .from("report_email_schedule")
+          .select("*")
+          .eq("id", "main")
+          .single();
+
+        if (error) throw error;
+        emailSchedule = data;
+      } catch (err) {
+        console.error("Email schedule load failed:", err);
+        emailSchedule = {
+          id: "main",
+          send_time: "08:00",
+          timezone: "Asia/Qatar",
+          active: true,
+          updated_at: null
+        };
+      }
+      render();
+    }
+
+    window.saveEmailSchedule = async function() {
+      const timeInput = document.getElementById("emailSendTime");
+      const activeInput = document.getElementById("emailScheduleActive");
+      const msg = document.getElementById("scheduleSaveMsg");
+
+      if (!timeInput || !timeInput.value) {
+        alert("Please select a valid time.");
+        return;
+      }
+
+      const payload = {
+        id: "main",
+        send_time: timeInput.value,
+        timezone: "Asia/Qatar",
+        active: Boolean(activeInput?.checked),
+        updated_at: new Date().toISOString()
+      };
+
+      const { data, error } = await sb
+        .from("report_email_schedule")
+        .upsert(payload)
+        .select()
+        .single();
+
+      if (error) {
+        alert("Failed to save email schedule: " + error.message);
+        return;
+      }
+
+      emailSchedule = data;
+      if (msg) msg.innerHTML = `<span class="pill">Saved successfully</span> Approved reports will be emailed at ${escapeHtml(timeInput.value)} Qatar Time.`;
+      renderSchedule();
+    };
+
+
     function recipientRows(list, kind) {
       if (!list.length) {
         return `<tr><td colspan="5" class="empty">No recipients found</td></tr>`;
@@ -625,11 +737,13 @@
     function render() {
       marketView.style.display = activeTab === "market" ? "block" : "none";
       reportsView.style.display = activeTab === "reports" ? "block" : "none";
+      scheduleView.style.display = activeTab === "schedule" ? "block" : "none";
       recipientsView.style.display = activeTab === "recipients" ? "block" : "none";
       logView.style.display = activeTab === "log" ? "block" : "none";
 
       if (activeTab === "market") renderMarket();
       if (activeTab === "reports") renderReports();
+      if (activeTab === "schedule") renderSchedule();
       if (activeTab === "recipients") renderRecipients();
       if (activeTab === "log") renderLog();
     }
@@ -901,6 +1015,7 @@
       await Promise.all([
         loadMarketData(),
         loadReports(),
+        loadEmailSchedule(),
         loadRecipients(),
         loadSendLog()
       ]);
