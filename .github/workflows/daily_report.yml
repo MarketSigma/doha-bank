@@ -68,7 +68,7 @@ jobs:
 
       - name: Generate PDF report
         run: |
-          python3 pdf_generator.py
+          python3 pdf_generator.py market_data.json report.pdf
 
       - name: Commit generated files
         run: |
