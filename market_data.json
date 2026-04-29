@@ -15,15 +15,15 @@
       "qatar_news": true
     }
   },
-  "generated_at": "2026-04-29T14:11:58Z",
+  "generated_at": "2026-04-29T14:14:25Z",
   "generated_display_time": "07:00 AST",
   "global_indices": [
     {
       "name": "US S&P 500",
       "ticker": "^GSPC",
-      "px_last": 7131.86,
-      "change_1d": "-0.1%",
-      "mtd": "+9.2%",
+      "px_last": 7136.06,
+      "change_1d": "-0.0%",
+      "mtd": "+9.3%",
       "ytd": "+4.2%",
       "as_of": "2026-04-29",
       "source": "Yahoo Finance"
@@ -31,7 +31,7 @@
     {
       "name": "UK FTSE 100",
       "ticker": "^FTSE",
-      "px_last": 10210.19,
+      "px_last": 10211.72,
       "change_1d": "-1.2%",
       "mtd": "+0.3%",
       "ytd": "+2.8%",
@@ -51,10 +51,10 @@
     {
       "name": "Germany DAX",
       "ticker": "^GDAXI",
-      "px_last": 23941.22,
-      "change_1d": "-0.3%",
-      "mtd": "+5.6%",
-      "ytd": "-2.2%",
+      "px_last": 23932.7,
+      "change_1d": "-0.4%",
+      "mtd": "+5.5%",
+      "ytd": "-2.3%",
       "as_of": "2026-04-29",
       "source": "Yahoo Finance"
     },
@@ -166,7 +166,7 @@
       "name": "GBP/USD",
       "ticker": "GBPUSD=X",
       "px_last": 1.35,
-      "change_1d": "-0.5%",
+      "change_1d": "-0.4%",
       "mtd": "+2.3%",
       "ytd": "+0.1%",
       "as_of": "2026-04-29",
@@ -175,7 +175,7 @@
     {
       "name": "USD/JPY",
       "ticker": "JPY=X",
-      "px_last": 160.17,
+      "px_last": 160.13,
       "change_1d": "+0.5%",
       "mtd": "+0.2%",
       "ytd": "+2.4%",
@@ -279,19 +279,19 @@
     {
       "name": "Brent Crude",
       "ticker": "BZ=F",
-      "px_last": 109.55,
-      "change_1d": "-1.5%",
-      "mtd": "-7.4%",
-      "ytd": "+80.0%",
+      "px_last": 109.47,
+      "change_1d": "-1.6%",
+      "mtd": "-7.5%",
+      "ytd": "+79.9%",
       "as_of": "2026-04-29",
       "source": "Yahoo Finance"
     },
     {
       "name": "Silver",
       "ticker": "SI=F",
-      "px_last": 72.01,
+      "px_last": 72.06,
       "change_1d": "-1.6%",
-      "mtd": "-3.6%",
+      "mtd": "-3.5%",
       "ytd": "+2.7%",
       "as_of": "2026-04-29",
       "source": "Yahoo Finance"
@@ -299,8 +299,8 @@
     {
       "name": "Gold (QAR)",
       "ticker": "DERIVED",
-      "px_last": 16508.49,
-      "change_1d": "+1.7%",
+      "px_last": 16515.41,
+      "change_1d": "+1.8%",
       "mtd": "+0.5%",
       "ytd": "+4.9%",
       "as_of": "2026-04-29",
@@ -311,10 +311,10 @@
     {
       "name": "UST 5-Year",
       "ticker": "^FVX",
-      "px_last": 4.03,
-      "change_1d": "+1.3%",
-      "mtd": "+2.2%",
-      "ytd": "+8.4%",
+      "px_last": 4.04,
+      "change_1d": "+1.4%",
+      "mtd": "+2.3%",
+      "ytd": "+8.5%",
       "as_of": "2026-04-29",
       "source": "Yahoo Finance"
     },
@@ -322,9 +322,9 @@
       "name": "UST 10-Year",
       "ticker": "^TNX",
       "px_last": 4.4,
-      "change_1d": "+1.0%",
-      "mtd": "+2.0%",
-      "ytd": "+5.6%",
+      "change_1d": "+1.1%",
+      "mtd": "+2.1%",
+      "ytd": "+5.7%",
       "as_of": "2026-04-29",
       "source": "Yahoo Finance"
     }
@@ -353,7 +353,7 @@
     {
       "name": "GBP/QAR",
       "ticker": "DERIVED",
-      "px_last": 4.9055,
+      "px_last": 4.907,
       "change_1d": "+2.5%",
       "mtd": "+5.4%",
       "ytd": "+0.1%",
@@ -373,8 +373,8 @@
   ],
   "global_news": [
     {
-      "headline": "Chiesi Acquires KalVista for $1.9 Billion",
-      "summary": "Italian pharmaceutical company Chiesi Farmaceutici agreed to buy US-listed KalVista Pharmaceuticals in its largest acquisition ever, expanding rare immunology portfolio.",
+      "headline": "Chiesi Acquires KalVista Pharmaceuticals for $1.9 Billion",
+      "summary": "Italian pharmaceutical company Chiesi completes largest acquisition to date, buying US-listed KalVista to expand rare immunology portfolio in strategic healthcare sector consolidation.",
       "source": "Bloomberg",
       "url": "https://www.bloomberg.com/news/articles/2026-04-29/chiesi-agrees-to-buy-kalvista-pharmaceuticals-for-1-9-billion",
       "metric": "$1.9B",
@@ -382,49 +382,49 @@
     },
     {
       "headline": "Oil Rally Drives Stocks and Bonds Lower",
-      "summary": "Renewed oil price surge pushes equities and bonds down ahead of Federal Reserve decision, with Iran war concerns weighing on markets.",
+      "summary": "Renewed oil price surge pressures equity and bond markets ahead of Federal Reserve decision, with traders assessing Iran war economic impact.",
       "source": "Bloomberg",
       "url": "https://www.bloomberg.com/news/articles/2026-04-28/asian-stocks-set-for-muted-open-after-us-selloff-markets-wrap",
-      "metric": "Rising",
-      "metric_label": "Oil Price Trend"
+      "metric": "Oil Surge",
+      "metric_label": "Market Driver"
     },
     {
-      "headline": "US Stocks Fall on Tech Losses",
-      "summary": "American equities extended declines as oil prices surged and investors awaited earnings reports from four major technology companies.",
+      "headline": "US Stocks Decline Before Big Tech Earnings",
+      "summary": "American equities extend losses Wednesday as oil prices climb and investors await earnings from four megacap technology companies later today.",
       "source": "Bloomberg",
       "url": "https://www.bloomberg.com/news/articles/2026-04-29/us-stock-futures-edge-up-on-tech-gains-before-megacap-earnings",
-      "metric": "4",
-      "metric_label": "Megacap Earnings Due"
+      "metric": "4 Megacaps",
+      "metric_label": "Companies Reporting"
     },
     {
-      "headline": "Banks Seek Fed Capital Rule Changes",
-      "summary": "Banking groups acknowledge Federal Reserve's improved capital proposals but push for additional modifications to avoid hindering lending capacity.",
-      "source": "Bloomberg",
-      "url": "https://www.bloomberg.com/news/articles/2026-04-28/bank-groups-eye-changes-to-fed-s-relaxed-capital-proposals",
-      "metric": "Relaxed",
-      "metric_label": "Fed Capital Stance"
-    },
-    {
-      "headline": "Australia Warns China on Fuel Supply",
-      "summary": "Foreign Minister Penny Wong tells China that stable commodity trade requires continued imports of petroleum products and fertilizer.",
+      "headline": "Australia Warns China on Trade Stability Requirements",
+      "summary": "Foreign Minister Wong emphasizes stable commodity and food shipments require continued fuel and fertilizer imports in bilateral trade discussions.",
       "source": "Bloomberg",
       "url": "https://www.bloomberg.com/news/articles/2026-04-29/australia-tells-china-stable-trade-needs-stable-fuel-supply",
       "metric": "Trade Warning",
       "metric_label": "Diplomatic Message"
     },
     {
+      "headline": "Banks Seek Fed Capital Rule Changes",
+      "summary": "Banking groups acknowledge Federal Reserve's eased capital proposals as improvement but request further modifications to avoid hindering lending capabilities.",
+      "source": "Bloomberg",
+      "url": "https://www.bloomberg.com/news/articles/2026-04-28/bank-groups-eye-changes-to-fed-s-relaxed-capital-proposals",
+      "metric": "Regulatory",
+      "metric_label": "Capital Rules Review"
+    },
+    {
       "headline": "Starbucks CEO Reports Continued Sales Growth",
-      "summary": "Brian Niccol says customer traffic increasing daily with sales growth across all income segments during second quarter performance.",
+      "summary": "Brian Niccol confirms increasing customer traffic and sales growth across all income segments during second quarter performance update.",
       "source": "Bloomberg",
       "url": "https://www.bloomberg.com/news/videos/2026-04-29/starbucks-ceo-sales-momentum-is-continuing-video",
       "metric": "All Cohorts",
-      "metric_label": "Income Growth Spread"
+      "metric_label": "Income Segments Growing"
     }
   ],
   "qatar_news": [
     {
       "headline": "Qatar Business Source Temporarily Unavailable",
-      "summary": "Primary Qatar business news feed experiencing technical difficulties, preventing article delivery in current reporting cycle.",
+      "summary": "Peninsula/Tribune news feed experiencing technical difficulties, preventing access to Qatar business coverage during current reporting cycle.",
       "source": "Peninsula/Tribune",
       "url": "",
       "metric": "0",
@@ -432,42 +432,42 @@
     },
     {
       "headline": "Qatar Corporate News Feed Refresh Pending",
-      "summary": "System workflow scheduled to retry approved news source connection during next automated run cycle.",
+      "summary": "System workflow scheduled to retry approved Peninsula/Tribune source connection on next automated run cycle.",
       "source": "Peninsula/Tribune",
       "url": "",
       "metric": "1",
-      "metric_label": "Retry Attempts"
+      "metric_label": "Retry Attempts Queued"
     },
     {
       "headline": "Qatar Market Coverage Awaiting Source Update",
-      "summary": "Approved publisher feed failed to deliver minimum required articles for comprehensive market intelligence report.",
+      "summary": "Approved publisher feed failed to deliver minimum required articles for comprehensive Qatar market intelligence report.",
       "source": "Peninsula/Tribune",
       "url": "",
-      "metric": "0",
-      "metric_label": "Minimum Articles Met"
+      "metric": "Insufficient",
+      "metric_label": "Content Volume Status"
     },
     {
-      "headline": "Qatar Economy Headline Stream Incomplete",
-      "summary": "Only pre-approved publisher sources permitted for economy section, limiting alternative content options.",
+      "headline": "Qatar Economy Headlines Stream Incomplete",
+      "summary": "Economic news section restricted to approved publisher sources only, current feed delivery below reporting standards.",
       "source": "Peninsula/Tribune",
       "url": "",
-      "metric": "100%",
-      "metric_label": "Source Approval Required"
+      "metric": "Approved Only",
+      "metric_label": "Source Restriction Policy"
     }
   ],
   "kpis": [
     {
       "value": "Mixed",
       "label": "Global Equities",
-      "sublabel": "US -0.1% \u00b7 UK -1.2%"
+      "sublabel": "US -0.0% \u00b7 UK -1.2%"
     },
     {
-      "value": "$109.55",
+      "value": "$109.47",
       "label": "Brent Crude",
-      "sublabel": "+80.0% Year-to-Date"
+      "sublabel": "+79.9% Year-to-Date"
     },
     {
-      "value": "16,508.49",
+      "value": "16,515.41",
       "label": "Gold (QAR)",
       "sublabel": "+4.9% YTD \u00b7 Safe-haven demand"
     },
@@ -479,7 +479,7 @@
     {
       "value": "4.4%",
       "label": "UST 10Y Yield",
-      "sublabel": "+5.6% YTD \u00b7 Rising yields"
+      "sublabel": "+5.7% YTD \u00b7 Rising yields"
     },
     {
       "value": "4.50%",
