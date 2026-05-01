@@ -1,7 +1,7 @@
 {
   "config": {
     "client_name": "Doha Bank",
-    "report_date": "30 April 2026",
+    "report_date": "01 May 2026",
     "delivery_time_ast": "07:00",
     "sections": {
       "global_indices": true,
@@ -15,46 +15,46 @@
       "qatar_news": true
     }
   },
-  "generated_at": "2026-04-30T14:31:24Z",
+  "generated_at": "2026-05-01T10:01:35Z",
   "generated_display_time": "07:00 AST",
   "global_indices": [
     {
       "name": "US S&P 500",
       "ticker": "^GSPC",
-      "px_last": 7145.95,
-      "change_1d": "+0.1%",
-      "mtd": "+9.5%",
-      "ytd": "+4.4%",
+      "px_last": 7209.01,
+      "change_1d": "+1.0%",
+      "mtd": "+0.0%",
+      "ytd": "+5.3%",
       "as_of": "2026-04-30",
       "source": "Yahoo Finance"
     },
     {
       "name": "UK FTSE 100",
       "ticker": "^FTSE",
-      "px_last": 10362.04,
-      "change_1d": "+1.5%",
-      "mtd": "+1.8%",
-      "ytd": "+4.3%",
-      "as_of": "2026-04-30",
+      "px_last": 10323.93,
+      "change_1d": "-0.5%",
+      "mtd": "-0.5%",
+      "ytd": "+4.0%",
+      "as_of": "2026-05-01",
       "source": "Yahoo Finance"
     },
     {
       "name": "Japan Nikkei",
       "ticker": "^N225",
-      "px_last": 59284.92,
-      "change_1d": "-1.1%",
-      "mtd": "+16.1%",
-      "ytd": "+17.8%",
-      "as_of": "2026-04-30",
+      "px_last": 59513.12,
+      "change_1d": "+0.4%",
+      "mtd": "+0.4%",
+      "ytd": "+18.2%",
+      "as_of": "2026-05-01",
       "source": "Yahoo Finance"
     },
     {
       "name": "Germany DAX",
       "ticker": "^GDAXI",
-      "px_last": 24116.27,
-      "change_1d": "+0.7%",
-      "mtd": "+6.3%",
-      "ytd": "-1.5%",
+      "px_last": 24292.38,
+      "change_1d": "+1.4%",
+      "mtd": "+0.0%",
+      "ytd": "-0.8%",
       "as_of": "2026-04-30",
       "source": "Yahoo Finance"
     },
@@ -63,7 +63,7 @@
       "ticker": "^HSI",
       "px_last": 25776.53,
       "change_1d": "-1.3%",
-      "mtd": "+4.0%",
+      "mtd": "+0.0%",
       "ytd": "+0.6%",
       "as_of": "2026-04-30",
       "source": "Yahoo Finance"
@@ -73,7 +73,7 @@
       "ticker": "^BSESN",
       "px_last": 76913.5,
       "change_1d": "-0.8%",
-      "mtd": "+6.9%",
+      "mtd": "+0.0%",
       "ytd": "-9.7%",
       "as_of": "2026-04-30",
       "source": "Yahoo Finance"
@@ -145,51 +145,51 @@
     {
       "name": "USD Index",
       "ticker": "DX-Y.NYB",
-      "px_last": 98.32,
-      "change_1d": "-0.6%",
-      "mtd": "-1.6%",
-      "ytd": "+0.0%",
-      "as_of": "2026-04-30",
+      "px_last": 98.08,
+      "change_1d": "+0.0%",
+      "mtd": "+0.0%",
+      "ytd": "-0.2%",
+      "as_of": "2026-05-01",
       "source": "Yahoo Finance"
     },
     {
       "name": "EUR/USD",
       "ticker": "EURUSD=X",
       "px_last": 1.17,
-      "change_1d": "-0.0%",
-      "mtd": "+2.2%",
-      "ytd": "-0.3%",
-      "as_of": "2026-04-30",
+      "change_1d": "+0.5%",
+      "mtd": "+0.5%",
+      "ytd": "-0.1%",
+      "as_of": "2026-05-01",
       "source": "Yahoo Finance"
     },
     {
       "name": "GBP/USD",
       "ticker": "GBPUSD=X",
       "px_last": 1.36,
-      "change_1d": "+0.2%",
-      "mtd": "+2.9%",
-      "ytd": "+0.7%",
-      "as_of": "2026-04-30",
+      "change_1d": "+0.8%",
+      "mtd": "+0.8%",
+      "ytd": "+0.9%",
+      "as_of": "2026-05-01",
       "source": "Yahoo Finance"
     },
     {
       "name": "USD/JPY",
       "ticker": "JPY=X",
-      "px_last": 156.73,
-      "change_1d": "-1.8%",
-      "mtd": "-1.9%",
-      "ytd": "+0.2%",
-      "as_of": "2026-04-30",
+      "px_last": 156.61,
+      "change_1d": "-2.2%",
+      "mtd": "-2.2%",
+      "ytd": "+0.1%",
+      "as_of": "2026-05-01",
       "source": "Yahoo Finance"
     },
     {
       "name": "USD/CNY",
       "ticker": "CNY=X",
       "px_last": 6.83,
-      "change_1d": "-0.1%",
-      "mtd": "-1.2%",
+      "change_1d": "-0.2%",
+      "mtd": "-0.2%",
       "ytd": "-2.4%",
-      "as_of": "2026-04-30",
+      "as_of": "2026-05-01",
       "source": "Yahoo Finance"
     }
   ],
@@ -199,7 +199,7 @@
       "ticker": "DHBK.QA",
       "px_last": 2.7,
       "change_1d": "-3.3%",
-      "mtd": "-12.2%",
+      "mtd": "+0.0%",
       "ytd": "-0.9%",
       "as_of": "2026-04-30",
       "source": "Yahoo Finance"
@@ -209,7 +209,7 @@
       "ticker": "QNBK.QA",
       "px_last": 17.35,
       "change_1d": "-0.9%",
-      "mtd": "+1.8%",
+      "mtd": "+0.0%",
       "ytd": "-5.3%",
       "as_of": "2026-04-30",
       "source": "Yahoo Finance"
@@ -219,7 +219,7 @@
       "ticker": "QIBK.QA",
       "px_last": 22.22,
       "change_1d": "-1.6%",
-      "mtd": "-1.9%",
+      "mtd": "+0.0%",
       "ytd": "-5.1%",
       "as_of": "2026-04-30",
       "source": "Yahoo Finance"
@@ -229,7 +229,7 @@
       "ticker": "CBQK.QA",
       "px_last": 4.3,
       "change_1d": "-1.0%",
-      "mtd": "+0.9%",
+      "mtd": "+0.0%",
       "ytd": "+9.6%",
       "as_of": "2026-04-30",
       "source": "Yahoo Finance"
@@ -239,7 +239,7 @@
       "ticker": "QIIK.QA",
       "px_last": 11.31,
       "change_1d": "+0.0%",
-      "mtd": "+1.7%",
+      "mtd": "+0.0%",
       "ytd": "+1.6%",
       "as_of": "2026-04-30",
       "source": "Yahoo Finance"
@@ -249,7 +249,7 @@
       "ticker": "MARK.QA",
       "px_last": 2.16,
       "change_1d": "-1.0%",
-      "mtd": "-0.9%",
+      "mtd": "+0.0%",
       "ytd": "+3.6%",
       "as_of": "2026-04-30",
       "source": "Yahoo Finance"
@@ -259,7 +259,7 @@
       "ticker": "DUBK.QA",
       "px_last": 3.47,
       "change_1d": "-1.2%",
-      "mtd": "+2.5%",
+      "mtd": "+0.0%",
       "ytd": "+1.5%",
       "as_of": "2026-04-30",
       "source": "Yahoo Finance"
@@ -269,7 +269,7 @@
       "ticker": "ABQK.QA",
       "px_last": 3.75,
       "change_1d": "-0.5%",
-      "mtd": "-1.3%",
+      "mtd": "+0.0%",
       "ytd": "+6.7%",
       "as_of": "2026-04-30",
       "source": "Yahoo Finance"
@@ -279,31 +279,31 @@
     {
       "name": "Brent Crude",
       "ticker": "BZ=F",
-      "px_last": 110.0,
-      "change_1d": "-6.8%",
-      "mtd": "-7.1%",
-      "ytd": "+80.8%",
-      "as_of": "2026-04-30",
+      "px_last": 111.37,
+      "change_1d": "-2.3%",
+      "mtd": "-2.3%",
+      "ytd": "+83.0%",
+      "as_of": "2026-05-01",
       "source": "Yahoo Finance"
     },
     {
       "name": "Silver",
       "ticker": "SI=F",
-      "px_last": 73.71,
-      "change_1d": "+3.0%",
-      "mtd": "-1.3%",
-      "ytd": "+5.1%",
-      "as_of": "2026-04-30",
+      "px_last": 73.76,
+      "change_1d": "+0.3%",
+      "mtd": "+0.3%",
+      "ytd": "+5.2%",
+      "as_of": "2026-05-01",
       "source": "Yahoo Finance"
     },
     {
       "name": "Gold (QAR)",
       "ticker": "DERIVED",
-      "px_last": 16864.12,
-      "change_1d": "+1.9%",
-      "mtd": "+2.7%",
-      "ytd": "+7.1%",
-      "as_of": "2026-04-30",
+      "px_last": 16668.65,
+      "change_1d": "-0.8%",
+      "mtd": "-0.8%",
+      "ytd": "+5.9%",
+      "as_of": "2026-05-01",
       "source": "Derived from Yahoo Finance GC=F and QAR=X"
     }
   ],
@@ -311,20 +311,20 @@
     {
       "name": "UST 5-Year",
       "ticker": "^FVX",
-      "px_last": 4.03,
-      "change_1d": "-0.9%",
-      "mtd": "+2.2%",
-      "ytd": "+8.3%",
+      "px_last": 4.02,
+      "change_1d": "-1.0%",
+      "mtd": "+0.0%",
+      "ytd": "+8.1%",
       "as_of": "2026-04-30",
       "source": "Yahoo Finance"
     },
     {
       "name": "UST 10-Year",
       "ticker": "^TNX",
-      "px_last": 4.4,
-      "change_1d": "-0.5%",
-      "mtd": "+2.0%",
-      "ytd": "+5.6%",
+      "px_last": 4.39,
+      "change_1d": "-0.6%",
+      "mtd": "+0.0%",
+      "ytd": "+5.5%",
       "as_of": "2026-04-30",
       "source": "Yahoo Finance"
     }
@@ -335,141 +335,141 @@
       "ticker": "DERIVED",
       "px_last": 3.64,
       "change_1d": "-0.0%",
-      "mtd": "+3.0%",
+      "mtd": "-0.0%",
       "ytd": "+0.0%",
-      "as_of": "2026-04-30",
+      "as_of": "2026-05-01",
       "source": "Derived from Yahoo Finance QAR=X"
     },
     {
       "name": "EUR/QAR",
       "ticker": "DERIVED",
-      "px_last": 4.2643,
-      "change_1d": "-0.1%",
-      "mtd": "+5.3%",
-      "ytd": "-0.3%",
-      "as_of": "2026-04-30",
+      "px_last": 4.2728,
+      "change_1d": "+0.4%",
+      "mtd": "+0.4%",
+      "ytd": "-0.1%",
+      "as_of": "2026-05-01",
       "source": "Derived from Yahoo Finance EURUSD=X and QAR=X"
     },
     {
       "name": "GBP/QAR",
       "ticker": "DERIVED",
-      "px_last": 4.9347,
-      "change_1d": "+0.2%",
-      "mtd": "+6.0%",
-      "ytd": "+0.7%",
-      "as_of": "2026-04-30",
+      "px_last": 4.9483,
+      "change_1d": "+0.8%",
+      "mtd": "+0.8%",
+      "ytd": "+1.0%",
+      "as_of": "2026-05-01",
       "source": "Derived from Yahoo Finance GBPUSD=X and QAR=X"
     },
     {
       "name": "CNY/QAR",
       "ticker": "DERIVED",
-      "px_last": 0.5331,
+      "px_last": 0.5332,
       "change_1d": "+0.1%",
-      "mtd": "+4.2%",
+      "mtd": "+0.1%",
       "ytd": "+2.5%",
-      "as_of": "2026-04-30",
+      "as_of": "2026-05-01",
       "source": "Derived from Yahoo Finance QAR=X and CNY=X"
     }
   ],
   "global_news": [
     {
-      "headline": "BOE Holds Rates at 3.75% Amid Oil Price Surge",
-      "summary": "Bank of England maintains interest rates at 3.75% with policymakers considering future hikes as oil prices approach pessimistic economic scenario levels.",
+      "headline": "Japan Spends $34.5 Billion Supporting Weakening Yen",
+      "summary": "Japan conducted first currency intervention since July 2024, spending approximately $34.5 billion to strengthen the yen against continued weakness.",
       "source": "Bloomberg",
-      "url": "https://www.bloomberg.com/news/videos/2026-04-30/boe-interest-rate-decision-special-coverage-video",
-      "metric": "3.75%",
-      "metric_label": "Current BOE base rate"
+      "url": "https://www.bloomberg.com/news/articles/2026-05-01/japan-likely-spent-34-5-billion-in-fx-intervention-to-boost-yen",
+      "metric": "$34.5B",
+      "metric_label": "Intervention Amount"
     },
     {
-      "headline": "Meta Plans $25 Billion Jumbo Bond Sale for AI",
-      "summary": "Meta Platforms seeks to raise $20-25 billion through investment-grade bonds to fund artificial intelligence infrastructure expansion and development spending.",
+      "headline": "Oil Gains Weekly on Iran Blockade Continuation",
+      "summary": "Oil posted second consecutive weekly gain as Trump confirms persistence of Iranian naval blockade, considering additional military options.",
       "source": "Bloomberg",
-      "url": "https://www.bloomberg.com/news/articles/2026-04-30/meta-kicks-off-bond-offering-after-boosting-spending-outlook",
-      "metric": "$25B",
-      "metric_label": "Maximum bond issuance target"
+      "url": "https://www.bloomberg.com/news/articles/2026-04-30/latest-oil-market-news-and-analysis-for-may-1",
+      "metric": "2nd Week",
+      "metric_label": "Consecutive Gains"
     },
     {
-      "headline": "US Stocks Mixed on Tech Earnings and Spending",
-      "summary": "American equities open without clear direction as strong mega-cap tech earnings offset by investor concerns over massive hyperscaler spending plans.",
+      "headline": "Gold Falls as Iran Tensions Reduce Rate Cut Expectations",
+      "summary": "Gold declined as US-Iran standoff diminished global central bank rate cut expectations, reducing precious metals appeal.",
       "source": "Bloomberg",
-      "url": "https://www.bloomberg.com/news/articles/2026-04-30/us-equity-futures-rise-as-mega-cap-earnings-lift-tech-oil-drops",
+      "url": "https://www.bloomberg.com/news/articles/2026-04-30/gold-steadies-after-advancing-on-japan-s-yen-intervention",
+      "metric": "Lower",
+      "metric_label": "Gold Price Direction"
+    },
+    {
+      "headline": "India's Heat Wave Strains Power Grid Systems",
+      "summary": "Above-normal temperatures expose India's fragile electricity infrastructure amid existing energy shortages before monsoon season arrives in June.",
+      "source": "Bloomberg",
+      "url": "https://www.bloomberg.com/news/articles/2026-05-01/india-s-heat-exposes-a-fragile-grid-as-energy-crunch-deepens",
+      "metric": "June",
+      "metric_label": "Monsoon Expected"
+    },
+    {
+      "headline": "UK Family Office Accelerates Private Equity Exits",
+      "summary": "Billionaire's family office increases private equity divestments while larger buyout firms face challenging transaction environment.",
+      "source": "Bloomberg",
+      "url": "https://www.bloomberg.com/news/articles/2026-05-01/uk-billionaire-s-family-office-targets-more-private-equity-exits",
+      "metric": "Increasing",
+      "metric_label": "Exit Activity"
+    },
+    {
+      "headline": "AI Trading Bots Show Mixed Market Performance",
+      "summary": "Artificial intelligence trading agents enter day trading with inconsistent results, highlighting challenges in automated investment strategies.",
+      "source": "Bloomberg",
+      "url": "https://www.bloomberg.com/news/articles/2026-05-01/ai-tools-for-stock-trading-put-up-mixed-results",
       "metric": "Mixed",
-      "metric_label": "Market opening direction"
-    },
-    {
-      "headline": "Banamex Returns to Global Bond Markets Post-Citi",
-      "summary": "Mexico's Grupo Financiero Banamex taps international bond markets for first time since Citigroup began divesting its stake in the bank.",
-      "source": "Bloomberg",
-      "url": "https://www.bloomberg.com/news/articles/2026-04-30/banamex-is-selling-global-bonds-for-first-time-since-citi-sale",
-      "metric": "First",
-      "metric_label": "Bond sale since Citi exit"
-    },
-    {
-      "headline": "Berkshire Shares Falter Before Abel's First Annual Meeting",
-      "summary": "New CEO Greg Abel faces declining stock performance ahead of his inaugural Berkshire Hathaway annual meeting, contrasting predecessor Warren Buffett's era.",
-      "source": "Bloomberg",
-      "url": "https://www.bloomberg.com/news/articles/2026-04-30/berkshire-brk-b-annual-meeting-abel-steps-up-as-shares-falter-without-buffett",
-      "metric": "Declining",
-      "metric_label": "Share price performance"
-    },
-    {
-      "headline": "Adani Enterprises Posts Quarterly Loss on Rising Costs",
-      "summary": "Adani's flagship company reports fourth quarter loss as operational costs surge from copper asset investments and airport expansion initiatives across portfolio.",
-      "source": "Bloomberg",
-      "url": "https://www.bloomberg.com/news/articles/2026-04-30/adani-flagship-slips-into-loss-as-coal-unit-softens",
-      "metric": "Loss",
-      "metric_label": "Q4 financial result"
+      "metric_label": "AI Performance"
     }
   ],
   "qatar_news": [
     {
-      "headline": "Qatar Business News Sources Experience Technical Issues",
-      "summary": "Multiple Qatar business news feeds from Peninsula/Tribune are temporarily unavailable, affecting market coverage and corporate news updates.",
-      "source": "Peninsula/Tribune",
-      "url": "",
-      "metric": "4",
-      "metric_label": "Affected news feeds"
-    },
-    {
-      "headline": "Corporate News Feed Refresh Pending for Qatar",
-      "summary": "Qatar corporate news workflow will retry approved sources on next run after current cycle returned insufficient content.",
-      "source": "Peninsula/Tribune",
-      "url": "",
-      "metric": "1",
-      "metric_label": "Retry attempts scheduled"
-    },
-    {
-      "headline": "Qatar Market Coverage Awaiting Source Updates",
-      "summary": "Approved publisher feeds failed to provide adequate items for comprehensive Qatar market report coverage this cycle.",
+      "headline": "Qatar Business Source Temporarily Unavailable",
+      "summary": "Primary Qatar business news feed experiencing technical difficulties, no articles retrieved in current cycle.",
       "source": "Peninsula/Tribune",
       "url": "",
       "metric": "0",
-      "metric_label": "Usable articles retrieved"
+      "metric_label": "Articles Retrieved"
     },
     {
-      "headline": "Qatar Economy Headlines Stream Shows Gaps",
-      "summary": "Economy headline coverage incomplete due to restricted access to only pre-approved publisher sources for Qatar section.",
+      "headline": "Qatar Corporate News Feed Refresh Pending",
+      "summary": "Corporate news workflow scheduled for retry on next automated run cycle from approved source.",
       "source": "Peninsula/Tribune",
       "url": "",
-      "metric": "100%",
-      "metric_label": "Approved sources only policy"
+      "metric": "1",
+      "metric_label": "Retry Attempts Remaining"
+    },
+    {
+      "headline": "Qatar Market Coverage Awaiting Source Update",
+      "summary": "Approved publisher feed returned insufficient content items for comprehensive market intelligence report generation.",
+      "source": "Peninsula/Tribune",
+      "url": "",
+      "metric": "Insufficient",
+      "metric_label": "Content Volume Status"
+    },
+    {
+      "headline": "Qatar Economy Headlines Stream Incomplete",
+      "summary": "Economy section restricted to approved publisher sources only, current stream showing gaps in coverage.",
+      "source": "Peninsula/Tribune",
+      "url": "",
+      "metric": "Approved Only",
+      "metric_label": "Source Restriction Level"
     }
   ],
   "kpis": [
     {
-      "value": "Positive",
+      "value": "Mixed",
       "label": "Global Equities",
-      "sublabel": "US +0.1% \u00b7 UK +1.5%"
+      "sublabel": "US +1.0% \u00b7 UK -0.5%"
     },
     {
-      "value": "$110.0",
+      "value": "$111.37",
       "label": "Brent Crude",
-      "sublabel": "+80.8% Year-to-Date"
+      "sublabel": "+83.0% Year-to-Date"
     },
     {
-      "value": "16,864.12",
+      "value": "16,668.65",
       "label": "Gold (QAR)",
-      "sublabel": "+7.1% YTD \u00b7 Safe-haven demand"
+      "sublabel": "+5.9% YTD \u00b7 Safe-haven demand"
     },
     {
       "value": "N/A",
@@ -477,9 +477,9 @@
       "sublabel": "N/A today \u00b7 N/A YTD"
     },
     {
-      "value": "4.4%",
+      "value": "4.39%",
       "label": "UST 10Y Yield",
-      "sublabel": "+5.6% YTD \u00b7 Rising yields"
+      "sublabel": "+5.5% YTD \u00b7 Rising yields"
     },
     {
       "value": "4.50%",
