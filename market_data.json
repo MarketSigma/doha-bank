@@ -15,7 +15,7 @@
       "qatar_news": true
     }
   },
-  "generated_at": "2026-05-07T11:27:59Z",
+  "generated_at": "2026-05-07T14:39:08Z",
   "generated_display_time": "07:00 AST",
   "global_indices": [
     {
@@ -442,86 +442,86 @@
   "market_as_of_date": "2026-05-07",
   "global_news": [
     {
-      "headline": "Saudi VCs Continue Fundraising Despite Regional War",
-      "summary": "Saudi Arabian venture capital firms persist with fundraising and deployment activities while navigating disruptions from ongoing regional conflict.",
+      "headline": "Citigroup Profitability Target Falls Short of Expectations",
+      "summary": "Citigroup issued new guidance showing it would take longer to catch up to Wall Street peers than investors hoped.",
       "source": "Bloomberg",
-      "url": "https://www.bloomberg.com/news/articles/2026-05-06/saudi-venture-firms-press-ahead-with-fundraising-despite-war",
-      "metric": "Continued Activi",
-      "metric_label": "VC fundraising status amid confl"
+      "url": "https://www.bloomberg.com/news/videos/2026-05-07/citi-s-profitability-target-falls-short-of-expectations-video",
+      "metric": "Below Target",
+      "metric_label": "Profitability guidance vs expect"
     },
     {
-      "headline": "Yen Struggles to Break 155 Per Dollar",
-      "summary": "Japanese yen fails to breach 155 level against dollar despite repeated suspected intervention, raising questions about currency advance sustainability.",
+      "headline": "Kraken Parent Acquires Reap Technologies for $600M",
+      "summary": "Owner of crypto exchange Kraken agreed to pay $600 million for stablecoin-oriented cross-border payments provider Reap Technologies.",
       "source": "Bloomberg",
-      "url": "https://www.bloomberg.com/news/articles/2026-05-07/yen-intervention-rally-faces-high-hurdle-at-155-to-the-dollar",
-      "metric": "155",
-      "metric_label": "USD/JPY resistance level"
+      "url": "https://www.bloomberg.com/news/articles/2026-05-07/kraken-parent-to-buy-reap-for-600-million-in-asian-expansion",
+      "metric": "$600M",
+      "metric_label": "Acquisition value"
     },
     {
-      "headline": "US Awaits Iran Response on Strait Deal",
-      "summary": "US equity futures rise and Brent crude falls as markets await Iran's response to proposed Strait of Hormuz reopening deal.",
+      "headline": "Blue Owl BDCs Buy Back $85M Shares",
+      "summary": "Two Blue Owl Capital private credit funds bought back $85 million shares as tech volatility hurt loan values.",
       "source": "Bloomberg",
-      "url": "https://www.bloomberg.com/news/videos/2026-05-07/bloomberg-brief-5-7-2026-video",
-      "metric": "3rd Day",
-      "metric_label": "Consecutive Brent crude decline"
+      "url": "https://www.bloomberg.com/news/articles/2026-05-06/blue-owl-bdcs-buy-back-85-million-of-shares-as-loan-values-sink",
+      "metric": "$85M",
+      "metric_label": "Share buyback amount"
     },
     {
-      "headline": "China Banks Pause Loans to Sanctioned Refiners",
-      "summary": "China advises largest banks to temporarily suspend new loans to refiners recently sanctioned by US over Iranian oil ties.",
+      "headline": "Carlyle Earnings Drop 28% on Carried Interest Gap",
+      "summary": "Carlyle Group's first-quarter earnings tumbled as robust asset sales from recent buyout funds haven't generated carried interest.",
       "source": "Bloomberg",
-      "url": "https://www.bloomberg.com/news/videos/2026-05-07/bloomberg-brief-5-7-2026-video",
-      "metric": "Suspended",
-      "metric_label": "New refiner loan status"
+      "url": "https://www.bloomberg.com/news/articles/2026-05-07/carlyle-earnings-tumble-28-as-carried-interest-remains-elusive",
+      "metric": "-28%",
+      "metric_label": "Q1 earnings decline"
     },
     {
-      "headline": "Iran Nuclear Threat Creates Germany-US Diplomatic Rift",
-      "summary": "German Foreign Minister discusses efforts to address diplomatic tensions between Germany and US over Iran nuclear threat response.",
+      "headline": "Private Equity Faces Profit Timing Challenges",
+      "summary": "Carlyle stock declined 1% despite strong asset sales, with KKR reporting similar timing gaps in profit realization.",
       "source": "Bloomberg",
-      "url": "https://www.bloomberg.com/news/videos/2026-05-07/the-pulse-5-7-2026-video",
-      "metric": "Active",
-      "metric_label": "Diplomatic repair efforts"
+      "url": "https://www.bloomberg.com/news/videos/2026-05-07/private-equity-faces-profit-timing-gap-video",
+      "metric": "-1%",
+      "metric_label": "Carlyle stock decline"
     },
     {
-      "headline": "Peloton Raises Full-Year Outlook Amid Turnaround",
-      "summary": "Peloton Interactive increases annual guidance, signaling successful turnaround through new commercial offerings and equipment upgrades.",
+      "headline": "Musk OpenAI Courtroom Drama Creates AI Reputation Risk",
+      "summary": "Artificial intelligence companies face reputational damage as billionaires Elon Musk and OpenAI founders engage in messy court battles.",
       "source": "Bloomberg",
-      "url": "https://www.bloomberg.com/news/articles/2026-05-07/peloton-q3-2026-results-raises-forecast-suggesting-turnaround-on-track",
-      "metric": "Raised",
-      "metric_label": "Full-year guidance revision"
+      "url": "https://www.bloomberg.com/news/articles/2026-05-07/in-musk-v-openai-elon-musk-and-chatgpt-founders-risk-reputation",
+      "metric": "High Risk",
+      "metric_label": "Reputational damage level"
     }
   ],
   "qatar_news": [
     {
-      "headline": "QNB wins GlobalCapital MTN Awards 2026 for leadership",
-      "summary": "Qatar National Bank receives prestigious GlobalCapital MTN Awards 2026 recognition for excellence in debt capital markets operations and leadership.",
+      "headline": "Global banking sector suffers under inflation pressure",
+      "summary": "Banking experts highlight ongoing challenges facing global financial institutions as inflationary pressures continue to impact sector performance and operations.",
       "source": "Qatar Tribune",
-      "url": "https://www.qatar-tribune.com/article/232831/business/qnb-wins-globalcapital-mtn-awards-2026-for-debt-capital-markets-leadership",
-      "metric": "2026",
-      "metric_label": "Award year"
+      "url": "https://www.qatar-tribune.com/article/232874/business/global-banking-sector-suffers-under-inflation-pressure-say-experts",
+      "metric": "High",
+      "metric_label": "Inflation pressure level"
     },
     {
-      "headline": "Oil prices sink on Strait of Hormuz reopening hopes",
-      "summary": "Global oil prices decline while stock markets rally as investors anticipate potential reopening of the strategic Strait of Hormuz shipping route.",
-      "source": "Qatar Tribune",
-      "url": "https://www.qatar-tribune.com/article/232863/business/oil-prices-sink-and-stocks-rally-worldwide-on-hopes-for-reopening-of-strait-of-hormuz",
-      "metric": "Declined",
-      "metric_label": "Oil price movement"
-    },
-    {
-      "headline": "Qatar Finance Minister meets global economic leaders",
-      "summary": "Qatar's Finance Minister conducts high-level discussions with senior global economic and financial leaders on key economic matters and partnerships.",
+      "headline": "Finance minister meets senior global economic leaders",
+      "summary": "Qatar's finance minister engages with top international economic and financial leaders in high-level diplomatic and policy discussions.",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/232858/business/finance-minister-meets-senior-global-economic-and-financial-leaders",
       "metric": "Multiple",
       "metric_label": "Senior leaders met"
     },
     {
-      "headline": "Global banking sector suffers under inflation pressure",
-      "summary": "International banking industry faces significant challenges as persistent inflationary pressures continue to impact operations and profitability, experts warn.",
+      "headline": "Oil prices sink on Strait of Hormuz reopening hopes",
+      "summary": "Global oil prices decline while stock markets rally amid optimism over potential reopening of the critical Strait of Hormuz shipping route.",
       "source": "Qatar Tribune",
-      "url": "https://www.qatar-tribune.com/article/232874/business/global-banking-sector-suffers-under-inflation-pressure-say-experts",
-      "metric": "Global",
-      "metric_label": "Banking sector impact"
+      "url": "https://www.qatar-tribune.com/article/232863/business/oil-prices-sink-and-stocks-rally-worldwide-on-hopes-for-reopening-of-strait-of-hormuz",
+      "metric": "Down",
+      "metric_label": "Oil price direction"
+    },
+    {
+      "headline": "QNB wins GlobalCapital MTN Awards 2026",
+      "summary": "Qatar National Bank receives prestigious GlobalCapital MTN Awards recognition for excellence in debt capital markets leadership and performance.",
+      "source": "Qatar Tribune",
+      "url": "https://www.qatar-tribune.com/article/232831/business/qnb-wins-globalcapital-mtn-awards-2026-for-debt-capital-markets-leadership",
+      "metric": "2026",
+      "metric_label": "Award year"
     }
   ],
   "kpis": [
