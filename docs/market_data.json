@@ -15,7 +15,7 @@
       "qatar_news": true
     }
   },
-  "generated_at": "2026-05-07T09:42:05Z",
+  "generated_at": "2026-05-07T11:27:59Z",
   "generated_display_time": "07:00 AST",
   "global_indices": [
     {
@@ -442,86 +442,86 @@
   "market_as_of_date": "2026-05-07",
   "global_news": [
     {
-      "headline": "China Property Turnaround Questioned Despite Developer Optimism",
-      "summary": "Wall Street analysts debate whether China's housing downturn recovery is near, as major developers face potential defaults despite earlier optimistic predictions.",
+      "headline": "Saudi VCs Continue Fundraising Despite Regional War",
+      "summary": "Saudi Arabian venture capital firms persist with fundraising and deployment activities while navigating disruptions from ongoing regional conflict.",
       "source": "Bloomberg",
-      "url": "https://www.bloomberg.com/news/articles/2026-05-07/wall-street-dares-to-ask-if-china-s-property-turnaround-is-close",
-      "metric": "2025",
-      "metric_label": "Year major developer faced defau"
+      "url": "https://www.bloomberg.com/news/articles/2026-05-06/saudi-venture-firms-press-ahead-with-fundraising-despite-war",
+      "metric": "Continued Activi",
+      "metric_label": "VC fundraising status amid confl"
     },
     {
-      "headline": "Vestas Beats Q1 Estimates on Rising Wind Demand",
-      "summary": "Danish renewable energy company exceeded profit expectations as wind turbine demand increased amid European push for energy independence following Iran war.",
+      "headline": "Yen Struggles to Break 155 Per Dollar",
+      "summary": "Japanese yen fails to breach 155 level against dollar despite repeated suspected intervention, raising questions about currency advance sustainability.",
       "source": "Bloomberg",
-      "url": "https://www.bloomberg.com/news/videos/2026-05-07/vestas-ceo-on-demand-european-energy-security-video",
-      "metric": "Q1 2026",
-      "metric_label": "Quarter of earnings beat"
+      "url": "https://www.bloomberg.com/news/articles/2026-05-07/yen-intervention-rally-faces-high-hurdle-at-155-to-the-dollar",
+      "metric": "155",
+      "metric_label": "USD/JPY resistance level"
     },
     {
-      "headline": "Accor China Reports Strong 25% Booking Growth",
-      "summary": "Hotel group sees robust performance during Labor Day holiday and plans westward expansion in China as inbound tourism recovers significantly.",
+      "headline": "US Awaits Iran Response on Strait Deal",
+      "summary": "US equity futures rise and Brent crude falls as markets await Iran's response to proposed Strait of Hormuz reopening deal.",
       "source": "Bloomberg",
-      "url": "https://www.bloomberg.com/news/videos/2026-05-07/accor-ceo-china-posts-25-growth-in-inbound-bookings-video",
-      "metric": "25%",
-      "metric_label": "Growth in China inbound bookings"
+      "url": "https://www.bloomberg.com/news/videos/2026-05-07/bloomberg-brief-5-7-2026-video",
+      "metric": "3rd Day",
+      "metric_label": "Consecutive Brent crude decline"
     },
     {
-      "headline": "Zillow Drops 9% on Weak Q2 Profit Outlook",
-      "summary": "Real estate platform shares fell after forecasting second-quarter profit below expectations due to legal costs, advertising expenses, and flat housing market.",
+      "headline": "China Banks Pause Loans to Sanctioned Refiners",
+      "summary": "China advises largest banks to temporarily suspend new loans to refiners recently sanctioned by US over Iranian oil ties.",
       "source": "Bloomberg",
-      "url": "https://www.bloomberg.com/news/articles/2026-05-06/zillow-shares-drop-as-profit-outlook-miss-overshadows-upbeat-1q",
-      "metric": "9%",
-      "metric_label": "Post-market share decline"
+      "url": "https://www.bloomberg.com/news/videos/2026-05-07/bloomberg-brief-5-7-2026-video",
+      "metric": "Suspended",
+      "metric_label": "New refiner loan status"
     },
     {
-      "headline": "Kraft Heinz Taps European Bond Market for Buyback",
-      "summary": "Food giant returns to Europe's bond market after year-long absence to raise euro debt for funding dollar note buybacks in reverse Yankee transaction.",
+      "headline": "Iran Nuclear Threat Creates Germany-US Diplomatic Rift",
+      "summary": "German Foreign Minister discusses efforts to address diplomatic tensions between Germany and US over Iran nuclear threat response.",
       "source": "Bloomberg",
-      "url": "https://www.bloomberg.com/news/articles/2026-05-07/kraft-heinz-joins-reverse-yankee-boom-to-fund-debt-buyback",
-      "metric": "1+ year",
-      "metric_label": "Time since last European bond is"
+      "url": "https://www.bloomberg.com/news/videos/2026-05-07/the-pulse-5-7-2026-video",
+      "metric": "Active",
+      "metric_label": "Diplomatic repair efforts"
     },
     {
-      "headline": "Prediction Markets Match Expert Accuracy on Jobs Data",
-      "summary": "Kalshi prediction market performed no better than traditional experts in forecasting key employment data, challenging claims of superior real-time accuracy.",
+      "headline": "Peloton Raises Full-Year Outlook Amid Turnaround",
+      "summary": "Peloton Interactive increases annual guidance, signaling successful turnaround through new commercial offerings and equipment upgrades.",
       "source": "Bloomberg",
-      "url": "https://www.bloomberg.com/news/articles/2026-05-07/kalshi-does-no-better-than-experts-on-key-jobs-forecasting-test",
-      "metric": "Equal",
-      "metric_label": "Accuracy vs traditional experts"
+      "url": "https://www.bloomberg.com/news/articles/2026-05-07/peloton-q3-2026-results-raises-forecast-suggesting-turnaround-on-track",
+      "metric": "Raised",
+      "metric_label": "Full-year guidance revision"
     }
   ],
   "qatar_news": [
     {
-      "headline": "Global banking sector suffers under inflation pressure",
-      "summary": "Banking experts highlight significant challenges facing the global banking sector due to persistent inflationary pressures affecting operations and profitability.",
+      "headline": "QNB wins GlobalCapital MTN Awards 2026 for leadership",
+      "summary": "Qatar National Bank receives prestigious GlobalCapital MTN Awards 2026 recognition for excellence in debt capital markets operations and leadership.",
       "source": "Qatar Tribune",
-      "url": "https://www.qatar-tribune.com/article/232874/business/global-banking-sector-suffers-under-inflation-pressure-say-experts",
-      "metric": "High Impact",
-      "metric_label": "Inflation pressure level"
-    },
-    {
-      "headline": "Finance minister meets senior global economic leaders",
-      "summary": "Qatar's Finance Minister conducts high-level meetings with senior global economic and financial leaders to discuss regional economic cooperation.",
-      "source": "Qatar Tribune",
-      "url": "https://www.qatar-tribune.com/article/232858/business/finance-minister-meets-senior-global-economic-and-financial-leaders",
-      "metric": "Strategic",
-      "metric_label": "Meeting significance"
+      "url": "https://www.qatar-tribune.com/article/232831/business/qnb-wins-globalcapital-mtn-awards-2026-for-debt-capital-markets-leadership",
+      "metric": "2026",
+      "metric_label": "Award year"
     },
     {
       "headline": "Oil prices sink on Strait of Hormuz reopening hopes",
-      "summary": "Global oil prices decline while stock markets rally amid optimism for potential reopening of the strategic Strait of Hormuz shipping route.",
+      "summary": "Global oil prices decline while stock markets rally as investors anticipate potential reopening of the strategic Strait of Hormuz shipping route.",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/232863/business/oil-prices-sink-and-stocks-rally-worldwide-on-hopes-for-reopening-of-strait-of-hormuz",
-      "metric": "Declining",
-      "metric_label": "Oil price trend"
+      "metric": "Declined",
+      "metric_label": "Oil price movement"
     },
     {
-      "headline": "QNB wins GlobalCapital MTN Awards 2026",
-      "summary": "Qatar National Bank receives prestigious GlobalCapital MTN Awards 2026 recognition for outstanding leadership in debt capital markets performance.",
+      "headline": "Qatar Finance Minister meets global economic leaders",
+      "summary": "Qatar's Finance Minister conducts high-level discussions with senior global economic and financial leaders on key economic matters and partnerships.",
       "source": "Qatar Tribune",
-      "url": "https://www.qatar-tribune.com/article/232831/business/qnb-wins-globalcapital-mtn-awards-2026-for-debt-capital-markets-leadership",
-      "metric": "Award Winner",
-      "metric_label": "Recognition status"
+      "url": "https://www.qatar-tribune.com/article/232858/business/finance-minister-meets-senior-global-economic-and-financial-leaders",
+      "metric": "Multiple",
+      "metric_label": "Senior leaders met"
+    },
+    {
+      "headline": "Global banking sector suffers under inflation pressure",
+      "summary": "International banking industry faces significant challenges as persistent inflationary pressures continue to impact operations and profitability, experts warn.",
+      "source": "Qatar Tribune",
+      "url": "https://www.qatar-tribune.com/article/232874/business/global-banking-sector-suffers-under-inflation-pressure-say-experts",
+      "metric": "Global",
+      "metric_label": "Banking sector impact"
     }
   ],
   "kpis": [
