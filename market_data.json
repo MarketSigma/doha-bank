@@ -15,7 +15,7 @@
       "qatar_news": true
     }
   },
-  "generated_at": "2026-05-08T09:00:01Z",
+  "generated_at": "2026-05-08T14:38:57Z",
   "generated_display_time": "07:00 AST",
   "global_indices": [
     {
@@ -139,6 +139,30 @@
       "as_of": "2026-05-08",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
+    },
+    {
+      "code": "BKA",
+      "name": "Kuwait Boursa",
+      "ticker": "BKA",
+      "px_last": 8895.0,
+      "change_1d": "+0.00%",
+      "mtd": "+0.39%",
+      "ytd": "-0.14%",
+      "as_of": "2026-05-08",
+      "source": "brave_search_tradingeconomics_controlled",
+      "status": "valid_controlled_fallback"
+    },
+    {
+      "code": "BHSEASI",
+      "name": "Bahrain",
+      "ticker": "BHSEASI",
+      "px_last": 1934.0,
+      "change_1d": "+0.00%",
+      "mtd": "-1.93%",
+      "ytd": "-6.41%",
+      "as_of": "2026-05-08",
+      "source": "brave_search_tradingeconomics_controlled",
+      "status": "valid_controlled_fallback"
     }
   ],
   "spot_currency": [
@@ -406,58 +430,58 @@
   "market_as_of_date": "2026-05-08",
   "global_news": [
     {
-      "headline": "Global Food Prices Hit Three-Year High on Iran War",
-      "summary": "Global food prices climbed to highest level in three years as Iran war disrupted supply chains, threatening higher consumer costs worldwide.",
+      "headline": "US Expects Iran Response Friday Amid Hormuz Clashes",
+      "summary": "US awaits Iran's response to Trump's latest proposal as overnight clashes near Hormuz threaten monthlong ceasefire.",
       "source": "Bloomberg",
-      "url": "https://www.bloomberg.com/news/articles/2026-05-08/food-prices-rise-to-highest-in-three-years-on-iran-war-costs",
-      "metric": "3 years",
-      "metric_label": "Highest food price level period"
+      "url": "https://www.bloomberg.com/news/articles/2026-05-08/us-iran-clash-near-hormuz-as-response-on-proposed-deal-awaited",
+      "metric": "Friday",
+      "metric_label": "Expected response deadline"
     },
     {
-      "headline": "Ghana Plans $1 Billion Cocoa Bond Issuance",
-      "summary": "Ghana targeting $1 billion through domestic bonds to fund cocoa purchases from farmers as part of commodity delivery overhaul.",
+      "headline": "Stocks Rise on Strong Jobs Despite Iran War",
+      "summary": "Labor market strength drives stocks higher, showing US economy resilience amid energy shock from Iran conflict.",
       "source": "Bloomberg",
-      "url": "https://www.bloomberg.com/news/articles/2026-05-07/ghana-targets-1-billion-in-cocoa-bonds-as-part-of-overhaul",
-      "metric": "$1 billion",
-      "metric_label": "Target bond issuance amount"
+      "url": "https://www.bloomberg.com/news/articles/2026-05-07/us-stock-futures-fall-oil-climbs-on-iran-tensions-markets-wrap",
+      "metric": "Strong",
+      "metric_label": "Jobs market status"
     },
     {
-      "headline": "State Bank of India Exceeds Profit Expectations",
-      "summary": "India's largest bank beat quarterly profit estimates driven by robust lending growth in world's fastest growing major economy.",
+      "headline": "Treasuries Gain After Mixed Jobs Data Supports Fed",
+      "summary": "Mixed US employment data reinforces market view that Federal Reserve will maintain cautious monetary policy approach.",
       "source": "Bloomberg",
-      "url": "https://www.bloomberg.com/news/articles/2026-05-08/state-bank-of-india-beats-profit-estimate-on-robust-loan-growth",
-      "metric": "Beat estimates",
-      "metric_label": "Quarterly profit performance"
+      "url": "https://www.bloomberg.com/news/articles/2026-05-08/treasuries-gain-ahead-of-us-payrolls-with-jobs-growth-expected",
+      "metric": "Steady",
+      "metric_label": "Expected Fed policy stance"
     },
     {
-      "headline": "Novo Nordisk India Sales Surge After Price Cuts",
-      "summary": "Diabetes and weight-loss drug sales jumped 40% in India following steep price cuts despite generic competition flooding market.",
+      "headline": "Compass Breaks Brazil IPO Drought With $650M Raise",
+      "summary": "Compass Gas e Energia raises $650 million in Brazil's first IPO in almost five years, ending market drought.",
       "source": "Bloomberg",
-      "url": "https://www.bloomberg.com/news/articles/2026-05-08/novo-nordisk-s-ozempic-india-price-cut-boosts-obesity-drug-sales",
-      "metric": "40%",
-      "metric_label": "Monthly sales increase in India"
+      "url": "https://www.bloomberg.com/news/articles/2026-05-07/compass-breaks-5-year-brazil-ipo-drought-with-650-million-offer",
+      "metric": "$650M",
+      "metric_label": "IPO proceeds raised"
     },
     {
-      "headline": "Stellantis Partners with China's Leapmotor in Spain",
-      "summary": "European automaker giving Chinese EV maker access to Spanish plant for joint electric vehicle production to strengthen operations.",
+      "headline": "Brazil Rate Cuts Expected After October Elections",
+      "summary": "Former Central Bank director Bruno Serra expects bulk of Brazilian interest rate cuts only after October elections.",
       "source": "Bloomberg",
-      "url": "https://www.bloomberg.com/news/articles/2026-05-08/stellantis-to-deepen-china-pact-with-joint-ev-spain-plant-shift",
-      "metric": "1 plant",
-      "metric_label": "Spanish facility for joint produ"
+      "url": "https://www.bloomberg.com/news/articles/2026-05-08/itau-asset-s-serra-sees-bulk-of-brazil-rate-cuts-after-elections",
+      "metric": "October",
+      "metric_label": "Rate cuts timing expectation"
     },
     {
-      "headline": "Innovation Expert Advocates for Mission-Driven Economy Approach",
-      "summary": "UCL's Mariana Mazzucato discusses mission economy concept, state capacity, and preventing talent drain to private sector at conference.",
+      "headline": "UCL Professor Discusses Government Consultant Problems",
+      "summary": "Professor Mariana Mazzucato explains why government use of consultants often leads to inefficiencies and civic failures.",
       "source": "Bloomberg",
-      "url": "https://www.bloomberg.com/news/videos/2026-05-08/mariana-mazzucato-thinks-we-need-more-moonshots-video",
-      "metric": "Mission economy",
-      "metric_label": "Policy framework discussed"
+      "url": "https://www.bloomberg.com/news/videos/2026-05-08/university-college-london-professor-on-the-cons-of-hiring-consultants",
+      "metric": "Inefficiencies",
+      "metric_label": "Consultant impact assessment"
     }
   ],
   "qatar_news": [
     {
       "headline": "Minister meets business leaders address private sector challenges",
-      "summary": "Qatar's minister engages with business leaders to discuss and resolve key challenges facing the private sector development.",
+      "summary": "Qatari minister engages with business community to discuss and resolve key challenges facing the private sector economy.",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/233038/business/minister-meets-business-leaders-toaddress-private-sector-challenges",
       "metric": "Private Sector",
@@ -465,23 +489,23 @@
     },
     {
       "headline": "Indonesia backs economy despite weakening rupiah",
-      "summary": "Indonesia maintains economic support measures as its currency faces depreciation pressures in regional markets.",
+      "summary": "Indonesian government provides economic support measures as national currency faces depreciation pressures in regional markets.",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/233034/business/indonesia-backs-economy-despite-weakening-rupiah",
       "metric": "Currency Weaknes",
       "metric_label": "Market Pressure"
     },
     {
-      "headline": "Gasoline costs 52% more in US than Iran war",
-      "summary": "US gasoline prices surge significantly compared to pre-Iran conflict levels, impacting energy markets globally.",
+      "headline": "US gasoline costs 52% more than pre-Iran war",
+      "summary": "American fuel prices surge significantly above historical levels amid ongoing Middle East tensions and supply concerns.",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/233000/business/why-gasoline-costs-52-more-in-the-us-than-it-did-before-the-iran-war",
-      "metric": "+52%",
-      "metric_label": "US Gas Price Increase"
+      "metric": "52%",
+      "metric_label": "Price Increase"
     },
     {
-      "headline": "MoCI hosts workshop for industrial sector",
-      "summary": "Qatar's Ministry of Commerce and Industry organizes workshop to support and develop the industrial sector capabilities.",
+      "headline": "MoCI hosts workshop for industrial sector development",
+      "summary": "Ministry of Commerce and Industry organizes training session to support industrial sector growth and modernization initiatives.",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/233035/business/moci-hosts-workshop-for-industrial-sector",
       "metric": "Industrial Focus",
@@ -521,10 +545,9 @@
     }
   ],
   "validation_issues": [
-    "Missing instruments from Supabase: BHSEASI, BKA, CNYQAR",
-    "Expected 34 instruments, found 31",
-    "Market row count mismatch: expected 34, found 31",
-    "Kuwait Boursa missing or invalid"
+    "Missing instruments from Supabase: CNYQAR",
+    "Expected 34 instruments, found 33",
+    "Market row count mismatch: expected 34, found 33"
   ],
   "report_status": "NEEDS_REVIEW",
   "email_send_allowed": false
