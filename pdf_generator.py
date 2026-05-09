@@ -1,3 +1,58 @@
+from reportlab.lib.pagesizes import A4, landscape
+from reportlab.lib import colors
+from reportlab.lib.units import mm
+from reportlab.pdfgen import canvas as pdfcanvas
+from reportlab.pdfbase import pdfmetrics
+from reportlab.pdfbase.ttfonts import TTFont
+import os
+import sys
+import json
+from datetime import date as dt
+
+
+# ------------------------------------------------------------
+# Font registration
+# ------------------------------------------------------------
+
+def register_fonts():
+    font_paths = {
+        "Caladea": "/usr/share/fonts/truetype/crosextra/Caladea-Regular.ttf",
+        "Caladea-Bold": "/usr/share/fonts/truetype/crosextra/Caladea-Bold.ttf",
+        "Caladea-Italic": "/usr/share/fonts/truetype/crosextra/Caladea-Italic.ttf",
+        "Carlito": "/usr/share/fonts/truetype/crosextra/Carlito-Regular.ttf",
+        "Carlito-Bold": "/usr/share/fonts/truetype/crosextra/Carlito-Bold.ttf",
+        "Carlito-Italic": "/usr/share/fonts/truetype/crosextra/Carlito-Italic.ttf",
+    }
+
+    for font_name, path in font_paths.items():
+        if os.path.exists(path):
+            try:
+                pdfmetrics.registerFont(TTFont(font_name, path))
+            except Exception:
+                pass
+
+
+register_fonts()
+
+
+def font(name):
+    registered = set(pdfmetrics.getRegisteredFontNames())
+
+    fallback = {
+        "Caladea": "Times-Roman",
+        "Caladea-Bold": "Times-Bold",
+        "Caladea-Italic": "Times-Italic",
+        "Carlito": "Helvetica",
+        "Carlito-Bold": "Helvetica-Bold",
+        "Carlito-Italic": "Helvetica-Oblique",
+    }
+
+    if name in registered:
+        return name
+
+    return fallback.get(name, "Helvetica")
+
+
 # ------------------------------------------------------------
 # Page constants
 # ------------------------------------------------------------
@@ -6,31 +61,21 @@ W, H = landscape(A4)
 M = 11 * mm
 UW = W - 2 * M
 
-# ------------------------------------------------------------
-# Modern Institutional Theme
-# ------------------------------------------------------------
-
-BLUE = colors.HexColor("#111827")        # Main dark background
-NAVY = colors.HexColor("#020617")        # Deep black/navy
-CYAN = colors.HexColor("#38BDF8")        # Cyan accent
-GOLD = colors.HexColor("#EAB308")        # Gold highlight
-
+BLUE = colors.HexColor("#1a5fa8")
+NAVY = colors.HexColor("#0d2c5e")
+CYAN = colors.HexColor("#00aeef")
+GOLD = colors.HexColor("#c9a84c")
 WHITE = colors.white
-OFFWHT = colors.HexColor("#F8FAFC")      # Soft row background
-
-TBLHDR = colors.HexColor("#1E293B")      # Table header color
-
-RULE = colors.HexColor("#CBD5E1")        # Light border
-RULE_DK = colors.HexColor("#94A3B8")     # Strong border
-
-TEXT = colors.HexColor("#0F172A")        # Primary text
-MUTED = colors.HexColor("#64748B")       # Secondary text
-
-UP = colors.HexColor("#16A34A")          # Positive values
-DOWN = colors.HexColor("#DC2626")        # Negative values
-
-SUBT = colors.HexColor("#CBD5E1")        # Header subtitle
-WARN = colors.HexColor("#F59E0B")        # Warning status
+OFFWHT = colors.HexColor("#f4f8fd")
+TBLHDR = colors.HexColor("#0f3d7a")
+RULE = colors.HexColor("#c5d8ee")
+RULE_DK = colors.HexColor("#7aafd4")
+TEXT = colors.HexColor("#1a2a3a")
+MUTED = colors.HexColor("#5a7a96")
+UP = colors.HexColor("#1a7a45")
+DOWN = colors.HexColor("#c0392b")
+SUBT = colors.HexColor("#9ac4e8")
+WARN = colors.HexColor("#b45309")
 
 HDR_H = 24 * mm
 FTR_H = 5.5 * mm
@@ -41,184 +86,70 @@ GAP = 2.5 * mm
 
 
 # ------------------------------------------------------------
-# Header and footer
+# Basic drawing helpers
 # ------------------------------------------------------------
 
-def draw_header(c, report_date, generated_display_time, market_as_of_date=None, page=1, total=2, report_status="PASS"):
-    fr(c, 0, H - HDR_H, W, HDR_H, BLUE)
-    fr(c, 0, H - HDR_H, 56 * mm, HDR_H, NAVY)
+def pct_col(v):
+    v = str(v or "").strip()
 
-    c.setStrokeColor(colors.HexColor("#334155"))
-    c.setLineWidth(0.5)
-    c.line(56 * mm, H - HDR_H + 3 * mm, 56 * mm, H - 3 * mm)
+    if v.startswith("+"):
+        return UP
 
-    c.setFillColor(WHITE)
-    c.setStrokeColor(CYAN)
-    c.setLineWidth(0.8)
-    c.roundRect(5 * mm, H - HDR_H + 5 * mm, 12 * mm, 12 * mm, 1.5 * mm, fill=1, stroke=1)
+    if v.startswith("-"):
+        return DOWN
 
-    t(c, "D", 11 * mm, H - HDR_H + 10 * mm, "Caladea-Bold", 10, BLUE, "center")
+    if v in ("N/A", "—", "-", ""):
+        return MUTED
 
-    t(c, "بنك الدوحة", 20 * mm, H - HDR_H + 18 * mm, "Carlito", 7, SUBT)
-    t(c, "DOHA BANK", 20 * mm, H - HDR_H + 11.5 * mm, "Caladea-Bold", 10, WHITE)
+    return MUTED
 
-    c.setStrokeColor(GOLD)
-    c.setLineWidth(0.8)
 
-    c.line(
-        W / 2 - 52 * mm,
-        H - HDR_H + 14 * mm,
-        W / 2 - 26 * mm,
-        H - HDR_H + 14 * mm
-    )
+def fr(c, x, y, w, h, col):
+    c.setFillColor(col)
+    c.rect(x, y, w, h, fill=1, stroke=0)
 
-    c.line(
-        W / 2 + 26 * mm,
-        H - HDR_H + 14 * mm,
-        W / 2 + 52 * mm,
-        H - HDR_H + 14 * mm
-    )
 
-    t(
-        c,
-        "MARKET INTELLIGENCE",
-        W / 2,
-        H - HDR_H + 19 * mm,
-        "Caladea-Bold",
-        14,
-        WHITE,
-        "center"
-    )
+def sr(c, x, y, w, h, col, lw=0.4):
+    c.setStrokeColor(col)
+    c.setLineWidth(lw)
+    c.rect(x, y, w, h, fill=0, stroke=1)
 
-    t(
-        c,
-        report_date,
-        W / 2,
-        H - HDR_H + 12.5 * mm,
-        "Carlito",
-        9,
-        GOLD,
-        "center"
-    )
 
-    t(
-        c,
-        "Market Snapshot  |  Currency & Fixed Income  |  Global & Qatar News",
-        W / 2,
-        H - HDR_H + 7 * mm,
-        "Carlito-Italic",
-        6.5,
-        SUBT,
-        "center",
-    )
+def t(c, txt, x, y, font_name="Carlito", size=8, color=TEXT, align="left", maxw=None):
+    txt = "" if txt is None else str(txt)
+    font_name = font(font_name)
 
-    t(
-        c,
-        f"Page {page} of {total}",
-        W - M,
-        H - HDR_H + 19 * mm,
-        "Carlito",
-        6.5,
-        GOLD,
-        "right"
-    )
+    c.setFont(font_name, size)
+    c.setFillColor(color)
 
-    t(
-        c,
-        f"Generated  {generated_display_time}",
-        W - M,
-        H - HDR_H + 14 * mm,
-        "Carlito",
-        6,
-        SUBT,
-        "right"
-    )
+    if maxw:
+        while len(txt) > 4 and c.stringWidth(txt, font_name, size) > maxw:
+            txt = txt[:-4] + "..."
 
-    if market_as_of_date:
-        t(
-            c,
-            f"Market data as of {market_as_of_date}",
-            W - M,
-            H - HDR_H + 9.5 * mm,
-            "Carlito",
-            5.5,
-            SUBT,
-            "right"
-        )
+    if align == "right":
+        c.drawRightString(x, y, txt)
+    elif align == "center":
+        c.drawCentredString(x, y, txt)
     else:
-        t(
-            c,
-            "Market data: latest available",
-            W - M,
-            H - HDR_H + 9.5 * mm,
-            "Carlito",
-            5.5,
-            SUBT,
-            "right"
-        )
-
-    t(
-        c,
-        "Supabase  ·  Brave Search  ·  Reuters  ·  Bloomberg",
-        W - M,
-        H - HDR_H + 5.5 * mm,
-        "Carlito",
-        5.5,
-        SUBT,
-        "right"
-    )
-
-    status = str(report_status or "PASS").upper()
-
-    if status not in {"PASS", "OK"}:
-        t(
-            c,
-            f"Validation status: {status}",
-            W - M,
-            H - HDR_H + 2.2 * mm,
-            "Carlito-Bold",
-            5.5,
-            WARN,
-            "right"
-        )
-    else:
-        t(
-            c,
-            "Validation status: PASS",
-            W - M,
-            H - HDR_H + 2.2 * mm,
-            "Carlito-Bold",
-            5.5,
-            UP,
-            "right"
-        )
-
-    fr(c, 0, H - HDR_H, W, 1.5 * mm, CYAN)
-
-    return H - HDR_H
+        c.drawString(x, y, txt)
 
 
-def draw_footer(c, report_date):
-    fr(c, 0, 0, W, FTR_H, BLUE)
-    fr(c, 0, FTR_H - 0.7 * mm, W, 0.7 * mm, CYAN)
+def hl(c, x1, y, x2, col=RULE, lw=0.35):
+    c.setStrokeColor(col)
+    c.setLineWidth(lw)
+    c.line(x1, y, x2, y)
 
-    t(
-        c,
-        "Sources: Supabase market_indices_history  ·  Brave Search  ·  Reuters  ·  Bloomberg  ·  The Peninsula  ·  Qatar Tribune    |    Strictly Confidential - Doha Bank HNWI Clients Only. Not for redistribution.",
-        M,
-        2 * mm,
-        "Carlito-Italic",
-        5,
-        SUBT,
-    )
 
-    t(
-        c,
-        f"Doha Bank Market Intelligence  ·  {report_date}",
-        W - M,
-        2 * mm,
-        "Carlito",
-        5.5,
-        WHITE,
-        "right"
-    )
+def ml(c, txt, x, y, font_name, size, color, maxw, lh, maxl=3):
+    txt = "" if txt is None else str(txt)
+    font_name = font(font_name)
+
+    c.setFont(font_name, size)
+    c.setFillColor(color)
+
+    words = txt.split()
+    lines = []
+    line = ""
+
+    for word in words:
+        candidate = (line + "
