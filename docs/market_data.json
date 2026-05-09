@@ -15,7 +15,7 @@
       "qatar_news": true
     }
   },
-  "generated_at": "2026-05-09T15:45:17Z",
+  "generated_at": "2026-05-09T16:32:04Z",
   "generated_display_time": "07:00 AST",
   "global_indices": [
     {
@@ -435,81 +435,81 @@
       "source": "Bloomberg",
       "url": "https://www.bloomberg.com/news/videos/2026-05-09/us-awaits-response-after-hormuz-clashes-strain-ceasefire-video",
       "metric": "1 month",
-      "metric_label": "Duration of strained ceasefire"
+      "metric_label": "Duration of current ceasefire"
     },
     {
-      "headline": "Iran War Drains World Oil Buffer Unprecedented Pace",
-      "summary": "Global oil inventories depleted at record speed as Iran war throttles Persian Gulf flows, threatening supply shock protection.",
+      "headline": "Iran War Drains Global Oil Buffer Rapidly",
+      "summary": "World burning through oil inventories at record speed as Iran war throttles Persian Gulf flows, depleting supply shock buffer.",
       "source": "Bloomberg",
       "url": "https://www.bloomberg.com/news/articles/2026-05-09/iran-war-is-draining-world-s-oil-buffer-at-unprecedented-pace",
       "metric": "Record pace",
       "metric_label": "Oil inventory depletion rate"
     },
     {
-      "headline": "Earnings Bonanza Fuels US Stocks Record Run",
-      "summary": "Blowout earnings season provides fresh momentum for Wall Street bulls despite Iran war concerns weighing on markets.",
+      "headline": "Earnings Bonanza Fuels US Stocks Record Rally",
+      "summary": "Blowout earnings season providing fresh momentum for Wall Street bulls despite concerns Iran war would derail stock rally.",
       "source": "Bloomberg",
       "url": "https://www.bloomberg.com/news/articles/2026-05-09/earnings-bonanza-that-no-one-saw-coming-fuels-stocks-record-run",
-      "metric": "Record highs",
+      "metric": "Record high",
       "metric_label": "US stock market levels"
     },
     {
-      "headline": "China Pledges Action on Local Government Debt",
-      "summary": "State Council vows stronger efforts to defuse local government debt risk while supporting economic growth amid global challenges.",
-      "source": "Bloomberg",
-      "url": "https://www.bloomberg.com/news/articles/2026-05-09/china-vows-to-advance-efforts-to-defuse-local-government-debt",
-      "metric": "Debt risk",
-      "metric_label": "Local government financial expos"
-    },
-    {
-      "headline": "New Zealanders Moving Australia Record Numbers",
-      "summary": "41,000 New Zealanders relocated to Australia in 2025, highest in 12 years, driven by stronger job market opportunities.",
+      "headline": "New Zealanders Migrate to Australia in Droves",
+      "summary": "41,000 New Zealanders moved to Australia in 2025, highest in 12 years, seeking better job opportunities and higher wages.",
       "source": "Bloomberg",
       "url": "https://www.bloomberg.com/news/videos/2026-05-09/why-new-zealanders-are-moving-to-australia-video",
       "metric": "41,000",
-      "metric_label": "New Zealand migrants to Australi"
+      "metric_label": "New Zealand emigrants to Austral"
     },
     {
-      "headline": "Daniel Dae Kim Explores Korean Culture Globally",
-      "summary": "Actor-producer discusses new docuseries examining explosion of Korean cultural influence worldwide through entertainment and media.",
+      "headline": "Met Gala Raises Record Fundraising Amount",
+      "summary": "Met Gala raised $42 million for museum's exhibits, curator payments, and preservation of world's largest fashion archives.",
+      "source": "Bloomberg",
+      "url": "https://www.bloomberg.com/news/videos/2026-05-09/exploring-the-met-s-new-costume-art-exhibit-video",
+      "metric": "$42 million",
+      "metric_label": "Met Gala fundraising total"
+    },
+    {
+      "headline": "Korean Culture Goes Global Through New Docuseries",
+      "summary": "Actor Daniel Dae Kim explores explosion of Korean culture worldwide in new docuseries examining the K-Everything phenomenon.",
       "source": "Bloomberg",
       "url": "https://www.bloomberg.com/news/videos/2026-05-09/daniel-dae-kim-make-korean-culture-global-in-docuseries-video",
       "metric": "Global reach",
-      "metric_label": "Korean cultural expansion scope"
+      "metric_label": "Korean cultural influence expans"
     }
   ],
   "qatar_news": [
     {
       "headline": "Minister meets business leaders address private sector challenges",
-      "summary": "Qatar minister engages with business leaders to discuss and address key challenges facing the private sector development.",
+      "summary": "Qatari minister engages with business leaders to discuss and resolve key challenges facing the private sector development.",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/233038/business/minister-meets-business-leaders-toaddress-private-sector-challenges",
-      "metric": "Private Sector F",
-      "metric_label": "Government engagement level"
+      "metric": "Private Sector",
+      "metric_label": "Focus Area"
     },
     {
       "headline": "Indonesia backs economy despite weakening rupiah",
-      "summary": "Indonesian government supports economic stability measures as national currency faces depreciation pressures in regional markets.",
+      "summary": "Indonesian government maintains economic support measures as national currency faces depreciation pressure in global markets.",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/233034/business/indonesia-backs-economy-despite-weakening-rupiah",
-      "metric": "Currency Weaknes",
-      "metric_label": "Rupiah depreciation trend"
+      "metric": "Rupiah Weakness",
+      "metric_label": "Currency Impact"
     },
     {
       "headline": "US gasoline costs 52% more since Iran war",
-      "summary": "American fuel prices surge significantly higher compared to pre-conflict levels, impacting consumer spending and economic outlook.",
+      "summary": "American fuel prices surge significantly higher compared to pre-Iran conflict levels, impacting consumer spending power.",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/233000/business/why-gasoline-costs-52-more-in-the-us-than-it-did-before-the-iran-war",
       "metric": "+52%",
-      "metric_label": "US gasoline price increase"
+      "metric_label": "US Gas Price Increase"
     },
     {
       "headline": "MoCI hosts workshop for industrial sector",
-      "summary": "Qatar Ministry of Commerce and Industry organizes specialized workshop to support and develop the national industrial sector.",
+      "summary": "Qatar's Ministry of Commerce and Industry organizes specialized workshop targeting industrial sector development and enhancement.",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/233035/business/moci-hosts-workshop-for-industrial-sector",
-      "metric": "Industrial Devel",
-      "metric_label": "Government workshop initiative"
+      "metric": "Industrial Focus",
+      "metric_label": "Sector Development"
     }
   ],
   "kpis": [
