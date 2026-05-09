@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Doha Bank Market Intelligence Dashboard</title>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <style>
+    :root{
+      --blue:#0B4F8A;--blue2:#006FAE;--navy:#083B66;--cyan:#00A6D6;
+      --border:#B7CAD8;--card:#ffffff;--text:#123A5A;--muted:#6F8594;
+      --green:#008A4B;--red:#C0392B;--orange:#B45309;--bg:#E6EEF3;
+      --light:#F4F8FB;--warnbg:#FFF4E8;--warnbd:#E2A85C;--warntext:#9A4D00;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--text)}
+    .topbar{background:var(--navy);color:#fff;padding:14px 20px;border-bottom:4px solid var(--cyan);display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .brand{display:flex;align-items:center;gap:18px;min-width:0}
+    .logo{width:62px;height:62px;border-radius:12px;background:#fff;border:3px solid var(--cyan);display:flex;align-items:center;justify-content:center;color:var(--blue2);font-weight:700;font-size:22px;flex:0 0 auto}
+    .brand-text{display:flex;align-items:center;gap:18px;min-width:0}
+    .brand-bank{display:flex;flex-direction:column;line-height:1.05;padding-right:18px;border-right:2px solid rgba(255,255,255,.18);flex:0 0 auto}
+    .brand-bank .ar{font-size:14px;opacity:.9}
+    .brand-bank .en{font-size:18px;font-weight:700;letter-spacing:.8px}
+    .brand-title{font-size:18px;font-weight:700;letter-spacing:.6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .btn{border:none;border-radius:10px;background:var(--blue2);color:#fff;padding:12px 18px;font-weight:700;cursor:pointer;text-decoration:none;display:inline-block}
+    .btn.gray{background:#7f8b99}.btn.small{padding:8px 12px;border-radius:8px;font-size:13px}.btn.red{background:#b64035}.btn.green{background:#1a7a45}.btn.orange{background:var(--orange)}
+    .btn.outline{background:#fff;color:var(--blue2);border:1px solid var(--border)}.btn:disabled{opacity:.6;cursor:not-allowed}
+    .tabs{display:flex;gap:8px;background:#f6f8fb;border-bottom:1px solid var(--border);padding:0 14px;overflow:auto}
+    .tab{padding:18px 16px 16px;color:#4e6d90;font-size:15px;font-weight:700;border-bottom:3px solid transparent;cursor:pointer;white-space:nowrap}
+    .tab.active{color:var(--blue2);border-bottom-color:var(--blue2)}
+    .page{padding:22px}
+    .card{background:var(--card);border:2px solid var(--border);border-radius:14px;padding:18px;box-shadow:0 1px 0 rgba(0,0,0,.02)}
+    .meta-row{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px;color:var(--muted);font-size:13px;flex-wrap:wrap}
+    .live{color:var(--green);font-weight:700}.review{color:var(--orange);font-weight:700}
+    .kpis{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin-bottom:14px}
+    .kpi{background:#fff;border:2px solid var(--border);border-top:4px solid var(--cyan);border-radius:8px;padding:10px 10px 8px;min-height:72px}
+    .kpi .value{font-size:28px;font-weight:700;color:var(--navy);line-height:1;margin-bottom:6px}
+    .kpi .label{font-size:13px;font-weight:700;color:var(--navy);margin-bottom:4px}
+    .kpi .sub{font-size:11px;color:var(--muted);line-height:1.2}
+    .panel-title{color:var(--navy);font-size:15px;font-weight:700;text-transform:uppercase;letter-spacing:1.6px;margin-bottom:10px;display:flex;align-items:center;gap:10px}
+    .panel-title::before{content:"";width:3px;height:20px;background:var(--cyan);border-radius:2px;display:block}
+    .data-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.grid{display:grid;gap:18px}.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    table{width:100%;border-collapse:collapse;table-layout:fixed}
+    th{background:var(--navy);color:#fff;font-size:12px;padding:8px;text-align:right}
+    th:first-child,td:first-child{text-align:left}
+    td{font-size:12px;padding:7px 8px;border-bottom:1px solid #d7e3f2;text-align:right;background:#fff;vertical-align:top}
+    tr:nth-child(even) td{background:var(--light)}
+    .pos{color:var(--green);font-weight:700}.neg{color:var(--red);font-weight:700}.neu{color:#5f7d9d;font-weight:700}
+    .empty{text-align:center;color:var(--muted);padding:36px 16px}
+    .news-section{margin-top:18px}.news-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+    .news-card{border:2px solid var(--border);background:#fff;min-height:102px;display:grid;grid-template-columns:1fr 82px;border-radius:4px;overflow:hidden}
+    .news-body{padding:10px 12px}.news-head{font-size:13px;font-weight:700;color:#1f344f;line-height:1.2;margin-bottom:6px}
+    .news-src{font-size:11px;font-weight:700;color:var(--blue2);margin-bottom:5px}.news-sum{font-size:11px;color:#5b7593;line-height:1.25}
+    .news-metric{background:#f8fafc;border-left:1px solid #d6e2f0;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:6px;text-align:center}
+    .news-metric .metric{color:var(--blue2);font-weight:700;font-size:15px;line-height:1.05;margin-bottom:4px}.news-metric .metric-label{color:#7a8da5;font-size:10px;line-height:1.15}
+    .split{display:grid;grid-template-columns:1fr 1fr;gap:26px}.split.single{grid-template-columns:1fr}
+    .subcard{border:2px solid var(--border);border-radius:12px;background:#fff;padding:18px}.subcard h3{margin:0 0 16px;color:var(--navy);font-size:17px;font-weight:800;text-transform:uppercase}
+    .recipient-form{display:grid;grid-template-columns:1.2fr 1.2fr .55fr auto;gap:10px;margin-top:14px}.recipient-form.email{grid-template-columns:1fr 1.2fr auto}
+    input,select,textarea{width:100%;padding:12px 14px;border:2px solid var(--border);border-radius:10px;font-size:14px;outline:none;background:#fff}
+    textarea{min-height:110px;resize:vertical}
+    .pill{display:inline-block;padding:5px 10px;border-radius:999px;font-size:12px;font-weight:700;background:#eaf8ef;color:var(--green)}
+    .pill.off{background:#fdeceb;color:var(--red)}.pill.orange{background:#fff1de;color:var(--orange)}.pill.blue{background:#e7f2ff;color:var(--blue2)}
+    .actions{display:flex;gap:8px;justify-content:flex-end;flex-wrap:wrap}.stack-actions{display:flex;gap:6px;flex-wrap:wrap}
+    .log-list{display:grid;gap:10px}.log-item{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px;border:2px solid var(--border);border-radius:12px;background:#fff}
+    .log-item .left{display:flex;flex-direction:column;gap:4px}.log-item .title{font-weight:700;color:var(--navy)}.log-item .meta{color:var(--muted);font-size:13px}
+    .report-box{display:grid;grid-template-columns:1.2fr .8fr;gap:16px}.report-meta{display:grid;gap:10px}.report-stat{padding:12px;border:1px solid var(--border);border-radius:10px;background:#fff}
+    .section-space{margin-top:18px}.helper{font-size:12px;color:var(--muted)}
+    .alert{margin-bottom:14px;padding:14px 16px;border:2px solid var(--warnbd);background:var(--warnbg);color:var(--warntext);border-radius:12px}
+    .alert strong{display:block;margin-bottom:6px}.alert ul{margin:6px 0 0 18px;padding:0}.alert li{margin:4px 0}
+    @media (max-width:1200px){.kpis{grid-template-columns:repeat(3,1fr)}.data-grid,.grid-2,.report-box{grid-template-columns:1fr}.split{grid-template-columns:1fr}}
+    @media (max-width:800px){.kpis{grid-template-columns:repeat(2,1fr)}.news-grid{grid-template-columns:1fr}.recipient-form,.recipient-form.email{grid-template-columns:1fr}.brand-title{display:none}.page{padding:14px}.topbar{padding:12px 14px}}
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand">
+      <div class="logo">D</div>
+      <div class="brand-text">
+        <div class="brand-bank"><div class="ar">بنك الدوحة</div><div class="en">DOHA BANK</div></div>
+        <div class="brand-title">Market Intelligence Dashboard</div>
+      </div>
+    </div>
+    <button class="btn gray" id="signOutBtn">Sign out</button>
+  </div>
+
+  <div class="tabs">
+    <div class="tab active" data-tab="market">Market Snapshot</div>
+    <div class="tab" data-tab="reports">Reports</div>
+    <div class="tab" data-tab="schedule">Email Schedule</div>
+    <div class="tab" data-tab="recipients">Recipients</div>
+    <div class="tab" data-tab="log">Report Log</div>
+  </div>
+
+  <div class="page">
+    <div id="marketView"></div>
+    <div id="reportsView" style="display:none;"></div>
+    <div id="scheduleView" style="display:none;"></div>
+    <div id="recipientsView" style="display:none;"></div>
+    <div id="logView" style="display:none;"></div>
+  </div>
+
+  <script>
+    const SUPABASE_URL = "https://wanqirnlsnfrrzvkxeby.supabase.co";
+    const SUPABASE_ANON_KEY = "sb_publishable_w77b_FV1Xor8rubRqczyGg__P9NJ9We";
+    const sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+    const DASHBOARD_PASSWORD = "db_mi_2026";
+    const SHOW_WHATSAPP_SECTION = false;
+
+    let marketData = null;
+    let waRecipients = [];
+    let emailRecipients = [];
+    let sendLog = [];
+    let reports = [];
+    let latestReport = null;
+    let emailSchedule = null;
+    let activeTab = "market";
+
+    const marketView = document.getElementById("marketView");
+    const reportsView = document.getElementById("reportsView");
+    const scheduleView = document.getElementById("scheduleView");
+    const recipientsView = document.getElementById("recipientsView");
+    const logView = document.getElementById("logView");
+
+    function checkLogin() {
+      const ok = sessionStorage.getItem("db_mi_auth") === "1";
+      if (!ok) {
+        const input = prompt("Enter dashboard password");
+        if (input !== DASHBOARD_PASSWORD) {
+          document.body.innerHTML = '<div style="padding:40px;font-family:Arial">Access denied.</div>';
+          return false;
+        }
+        sessionStorage.setItem("db_mi_auth", "1");
+      }
+      return true;
+    }
+
+    document.getElementById("signOutBtn").addEventListener("click", () => {
+      sessionStorage.removeItem("db_mi_auth");
+      location.reload();
+    });
+
+    document.querySelectorAll(".tab").forEach(tab => {
+      tab.addEventListener("click", () => {
+        document.querySelectorAll(".tab").forEach(t => t.classList.remove("active"));
+        tab.classList.add("active");
+        activeTab = tab.dataset.tab;
+        render();
+      });
+    });
+
+    function escapeHtml(v) {
+      return String(v ?? "")
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+    }
+
+    function pctClass(v) {
+      const s = String(v ?? "");
+      if (s.startsWith("+")) return "pos";
+      if (s.startsWith("-")) return "neg";
+      return "neu";
+    }
+
+    function fmtPx(v, name = "", code = "") {
+      const num = Number(v);
+      if (!Number.isFinite(num)) return String(v ?? "N/A");
+
+      const c = String(code || "").toUpperCase();
+
+      if (["USDQAR","EURQAR","GBPQAR","CNYQAR","EURUSD","GBPUSD","USDCNY"].includes(c)) {
+        return num.toLocaleString(undefined, { minimumFractionDigits: 4, maximumFractionDigits: 4 });
+      }
+
+      if (c === "USDJPY") {
+        return num.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+      }
+
+      if (c === "UST5Y" || c === "UST10Y") {
+        return num.toLocaleString(undefined, { minimumFractionDigits: 4, maximumFractionDigits: 4 });
+      }
+
+      if (["DHBK","CBQK","QIIB","MARK","DUBK","ABQK"].includes(c)) {
+        return num.toLocaleString(undefined, { minimumFractionDigits: 3, maximumFractionDigits: 3 });
+      }
+
+      if (["QNBK","QIBK"].includes(c)) {
+        return num.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+      }
+
+      if (Math.abs(num) >= 1000) {
+        return num.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+      }
+
+      if (Math.abs(num) < 1) {
+        return num.toLocaleString(undefined, { minimumFractionDigits: 4, maximumFractionDigits: 4 });
+      }
+
+      return num.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    }
+
+    function reportStatusPill(status) {
+      const s = String(status || "").toLowerCase();
+      if (s === "approved") return `<span class="pill blue">Approved</span>`;
+      if (s === "sent") return `<span class="pill">Sent</span>`;
+      if (s === "partially_sent") return `<span class="pill orange">Partially Sent</span>`;
+      if (s === "needs_review") return `<span class="pill orange">Needs Review</span>`;
+      if (s === "rejected") return `<span class="pill off">Rejected</span>`;
+      return `<span class="pill orange">Draft</span>`;
+    }
+
+    function dataQualityPill(status) {
+      const s = String(status || "").toUpperCase();
+      if (s === "PASS" || s === "OK") return `<span class="live">● PASS</span>`;
+      if (s === "FAIL") return `<span class="pill off">● FAIL</span>`;
+      return `<span class="review">● NEEDS REVIEW</span>`;
+    }
+
+    function isMarketDataSendable() {
+      const status = String(marketData?.report_status || "").toUpperCase();
+      return status === "PASS" && marketData?.email_send_allowed !== false;
+    }
+
+    function currentOperator() {
+      return "Dashboard User";
+    }
+
+    function renderTable(title, headers, rows) {
+      const tableRows = rows.length
+        ? rows.map(r => `
+          <tr>
+            <td>${escapeHtml(r.name || "")}</td>
+            <td>${escapeHtml(fmtPx(r.px_last, r.name || "", r.code || ""))}</td>
+            <td class="${pctClass(r.change_1d)}">${escapeHtml(r.change_1d || "N/A")}</td>
+            <td class="${pctClass(r.mtd)}">${escapeHtml(r.mtd || "N/A")}</td>
+            <td class="${pctClass(r.ytd)}">${escapeHtml(r.ytd || "N/A")}</td>
+          </tr>
+        `).join("")
+        : `<tr><td colspan="5" class="empty">No data found</td></tr>`;
+
+      return `
+        <div class="card">
+          <div class="panel-title">${escapeHtml(title)}</div>
+          <table>
+            <thead>
+              <tr>${headers.map((h, i) => `<th ${i===0 ? 'style="width:40%"' : ''}>${escapeHtml(h)}</th>`).join("")}</tr>
+            </thead>
+            <tbody>${tableRows}</tbody>
+          </table>
+        </div>
+      `;
+    }
+
+    function renderNewsSection(title, items) {
+      const cards = (items || []).length
+        ? items.map(item => `
+          <div class="news-card">
+            <div class="news-body">
+              <div class="news-head">${escapeHtml(item.headline || "")}</div>
+              <div class="news-src">${escapeHtml(item.source || "")}</div>
+              <div class="news-sum">${escapeHtml(item.summary || "")}</div>
+            </div>
+            <div class="news-metric">
+              <div class="metric">${escapeHtml(item.metric || "NEWS")}</div>
+              <div class="metric-label">${escapeHtml(item.metric_label || "Signal")}</div>
+            </div>
+          </div>
+        `).join("")
+        : `<div class="empty">No news found</div>`;
+
+      return `
+        <div class="news-section card">
+          <div class="panel-title">${escapeHtml(title)}</div>
+          <div class="news-grid">${cards}</div>
+        </div>
+      `;
+    }
+
+    function renderValidationAlert(issues) {
+      if (!issues || !issues.length) return "";
+      return `
+        <div class="alert">
+          <strong>Data validation warning</strong>
+          One or more core market checks failed during report generation. Review before relying on this snapshot.
+          <ul>${issues.map(x => `<li>${escapeHtml(x)}</li>`).join("")}</ul>
+        </div>
+      `;
+    }
+
+    function renderMarket() {
+      if (!marketData) {
+        marketView.innerHTML = `<div class="card">Loading live market data...</div>`;
+        return;
+      }
+
+      if (marketData.error) {
+        marketView.innerHTML = `<div class="card">Failed to load market data: ${escapeHtml(marketData.error)}</div>`;
+        return;
+      }
+
+      const d = marketData;
+      const generatedAt = d.generated_at ? new Date(d.generated_at).toLocaleString() : "Unknown";
+      const generatedDisplay = d.generated_display_time || "Unknown";
+      const marketAsOf = d.market_as_of_date || "Latest available";
+      const validationIssues = Array.isArray(d.validation_issues) ? d.validation_issues : [];
+      const reportStatus = d.report_status || "ok";
+
+      const marketRowCount =
+        (d.global_indices || []).length +
+        (d.gcc_indices || []).length +
+        (d.spot_currency || []).length +
+        (d.qar_cross_rates || []).length +
+        (d.fixed_income || []).length +
+        (d.qatari_banks || []).length +
+        (d.commodities || []).length;
+
+      const rowCountWarning = marketRowCount === 34
+        ? ""
+        : `
+          <div class="alert">
+            <strong>Market row count warning</strong>
+            Expected 34 market instruments, but found ${escapeHtml(marketRowCount)}.
+          </div>
+        `;
+
+      const kpis = (d.kpis || []).map(k => `
+        <div class="kpi">
+          <div class="value">${escapeHtml(k.value ?? "N/A")}</div>
+          <div class="label">${escapeHtml(k.label ?? "")}</div>
+          <div class="sub">${escapeHtml(k.sublabel ?? "")}</div>
+        </div>
+      `).join("");
+
+      marketView.innerHTML = `
+        ${renderValidationAlert(validationIssues)}
+        ${rowCountWarning}
+
+        <div class="meta-row">
+          <div>
+            <div>Generated UTC: ${escapeHtml(generatedAt)}</div>
+            <div>Report display time: ${escapeHtml(generatedDisplay)}</div>
+            <div>Market data date: ${escapeHtml(marketAsOf)}</div>
+            <div>Market source: Supabase market_indices_history via Brave Search / Make</div>
+          </div>
+          <div>${dataQualityPill(reportStatus)}</div>
+        </div>
+
+        <div class="kpis">${kpis}</div>
+
+        <div class="data-grid">
+          <div class="grid">
+            ${renderTable("GLOBAL INDICES", ["Name", "PX Last", "1D %", "MTD %", "YTD %"], d.global_indices || [])}
+            ${renderTable("SPOT CURRENCY", ["Name", "PX Last", "1D %", "MTD %", "YTD %"], d.spot_currency || [])}
+            ${renderTable("QAR CROSS RATES", ["Name", "PX Last", "1D %", "MTD %", "YTD %"], d.qar_cross_rates || [])}
+            ${renderTable("FIXED INCOME - UST YIELDS", ["Name", "PX Last", "1D %", "MTD %", "YTD %"], d.fixed_income || [])}
+          </div>
+          <div class="grid">
+            ${renderTable("GCC & REGIONAL INDICES", ["Name", "PX Last", "1D %", "MTD %", "YTD %"], d.gcc_indices || [])}
+            ${renderTable("QATARI BANKS", ["Name", "PX Last", "1D %", "MTD %", "YTD %"], d.qatari_banks || [])}
+            ${renderTable("COMMODITIES & ENERGY", ["Name", "PX Last", "1D %", "MTD %", "YTD %"], d.commodities || [])}
+          </div>
+        </div>
+
+        ${renderNewsSection("REGIONAL & GLOBAL NEWS", d.global_news || [])}
+        ${renderNewsSection("QATAR NEWS", d.qatar_news || [])}
+      `;
+    }
+
+    function renderReports() {
+      if (!latestReport) {
+        reportsView.innerHTML = `<div class="card">No reports found yet.</div>`;
+        return;
+      }
+
+      const rows = reports.length
+        ? reports.map(r => `
+          <tr>
+            <td>${escapeHtml(r.report_date)}</td>
+            <td>${reportStatusPill(r.status)}</td>
+            <td>${escapeHtml(r.generated_at ? new Date(r.generated_at).toLocaleString() : "")}</td>
+            <td>${r.pdf_url ? `<a class="btn small outline" href="${escapeHtml(r.pdf_url)}" target="_blank" rel="noopener">Open PDF</a>` : ""}</td>
+          </tr>
+        `).join("")
+        : `<tr><td colspan="4" class="empty">No reports</td></tr>`;
+
+      reportsView.innerHTML = `
+        <div class="card">
+          <div class="panel-title">Latest Report Control</div>
+          <div class="report-box">
+            <div class="report-meta">
+              <div class="report-stat"><strong>Report Date:</strong> ${escapeHtml(latestReport.report_date)}</div>
+              <div class="report-stat"><strong>Status:</strong> ${reportStatusPill(latestReport.status)}</div>
+              <div class="report-stat"><strong>Generated:</strong> ${escapeHtml(latestReport.generated_at ? new Date(latestReport.generated_at).toLocaleString() : "")}</div>
+              <div class="report-stat"><strong>Approved By:</strong> ${escapeHtml(latestReport.approved_by || "Not approved yet")}</div>
+              <div class="report-stat"><strong>Validation:</strong> ${dataQualityPill(latestReport.validation_status || marketData?.report_status || "UNKNOWN")}</div>
+              <div class="report-stat"><strong>GitHub Run:</strong> ${escapeHtml(latestReport.github_run_number || latestReport.github_run_id || "N/A")}</div>
+            </div>
+            <div class="report-meta">
+              <div class="stack-actions">
+                <button class="btn green" onclick="approveLatestReport()" ${isLatestReportValidationPass() ? "" : "disabled"}>Approve</button>
+                ${SHOW_WHATSAPP_SECTION ? `<button class="btn orange" onclick="queueSendAll('whatsapp')" ${isLatestReportApprovedAndPass() ? "" : "disabled"}>Queue WhatsApp to All</button>` : ``}
+                <button class="btn" onclick="queueSendAll('email')" ${isLatestReportApprovedAndPass() ? "" : "disabled"}>Queue Email to All</button>
+              </div>
+              <div class="stack-actions">
+                ${latestReport.pdf_url ? `<a class="btn outline" href="${escapeHtml(latestReport.pdf_url)}" target="_blank" rel="noopener">Preview PDF</a>` : ""}
+              </div>
+              <div class="helper">Generated reports appear here as Draft or Needs Review. Email queueing is enabled only after validation PASS and human approval.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card section-space">
+          <div class="panel-title">Recent Reports</div>
+          <table>
+            <thead><tr><th style="text-align:left">Date</th><th style="text-align:left">Status</th><th style="text-align:left">Generated</th><th style="text-align:right">PDF</th></tr></thead>
+            <tbody>${rows}</tbody>
+          </table>
+        </div>
+      `;
+    }
+
+    function normalizeTimeForInput(value) {
+      if (!value) return "08:00";
+      return String(value).slice(0, 5);
+    }
+
+    function renderSchedule() {
+      const sendTime = normalizeTimeForInput(emailSchedule?.send_time || "08:00");
+      const active = emailSchedule?.active !== false;
+      const updatedAt = emailSchedule?.updated_at ? new Date(emailSchedule.updated_at).toLocaleString() : "Not updated yet";
+
+      scheduleView.innerHTML = `
+        <div class="card">
+          <div class="panel-title">Email Schedule</div>
+          <div class="report-box">
+            <div class="report-meta">
+              <div class="report-stat">
+                <strong>Scheduled Email Sending Time</strong>
+                <div class="helper" style="margin-top:6px;">This controls only automatic email sending time. It does not generate, approve, or send a report manually.</div>
+              </div>
+              <div class="report-stat">
+                <label for="emailSendTime"><strong>Send approved report at</strong></label>
+                <input id="emailSendTime" type="time" value="${escapeHtml(sendTime)}" style="margin-top:8px;max-width:220px;" />
+                <div class="helper" style="margin-top:6px;">Timezone fixed to Qatar Time, Asia/Qatar.</div>
+              </div>
+              <div class="report-stat">
+                <label style="display:flex;align-items:center;gap:10px;font-weight:700;cursor:pointer;">
+                  <input id="emailScheduleActive" type="checkbox" ${active ? "checked" : ""} style="width:auto;" />
+                  Active scheduled email sending
+                </label>
+              </div>
+            </div>
+            <div class="report-meta">
+              <div class="report-stat"><strong>Current Saved Time:</strong> ${escapeHtml(sendTime)} Qatar Time</div>
+              <div class="report-stat"><strong>Status:</strong> ${active ? '<span class="pill">Active</span>' : '<span class="pill off">Inactive</span>'}</div>
+              <div class="report-stat"><strong>Last Updated:</strong> ${escapeHtml(updatedAt)}</div>
+              <div class="stack-actions"><button class="btn green" onclick="saveEmailSchedule()">Save Schedule</button></div>
+              <div id="scheduleSaveMsg" class="helper"></div>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    async function loadEmailSchedule() {
+      try {
+        const { data, error } = await sb.from("report_email_schedule").select("*").eq("id", "main").single();
+        if (error) throw error;
+        emailSchedule = data;
+      } catch (err) {
+        console.error("Email schedule load failed:", err);
+        emailSchedule = { id: "main", send_time: "08:00", timezone: "Asia/Qatar", active: true, updated_at: null };
+      }
+      render();
+    }
+
+    window.saveEmailSchedule = async function() {
+      const timeInput = document.getElementById("emailSendTime");
+      const activeInput = document.getElementById("emailScheduleActive");
+      const msg = document.getElementById("scheduleSaveMsg");
+
+      if (!timeInput || !timeInput.value) {
+        alert("Please select a valid time.");
+        return;
+      }
+
+      const payload = {
+        id: "main",
+        send_time: timeInput.value,
+        timezone: "Asia/Qatar",
+        active: Boolean(activeInput?.checked),
+        updated_at: new Date().toISOString()
+      };
+
+      const { data, error } = await sb.from("report_email_schedule").upsert(payload).select().single();
+      if (error) {
+        alert("Failed to save email schedule: " + error.message);
+        return;
+      }
+
+      emailSchedule = data;
+      if (msg) msg.innerHTML = `<span class="pill">Saved successfully</span> Approved reports will be emailed at ${escapeHtml(timeInput.value)} Qatar Time.`;
+      renderSchedule();
+    };
+
+    function recipientRows(list, kind) {
+      if (!list.length) return `<tr><td colspan="5" class="empty">No recipients found</td></tr>`;
+
+      return list.map(r => `
+        <tr>
+          <td>${escapeHtml(r.name || "")}</td>
+          <td>${escapeHtml(kind === "whatsapp" ? (r.phone_number || "") : (r.email || ""))}</td>
+          <td>${r.active ? '<span class="pill">Active</span>' : '<span class="pill off">Paused</span>'}</td>
+          <td>${escapeHtml(r.tier || "")}</td>
+          <td>
+            <div class="actions">
+              <button class="btn small outline" onclick="toggleRecipient('${r.id}', ${!r.active})">${r.active ? "Pause" : "Resume"}</button>
+              <button class="btn small red" onclick="deleteRecipient('${r.id}')">Delete</button>
+              <button class="btn small ${kind === 'whatsapp' ? 'orange' : ''}" onclick="queueSingleSend('${r.id}','${kind}')">Send Today</button>
+            </div>
+          </td>
+        </tr>
+      `).join("");
+    }
+
+    function renderRecipients() {
+      const waActive = waRecipients.filter(r => r.active).length;
+      const emActive = emailRecipients.filter(r => r.active).length;
+
+      recipientsView.innerHTML = `
+        <div class="split ${SHOW_WHATSAPP_SECTION ? '' : 'single'}">
+          ${SHOW_WHATSAPP_SECTION ? `
+          <div class="subcard">
+            <h3>WhatsApp Recipients (${waActive} Active)</h3>
+            <table>
+              <thead><tr><th style="text-align:left">Name</th><th style="text-align:left">Number</th><th style="text-align:left">Status</th><th style="text-align:left">Tier</th><th style="text-align:right">Actions</th></tr></thead>
+              <tbody>${recipientRows(waRecipients, "whatsapp")}</tbody>
+            </table>
+            <div class="subcard" style="padding:18px;margin-top:18px;">
+              <h3 style="margin-top:0;">Add WhatsApp Recipient</h3>
+              <div class="recipient-form">
+                <input id="waName" placeholder="Full name" />
+                <input id="waNumber" placeholder="Number in full international format, example +96170123456" />
+                <select id="waTier"><option value="HNWI">HNWI</option><option value="VIP">VIP</option><option value="STD">STD</option></select>
+                <button class="btn" onclick="addWhatsAppRecipient()">Add Recipient</button>
+              </div>
+            </div>
+          </div>` : ``}
+
+          <div class="subcard" style="${SHOW_WHATSAPP_SECTION ? '' : 'max-width:100%; width:100%;'}">
+            <h3>Email Recipients (${emActive} Active)</h3>
+            <table>
+              <thead><tr><th style="text-align:left">Name</th><th style="text-align:left">Email Address</th><th style="text-align:left">Status</th><th style="text-align:left">Tier</th><th style="text-align:right">Actions</th></tr></thead>
+              <tbody>${recipientRows(emailRecipients, "email")}</tbody>
+            </table>
+            <div class="subcard" style="padding:18px;margin-top:18px;">
+              <h3 style="margin-top:0;">Add Email Recipient</h3>
+              <div class="recipient-form email">
+                <input id="emName" placeholder="Full name" />
+                <input id="emEmail" placeholder="Email address" />
+                <button class="btn" onclick="addEmailRecipient()">Add Recipient</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    function renderLog() {
+      const rows = sendLog.length
+        ? sendLog.map(item => `
+          <div class="log-item">
+            <div class="left">
+              <div class="title">${escapeHtml(item.report_date || item.date || "Unknown date")}</div>
+              <div class="meta">
+                ${escapeHtml(item.status || "unknown")} ·
+                Email: ${escapeHtml(item.email_count ?? 0)} ·
+                WhatsApp: ${escapeHtml(item.wa_count ?? 0)}
+              </div>
+            </div>
+            <div class="actions">${item.pdf_url ? `<a class="btn small outline" href="${escapeHtml(item.pdf_url)}" target="_blank" rel="noopener">Open PDF</a>` : ""}</div>
+          </div>
+        `).join("")
+        : `<div class="card empty">No report log found</div>`;
+
+      logView.innerHTML = `
+        <div class="grid-2">
+          <div class="card">
+            <div class="panel-title">Report Log</div>
+            <div class="log-list">${rows}</div>
+          </div>
+          <div class="card">
+            <div class="panel-title">Dispatch Queue / Logs</div>
+            <div id="dispatchQueueBox" class="helper">Loading dispatch requests and logs...</div>
+          </div>
+        </div>
+      `;
+
+      renderDispatchQueueBox();
+    }
+
+    async function renderDispatchQueueBox() {
+      try {
+        const { data: queued } = await sb.from("dispatch_requests").select("*").order("created_at", { ascending: false }).limit(10);
+        const { data: sent } = await sb.from("dispatch_logs").select("*").order("created_at", { ascending: false }).limit(10);
+
+        const q = queued || [];
+        const s = sent || [];
+        let html = "";
+
+        html += `<div class="helper" style="margin-bottom:10px;"><strong>Queued Requests</strong></div>`;
+        html += q.length ? q.map(x => `
+          <div class="log-item">
+            <div class="left">
+              <div class="title">${escapeHtml(x.channel)} · ${escapeHtml(x.action_type)}</div>
+              <div class="meta">${escapeHtml(x.status)} · ${escapeHtml(x.requested_by || "")} · ${escapeHtml(x.created_at ? new Date(x.created_at).toLocaleString() : "")}</div>
+            </div>
+          </div>
+        `).join("") : `<div class="empty">No queued requests</div>`;
+
+        html += `<div class="helper" style="margin:14px 0 10px;"><strong>Recent Dispatch Logs</strong></div>`;
+        html += s.length ? s.map(x => `
+          <div class="log-item">
+            <div class="left">
+              <div class="title">${escapeHtml(x.channel)} · ${escapeHtml(x.recipient_name || "")}</div>
+              <div class="meta">${escapeHtml(x.status)} · ${escapeHtml(x.destination || "")}</div>
+            </div>
+          </div>
+        `).join("") : `<div class="empty">No dispatch logs</div>`;
+
+        document.getElementById("dispatchQueueBox").innerHTML = html;
+      } catch (e) {
+        const box = document.getElementById("dispatchQueueBox");
+        if (box) box.innerHTML = `<div class="empty">Failed to load dispatch data</div>`;
+      }
+    }
+
+    function render() {
+      marketView.style.display = activeTab === "market" ? "block" : "none";
+      reportsView.style.display = activeTab === "reports" ? "block" : "none";
+      scheduleView.style.display = activeTab === "schedule" ? "block" : "none";
+      recipientsView.style.display = activeTab === "recipients" ? "block" : "none";
+      logView.style.display = activeTab === "log" ? "block" : "none";
+
+      if (activeTab === "market") renderMarket();
+      if (activeTab === "reports") renderReports();
+      if (activeTab === "schedule") renderSchedule();
+      if (activeTab === "recipients") renderRecipients();
+      if (activeTab === "log") renderLog();
+    }
+
+    async function loadMarketData() {
+      try {
+        const res = await fetch(`./market_data.json?ts=${Date.now()}`);
+        if (!res.ok) throw new Error(`market_data.json HTTP ${res.status}`);
+        marketData = await res.json();
+      } catch (err) {
+        console.error("Market data load failed:", err);
+        marketData = { error: String(err) };
+      }
+      render();
+    }
+
+    async function loadReports() {
+      try {
+        const { data, error } = await sb
+          .from("reports")
+          .select("*")
+          .order("report_date", { ascending: false })
+          .order("generated_at", { ascending: false })
+          .limit(20);
+        if (error) throw error;
+        reports = data || [];
+        latestReport = reports.length ? reports[0] : null;
+      } catch (err) {
+        console.error("Reports load failed:", err);
+        reports = [];
+        latestReport = null;
+      }
+      render();
+    }
+
+    async function loadRecipients() {
+      try {
+        const { data, error } = await sb.from("recipients").select("*").order("created_at", { ascending: false });
+        if (error) throw error;
+        const rows = data || [];
+        waRecipients = rows.filter(r => r.channel === "whatsapp");
+        emailRecipients = rows.filter(r => r.channel === "email");
+      } catch (err) {
+        console.error("Recipients load failed:", err);
+        waRecipients = [];
+        emailRecipients = [];
+      }
+      render();
+    }
+
+    async function loadSendLog() {
+      try {
+        const { data, error } = await sb.from("send_log").select("*").order("sent_at", { ascending: false }).limit(30);
+        if (error) throw error;
+        sendLog = data || [];
+      } catch (err) {
+        console.error("Supabase send_log load failed, trying JSON fallback:", err);
+        try {
+          const res = await fetch(`./send_log.json?ts=${Date.now()}`);
+          if (!res.ok) throw new Error(`send_log.json HTTP ${res.status}`);
+          sendLog = await res.json();
+        } catch (err2) {
+          console.error("JSON send_log load failed:", err2);
+          sendLog = [];
+        }
+      }
+      render();
+    }
+
+    function isLatestReportValidationPass() {
+      const s = String(latestReport?.validation_status || marketData?.report_status || "").toUpperCase();
+      return ["PASS", "OK"].includes(s);
+    }
+
+    function isLatestReportApprovedAndPass() {
+      const status = String(latestReport?.status || "").toLowerCase();
+      return status === "approved" && isLatestReportValidationPass();
+    }
+
+    window.approveLatestReport = async function() {
+      if (!latestReport) {
+        alert("No report found.");
+        return;
+      }
+
+      if (!isLatestReportValidationPass()) {
+        alert("Approval blocked. This report did not pass validation.");
+        return;
+      }
+
+      const { error } = await sb.from("reports").update({
+        status: "approved",
+        approved_by: currentOperator(),
+        approved_at: new Date().toISOString(),
+        email_send_allowed: true
+      }).eq("id", latestReport.id);
+
+      if (error) {
+        alert("Failed to approve report: " + error.message);
+        return;
+      }
+
+      await loadReports();
+      alert("Report approved.");
+    };
+
+    window.queueSingleSend = async function(recipientId, channel) {
+      if (!latestReport) {
+        alert("No report is available for sending.");
+        return;
+      }
+
+      if (!confirm(`Queue today's ${channel} report for this recipient?`)) return;
+
+      if (!isLatestReportValidationPass()) {
+        alert("Send blocked. This report did not pass validation.");
+        return;
+      }
+
+      if ((latestReport.status || "").toLowerCase() !== "approved") {
+        alert("Send blocked. Approve the report first.");
+        return;
+      }
+
+      const { error } = await sb.from("dispatch_requests").insert({
+        report_id: latestReport.id,
+        recipient_id: recipientId,
+        channel,
+        action_type: "single_send",
+        status: "queued",
+        requested_by: currentOperator(),
+        notes: "Queued from recipients tab"
+      });
+
+      if (error) {
+        alert("Failed to queue send: " + error.message);
+        return;
+      }
+
+      alert(`Queued ${channel} send successfully.`);
+      if (activeTab === "log") renderDispatchQueueBox();
+    };
+
+    window.queueSendAll = async function(channel) {
+      if (!latestReport) {
+        alert("No report is available for sending.");
+        return;
+      }
+
+      if (!confirm(`Queue today's ${channel} report for all active ${channel} recipients?`)) return;
+
+      if (!isLatestReportValidationPass()) {
+        alert("Send blocked. This report did not pass validation.");
+        return;
+      }
+
+      if ((latestReport.status || "").toLowerCase() !== "approved") {
+        alert("Send blocked. Approve the report first.");
+        return;
+      }
+
+      const list = channel === "whatsapp"
+        ? waRecipients.filter(r => r.active)
+        : emailRecipients.filter(r => r.active);
+
+      if (!list.length) {
+        alert(`No active ${channel} recipients found.`);
+        return;
+      }
+
+      const payload = list.map(r => ({
+        report_id: latestReport.id,
+        recipient_id: r.id,
+        channel,
+        action_type: "bulk_send",
+        status: "queued",
+        requested_by: currentOperator(),
+        notes: "Queued from reports tab"
+      }));
+
+      const { error } = await sb.from("dispatch_requests").insert(payload);
+
+      if (error) {
+        alert("Failed to queue bulk send: " + error.message);
+        return;
+      }
+
+      alert(`Queued ${payload.length} ${channel} sends successfully.`);
+      if (activeTab === "log") renderDispatchQueueBox();
+    };
+
+    window.addWhatsAppRecipient = async function() {
+      const name = document.getElementById("waName").value.trim();
+      const phone = document.getElementById("waNumber").value.trim().replace(/\s+/g, "");
+      const tier = document.getElementById("waTier").value;
+
+      if (!name || !phone) {
+        alert("Please enter name and mobile number.");
+        return;
+      }
+
+      if (!/^\+\d{8,15}$/.test(phone)) {
+        alert("WhatsApp number must be in full international format, example +96170123456");
+        return;
+      }
+
+      const { error } = await sb.from("recipients").insert({ name, channel: "whatsapp", phone_number: phone, active: true, tier });
+
+      if (error) {
+        alert("Failed to add WhatsApp recipient: " + error.message);
+        return;
+      }
+
+      await loadRecipients();
+    };
+
+    window.addEmailRecipient = async function() {
+      const name = document.getElementById("emName").value.trim();
+      const email = document.getElementById("emEmail").value.trim();
+
+      if (!name || !email) {
+        alert("Please enter name and email.");
+        return;
+      }
+
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        alert("Please enter a valid email address.");
+        return;
+      }
+
+      const { error } = await sb.from("recipients").insert({ name, channel: "email", email, active: true, tier: "HNWI" });
+
+      if (error) {
+        alert("Failed to add email recipient: " + error.message);
+        return;
+      }
+
+      await loadRecipients();
+    };
+
+    window.toggleRecipient = async function(id, active) {
+      const { error } = await sb.from("recipients").update({ active }).eq("id", id);
+      if (error) {
+        alert("Failed to update recipient: " + error.message);
+        return;
+      }
+      await loadRecipients();
+    };
+
+    window.deleteRecipient = async function(id) {
+      if (!confirm("Delete this recipient?")) return;
+      const { error } = await sb.from("recipients").delete().eq("id", id);
+      if (error) {
+        alert("Failed to delete recipient: " + error.message);
+        return;
+      }
+      await loadRecipients();
+    };
+
+    async function init() {
+      if (!checkLogin()) return;
+      render();
+      await Promise.all([
+        loadMarketData(),
+        loadReports(),
+        loadEmailSchedule(),
+        loadRecipients(),
+        loadSendLog()
+      ]);
+    }
+
+    init();
+    <!-- Force GitHub Pages redeploy -->
+  </script>
+</body>
+</html>
