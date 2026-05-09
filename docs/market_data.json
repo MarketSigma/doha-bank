@@ -15,7 +15,7 @@
       "qatar_news": true
     }
   },
-  "generated_at": "2026-05-09T16:32:04Z",
+  "generated_at": "2026-05-09T17:07:50Z",
   "generated_display_time": "07:00 AST",
   "global_indices": [
     {
@@ -430,86 +430,86 @@
   "market_as_of_date": "2026-05-09",
   "global_news": [
     {
-      "headline": "US Awaits Iranian Response After Hormuz Clashes",
-      "summary": "US waiting for Iran's response to latest peace proposal following Strait of Hormuz clashes that strained month-long ceasefire.",
+      "headline": "DOJ Probes Suspicious Oil Trades Iran War",
+      "summary": "US Justice Department and CFTC investigate suspicious oil market transactions worth over $2.6 billion linked to Iran conflict.",
       "source": "Bloomberg",
-      "url": "https://www.bloomberg.com/news/videos/2026-05-09/us-awaits-response-after-hormuz-clashes-strain-ceasefire-video",
-      "metric": "1 month",
-      "metric_label": "Duration of current ceasefire"
+      "url": "https://www.bloomberg.com/news/videos/2026-05-09/doj-probing-suspicious-oil-trades-tied-to-iran-war-video",
+      "metric": "$2.6B",
+      "metric_label": "Value of suspicious oil trades"
     },
     {
-      "headline": "Iran War Drains Global Oil Buffer Rapidly",
-      "summary": "World burning through oil inventories at record speed as Iran war throttles Persian Gulf flows, depleting supply shock buffer.",
+      "headline": "China Summit Proceeds Despite Iran Tensions",
+      "summary": "Trump-Xi meeting in Beijing continues as planned despite Chinese concerns over unresolved US-Iran conflict affecting regional stability.",
       "source": "Bloomberg",
-      "url": "https://www.bloomberg.com/news/articles/2026-05-09/iran-war-is-draining-world-s-oil-buffer-at-unprecedented-pace",
-      "metric": "Record pace",
-      "metric_label": "Oil inventory depletion rate"
+      "url": "https://www.bloomberg.com/news/videos/2026-05-09/china-summit-stays-on-track-despite-iran-concerns-video",
+      "metric": "Ongoing",
+      "metric_label": "Summit status amid tensions"
     },
     {
-      "headline": "Earnings Bonanza Fuels US Stocks Record Rally",
-      "summary": "Blowout earnings season providing fresh momentum for Wall Street bulls despite concerns Iran war would derail stock rally.",
+      "headline": "Iran Conflict Benefits China Manufacturing Competitiveness",
+      "summary": "Rep. Ro Khanna warns 80,000 US manufacturing jobs lost while Iran situation provides strategic advantage to Beijing.",
       "source": "Bloomberg",
-      "url": "https://www.bloomberg.com/news/articles/2026-05-09/earnings-bonanza-that-no-one-saw-coming-fuels-stocks-record-run",
-      "metric": "Record high",
-      "metric_label": "US stock market levels"
+      "url": "https://www.bloomberg.com/news/videos/2026-05-09/ro-khanna-on-why-the-iran-conflict-is-a-gift-to-beijing-video",
+      "metric": "80,000",
+      "metric_label": "US manufacturing jobs lost"
     },
     {
-      "headline": "New Zealanders Migrate to Australia in Droves",
-      "summary": "41,000 New Zealanders moved to Australia in 2025, highest in 12 years, seeking better job opportunities and higher wages.",
+      "headline": "Record New Zealand Migration to Australia",
+      "summary": "41,000 New Zealanders relocated to Australia in 2025, highest in 12 years, seeking better job opportunities and wages.",
       "source": "Bloomberg",
       "url": "https://www.bloomberg.com/news/videos/2026-05-09/why-new-zealanders-are-moving-to-australia-video",
       "metric": "41,000",
-      "metric_label": "New Zealand emigrants to Austral"
+      "metric_label": "NZ citizens moved to Australia"
     },
     {
-      "headline": "Met Gala Raises Record Fundraising Amount",
-      "summary": "Met Gala raised $42 million for museum's exhibits, curator payments, and preservation of world's largest fashion archives.",
+      "headline": "Met Gala Raises Record Museum Funding",
+      "summary": "Metropolitan Museum's annual gala fundraiser generates $42 million to support exhibitions, curators, and fashion archive preservation.",
       "source": "Bloomberg",
       "url": "https://www.bloomberg.com/news/videos/2026-05-09/exploring-the-met-s-new-costume-art-exhibit-video",
-      "metric": "$42 million",
+      "metric": "$42M",
       "metric_label": "Met Gala fundraising total"
     },
     {
-      "headline": "Korean Culture Goes Global Through New Docuseries",
-      "summary": "Actor Daniel Dae Kim explores explosion of Korean culture worldwide in new docuseries examining the K-Everything phenomenon.",
+      "headline": "Korean Cultural Export Boom Documented",
+      "summary": "Daniel Dae Kim explores global Korean culture explosion in new docuseries highlighting entertainment industry's international economic impact.",
       "source": "Bloomberg",
       "url": "https://www.bloomberg.com/news/videos/2026-05-09/daniel-dae-kim-make-korean-culture-global-in-docuseries-video",
-      "metric": "Global reach",
-      "metric_label": "Korean cultural influence expans"
+      "metric": "Global",
+      "metric_label": "Korean cultural reach expansion"
     }
   ],
   "qatar_news": [
     {
-      "headline": "Minister meets business leaders address private sector challenges",
-      "summary": "Qatari minister engages with business leaders to discuss and resolve key challenges facing the private sector development.",
+      "headline": "Minister Meets Business Leaders on Private Sector Challenges",
+      "summary": "Qatari minister engages with business leaders to address key challenges facing the private sector and discuss potential solutions for economic growth.",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/233038/business/minister-meets-business-leaders-toaddress-private-sector-challenges",
-      "metric": "Private Sector",
-      "metric_label": "Focus Area"
+      "metric": "High Priority",
+      "metric_label": "Government-Business Engagement L"
     },
     {
-      "headline": "Indonesia backs economy despite weakening rupiah",
-      "summary": "Indonesian government maintains economic support measures as national currency faces depreciation pressure in global markets.",
-      "source": "Qatar Tribune",
-      "url": "https://www.qatar-tribune.com/article/233034/business/indonesia-backs-economy-despite-weakening-rupiah",
-      "metric": "Rupiah Weakness",
-      "metric_label": "Currency Impact"
-    },
-    {
-      "headline": "US gasoline costs 52% more since Iran war",
-      "summary": "American fuel prices surge significantly higher compared to pre-Iran conflict levels, impacting consumer spending power.",
+      "headline": "US Gasoline Prices Rise 52% Since Iran War",
+      "summary": "American gasoline costs have surged significantly since the onset of Iran conflict, highlighting energy market volatility and geopolitical impact on fuel prices.",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/233000/business/why-gasoline-costs-52-more-in-the-us-than-it-did-before-the-iran-war",
-      "metric": "+52%",
-      "metric_label": "US Gas Price Increase"
+      "metric": "52%",
+      "metric_label": "US Gasoline Price Increase"
     },
     {
-      "headline": "MoCI hosts workshop for industrial sector",
-      "summary": "Qatar's Ministry of Commerce and Industry organizes specialized workshop targeting industrial sector development and enhancement.",
+      "headline": "Indonesia Supports Economy Despite Rupiah Weakness",
+      "summary": "Indonesian government maintains economic support measures as national currency faces depreciation pressures, signaling commitment to stability and growth initiatives.",
+      "source": "Qatar Tribune",
+      "url": "https://www.qatar-tribune.com/article/233034/business/indonesia-backs-economy-despite-weakening-rupiah",
+      "metric": "Weakening",
+      "metric_label": "Indonesian Rupiah Trend"
+    },
+    {
+      "headline": "MoCI Hosts Industrial Sector Workshop",
+      "summary": "Qatar's Ministry of Commerce and Industry organizes workshop focused on industrial sector development, bringing together stakeholders to enhance manufacturing capabilities.",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/233035/business/moci-hosts-workshop-for-industrial-sector",
-      "metric": "Industrial Focus",
-      "metric_label": "Sector Development"
+      "metric": "Workshop",
+      "metric_label": "Industrial Development Initiativ"
     }
   ],
   "kpis": [
