@@ -1,3 +1,5 @@
+print("USING UPDATED PDF GENERATOR HEADER VERSION 2026-05-09")
+
 from reportlab.lib.pagesizes import A4, landscape
 from reportlab.lib import colors
 from reportlab.lib.units import mm
