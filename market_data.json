@@ -15,7 +15,7 @@
       "qatar_news": true
     }
   },
-  "generated_at": "2026-05-09T19:57:09Z",
+  "generated_at": "2026-05-09T20:02:45Z",
   "generated_display_time": "07:00 AST",
   "global_indices": [
     {
@@ -435,81 +435,81 @@
       "source": "Bloomberg",
       "url": "https://www.bloomberg.com/news/videos/2026-05-09/doj-probing-suspicious-oil-trades-tied-to-iran-war-video",
       "metric": "$2.6B+",
-      "metric_label": "Suspicious trading profits"
+      "metric_label": "Suspicious trading profits under"
     },
     {
-      "headline": "China Summit Proceeds Despite Iran Conflict Concerns",
-      "summary": "Trump moves forward with Xi Jinping meeting in Beijing despite Chinese officials' unease about US-Iran conflict timing.",
+      "headline": "China Summit Proceeds Despite Iran Concerns",
+      "summary": "President Trump continues Beijing summit plans with Xi Jinping despite Chinese officials' unease about meeting before US-Iran conflict resolution.",
       "source": "Bloomberg",
       "url": "https://www.bloomberg.com/news/videos/2026-05-09/china-summit-stays-on-track-despite-iran-concerns-video",
-      "metric": "On Track",
-      "metric_label": "Summit status"
+      "metric": "Proceeding",
+      "metric_label": "US-China summit status amid Iran"
     },
     {
-      "headline": "Iran Conflict Benefits China Says Rep Khanna",
-      "summary": "Representative argues US lost 80,000 manufacturing jobs while China watches Iran conflict unfold, benefiting from American strategic distraction.",
+      "headline": "Iran Conflict Benefits China Says Congressman",
+      "summary": "Rep. Ro Khanna argues Iran conflict is gift to Beijing, citing 80,000 lost manufacturing jobs and need for tougher China strategy.",
       "source": "Bloomberg",
       "url": "https://www.bloomberg.com/news/videos/2026-05-09/ro-khanna-on-why-the-iran-conflict-is-a-gift-to-beijing-video",
       "metric": "80,000",
-      "metric_label": "Manufacturing jobs lost"
+      "metric_label": "US manufacturing jobs lost"
     },
     {
       "headline": "WHO Downplays Cruise Hantavirus Pandemic Risk",
-      "summary": "World Health Organization officials say deadly hantavirus outbreak on cruise ship unlikely to trigger next pandemic.",
+      "summary": "World Health Organization officials say deadly hantavirus outbreak on cruise ship doesn't pose pandemic threat despite raising contagion concerns.",
       "source": "Bloomberg",
       "url": "https://www.bloomberg.com/news/videos/2026-05-09/health-officials-downplay-risk-from-hantavirus-outbreak-video",
       "metric": "Low Risk",
-      "metric_label": "Pandemic threat level"
+      "metric_label": "WHO pandemic threat assessment"
     },
     {
-      "headline": "Rachel Entrekin Wins 250 Mile Ultramarathon Record",
-      "summary": "First woman to win Cocodona ultramarathon outright, finishing 250-mile Arizona course in record 56 hours, defeating entire field.",
+      "headline": "Runner Shatters 250 Mile Ultramarathon Record",
+      "summary": "Rachel Entrekin becomes first woman to win 250-mile Cocodona ultramarathon outright, finishing in record 56 hours defeating entire field.",
       "source": "Bloomberg",
       "url": "https://www.bloomberg.com/news/videos/2026-05-09/rachel-entrekin-shatters-250-mile-course-record-video",
       "metric": "56:09:48",
-      "metric_label": "Record finish time"
+      "metric_label": "Record completion time (hours)"
     },
     {
-      "headline": "Bloomberg This Weekend Market Analysis Show",
-      "summary": "Weekend financial news program featuring market experts discussing geopolitical developments, trade policies, and regulatory changes affecting Gulf markets.",
+      "headline": "Bloomberg Weekend Show Covers Major Headlines",
+      "summary": "Weekend financial news program features analysis of current events with expert guests including former ambassadors and financial regulators.",
       "source": "Bloomberg",
       "url": "https://www.bloomberg.com/news/videos/2026-05-09/bloomberg-this-weekend-5-9-2026-video",
       "metric": "Live",
-      "metric_label": "Weekend coverage"
+      "metric_label": "Weekend broadcast status"
     }
   ],
   "qatar_news": [
     {
       "headline": "Minister meets business leaders address private sector challenges",
-      "summary": "Qatar's minister engages with business leaders to discuss and address key challenges facing the private sector.",
+      "summary": "Qatar minister engages with business leaders to discuss and resolve key challenges facing the private sector.",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/233038/business/minister-meets-business-leaders-toaddress-private-sector-challenges",
       "metric": "High Priority",
       "metric_label": "Government-business engagement l"
     },
     {
+      "headline": "Indonesia backs economy despite weakening rupiah",
+      "summary": "Indonesian government maintains economic support measures as national currency faces depreciation pressures in regional markets.",
+      "source": "Qatar Tribune",
+      "url": "https://www.qatar-tribune.com/article/233034/business/indonesia-backs-economy-despite-weakening-rupiah",
+      "metric": "Currency Decline",
+      "metric_label": "Rupiah weakness impact"
+    },
+    {
       "headline": "US gasoline costs 52% more since Iran war",
-      "summary": "Gasoline prices in the United States have increased by 52% compared to pre-Iran war levels.",
+      "summary": "American fuel prices surge significantly higher compared to pre-conflict levels amid ongoing Middle East tensions.",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/233000/business/why-gasoline-costs-52-more-in-the-us-than-it-did-before-the-iran-war",
       "metric": "52%",
       "metric_label": "US gasoline price increase"
     },
     {
-      "headline": "MoCI hosts workshop for industrial sector development",
-      "summary": "Qatar's Ministry of Commerce and Industry conducts workshop focused on industrial sector growth and development.",
+      "headline": "MoCI hosts workshop for industrial sector",
+      "summary": "Qatar Ministry of Commerce and Industry organizes specialized workshop targeting development of the industrial sector.",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/233035/business/moci-hosts-workshop-for-industrial-sector",
-      "metric": "Industrial Focus",
-      "metric_label": "Sector development priority"
-    },
-    {
-      "headline": "Indonesia supports economy amid weakening rupiah",
-      "summary": "Indonesia implements measures to support its economy as the rupiah currency continues to weaken against major currencies.",
-      "source": "Qatar Tribune",
-      "url": "https://www.qatar-tribune.com/article/233034/business/indonesia-backs-economy-despite-weakening-rupiah",
-      "metric": "Currency Weaknes",
-      "metric_label": "Rupiah exchange rate pressure"
+      "metric": "Industry Focus",
+      "metric_label": "Sector development initiative"
     }
   ],
   "kpis": [
