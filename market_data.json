@@ -15,7 +15,7 @@
       "qatar_news": true
     }
   },
-  "generated_at": "2026-05-09T17:51:15Z",
+  "generated_at": "2026-05-09T19:57:09Z",
   "generated_display_time": "07:00 AST",
   "global_indices": [
     {
@@ -430,86 +430,86 @@
   "market_as_of_date": "2026-05-09",
   "global_news": [
     {
-      "headline": "DOJ Probes Suspicious Oil Trades Iran War",
-      "summary": "US Justice Department and CFTC investigating suspicious oil market transactions worth over $2.6 billion tied to Iran conflict.",
+      "headline": "DOJ Probes Suspicious Oil Trades Tied Iran War",
+      "summary": "US Justice Department and CFTC investigating four suspicious oil market transactions where traders made over $2.6 billion during Iran conflict.",
       "source": "Bloomberg",
       "url": "https://www.bloomberg.com/news/videos/2026-05-09/doj-probing-suspicious-oil-trades-tied-to-iran-war-video",
       "metric": "$2.6B+",
-      "metric_label": "Suspicious oil trades value"
+      "metric_label": "Suspicious trading profits"
     },
     {
-      "headline": "China Summit Proceeds Despite Iran Concerns",
-      "summary": "Trump continues Beijing meeting plans with Xi Jinping despite Chinese officials' concerns over unresolved US-Iran conflict.",
+      "headline": "China Summit Proceeds Despite Iran Conflict Concerns",
+      "summary": "Trump moves forward with Xi Jinping meeting in Beijing despite Chinese officials' unease about US-Iran conflict timing.",
       "source": "Bloomberg",
       "url": "https://www.bloomberg.com/news/videos/2026-05-09/china-summit-stays-on-track-despite-iran-concerns-video",
-      "metric": "US-China",
-      "metric_label": "Diplomatic summit status"
+      "metric": "On Track",
+      "metric_label": "Summit status"
     },
     {
-      "headline": "Iran Conflict Benefits China Says Congressman",
-      "summary": "Rep. Ro Khanna argues Iran conflict gifts China strategic advantage, citing 80,000 US manufacturing jobs lost.",
+      "headline": "Iran Conflict Benefits China Says Rep Khanna",
+      "summary": "Representative argues US lost 80,000 manufacturing jobs while China watches Iran conflict unfold, benefiting from American strategic distraction.",
       "source": "Bloomberg",
       "url": "https://www.bloomberg.com/news/videos/2026-05-09/ro-khanna-on-why-the-iran-conflict-is-a-gift-to-beijing-video",
       "metric": "80,000",
-      "metric_label": "US manufacturing jobs lost"
+      "metric_label": "Manufacturing jobs lost"
     },
     {
-      "headline": "Health Officials Downplay Cruise Hantavirus Risk",
-      "summary": "WHO officials minimize pandemic concerns from deadly hantavirus outbreak on cruise ship, reassuring public about contagion risk.",
+      "headline": "WHO Downplays Cruise Hantavirus Pandemic Risk",
+      "summary": "World Health Organization officials say deadly hantavirus outbreak on cruise ship unlikely to trigger next pandemic.",
       "source": "Bloomberg",
       "url": "https://www.bloomberg.com/news/videos/2026-05-09/health-officials-downplay-risk-from-hantavirus-outbreak-video",
       "metric": "Low Risk",
-      "metric_label": "WHO pandemic assessment"
+      "metric_label": "Pandemic threat level"
     },
     {
-      "headline": "Met Gala Raises Record Museum Funding",
-      "summary": "Annual Met Gala fundraiser generates $42 million to support museum exhibits, curator salaries, and fashion archive preservation.",
-      "source": "Bloomberg",
-      "url": "https://www.bloomberg.com/news/videos/2026-05-09/exploring-the-met-s-new-costume-art-exhibit-video",
-      "metric": "$42M",
-      "metric_label": "Met Gala fundraising total"
-    },
-    {
-      "headline": "Rachel Entrekin Shatters Ultramarathon Record",
-      "summary": "First woman to win 250-mile Cocodona ultramarathon outright, completing Arizona course in record 56 hours defeating entire field.",
+      "headline": "Rachel Entrekin Wins 250 Mile Ultramarathon Record",
+      "summary": "First woman to win Cocodona ultramarathon outright, finishing 250-mile Arizona course in record 56 hours, defeating entire field.",
       "source": "Bloomberg",
       "url": "https://www.bloomberg.com/news/videos/2026-05-09/rachel-entrekin-shatters-250-mile-course-record-video",
       "metric": "56:09:48",
-      "metric_label": "Record completion time"
+      "metric_label": "Record finish time"
+    },
+    {
+      "headline": "Bloomberg This Weekend Market Analysis Show",
+      "summary": "Weekend financial news program featuring market experts discussing geopolitical developments, trade policies, and regulatory changes affecting Gulf markets.",
+      "source": "Bloomberg",
+      "url": "https://www.bloomberg.com/news/videos/2026-05-09/bloomberg-this-weekend-5-9-2026-video",
+      "metric": "Live",
+      "metric_label": "Weekend coverage"
     }
   ],
   "qatar_news": [
     {
       "headline": "Minister meets business leaders address private sector challenges",
-      "summary": "Qatar minister engages with business leaders to discuss and resolve key challenges facing the private sector economy.",
+      "summary": "Qatar's minister engages with business leaders to discuss and address key challenges facing the private sector.",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/233038/business/minister-meets-business-leaders-toaddress-private-sector-challenges",
-      "metric": "Private Sector",
-      "metric_label": "Focus Area"
-    },
-    {
-      "headline": "Indonesia backs economy despite weakening rupiah",
-      "summary": "Indonesian government provides economic support measures as national currency faces depreciation pressures in regional markets.",
-      "source": "Qatar Tribune",
-      "url": "https://www.qatar-tribune.com/article/233034/business/indonesia-backs-economy-despite-weakening-rupiah",
-      "metric": "Rupiah Weak",
-      "metric_label": "Currency Status"
+      "metric": "High Priority",
+      "metric_label": "Government-business engagement l"
     },
     {
       "headline": "US gasoline costs 52% more since Iran war",
-      "summary": "American fuel prices surge significantly higher compared to pre-conflict levels, impacting consumer spending and economic outlook.",
+      "summary": "Gasoline prices in the United States have increased by 52% compared to pre-Iran war levels.",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/233000/business/why-gasoline-costs-52-more-in-the-us-than-it-did-before-the-iran-war",
       "metric": "52%",
-      "metric_label": "Price Increase"
+      "metric_label": "US gasoline price increase"
     },
     {
-      "headline": "MoCI hosts workshop for industrial sector",
-      "summary": "Qatar's Ministry of Commerce and Industry organizes specialized workshop targeting development and growth of industrial sector.",
+      "headline": "MoCI hosts workshop for industrial sector development",
+      "summary": "Qatar's Ministry of Commerce and Industry conducts workshop focused on industrial sector growth and development.",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/233035/business/moci-hosts-workshop-for-industrial-sector",
-      "metric": "Industrial",
-      "metric_label": "Sector Focus"
+      "metric": "Industrial Focus",
+      "metric_label": "Sector development priority"
+    },
+    {
+      "headline": "Indonesia supports economy amid weakening rupiah",
+      "summary": "Indonesia implements measures to support its economy as the rupiah currency continues to weaken against major currencies.",
+      "source": "Qatar Tribune",
+      "url": "https://www.qatar-tribune.com/article/233034/business/indonesia-backs-economy-despite-weakening-rupiah",
+      "metric": "Currency Weaknes",
+      "metric_label": "Rupiah exchange rate pressure"
     }
   ],
   "kpis": [
