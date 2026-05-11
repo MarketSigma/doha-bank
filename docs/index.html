@@ -400,14 +400,14 @@
             </div>
             <div class="report-meta">
               <div class="stack-actions">
-                <button class="btn green" onclick="approveLatestReport()" ${isLatestReportValidationPass() ? "" : "disabled"}>Approve</button>
-                ${SHOW_WHATSAPP_SECTION ? `<button class="btn orange" onclick="queueSendAll('whatsapp')" ${isLatestReportApprovedAndPass() ? "" : "disabled"}>Queue WhatsApp to All</button>` : ``}
-                <button class="btn" onclick="queueSendAll('email')" ${isLatestReportApprovedAndPass() ? "" : "disabled"}>Queue Email to All</button>
+                <button class="btn green" onclick="approveLatestReport()" ${canApproveLatestReport() ? "" : "disabled"}>${isLatestReportNeedsReview() ? "Reviewed & Approve Anyway" : "Approve"}</button>
+                ${SHOW_WHATSAPP_SECTION ? `<button class="btn orange" onclick="queueSendAll('whatsapp')" ${isLatestReportApprovedAndSendable() ? "" : "disabled"}>Queue WhatsApp to All</button>` : ``}
+                <button class="btn" onclick="queueSendAll('email')" ${isLatestReportApprovedAndSendable() ? "" : "disabled"}>Queue Email to All</button>
               </div>
               <div class="stack-actions">
                 ${latestReport.pdf_url ? `<a class="btn outline" href="${escapeHtml(latestReport.pdf_url)}" target="_blank" rel="noopener">Preview PDF</a>` : ""}
               </div>
-              <div class="helper">Generated reports appear here as Draft or Needs Review. Email queueing is enabled only after validation PASS and human approval.</div>
+              <div class="helper">Generated reports appear here as Draft or Needs Review. Email queueing is enabled after human approval. Reports needing review require manual confirmation before sending.</div>
             </div>
           </div>
         </div>
@@ -717,14 +717,34 @@
       render();
     }
 
+    function latestValidationStatus() {
+      return String(latestReport?.validation_status || marketData?.report_status || "")
+        .toUpperCase()
+        .replace(/\s+/g, "_");
+    }
+
     function isLatestReportValidationPass() {
-      const s = String(latestReport?.validation_status || marketData?.report_status || "").toUpperCase();
+      const s = latestValidationStatus();
       return ["PASS", "OK"].includes(s);
     }
 
-    function isLatestReportApprovedAndPass() {
+    function isLatestReportNeedsReview() {
+      const s = latestValidationStatus();
+      return ["NEEDS_REVIEW", "REVIEW"].includes(s);
+    }
+
+    function isLatestReportCriticalFail() {
+      const s = latestValidationStatus();
+      return ["FAIL", "CRITICAL_FAIL", "CRITICAL"].includes(s);
+    }
+
+    function canApproveLatestReport() {
+      return Boolean(latestReport) && !isLatestReportCriticalFail();
+    }
+
+    function isLatestReportApprovedAndSendable() {
       const status = String(latestReport?.status || "").toLowerCase();
-      return status === "approved" && isLatestReportValidationPass();
+      return status === "approved" && latestReport?.email_send_allowed !== false;
     }
 
     window.approveLatestReport = async function() {
@@ -733,16 +753,29 @@
         return;
       }
 
-      if (!isLatestReportValidationPass()) {
-        alert("Approval blocked. This report did not pass validation.");
+      if (isLatestReportCriticalFail()) {
+        alert("Approval blocked. This report has a critical validation failure.");
         return;
+      }
+
+      const needsReview = isLatestReportNeedsReview();
+
+      if (needsReview) {
+        const confirmed = confirm(
+          "This report needs review. Confirm that you reviewed the report and approve it for email sending?"
+        );
+        if (!confirmed) return;
       }
 
       const { error } = await sb.from("reports").update({
         status: "approved",
         approved_by: currentOperator(),
         approved_at: new Date().toISOString(),
-        email_send_allowed: true
+        email_send_allowed: true,
+        manual_review_completed: needsReview,
+        manual_review_note: needsReview
+          ? "Report manually reviewed and approved despite NEEDS REVIEW validation status."
+          : null
       }).eq("id", latestReport.id);
 
       if (error) {
@@ -751,7 +784,12 @@
       }
 
       await loadReports();
-      alert("Report approved.");
+
+      alert(
+        needsReview
+          ? "Report manually reviewed and approved. You can now queue the email."
+          : "Report approved. You can now queue the email."
+      );
     };
 
     window.queueSingleSend = async function(recipientId, channel) {
@@ -762,8 +800,8 @@
 
       if (!confirm(`Queue today's ${channel} report for this recipient?`)) return;
 
-      if (!isLatestReportValidationPass()) {
-        alert("Send blocked. This report did not pass validation.");
+      if (!isLatestReportApprovedAndSendable()) {
+        alert("Send blocked. The report must be approved first.");
         return;
       }
 
@@ -799,8 +837,8 @@
 
       if (!confirm(`Queue today's ${channel} report for all active ${channel} recipients?`)) return;
 
-      if (!isLatestReportValidationPass()) {
-        alert("Send blocked. This report did not pass validation.");
+      if (!isLatestReportApprovedAndSendable()) {
+        alert("Send blocked. The report must be approved first.");
         return;
       }
 
@@ -920,7 +958,7 @@
     }
 
     init();
-    <!-- Force GitHub Pages redeploy -->
+    // Force GitHub Pages redeploy
   </script>
 </body>
 </html>
