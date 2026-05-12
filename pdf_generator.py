@@ -316,21 +316,6 @@ def draw_header(c, report_date, generated_display_time, market_as_of_date=None, 
     )
 
     # ------------------------------------------------------------
-    # Subtitle
-    # ------------------------------------------------------------
-
-    t(
-        c,
-        "Market Snapshot  |  Currency & Fixed Income  |  Global & Qatar News",
-        W / 2,
-        H - HEADER_H + 1.7 * mm,
-        "Carlito",
-        7,
-        SOFT_WHITE,
-        "center"
-    )
-
-    # ------------------------------------------------------------
     # Right-side small metadata
     # ------------------------------------------------------------
 
@@ -365,15 +350,6 @@ def draw_footer(c, report_date):
     fr(c, 0, 0, W, FTR_H, BLUE)
     fr(c, 0, FTR_H - 0.7 * mm, W, 0.7 * mm, CYAN)
 
-    t(
-        c,
-        "Sources: Supabase market_indices_history  ·  Brave Search  ·  Reuters  ·  Bloomberg  ·  The Peninsula  ·  Qatar Tribune    |    Strictly Confidential - Doha Bank HNWI Clients Only. Not for redistribution.",
-        M,
-        2 * mm,
-        "Carlito-Italic",
-        5,
-        SUBT,
-    )
     t(c, f"Doha Bank Market Brief – Snapshot & Key News  ·  {report_date}", W - M, 2 * mm, "Carlito", 5.5, WHITE, "right")
 
 
