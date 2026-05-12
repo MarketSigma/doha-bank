@@ -268,11 +268,11 @@ def draw_header(c, report_date, generated_display_time, market_as_of_date=None, 
 
     t(
         c,
-        "MARKET INTELLIGENCE",
+        "Market Brief – Snapshot & Key News",
         W / 2,
         H - HEADER_H + 16 * mm,
         "Caladea-Bold",
-        24,
+        17,
         WHITE,
         "center"
     )
@@ -374,7 +374,7 @@ def draw_footer(c, report_date):
         5,
         SUBT,
     )
-    t(c, f"Doha Bank Market Intelligence  ·  {report_date}", W - M, 2 * mm, "Carlito", 5.5, WHITE, "right")
+    t(c, f"Doha Bank Market Brief – Snapshot & Key News  ·  {report_date}", W - M, 2 * mm, "Carlito", 5.5, WHITE, "right")
 
 
 # ------------------------------------------------------------
@@ -664,8 +664,8 @@ def generate(data, output_path):
     report_status = data.get("report_status", "PASS")
 
     c = pdfcanvas.Canvas(output_path, pagesize=landscape(A4))
-    c.setTitle(f"Doha Bank Market Intelligence - {report_date}")
-    c.setAuthor("Doha Bank - Automated Market Intelligence System")
+    c.setTitle(f"Doha Bank Market Brief – Snapshot & Key News - {report_date}")
+    c.setAuthor("Doha Bank - AI-generated Daily Briefs")
 
     page1(c, report_date, generated_display_time, market_as_of_date, data)
     c.showPage()
