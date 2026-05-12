@@ -10,7 +10,7 @@ from supabase_client import get_supabase
 
 
 RESEND_API_KEY = os.environ["RESEND_API_KEY"]
-FROM_EMAIL = os.environ.get("FROM_EMAIL", "Doha Bank Market Brief <updates@market-sigma.com>")
+FROM_EMAIL = os.environ.get("FROM_EMAIL", "DB Strategy Team <updates@market-sigma.com>")
 PDF_PATH = Path("report.pdf")
 MARKET_DATA_PATH = Path("market_data.json")
 SCHEDULE_ID = "main"
@@ -90,7 +90,7 @@ def build_email_html(report_date: str) -> str:
     return """
         <p>Dear All,</p>
 
-        <p>Please find attached today's market brief, including the latest market snapshot and key news highlights.</p>
+        <p>Please find attached today's market updates, including the latest market snapshot and key news highlights.</p>
 
         <p>This report is AI-generated and reflects a snapshot of the previous day's closing rates.</p>
 
@@ -116,11 +116,11 @@ def send() -> None:
     payload = {
         "from": FROM_EMAIL,
         "to": recipients,
-        "subject": f"Doha Bank Market Brief – Snapshot & Key News – {report_date}",
+        "subject": f"Doha Bank Market Updates – Snapshot & Key News – {report_date}",
         "html": build_email_html(report_date),
         "attachments": [
             {
-                "filename": f"Doha-Bank-Market-Brief-Snapshot-Key-News-{report_date}.pdf",
+                "filename": f"Doha-Bank-Market-Updates-Snapshot-Key-News-{report_date}.pdf",
                 "content": pdf_b64,
                 "content_type": "application/pdf",
             }
