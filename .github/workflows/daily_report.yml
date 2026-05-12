@@ -2,11 +2,18 @@ name: Market Intelligence Daily Report
 
 on:
   schedule:
-    - cron: "0 4 * * 1-5"
+    # GitHub scheduled workflows cannot read a dynamic cron from Supabase.
+    # Therefore this workflow wakes up every 5 minutes and check_email_schedule.py
+    # decides whether the saved Qatar-time schedule is due.
+    - cron: "*/5 * * * *"
   workflow_dispatch:
 
 permissions:
   contents: write
+
+concurrency:
+  group: market-intelligence-daily-report
+  cancel-in-progress: false
 
 jobs:
   build-report:
@@ -18,6 +25,8 @@ jobs:
       SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
       RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
       BRAVE_API_KEY: ${{ secrets.BRAVE_API_KEY }}
+      RUN_WEEKDAYS_ONLY: "true"
+      SCHEDULE_WINDOW_MINUTES: "5"
 
     steps:
       - name: Checkout repository
@@ -38,30 +47,61 @@ jobs:
           python -m pip install --upgrade pip
           pip install anthropic>=0.25.0 yfinance>=0.2.40 feedparser>=6.0.11 requests>=2.31.0 reportlab>=4.0.0 pandas>=2.0.0 supabase>=2.0.0
 
+      - name: Check client email schedule
+        id: schedule_check
+        run: |
+          python3 check_email_schedule.py
+
+      - name: Stop if schedule is not due
+        if: steps.schedule_check.outputs.run_report != 'true'
+        run: |
+          echo "Report is not due now. No generation or email sending required."
+          echo "Reason: ${{ steps.schedule_check.outputs.reason }}"
+          echo "Saved time: ${{ steps.schedule_check.outputs.saved_time }}"
+          echo "Current Qatar time: ${{ steps.schedule_check.outputs.current_qatar_time }}"
+
       - name: Fetch market data and news
+        if: steps.schedule_check.outputs.run_report == 'true'
         run: |
           python3 fetcher.py
 
-      - name: Validate report and set send gate
-        id: validate
+      - name: Run validation for information only
+        if: steps.schedule_check.outputs.run_report == 'true'
         run: |
-          python3 validate_report.py market_data.json
+          if [ -f validate_report.py ]; then
+            python3 validate_report.py market_data.json || echo "[WARN] Validation reported issues, continuing because Phase 1 dispatch is not validation-gated."
+          else
+            echo "validate_report.py not found. Skipping external validation step."
+          fi
 
       - name: Generate PDF report
+        if: steps.schedule_check.outputs.run_report == 'true'
         run: |
           python3 pdf_generator.py market_data.json report.pdf
 
       - name: Copy live files to dashboard docs
+        if: steps.schedule_check.outputs.run_report == 'true'
         run: |
           mkdir -p docs
           cp market_data.json docs/market_data.json
           cp report.pdf docs/report.pdf
 
-      - name: Register generated report for dashboard approval
+      - name: Register generated report in dashboard
+        if: steps.schedule_check.outputs.run_report == 'true'
         run: |
-          python3 update_report_record.py
+          if [ -f update_report_record.py ]; then
+            python3 update_report_record.py || echo "[WARN] Report record update failed, continuing because email dispatch uses local report.pdf."
+          else
+            echo "update_report_record.py not found. Skipping report table registration."
+          fi
+
+      - name: Send email automatically
+        if: steps.schedule_check.outputs.run_report == 'true'
+        run: |
+          python3 send_email.py
 
       - name: Commit generated files
+        if: steps.schedule_check.outputs.run_report == 'true'
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
@@ -71,12 +111,13 @@ jobs:
           if git diff --cached --quiet; then
             echo "No generated file changes to commit."
           else
-            git commit -m "Update daily market intelligence report"
+            git commit -m "Update and email market intelligence report"
             git push
           fi
 
-      - name: Distribution blocked pending dashboard approval
+      - name: Phase 1 dispatch summary
+        if: steps.schedule_check.outputs.run_report == 'true'
         run: |
-          echo "Report generated and registered in dashboard."
-          echo "Automated email distribution is disabled. Human approval and queueing must be done from the dashboard."
-          echo "Validation status: ${{ steps.validate.outputs.status }}"
+          echo "Report generated from Supabase data and emailed automatically."
+          echo "Validation warnings, if any, were retained for dashboard visibility only."
+          echo "Approval is not required in Phase 1."
