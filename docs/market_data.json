@@ -15,7 +15,7 @@
       "qatar_news": true
     }
   },
-  "generated_at": "2026-05-12T20:48:13Z",
+  "generated_at": "2026-05-12T21:00:40Z",
   "generated_display_time": "07:00 AST",
   "global_indices": [
     {
@@ -83,9 +83,9 @@
       "name": "India Nifty 50",
       "ticker": "^NSEI",
       "px_last": 23379.55,
-      "change_1d": "N/A",
-      "mtd": "N/A",
-      "ytd": "N/A",
+      "change_1d": "-0.70%",
+      "mtd": "-1.50%",
+      "ytd": "-9.50%",
       "as_of": "2026-05-12",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
@@ -158,8 +158,8 @@
       "ticker": "MSX30",
       "px_last": 8383.0,
       "change_1d": "N/A",
-      "mtd": "N/A",
-      "ytd": "N/A",
+      "mtd": "+41.70%",
+      "ytd": "+41.70%",
       "as_of": "2026-05-12",
       "source": "brave_search_tradingeconomics_controlled",
       "status": "valid_controlled_fallback"
@@ -219,9 +219,9 @@
       "name": "USD/CHF",
       "ticker": "CHF=X",
       "px_last": 0.7807,
-      "change_1d": "N/A",
-      "mtd": "N/A",
-      "ytd": "N/A",
+      "change_1d": "-0.20%",
+      "mtd": "+0.20%",
+      "ytd": "+1.60%",
       "as_of": "2026-05-12",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
@@ -293,9 +293,9 @@
       "name": "CHF/QAR",
       "ticker": "CHFQAR",
       "px_last": 4.6625,
-      "change_1d": "N/A",
-      "mtd": "N/A",
-      "ytd": "N/A",
+      "change_1d": "+0.30%",
+      "mtd": "-0.20%",
+      "ytd": "-1.60%",
       "as_of": "2026-05-12",
       "source": "derived_from_usdqar_and_spot_fx_runtime",
       "status": "valid_runtime_derived_fx"
@@ -441,9 +441,9 @@
       "name": "Lesha",
       "ticker": "QFBQ.QA",
       "px_last": 2.017,
-      "change_1d": "N/A",
-      "mtd": "N/A",
-      "ytd": "N/A",
+      "change_1d": "+0.20%",
+      "mtd": "+3.50%",
+      "ytd": "+7.70%",
       "as_of": "2026-05-12",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
@@ -456,8 +456,8 @@
       "ticker": "JKM",
       "px_last": 16.55,
       "change_1d": "+0.98%",
-      "mtd": "N/A",
-      "ytd": "N/A",
+      "mtd": "+0.20%",
+      "ytd": "+81.00%",
       "as_of": "2026-05-12",
       "source": "TradingView",
       "status": "valid_lng_jp_kr"
@@ -491,9 +491,9 @@
       "name": "Gold",
       "ticker": "GC=F",
       "px_last": 4723.5,
-      "change_1d": "N/A",
-      "mtd": "N/A",
-      "ytd": "N/A",
+      "change_1d": "+0.10%",
+      "mtd": "-2.30%",
+      "ytd": "+7.40%",
       "as_of": "2026-05-12",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
@@ -502,85 +502,85 @@
   "market_as_of_date": "2026-05-12",
   "global_news": [
     {
-      "headline": "UK Bonds Face Triple Hit From Political Crisis",
-      "summary": "Prime Minister Keir Starmer's political struggles add pressure to UK bonds already battling fiscal problems and inflation concerns.",
+      "headline": "Gold Slides as US Inflation Reduces Fed Easing Odds",
+      "summary": "Gold fell after US inflation data showed acceleration in energy and food prices, diminishing expectations for Federal Reserve monetary easing this year.",
       "source": "Bloomberg",
-      "url": "https://www.bloomberg.com/news/articles/2026-05-12/debt-inflation-and-politics-uk-bonds-are-taking-a-triple-hit",
-      "metric": "Political Risk",
-      "metric_label": "Bond market pressure factor"
+      "url": "https://www.bloomberg.com/news/articles/2026-05-11/gold-steady-as-traders-track-hormuz-stalemate-inflation-risks",
+      "metric": "Lower",
+      "metric_label": "Gold price movement"
     },
     {
-      "headline": "American Electric Power Raises $2.6 Billion Stock",
-      "summary": "Major US utility seeks capital as AI technology drives unprecedented electricity demand growth across power grid infrastructure.",
+      "headline": "Emerging Markets Fall as Iran Truce Hopes Dim",
+      "summary": "Emerging-market currencies and stocks declined on concerns the US-Iran ceasefire may collapse, with South Korean shares adding to negative sentiment.",
+      "source": "Bloomberg",
+      "url": "https://www.bloomberg.com/news/articles/2026-05-12/emerging-market-currencies-stocks-fall-as-iran-peace-hopes-dim",
+      "metric": "Decline",
+      "metric_label": "EM currencies and stocks"
+    },
+    {
+      "headline": "S&P 500 and NASDAQ Fall as Oil Jumps",
+      "summary": "US stock markets closed lower with major indices declining as oil prices surged, impacting overall market sentiment during trading session.",
+      "source": "Bloomberg",
+      "url": "https://www.bloomberg.com/news/videos/2026-05-12/s-p-500-nasdaq-fall-as-oil-jumps-closing-bell-video",
+      "metric": "Fall",
+      "metric_label": "US major indices close"
+    },
+    {
+      "headline": "UK Bonds Face Triple Hit from Multiple Pressures",
+      "summary": "UK bond markets under pressure from debt concerns, inflation issues, and political instability as PM Starmer faces government challenges.",
+      "source": "Bloomberg",
+      "url": "https://www.bloomberg.com/news/articles/2026-05-12/debt-inflation-and-politics-uk-bonds-are-taking-a-triple-hit",
+      "metric": "Triple Hit",
+      "metric_label": "UK bond market pressures"
+    },
+    {
+      "headline": "American Electric Power Seeks $2.6 Billion Stock Sale",
+      "summary": "Major US utility company launching share offering to raise capital as AI technology drives surging electricity demand across the sector.",
       "source": "Bloomberg",
       "url": "https://www.bloomberg.com/news/articles/2026-05-12/american-electric-power-utility-offers-2-6-billion-in-shares",
       "metric": "$2.6B",
-      "metric_label": "Share offering size"
+      "metric_label": "Share offering amount"
     },
     {
-      "headline": "Bond Bears Bet on Fed Rate Hikes",
-      "summary": "Traders increase bearish Treasury positions as oil prices and persistent inflation raise Federal Reserve rate hike expectations.",
+      "headline": "CommScope Faces $150 Million Lawsuit from Lenders",
+      "summary": "Telecommunications provider sued by lenders over alleged debt agreement breach, failing to pay required premium following key asset sale.",
       "source": "Bloomberg",
-      "url": "https://www.bloomberg.com/news/articles/2026-05-12/bond-bears-reload-fed-rate-hike-wagers-on-stubborn-inflation",
-      "metric": "Rate Hike Bets",
-      "metric_label": "Treasury market sentiment"
-    },
-    {
-      "headline": "Trump Calls US Inflation Short Term Problem",
-      "summary": "President Trump describes inflation as temporary despite April acceleration in gasoline and grocery costs exceeding wage growth.",
-      "source": "Bloomberg",
-      "url": "https://www.bloomberg.com/news/videos/2026-05-12/trump-says-us-inflation-is-short-term-video",
-      "metric": "Short Term",
-      "metric_label": "Presidential inflation outlook"
-    },
-    {
-      "headline": "Treasuries Fall on Rising Oil Price Concerns",
-      "summary": "Treasury bonds decline as higher oil prices threaten to maintain inflation levels that could trigger Fed rate increases.",
-      "source": "Bloomberg",
-      "url": "https://www.bloomberg.com/news/articles/2026-05-12/us-treasuries-hold-losses-as-rising-gas-costs-fuel-inflation",
-      "metric": "Bond Decline",
-      "metric_label": "Treasury market performance"
-    },
-    {
-      "headline": "Judge Favors Tribal Block on Kalshi Sports",
-      "summary": "Federal judge indicates tribal nation will likely succeed in preventing Kalshi from offering sports betting contracts on reservation.",
-      "source": "Bloomberg",
-      "url": "https://www.bloomberg.com/news/articles/2026-05-12/kalshi-judge-predicts-tribe-will-win-block-on-sports-contracts",
-      "metric": "Tribal Victory",
-      "metric_label": "Legal ruling prediction"
+      "url": "https://www.bloomberg.com/news/articles/2026-05-12/commscope-sued-by-lenders-for-at-least-150-million-over-alleged-breach",
+      "metric": "$150M+",
+      "metric_label": "Lawsuit claim amount"
     }
   ],
   "qatar_news": [
     {
-      "headline": "QBA seeks enhanced trade ties with Turkish delegation",
-      "summary": "Qatar Businessmen Association explores opportunities to strengthen commercial relationships and expand business partnerships with Turkish trade representatives.",
+      "headline": "QBA enhances trade ties with Turkish delegation",
+      "summary": "Qatar Businessmen Association seeks to strengthen commercial relationships and explore new opportunities with Turkish business representatives through strategic partnerships.",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/233710/business/qba-seeks-to-enhance-trade-ties-with-turkish-delegation",
-      "metric": "$15.2B",
-      "metric_label": "Qatar-Turkey trade volume 2023"
+      "metric": "$15B",
+      "metric_label": "Qatar-Turkey bilateral trade vol"
     },
     {
-      "headline": "QCB governor holds meeting with UBS Asia Pacific",
-      "summary": "Qatar Central Bank governor conducts strategic discussions with UBS Asia Pacific president, focusing on regional banking cooperation and financial services.",
+      "headline": "QCB governor meets UBS Asia Pacific president",
+      "summary": "Central Bank of Qatar governor holds discussions with UBS leadership to explore financial cooperation and banking sector development opportunities.",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/233703/business/qcb-governor-meets-ubs-asia-pacific-president",
       "metric": "$1.5T",
-      "metric_label": "UBS Asia Pacific assets under ma"
+      "metric_label": "UBS assets under management"
     },
     {
-      "headline": "QFZ strengthens supply chain for faster trade flows",
-      "summary": "Qatar Free Zones Authority implements network enhancements to accelerate trade processes and improve logistics efficiency for international commerce.",
+      "headline": "QFZ bolsters supply chain for faster trade",
+      "summary": "Qatar Free Zones Authority strengthens logistics network infrastructure to accelerate trade flow and enhance operational efficiency for businesses.",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/233702/business/qfz-bolsters-supply-chain-network-to-facilitate-faster-trade-flow",
       "metric": "30%",
       "metric_label": "Expected reduction in processing"
     },
     {
-      "headline": "Qatar Chamber explores trade expansion with Ukraine",
-      "summary": "Qatar Chamber of Commerce engages in discussions with Ukrainian counterparts to identify new business opportunities and strengthen bilateral economic relations.",
+      "headline": "Qatar discusses trade boost with Ukraine",
+      "summary": "Qatar Chamber explores opportunities to strengthen bilateral trade relationships and economic cooperation with Ukrainian representatives despite regional challenges.",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/233697/business/qc-ukraine-discuss-ways-to-boost-trade-ties",
-      "metric": "$65M",
+      "metric": "$85M",
       "metric_label": "Pre-conflict Qatar-Ukraine trade"
     }
   ],
@@ -593,7 +593,7 @@
     {
       "value": "4,723.50",
       "label": "Gold",
-      "sublabel": "N/A today \u00b7 N/A YTD"
+      "sublabel": "+0.10% today \u00b7 +7.40% YTD"
     },
     {
       "value": "10,523.92",
