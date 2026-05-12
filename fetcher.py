@@ -1299,6 +1299,71 @@ News:
 
 
 def build_kpis(market_data: Dict[str, Any]) -> List[Dict[str, Any]]:
+    def find_by_name(rows: List[Dict[str, Any]], name: str):
+        for row in rows:
+            if row.get("name") == name:
+                return row
+        return None
+
+    def find_by_code(rows: List[Dict[str, Any]], code: str):
+        code = str(code or "").upper()
+        for row in rows:
+            if str(row.get("code") or "").upper() == code:
+                return row
+        return None
+
+    def value(row: Optional[Dict[str, Any]], field: str, default: str = "N/A"):
+        if not row:
+            return default
+        v = row.get(field)
+        return v if v not in (None, "", "N/A") else default
+
+    def format_number(v):
+        if isinstance(v, (int, float)):
+            return f"{v:,.2f}"
+        return str(v or "N/A")
+
+    commodities = market_data.get("commodities", [])
+    gcc_indices = market_data.get("gcc_indices", [])
+    qatari_banks = market_data.get("qatari_banks", [])
+
+    # LNG card:
+    # If LNG exists in Supabase later, use it.
+    # If not, show N/A instead of wrongly keeping Brent as LNG.
+    lng_row = (
+        find_by_code(commodities, "LNG")
+        or find_by_code(commodities, "LNGJKM")
+        or find_by_code(commodities, "JKM")
+        or find_by_name(commodities, "Liquefied Natural Gas (LNG)")
+        or find_by_name(commodities, "LNG")
+    )
+
+    gold_row = find_by_name(commodities, "Gold (QAR)")
+    qse_row = find_by_name(gcc_indices, "Qatar QE Index")
+    doha_row = find_by_code(qatari_banks, "DHBK") or find_by_name(qatari_banks, "Doha")
+
+    return [
+        {
+            "value": format_number(value(lng_row, "px_last")),
+            "label": "Liquefied Natural Gas (LNG)",
+            "sublabel": f"{value(lng_row, 'change_1d')} today · {value(lng_row, 'ytd')} YTD",
+        },
+        {
+            "value": format_number(value(gold_row, "px_last")),
+            "label": "Gold (QAR)",
+            "sublabel": f"{value(gold_row, 'ytd')} YTD · Safe-haven demand",
+        },
+        {
+            "value": format_number(value(qse_row, "px_last")),
+            "label": "QSE Index",
+            "sublabel": f"{value(qse_row, 'change_1d')} today · {value(qse_row, 'ytd')} YTD",
+        },
+        {
+            "value": format_number(value(doha_row, "px_last")),
+            "label": "Doha Bank PX Last",
+            "sublabel": f"{value(doha_row, 'change_1d')} today · {value(doha_row, 'ytd')} YTD",
+        },
+    ]
     def find_by_name_or_code(rows: List[Dict[str, Any]], names=None, codes=None):
         names = {str(x).strip().lower() for x in (names or [])}
         codes = {str(x).strip().upper() for x in (codes or [])}
