@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Doha Bank Market Intelligence Dashboard</title>
+  <title>Doha Bank Market Brief – Snapshot & Key News</title>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <style>
     :root{
@@ -77,7 +77,7 @@
       <div class="logo">D</div>
       <div class="brand-text">
         <div class="brand-bank"><div class="ar">بنك الدوحة</div><div class="en">DOHA BANK</div></div>
-        <div class="brand-title">Market Intelligence Dashboard</div>
+        <div class="brand-title">Market Brief – Snapshot & Key News</div>
       </div>
     </div>
     <button class="btn gray" id="signOutBtn">Sign out</button>
@@ -317,12 +317,12 @@
         (d.qatari_banks || []).length +
         (d.commodities || []).length;
 
-      const rowCountWarning = marketRowCount === 34
+      const rowCountWarning = marketRowCount === 39
         ? ""
         : `
           <div class="alert">
             <strong>Market row count warning</strong>
-            Expected 34 market instruments, but found ${escapeHtml(marketRowCount)}.
+            Expected 39 market instruments, but found ${escapeHtml(marketRowCount)}.
           </div>
         `;
 
@@ -654,7 +654,7 @@
 
     async function loadMarketData() {
       try {
-        const res = await fetch(`./market_data.json?ts=${Date.now()}`);
+        const res = await fetch(`./market_data.json?ts=${Date.now()}`, { cache: "no-store" });
         if (!res.ok) throw new Error(`market_data.json HTTP ${res.status}`);
         marketData = await res.json();
       } catch (err) {
@@ -706,7 +706,7 @@
       } catch (err) {
         console.error("Supabase send_log load failed, trying JSON fallback:", err);
         try {
-          const res = await fetch(`./send_log.json?ts=${Date.now()}`);
+          const res = await fetch(`./send_log.json?ts=${Date.now()}`, { cache: "no-store" });
           if (!res.ok) throw new Error(`send_log.json HTTP ${res.status}`);
           sendLog = await res.json();
         } catch (err2) {
