@@ -407,7 +407,7 @@
               <div class="stack-actions">
                 ${latestReport.pdf_url ? `<a class="btn outline" href="${escapeHtml(latestReport.pdf_url)}" target="_blank" rel="noopener">Preview PDF</a>` : ""}
               </div>
-              <div class="helper">Generated reports appear here as Draft or Needs Review. Email queueing is enabled after human approval. Reports needing review require manual confirmation before sending.</div>
+              <div class="helper">Generated reports appear here as Draft or Needs Review. Phase 1: Reports are generated and emailed automatically at the saved time. Validation warnings do not block sending. Approval controls are retained for Phase 2 only.</div>
             </div>
           </div>
         </div>
@@ -439,10 +439,10 @@
             <div class="report-meta">
               <div class="report-stat">
                 <strong>Scheduled Email Sending Time</strong>
-                <div class="helper" style="margin-top:6px;">This controls only automatic email sending time. It does not generate, approve, or send a report manually.</div>
+                <div class="helper" style="margin-top:6px;">This controls automatic report generation and email dispatch. Validation warnings are informational only and do not block sending.</div>
               </div>
               <div class="report-stat">
-                <label for="emailSendTime"><strong>Send approved report at</strong></label>
+                <label for="emailSendTime"><strong>Generate and email report at</strong></label>
                 <input id="emailSendTime" type="time" value="${escapeHtml(sendTime)}" style="margin-top:8px;max-width:220px;" />
                 <div class="helper" style="margin-top:6px;">Timezone fixed to Qatar Time, Asia/Qatar.</div>
               </div>
@@ -502,7 +502,7 @@
       }
 
       emailSchedule = data;
-      if (msg) msg.innerHTML = `<span class="pill">Saved successfully</span> Approved reports will be emailed at ${escapeHtml(timeInput.value)} Qatar Time.`;
+      if (msg) msg.innerHTML = `<span class="pill">Saved successfully</span> Reports will be generated and emailed at ${escapeHtml(timeInput.value)} Qatar Time.`;
       renderSchedule();
     };
 
@@ -743,8 +743,9 @@
     }
 
     function isLatestReportApprovedAndSendable() {
-      const status = String(latestReport?.status || "").toLowerCase();
-      return status === "approved" && latestReport?.email_send_allowed !== false;
+      // Phase 1: approval and validation do not block manual queueing.
+      // Scheduled dispatch is handled by GitHub Actions and send_email.py.
+      return Boolean(latestReport);
     }
 
     window.approveLatestReport = async function() {
@@ -800,15 +801,7 @@
 
       if (!confirm(`Queue today's ${channel} report for this recipient?`)) return;
 
-      if (!isLatestReportApprovedAndSendable()) {
-        alert("Send blocked. The report must be approved first.");
-        return;
-      }
-
-      if ((latestReport.status || "").toLowerCase() !== "approved") {
-        alert("Send blocked. Approve the report first.");
-        return;
-      }
+      // Phase 1: manual queueing is not approval-gated.
 
       const { error } = await sb.from("dispatch_requests").insert({
         report_id: latestReport.id,
@@ -837,15 +830,7 @@
 
       if (!confirm(`Queue today's ${channel} report for all active ${channel} recipients?`)) return;
 
-      if (!isLatestReportApprovedAndSendable()) {
-        alert("Send blocked. The report must be approved first.");
-        return;
-      }
-
-      if ((latestReport.status || "").toLowerCase() !== "approved") {
-        alert("Send blocked. Approve the report first.");
-        return;
-      }
+      // Phase 1: manual queueing is not approval-gated.
 
       const list = channel === "whatsapp"
         ? waRecipients.filter(r => r.active)
