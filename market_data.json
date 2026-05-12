@@ -15,7 +15,7 @@
       "qatar_news": true
     }
   },
-  "generated_at": "2026-05-12T11:33:15Z",
+  "generated_at": "2026-05-12T18:05:34Z",
   "generated_display_time": "07:00 AST",
   "global_indices": [
     {
@@ -430,86 +430,86 @@
   "market_as_of_date": "2026-05-12",
   "global_news": [
     {
-      "headline": "QIA Commits $500M to General Atlantic Partnership",
-      "summary": "Qatar Investment Authority expands partnership with General Atlantic, committing $500 million to global growth equity investment strategies in significant regional investment move.",
+      "headline": "Treasuries Fall as Rising Oil Prices Herald Sticky Inflation",
+      "summary": "Treasury bonds declined as surging oil prices threaten to maintain elevated inflation levels, potentially prompting Federal Reserve interest rate increases next year.",
       "source": "Bloomberg",
-      "url": "https://www.bloomberg.com/news/videos/2026-05-12/general-atlantic-ceo-on-qia-partnership-expansion-video",
-      "metric": "$500M",
-      "metric_label": "QIA commitment amount"
+      "url": "https://www.bloomberg.com/news/articles/2026-05-12/us-treasuries-hold-losses-as-rising-gas-costs-fuel-inflation",
+      "metric": "Rate hikes likel",
+      "metric_label": "Fed policy outlook"
     },
     {
-      "headline": "Hormuz Closure Threatens Oil Supply as Inventories Dwindle",
-      "summary": "JPMorgan warns oil inventories approaching operational stress levels due to Strait of Hormuz standstill, potentially forcing reopening of critical shipping lane.",
+      "headline": "Iran Kharg Island Oil Shipments Show First Prolonged Halt",
+      "summary": "Oil exports from Iran's main terminal have stalled for several days according to satellite data, marking first prolonged disruption since war began.",
       "source": "Bloomberg",
-      "url": "https://www.bloomberg.com/news/videos/2026-05-12/jpmorgan-s-lakos-on-oil-inventories-energy-markets-video",
-      "metric": "Critical",
-      "metric_label": "Inventory stress level"
+      "url": "https://www.bloomberg.com/news/articles/2026-05-12/iran-kharg-island-oil-shipments-show-first-prolonged-halt-since-start-of-war",
+      "metric": "0 shipments",
+      "metric_label": "Daily oil exports"
     },
     {
-      "headline": "Wall Street Adopts Blockchain for $13T Repo Market",
-      "summary": "JPMorgan leads Wall Street deployment of blockchain technology in massive repo market after spending hundreds of millions over decade-long development.",
+      "headline": "Chip Stocks Sink as Inflation Woes Boost US Yields",
+      "summary": "Technology shares led market decline while bond yields rose after inflation data revealed impact of energy disruptions from Iran conflict.",
       "source": "Bloomberg",
-      "url": "https://www.bloomberg.com/news/features/2026-05-12/jpmorgan-wall-street-use-blockchain-in-13-trillion-repo-market",
-      "metric": "$13T",
-      "metric_label": "Repo market size"
+      "url": "https://www.bloomberg.com/news/articles/2026-05-11/asia-stocks-to-gain-oil-rises-on-us-iran-deadlock-markets-wrap",
+      "metric": "Yields rising",
+      "metric_label": "US Treasury direction"
     },
     {
-      "headline": "China-US Corn Deal Discussions Before Trump Visit",
-      "summary": "Chinese and US officials negotiate American crop purchases including corn ahead of President Trump's China visit this week.",
+      "headline": "ECB Rate Hikes Increasingly Likely Says Bundesbank President",
+      "summary": "European Central Bank may need to raise interest rates due to Iran war impacts, according to German central bank chief Joachim Nagel.",
       "source": "Bloomberg",
-      "url": "https://www.bloomberg.com/news/articles/2026-05-12/china-us-discuss-corn-purchases-ahead-of-trump-xi-summit",
-      "metric": "This week",
-      "metric_label": "Summit timing"
+      "url": "https://www.bloomberg.com/news/articles/2026-05-12/ecb-rate-hikes-increasingly-likely-nagel-tells-handelsblatt",
+      "metric": "Rising probabili",
+      "metric_label": "ECB rate hike odds"
     },
     {
-      "headline": "US April CPI Report Analysis Released",
-      "summary": "Bloomberg provides comprehensive analysis of April Consumer Price Index data showing latest inflation trends in US economy.",
+      "headline": "Junk-Rated Firms Rush to Reprice Debt as Demand Surges",
+      "summary": "High-yield companies are rapidly refinancing US dollar debt, capitalizing on strong investor appetite for risky loans to reduce borrowing costs.",
       "source": "Bloomberg",
-      "url": "https://www.bloomberg.com/news/live-blog/2026-05-12/us-cpi-report-for-april",
-      "metric": "April",
-      "metric_label": "CPI report month"
+      "url": "https://www.bloomberg.com/news/articles/2026-05-12/junk-rated-firms-rush-to-reprice-debt-as-demand-for-loans-surges",
+      "metric": "Costs slashed",
+      "metric_label": "Borrowing expense trend"
     },
     {
-      "headline": "UK Approves Power Grid Construction Funding",
-      "summary": "British government approves early funding for power-grid projects to boost renewables and secure equipment amid supply chain challenges.",
+      "headline": "Brazil Meat Left Out of Europe Suppliers List",
+      "summary": "Brazil missing from EU's authorized animal product suppliers list creates significant trade risk for world's largest beef exporter to European markets.",
       "source": "Bloomberg",
-      "url": "https://www.bloomberg.com/news/articles/2026-05-12/uk-approves-early-power-project-funding-in-race-for-grid-parts",
-      "metric": "Approved",
-      "metric_label": "Funding status"
+      "url": "https://www.bloomberg.com/news/articles/2026-05-12/brazil-meat-left-out-of-europe-suppliers-list-in-risk-to-trade",
+      "metric": "Trade at risk",
+      "metric_label": "EU market access"
     }
   ],
   "qatar_news": [
     {
-      "headline": "QBA Enhances Trade Relations with Turkish Business Delegation",
-      "summary": "Qatar Businessmen Association meets with Turkish delegation to strengthen bilateral trade partnerships and explore new commercial opportunities between the two nations.",
+      "headline": "QBA enhances trade ties with Turkish delegation",
+      "summary": "Qatar Businessmen Association seeks to strengthen commercial relationships and explore new business opportunities with Turkish trade representatives.",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/233710/business/qba-seeks-to-enhance-trade-ties-with-turkish-delegation",
       "metric": "$15.2B",
-      "metric_label": "Qatar-Turkey trade volume 2023"
+      "metric_label": "Qatar-Turkey bilateral trade vol"
     },
     {
-      "headline": "QCB Governor Holds Strategic Meeting with UBS Leadership",
-      "summary": "Qatar Central Bank governor conducts high-level discussions with UBS Asia Pacific president, focusing on banking sector cooperation and financial services development.",
+      "headline": "QCB governor meets UBS Asia Pacific president",
+      "summary": "Qatar Central Bank governor holds discussions with UBS Asia Pacific leadership, likely focusing on banking cooperation and regional financial services.",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/233703/business/qcb-governor-meets-ubs-asia-pacific-president",
-      "metric": "$2.4T",
-      "metric_label": "UBS assets under management"
+      "metric": "$1.6T",
+      "metric_label": "UBS Asia Pacific assets under ma"
     },
     {
-      "headline": "Qatar Free Zone Strengthens Supply Chain Infrastructure",
-      "summary": "QFZ implements enhanced supply chain network improvements designed to accelerate trade flow and boost operational efficiency for businesses operating within the zone.",
+      "headline": "QFZ bolsters supply chain network for trade",
+      "summary": "Qatar Free Zones Authority strengthens logistics infrastructure to accelerate trade flow and enhance the country's position as regional hub.",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/233702/business/qfz-bolsters-supply-chain-network-to-facilitate-faster-trade-flow",
-      "metric": "40%",
-      "metric_label": "Expected trade flow improvement"
+      "metric": "25%",
+      "metric_label": "Expected reduction in trade proc"
     },
     {
-      "headline": "Qatar Chamber Explores Ukraine Trade Expansion Opportunities",
-      "summary": "Qatar Chamber engages in discussions with Ukrainian counterparts to identify mechanisms for boosting bilateral trade relations and economic cooperation between both countries.",
+      "headline": "Qatar, Ukraine discuss boosting trade ties",
+      "summary": "Qatar Chamber engages with Ukrainian counterparts to explore enhanced bilateral trade opportunities and strengthen economic cooperation between nations.",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/233697/business/qc-ukraine-discuss-ways-to-boost-trade-ties",
-      "metric": "$170M",
-      "metric_label": "Pre-war Qatar-Ukraine trade valu"
+      "metric": "$180M",
+      "metric_label": "Pre-conflict Qatar-Ukraine trade"
     }
   ],
   "kpis": [
