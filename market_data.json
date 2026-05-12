@@ -15,7 +15,7 @@
       "qatar_news": true
     }
   },
-  "generated_at": "2026-05-12T21:11:42Z",
+  "generated_at": "2026-05-12T21:21:13Z",
   "generated_display_time": "07:00 AST",
   "global_indices": [
     {
@@ -157,8 +157,8 @@
       "name": "Oman",
       "ticker": "MSX30",
       "px_last": 8383.0,
-      "change_1d": "N/A",
-      "mtd": "+41.70%",
+      "change_1d": "-0.20%",
+      "mtd": "-0.70%",
       "ytd": "+41.70%",
       "as_of": "2026-05-12",
       "source": "brave_search_tradingeconomics_controlled",
@@ -502,70 +502,70 @@
   "market_as_of_date": "2026-05-12",
   "global_news": [
     {
-      "headline": "Brazil Excluded from EU Animal Product Suppliers List",
-      "summary": "Brazil absent from EU authorized suppliers list, creating trade risk for world's largest beef and chicken exporter amid regulatory concerns.",
+      "headline": "Trump-China Summit Expectations High Amid Trade Tensions",
+      "summary": "Editorial suggests Trump should focus on not worsening US-China relations during upcoming Beijing summit as expectations run high.",
+      "source": "Bloomberg",
+      "url": "https://www.bloomberg.com/news/videos/2026-05-12/opinion-trump-s-goal-in-china-keep-it-simple-video",
+      "metric": "High",
+      "metric_label": "Summit expectations level"
+    },
+    {
+      "headline": "Brazil Excluded from EU Meat Suppliers Authorization List",
+      "summary": "World's largest beef and chicken exporter faces trade risk after being left off EU's authorized animal product suppliers list.",
       "source": "Bloomberg",
       "url": "https://www.bloomberg.com/news/articles/2026-05-12/brazil-meat-left-out-of-europe-suppliers-list-in-risk-to-trade",
-      "metric": "World's Largest",
-      "metric_label": "Brazil's ranking in global beef/"
+      "metric": "#1",
+      "metric_label": "Global beef/chicken exporter ran"
+    },
+    {
+      "headline": "Japan's Sojitz Targets Southeast Asia for Rare Earths",
+      "summary": "Japanese trading house seeks new rare earth sources outside Australia to boost output and diversify critical materials supply chain.",
+      "source": "Bloomberg",
+      "url": "https://www.bloomberg.com/news/articles/2026-05-12/japan-s-sojitz-eyes-southeast-asia-for-new-rare-earths-supply",
+      "metric": "Southeast Asia",
+      "metric_label": "New target supply region"
     },
     {
       "headline": "China Manufacturing Hub Faces Iran War Energy Crisis",
-      "summary": "China's key manufacturing region under energy stress as Iran conflict disrupts fuel shipments, testing power supply capacity.",
+      "summary": "Power supply stress in China's key manufacturing region intensifies as Iran conflict disrupts fuel shipments, testing energy resilience.",
       "source": "Bloomberg",
       "url": "https://www.bloomberg.com/news/articles/2026-05-12/china-s-manufacturing-heartland-tested-by-iran-war-energy-shock",
-      "metric": "Energy Stress",
-      "metric_label": "Manufacturing hub power supply p"
+      "metric": "Critical",
+      "metric_label": "Energy supply stress level"
     },
     {
-      "headline": "Gold Falls on US Inflation, Fed Easing Doubts",
-      "summary": "Gold prices decline as accelerating US inflation from rising energy and food costs reduces Federal Reserve easing expectations.",
+      "headline": "Gold Falls as US Inflation Dampens Fed Easing",
+      "summary": "Gold prices decline following accelerated US inflation data driven by rising energy and food costs, reducing Fed rate cut expectations.",
       "source": "Bloomberg",
       "url": "https://www.bloomberg.com/news/articles/2026-05-11/gold-steady-as-traders-track-hormuz-stalemate-inflation-risks",
-      "metric": "Accelerating",
-      "metric_label": "US inflation trend direction"
+      "metric": "Lower",
+      "metric_label": "Gold price direction"
     },
     {
-      "headline": "Emerging Markets Drop on Iran Truce Collapse Fears",
-      "summary": "EM currencies and stocks fall as Iran-US ceasefire appears near collapse, with South Korean shares adding to negative sentiment.",
-      "source": "Bloomberg",
-      "url": "https://www.bloomberg.com/news/articles/2026-05-12/emerging-market-currencies-stocks-fall-as-iran-peace-hopes-dim",
-      "metric": "Falling",
-      "metric_label": "EM currencies and stocks directi"
-    },
-    {
-      "headline": "S&P 500 and NASDAQ Decline as Oil Surges",
-      "summary": "Major US equity indices fall during market close as oil prices jump amid ongoing geopolitical tensions and energy concerns.",
-      "source": "Bloomberg",
-      "url": "https://www.bloomberg.com/news/videos/2026-05-12/s-p-500-nasdaq-fall-as-oil-jumps-closing-bell-video",
-      "metric": "Oil Jumps",
-      "metric_label": "Oil price movement during US mar"
-    },
-    {
-      "headline": "CommScope Sued for $150 Million Debt Agreement Breach",
-      "summary": "Telecommunications provider faces lawsuit from lenders alleging failure to pay required premium following key asset sale transaction.",
+      "headline": "CommScope Faces $150M Lawsuit from Debt Breach",
+      "summary": "Telecommunications provider sued by lenders for allegedly breaching debt agreement by failing to pay required premium after asset sale.",
       "source": "Bloomberg",
       "url": "https://www.bloomberg.com/news/articles/2026-05-12/commscope-sued-by-lenders-for-at-least-150-million-over-alleged-breach",
-      "metric": "$150M+",
-      "metric_label": "Minimum alleged breach amount cl"
+      "metric": "$150M",
+      "metric_label": "Minimum lawsuit amount"
     }
   ],
   "qatar_news": [
     {
       "headline": "QBA enhances trade ties with Turkish delegation",
-      "summary": "Qatar Businessmen Association seeks to strengthen commercial relationships and explore new business opportunities with Turkish trade representatives.",
+      "summary": "Qatar Businessmen Association seeks to strengthen commercial relationships and explore new business opportunities with Turkish business representatives.",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/233710/business/qba-seeks-to-enhance-trade-ties-with-turkish-delegation",
-      "metric": "$15.2B",
+      "metric": "$2.8B",
       "metric_label": "Qatar-Turkey bilateral trade vol"
     },
     {
       "headline": "QCB governor meets UBS Asia Pacific president",
-      "summary": "Qatar Central Bank governor holds strategic discussions with UBS leadership to explore banking partnerships and financial market opportunities.",
+      "summary": "Central Bank of Qatar governor holds discussions with UBS leadership to explore banking sector cooperation and investment opportunities.",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/233703/business/qcb-governor-meets-ubs-asia-pacific-president",
-      "metric": "$2.1T",
-      "metric_label": "UBS global assets under manageme"
+      "metric": "$800B",
+      "metric_label": "UBS Asia Pacific assets under ma"
     },
     {
       "headline": "QFZ bolsters supply chain network for trade",
@@ -577,11 +577,11 @@
     },
     {
       "headline": "Qatar Chamber discusses trade boost with Ukraine",
-      "summary": "Qatar Chamber explores opportunities to strengthen commercial ties and increase bilateral trade volume with Ukrainian business representatives.",
+      "summary": "Qatar Chamber of Commerce explores opportunities to strengthen bilateral trade relationships and commercial cooperation with Ukrainian counterparts.",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/233697/business/qc-ukraine-discuss-ways-to-boost-trade-ties",
       "metric": "$180M",
-      "metric_label": "Qatar-Ukraine trade volume 2023"
+      "metric_label": "Qatar-Ukraine annual trade value"
     }
   ],
   "kpis": [
