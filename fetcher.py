@@ -29,7 +29,7 @@ CONFIG = {
 
 
 SUPABASE_TABLE = "market_indices_history"
-EXPECTED_INSTRUMENT_COUNT = 34
+EXPECTED_INSTRUMENT_COUNT = 39
 STALE_DATA_WARNING_DAYS = 3
 USD_QAR_SUSPICIOUS_MOVE_THRESHOLD = 10.0
 
@@ -67,36 +67,40 @@ PRICE_RANGES = {
     "NIKKEI225": (30000, 80000),
     "DAX": (15000, 35000),
     "HSI": (15000, 40000),
-    "SENSEX": (50000, 110000),
+    "NIFTY50": (15000, 35000),
     "QE": (8000, 15000),
     "TASI": (8000, 16000),
     "DFMGI": (3000, 9000),
     "FADGI": (7000, 13000),
     "BKA": (6000, 12000),
+    "OMAN": (3000, 7000),
     "BHSEASI": (1500, 2500),
     "DXY": (80, 120),
     "EURUSD": (0.90, 1.30),
     "GBPUSD": (1.00, 1.60),
-    "USDJPY": (100, 200),
+    "USDCHF": (0.50, 1.20),
+    "USDJPY": (100, 220),
     "USDCNY": (5.50, 8.50),
     "USDQAR": (3.60, 3.70),
     "EURQAR": (3.20, 5.20),
     "GBPQAR": (4.00, 6.00),
+    "CHFQAR": (3.00, 6.00),
     "CNYQAR": (0.40, 0.70),
     "UST5Y": (0.50, 8.00),
     "UST10Y": (0.50, 8.00),
-    "DHBK": (1.00, 6.00),
-    "QNBK": (10.00, 30.00),
     "QIBK": (10.00, 40.00),
     "CBQK": (2.00, 10.00),
     "QIIB": (5.00, 20.00),
-    "MARK": (1.00, 6.00),
     "DUBK": (1.00, 8.00),
+    "DHBK": (1.00, 6.00),
     "ABQK": (1.00, 8.00),
-    "LNG": (0.10, 100.00),
+    "QNBK": (10.00, 30.00),
+    "MARK": (1.00, 6.00),
+    "LESHA": (0.50, 5.00),
     "BRENT": (40, 150),
+    "LNGJK": (0.10, 100.00),
     "SILVER": (10, 120),
-    "GOLDQAR": (8000, 25000),
+    "GOLD": (1000, 7000),
 }
 
 MAX_REASONABLE_1D_PCT = {
@@ -104,9 +108,11 @@ MAX_REASONABLE_1D_PCT = {
     "USDQAR": 0.25,
     "EURQAR": 5.0,
     "GBPQAR": 5.0,
+    "CHFQAR": 5.0,
     "CNYQAR": 5.0,
     "EURUSD": 5.0,
     "GBPUSD": 5.0,
+    "USDCHF": 5.0,
     "USDJPY": 5.0,
     "USDCNY": 5.0,
     "UST5Y": 15.0,
@@ -119,7 +125,8 @@ MAX_REASONABLE_1D_PCT = {
     "MARK": 10.0,
     "DUBK": 10.0,
     "ABQK": 10.0,
-    "LNG": 25.0,
+    "LESHA": 10.0,
+    "LNGJK": 25.0,
 }
 
 QATAR_BUSINESS_PAGES = [
@@ -140,269 +147,58 @@ REPORT_SECTION_TO_OUTPUT_KEY = {
 
 
 EXPECTED_INSTRUMENTS = [
-    {
-        "code": "SPX",
-        "name": "US S&P 500",
-        "symbol": "^GSPC",
-        "report_section": "GLOBAL INDICES",
-        "display_order": 1,
-    },
-    {
-        "code": "FTSE100",
-        "name": "UK FTSE 100",
-        "symbol": "^FTSE",
-        "report_section": "GLOBAL INDICES",
-        "display_order": 2,
-    },
-    {
-        "code": "NIKKEI225",
-        "name": "Japan Nikkei",
-        "symbol": "^N225",
-        "report_section": "GLOBAL INDICES",
-        "display_order": 3,
-    },
-    {
-        "code": "DAX",
-        "name": "Germany DAX",
-        "symbol": "^GDAXI",
-        "report_section": "GLOBAL INDICES",
-        "display_order": 4,
-    },
-    {
-        "code": "HSI",
-        "name": "Hong Kong HSI",
-        "symbol": "^HSI",
-        "report_section": "GLOBAL INDICES",
-        "display_order": 5,
-    },
-    {
-        "code": "SENSEX",
-        "name": "India Sensex",
-        "symbol": "^BSESN",
-        "report_section": "GLOBAL INDICES",
-        "display_order": 6,
-    },
-    {
-        "code": "QE",
-        "name": "Qatar QE Index",
-        "symbol": "^GNRI.QA",
-        "report_section": "GCC & REGIONAL INDICES",
-        "display_order": 1,
-    },
-    {
-        "code": "TASI",
-        "name": "Saudi Tadawul",
-        "symbol": "^TASI.SR",
-        "report_section": "GCC & REGIONAL INDICES",
-        "display_order": 2,
-    },
-    {
-        "code": "DFMGI",
-        "name": "Dubai DFM",
-        "symbol": "DFMGI",
-        "report_section": "GCC & REGIONAL INDICES",
-        "display_order": 3,
-    },
-    {
-        "code": "FADGI",
-        "name": "Abu Dhabi ADX",
-        "symbol": "FADGI",
-        "report_section": "GCC & REGIONAL INDICES",
-        "display_order": 4,
-    },
-    {
-        "code": "BKA",
-        "name": "Kuwait Boursa",
-        "symbol": "BKA",
-        "report_section": "GCC & REGIONAL INDICES",
-        "display_order": 5,
-    },
-    {
-        "code": "BHSEASI",
-        "name": "Bahrain",
-        "symbol": "BHSEASI",
-        "report_section": "GCC & REGIONAL INDICES",
-        "display_order": 6,
-    },
-    {
-        "code": "DXY",
-        "name": "USD Index",
-        "symbol": "DXY",
-        "report_section": "SPOT CURRENCY",
-        "display_order": 1,
-    },
-    {
-        "code": "EURUSD",
-        "name": "EUR/USD",
-        "symbol": "EURUSD",
-        "report_section": "SPOT CURRENCY",
-        "display_order": 2,
-    },
-    {
-        "code": "GBPUSD",
-        "name": "GBP/USD",
-        "symbol": "GBPUSD",
-        "report_section": "SPOT CURRENCY",
-        "display_order": 3,
-    },
-    {
-        "code": "USDJPY",
-        "name": "USD/JPY",
-        "symbol": "USDJPY",
-        "report_section": "SPOT CURRENCY",
-        "display_order": 4,
-    },
-    {
-        "code": "USDCNY",
-        "name": "USD/CNY",
-        "symbol": "USDCNY",
-        "report_section": "SPOT CURRENCY",
-        "display_order": 5,
-    },
-    {
-        "code": "USDQAR",
-        "name": "USD/QAR",
-        "symbol": "USDQAR",
-        "report_section": "QAR CROSS RATES",
-        "display_order": 1,
-    },
-    {
-        "code": "EURQAR",
-        "name": "EUR/QAR",
-        "symbol": "EURQAR",
-        "report_section": "QAR CROSS RATES",
-        "display_order": 2,
-    },
-    {
-        "code": "GBPQAR",
-        "name": "GBP/QAR",
-        "symbol": "GBPQAR",
-        "report_section": "QAR CROSS RATES",
-        "display_order": 3,
-    },
-    {
-        "code": "CNYQAR",
-        "name": "CNY/QAR",
-        "symbol": "CNYQAR",
-        "report_section": "QAR CROSS RATES",
-        "display_order": 4,
-    },
-    {
-        "code": "UST5Y",
-        "name": "UST 5-Year",
-        "symbol": "US5Y",
-        "report_section": "FIXED INCOME — UST YIELDS",
-        "display_order": 1,
-    },
-    {
-        "code": "UST10Y",
-        "name": "UST 10-Year",
-        "symbol": "US10Y",
-        "report_section": "FIXED INCOME — UST YIELDS",
-        "display_order": 2,
-    },
-    {
-        "code": "DHBK",
-        "name": "Doha",
-        "symbol": "DHBK.QA",
-        "report_section": "QATARI BANKS",
-        "display_order": 1,
-    },
-    {
-        "code": "QNBK",
-        "name": "QNB",
-        "symbol": "QNBK.QA",
-        "report_section": "QATARI BANKS",
-        "display_order": 2,
-    },
-    {
-        "code": "QIBK",
-        "name": "QIB",
-        "symbol": "QIBK.QA",
-        "report_section": "QATARI BANKS",
-        "display_order": 3,
-    },
-    {
-        "code": "CBQK",
-        "name": "CBQ",
-        "symbol": "CBQK.QA",
-        "report_section": "QATARI BANKS",
-        "display_order": 4,
-    },
-    {
-        "code": "QIIB",
-        "name": "QIIB",
-        "symbol": "QIIB.QA",
-        "report_section": "QATARI BANKS",
-        "display_order": 5,
-    },
-    {
-        "code": "MARK",
-        "name": "Al Rayan",
-        "symbol": "MARK.QA",
-        "report_section": "QATARI BANKS",
-        "display_order": 6,
-    },
-    {
-        "code": "DUBK",
-        "name": "Dukhan",
-        "symbol": "DUBK.QA",
-        "report_section": "QATARI BANKS",
-        "display_order": 7,
-    },
-    {
-        "code": "ABQK",
-        "name": "Ahli",
-        "symbol": "ABQK.QA",
-        "report_section": "QATARI BANKS",
-        "display_order": 8,
-    },
-    {
-        "code": "BRENT",
-        "name": "Brent Crude",
-        "symbol": "BZ=F",
-        "report_section": "COMMODITIES & ENERGY",
-        "display_order": 1,
-    },
-    {
-        "code": "SILVER",
-        "name": "Silver",
-        "symbol": "XAGUSD",
-        "report_section": "COMMODITIES & ENERGY",
-        "display_order": 2,
-    },
-    {
-        "code": "GOLDQAR",
-        "name": "Gold (QAR)",
-        "symbol": "XAUQAR",
-        "report_section": "COMMODITIES & ENERGY",
-        "display_order": 3,
-    },
+    {"code": "SPX", "name": "US S&P 500", "symbol": "^GSPC", "report_section": "GLOBAL INDICES", "display_order": 1},
+    {"code": "FTSE100", "name": "UK FTSE 100", "symbol": "^FTSE", "report_section": "GLOBAL INDICES", "display_order": 2},
+    {"code": "NIKKEI225", "name": "Japan Nikkei", "symbol": "^N225", "report_section": "GLOBAL INDICES", "display_order": 3},
+    {"code": "DAX", "name": "Germany DAX", "symbol": "^GDAXI", "report_section": "GLOBAL INDICES", "display_order": 4},
+    {"code": "HSI", "name": "Hong Kong HSI", "symbol": "^HSI", "report_section": "GLOBAL INDICES", "display_order": 5},
+    {"code": "NIFTY50", "name": "India Nifty 50", "symbol": "^NSEI", "report_section": "GLOBAL INDICES", "display_order": 6},
+
+    {"code": "QE", "name": "Qatar QE Index", "symbol": "^GNRI.QA", "report_section": "GCC & REGIONAL INDICES", "display_order": 1},
+    {"code": "TASI", "name": "Saudi Tadawul", "symbol": "^TASI.SR", "report_section": "GCC & REGIONAL INDICES", "display_order": 2},
+    {"code": "DFMGI", "name": "Dubai DFM", "symbol": "DFMGI", "report_section": "GCC & REGIONAL INDICES", "display_order": 3},
+    {"code": "FADGI", "name": "Abu Dhabi ADX", "symbol": "FADGI", "report_section": "GCC & REGIONAL INDICES", "display_order": 4},
+    {"code": "BKA", "name": "Kuwait Boursa", "symbol": "BKA", "report_section": "GCC & REGIONAL INDICES", "display_order": 5},
+    {"code": "OMAN", "name": "Oman", "symbol": "MSX30", "report_section": "GCC & REGIONAL INDICES", "display_order": 6},
+    {"code": "BHSEASI", "name": "Bahrain", "symbol": "BHSEASI", "report_section": "GCC & REGIONAL INDICES", "display_order": 7},
+
+    {"code": "DXY", "name": "USD Index", "symbol": "DXY", "report_section": "SPOT CURRENCY", "display_order": 1},
+    {"code": "EURUSD", "name": "EUR/USD", "symbol": "EURUSD", "report_section": "SPOT CURRENCY", "display_order": 2},
+    {"code": "GBPUSD", "name": "GBP/USD", "symbol": "GBPUSD", "report_section": "SPOT CURRENCY", "display_order": 3},
+    {"code": "USDCHF", "name": "USD/CHF", "symbol": "USDCHF", "report_section": "SPOT CURRENCY", "display_order": 4},
+    {"code": "USDJPY", "name": "USD/JPY", "symbol": "USDJPY", "report_section": "SPOT CURRENCY", "display_order": 5},
+    {"code": "USDCNY", "name": "USD/CNY", "symbol": "USDCNY", "report_section": "SPOT CURRENCY", "display_order": 6},
+
+    {"code": "USDQAR", "name": "USD/QAR", "symbol": "USDQAR", "report_section": "QAR CROSS RATES", "display_order": 1},
+    {"code": "EURQAR", "name": "EUR/QAR", "symbol": "EURQAR", "report_section": "QAR CROSS RATES", "display_order": 2},
+    {"code": "GBPQAR", "name": "GBP/QAR", "symbol": "GBPQAR", "report_section": "QAR CROSS RATES", "display_order": 3},
+    {"code": "CHFQAR", "name": "CHF/QAR", "symbol": "CHFQAR", "report_section": "QAR CROSS RATES", "display_order": 4},
+    {"code": "CNYQAR", "name": "CNY/QAR", "symbol": "CNYQAR", "report_section": "QAR CROSS RATES", "display_order": 5},
+
+    {"code": "UST5Y", "name": "UST 5-Year", "symbol": "US5Y", "report_section": "FIXED INCOME — UST YIELDS", "display_order": 1},
+    {"code": "UST10Y", "name": "UST 10-Year", "symbol": "US10Y", "report_section": "FIXED INCOME — UST YIELDS", "display_order": 2},
+
+    {"code": "QIBK", "name": "QIB", "symbol": "QIBK.QA", "report_section": "QATARI BANKS", "display_order": 1},
+    {"code": "CBQK", "name": "CBQ", "symbol": "CBQK.QA", "report_section": "QATARI BANKS", "display_order": 2},
+    {"code": "QIIB", "name": "QIIB", "symbol": "QIIK.QA", "report_section": "QATARI BANKS", "display_order": 3},
+    {"code": "DUBK", "name": "Dukhan", "symbol": "DUBK.QA", "report_section": "QATARI BANKS", "display_order": 4},
+    {"code": "DHBK", "name": "Doha", "symbol": "DHBK.QA", "report_section": "QATARI BANKS", "display_order": 5},
+    {"code": "ABQK", "name": "Ahli", "symbol": "ABQK.QA", "report_section": "QATARI BANKS", "display_order": 6},
+    {"code": "QNBK", "name": "QNB", "symbol": "QNBK.QA", "report_section": "QATARI BANKS", "display_order": 7},
+    {"code": "MARK", "name": "Al Rayan", "symbol": "MARK.QA", "report_section": "QATARI BANKS", "display_order": 8},
+    {"code": "LESHA", "name": "Lesha", "symbol": "QFBQ.QA", "report_section": "QATARI BANKS", "display_order": 9},
+
+    {"code": "BRENT", "name": "Brent Crude", "symbol": "BZ=F", "report_section": "COMMODITIES & ENERGY", "display_order": 1},
+    {"code": "LNGJK", "name": "LNG JP/KR", "symbol": "JKM", "report_section": "COMMODITIES & ENERGY", "display_order": 2},
+    {"code": "SILVER", "name": "Silver", "symbol": "XAGUSD", "report_section": "COMMODITIES & ENERGY", "display_order": 3},
+    {"code": "GOLD", "name": "Gold", "symbol": "XAUUSD", "report_section": "COMMODITIES & ENERGY", "display_order": 4},
 ]
 
 
 OPTIONAL_INSTRUMENTS = [
-    {
-        "code": "LNG",
-        "name": "Liquefied Natural Gas (LNG)",
-        "symbol": "LNG",
-        "report_section": "COMMODITIES & ENERGY",
-        "display_order": 0,
-    },
-    {
-        "code": "LNGJKM",
-        "name": "Liquefied Natural Gas (LNG)",
-        "symbol": "LNGJKM",
-        "report_section": "COMMODITIES & ENERGY",
-        "display_order": 0,
-    },
-    {
-        "code": "JKM",
-        "name": "Liquefied Natural Gas (LNG)",
-        "symbol": "JKM",
-        "report_section": "COMMODITIES & ENERGY",
-        "display_order": 0,
-    },
+    {"code": "LNG", "name": "Liquefied Natural Gas (LNG)", "symbol": "LNG", "report_section": "COMMODITIES & ENERGY", "display_order": 2},
+    {"code": "LNGJKM", "name": "Liquefied Natural Gas (LNG)", "symbol": "LNGJKM", "report_section": "COMMODITIES & ENERGY", "display_order": 2},
+    {"code": "JKM", "name": "Liquefied Natural Gas (LNG)", "symbol": "JKM", "report_section": "COMMODITIES & ENERGY", "display_order": 2},
 ]
 
 EXPECTED_BY_CODE = {item["code"]: item for item in EXPECTED_INSTRUMENTS + OPTIONAL_INSTRUMENTS}
@@ -631,6 +427,107 @@ def _group_history_by_code(rows: List[Dict[str, Any]]) -> Dict[str, List[Dict[st
     return grouped
 
 
+DERIVED_QAR_CROSSES = {
+    "CHFQAR": {
+        "name": "CHF/QAR",
+        "symbol": "CHFQAR",
+        "quote_code": "USDCHF",
+        "display_order": 4,
+    },
+    "CNYQAR": {
+        "name": "CNY/QAR",
+        "symbol": "CNYQAR",
+        "quote_code": "USDCNY",
+        "display_order": 5,
+    },
+}
+
+
+def _derive_qar_cross_row(
+    as_of_date: datetime.date,
+    code: str,
+    cfg: Dict[str, Any],
+    usdqar_row: Dict[str, Any],
+    quote_row: Dict[str, Any],
+) -> Optional[Dict[str, Any]]:
+    usdqar = _to_float(usdqar_row.get("px_last"))
+    quote = _to_float(quote_row.get("px_last"))
+
+    if usdqar is None or quote in (None, 0):
+        return None
+
+    px = usdqar / quote
+
+    return {
+        "as_of_date": as_of_date.isoformat(),
+        "instrument_code": code,
+        "instrument_name": cfg["name"],
+        "symbol": cfg["symbol"],
+        "yahoo_symbol": None,
+        "report_section": "QAR CROSS RATES",
+        "display_order": cfg["display_order"],
+        "px_last": round(px, 6),
+        "change_1d_pct": None,
+        "source": "derived_from_usdqar_and_spot_fx_runtime",
+        "source_url": "",
+        "status": "valid_runtime_derived_fx",
+    }
+
+
+def _derive_missing_qar_cross_rows_for_date(
+    rows: List[Dict[str, Any]],
+    effective_date: datetime.date,
+) -> List[Dict[str, Any]]:
+    by_code = {str(row.get("instrument_code")): row for row in rows if row.get("instrument_code")}
+    usdqar_row = by_code.get("USDQAR")
+
+    if not usdqar_row:
+        return rows
+
+    out = list(rows)
+
+    for code, cfg in DERIVED_QAR_CROSSES.items():
+        if code in by_code:
+            continue
+        quote_row = by_code.get(cfg["quote_code"])
+        if not quote_row:
+            continue
+        derived = _derive_qar_cross_row(effective_date, code, cfg, usdqar_row, quote_row)
+        if derived:
+            out.append(derived)
+
+    return out
+
+
+def _derive_missing_qar_cross_history_rows(rows: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+    by_date: Dict[datetime.date, Dict[str, Dict[str, Any]]] = {}
+
+    for row in rows:
+        row_date = _parse_date(row.get("as_of_date"))
+        code = row.get("instrument_code")
+        if row_date is None or not code:
+            continue
+        by_date.setdefault(row_date, {})[str(code)] = row
+
+    out = list(rows)
+
+    for row_date, rows_by_code in by_date.items():
+        usdqar_row = rows_by_code.get("USDQAR")
+        if not usdqar_row:
+            continue
+        for code, cfg in DERIVED_QAR_CROSSES.items():
+            if code in rows_by_code:
+                continue
+            quote_row = rows_by_code.get(cfg["quote_code"])
+            if not quote_row:
+                continue
+            derived = _derive_qar_cross_row(row_date, code, cfg, usdqar_row, quote_row)
+            if derived:
+                out.append(derived)
+
+    return out
+
+
 def _row_is_usable_for_calculation(row: Dict[str, Any], code: str = "") -> bool:
     status = str(row.get("status") or "").lower()
     if status.startswith("invalid") or "outlier" in status or "quarantine" in status:
@@ -678,25 +575,26 @@ def _digits_for_code(code: str) -> int:
         "USDQAR",
         "EURQAR",
         "GBPQAR",
+        "CHFQAR",
         "CNYQAR",
         "EURUSD",
         "GBPUSD",
+        "USDCHF",
         "USDCNY",
         "USDJPY",
     }:
         return 4
 
-    if code in {"DHBK", "CBQK", "MARK", "DUBK", "ABQK", "QIIB"}:
+    if code in {"DHBK", "CBQK", "MARK", "DUBK", "ABQK", "QIIB", "LESHA"}:
         return 3
 
     if code in {"UST5Y", "UST10Y"}:
         return 4
 
-    if code in {"GOLDQAR", "BRENT", "SILVER", "LNG", "LNGJKM", "JKM"}:
+    if code in {"BRENT", "SILVER", "GOLD", "LNGJK", "LNG", "LNGJKM", "JKM"}:
         return 2
 
     return 2
-
 
 def _normalise_market_row(
     row: Dict[str, Any],
@@ -769,7 +667,10 @@ def fetch_market_data_from_supabase(today: datetime.date) -> tuple[Dict[str, Lis
             issues.append(f"Supabase market data is stale by {delta_days} days")
 
     rows = _get_rows_for_date(effective_date)
+    rows = _derive_missing_qar_cross_rows_for_date(rows, effective_date)
+
     history_rows = _get_history_rows_for_calculations(effective_date)
+    history_rows = _derive_missing_qar_cross_history_rows(history_rows)
     history_by_code = _group_history_by_code(history_rows)
 
     expected_codes = {item["code"] for item in EXPECTED_INSTRUMENTS}
@@ -870,21 +771,35 @@ def validate_market_data(data: Dict[str, Any]) -> List[str]:
     doha = _find_row(data.get("qatari_banks", []), "Doha")
     usdqar = _find_row(data.get("qar_cross_rates", []), "USD/QAR")
     spx = _find_row(data.get("global_indices", []), "US S&P 500")
+    nifty = _find_row(data.get("global_indices", []), "India Nifty 50")
     fadgi = _find_row(data.get("gcc_indices", []), "Abu Dhabi ADX")
+    oman = _find_row(data.get("gcc_indices", []), "Oman")
     gbpusd = _find_row(data.get("spot_currency", []), "GBP/USD")
+    usdchf = _find_row(data.get("spot_currency", []), "USD/CHF")
     usdjpy = _find_row(data.get("spot_currency", []), "USD/JPY")
     bka = _find_row(data.get("gcc_indices", []), "Kuwait Boursa")
-    goldqar = _find_row(data.get("commodities", []), "Gold (QAR)")
+    gold = _find_row(data.get("commodities", []), "Gold")
+    lng = _find_row(data.get("commodities", []), "LNG JP/KR")
+    chfqar = _find_row(data.get("qar_cross_rates", []), "CHF/QAR")
+    cnyqar = _find_row(data.get("qar_cross_rates", []), "CNY/QAR")
+    lesha = _find_row(data.get("qatari_banks", []), "Lesha")
 
     required_rows = [
         ("Qatar QE Index", qe),
         ("Doha Bank price", doha),
         ("US S&P 500", spx),
+        ("India Nifty 50", nifty),
         ("Abu Dhabi ADX", fadgi),
+        ("Oman", oman),
         ("GBP/USD", gbpusd),
+        ("USD/CHF", usdchf),
         ("USD/JPY", usdjpy),
         ("Kuwait Boursa", bka),
-        ("Gold QAR", goldqar),
+        ("CHF/QAR", chfqar),
+        ("CNY/QAR", cnyqar),
+        ("Lesha", lesha),
+        ("LNG JP/KR", lng),
+        ("Gold", gold),
     ]
 
     for label, row in required_rows:
@@ -902,11 +817,14 @@ def validate_market_data(data: Dict[str, Any]) -> List[str]:
     if numeric_px(gbpusd) is not None and numeric_px(gbpusd) < 1:
         issues.append(f"GBP/USD suspicious value: {gbpusd.get('px_last')}")
 
+    if numeric_px(usdchf) is not None and not (0.5 <= numeric_px(usdchf) <= 1.2):
+        issues.append(f"USD/CHF suspicious value: {usdchf.get('px_last')}")
+
     if numeric_px(bka) is not None and numeric_px(bka) < 1000:
         issues.append(f"Kuwait Boursa suspicious value: {bka.get('px_last')}")
 
-    if numeric_px(goldqar) is not None and numeric_px(goldqar) < 10000:
-        issues.append(f"Gold QAR suspicious value: {goldqar.get('px_last')}")
+    if numeric_px(gold) is not None and not (1000 <= numeric_px(gold) <= 7000):
+        issues.append(f"Gold suspicious value: {gold.get('px_last')}")
 
     if usdqar and usdqar.get("change_1d") not in (None, "N/A"):
         try:
@@ -918,7 +836,6 @@ def validate_market_data(data: Dict[str, Any]) -> List[str]:
             issues.append("USD/QAR daily change unparsable")
 
     return issues
-
 
 
 def _parse_news_datetime(value: Any) -> Optional[datetime.datetime]:
@@ -1299,12 +1216,6 @@ News:
 
 
 def build_kpis(market_data: Dict[str, Any]) -> List[Dict[str, Any]]:
-    def find_by_name(rows: List[Dict[str, Any]], name: str):
-        for row in rows:
-            if row.get("name") == name:
-                return row
-        return None
-
     def find_by_code(rows: List[Dict[str, Any]], code: str):
         code = str(code or "").upper()
         for row in rows:
@@ -1327,31 +1238,21 @@ def build_kpis(market_data: Dict[str, Any]) -> List[Dict[str, Any]]:
     gcc_indices = market_data.get("gcc_indices", [])
     qatari_banks = market_data.get("qatari_banks", [])
 
-    # LNG card:
-    # If LNG exists in Supabase later, use it.
-    # If not, show N/A instead of wrongly keeping Brent as LNG.
-    lng_row = (
-        find_by_code(commodities, "LNG")
-        or find_by_code(commodities, "LNGJKM")
-        or find_by_code(commodities, "JKM")
-        or find_by_name(commodities, "Liquefied Natural Gas (LNG)")
-        or find_by_name(commodities, "LNG")
-    )
-
-    gold_row = find_by_name(commodities, "Gold (QAR)")
-    qse_row = find_by_name(gcc_indices, "Qatar QE Index")
-    doha_row = find_by_code(qatari_banks, "DHBK") or find_by_name(qatari_banks, "Doha")
+    lng_row = find_by_code(commodities, "LNGJK")
+    gold_row = find_by_code(commodities, "GOLD")
+    qse_row = find_by_code(gcc_indices, "QE")
+    doha_row = find_by_code(qatari_banks, "DHBK")
 
     return [
         {
             "value": format_number(value(lng_row, "px_last")),
-            "label": "Liquefied Natural Gas (LNG)",
-            "sublabel": f"{value(lng_row, 'change_1d')} today · {value(lng_row, 'ytd')} YTD",
+            "label": "LNG JP/KR",
+            "sublabel": f"{value(lng_row, 'change_1d')} today · USD/MMBtu",
         },
         {
             "value": format_number(value(gold_row, "px_last")),
-            "label": "Gold (QAR)",
-            "sublabel": f"{value(gold_row, 'ytd')} YTD · Safe-haven demand",
+            "label": "Gold",
+            "sublabel": f"{value(gold_row, 'change_1d')} today · {value(gold_row, 'ytd')} YTD",
         },
         {
             "value": format_number(value(qse_row, "px_last")),
@@ -1362,79 +1263,6 @@ def build_kpis(market_data: Dict[str, Any]) -> List[Dict[str, Any]]:
             "value": format_number(value(doha_row, "px_last")),
             "label": "Doha Bank PX Last",
             "sublabel": f"{value(doha_row, 'change_1d')} today · {value(doha_row, 'ytd')} YTD",
-        },
-    ]
-    def find_by_name_or_code(rows: List[Dict[str, Any]], names=None, codes=None):
-        names = {str(x).strip().lower() for x in (names or [])}
-        codes = {str(x).strip().upper() for x in (codes or [])}
-
-        for row in rows:
-            row_name = str(row.get("name") or "").strip().lower()
-            row_code = str(row.get("code") or "").strip().upper()
-            if row_name in names or row_code in codes:
-                return row
-
-        return None
-
-    def px(rows: List[Dict[str, Any]], names=None, codes=None):
-        row = find_by_name_or_code(rows, names=names, codes=codes)
-        return row.get("px_last", "N/A") if row else "N/A"
-
-    def chg(rows: List[Dict[str, Any]], names=None, codes=None):
-        row = find_by_name_or_code(rows, names=names, codes=codes)
-        return row.get("change_1d", "N/A") if row else "N/A"
-
-    def ytd(rows: List[Dict[str, Any]], names=None, codes=None):
-        row = find_by_name_or_code(rows, names=names, codes=codes)
-        return row.get("ytd", "N/A") if row else "N/A"
-
-    def format_number(value):
-        if isinstance(value, (int, float)):
-            return f"{value:,.2f}"
-        return str(value)
-
-    commodities = market_data.get("commodities", [])
-    qatari_banks = market_data.get("qatari_banks", [])
-    gcc_indices = market_data.get("gcc_indices", [])
-
-    lng_names = ["Liquefied Natural Gas (LNG)", "LNG", "JKM LNG", "Japan Korea Marker LNG"]
-    lng_codes = ["LNG", "LNGJKM", "JKM"]
-
-    lng_px = px(commodities, names=lng_names, codes=lng_codes)
-    lng_1d = chg(commodities, names=lng_names, codes=lng_codes)
-    lng_ytd = ytd(commodities, names=lng_names, codes=lng_codes)
-
-    gold_qar = px(commodities, names=["Gold (QAR)"], codes=["GOLDQAR"])
-    gold_ytd = ytd(commodities, names=["Gold (QAR)"], codes=["GOLDQAR"])
-
-    qse_px = px(gcc_indices, names=["Qatar QE Index"], codes=["QE"])
-    qse_1d = chg(gcc_indices, names=["Qatar QE Index"], codes=["QE"])
-    qse_ytd = ytd(gcc_indices, names=["Qatar QE Index"], codes=["QE"])
-
-    doha_px = px(qatari_banks, names=["Doha"], codes=["DHBK"])
-    doha_1d = chg(qatari_banks, names=["Doha"], codes=["DHBK"])
-    doha_ytd = ytd(qatari_banks, names=["Doha"], codes=["DHBK"])
-
-    return [
-        {
-            "value": format_number(lng_px),
-            "label": "Liquefied Natural Gas (LNG)",
-            "sublabel": f"{lng_1d} today · {lng_ytd} YTD",
-        },
-        {
-            "value": format_number(gold_qar),
-            "label": "Gold (QAR)",
-            "sublabel": f"{gold_ytd} YTD · Safe-haven demand",
-        },
-        {
-            "value": format_number(qse_px),
-            "label": "QSE Index",
-            "sublabel": f"{qse_1d} today · {qse_ytd} YTD",
-        },
-        {
-            "value": format_number(doha_px),
-            "label": "Doha Bank PX Last",
-            "sublabel": f"{doha_1d} today · {doha_ytd} YTD",
         },
     ]
 
