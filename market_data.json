@@ -15,7 +15,7 @@
       "qatar_news": true
     }
   },
-  "generated_at": "2026-05-12T21:33:16Z",
+  "generated_at": "2026-05-12T21:55:14Z",
   "generated_display_time": "07:00 AST",
   "global_indices": [
     {
@@ -502,86 +502,86 @@
   "market_as_of_date": "2026-05-12",
   "global_news": [
     {
-      "headline": "Trump Aims for Stable US-China Relations",
-      "summary": "Editorial suggests Trump's Beijing summit should focus on maintaining stability rather than ambitious breakthroughs in bilateral relations.",
+      "headline": "Mexico Rating Outlook Revised to Negative by S&P",
+      "summary": "S&P Global Ratings downgraded Mexico's credit outlook citing weak fiscal results, rising debt levels and poor economic growth.",
       "source": "Bloomberg",
-      "url": "https://www.bloomberg.com/news/videos/2026-05-12/opinion-trump-s-goal-in-china-keep-it-simple-video",
-      "metric": "Keep Simple",
-      "metric_label": "Strategic approach recommendatio"
+      "url": "https://www.bloomberg.com/news/articles/2026-05-12/mexico-rating-outlook-revised-to-negative-at-s-p-as-debts-mount",
+      "metric": "Negative",
+      "metric_label": "Credit Outlook Change"
     },
     {
-      "headline": "Brazil Excluded from EU Meat Suppliers List",
-      "summary": "World's largest beef and chicken exporter faces trade restrictions as Brazil missing from EU authorized suppliers list.",
-      "source": "Bloomberg",
-      "url": "https://www.bloomberg.com/news/articles/2026-05-12/brazil-meat-left-out-of-europe-suppliers-list-in-risk-to-trade",
-      "metric": "#1 Exporter",
-      "metric_label": "Global beef/chicken ranking"
-    },
-    {
-      "headline": "Sojitz Seeks Southeast Asia Rare Earths Supply",
-      "summary": "Japanese trading house diversifies rare earths sourcing beyond Australia, targeting Southeast Asia for supply chain security.",
-      "source": "Bloomberg",
-      "url": "https://www.bloomberg.com/news/articles/2026-05-12/japan-s-sojitz-eyes-southeast-asia-for-new-rare-earths-supply",
-      "metric": "Supply Chain",
-      "metric_label": "Diversification strategy"
-    },
-    {
-      "headline": "China Manufacturing Hub Faces Energy Crisis",
-      "summary": "Iran war disrupts fuel supplies, creating energy stress test for China's key manufacturing region amid rising activity.",
+      "headline": "China Manufacturing Hub Faces Iran War Energy Crisis",
+      "summary": "China's key manufacturing region experiences power supply pressure as Iran conflict disrupts fuel shipments, creating energy stress test.",
       "source": "Bloomberg",
       "url": "https://www.bloomberg.com/news/articles/2026-05-12/china-s-manufacturing-heartland-tested-by-iran-war-energy-shock",
-      "metric": "Energy Stress",
-      "metric_label": "Supply disruption impact"
+      "metric": "Critical",
+      "metric_label": "Energy Supply Status"
     },
     {
-      "headline": "Gold Falls on US Inflation Data",
-      "summary": "Rising energy and food prices boost inflation, reducing Federal Reserve easing expectations and pressuring gold prices lower.",
+      "headline": "Gold Falls on US Inflation Data Clouding Fed",
+      "summary": "Gold prices declined after US inflation data showed acceleration in energy and food prices, reducing Federal Reserve easing expectations.",
       "source": "Bloomberg",
       "url": "https://www.bloomberg.com/news/articles/2026-05-11/gold-steady-as-traders-track-hormuz-stalemate-inflation-risks",
       "metric": "Lower",
-      "metric_label": "Gold price direction"
+      "metric_label": "Gold Price Direction"
     },
     {
-      "headline": "CommScope Faces $150M Lender Lawsuit",
-      "summary": "Telecommunications provider sued by lenders for alleged debt agreement breach following failure to pay asset sale premium.",
+      "headline": "Brazil Meat Excluded from EU Suppliers Authorization List",
+      "summary": "World's largest beef and chicken exporter faces trade risk after being omitted from EU's authorized animal products suppliers list.",
       "source": "Bloomberg",
-      "url": "https://www.bloomberg.com/news/articles/2026-05-12/commscope-sued-by-lenders-for-at-least-150-million-over-alleged-breach",
-      "metric": "$150M",
-      "metric_label": "Lawsuit claim amount"
+      "url": "https://www.bloomberg.com/news/articles/2026-05-12/brazil-meat-left-out-of-europe-suppliers-list-in-risk-to-trade",
+      "metric": "Excluded",
+      "metric_label": "EU Trade Status"
+    },
+    {
+      "headline": "Japan's Sojitz Seeks Southeast Asia Rare Earths Supply",
+      "summary": "Japanese trading house explores Southeast Asia for rare earth sources beyond Australia to diversify supply chain and boost output.",
+      "source": "Bloomberg",
+      "url": "https://www.bloomberg.com/news/articles/2026-05-12/japan-s-sojitz-eyes-southeast-asia-for-new-rare-earths-supply",
+      "metric": "Expanding",
+      "metric_label": "Supply Chain Strategy"
+    },
+    {
+      "headline": "Trump China Summit Expectations: Keep Goals Simple",
+      "summary": "Editorial suggests Trump's main objective for Beijing summit should be avoiding deterioration rather than ambitious breakthroughs in US-China relations.",
+      "source": "Bloomberg",
+      "url": "https://www.bloomberg.com/news/videos/2026-05-12/opinion-trump-s-goal-in-china-keep-it-simple-video",
+      "metric": "Cautious",
+      "metric_label": "Summit Approach"
     }
   ],
   "qatar_news": [
     {
-      "headline": "QBA seeks to enhance trade ties with Turkish delegation",
-      "summary": "Qatar Businessmen Association engages with Turkish delegation to strengthen bilateral trade relationships and explore new business opportunities between the two nations.",
+      "headline": "QBA enhances trade ties with Turkish delegation",
+      "summary": "Qatar Businessmen Association seeks to strengthen commercial relationships and explore new business opportunities with Turkish business representatives.",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/233710/business/qba-seeks-to-enhance-trade-ties-with-turkish-delegation",
-      "metric": "$5.8B",
-      "metric_label": "Qatar-Turkey bilateral trade vol"
+      "metric": "Turkey-Qatar",
+      "metric_label": "Bilateral trade partnership"
     },
     {
       "headline": "QCB governor meets UBS Asia Pacific president",
-      "summary": "Qatar Central Bank governor holds strategic meeting with UBS Asia Pacific president to discuss banking cooperation and financial services expansion in the region.",
+      "summary": "Central bank governor engages with major Swiss investment bank leadership to discuss regional banking and financial sector cooperation opportunities.",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/233703/business/qcb-governor-meets-ubs-asia-pacific-president",
-      "metric": "$1.5T",
-      "metric_label": "UBS Asia Pacific assets under ma"
+      "metric": "UBS-QCB",
+      "metric_label": "Banking sector engagement"
     },
     {
-      "headline": "QFZ bolsters supply chain network for faster trade",
-      "summary": "Qatar Free Zones Authority strengthens supply chain infrastructure to accelerate trade flow and enhance logistics efficiency for businesses operating within the zones.",
+      "headline": "QFZ bolsters supply chain network for trade",
+      "summary": "Qatar Free Zones Authority strengthens logistics infrastructure to accelerate trade flows and improve supply chain efficiency for businesses.",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/233702/business/qfz-bolsters-supply-chain-network-to-facilitate-faster-trade-flow",
-      "metric": "25%",
-      "metric_label": "Expected improvement in trade pr"
+      "metric": "Supply Chain+",
+      "metric_label": "Trade flow enhancement"
     },
     {
-      "headline": "Qatar Chamber discusses boosting Ukraine trade ties",
-      "summary": "Qatar Chamber of Commerce engages in discussions with Ukrainian representatives to explore opportunities for expanding trade relationships and economic cooperation between both countries.",
+      "headline": "Qatar Chamber discusses Ukraine trade opportunities",
+      "summary": "Qatar Chamber explores potential commercial partnerships and investment opportunities with Ukraine despite ongoing regional economic challenges.",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/233697/business/qc-ukraine-discuss-ways-to-boost-trade-ties",
-      "metric": "$180M",
-      "metric_label": "Pre-war Qatar-Ukraine annual tra"
+      "metric": "Qatar-Ukraine",
+      "metric_label": "Trade partnership talks"
     }
   ],
   "kpis": [
