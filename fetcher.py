@@ -93,6 +93,7 @@ PRICE_RANGES = {
     "MARK": (1.00, 6.00),
     "DUBK": (1.00, 8.00),
     "ABQK": (1.00, 8.00),
+    "LNG": (0.10, 100.00),
     "BRENT": (40, 150),
     "SILVER": (10, 120),
     "GOLDQAR": (8000, 25000),
@@ -118,6 +119,7 @@ MAX_REASONABLE_1D_PCT = {
     "MARK": 10.0,
     "DUBK": 10.0,
     "ABQK": 10.0,
+    "LNG": 25.0,
 }
 
 QATAR_BUSINESS_PAGES = [
@@ -379,7 +381,31 @@ EXPECTED_INSTRUMENTS = [
 ]
 
 
-EXPECTED_BY_CODE = {item["code"]: item for item in EXPECTED_INSTRUMENTS}
+OPTIONAL_INSTRUMENTS = [
+    {
+        "code": "LNG",
+        "name": "Liquefied Natural Gas (LNG)",
+        "symbol": "LNG",
+        "report_section": "COMMODITIES & ENERGY",
+        "display_order": 0,
+    },
+    {
+        "code": "LNGJKM",
+        "name": "Liquefied Natural Gas (LNG)",
+        "symbol": "LNGJKM",
+        "report_section": "COMMODITIES & ENERGY",
+        "display_order": 0,
+    },
+    {
+        "code": "JKM",
+        "name": "Liquefied Natural Gas (LNG)",
+        "symbol": "JKM",
+        "report_section": "COMMODITIES & ENERGY",
+        "display_order": 0,
+    },
+]
+
+EXPECTED_BY_CODE = {item["code"]: item for item in EXPECTED_INSTRUMENTS + OPTIONAL_INSTRUMENTS}
 
 
 NEWS_FEEDS = {
@@ -666,7 +692,7 @@ def _digits_for_code(code: str) -> int:
     if code in {"UST5Y", "UST10Y"}:
         return 4
 
-    if code in {"GOLDQAR", "BRENT", "SILVER"}:
+    if code in {"GOLDQAR", "BRENT", "SILVER", "LNG", "LNGJKM", "JKM"}:
         return 2
 
     return 2
@@ -747,10 +773,13 @@ def fetch_market_data_from_supabase(today: datetime.date) -> tuple[Dict[str, Lis
     history_by_code = _group_history_by_code(history_rows)
 
     expected_codes = {item["code"] for item in EXPECTED_INSTRUMENTS}
+    optional_codes = {item["code"] for item in OPTIONAL_INSTRUMENTS}
+    known_codes = expected_codes | optional_codes
     actual_codes = {row.get("instrument_code") for row in rows if row.get("instrument_code")}
+    mandatory_actual_codes = actual_codes & expected_codes
 
     missing_codes = sorted(expected_codes - actual_codes)
-    extra_codes = sorted(actual_codes - expected_codes)
+    extra_codes = sorted(actual_codes - known_codes)
 
     if missing_codes:
         issues.append(f"Missing instruments from Supabase: {', '.join(missing_codes)}")
@@ -758,8 +787,8 @@ def fetch_market_data_from_supabase(today: datetime.date) -> tuple[Dict[str, Lis
     if extra_codes:
         issues.append(f"Unexpected instruments in Supabase: {', '.join(extra_codes)}")
 
-    if len(actual_codes) != EXPECTED_INSTRUMENT_COUNT:
-        issues.append(f"Expected {EXPECTED_INSTRUMENT_COUNT} instruments, found {len(actual_codes)}")
+    if len(mandatory_actual_codes) != EXPECTED_INSTRUMENT_COUNT:
+        issues.append(f"Expected {EXPECTED_INSTRUMENT_COUNT} mandatory instruments, found {len(mandatory_actual_codes)}")
 
     output = {
         "global_indices": [],
@@ -774,7 +803,7 @@ def fetch_market_data_from_supabase(today: datetime.date) -> tuple[Dict[str, Lis
     normalised_rows = [
         _normalise_market_row(row, history_by_code, effective_date)
         for row in rows
-        if row.get("instrument_code") in expected_codes
+        if row.get("instrument_code") in known_codes
     ]
 
     for row in normalised_rows:
@@ -1270,54 +1299,62 @@ News:
 
 
 def build_kpis(market_data: Dict[str, Any]) -> List[Dict[str, Any]]:
-    def px(rows: List[Dict[str, Any]], name: str):
-        row = _find_row(rows, name)
+    def find_by_name_or_code(rows: List[Dict[str, Any]], names=None, codes=None):
+        names = {str(x).strip().lower() for x in (names or [])}
+        codes = {str(x).strip().upper() for x in (codes or [])}
+
+        for row in rows:
+            row_name = str(row.get("name") or "").strip().lower()
+            row_code = str(row.get("code") or "").strip().upper()
+            if row_name in names or row_code in codes:
+                return row
+
+        return None
+
+    def px(rows: List[Dict[str, Any]], names=None, codes=None):
+        row = find_by_name_or_code(rows, names=names, codes=codes)
         return row.get("px_last", "N/A") if row else "N/A"
 
-    def chg(rows: List[Dict[str, Any]], name: str):
-        row = _find_row(rows, name)
+    def chg(rows: List[Dict[str, Any]], names=None, codes=None):
+        row = find_by_name_or_code(rows, names=names, codes=codes)
         return row.get("change_1d", "N/A") if row else "N/A"
 
-    def ytd(rows: List[Dict[str, Any]], name: str):
-        row = _find_row(rows, name)
+    def ytd(rows: List[Dict[str, Any]], names=None, codes=None):
+        row = find_by_name_or_code(rows, names=names, codes=codes)
         return row.get("ytd", "N/A") if row else "N/A"
-
-    sp_1d = chg(market_data.get("global_indices", []), "US S&P 500")
-    uk_1d = chg(market_data.get("global_indices", []), "UK FTSE 100")
-
-    eq_label = "Positive"
-    if isinstance(sp_1d, str) and isinstance(uk_1d, str):
-        if sp_1d.startswith("-") or uk_1d.startswith("-"):
-            eq_label = "Mixed"
-
-    brent_px = px(market_data.get("commodities", []), "Brent Crude")
-    brent_ytd = ytd(market_data.get("commodities", []), "Brent Crude")
-
-    gold_qar = px(market_data.get("commodities", []), "Gold (QAR)")
-    gold_ytd = ytd(market_data.get("commodities", []), "Gold (QAR)")
-
-    qse_px = px(market_data.get("gcc_indices", []), "Qatar QE Index")
-    qse_1d = chg(market_data.get("gcc_indices", []), "Qatar QE Index")
-    qse_ytd = ytd(market_data.get("gcc_indices", []), "Qatar QE Index")
-
-    ust10_px = px(market_data.get("fixed_income", []), "UST 10-Year")
-    ust10_ytd = ytd(market_data.get("fixed_income", []), "UST 10-Year")
 
     def format_number(value):
         if isinstance(value, (int, float)):
             return f"{value:,.2f}"
         return str(value)
 
+    commodities = market_data.get("commodities", [])
+    qatari_banks = market_data.get("qatari_banks", [])
+    gcc_indices = market_data.get("gcc_indices", [])
+
+    lng_names = ["Liquefied Natural Gas (LNG)", "LNG", "JKM LNG", "Japan Korea Marker LNG"]
+    lng_codes = ["LNG", "LNGJKM", "JKM"]
+
+    lng_px = px(commodities, names=lng_names, codes=lng_codes)
+    lng_1d = chg(commodities, names=lng_names, codes=lng_codes)
+    lng_ytd = ytd(commodities, names=lng_names, codes=lng_codes)
+
+    gold_qar = px(commodities, names=["Gold (QAR)"], codes=["GOLDQAR"])
+    gold_ytd = ytd(commodities, names=["Gold (QAR)"], codes=["GOLDQAR"])
+
+    qse_px = px(gcc_indices, names=["Qatar QE Index"], codes=["QE"])
+    qse_1d = chg(gcc_indices, names=["Qatar QE Index"], codes=["QE"])
+    qse_ytd = ytd(gcc_indices, names=["Qatar QE Index"], codes=["QE"])
+
+    doha_px = px(qatari_banks, names=["Doha"], codes=["DHBK"])
+    doha_1d = chg(qatari_banks, names=["Doha"], codes=["DHBK"])
+    doha_ytd = ytd(qatari_banks, names=["Doha"], codes=["DHBK"])
+
     return [
         {
-            "value": eq_label,
-            "label": "Global Equities",
-            "sublabel": f"US {sp_1d} · UK {uk_1d}",
-        },
-        {
-            "value": f"${format_number(brent_px)}",
-            "label": "Brent Crude",
-            "sublabel": f"{brent_ytd} Year-to-Date",
+            "value": format_number(lng_px),
+            "label": "Liquefied Natural Gas (LNG)",
+            "sublabel": f"{lng_1d} today · {lng_ytd} YTD",
         },
         {
             "value": format_number(gold_qar),
@@ -1330,14 +1367,9 @@ def build_kpis(market_data: Dict[str, Any]) -> List[Dict[str, Any]]:
             "sublabel": f"{qse_1d} today · {qse_ytd} YTD",
         },
         {
-            "value": f"{format_number(ust10_px)}%",
-            "label": "UST 10Y Yield",
-            "sublabel": f"{ust10_ytd} YTD · Treasury yield curve",
-        },
-        {
-            "value": "4.50%",
-            "label": "QCB Sukuk Yield",
-            "sublabel": "QR3bn · 2.7x oversubscribed",
+            "value": format_number(doha_px),
+            "label": "Doha Bank PX Last",
+            "sublabel": f"{doha_1d} today · {doha_ytd} YTD",
         },
     ]
 
