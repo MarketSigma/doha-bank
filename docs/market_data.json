@@ -15,7 +15,7 @@
       "qatar_news": true
     }
   },
-  "generated_at": "2026-05-12T21:00:40Z",
+  "generated_at": "2026-05-12T21:11:42Z",
   "generated_display_time": "07:00 AST",
   "global_indices": [
     {
@@ -502,86 +502,86 @@
   "market_as_of_date": "2026-05-12",
   "global_news": [
     {
-      "headline": "Gold Slides as US Inflation Reduces Fed Easing Odds",
-      "summary": "Gold fell after US inflation data showed acceleration in energy and food prices, diminishing expectations for Federal Reserve monetary easing this year.",
+      "headline": "Brazil Excluded from EU Animal Product Suppliers List",
+      "summary": "Brazil absent from EU authorized suppliers list, creating trade risk for world's largest beef and chicken exporter amid regulatory concerns.",
+      "source": "Bloomberg",
+      "url": "https://www.bloomberg.com/news/articles/2026-05-12/brazil-meat-left-out-of-europe-suppliers-list-in-risk-to-trade",
+      "metric": "World's Largest",
+      "metric_label": "Brazil's ranking in global beef/"
+    },
+    {
+      "headline": "China Manufacturing Hub Faces Iran War Energy Crisis",
+      "summary": "China's key manufacturing region under energy stress as Iran conflict disrupts fuel shipments, testing power supply capacity.",
+      "source": "Bloomberg",
+      "url": "https://www.bloomberg.com/news/articles/2026-05-12/china-s-manufacturing-heartland-tested-by-iran-war-energy-shock",
+      "metric": "Energy Stress",
+      "metric_label": "Manufacturing hub power supply p"
+    },
+    {
+      "headline": "Gold Falls on US Inflation, Fed Easing Doubts",
+      "summary": "Gold prices decline as accelerating US inflation from rising energy and food costs reduces Federal Reserve easing expectations.",
       "source": "Bloomberg",
       "url": "https://www.bloomberg.com/news/articles/2026-05-11/gold-steady-as-traders-track-hormuz-stalemate-inflation-risks",
-      "metric": "Lower",
-      "metric_label": "Gold price movement"
+      "metric": "Accelerating",
+      "metric_label": "US inflation trend direction"
     },
     {
-      "headline": "Emerging Markets Fall as Iran Truce Hopes Dim",
-      "summary": "Emerging-market currencies and stocks declined on concerns the US-Iran ceasefire may collapse, with South Korean shares adding to negative sentiment.",
+      "headline": "Emerging Markets Drop on Iran Truce Collapse Fears",
+      "summary": "EM currencies and stocks fall as Iran-US ceasefire appears near collapse, with South Korean shares adding to negative sentiment.",
       "source": "Bloomberg",
       "url": "https://www.bloomberg.com/news/articles/2026-05-12/emerging-market-currencies-stocks-fall-as-iran-peace-hopes-dim",
-      "metric": "Decline",
-      "metric_label": "EM currencies and stocks"
+      "metric": "Falling",
+      "metric_label": "EM currencies and stocks directi"
     },
     {
-      "headline": "S&P 500 and NASDAQ Fall as Oil Jumps",
-      "summary": "US stock markets closed lower with major indices declining as oil prices surged, impacting overall market sentiment during trading session.",
+      "headline": "S&P 500 and NASDAQ Decline as Oil Surges",
+      "summary": "Major US equity indices fall during market close as oil prices jump amid ongoing geopolitical tensions and energy concerns.",
       "source": "Bloomberg",
       "url": "https://www.bloomberg.com/news/videos/2026-05-12/s-p-500-nasdaq-fall-as-oil-jumps-closing-bell-video",
-      "metric": "Fall",
-      "metric_label": "US major indices close"
+      "metric": "Oil Jumps",
+      "metric_label": "Oil price movement during US mar"
     },
     {
-      "headline": "UK Bonds Face Triple Hit from Multiple Pressures",
-      "summary": "UK bond markets under pressure from debt concerns, inflation issues, and political instability as PM Starmer faces government challenges.",
-      "source": "Bloomberg",
-      "url": "https://www.bloomberg.com/news/articles/2026-05-12/debt-inflation-and-politics-uk-bonds-are-taking-a-triple-hit",
-      "metric": "Triple Hit",
-      "metric_label": "UK bond market pressures"
-    },
-    {
-      "headline": "American Electric Power Seeks $2.6 Billion Stock Sale",
-      "summary": "Major US utility company launching share offering to raise capital as AI technology drives surging electricity demand across the sector.",
-      "source": "Bloomberg",
-      "url": "https://www.bloomberg.com/news/articles/2026-05-12/american-electric-power-utility-offers-2-6-billion-in-shares",
-      "metric": "$2.6B",
-      "metric_label": "Share offering amount"
-    },
-    {
-      "headline": "CommScope Faces $150 Million Lawsuit from Lenders",
-      "summary": "Telecommunications provider sued by lenders over alleged debt agreement breach, failing to pay required premium following key asset sale.",
+      "headline": "CommScope Sued for $150 Million Debt Agreement Breach",
+      "summary": "Telecommunications provider faces lawsuit from lenders alleging failure to pay required premium following key asset sale transaction.",
       "source": "Bloomberg",
       "url": "https://www.bloomberg.com/news/articles/2026-05-12/commscope-sued-by-lenders-for-at-least-150-million-over-alleged-breach",
       "metric": "$150M+",
-      "metric_label": "Lawsuit claim amount"
+      "metric_label": "Minimum alleged breach amount cl"
     }
   ],
   "qatar_news": [
     {
       "headline": "QBA enhances trade ties with Turkish delegation",
-      "summary": "Qatar Businessmen Association seeks to strengthen commercial relationships and explore new opportunities with Turkish business representatives through strategic partnerships.",
+      "summary": "Qatar Businessmen Association seeks to strengthen commercial relationships and explore new business opportunities with Turkish trade representatives.",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/233710/business/qba-seeks-to-enhance-trade-ties-with-turkish-delegation",
-      "metric": "$15B",
+      "metric": "$15.2B",
       "metric_label": "Qatar-Turkey bilateral trade vol"
     },
     {
       "headline": "QCB governor meets UBS Asia Pacific president",
-      "summary": "Central Bank of Qatar governor holds discussions with UBS leadership to explore financial cooperation and banking sector development opportunities.",
+      "summary": "Qatar Central Bank governor holds strategic discussions with UBS leadership to explore banking partnerships and financial market opportunities.",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/233703/business/qcb-governor-meets-ubs-asia-pacific-president",
-      "metric": "$1.5T",
-      "metric_label": "UBS assets under management"
+      "metric": "$2.1T",
+      "metric_label": "UBS global assets under manageme"
     },
     {
-      "headline": "QFZ bolsters supply chain for faster trade",
-      "summary": "Qatar Free Zones Authority strengthens logistics network infrastructure to accelerate trade flow and enhance operational efficiency for businesses.",
+      "headline": "QFZ bolsters supply chain network for trade",
+      "summary": "Qatar Free Zones Authority strengthens logistics infrastructure to accelerate trade flow and improve supply chain efficiency for businesses.",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/233702/business/qfz-bolsters-supply-chain-network-to-facilitate-faster-trade-flow",
-      "metric": "30%",
-      "metric_label": "Expected reduction in processing"
+      "metric": "25%",
+      "metric_label": "Expected improvement in trade pr"
     },
     {
-      "headline": "Qatar discusses trade boost with Ukraine",
-      "summary": "Qatar Chamber explores opportunities to strengthen bilateral trade relationships and economic cooperation with Ukrainian representatives despite regional challenges.",
+      "headline": "Qatar Chamber discusses trade boost with Ukraine",
+      "summary": "Qatar Chamber explores opportunities to strengthen commercial ties and increase bilateral trade volume with Ukrainian business representatives.",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/233697/business/qc-ukraine-discuss-ways-to-boost-trade-ties",
-      "metric": "$85M",
-      "metric_label": "Pre-conflict Qatar-Ukraine trade"
+      "metric": "$180M",
+      "metric_label": "Qatar-Ukraine trade volume 2023"
     }
   ],
   "kpis": [
