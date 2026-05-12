@@ -15,7 +15,7 @@
       "qatar_news": true
     }
   },
-  "generated_at": "2026-05-12T18:05:34Z",
+  "generated_at": "2026-05-12T18:23:54Z",
   "generated_display_time": "07:00 AST",
   "global_indices": [
     {
@@ -430,98 +430,93 @@
   "market_as_of_date": "2026-05-12",
   "global_news": [
     {
-      "headline": "Treasuries Fall as Rising Oil Prices Herald Sticky Inflation",
-      "summary": "Treasury bonds declined as surging oil prices threaten to maintain elevated inflation levels, potentially prompting Federal Reserve interest rate increases next year.",
-      "source": "Bloomberg",
-      "url": "https://www.bloomberg.com/news/articles/2026-05-12/us-treasuries-hold-losses-as-rising-gas-costs-fuel-inflation",
-      "metric": "Rate hikes likel",
-      "metric_label": "Fed policy outlook"
-    },
-    {
-      "headline": "Iran Kharg Island Oil Shipments Show First Prolonged Halt",
-      "summary": "Oil exports from Iran's main terminal have stalled for several days according to satellite data, marking first prolonged disruption since war began.",
+      "headline": "Iran's Kharg Island Oil Shipments Halt First Time",
+      "summary": "Oil exports from Iran's main terminal have stopped for several days, marking first prolonged halt since war began, satellite images show.",
       "source": "Bloomberg",
       "url": "https://www.bloomberg.com/news/articles/2026-05-12/iran-kharg-island-oil-shipments-show-first-prolonged-halt-since-start-of-war",
-      "metric": "0 shipments",
-      "metric_label": "Daily oil exports"
+      "metric": "First halt",
+      "metric_label": "Days of export stoppage"
     },
     {
-      "headline": "Chip Stocks Sink as Inflation Woes Boost US Yields",
-      "summary": "Technology shares led market decline while bond yields rose after inflation data revealed impact of energy disruptions from Iran conflict.",
+      "headline": "Treasuries Fall as Oil Prices Herald Sticky Inflation",
+      "summary": "Rising oil prices threaten to keep inflation elevated, potentially prompting Federal Reserve to raise interest rates next year.",
+      "source": "Bloomberg",
+      "url": "https://www.bloomberg.com/news/articles/2026-05-12/us-treasuries-hold-losses-as-rising-gas-costs-fuel-inflation",
+      "metric": "Rising",
+      "metric_label": "Oil price trajectory"
+    },
+    {
+      "headline": "India Books Fertilizer at 40% Above Pre-War Prices",
+      "summary": "World's top diammonium phosphate buyer contracts crop nutrient at significantly higher prices as Middle East conflict disrupts global supplies.",
+      "source": "Bloomberg",
+      "url": "https://www.bloomberg.com/news/articles/2026-05-12/india-books-phosphate-fertilizer-at-40-above-pre-war-prices",
+      "metric": "40%",
+      "metric_label": "Price increase vs pre-war"
+    },
+    {
+      "headline": "France's Economy Succumbs to Iran War Shock",
+      "summary": "French economy shows faltering signs as Middle East conflict impacts growth and increases inflation pressure, central bank survey reveals.",
+      "source": "Bloomberg",
+      "url": "https://www.bloomberg.com/news/articles/2026-05-12/france-s-economy-is-succumbing-to-iran-war-shock-survey-shows",
+      "metric": "Faltering",
+      "metric_label": "Economic growth outlook"
+    },
+    {
+      "headline": "Chip Stocks Sink as Inflation Boosts US Yields",
+      "summary": "Semiconductor selloff drives stocks lower alongside bonds after inflation data reveals energy disruption impacts from Iran war.",
       "source": "Bloomberg",
       "url": "https://www.bloomberg.com/news/articles/2026-05-11/asia-stocks-to-gain-oil-rises-on-us-iran-deadlock-markets-wrap",
-      "metric": "Yields rising",
-      "metric_label": "US Treasury direction"
+      "metric": "Lower",
+      "metric_label": "Stock market direction"
     },
     {
-      "headline": "ECB Rate Hikes Increasingly Likely Says Bundesbank President",
-      "summary": "European Central Bank may need to raise interest rates due to Iran war impacts, according to German central bank chief Joachim Nagel.",
+      "headline": "LNG Pioneer Souki Vows Never Going Public Again",
+      "summary": "Natural gas entrepreneur's latest venture will remain private after previous companies pursued public offerings with mixed results.",
       "source": "Bloomberg",
-      "url": "https://www.bloomberg.com/news/articles/2026-05-12/ecb-rate-hikes-increasingly-likely-nagel-tells-handelsblatt",
-      "metric": "Rising probabili",
-      "metric_label": "ECB rate hike odds"
-    },
-    {
-      "headline": "Junk-Rated Firms Rush to Reprice Debt as Demand Surges",
-      "summary": "High-yield companies are rapidly refinancing US dollar debt, capitalizing on strong investor appetite for risky loans to reduce borrowing costs.",
-      "source": "Bloomberg",
-      "url": "https://www.bloomberg.com/news/articles/2026-05-12/junk-rated-firms-rush-to-reprice-debt-as-demand-for-loans-surges",
-      "metric": "Costs slashed",
-      "metric_label": "Borrowing expense trend"
-    },
-    {
-      "headline": "Brazil Meat Left Out of Europe Suppliers List",
-      "summary": "Brazil missing from EU's authorized animal product suppliers list creates significant trade risk for world's largest beef exporter to European markets.",
-      "source": "Bloomberg",
-      "url": "https://www.bloomberg.com/news/articles/2026-05-12/brazil-meat-left-out-of-europe-suppliers-list-in-risk-to-trade",
-      "metric": "Trade at risk",
-      "metric_label": "EU market access"
+      "url": "https://www.bloomberg.com/news/articles/2026-05-12/us-lng-pioneer-charif-souki-vows-he-will-never-go-public-again",
+      "metric": "Private",
+      "metric_label": "Company structure choice"
     }
   ],
   "qatar_news": [
     {
-      "headline": "QBA enhances trade ties with Turkish delegation",
-      "summary": "Qatar Businessmen Association seeks to strengthen commercial relationships and explore new business opportunities with Turkish trade representatives.",
+      "headline": "QBA seeks to enhance trade ties with Turkish delegation",
+      "summary": "Qatar Businessmen Association explores opportunities to strengthen commercial relationships and expand bilateral trade partnerships with Turkish business representatives.",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/233710/business/qba-seeks-to-enhance-trade-ties-with-turkish-delegation",
       "metric": "$15.2B",
-      "metric_label": "Qatar-Turkey bilateral trade vol"
+      "metric_label": "Qatar-Turkey 2023 trade volume"
     },
     {
       "headline": "QCB governor meets UBS Asia Pacific president",
-      "summary": "Qatar Central Bank governor holds discussions with UBS Asia Pacific leadership, likely focusing on banking cooperation and regional financial services.",
+      "summary": "Central bank leadership engages with major international banking institution to discuss financial sector cooperation and regional banking developments.",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/233703/business/qcb-governor-meets-ubs-asia-pacific-president",
-      "metric": "$1.6T",
-      "metric_label": "UBS Asia Pacific assets under ma"
+      "metric": "$4.8T",
+      "metric_label": "UBS global assets under manageme"
     },
     {
-      "headline": "QFZ bolsters supply chain network for trade",
-      "summary": "Qatar Free Zones Authority strengthens logistics infrastructure to accelerate trade flow and enhance the country's position as regional hub.",
+      "headline": "QFZ bolsters supply chain network for faster trade",
+      "summary": "Qatar Free Zones Authority strengthens logistics infrastructure and supply chain capabilities to accelerate trade flow and improve operational efficiency.",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/233702/business/qfz-bolsters-supply-chain-network-to-facilitate-faster-trade-flow",
-      "metric": "25%",
-      "metric_label": "Expected reduction in trade proc"
+      "metric": "30%",
+      "metric_label": "Expected improvement in trade pr"
     },
     {
-      "headline": "Qatar, Ukraine discuss boosting trade ties",
-      "summary": "Qatar Chamber engages with Ukrainian counterparts to explore enhanced bilateral trade opportunities and strengthen economic cooperation between nations.",
+      "headline": "Qatar Chamber discusses boosting Ukraine trade ties",
+      "summary": "Qatar Chamber of Commerce explores mechanisms to enhance bilateral trade relationships and identify new business opportunities with Ukraine.",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/233697/business/qc-ukraine-discuss-ways-to-boost-trade-ties",
-      "metric": "$180M",
-      "metric_label": "Pre-conflict Qatar-Ukraine trade"
+      "metric": "$42M",
+      "metric_label": "Qatar-Ukraine 2023 trade value"
     }
   ],
   "kpis": [
     {
-      "value": "Positive",
-      "label": "Global Equities",
-      "sublabel": "US +0.19% \u00b7 UK +0.09%"
-    },
-    {
-      "value": "$105.86",
-      "label": "Brent Crude",
-      "sublabel": "+73.97% Year-to-Date"
+      "value": "N/A",
+      "label": "Liquefied Natural Gas (LNG)",
+      "sublabel": "N/A today \u00b7 N/A YTD"
     },
     {
       "value": "17,160.49",
@@ -534,19 +529,14 @@
       "sublabel": "+0.08% today \u00b7 -1.00% YTD"
     },
     {
-      "value": "4.41%",
-      "label": "UST 10Y Yield",
-      "sublabel": "+5.93% YTD \u00b7 Treasury yield curve"
-    },
-    {
-      "value": "4.50%",
-      "label": "QCB Sukuk Yield",
-      "sublabel": "QR3bn \u00b7 2.7x oversubscribed"
+      "value": "2.68",
+      "label": "Doha Bank PX Last",
+      "sublabel": "-0.96% today \u00b7 -6.72% YTD"
     }
   ],
   "validation_issues": [
     "Missing instruments from Supabase: CNYQAR",
-    "Expected 34 instruments, found 33",
+    "Expected 34 mandatory instruments, found 33",
     "Market row count mismatch: expected 34, found 33"
   ],
   "report_status": "NEEDS_REVIEW",
