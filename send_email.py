@@ -10,7 +10,7 @@ from supabase_client import get_supabase
 
 
 RESEND_API_KEY = os.environ["RESEND_API_KEY"]
-FROM_EMAIL = os.environ.get("FROM_EMAIL", "Market Intelligence <updates@market-sigma.com>")
+FROM_EMAIL = os.environ.get("FROM_EMAIL", "Doha Bank Market Brief <updates@market-sigma.com>")
 PDF_PATH = Path("report.pdf")
 MARKET_DATA_PATH = Path("market_data.json")
 SCHEDULE_ID = "main"
@@ -87,12 +87,16 @@ def mark_schedule_sent(status: str, message: str) -> None:
 
 
 def build_email_html(report_date: str) -> str:
-    return f"""
-        <p>Dear Team,</p>
-        <p>Please find attached the <strong>Doha Bank Market Intelligence Report</strong>
-        for <strong>{report_date}</strong>.</p>
-        <p>This report was generated automatically from the approved market data sources and distributed according to the saved email schedule.</p>
-        <p>Regards,<br/>Market Intelligence Automation</p>
+    return """
+        <p>Dear All,</p>
+
+        <p>Please find attached today's market brief, including the latest market snapshot and key news highlights.</p>
+
+        <p>This report is AI-generated and reflects a snapshot of the previous day's closing rates.</p>
+
+        <p>Kind Regards,</p>
+
+        <p>Strategy Team | AI-generated Daily Briefs</p>
     """
 
 
@@ -112,11 +116,11 @@ def send() -> None:
     payload = {
         "from": FROM_EMAIL,
         "to": recipients,
-        "subject": f"Market Intelligence – {report_date}",
+        "subject": f"Doha Bank Market Brief – Snapshot & Key News – {report_date}",
         "html": build_email_html(report_date),
         "attachments": [
             {
-                "filename": f"Market-Intelligence-{report_date}.pdf",
+                "filename": f"Doha-Bank-Market-Brief-Snapshot-Key-News-{report_date}.pdf",
                 "content": pdf_b64,
                 "content_type": "application/pdf",
             }
