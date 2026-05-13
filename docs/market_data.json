@@ -15,7 +15,7 @@
       "qatar_news": true
     }
   },
-  "generated_at": "2026-05-13T06:24:01Z",
+  "generated_at": "2026-05-13T06:39:58Z",
   "generated_display_time": "07:00 AST",
   "global_indices": [
     {
@@ -502,86 +502,86 @@
   "market_as_of_date": "2026-05-12",
   "global_news": [
     {
-      "headline": "Gold Holds Decline as US Inflation Lifts Rate-Hike Odds",
-      "summary": "Gold maintained losses as accelerating US inflation increased Federal Reserve interest rate hike expectations for this year.",
+      "headline": "UAE AI Company Presight Reports Strong Revenue Growth",
+      "summary": "UAE-based AI company Presight reported 22% year-over-year revenue growth in Q1, with infrastructure remaining operational despite regional instability.",
       "source": "Bloomberg",
-      "url": "https://www.bloomberg.com/news/articles/2026-05-12/gold-holds-decline-as-us-inflation-jump-lowers-rate-cut-odds",
-      "metric": "Higher",
-      "metric_label": "US Rate Hike Odds"
+      "url": "https://www.bloomberg.com/news/videos/2026-05-13/presight-ceo-uae-leaders-in-ai-adoption-video",
+      "metric": "22%",
+      "metric_label": "Q1 revenue growth y/y"
     },
     {
-      "headline": "France Economy Feeling Iran War Shock Impact",
-      "summary": "French economy shows faltering signs as Middle East conflict fallout impacts growth and increases inflation pressure, central bank survey reveals.",
+      "headline": "Korea Bond Yields Hit Highest Since November 2023",
+      "summary": "South Korean benchmark bond yields topped 4% as oil shock from Iran conflict drives expectations of larger interest rate hikes.",
       "source": "Bloomberg",
-      "url": "https://www.bloomberg.com/news/articles/2026-05-12/france-s-economy-is-succumbing-to-iran-war-shock-survey-shows",
-      "metric": "Negative",
-      "metric_label": "Growth Impact"
+      "url": "https://www.bloomberg.com/news/articles/2026-05-12/korea-benchmark-bond-yield-tops-4-as-rate-hike-bets-grow",
+      "metric": "4%",
+      "metric_label": "Korea benchmark bond yield"
     },
     {
-      "headline": "Allianz Earnings Rise to Record Level",
-      "summary": "Allianz SE reported record first-quarter profit driven by property-casualty insurance and asset management, with Pimco attracting \u20ac38 billion.",
+      "headline": "Oil Drops After Three-Day Rally on Peace Talks",
+      "summary": "Oil declined following 8% gains over three sessions as Middle East conflict resolution remains uncertain with US Naval blockade straining Iranian exports.",
       "source": "Bloomberg",
-      "url": "https://www.bloomberg.com/news/articles/2026-05-13/allianz-earnings-rise-to-record-as-pimco-attracts-38-billion",
-      "metric": "\u20ac38bn",
-      "metric_label": "Pimco Inflows"
+      "url": "https://www.bloomberg.com/news/articles/2026-05-12/latest-oil-market-news-and-analysis-for-may-13",
+      "metric": "8%",
+      "metric_label": "Oil price gains over 3 sessions"
     },
     {
-      "headline": "Siemens Announces \u20ac6 Billion Share Buyback",
-      "summary": "Siemens AG will repurchase up to \u20ac6 billion in shares after order growth despite challenging geopolitical backdrop and inflation.",
+      "headline": "Iran-Linked LPG Tanker Breaches US Navy Blockade",
+      "summary": "A liquefied petroleum gas carrier previously used for Iranian cargoes sailed past the US Navy's blockade boundary in Strait of Hormuz.",
       "source": "Bloomberg",
-      "url": "https://www.bloomberg.com/news/articles/2026-05-13/siemens-to-buy-back-6-billion-shares-against-tough-backdrop",
-      "metric": "\u20ac6bn",
-      "metric_label": "Share Buyback"
+      "url": "https://www.bloomberg.com/news/articles/2026-05-13/iran-linked-lpg-tanker-sails-past-us-navy-s-blockade-line",
+      "metric": "1",
+      "metric_label": "LPG tanker bypassing blockade"
     },
     {
-      "headline": "FirstRand Hires BofA for UK Aldermore Sale",
-      "summary": "South African lender FirstRand appointed Bank of America and RMB as advisers for selling UK-based Aldermore Group unit.",
+      "headline": "India May Hike Fuel Prices on Oil Crisis",
+      "summary": "India's RBI Governor warns retail fuel prices may need to increase if Middle East conflict continues pushing oil prices higher.",
       "source": "Bloomberg",
-      "url": "https://www.bloomberg.com/news/articles/2026-05-13/firstrand-picks-bofa-rmb-to-advise-on-sale-of-uk-aldermore-unit",
-      "metric": "Exit",
-      "metric_label": "European Market"
+      "url": "https://www.bloomberg.com/news/articles/2026-05-13/india-s-rbi-governor-sees-fuel-price-hike-if-oil-stays-high",
+      "metric": "Potential",
+      "metric_label": "India fuel price increase risk"
     },
     {
-      "headline": "Stocks Rise Despite Early Chipmaker Weakness",
-      "summary": "Global stocks recovered from early losses as dip buyers emerged. Bonds dropped across markets following faster US inflation data.",
+      "headline": "China Takes More Assertive Stance Amid Trump Return",
+      "summary": "Analysis suggests China positioning more assertively as Trump administration faces reduced leverage in bilateral relations and global influence dynamics.",
       "source": "Bloomberg",
-      "url": "https://www.bloomberg.com/news/articles/2026-05-12/asian-stocks-under-pressure-as-us-inflation-rises-markets-wrap",
-      "metric": "Positive",
-      "metric_label": "Market Recovery"
+      "url": "https://www.bloomberg.com/news/videos/2026-05-13/insight-with-haslinda-amin-5-13-2026-video",
+      "metric": "Elevated",
+      "metric_label": "China assertiveness level"
     }
   ],
   "qatar_news": [
     {
-      "headline": "QC, Turkish delegation discuss enhancing trade ties",
-      "summary": "Qatar Chamber and Turkish delegation explore opportunities to strengthen bilateral trade relationships and economic cooperation between Qatar and Turkey.",
+      "headline": "QC Turkish delegation discuss enhancing trade ties",
+      "summary": "Qatar Chamber and Turkish delegation explore opportunities to strengthen bilateral trade relationships and economic cooperation between the two nations.",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/234013/business/qc-turkish-delegation-discuss-ways-to-enhance-trade-ties",
-      "metric": "Trade Partnershi",
-      "metric_label": "Qatar-Turkey bilateral cooperati"
+      "metric": "Bilateral Trade",
+      "metric_label": "Trade cooperation discussions"
+    },
+    {
+      "headline": "Australia economy hostage to Iran war concerns",
+      "summary": "Australian economic outlook faces uncertainty amid escalating Middle East tensions and potential impacts from Iran conflict on global markets.",
+      "source": "Qatar Tribune",
+      "url": "https://www.qatar-tribune.com/article/233974/business/australia-economy-hostage-to-iran-war",
+      "metric": "Geopolitical Ris",
+      "metric_label": "Economic vulnerability assessmen"
     },
     {
       "headline": "Chinese EV makers target 20% Europe market share",
-      "summary": "Chinese electric vehicle manufacturers are projected to capture one-fifth of the European automotive market within the next four years.",
+      "summary": "Chinese electric vehicle manufacturers projected to capture one-fifth of European automotive market by 2028 amid rapid expansion plans.",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/234018/business/chinese-ev-makers-set-to-capture-20-of-europe-market-by-2028",
       "metric": "20%",
-      "metric_label": "Target Europe market share by 20"
+      "metric_label": "Europe market share by 2028"
     },
     {
-      "headline": "Australia economy vulnerable to Iran war risks",
-      "summary": "Australian economic stability faces potential threats from escalating tensions and conflict involving Iran in the Middle East region.",
-      "source": "Qatar Tribune",
-      "url": "https://www.qatar-tribune.com/article/233974/business/australia-economy-hostage-to-iran-war",
-      "metric": "High Risk",
-      "metric_label": "Economic exposure to regional co"
-    },
-    {
-      "headline": "Business leaders support Trump's China engagement approach",
-      "summary": "Corporate executives express backing for diplomatic and trade engagement strategies during Trump's planned visit to China for business discussions.",
+      "headline": "Business leaders support Trump China engagement approach",
+      "summary": "Corporate executives endorse diplomatic engagement strategy for Trump administration's approach to China relations and trade policy management.",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/234005/business/business-leaders-back-engagement-on-trumps-china-trip",
-      "metric": "Positive Sentime",
-      "metric_label": "Business community support level"
+      "metric": "US-China Trade",
+      "metric_label": "Corporate diplomatic support"
     }
   ],
   "kpis": [
