@@ -36,11 +36,39 @@ def load_market_data() -> dict:
     return data
 
 
+def format_email_date(value: object | None = None) -> str:
+    """Return date in the required email format, for example: 16 May 2026."""
+    if isinstance(value, datetime.datetime):
+        dt = value.astimezone(QATAR_TZ).date() if value.tzinfo else value.date()
+    elif isinstance(value, datetime.date):
+        dt = value
+    else:
+        raw = str(value or "").strip()
+        dt = None
+
+        if raw:
+            for fmt in ("%Y-%m-%d", "%Y/%m/%d", "%d %B %Y", "%d %b %Y"):
+                try:
+                    dt = datetime.datetime.strptime(raw[:10] if fmt in ("%Y-%m-%d", "%Y/%m/%d") else raw, fmt).date()
+                    break
+                except ValueError:
+                    continue
+
+            if dt is None:
+                try:
+                    dt = datetime.datetime.fromisoformat(raw.replace("Z", "+00:00")).date()
+                except ValueError:
+                    dt = None
+
+        if dt is None:
+            dt = datetime.datetime.now(QATAR_TZ).date()
+
+    return f"{dt.day} {dt.strftime('%B')} {dt.year}"
+
+
 def report_date_from_data(data: dict) -> str:
     configured_date = (data.get("config") or {}).get("report_date")
-    if configured_date:
-        return str(configured_date)
-    return datetime.datetime.now(QATAR_TZ).strftime("%d %B %Y")
+    return format_email_date(configured_date)
 
 
 def load_email_recipients() -> list[str]:
@@ -96,7 +124,7 @@ def build_email_html(report_date: str) -> str:
 
         <p>Kind Regards,</p>
 
-        <p>Strategy Team | AI-generated Daily Briefs</p>
+        <p>Strategy Team | AI-generated Daily Updates</p>
     """
 
 
@@ -116,11 +144,11 @@ def send() -> None:
     payload = {
         "from": FROM_EMAIL,
         "to": recipients,
-        "subject": f"Doha Bank Market Updates – Snapshot & Key News – {report_date}",
+        "subject": f"Doha Bank Market updates - {report_date}",
         "html": build_email_html(report_date),
         "attachments": [
             {
-                "filename": f"Doha-Bank-Market-Updates-Snapshot-Key-News-{report_date}.pdf",
+                "filename": f"Doha-Bank-Market-updates-{report_date}.pdf",
                 "content": pdf_b64,
                 "content_type": "application/pdf",
             }
@@ -142,7 +170,7 @@ def send() -> None:
         mark_schedule_sent("sent", f"Email sent to {len(recipients)} recipient(s)")
         return
 
-    print(f"[ERROR] Resend API: {resp.status_code} – {resp.text}")
+    print(f"[ERROR] Resend API: {resp.status_code} - {resp.text}")
     raise SystemExit(1)
 
 
