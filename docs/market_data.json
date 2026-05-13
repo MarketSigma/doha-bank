@@ -15,7 +15,7 @@
       "qatar_news": true
     }
   },
-  "generated_at": "2026-05-13T05:08:59Z",
+  "generated_at": "2026-05-13T06:24:01Z",
   "generated_display_time": "07:00 AST",
   "global_indices": [
     {
@@ -502,86 +502,86 @@
   "market_as_of_date": "2026-05-12",
   "global_news": [
     {
-      "headline": "India Doubles Gold Silver Tariffs to Defend Rupee",
-      "summary": "India raised import tariffs on gold and silver to defend its currency and shore up foreign exchange reserves amid Middle East war pressures.",
+      "headline": "Gold Holds Decline as US Inflation Lifts Rate-Hike Odds",
+      "summary": "Gold maintained losses as accelerating US inflation increased Federal Reserve interest rate hike expectations for this year.",
       "source": "Bloomberg",
-      "url": "https://www.bloomberg.com/news/articles/2026-05-13/india-hikes-gold-and-silver-import-tariffs-to-protect-economy",
-      "metric": "2x",
-      "metric_label": "Tariff increase multiple"
+      "url": "https://www.bloomberg.com/news/articles/2026-05-12/gold-holds-decline-as-us-inflation-jump-lowers-rate-cut-odds",
+      "metric": "Higher",
+      "metric_label": "US Rate Hike Odds"
     },
     {
-      "headline": "Europe Oil Gas Lobbies Seek Storage Flexibility",
-      "summary": "EU energy lobby groups called for more flexibility in natural gas storage targets to avoid market pressure during summer refilling season.",
+      "headline": "France Economy Feeling Iran War Shock Impact",
+      "summary": "French economy shows faltering signs as Middle East conflict fallout impacts growth and increases inflation pressure, central bank survey reveals.",
       "source": "Bloomberg",
-      "url": "https://www.bloomberg.com/news/articles/2026-05-13/europe-s-oil-gas-lobbies-urge-flexibility-on-storage-targets",
-      "metric": "Summer 2026",
-      "metric_label": "Critical refilling period"
+      "url": "https://www.bloomberg.com/news/articles/2026-05-12/france-s-economy-is-succumbing-to-iran-war-shock-survey-shows",
+      "metric": "Negative",
+      "metric_label": "Growth Impact"
+    },
+    {
+      "headline": "Allianz Earnings Rise to Record Level",
+      "summary": "Allianz SE reported record first-quarter profit driven by property-casualty insurance and asset management, with Pimco attracting \u20ac38 billion.",
+      "source": "Bloomberg",
+      "url": "https://www.bloomberg.com/news/articles/2026-05-13/allianz-earnings-rise-to-record-as-pimco-attracts-38-billion",
+      "metric": "\u20ac38bn",
+      "metric_label": "Pimco Inflows"
+    },
+    {
+      "headline": "Siemens Announces \u20ac6 Billion Share Buyback",
+      "summary": "Siemens AG will repurchase up to \u20ac6 billion in shares after order growth despite challenging geopolitical backdrop and inflation.",
+      "source": "Bloomberg",
+      "url": "https://www.bloomberg.com/news/articles/2026-05-13/siemens-to-buy-back-6-billion-shares-against-tough-backdrop",
+      "metric": "\u20ac6bn",
+      "metric_label": "Share Buyback"
+    },
+    {
+      "headline": "FirstRand Hires BofA for UK Aldermore Sale",
+      "summary": "South African lender FirstRand appointed Bank of America and RMB as advisers for selling UK-based Aldermore Group unit.",
+      "source": "Bloomberg",
+      "url": "https://www.bloomberg.com/news/articles/2026-05-13/firstrand-picks-bofa-rmb-to-advise-on-sale-of-uk-aldermore-unit",
+      "metric": "Exit",
+      "metric_label": "European Market"
     },
     {
       "headline": "Stocks Rise Despite Early Chipmaker Weakness",
-      "summary": "Global stocks gained as dip buyers emerged after early semiconductor weakness, while bonds dropped following faster US inflation data.",
+      "summary": "Global stocks recovered from early losses as dip buyers emerged. Bonds dropped across markets following faster US inflation data.",
       "source": "Bloomberg",
       "url": "https://www.bloomberg.com/news/articles/2026-05-12/asian-stocks-under-pressure-as-us-inflation-rises-markets-wrap",
-      "metric": "Record rally",
-      "metric_label": "Market momentum status"
-    },
-    {
-      "headline": "China Profit Outlook Set to Improve Further",
-      "summary": "Morgan Stanley expects Chinese companies' Q2 profits to improve after encouraging Q1 results, driven by rising exports and reflation signs.",
-      "source": "Bloomberg",
-      "url": "https://www.bloomberg.com/news/articles/2026-05-13/china-s-profit-outlook-to-improve-further-morgan-stanley-says",
-      "metric": "Q2 2026",
-      "metric_label": "Improved profit forecast period"
-    },
-    {
-      "headline": "MSCI Removes Indonesian Billionaire-Linked Stocks",
-      "summary": "MSCI cut Indonesian stocks linked to country's richest billionaires from indexes due to concentrated ownership concerns, causing share declines.",
-      "source": "Bloomberg",
-      "url": "https://www.bloomberg.com/news/articles/2026-05-12/msci-removes-stocks-linked-to-indonesia-s-richest-from-indexes",
-      "metric": "Index removal",
-      "metric_label": "Ownership concentration penalty"
-    },
-    {
-      "headline": "MobiKwik Posts Second Consecutive Profitable Quarter",
-      "summary": "Digital payments firm achieved second straight profitable quarter despite zero-fee UPI pressure, marking key inflection point in growth journey.",
-      "source": "Bloomberg",
-      "url": "https://www.bloomberg.com/news/videos/2026-05-13/mobikwik-s-thin-margins-upi-pressure-and-path-to-profit-video",
-      "metric": "2Q profitable",
-      "metric_label": "Consecutive profitable quarters"
+      "metric": "Positive",
+      "metric_label": "Market Recovery"
     }
   ],
   "qatar_news": [
     {
-      "headline": "Qatar Chamber discusses trade enhancement with Turkish delegation",
-      "summary": "Qatar Chamber of Commerce meets with Turkish delegation to explore opportunities for strengthening bilateral trade relationships and economic cooperation between the two nations.",
+      "headline": "QC, Turkish delegation discuss enhancing trade ties",
+      "summary": "Qatar Chamber and Turkish delegation explore opportunities to strengthen bilateral trade relationships and economic cooperation between Qatar and Turkey.",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/234013/business/qc-turkish-delegation-discuss-ways-to-enhance-trade-ties",
-      "metric": "Bilateral meetin",
-      "metric_label": "Trade cooperation discussion"
+      "metric": "Trade Partnershi",
+      "metric_label": "Qatar-Turkey bilateral cooperati"
     },
     {
-      "headline": "Chinese EV makers targeting 20% European market share",
-      "summary": "Chinese electric vehicle manufacturers are projected to capture one-fifth of the European automotive market by 2028, signaling significant expansion in the region.",
+      "headline": "Chinese EV makers target 20% Europe market share",
+      "summary": "Chinese electric vehicle manufacturers are projected to capture one-fifth of the European automotive market within the next four years.",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/234018/business/chinese-ev-makers-set-to-capture-20-of-europe-market-by-2028",
       "metric": "20%",
       "metric_label": "Target Europe market share by 20"
     },
     {
-      "headline": "Australia economy vulnerable to Iran war escalation",
-      "summary": "Australian economy faces potential risks and uncertainty as geopolitical tensions involving Iran threaten to impact regional stability and economic conditions.",
+      "headline": "Australia economy vulnerable to Iran war risks",
+      "summary": "Australian economic stability faces potential threats from escalating tensions and conflict involving Iran in the Middle East region.",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/233974/business/australia-economy-hostage-to-iran-war",
-      "metric": "High risk",
-      "metric_label": "Economic vulnerability level"
+      "metric": "High Risk",
+      "metric_label": "Economic exposure to regional co"
     },
     {
       "headline": "Business leaders support Trump's China engagement approach",
-      "summary": "Corporate executives express backing for diplomatic and business engagement strategies during Trump's planned interactions with Chinese leadership and trade discussions.",
+      "summary": "Corporate executives express backing for diplomatic and trade engagement strategies during Trump's planned visit to China for business discussions.",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/234005/business/business-leaders-back-engagement-on-trumps-china-trip",
-      "metric": "Positive sentime",
-      "metric_label": "Business community support"
+      "metric": "Positive Sentime",
+      "metric_label": "Business community support level"
     }
   ],
   "kpis": [
