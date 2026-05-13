@@ -1,7 +1,7 @@
 {
   "config": {
     "client_name": "Doha Bank",
-    "report_date": "12 May 2026",
+    "report_date": "13 May 2026",
     "delivery_time_ast": "07:00",
     "sections": {
       "global_indices": true,
@@ -15,7 +15,7 @@
       "qatar_news": true
     }
   },
-  "generated_at": "2026-05-12T21:55:14Z",
+  "generated_at": "2026-05-13T05:08:59Z",
   "generated_display_time": "07:00 AST",
   "global_indices": [
     {
@@ -502,86 +502,86 @@
   "market_as_of_date": "2026-05-12",
   "global_news": [
     {
-      "headline": "Mexico Rating Outlook Revised to Negative by S&P",
-      "summary": "S&P Global Ratings downgraded Mexico's credit outlook citing weak fiscal results, rising debt levels and poor economic growth.",
+      "headline": "India Doubles Gold Silver Tariffs to Defend Rupee",
+      "summary": "India raised import tariffs on gold and silver to defend its currency and shore up foreign exchange reserves amid Middle East war pressures.",
       "source": "Bloomberg",
-      "url": "https://www.bloomberg.com/news/articles/2026-05-12/mexico-rating-outlook-revised-to-negative-at-s-p-as-debts-mount",
-      "metric": "Negative",
-      "metric_label": "Credit Outlook Change"
+      "url": "https://www.bloomberg.com/news/articles/2026-05-13/india-hikes-gold-and-silver-import-tariffs-to-protect-economy",
+      "metric": "2x",
+      "metric_label": "Tariff increase multiple"
     },
     {
-      "headline": "China Manufacturing Hub Faces Iran War Energy Crisis",
-      "summary": "China's key manufacturing region experiences power supply pressure as Iran conflict disrupts fuel shipments, creating energy stress test.",
+      "headline": "Europe Oil Gas Lobbies Seek Storage Flexibility",
+      "summary": "EU energy lobby groups called for more flexibility in natural gas storage targets to avoid market pressure during summer refilling season.",
       "source": "Bloomberg",
-      "url": "https://www.bloomberg.com/news/articles/2026-05-12/china-s-manufacturing-heartland-tested-by-iran-war-energy-shock",
-      "metric": "Critical",
-      "metric_label": "Energy Supply Status"
+      "url": "https://www.bloomberg.com/news/articles/2026-05-13/europe-s-oil-gas-lobbies-urge-flexibility-on-storage-targets",
+      "metric": "Summer 2026",
+      "metric_label": "Critical refilling period"
     },
     {
-      "headline": "Gold Falls on US Inflation Data Clouding Fed",
-      "summary": "Gold prices declined after US inflation data showed acceleration in energy and food prices, reducing Federal Reserve easing expectations.",
+      "headline": "Stocks Rise Despite Early Chipmaker Weakness",
+      "summary": "Global stocks gained as dip buyers emerged after early semiconductor weakness, while bonds dropped following faster US inflation data.",
       "source": "Bloomberg",
-      "url": "https://www.bloomberg.com/news/articles/2026-05-11/gold-steady-as-traders-track-hormuz-stalemate-inflation-risks",
-      "metric": "Lower",
-      "metric_label": "Gold Price Direction"
+      "url": "https://www.bloomberg.com/news/articles/2026-05-12/asian-stocks-under-pressure-as-us-inflation-rises-markets-wrap",
+      "metric": "Record rally",
+      "metric_label": "Market momentum status"
     },
     {
-      "headline": "Brazil Meat Excluded from EU Suppliers Authorization List",
-      "summary": "World's largest beef and chicken exporter faces trade risk after being omitted from EU's authorized animal products suppliers list.",
+      "headline": "China Profit Outlook Set to Improve Further",
+      "summary": "Morgan Stanley expects Chinese companies' Q2 profits to improve after encouraging Q1 results, driven by rising exports and reflation signs.",
       "source": "Bloomberg",
-      "url": "https://www.bloomberg.com/news/articles/2026-05-12/brazil-meat-left-out-of-europe-suppliers-list-in-risk-to-trade",
-      "metric": "Excluded",
-      "metric_label": "EU Trade Status"
+      "url": "https://www.bloomberg.com/news/articles/2026-05-13/china-s-profit-outlook-to-improve-further-morgan-stanley-says",
+      "metric": "Q2 2026",
+      "metric_label": "Improved profit forecast period"
     },
     {
-      "headline": "Japan's Sojitz Seeks Southeast Asia Rare Earths Supply",
-      "summary": "Japanese trading house explores Southeast Asia for rare earth sources beyond Australia to diversify supply chain and boost output.",
+      "headline": "MSCI Removes Indonesian Billionaire-Linked Stocks",
+      "summary": "MSCI cut Indonesian stocks linked to country's richest billionaires from indexes due to concentrated ownership concerns, causing share declines.",
       "source": "Bloomberg",
-      "url": "https://www.bloomberg.com/news/articles/2026-05-12/japan-s-sojitz-eyes-southeast-asia-for-new-rare-earths-supply",
-      "metric": "Expanding",
-      "metric_label": "Supply Chain Strategy"
+      "url": "https://www.bloomberg.com/news/articles/2026-05-12/msci-removes-stocks-linked-to-indonesia-s-richest-from-indexes",
+      "metric": "Index removal",
+      "metric_label": "Ownership concentration penalty"
     },
     {
-      "headline": "Trump China Summit Expectations: Keep Goals Simple",
-      "summary": "Editorial suggests Trump's main objective for Beijing summit should be avoiding deterioration rather than ambitious breakthroughs in US-China relations.",
+      "headline": "MobiKwik Posts Second Consecutive Profitable Quarter",
+      "summary": "Digital payments firm achieved second straight profitable quarter despite zero-fee UPI pressure, marking key inflection point in growth journey.",
       "source": "Bloomberg",
-      "url": "https://www.bloomberg.com/news/videos/2026-05-12/opinion-trump-s-goal-in-china-keep-it-simple-video",
-      "metric": "Cautious",
-      "metric_label": "Summit Approach"
+      "url": "https://www.bloomberg.com/news/videos/2026-05-13/mobikwik-s-thin-margins-upi-pressure-and-path-to-profit-video",
+      "metric": "2Q profitable",
+      "metric_label": "Consecutive profitable quarters"
     }
   ],
   "qatar_news": [
     {
-      "headline": "QBA enhances trade ties with Turkish delegation",
-      "summary": "Qatar Businessmen Association seeks to strengthen commercial relationships and explore new business opportunities with Turkish business representatives.",
+      "headline": "Qatar Chamber discusses trade enhancement with Turkish delegation",
+      "summary": "Qatar Chamber of Commerce meets with Turkish delegation to explore opportunities for strengthening bilateral trade relationships and economic cooperation between the two nations.",
       "source": "Qatar Tribune",
-      "url": "https://www.qatar-tribune.com/article/233710/business/qba-seeks-to-enhance-trade-ties-with-turkish-delegation",
-      "metric": "Turkey-Qatar",
-      "metric_label": "Bilateral trade partnership"
+      "url": "https://www.qatar-tribune.com/article/234013/business/qc-turkish-delegation-discuss-ways-to-enhance-trade-ties",
+      "metric": "Bilateral meetin",
+      "metric_label": "Trade cooperation discussion"
     },
     {
-      "headline": "QCB governor meets UBS Asia Pacific president",
-      "summary": "Central bank governor engages with major Swiss investment bank leadership to discuss regional banking and financial sector cooperation opportunities.",
+      "headline": "Chinese EV makers targeting 20% European market share",
+      "summary": "Chinese electric vehicle manufacturers are projected to capture one-fifth of the European automotive market by 2028, signaling significant expansion in the region.",
       "source": "Qatar Tribune",
-      "url": "https://www.qatar-tribune.com/article/233703/business/qcb-governor-meets-ubs-asia-pacific-president",
-      "metric": "UBS-QCB",
-      "metric_label": "Banking sector engagement"
+      "url": "https://www.qatar-tribune.com/article/234018/business/chinese-ev-makers-set-to-capture-20-of-europe-market-by-2028",
+      "metric": "20%",
+      "metric_label": "Target Europe market share by 20"
     },
     {
-      "headline": "QFZ bolsters supply chain network for trade",
-      "summary": "Qatar Free Zones Authority strengthens logistics infrastructure to accelerate trade flows and improve supply chain efficiency for businesses.",
+      "headline": "Australia economy vulnerable to Iran war escalation",
+      "summary": "Australian economy faces potential risks and uncertainty as geopolitical tensions involving Iran threaten to impact regional stability and economic conditions.",
       "source": "Qatar Tribune",
-      "url": "https://www.qatar-tribune.com/article/233702/business/qfz-bolsters-supply-chain-network-to-facilitate-faster-trade-flow",
-      "metric": "Supply Chain+",
-      "metric_label": "Trade flow enhancement"
+      "url": "https://www.qatar-tribune.com/article/233974/business/australia-economy-hostage-to-iran-war",
+      "metric": "High risk",
+      "metric_label": "Economic vulnerability level"
     },
     {
-      "headline": "Qatar Chamber discusses Ukraine trade opportunities",
-      "summary": "Qatar Chamber explores potential commercial partnerships and investment opportunities with Ukraine despite ongoing regional economic challenges.",
+      "headline": "Business leaders support Trump's China engagement approach",
+      "summary": "Corporate executives express backing for diplomatic and business engagement strategies during Trump's planned interactions with Chinese leadership and trade discussions.",
       "source": "Qatar Tribune",
-      "url": "https://www.qatar-tribune.com/article/233697/business/qc-ukraine-discuss-ways-to-boost-trade-ties",
-      "metric": "Qatar-Ukraine",
-      "metric_label": "Trade partnership talks"
+      "url": "https://www.qatar-tribune.com/article/234005/business/business-leaders-back-engagement-on-trumps-china-trip",
+      "metric": "Positive sentime",
+      "metric_label": "Business community support"
     }
   ],
   "kpis": [
@@ -606,7 +606,9 @@
       "sublabel": "-1.59% today \u00b7 -7.32% YTD"
     }
   ],
-  "validation_issues": [],
-  "report_status": "PASS",
-  "email_send_allowed": true
+  "validation_issues": [
+    "Using latest available Supabase market date 2026-05-12, not today 2026-05-13"
+  ],
+  "report_status": "NEEDS_REVIEW",
+  "email_send_allowed": false
 }
