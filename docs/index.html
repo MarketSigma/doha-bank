@@ -577,8 +577,7 @@
               <div class="title">${escapeHtml(item.report_date || item.date || "Unknown date")}</div>
               <div class="meta">
                 ${escapeHtml(item.status || "unknown")} ·
-                Email: ${escapeHtml(item.email_count ?? 0)} ·
-                WhatsApp: ${escapeHtml(item.wa_count ?? 0)}
+                Email: ${escapeHtml(item.email_count ?? 0)}
               </div>
             </div>
             <div class="actions">${item.pdf_url ? `<a class="btn small outline" href="${escapeHtml(item.pdf_url)}" target="_blank" rel="noopener">Open PDF</a>` : ""}</div>
@@ -587,22 +586,17 @@
         : `<div class="card empty">No report log found</div>`;
 
       logView.innerHTML = `
-        <div class="grid-2">
-          <div class="card">
-            <div class="panel-title">Report Log</div>
-            <div class="log-list">${rows}</div>
-          </div>
-          <div class="card">
-            <div class="panel-title">Dispatch Queue / Logs</div>
-            <div id="dispatchQueueBox" class="helper">Loading dispatch requests and logs...</div>
-          </div>
+        <div class="card">
+          <div class="panel-title">Report Log</div>
+          <div class="log-list">${rows}</div>
         </div>
       `;
-
-      renderDispatchQueueBox();
     }
 
     async function renderDispatchQueueBox() {
+      const dispatchBox = document.getElementById("dispatchQueueBox");
+      if (!dispatchBox) return;
+
       try {
         const { data: queued } = await sb.from("dispatch_requests").select("*").order("created_at", { ascending: false }).limit(10);
         const { data: sent } = await sb.from("dispatch_logs").select("*").order("created_at", { ascending: false }).limit(10);
@@ -631,7 +625,7 @@
           </div>
         `).join("") : `<div class="empty">No dispatch logs</div>`;
 
-        document.getElementById("dispatchQueueBox").innerHTML = html;
+        dispatchBox.innerHTML = html;
       } catch (e) {
         const box = document.getElementById("dispatchQueueBox");
         if (box) box.innerHTML = `<div class="empty">Failed to load dispatch data</div>`;
