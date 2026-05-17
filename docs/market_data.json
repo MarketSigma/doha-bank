@@ -1,7 +1,7 @@
 {
   "config": {
     "client_name": "Doha Bank",
-    "report_date": "16 May 2026",
+    "report_date": "17 May 2026",
     "delivery_time_ast": "07:00",
     "sections": {
       "global_indices": true,
@@ -15,7 +15,7 @@
       "qatar_news": true
     }
   },
-  "generated_at": "2026-05-16T05:57:26Z",
+  "generated_at": "2026-05-17T05:57:42Z",
   "generated_display_time": "07:00 AST",
   "global_indices": [
     {
@@ -23,10 +23,10 @@
       "name": "US S&P 500",
       "ticker": "^GSPC",
       "px_last": 7408.5,
-      "change_1d": "-1.24%",
+      "change_1d": "+0.00%",
       "mtd": "+2.77%",
       "ytd": "+8.22%",
-      "as_of": "2026-05-15",
+      "as_of": "2026-05-16",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
     },
@@ -35,10 +35,10 @@
       "name": "UK FTSE 100",
       "ticker": "^FTSE",
       "px_last": 10195.37,
-      "change_1d": "-1.71%",
+      "change_1d": "+0.00%",
       "mtd": "-1.77%",
       "ytd": "+2.66%",
-      "as_of": "2026-05-15",
+      "as_of": "2026-05-16",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
     },
@@ -47,10 +47,10 @@
       "name": "Japan Nikkei",
       "ticker": "^N225",
       "px_last": 61409.29,
-      "change_1d": "-1.99%",
+      "change_1d": "+0.00%",
       "mtd": "+3.58%",
       "ytd": "+21.99%",
-      "as_of": "2026-05-15",
+      "as_of": "2026-05-16",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
     },
@@ -59,10 +59,10 @@
       "name": "Germany DAX",
       "ticker": "^GDAXI",
       "px_last": 23950.57,
-      "change_1d": "-2.07%",
+      "change_1d": "+0.00%",
       "mtd": "-1.41%",
       "ytd": "-2.20%",
-      "as_of": "2026-05-15",
+      "as_of": "2026-05-16",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
     },
@@ -71,10 +71,10 @@
       "name": "Hong Kong HSI",
       "ticker": "^HSI",
       "px_last": 25962.73,
-      "change_1d": "-1.62%",
+      "change_1d": "+0.00%",
       "mtd": "+0.72%",
       "ytd": "+1.30%",
-      "as_of": "2026-05-15",
+      "as_of": "2026-05-16",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
     },
@@ -83,10 +83,10 @@
       "name": "India Nifty 50",
       "ticker": "^NSEI",
       "px_last": 23643.5,
-      "change_1d": "-0.19%",
+      "change_1d": "+0.00%",
       "mtd": "-0.39%",
       "ytd": "-8.48%",
-      "as_of": "2026-05-15",
+      "as_of": "2026-05-16",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
     }
@@ -100,7 +100,7 @@
       "change_1d": "+0.00%",
       "mtd": "+0.05%",
       "ytd": "-2.50%",
-      "as_of": "2026-05-15",
+      "as_of": "2026-05-16",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
     },
@@ -112,7 +112,7 @@
       "change_1d": "+0.00%",
       "mtd": "-1.72%",
       "ytd": "+4.81%",
-      "as_of": "2026-05-15",
+      "as_of": "2026-05-16",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
     },
@@ -121,10 +121,10 @@
       "name": "Dubai DFM",
       "ticker": "DFMGI.AE",
       "px_last": 5708.78,
-      "change_1d": "-0.46%",
+      "change_1d": "+0.00%",
       "mtd": "-0.99%",
       "ytd": "-5.59%",
-      "as_of": "2026-05-15",
+      "as_of": "2026-05-16",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
     },
@@ -133,10 +133,10 @@
       "name": "Abu Dhabi ADX",
       "ticker": "FADGI.FGI",
       "px_last": 9677.72,
-      "change_1d": "-0.28%",
+      "change_1d": "+0.00%",
       "mtd": "-1.03%",
       "ytd": "-3.15%",
-      "as_of": "2026-05-15",
+      "as_of": "2026-05-16",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
     },
@@ -148,7 +148,7 @@
       "change_1d": "+0.00%",
       "mtd": "-0.86%",
       "ytd": "-1.39%",
-      "as_of": "2026-05-15",
+      "as_of": "2026-05-16",
       "source": "brave_search_tradingeconomics_controlled",
       "status": "valid_controlled_fallback"
     },
@@ -160,7 +160,7 @@
       "change_1d": "+0.00%",
       "mtd": "-1.86%",
       "ytd": "+40.04%",
-      "as_of": "2026-05-15",
+      "as_of": "2026-05-16",
       "source": "brave_search_tradingeconomics_controlled",
       "status": "valid_controlled_fallback"
     },
@@ -172,7 +172,7 @@
       "change_1d": "+0.00%",
       "mtd": "-1.93%",
       "ytd": "-6.41%",
-      "as_of": "2026-05-15",
+      "as_of": "2026-05-16",
       "source": "brave_search_tradingeconomics_controlled",
       "status": "valid_controlled_fallback"
     }
@@ -182,11 +182,11 @@
       "code": "DXY",
       "name": "USD Index",
       "ticker": "DX-Y.NYB",
-      "px_last": 99.3,
-      "change_1d": "+0.42%",
-      "mtd": "+1.24%",
-      "ytd": "+1.04%",
-      "as_of": "2026-05-15",
+      "px_last": 99.27,
+      "change_1d": "-0.03%",
+      "mtd": "+1.21%",
+      "ytd": "+1.01%",
+      "as_of": "2026-05-16",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
     },
@@ -194,11 +194,11 @@
       "code": "EURUSD",
       "name": "EUR/USD",
       "ticker": "EURUSD=X",
-      "px_last": 1.1625,
-      "change_1d": "-0.41%",
-      "mtd": "-0.89%",
-      "ytd": "-1.04%",
-      "as_of": "2026-05-15",
+      "px_last": 1.1631,
+      "change_1d": "+0.05%",
+      "mtd": "-0.84%",
+      "ytd": "-0.99%",
+      "as_of": "2026-05-16",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
     },
@@ -206,11 +206,11 @@
       "code": "GBPUSD",
       "name": "GBP/USD",
       "ticker": "GBPUSD=X",
-      "px_last": 1.3316,
-      "change_1d": "-0.61%",
-      "mtd": "-2.11%",
-      "ytd": "-1.12%",
-      "as_of": "2026-05-15",
+      "px_last": 1.3324,
+      "change_1d": "+0.06%",
+      "mtd": "-2.05%",
+      "ytd": "-1.06%",
+      "as_of": "2026-05-16",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
     },
@@ -218,11 +218,11 @@
       "code": "USDCHF",
       "name": "USD/CHF",
       "ticker": "CHF=X",
-      "px_last": 0.7869,
-      "change_1d": "+0.38%",
-      "mtd": "+1.00%",
-      "ytd": "+2.41%",
-      "as_of": "2026-05-15",
+      "px_last": 0.786,
+      "change_1d": "-0.11%",
+      "mtd": "+0.88%",
+      "ytd": "+2.29%",
+      "as_of": "2026-05-16",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
     },
@@ -230,11 +230,11 @@
       "code": "USDJPY",
       "name": "USD/JPY",
       "ticker": "JPY=X",
-      "px_last": 158.813,
-      "change_1d": "+0.28%",
-      "mtd": "+1.17%",
-      "ytd": "+1.53%",
-      "as_of": "2026-05-15",
+      "px_last": 158.731,
+      "change_1d": "-0.05%",
+      "mtd": "+1.12%",
+      "ytd": "+1.48%",
+      "as_of": "2026-05-16",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
     },
@@ -242,11 +242,11 @@
       "code": "USDCNY",
       "name": "USD/CNY",
       "ticker": "CNY=X",
-      "px_last": 6.8092,
-      "change_1d": "+0.36%",
+      "px_last": 6.8087,
+      "change_1d": "-0.01%",
       "mtd": "-0.27%",
-      "ytd": "-2.67%",
-      "as_of": "2026-05-15",
+      "ytd": "-2.68%",
+      "as_of": "2026-05-16",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
     }
@@ -256,11 +256,11 @@
       "code": "USDQAR",
       "name": "USD/QAR",
       "ticker": "QAR=X",
-      "px_last": 3.642,
-      "change_1d": "-0.08%",
-      "mtd": "+0.05%",
-      "ytd": "+0.05%",
-      "as_of": "2026-05-15",
+      "px_last": 3.64,
+      "change_1d": "-0.05%",
+      "mtd": "+0.00%",
+      "ytd": "+0.00%",
+      "as_of": "2026-05-16",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
     },
@@ -269,10 +269,10 @@
       "name": "EUR/QAR",
       "ticker": "EURQAR=X",
       "px_last": 4.2337,
-      "change_1d": "-0.45%",
+      "change_1d": "+0.00%",
       "mtd": "+2.25%",
       "ytd": "-0.99%",
-      "as_of": "2026-05-15",
+      "as_of": "2026-05-16",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
     },
@@ -281,10 +281,10 @@
       "name": "GBP/QAR",
       "ticker": "GBPQAR=X",
       "px_last": 4.8541,
-      "change_1d": "-0.59%",
+      "change_1d": "+0.00%",
       "mtd": "+1.09%",
       "ytd": "-0.98%",
-      "as_of": "2026-05-15",
+      "as_of": "2026-05-16",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
     },
@@ -292,11 +292,11 @@
       "code": "CHFQAR",
       "name": "CHF/QAR",
       "ticker": "CHFQAR",
-      "px_last": 4.6283,
-      "change_1d": "-0.46%",
-      "mtd": "-0.93%",
-      "ytd": "-2.32%",
-      "as_of": "2026-05-15",
+      "px_last": 4.631,
+      "change_1d": "+0.06%",
+      "mtd": "-0.87%",
+      "ytd": "-2.26%",
+      "as_of": "2026-05-16",
       "source": "derived_from_usdqar_and_spot_fx_runtime",
       "status": "valid_runtime_derived_fx"
     },
@@ -304,11 +304,11 @@
       "code": "CNYQAR",
       "name": "CNY/QAR",
       "ticker": "CNYQAR",
-      "px_last": 0.5349,
-      "change_1d": "-0.44%",
-      "mtd": "+3.45%",
-      "ytd": "+2.80%",
-      "as_of": "2026-05-15",
+      "px_last": 0.5346,
+      "change_1d": "-0.05%",
+      "mtd": "+3.40%",
+      "ytd": "+2.75%",
+      "as_of": "2026-05-16",
       "source": "derived_from_usdqar_and_spot_fx_runtime",
       "status": "valid_runtime_derived_fx"
     }
@@ -319,10 +319,10 @@
       "name": "UST 5-Year",
       "ticker": "^FVX",
       "px_last": 4.258,
-      "change_1d": "+3.32%",
+      "change_1d": "+0.00%",
       "mtd": "+5.84%",
       "ytd": "+14.40%",
-      "as_of": "2026-05-15",
+      "as_of": "2026-05-16",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
     },
@@ -331,10 +331,10 @@
       "name": "UST 10-Year",
       "ticker": "^TNX",
       "px_last": 4.595,
-      "change_1d": "+3.00%",
+      "change_1d": "+0.00%",
       "mtd": "+4.67%",
       "ytd": "+10.38%",
-      "as_of": "2026-05-15",
+      "as_of": "2026-05-16",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
     }
@@ -348,7 +348,7 @@
       "change_1d": "+0.00%",
       "mtd": "-0.99%",
       "ytd": "-8.14%",
-      "as_of": "2026-05-15",
+      "as_of": "2026-05-16",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
     },
@@ -360,7 +360,7 @@
       "change_1d": "+0.00%",
       "mtd": "-1.56%",
       "ytd": "+0.90%",
-      "as_of": "2026-05-15",
+      "as_of": "2026-05-16",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
     },
@@ -372,7 +372,7 @@
       "change_1d": "+0.00%",
       "mtd": "-0.53%",
       "ytd": "+1.08%",
-      "as_of": "2026-05-15",
+      "as_of": "2026-05-16",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
     },
@@ -384,7 +384,7 @@
       "change_1d": "+0.00%",
       "mtd": "+1.04%",
       "ytd": "+0.20%",
-      "as_of": "2026-05-15",
+      "as_of": "2026-05-16",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
     },
@@ -396,7 +396,7 @@
       "change_1d": "+0.00%",
       "mtd": "-2.63%",
       "ytd": "-8.40%",
-      "as_of": "2026-05-15",
+      "as_of": "2026-05-16",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
     },
@@ -408,7 +408,7 @@
       "change_1d": "+0.00%",
       "mtd": "+3.09%",
       "ytd": "+3.15%",
-      "as_of": "2026-05-15",
+      "as_of": "2026-05-16",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
     },
@@ -420,7 +420,7 @@
       "change_1d": "+0.00%",
       "mtd": "-0.06%",
       "ytd": "-7.07%",
-      "as_of": "2026-05-15",
+      "as_of": "2026-05-16",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
     },
@@ -432,7 +432,7 @@
       "change_1d": "+0.00%",
       "mtd": "-0.69%",
       "ytd": "-2.01%",
-      "as_of": "2026-05-15",
+      "as_of": "2026-05-16",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
     },
@@ -444,7 +444,7 @@
       "change_1d": "+0.00%",
       "mtd": "+2.37%",
       "ytd": "+6.53%",
-      "as_of": "2026-05-15",
+      "as_of": "2026-05-16",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
     }
@@ -458,7 +458,7 @@
       "change_1d": "+0.00%",
       "mtd": "+3.01%",
       "ytd": "+86.08%",
-      "as_of": "2026-05-15",
+      "as_of": "2026-05-16",
       "source": "TradingView",
       "status": "valid_lng_jp_kr"
     },
@@ -466,11 +466,11 @@
       "code": "BRENT",
       "name": "Brent Crude",
       "ticker": "BZ=F",
-      "px_last": 109.61,
-      "change_1d": "+2.73%",
-      "mtd": "-3.86%",
-      "ytd": "+80.13%",
-      "as_of": "2026-05-15",
+      "px_last": 109.26,
+      "change_1d": "-0.32%",
+      "mtd": "-4.17%",
+      "ytd": "+79.56%",
+      "as_of": "2026-05-16",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
     },
@@ -478,11 +478,11 @@
       "code": "SILVER",
       "name": "Silver",
       "ticker": "SI=F",
-      "px_last": 76.31,
-      "change_1d": "-9.05%",
-      "mtd": "+3.77%",
-      "ytd": "+8.80%",
-      "as_of": "2026-05-15",
+      "px_last": 77.55,
+      "change_1d": "+1.63%",
+      "mtd": "+5.46%",
+      "ytd": "+10.57%",
+      "as_of": "2026-05-16",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
     },
@@ -490,98 +490,98 @@
       "code": "GOLD",
       "name": "Gold",
       "ticker": "GC=F",
-      "px_last": 4543.6,
-      "change_1d": "-2.43%",
-      "mtd": "-6.02%",
-      "ytd": "+3.31%",
-      "as_of": "2026-05-15",
+      "px_last": 4561.9,
+      "change_1d": "+0.40%",
+      "mtd": "-5.64%",
+      "ytd": "+3.73%",
+      "as_of": "2026-05-16",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
     }
   ],
-  "market_as_of_date": "2026-05-15",
+  "market_as_of_date": "2026-05-16",
   "global_news": [
     {
-      "headline": "Adnoc Loads LNG on Dark Tankers in Gulf",
-      "summary": "Abu Dhabi National Oil Co. continues loading LNG onto location-masking tankers in Persian Gulf, pushing more fuel through Strait of Hormuz.",
+      "headline": "Record Drone Attack on Moscow Kills Three",
+      "summary": "Russia's capital faced unprecedented overnight drone strikes, killing at least three people and wounding over a dozen, targeting key infrastructure including refineries.",
       "source": "Bloomberg",
-      "url": "https://www.bloomberg.com/news/articles/2026-05-16/adnoc-keeps-loading-lng-onto-tankers-gone-dark-in-persian-gulf",
-      "metric": "Strait of Hormuz",
-      "metric_label": "Critical energy transit route"
+      "url": "https://www.bloomberg.com/news/articles/2026-05-17/record-drone-attack-on-moscow-kills-three-targets-refinery",
+      "metric": "3 killed",
+      "metric_label": "Casualties from Moscow drone att"
     },
     {
-      "headline": "NextEra in Talks to Acquire Dominion Energy",
-      "summary": "NextEra Energy discusses acquiring Dominion Energy in stock deal to address growing power demand from data centers.",
+      "headline": "Australia Plans Tax Changes for Housing Market",
+      "summary": "Treasurer Jim Chalmers reiterates capital gains tax overhaul aims to address Australia's broken housing market amid affordability crisis.",
       "source": "Bloomberg",
-      "url": "https://www.bloomberg.com/news/articles/2026-05-16/nextera-energy-is-said-to-be-in-talks-to-acquire-dominion-energy",
-      "metric": "Stock Deal",
-      "metric_label": "Acquisition structure type"
+      "url": "https://www.bloomberg.com/news/articles/2026-05-17/australia-says-tax-changes-aim-to-fix-broken-housing-market",
+      "metric": "Capital gains ta",
+      "metric_label": "Key tax being reformed"
     },
     {
-      "headline": "VinFast Plans Factory Sale to Cut Debt",
-      "summary": "Electric vehicle maker VinFast seeks to shed $6.9 billion in debt through Vietnamese factory spinoffs to accelerate profitability.",
+      "headline": "China Regulator Sets Private Sector Support Priorities",
+      "summary": "Market watchdog outlines 34 priorities for 2026 focusing on fair competition, legal protections and efficient regulation to boost private enterprise.",
       "source": "Bloomberg",
-      "url": "https://www.bloomberg.com/news/articles/2026-05-16/vinfast-seeks-to-shed-most-debt-with-vietnam-factory-spinoffs",
-      "metric": "$6.9B",
-      "metric_label": "Debt reduction target"
+      "url": "https://www.bloomberg.com/news/articles/2026-05-17/china-market-watchdog-sets-priorities-to-support-private-sector",
+      "metric": "34 priorities",
+      "metric_label": "Regulatory measures for 2026"
     },
     {
-      "headline": "US Nigeria Forces Kill ISIS Leader",
-      "summary": "President Trump announces US and Nigerian forces killed ISIS leader hiding in Africa, greatly diminishing group's global operations.",
+      "headline": "Malaysia Norway Missile Deal Tensions Escalate",
+      "summary": "Diplomatic relations strain as Norway confirms revoking export licenses for naval strike missile system in scrapped weapons agreement.",
       "source": "Bloomberg",
-      "url": "https://www.bloomberg.com/news/articles/2026-05-16/trump-says-us-forces-nigeria-armed-forces-killed-isis-leader",
-      "metric": "Africa Operation",
-      "metric_label": "ISIS regional presence"
+      "url": "https://www.bloomberg.com/news/articles/2026-05-17/malaysia-norway-tensions-deepen-over-scrapped-missile-deal",
+      "metric": "Export licenses ",
+      "metric_label": "Norwegian action on missile deal"
     },
     {
-      "headline": "Long Island Rail Workers Strike Begins",
-      "summary": "Nation's busiest commuter line suspends service after labor groups fail to reach wage deal, first walkout since 1994.",
+      "headline": "Philippines Opposes Senator's ICC Arrest Protection",
+      "summary": "Government asks Supreme Court to reject Senator Dela Rosa's petition to prevent arrest on International Criminal Court warrant for alleged crimes.",
       "source": "Bloomberg",
-      "url": "https://www.bloomberg.com/news/articles/2026-05-16/long-island-rail-workers-to-strike-in-first-walkout-since-1994",
-      "metric": "30+ Years",
-      "metric_label": "Service suspension duration"
+      "url": "https://www.bloomberg.com/news/articles/2026-05-17/philippines-asks-court-to-deny-petition-of-senator-sought-by-icc",
+      "metric": "ICC warrant issu",
+      "metric_label": "International arrest warrant sta"
     },
     {
-      "headline": "Rare Ebola Strain Kills Dozens in Congo",
-      "summary": "Rare Ebola strain with no approved vaccine or treatment kills dozens in conflict-hit northeastern Democratic Republic of Congo.",
+      "headline": "Malaysia Supports Airlines Amid Iran War Impact",
+      "summary": "Government introduces operational stability measures to ease financial strain on aviation industry affected by Middle East conflict disruptions.",
       "source": "Bloomberg",
-      "url": "https://www.bloomberg.com/news/articles/2026-05-16/rare-ebola-strain-with-no-approved-vaccine-kills-dozens-in-congo",
-      "metric": "No Vaccine",
-      "metric_label": "Treatment availability status"
+      "url": "https://www.bloomberg.com/news/articles/2026-05-17/malaysia-unveils-measures-to-help-airlines-hit-by-iran-war",
+      "metric": "Aviation support",
+      "metric_label": "Industry assistance measures"
     }
   ],
   "qatar_news": [
     {
-      "headline": "Qatar's 2025 FDI to reach QR165.4 billion",
-      "summary": "National Planning Authority projects Qatar's inward foreign direct investment will rise to QR165.4 billion in 2025, while outward investments expected to hit QR210 billion.",
+      "headline": "QC, QFC sign MoU to boost private sector growth",
+      "summary": "Qatar Chamber and Qatar Financial Centre signed memorandum of understanding to enhance private sector development and growth opportunities in Qatar.",
       "source": "Qatar Tribune",
-      "url": "https://www.qatar-tribune.com/article/234310/business/qatars-2025-inward-fdi-rise-to-qr1654-billion-as-outward-investments-hit-qr210-bn-npa",
-      "metric": "QR165.4bn",
-      "metric_label": "2025 Projected Inward FDI"
+      "url": "https://www.qatar-tribune.com/article/234512/business/qc-qfc-sign-mou-to-boost-private-sector-growth",
+      "metric": "Strategic Partne",
+      "metric_label": "New collaboration agreement"
     },
     {
-      "headline": "QSE announces index committee reconstitution",
-      "summary": "Qatar Stock Exchange restructures its index committee composition, potentially impacting market indices and benchmark calculations for investors and fund managers.",
+      "headline": "Japan may intervene in currency market for yen",
+      "summary": "Japan considers potential currency market intervention to support weakening yen, potentially with backing from the United States government.",
       "source": "Qatar Tribune",
-      "url": "https://www.qatar-tribune.com/article/234342/business/qse-announces-reconstitution-of-index-committee",
-      "metric": "Committee Update",
-      "metric_label": "QSE Index Governance"
+      "url": "https://www.qatar-tribune.com/article/234529/business/japan-may-step-into-currency-market-again-to-support-yen-with-us-backing",
+      "metric": "Currency Support",
+      "metric_label": "Potential yen intervention"
     },
     {
-      "headline": "Qatar, Norway explore enhanced trade cooperation",
-      "summary": "Qatar and Norway discuss opportunities to strengthen bilateral trade relationships and explore new areas of economic cooperation between the two nations.",
+      "headline": "Kioxia expects 47-fold profit surge on AI boom",
+      "summary": "Japanese chipmaker Kioxia anticipates dramatic 47-fold increase in net profit for April-June quarter driven by artificial intelligence demand surge.",
       "source": "Qatar Tribune",
-      "url": "https://www.qatar-tribune.com/article/234327/business/qatar-norway-explore-ways-to-boost-trade-ties",
-      "metric": "Bilateral Talks",
-      "metric_label": "Trade Partnership Development"
+      "url": "https://www.qatar-tribune.com/article/234530/business/chipmaker-kioxia-expects-april-june-net-profit-to-rise-47-fold-on-ai-boom",
+      "metric": "47x",
+      "metric_label": "Expected profit increase"
     },
     {
-      "headline": "Nissan reduces losses, eyes profitability return",
-      "summary": "Japanese automaker Nissan reports reduced losses and anticipates returning to profitability, signaling improved operational performance and market recovery prospects.",
+      "headline": "IMF warns Iran war risks global growth",
+      "summary": "International Monetary Fund identifies sustained conflict involving Iran as significant risk factor that could negatively impact global economic growth.",
       "source": "Qatar Tribune",
-      "url": "https://www.qatar-tribune.com/article/234338/business/nissan-reduces-losses-and-expects-to-return-to-profit",
-      "metric": "Loss Reduction",
-      "metric_label": "Corporate Turnaround"
+      "url": "https://www.qatar-tribune.com/article/234510/business/imf-sees-risks-to-global-growth-over-sustained-iran-war",
+      "metric": "Growth Risk",
+      "metric_label": "IMF global outlook concern"
     }
   ],
   "kpis": [
@@ -591,9 +591,9 @@
       "sublabel": "+0.00% today \u00b7 USD/MMBtu"
     },
     {
-      "value": "4,543.60",
+      "value": "4,561.90",
       "label": "Gold",
-      "sublabel": "-2.43% today \u00b7 +3.31% YTD"
+      "sublabel": "+0.40% today \u00b7 +3.73% YTD"
     },
     {
       "value": "10,493.27",
@@ -607,7 +607,7 @@
     }
   ],
   "validation_issues": [
-    "Using latest available Supabase market date 2026-05-15, not today 2026-05-16"
+    "Using latest available Supabase market date 2026-05-16, not today 2026-05-17"
   ],
   "report_status": "NEEDS_REVIEW",
   "email_send_allowed": false
