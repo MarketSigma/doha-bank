@@ -33,11 +33,11 @@ EXPECTED_INSTRUMENT_COUNT = 39
 STALE_DATA_WARNING_DAYS = 3
 USD_QAR_SUSPICIOUS_MOVE_THRESHOLD = 10.0
 
-QATAR_NEWS_TARGET_COUNT = 6
+QATAR_NEWS_TARGET_COUNT = 8
 QATAR_NEWS_MIN_VALID_COUNT = 4
 QATAR_NEWS_MAX_AGE_HOURS = 24
 
-GLOBAL_NEWS_TARGET_COUNT = 6
+GLOBAL_NEWS_TARGET_COUNT = 8
 GLOBAL_NEWS_MAX_AGE_HOURS = 36
 
 # ------------------------------------------------------------
@@ -268,34 +268,38 @@ EXPECTED_BY_CODE = {item["code"]: item for item in EXPECTED_INSTRUMENTS + OPTION
 
 
 NEWS_FEEDS = {
-    "global": [
-        # --- Established global business feeds ---
-        {
-            "source": "Reuters",
-            "url": "https://feeds.reuters.com/reuters/businessNews",
-            "max": 10,
-        },
-        {
-            "source": "Bloomberg",
-            "url": "https://feeds.bloomberg.com/markets/news.rss",
-            "max": 10,
-        },
-        # --- US markets ---
-        {
-            "source": "CNBC",
-            "url": "https://www.cnbc.com/id/15839069/device/rss/rss.html",
-            "max": 10,
-        },
-        {
-            "source": "CNBC World",
-            "url": "https://www.cnbc.com/id/100727362/device/rss/rss.html",
-            "max": 10,
-        },
-        {
-            "source": "MarketWatch",
-            "url": "https://www.marketwatch.com/rss/topstories",
-            "max": 10,
-        },
+"global": [
+    {
+        "source": "BBC World",
+        "url": "http://feeds.bbci.co.uk/news/world/rss.xml",
+        "max": 15,
+    },
+    {
+        "source": "BBC Europe",
+        "url": "http://feeds.bbci.co.uk/news/world/europe/rss.xml",
+        "max": 15,
+    },
+    {
+        "source": "BBC US & Canada",
+        "url": "http://feeds.bbci.co.uk/news/world/us_and_canada/rss.xml",
+        "max": 15,
+    },
+    {
+        "source": "BBC Asia",
+        "url": "http://feeds.bbci.co.uk/news/world/asia/rss.xml",
+        "max": 15,
+    },
+    {
+        "source": "Al Jazeera",
+        "url": "https://www.aljazeera.com/xml/rss/all.xml",
+        "max": 15,
+    },
+    {
+        "source": "CNBC World",
+        "url": "https://www.cnbc.com/id/100727362/device/rss/rss.html",
+        "max": 10,
+    },
+],
         # --- GCC business press ---
         {
             "source": "Khaleej Times",
@@ -1548,7 +1552,7 @@ def run() -> Dict[str, Any]:
         raw_global = fetch_global_news()
         raw_global = ensure_min_news(raw_global, GLOBAL_NEWS_TARGET_COUNT, "Reuters/Bloomberg")
         data["global_news"] = summarise_news(
-            raw_global, "US and GCC", GLOBAL_NEWS_TARGET_COUNT
+            raw_global, "US politics, Europe, China, geopolitics, GCC, technology, AI, energy and major world developments", GLOBAL_NEWS_TARGET_COUNT
         )
     else:
         data["global_news"] = []
