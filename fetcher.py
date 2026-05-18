@@ -268,38 +268,38 @@ EXPECTED_BY_CODE = {item["code"]: item for item in EXPECTED_INSTRUMENTS + OPTION
 
 
 NEWS_FEEDS = {
-"global": [
-    {
-        "source": "BBC World",
-        "url": "http://feeds.bbci.co.uk/news/world/rss.xml",
-        "max": 15,
-    },
-    {
-        "source": "BBC Europe",
-        "url": "http://feeds.bbci.co.uk/news/world/europe/rss.xml",
-        "max": 15,
-    },
-    {
-        "source": "BBC US & Canada",
-        "url": "http://feeds.bbci.co.uk/news/world/us_and_canada/rss.xml",
-        "max": 15,
-    },
-    {
-        "source": "BBC Asia",
-        "url": "http://feeds.bbci.co.uk/news/world/asia/rss.xml",
-        "max": 15,
-    },
-    {
-        "source": "Al Jazeera",
-        "url": "https://www.aljazeera.com/xml/rss/all.xml",
-        "max": 15,
-    },
-    {
-        "source": "CNBC World",
-        "url": "https://www.cnbc.com/id/100727362/device/rss/rss.html",
-        "max": 10,
-    },
-],
+    "global": [
+        {
+            "source": "BBC World",
+            "url": "http://feeds.bbci.co.uk/news/world/rss.xml",
+            "max": 15,
+        },
+        {
+            "source": "BBC Europe",
+            "url": "http://feeds.bbci.co.uk/news/world/europe/rss.xml",
+            "max": 15,
+        },
+        {
+            "source": "BBC US & Canada",
+            "url": "http://feeds.bbci.co.uk/news/world/us_and_canada/rss.xml",
+            "max": 15,
+        },
+        {
+            "source": "BBC Asia",
+            "url": "http://feeds.bbci.co.uk/news/world/asia/rss.xml",
+            "max": 15,
+        },
+        {
+            "source": "Al Jazeera",
+            "url": "https://www.aljazeera.com/xml/rss/all.xml",
+            "max": 15,
+        },
+        {
+            "source": "CNBC World",
+            "url": "https://www.cnbc.com/id/100727362/device/rss/rss.html",
+            "max": 10,
+        },
+
         # --- GCC business press ---
         {
             "source": "Khaleej Times",
@@ -316,7 +316,8 @@ NEWS_FEEDS = {
             "url": "https://www.arabnews.com/rss/business.xml",
             "max": 10,
         },
-        # --- Google News query feeds (aggregate Reuters/Bloomberg/FT/WSJ for us) ---
+
+        # --- Google News query feeds ---
         {
             "source": "US Markets",
             "url": "https://news.google.com/rss/search?q=US+markets+Fed+Wall+Street+Treasury&hl=en-US&gl=US&ceid=US:en",
@@ -333,6 +334,7 @@ NEWS_FEEDS = {
             "max": 10,
         },
     ],
+
     "qatar": [
         {
             "source": "The Peninsula",
@@ -351,7 +353,6 @@ NEWS_FEEDS = {
         },
     ],
 }
-
 
 def _to_float(value: Any) -> Optional[float]:
     try:
