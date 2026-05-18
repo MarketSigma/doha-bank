@@ -62,6 +62,8 @@ jobs:
 
       - name: Fetch market data and news
         if: steps.schedule_check.outputs.run_report == 'true'
+        env:
+          BRAVE_API_KEY: ${{ secrets.BRAVE_API_KEY }}
         run: |
           python3 fetcher.py
 
