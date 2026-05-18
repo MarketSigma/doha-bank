@@ -15,7 +15,7 @@
       "qatar_news": true
     }
   },
-  "generated_at": "2026-05-18T23:13:12Z",
+  "generated_at": "2026-05-18T23:20:28Z",
   "generated_display_time": "07:00 AST",
   "global_indices": [
     {
@@ -502,166 +502,166 @@
   "market_as_of_date": "2026-05-18",
   "global_news": [
     {
-      "headline": "Trump halts Iran attack after Gulf states intervention",
-      "summary": "US president says he called off planned Tuesday attack on Iran following request from Gulf states, with serious negotiations now underway.",
-      "source": "BBC World",
-      "url": "https://www.bbc.com/news/articles/c7079e55zjro?at_medium=RSS&at_campaign=rss",
-      "metric": "Attack cancelled",
-      "metric_label": "Military action status"
+      "headline": "US 10-year Treasury yield hits 4.63%, highest since January",
+      "summary": "Treasury yields surge to 15-month highs as Middle East conflict fuels inflation concerns and Fed rate hike expectations.",
+      "source": "Tradingeconomics",
+      "url": "https://tradingeconomics.com/united-states/government-bond-yield",
+      "metric": "4.63%",
+      "metric_label": "10-year Treasury yield"
     },
     {
-      "headline": "Israeli strikes kill over 3,000 in Lebanon",
-      "summary": "Death toll passes grim milestone in Israel-Hezbollah conflict since March, despite nominal ceasefire between the warring parties.",
+      "headline": "Jerome Powell named Fed chair pro tempore until Warsh",
+      "summary": "Federal Reserve Board names Jerome Powell as interim chair until Kevin Warsh is sworn in as new Fed head.",
+      "source": "Reuters",
+      "url": "https://www.reuters.com/markets/us/federal-reserve/",
+      "metric": "Interim",
+      "metric_label": "Fed leadership status"
+    },
+    {
+      "headline": "Trump halts Iran attack following Gulf states request",
+      "summary": "US president says he called off planned Tuesday attack on Iran as serious negotiations now taking place.",
+      "source": "BBC World",
+      "url": "https://www.bbc.com/news/articles/c7079e55zjro?at_medium=RSS&at_campaign=rss",
+      "metric": "Tuesday",
+      "metric_label": "Attack date cancelled"
+    },
+    {
+      "headline": "Brent crude trades around $111 amid US-Iran tensions",
+      "summary": "Oil markets under intense pressure as geopolitical tensions between United States and Iran continue to escalate.",
+      "source": "Polyestertime",
+      "url": "https://www.polyestertime.com/oil-prices-and-us-iran-war-brent-wti-analysis/",
+      "metric": "$111",
+      "metric_label": "Brent crude per barrel"
+    },
+    {
+      "headline": "Strait of Hormuz closure chokes 20% global oil supplies",
+      "summary": "Vital sea channel remains closed two months into US-Israeli war with Iran, disrupting global energy flows.",
+      "source": "Reuters",
+      "url": "https://www.reuters.com/business/energy/us-seeks-international-help-reopen-strait-hormuz-crude-prices-surge-2026-04-30/",
+      "metric": "20%",
+      "metric_label": "Global oil supply affected"
+    },
+    {
+      "headline": "Oil prices surge over 40% since war began",
+      "summary": "Effective shuttering of key trade route primary cause of dramatic jump in oil prices since conflict started.",
+      "source": "Nbcnews",
+      "url": "https://www.nbcnews.com/business/business-news/oil-markets-gas-prices-450-us-iran-near-deal-end-war-hormuz-rcna343819",
+      "metric": "40%+",
+      "metric_label": "Oil price increase"
+    },
+    {
+      "headline": "Aramco partners with Pasqal for quantum computing platform",
+      "summary": "Saudi Arabia's quantum leap as Aramco powers new tech frontier with globally accessible commercial quantum service.",
+      "source": "Briefglance",
+      "url": "https://briefglance.com/articles/saudi-arabias-quantum-leap-aramco-powers-new-tech-frontier",
+      "metric": "Commercial",
+      "metric_label": "Quantum service type"
+    },
+    {
+      "headline": "UAE strengthens position as global entrepreneurship hub",
+      "summary": "Emirates continues reinforcing attractive destination for company formation driven by advanced legislative framework and digital infrastructure.",
+      "source": "Gulfnews",
+      "url": "https://gulfnews.com/business/uae-strengthens-position-as-global-hub-for-company-formation-entrepreneurship-1.500543933",
+      "metric": "Global",
+      "metric_label": "Hub status ranking"
+    },
+    {
+      "headline": "S&P 500 trades near 7400 amid semiconductor weakness",
+      "summary": "Stock index down 0.3% as semis and memory weakness continues while software and AI sectors show strength.",
+      "source": "Nyse",
+      "url": "https://www.nyse.com/index",
+      "metric": "7400",
+      "metric_label": "S&P 500 level"
+    },
+    {
+      "headline": "US Dollar Index falls toward 99.10 on geopolitics",
+      "summary": "Dollar weakens as traders assess fresh geopolitical headlines and upcoming Federal Reserve leadership transition.",
+      "source": "Fxstreet",
+      "url": "https://www.fxstreet.com/news/forex-today-us-dollar-falls-as-markets-assess-fed-transition-and-us-iran-negotiations-202605181956",
+      "metric": "99.10",
+      "metric_label": "US Dollar Index level"
+    },
+    {
+      "headline": "Israeli strikes on Lebanon pass 3,000 death toll",
+      "summary": "Grim milestone reached in conflict between Israel and Hezbollah since March despite nominal ceasefire agreement.",
       "source": "BBC World",
       "url": "https://www.bbc.com/news/articles/cqjpglyjwjeo?at_medium=RSS&at_campaign=rss",
       "metric": "3,000+",
-      "metric_label": "Lebanese casualties"
+      "metric_label": "Death toll count"
     },
     {
-      "headline": "Trump unveils $1.7bn compensation fund for allies",
-      "summary": "Administration establishes settlement fund for individuals alleging unfair investigations as tax lawsuit is dropped.",
-      "source": "BBC World",
-      "url": "https://www.bbc.com/news/articles/cvgzr7vr203o?at_medium=RSS&at_campaign=rss",
-      "metric": "$1.7bn",
-      "metric_label": "Compensation fund"
-    },
-    {
-      "headline": "No additional story",
-      "summary": "No further qualifying news items were available for this section in this cycle.",
-      "source": "\u2014",
-      "url": "",
-      "metric": "NA",
-      "metric_label": "No data"
-    },
-    {
-      "headline": "No additional story",
-      "summary": "No further qualifying news items were available for this section in this cycle.",
-      "source": "\u2014",
-      "url": "",
-      "metric": "NA",
-      "metric_label": "No data"
-    },
-    {
-      "headline": "No additional story",
-      "summary": "No further qualifying news items were available for this section in this cycle.",
-      "source": "\u2014",
-      "url": "",
-      "metric": "NA",
-      "metric_label": "No data"
-    },
-    {
-      "headline": "No additional story",
-      "summary": "No further qualifying news items were available for this section in this cycle.",
-      "source": "\u2014",
-      "url": "",
-      "metric": "NA",
-      "metric_label": "No data"
-    },
-    {
-      "headline": "No additional story",
-      "summary": "No further qualifying news items were available for this section in this cycle.",
-      "source": "\u2014",
-      "url": "",
-      "metric": "NA",
-      "metric_label": "No data"
-    },
-    {
-      "headline": "No additional story",
-      "summary": "No further qualifying news items were available for this section in this cycle.",
-      "source": "\u2014",
-      "url": "",
-      "metric": "NA",
-      "metric_label": "No data"
-    },
-    {
-      "headline": "No additional story",
-      "summary": "No further qualifying news items were available for this section in this cycle.",
-      "source": "\u2014",
-      "url": "",
-      "metric": "NA",
-      "metric_label": "No data"
-    },
-    {
-      "headline": "No additional story",
-      "summary": "No further qualifying news items were available for this section in this cycle.",
-      "source": "\u2014",
-      "url": "",
-      "metric": "NA",
-      "metric_label": "No data"
-    },
-    {
-      "headline": "No additional story",
-      "summary": "No further qualifying news items were available for this section in this cycle.",
-      "source": "\u2014",
-      "url": "",
-      "metric": "NA",
-      "metric_label": "No data"
+      "headline": "Iran attacks US bases in Qatar, UAE, Bahrain",
+      "summary": "Retaliatory strikes inject uncertainty into global markets and raise alarm bells for Washington economic policymakers.",
+      "source": "Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Economic_impact_of_the_2026_Iran_war",
+      "metric": "3",
+      "metric_label": "Gulf states targeted"
     }
   ],
   "qatar_news": [
     {
-      "headline": "G7 finance ministers meet amid Middle East tensions",
-      "summary": "G7 finance ministers convene as Middle East war creates uncertainty for global economic outlook and stability.",
+      "headline": "G7 finance ministers meet as M-E war clouds economy",
+      "summary": "G7 finance ministers meet as Middle East war clouds global economy",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/234969/business/g7-finance-ministers-meet-as-m-e-war-clouds-global-economy",
-      "metric": "G7",
-      "metric_label": "Finance ministers meeting"
+      "metric": "G7 Meeting",
+      "metric_label": "Finance ministers gathering"
     },
     {
-      "headline": "Asian markets decline on oil surge war concerns",
-      "summary": "Asian stock markets fall as oil prices surge amid escalating war jitters affecting regional investor sentiment.",
+      "headline": "Asian markets slide as oil surge deepens war jitters",
+      "summary": "Asian markets slide as oil surge deepens war jitters",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/234967/business/asian-markets-slide-as-oil-surge-deepens-war-jitters",
-      "metric": "Oil surge",
-      "metric_label": "Market impact driver"
+      "metric": "Market Decline",
+      "metric_label": "Asian market performance"
     },
     {
-      "headline": "QCB governor meets Bloomberg board member",
-      "summary": "Qatar Central Bank governor holds meeting with Bloomberg board member for discussions on financial matters.",
+      "headline": "QCB governor meets with Bloomberg board member",
+      "summary": "QCB governor meets with Bloomberg board member",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/234962/business/qcb-governor-meets-with-bloomberg-board-member",
-      "metric": "QCB",
+      "metric": "High-level Meeti",
       "metric_label": "Central bank engagement"
     },
     {
       "headline": "Qatar Finance Minister meets global leaders in Paris",
-      "summary": "Minister of Finance conducts meetings with senior global economic and financial leaders during Paris visit.",
+      "summary": "Minister of Finance meets with senior global economic and financial leaders in Paris",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/234976/business/minister-of-finance-meets-with-a-number-of-senior-global-economic-and-financial-leaders-in-paris",
-      "metric": "Paris",
-      "metric_label": "Global meeting location"
+      "metric": "Diplomatic Engag",
+      "metric_label": "International finance meetings"
     },
     {
-      "headline": "SpaceX OpenAI Anthropic IPOs present risks rewards",
-      "summary": "Upcoming initial public offerings at SpaceX, OpenAI, and Anthropic present significant risks and potential rewards.",
+      "headline": "Big risks and rewards in upcoming tech IPOs",
+      "summary": "Big risks and rewards in upcoming IPOs at SpaceX, OpenAI, Anthropic",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/234958/business/big-risks-and-rewards-in-upcoming-ipos-at-spacex-openai-anthropic",
       "metric": "3 IPOs",
-      "metric_label": "Major upcoming offerings"
+      "metric_label": "Major tech offerings"
     },
     {
-      "headline": "Baidu quarterly revenue drops amid AI investment",
-      "summary": "China's Baidu reports quarterly revenue decline while continuing to invest heavily in artificial intelligence development.",
+      "headline": "China's Baidu posts quarterly revenue drop amid AI push",
+      "summary": "China's Baidu posts quarterly revenue drop amid AI push",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/234948/business/chinas-baidu-posts-quarterly-revenue-drop-amid-ai-push",
-      "metric": "Revenue drop",
-      "metric_label": "Quarterly performance"
+      "metric": "Revenue Drop",
+      "metric_label": "Baidu quarterly performance"
     },
     {
-      "headline": "Qatar Pakistan business council inaugural meeting held",
-      "summary": "Qatar-Pakistan business council conducts first meeting aimed at strengthening bilateral trade relationships and cooperation.",
+      "headline": "China-Russia hold trade expo amid global attention",
+      "summary": "China and Russia hold trade expo as Putin and Trump visits draw global attention",
+      "source": "Qatar Tribune",
+      "url": "https://www.qatar-tribune.com/article/234963/business/chinarussia-hold-trade-expo-as-putin-and-trump-visits-draw-global-attention",
+      "metric": "Trade Expo",
+      "metric_label": "Bilateral economic event"
+    },
+    {
+      "headline": "Qatar-Pakistan business council holds inaugural meeting",
+      "summary": "Qatar-Pakistan business council holds inaugural meeting to boost trade ties",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/234936/business/qatarpakistan-business-council-holds-inaugural-meeting-to-boost-trade-ties",
-      "metric": "Inaugural",
-      "metric_label": "First council meeting"
-    },
-    {
-      "headline": "No additional story",
-      "summary": "No further qualifying news items were available for this section in this cycle.",
-      "source": "\u2014",
-      "url": "",
-      "metric": "NA",
-      "metric_label": "No data"
+      "metric": "Inaugural Meetin",
+      "metric_label": "Bilateral trade initiative"
     }
   ],
   "kpis": [
