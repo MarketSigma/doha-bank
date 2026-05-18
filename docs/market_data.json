@@ -15,7 +15,7 @@
       "qatar_news": true
     }
   },
-  "generated_at": "2026-05-18T22:40:39Z",
+  "generated_at": "2026-05-18T23:03:13Z",
   "generated_display_time": "07:00 AST",
   "global_indices": [
     {
@@ -502,8 +502,8 @@
   "market_as_of_date": "2026-05-18",
   "global_news": [
     {
-      "headline": "Trump calls off Iran attack at Gulf states request",
-      "summary": "US president says he is holding off on planned US attack for Tuesday as serious negotiations are now taking place.",
+      "headline": "Trump calls off Iran attack after Gulf states request",
+      "summary": "US president says he is holding off on planned Tuesday attack as serious negotiations are now taking place with Gulf states.",
       "source": "BBC World",
       "url": "https://www.bbc.com/news/articles/c7079e55zjro?at_medium=RSS&at_campaign=rss",
       "metric": "Tuesday",
@@ -511,19 +511,19 @@
     },
     {
       "headline": "Israeli strikes on Lebanon death toll passes 3,000",
-      "summary": "Grim milestone in conflict between Israel and Hezbollah since March, despite nominal ceasefire between the parties.",
+      "summary": "Grim milestone reached in conflict between Israel and Hezbollah since March, despite nominal ceasefire in place.",
       "source": "BBC World",
       "url": "https://www.bbc.com/news/articles/cqjpglyjwjeo?at_medium=RSS&at_campaign=rss",
       "metric": "3,000+",
-      "metric_label": "Deaths from Israeli strikes"
+      "metric_label": "Death toll from strikes"
     },
     {
-      "headline": "No additional story",
-      "summary": "No further qualifying news items were available for this section in this cycle.",
-      "source": "\u2014",
-      "url": "",
-      "metric": "NA",
-      "metric_label": "No data"
+      "headline": "Trump unveils $1.7bn fund to compensate allies",
+      "summary": "Settlement will go towards individuals who allege they were subjected to unfair investigations as tax lawsuit dropped.",
+      "source": "BBC World",
+      "url": "https://www.bbc.com/news/articles/cvgzr7vr203o?at_medium=RSS&at_campaign=rss",
+      "metric": "$1.7bn",
+      "metric_label": "Compensation fund value"
     },
     {
       "headline": "No additional story",
@@ -601,7 +601,7 @@
   "qatar_news": [
     {
       "headline": "G7 finance ministers meet as M-E war clouds economy",
-      "summary": "G7 finance ministers convene amid Middle East conflict concerns affecting global economic outlook.",
+      "summary": "G7 finance ministers convene to address global economic concerns amid Middle East conflict developments.",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/234969/business/g7-finance-ministers-meet-as-m-e-war-clouds-global-economy",
       "metric": "G7",
@@ -609,39 +609,39 @@
     },
     {
       "headline": "Asian markets slide as oil surge deepens jitters",
-      "summary": "Asian financial markets decline amid oil price increases driven by war-related market concerns.",
+      "summary": "Asian financial markets decline while oil prices surge, reflecting increased market volatility from war concerns.",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/234967/business/asian-markets-slide-as-oil-surge-deepens-war-jitters",
       "metric": "Oil surge",
-      "metric_label": "Market impact driver"
+      "metric_label": "Market volatility indicator"
     },
     {
       "headline": "QCB governor meets with Bloomberg board member",
-      "summary": "Qatar Central Bank governor holds meeting with Bloomberg board member.",
+      "summary": "Qatar Central Bank governor holds meeting with Bloomberg board member for discussions.",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/234962/business/qcb-governor-meets-with-bloomberg-board-member",
       "metric": "QCB",
       "metric_label": "Central bank engagement"
     },
     {
-      "headline": "Minister of Finance meets global leaders in Paris",
-      "summary": "Qatar's Finance Minister conducts meetings with senior global economic and financial leaders in Paris.",
+      "headline": "Qatar Finance Minister meets global leaders in Paris",
+      "summary": "Minister of Finance conducts meetings with senior global economic and financial leaders in Paris.",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/234976/business/minister-of-finance-meets-with-a-number-of-senior-global-economic-and-financial-leaders-in-paris",
       "metric": "Paris",
-      "metric_label": "Meeting location"
+      "metric_label": "International finance meeting"
     },
     {
-      "headline": "Big risks and rewards in upcoming tech IPOs",
-      "summary": "Analysis of investment risks and opportunities in planned public offerings by SpaceX, OpenAI, and Anthropic.",
+      "headline": "Big risks in upcoming SpaceX OpenAI IPOs",
+      "summary": "Analysis of significant risks and rewards in anticipated IPOs at SpaceX, OpenAI, and Anthropic.",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/234958/business/big-risks-and-rewards-in-upcoming-ipos-at-spacex-openai-anthropic",
       "metric": "3 IPOs",
-      "metric_label": "Tech companies going public"
+      "metric_label": "Major upcoming listings"
     },
     {
       "headline": "China's Baidu posts quarterly revenue drop amid AI",
-      "summary": "Chinese technology company Baidu reports declining quarterly revenue despite artificial intelligence investment push.",
+      "summary": "Baidu reports quarterly revenue decline while continuing its artificial intelligence development initiatives.",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/234948/business/chinas-baidu-posts-quarterly-revenue-drop-amid-ai-push",
       "metric": "Revenue drop",
@@ -649,11 +649,11 @@
     },
     {
       "headline": "Qatar-Pakistan business council holds inaugural meeting",
-      "summary": "First meeting of Qatar-Pakistan business council aimed at strengthening bilateral trade relationships.",
+      "summary": "Qatar-Pakistan business council convenes inaugural meeting to strengthen bilateral trade relationships.",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/234936/business/qatarpakistan-business-council-holds-inaugural-meeting-to-boost-trade-ties",
       "metric": "Inaugural",
-      "metric_label": "Qatar-Pakistan council meeting"
+      "metric_label": "Business council launch"
     },
     {
       "headline": "No additional story",
