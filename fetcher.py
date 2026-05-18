@@ -438,6 +438,26 @@ def _clean_text(text: str) -> str:
     return text
 
 
+def _source_from_url(url: str) -> str:
+    """Derive a clean source name from a URL host (e.g. 'reuters.com' -> 'Reuters')."""
+    if not url:
+        return ""
+    try:
+        from urllib.parse import urlparse
+        host = urlparse(url).netloc.lower()
+        host = re.sub(r"^www\.", "", host)
+        host = re.sub(r"^(m|amp|edition|news)\.", "", host)
+        # Use the registrable label (e.g. reuters from reuters.com)
+        parts = host.split(".")
+        if len(parts) >= 2:
+            label = parts[-2]
+        else:
+            label = host
+        return label.replace("-", " ").title()
+    except Exception:
+        return ""
+
+
 def _supabase_headers() -> Dict[str, str]:
     supabase_key = os.environ.get("SUPABASE_SERVICE_ROLE_KEY")
     if not supabase_key:
@@ -1009,9 +1029,12 @@ def _brave_global_news() -> List[Dict[str, Any]]:
                 title = _clean_text(result.get("title", ""))
                 summary = _clean_text(result.get("description", ""))
                 url = result.get("url", "") or ""
-                source = result.get("profile", {}).get("name") or "Brave Search"
+                profile_name = (result.get("profile") or {}).get("name") or ""
+                # Prefer the URL-derived source so attribution is accurate and
+                # generic strings like "Brave Search" never leak to the model.
+                source = _source_from_url(url) or profile_name or "Web"
                 published = result.get("age") or result.get("page_age") or ""
-                if not title:
+                if not title or not url:
                     continue
                 out.append({
                     "source": source,
@@ -1157,9 +1180,10 @@ def _brave_qatar_news() -> List[Dict[str, Any]]:
                 title = _clean_text(result.get("title", ""))
                 summary = _clean_text(result.get("description", ""))
                 url = result.get("url", "") or ""
-                source = result.get("profile", {}).get("name") or "Brave Search"
+                profile_name = (result.get("profile") or {}).get("name") or ""
+                source = _source_from_url(url) or profile_name or "Web"
                 published = result.get("age") or result.get("page_age") or ""
-                if not title:
+                if not title or not url:
                     continue
                 out.append({
                     "source": source,
@@ -1312,12 +1336,12 @@ def _fallback_summarise_news(raw_items: List[Dict[str, Any]], count: int) -> Lis
 
     while len(fallback) < count:
         fallback.append({
-            "headline": "Market update",
-            "summary": "Latest development relevant to markets.",
-            "source": "Feed",
+            "headline": "No additional story",
+            "summary": "No further qualifying news items were available for this section in this cycle.",
+            "source": "—",
             "url": "",
-            "metric": "NEWS",
-            "metric_label": "Signal",
+            "metric": "NA",
+            "metric_label": "No data",
         })
 
     return fallback[:count]
@@ -1342,7 +1366,13 @@ def summarise_news(raw_items: List[Dict[str, Any]], scope: str, count: int) -> L
 
     system = (
         "You are a financial news editor for a Gulf bank daily market intelligence report. "
-        "Return only valid JSON. Select the most relevant stories and produce clean metric boxes."
+        "Return only valid JSON. Select the most relevant stories and produce clean metric boxes. "
+        "CRITICAL: Every headline, summary, source and URL you return MUST be derived strictly "
+        "from the news items provided. You must NEVER invent, fabricate, embellish, or guess "
+        "any fact, number, name, quote, source attribution, or URL that is not present in the "
+        "input. If an input item has a thin or empty body, keep your output equally thin — do "
+        "not pad it with plausible-sounding details. If fewer than the requested count of real "
+        "items are usable, return fewer items rather than fabricating to hit the target."
     )
 
     priority_hint = ""
@@ -1358,9 +1388,9 @@ def summarise_news(raw_items: List[Dict[str, Any]], scope: str, count: int) -> L
         )
 
     prompt = f"""
-From the following {scope} news items, select the {count} most relevant stories.
+From the following {scope} news items, select AT MOST {count} of the most relevant stories.
 {priority_hint}
-Return a JSON array of exactly {count} objects.
+Return a JSON array of UP TO {count} objects (fewer is acceptable if fewer real items qualify).
 
 Each object must contain exactly these keys:
 - headline
@@ -1370,11 +1400,19 @@ Each object must contain exactly these keys:
 - metric
 - metric_label
 
-Rules:
+Strict rules:
+- Use ONLY the source string exactly as it appears in brackets for that item. Do not
+  rename, generalise, or re-attribute (e.g. do not relabel a "BBC World" item as
+  "Reuters" or "Bloomberg").
+- Use ONLY the URL exactly as provided in the item (after "URL:"). If empty, return "".
+- The headline and summary must be supported by the title/summary of the SAME item.
+  Do not introduce facts, figures, quotes, or names that are not in the input.
 - headline maximum 10 words
 - summary maximum 40 words
 - metric must be meaningful, short, and never just a dash unless absolutely impossible
 - metric_label must explain the metric briefly
+- If an input item is clearly a placeholder, empty, or non-substantive, SKIP it
+  rather than inventing content to fill the slot.
 - no markdown fences
 - no preamble
 
@@ -1400,23 +1438,43 @@ News:
         cleaned = []
 
         for item in parsed[:count]:
+            # Defensive validation: only keep items whose source is one that
+            # actually appeared in our input list. This stops the model from
+            # silently relabelling something as "Reuters" or "Bloomberg".
+            allowed_sources = {(it.get("source") or "").strip() for it in raw_items}
+            allowed_sources.discard("")
+            item_source = (item.get("source") or "").strip()
+            if allowed_sources and item_source and item_source not in allowed_sources:
+                # Drop the false attribution but keep the rest if URL is present in input
+                input_urls = {(it.get("link") or "") for it in raw_items}
+                if (item.get("url") or "") not in input_urls:
+                    # Both source and URL are unfamiliar — likely fabricated, skip
+                    continue
+                # URL is real; coerce source to the matching input source
+                for it in raw_items:
+                    if (it.get("link") or "") == item.get("url"):
+                        item_source = it.get("source") or item_source
+                        break
+
             cleaned.append({
-                "headline": item.get("headline", "")[:120] or "Market update",
-                "summary": item.get("summary", "")[:240] or "Latest development relevant to markets.",
-                "source": item.get("source", "") or "Feed",
-                "url": item.get("url", ""),
-                "metric": item.get("metric", "")[:16] or "NEWS",
-                "metric_label": item.get("metric_label", "")[:32] or "Signal",
+                "headline": (item.get("headline") or "")[:120] or "Market update",
+                "summary": (item.get("summary") or "")[:240] or "Latest development relevant to markets.",
+                "source": item_source or "Feed",
+                "url": item.get("url", "") or "",
+                "metric": (item.get("metric") or "")[:16] or "NEWS",
+                "metric_label": (item.get("metric_label") or "")[:32] or "Signal",
             })
 
+        # Pad with NEUTRAL, clearly-empty slots (no fake source attribution).
+        # The front-end can choose to hide entries with metric == "NA".
         while len(cleaned) < count:
             cleaned.append({
-                "headline": "Market update",
-                "summary": "Latest development relevant to markets.",
-                "source": "Feed",
+                "headline": "No additional story",
+                "summary": "No further qualifying news items were available for this section in this cycle.",
+                "source": "—",
                 "url": "",
-                "metric": "NEWS",
-                "metric_label": "Signal",
+                "metric": "NA",
+                "metric_label": "No data",
             })
 
         return cleaned[:count]
@@ -1526,9 +1584,15 @@ def run() -> Dict[str, Any]:
     if cfg["sections"].get("global_news", True):
         print("  · global news (US + GCC focus)")
         raw_global = fetch_global_news()
-        raw_global = ensure_min_news(raw_global, GLOBAL_NEWS_TARGET_COUNT, "Reuters/Bloomberg")
+        # NOTE: do NOT pre-pad raw_global with synthetic "Reuters/Bloomberg"
+        # placeholders. Doing so caused the summariser to hallucinate plausible
+        # Reuters/Bloomberg stories to fill the empty slots. We pass only real
+        # items to Claude and pad the OUTPUT (not the input) with neutral,
+        # unattributed slots inside summarise_news().
         data["global_news"] = summarise_news(
-            raw_global, "US politics, Europe, China, geopolitics, GCC, technology, AI, energy and major world developments", GLOBAL_NEWS_TARGET_COUNT
+            raw_global,
+            "US politics, Europe, China, geopolitics, GCC, technology, AI, energy and major world developments",
+            GLOBAL_NEWS_TARGET_COUNT,
         )
     else:
         data["global_news"] = []
@@ -1581,5 +1645,3 @@ if __name__ == "__main__":
         json.dump(result, f, indent=2, default=str)
 
     print("✓ Data written to market_data.json")
-
-    
