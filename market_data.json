@@ -15,7 +15,7 @@
       "qatar_news": true
     }
   },
-  "generated_at": "2026-05-18T20:42:04Z",
+  "generated_at": "2026-05-18T20:43:50Z",
   "generated_display_time": "07:00 AST",
   "global_indices": [
     {
@@ -502,48 +502,48 @@
   "market_as_of_date": "2026-05-18",
   "global_news": [
     {
-      "headline": "S&P 500 Ends Choppy Session Little Changed",
-      "summary": "S&P 500 traded flat amid oil price swings and US-Iran peace talk signals. Ten-year Treasury yields held below 4.6%.",
+      "headline": "S&P 500 Ends Flat as Oil Swings Drive Choppy Session",
+      "summary": "US stocks traded sideways Monday amid mixed US-Iran peace talk signals, with 10-year Treasury yields steady below 4.6% and semiconductor stocks declining.",
       "source": "Bloomberg",
       "url": "https://www.bloomberg.com/news/articles/2026-05-18/us-futures-slip-as-inflation-worries-feed-risk-off-sentiment",
       "metric": "4.6%",
-      "metric_label": "10-year Treasury yield level"
+      "metric_label": "10-year Treasury yield threshold"
     },
     {
-      "headline": "NextEra Buys Dominion for $67 Billion",
-      "summary": "Largest power sector acquisition creates utility giant spanning Florida to Virginia AI data centers in all-stock deal.",
+      "headline": "NextEra Acquires Dominion Energy for $67 Billion",
+      "summary": "Largest power sector deal ever creates utility giant spanning Florida to Virginia AI data centers, combining two major energy infrastructure companies.",
       "source": "Bloomberg",
       "url": "https://www.bloomberg.com/news/articles/2026-05-18/nextera-to-buy-dominion-for-67-billion-to-form-utility-colossus",
       "metric": "$67B",
-      "metric_label": "Deal value in stock"
+      "metric_label": "Acquisition value in stock"
     },
     {
-      "headline": "Akamai Seeks $2.6 Billion Convertible Bond",
-      "summary": "Technology company plans convertible bond offering to fund cloud computing infrastructure expansion and development spending.",
+      "headline": "Akamai Launches $2.6 Billion Convertible Bond Offering",
+      "summary": "Cloud computing company seeks funding for infrastructure expansion through convertible debt issuance in corporate bond markets.",
       "source": "Bloomberg",
       "url": "https://www.bloomberg.com/news/articles/2026-05-18/akamai-seeks-to-raise-2-6-billion-in-convertbile-bond-offering",
       "metric": "$2.6B",
-      "metric_label": "Convertible bond target amount"
+      "metric_label": "Convertible bond offering size"
     },
     {
-      "headline": "Foreign Holdings of US Treasuries Decline",
-      "summary": "Overseas investors reduced Treasury bill holdings in March while increasing positions in longer-dated government securities.",
+      "headline": "Foreign US Treasury Holdings Drop in March",
+      "summary": "Overseas investors reduced Treasury bill positions while increasing longer-dated securities, reflecting changing international demand patterns for US debt.",
       "source": "Bloomberg",
       "url": "https://www.bloomberg.com/news/articles/2026-05-18/foreign-holdings-of-us-treasuries-fell-in-march-amid-bill-sales",
       "metric": "March",
-      "metric_label": "Month of holdings decline"
+      "metric_label": "Month of foreign Treasury outflo"
     },
     {
       "headline": "Texas Fund Backs State Street Credit ETF",
-      "summary": "$60 billion sovereign wealth fund supporting Texas public schools identified as major investor in private credit ETF.",
+      "summary": "60 billion dollar sovereign wealth fund supporting Texas public schools revealed as major investor in private credit exchange-traded fund.",
       "source": "Bloomberg",
       "url": "https://www.bloomberg.com/news/articles/2026-05-18/texas-fund-revealed-as-record-backer-of-state-street-credit-etf",
       "metric": "$60B",
-      "metric_label": "Texas sovereign fund size"
+      "metric_label": "Texas sovereign wealth fund size"
     },
     {
-      "headline": "Credit Markets Show Buyer Fatigue Signs",
-      "summary": "Invesco's Matt Brill discusses high-grade credit conditions and inflation's impact on fixed income investment strategies.",
+      "headline": "Credit Markets Show Buyer Fatigue Says Invesco",
+      "summary": "Investment grade credit head discusses market conditions, inflation impact on fixed income, and ETF strategies amid changing investor sentiment.",
       "source": "Bloomberg",
       "url": "https://www.bloomberg.com/news/videos/2026-05-18/some-buyer-fatigue-credit-matt-brill-video",
       "metric": "GTO",
@@ -553,35 +553,35 @@
   "qatar_news": [
     {
       "headline": "Real estate trade volume exceeds QR2 bn in April",
-      "summary": "Qatar's real estate market demonstrates strong performance with trading volumes surpassing QR2 billion during April 2026, indicating robust property sector activity.",
+      "summary": "Qatar's real estate sector demonstrates strong performance with trading volumes surpassing QR2 billion during April 2026, indicating robust market activity.",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/234763/business/real-estate-trade-volume-exceeds-qr2-bn-in-april-2026",
-      "metric": "QR2bn+",
+      "metric": "QR2 bn+",
       "metric_label": "April real estate trade volume"
     },
     {
       "headline": "US Energy Secretary visits QatarEnergy Golden Pass project",
-      "summary": "Senior US energy official conducts site visit to QatarEnergy's Golden Pass LNG facility, highlighting strategic energy partnership between nations.",
+      "summary": "High-level diplomatic engagement as US Secretary of Energy tours QatarEnergy's strategic Golden Pass LNG facility, strengthening bilateral energy cooperation.",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/234713/business/us-secretary-of-energy-visits-qatarenergys-golden-pass-lng-project",
-      "metric": "High-level visit",
-      "metric_label": "US-Qatar energy cooperation"
+      "metric": "Golden Pass LNG",
+      "metric_label": "Strategic energy project visited"
     },
     {
-      "headline": "QCB governor meets Chinese ambassador to Qatar",
-      "summary": "Qatar Central Bank governor holds discussions with China's ambassador, potentially strengthening bilateral financial and economic cooperation between countries.",
+      "headline": "QCB governor meets Chinese ambassador for bilateral talks",
+      "summary": "Qatar Central Bank governor engages with China's ambassador, potentially discussing monetary cooperation and strengthening financial ties between nations.",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/234718/business/qcb-governor-meets-ambassador-of-china-to-qatar",
-      "metric": "Bilateral meetin",
-      "metric_label": "Qatar-China financial relations"
+      "metric": "China-Qatar",
+      "metric_label": "Bilateral financial cooperation "
     },
     {
       "headline": "India struggles with rupee decline amid oil shock",
-      "summary": "Indian currency faces pressure as oil price volatility impacts economic growth, creating challenges for the subcontinent's monetary policy.",
+      "summary": "India faces currency pressures as rupee weakens due to oil price volatility, impacting regional economic stability and trade relationships.",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/234731/business/india-scrambles-to-steady-sinking-rupee-as-oil-shock-derails-growth",
-      "metric": "Currency pressur",
-      "metric_label": "Indian rupee stability concerns"
+      "metric": "Rupee decline",
+      "metric_label": "Indian currency pressure indicat"
     }
   ],
   "kpis": [
