@@ -1,4 +1,4 @@
-import json
+    import json
 import os
 import re
 import datetime
@@ -37,7 +37,7 @@ QATAR_NEWS_TARGET_COUNT = 8
 QATAR_NEWS_MIN_VALID_COUNT = 4
 QATAR_NEWS_MAX_AGE_HOURS = 24
 
-GLOBAL_NEWS_TARGET_COUNT = 12
+GLOBAL_NEWS_TARGET_COUNT = 10
 GLOBAL_NEWS_MAX_AGE_HOURS = 36
 
 # ------------------------------------------------------------
@@ -90,12 +90,27 @@ GLOBAL_EXCLUDE_KEYWORDS = [
 # Brave Search fallback queries — used if the RSS feeds return too few
 # items after relevance filtering.
 GLOBAL_NEWS_BRAVE_QUERIES = [
-    'US Fed Powell Treasury yields markets today',
-    'Saudi Aramco UAE Dubai Abu Dhabi GCC business',
-    'OPEC oil Brent crude price today',
-    'Middle East Iran Israel oil gas markets',
-    'Wall Street S&P 500 Nasdaq today',
-    'US dollar DXY currency Federal Reserve',
+    # --- US macro & monetary policy ---
+    'Federal Reserve Powell interest rates today',
+    'US Treasury yields bond market today',
+    'US inflation CPI PCE economy today',
+    'US jobs report nonfarm payrolls unemployment',
+    # --- US equities & corporate ---
+    'Wall Street S&P 500 Nasdaq Dow Jones today',
+    'US corporate earnings results tech banks',
+    # --- FX / dollar ---
+    'US dollar DXY currency markets today',
+    # --- GCC (non-Qatar) ---
+    'Saudi Arabia Aramco PIF Vision 2030 economy',
+    'UAE Dubai Abu Dhabi ADNOC Mubadala ADIA business',
+    'Kuwait Bahrain Oman GCC business economy markets',
+    # --- Energy ---
+    'OPEC oil production Brent crude price today',
+    'LNG natural gas market price Europe Asia',
+    # --- Geopolitics moving Gulf markets ---
+    'Middle East Iran Israel Hormuz markets oil',
+    # --- Major non-US developed markets ---
+    'ECB Bank of England Bank of Japan central bank',
 ]
 
 QATAR_BUSINESS_KEYWORDS = [
@@ -151,6 +166,18 @@ CREDIBLE_GLOBAL_DOMAINS = {
     # Official / government primary sources
     "federalreserve.gov", "treasury.gov", "sec.gov", "opec.org",
     "imf.org", "worldbank.org",
+}
+
+# Premium / wire-grade subset of the global allowlist. Items from these
+# domains are sorted to the top of the candidate list so they reach Claude
+# first and get the prime story slots.
+PREMIUM_GLOBAL_DOMAINS = {
+    "reuters.com", "bloomberg.com", "ft.com", "wsj.com", "nytimes.com",
+    "economist.com", "cnbc.com", "apnews.com", "bbc.com", "bbc.co.uk",
+    "marketwatch.com", "axios.com", "barrons.com",
+    "arabnews.com", "thenationalnews.com", "thenational.ae",
+    "agbi.com", "zawya.com", "alarabiya.net",
+    "federalreserve.gov", "treasury.gov", "sec.gov", "opec.org",
 }
 
 CREDIBLE_QATAR_DOMAINS = {
@@ -1159,7 +1186,11 @@ def _is_relevant_global_item(item: Dict[str, Any], now_utc: datetime.datetime) -
     return True
 
 
-def _brave_global_news() -> List[Dict[str, Any]]:
+def _brave_global_news(freshness: str = "pd") -> List[Dict[str, Any]]:
+    """Run all global Brave queries with the given freshness window.
+
+    freshness: 'pd' = past day, 'pw' = past week, 'pm' = past month.
+    """
     api_key = os.environ.get("BRAVE_API_KEY")
     if not api_key:
         print("[WARN] BRAVE_API_KEY not set, global Brave fallback skipped.")
@@ -1180,7 +1211,7 @@ def _brave_global_news() -> List[Dict[str, Any]]:
                     "q": query,
                     "count": "10",
                     "search_lang": "en",
-                    "freshness": "pd",
+                    "freshness": freshness,
                     "safesearch": "moderate",
                 },
                 timeout=30,
@@ -1206,15 +1237,46 @@ def _brave_global_news() -> List[Dict[str, Any]]:
                     "published": published,
                 })
         except Exception as exc:
-            print(f"[WARN] Brave global news query failed: {query} | {exc}")
+            print(f"[WARN] Brave global news query failed ({freshness}): {query} | {exc}")
 
     return out
 
 
+def _is_premium_global_source(url: str) -> bool:
+    return _host_matches_allowlist(_domain_of(url), PREMIUM_GLOBAL_DOMAINS)
+
+
+def _apply_global_brave_filter(brave_items, current_filtered):
+    """Filter a batch of Brave items down to credible non-Qatar items.
+    Returns (kept_list, drop_uncredible_count, drop_qatar_count, drop_excluded_count)."""
+    kept = []
+    drop_uncredible = drop_qatar = drop_excluded = 0
+    for item in brave_items:
+        blob = f"{item.get('title','')} {item.get('summary','')}".lower()
+        if any(bad in blob for bad in GLOBAL_EXCLUDE_KEYWORDS):
+            drop_excluded += 1
+            continue
+        if _is_qatar_focused_item(item):
+            drop_qatar += 1
+            continue
+        if not _is_credible_global_source(item.get("link", "")):
+            drop_uncredible += 1
+            continue
+        kept.append(item)
+    return kept, drop_uncredible, drop_qatar, drop_excluded
+
+
 def fetch_global_news() -> List[Dict[str, Any]]:
     """
-    Fetch from the global feed list, apply US/GCC relevance filter,
-    and top up via Brave Search if we don't have enough survivors.
+    Fetch global news in two passes:
+      1. RSS feeds with strict include/exclude/age filter.
+      2. Brave Search (past day only) over the credible-publisher allowlist.
+
+    No stale-news fallback. If today's coverage is thin, the report shows
+    fewer cards rather than dragging in old stories.
+
+    Items are then sorted so premium wires (Reuters, Bloomberg, FT, WSJ
+    etc.) reach the summariser first.
     """
     now_utc = datetime.datetime.now(datetime.timezone.utc)
     raw = dedupe_news(fetch_news(NEWS_FEEDS["global"]))
@@ -1223,57 +1285,54 @@ def fetch_global_news() -> List[Dict[str, Any]]:
     filtered = [item for item in raw if _is_relevant_global_item(item, now_utc)]
     print(f"    [global] After include/exclude/age filter on RSS: {len(filtered)}")
 
-    # If feeds gave us thin coverage, top up from Brave.
-    # IMPORTANT: do NOT re-apply the INCLUDE keyword whitelist to Brave items.
-    # The Brave query itself ('US Fed Powell Treasury ...') is the include filter,
-    # and Brave only returns a short snippet that often doesn't repeat those
-    # exact keywords. Applying GLOBAL_FOCUS_KEYWORDS here was rejecting most
-    # genuinely relevant Brave results. We only enforce the EXCLUDE list
-    # (sports/entertainment noise).
-    if len(filtered) < GLOBAL_NEWS_TARGET_COUNT * 2:
-        if not os.environ.get("BRAVE_API_KEY"):
-            print("    [global] BRAVE_API_KEY not set — Brave fallback skipped.")
-            brave_items: List[Dict[str, Any]] = []
-        else:
-            brave_items = dedupe_news(_brave_global_news())
-            print(f"    [global] Brave raw items (deduped across queries): {len(brave_items)}")
-
-        kept_from_brave = 0
-        dropped_uncredible = 0
-        dropped_qatar = 0
-        for item in brave_items:
-            blob = f"{item.get('title','')} {item.get('summary','')}".lower()
-            if any(bad in blob for bad in GLOBAL_EXCLUDE_KEYWORDS):
-                continue
-            # Qatar-focused stories belong in the Qatar section, never global.
-            if _is_qatar_focused_item(item):
-                dropped_qatar += 1
-                continue
-            # Reject open-web noise — only accept items from the curated
-            # credible publisher allowlist.
-            if not _is_credible_global_source(item.get("link", "")):
-                dropped_uncredible += 1
-                continue
-            filtered.append(item)
-            kept_from_brave += 1
-        print(f"    [global] Brave kept: {kept_from_brave}  "
-              f"(dropped {dropped_uncredible} non-credible, {dropped_qatar} Qatar-focused)")
+    if not os.environ.get("BRAVE_API_KEY"):
+        print("    [global] BRAVE_API_KEY not set — Brave fallback skipped.")
+    else:
+        brave_pd = dedupe_news(_brave_global_news(freshness="pd"))
+        print(f"    [global] Brave (past day) raw items: {len(brave_pd)}")
+        kept, du, dq, de = _apply_global_brave_filter(brave_pd, filtered)
+        filtered.extend(kept)
+        print(f"    [global] Brave (past day) kept: {len(kept)} "
+              f"(dropped {du} non-credible, {dq} Qatar-focused, {de} excluded-noise)")
 
         filtered = dedupe_news(filtered)
-        print(f"    [global] After merging RSS + Brave and deduping: {len(filtered)}")
+        print(f"    [global] After RSS + Brave merge & dedupe: {len(filtered)}")
 
-    print(f"    [global] Final items to summariser: {len(filtered)}")
+    # Sort so premium wires reach Claude first; Claude picks the top
+    # GLOBAL_NEWS_TARGET_COUNT items and our prompt enforces US > GCC ordering.
+    def _rank(item):
+        url = item.get("link", "")
+        # 0 = premium, 1 = credible-but-not-premium, 2 = anything else (RSS feeds)
+        if _is_premium_global_source(url):
+            return 0
+        if _is_credible_global_source(url):
+            return 1
+        return 2
+
+    filtered.sort(key=_rank)
+
+    print(f"    [global] Final items to summariser: {len(filtered)}  "
+          f"(premium: {sum(1 for i in filtered if _is_premium_global_source(i.get('link','')))})")
     return filtered
 
 
 def _is_recent_qatar_business_item(item: Dict[str, Any], now_utc: datetime.datetime) -> bool:
-    title = _clean_text(item.get("title") or item.get("headline") or "")
-    summary = _clean_text(item.get("summary") or item.get("description") or "")
-    source = _clean_text(item.get("source") or "")
-    blob = f"{title} {summary} {source}".lower()
+    title = _clean_text(item.get("title") or item.get("headline") or "").lower()
+    summary = _clean_text(item.get("summary") or item.get("description") or "").lower()
+    source = _clean_text(item.get("source") or "").lower()
 
-    if "qatar" not in blob and "doha" not in blob and "qnb" not in blob and "qse" not in blob:
+    # Qatar anchor — require Qatar reference in the actual content
+    # (title or summary). The publisher name is deliberately EXCLUDED
+    # from this check, so a Qatar Tribune article about Saudi politics
+    # does not qualify as Qatar news. Content must be about Qatar.
+    content_blob = f"{title} {summary}"
+    qatar_terms = ("qatar", "doha", "qnb", "qse", "qib", "qcb", "qatarenergy", "qia")
+    if not any(t in content_blob for t in qatar_terms):
         return False
+
+    # The other relevance checks can still see the publisher, since
+    # source-name false positives are not a concern there.
+    blob = f"{content_blob} {source}"
 
     if any(bad in blob for bad in QATAR_EXCLUDE_KEYWORDS):
         return False
@@ -1411,12 +1470,18 @@ def fetch_qatar_business_news() -> List[Dict[str, Any]]:
         kept_from_brave = 0
         dropped_uncredible = 0
         for item in brave_items:
-            blob = f"{item.get('title','')} {item.get('summary','')} {item.get('source','')}".lower()
-            if any(bad in blob for bad in QATAR_EXCLUDE_KEYWORDS):
+            title_l = (item.get("title") or "").lower()
+            summary_l = (item.get("summary") or "").lower()
+            source_l = (item.get("source") or "").lower()
+            content_blob = f"{title_l} {summary_l}"
+            full_blob = f"{content_blob} {source_l}"
+            if any(bad in full_blob for bad in QATAR_EXCLUDE_KEYWORDS):
                 continue
-            # Require a Qatar geographic anchor — Brave is broad search, so
-            # this stops off-topic returns leaking into the Qatar section.
-            if not any(k in blob for k in ("qatar", "doha", "qnb", "qse", "qib", "qcb", "qatarenergy")):
+            # Qatar anchor — require the actual content (title or summary)
+            # to be about Qatar. The publisher name is excluded from this
+            # check: a Qatar Tribune article about Saudi affairs is not
+            # Qatar news.
+            if not any(k in content_blob for k in ("qatar", "doha", "qnb", "qse", "qib", "qcb", "qatarenergy")):
                 continue
             # Only accept Qatar-press and reputable international coverage.
             if not _is_credible_qatar_source(item.get("link", "")):
@@ -1556,16 +1621,7 @@ def _fallback_summarise_news(raw_items: List[Dict[str, Any]], count: int) -> Lis
             "metric_label": metric_label,
         })
 
-    while len(fallback) < count:
-        fallback.append({
-            "headline": "No additional story",
-            "summary": "No further qualifying news items were available for this section in this cycle.",
-            "source": "—",
-            "url": "",
-            "metric": "NA",
-            "metric_label": "No data",
-        })
-
+    # No placeholder padding — return only real items, even if fewer than count.
     return fallback[:count]
 
 
@@ -1696,18 +1752,10 @@ News:
                 "metric_label": (item.get("metric_label") or "")[:32] or "Signal",
             })
 
-        # Pad with NEUTRAL, clearly-empty slots (no fake source attribution).
-        # The front-end can choose to hide entries with metric == "NA".
-        while len(cleaned) < count:
-            cleaned.append({
-                "headline": "No additional story",
-                "summary": "No further qualifying news items were available for this section in this cycle.",
-                "source": "—",
-                "url": "",
-                "metric": "NA",
-                "metric_label": "No data",
-            })
-
+        # IMPORTANT: do NOT pad with placeholder cards. If Claude returned
+        # fewer than `count` items because fewer real stories qualified,
+        # return what we have. The PDF/report consumer is expected to
+        # render only as many cards as there are entries.
         return cleaned[:count]
 
     except Exception as e:
