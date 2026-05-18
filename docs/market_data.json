@@ -1,7 +1,7 @@
 {
   "config": {
     "client_name": "Doha Bank",
-    "report_date": "17 May 2026",
+    "report_date": "18 May 2026",
     "delivery_time_ast": "07:00",
     "sections": {
       "global_indices": true,
@@ -15,7 +15,7 @@
       "qatar_news": true
     }
   },
-  "generated_at": "2026-05-17T05:57:42Z",
+  "generated_at": "2026-05-18T05:57:26Z",
   "generated_display_time": "07:00 AST",
   "global_indices": [
     {
@@ -26,7 +26,7 @@
       "change_1d": "+0.00%",
       "mtd": "+2.77%",
       "ytd": "+8.22%",
-      "as_of": "2026-05-16",
+      "as_of": "2026-05-17",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
     },
@@ -38,7 +38,7 @@
       "change_1d": "+0.00%",
       "mtd": "-1.77%",
       "ytd": "+2.66%",
-      "as_of": "2026-05-16",
+      "as_of": "2026-05-17",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
     },
@@ -50,7 +50,7 @@
       "change_1d": "+0.00%",
       "mtd": "+3.58%",
       "ytd": "+21.99%",
-      "as_of": "2026-05-16",
+      "as_of": "2026-05-17",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
     },
@@ -62,7 +62,7 @@
       "change_1d": "+0.00%",
       "mtd": "-1.41%",
       "ytd": "-2.20%",
-      "as_of": "2026-05-16",
+      "as_of": "2026-05-17",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
     },
@@ -74,7 +74,7 @@
       "change_1d": "+0.00%",
       "mtd": "+0.72%",
       "ytd": "+1.30%",
-      "as_of": "2026-05-16",
+      "as_of": "2026-05-17",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
     },
@@ -86,7 +86,7 @@
       "change_1d": "+0.00%",
       "mtd": "-0.39%",
       "ytd": "-8.48%",
-      "as_of": "2026-05-16",
+      "as_of": "2026-05-17",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
     }
@@ -96,11 +96,11 @@
       "code": "QE",
       "name": "Qatar QE Index",
       "ticker": "^GNRI.QA",
-      "px_last": 10493.27,
-      "change_1d": "+0.00%",
-      "mtd": "+0.05%",
-      "ytd": "-2.50%",
-      "as_of": "2026-05-16",
+      "px_last": 10484.17,
+      "change_1d": "-0.09%",
+      "mtd": "-0.04%",
+      "ytd": "-2.59%",
+      "as_of": "2026-05-17",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
     },
@@ -108,11 +108,11 @@
       "code": "TASI",
       "name": "Saudi Tadawul",
       "ticker": "^TASI.SR",
-      "px_last": 10995.44,
-      "change_1d": "+0.00%",
-      "mtd": "-1.72%",
-      "ytd": "+4.81%",
-      "as_of": "2026-05-16",
+      "px_last": 10967.94,
+      "change_1d": "-0.25%",
+      "mtd": "-1.96%",
+      "ytd": "+4.55%",
+      "as_of": "2026-05-17",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
     },
@@ -124,7 +124,7 @@
       "change_1d": "+0.00%",
       "mtd": "-0.99%",
       "ytd": "-5.59%",
-      "as_of": "2026-05-16",
+      "as_of": "2026-05-17",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
     },
@@ -136,7 +136,7 @@
       "change_1d": "+0.00%",
       "mtd": "-1.03%",
       "ytd": "-3.15%",
-      "as_of": "2026-05-16",
+      "as_of": "2026-05-17",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
     },
@@ -148,7 +148,7 @@
       "change_1d": "+0.00%",
       "mtd": "-0.86%",
       "ytd": "-1.39%",
-      "as_of": "2026-05-16",
+      "as_of": "2026-05-17",
       "source": "brave_search_tradingeconomics_controlled",
       "status": "valid_controlled_fallback"
     },
@@ -160,7 +160,7 @@
       "change_1d": "+0.00%",
       "mtd": "-1.86%",
       "ytd": "+40.04%",
-      "as_of": "2026-05-16",
+      "as_of": "2026-05-17",
       "source": "brave_search_tradingeconomics_controlled",
       "status": "valid_controlled_fallback"
     },
@@ -172,7 +172,7 @@
       "change_1d": "+0.00%",
       "mtd": "-1.93%",
       "ytd": "-6.41%",
-      "as_of": "2026-05-16",
+      "as_of": "2026-05-17",
       "source": "brave_search_tradingeconomics_controlled",
       "status": "valid_controlled_fallback"
     }
@@ -183,10 +183,10 @@
       "name": "USD Index",
       "ticker": "DX-Y.NYB",
       "px_last": 99.27,
-      "change_1d": "-0.03%",
+      "change_1d": "+0.00%",
       "mtd": "+1.21%",
       "ytd": "+1.01%",
-      "as_of": "2026-05-16",
+      "as_of": "2026-05-17",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
     },
@@ -195,10 +195,10 @@
       "name": "EUR/USD",
       "ticker": "EURUSD=X",
       "px_last": 1.1631,
-      "change_1d": "+0.05%",
+      "change_1d": "+0.00%",
       "mtd": "-0.84%",
       "ytd": "-0.99%",
-      "as_of": "2026-05-16",
+      "as_of": "2026-05-17",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
     },
@@ -206,11 +206,11 @@
       "code": "GBPUSD",
       "name": "GBP/USD",
       "ticker": "GBPUSD=X",
-      "px_last": 1.3324,
-      "change_1d": "+0.06%",
-      "mtd": "-2.05%",
-      "ytd": "-1.06%",
-      "as_of": "2026-05-16",
+      "px_last": 1.3326,
+      "change_1d": "+0.02%",
+      "mtd": "-2.03%",
+      "ytd": "-1.05%",
+      "as_of": "2026-05-17",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
     },
@@ -219,10 +219,10 @@
       "name": "USD/CHF",
       "ticker": "CHF=X",
       "px_last": 0.786,
-      "change_1d": "-0.11%",
+      "change_1d": "+0.00%",
       "mtd": "+0.88%",
       "ytd": "+2.29%",
-      "as_of": "2026-05-16",
+      "as_of": "2026-05-17",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
     },
@@ -231,10 +231,10 @@
       "name": "USD/JPY",
       "ticker": "JPY=X",
       "px_last": 158.731,
-      "change_1d": "-0.05%",
+      "change_1d": "+0.00%",
       "mtd": "+1.12%",
       "ytd": "+1.48%",
-      "as_of": "2026-05-16",
+      "as_of": "2026-05-17",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
     },
@@ -243,10 +243,10 @@
       "name": "USD/CNY",
       "ticker": "CNY=X",
       "px_last": 6.8087,
-      "change_1d": "-0.01%",
+      "change_1d": "+0.00%",
       "mtd": "-0.27%",
       "ytd": "-2.68%",
-      "as_of": "2026-05-16",
+      "as_of": "2026-05-17",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
     }
@@ -257,10 +257,10 @@
       "name": "USD/QAR",
       "ticker": "QAR=X",
       "px_last": 3.64,
-      "change_1d": "-0.05%",
+      "change_1d": "+0.00%",
       "mtd": "+0.00%",
       "ytd": "+0.00%",
-      "as_of": "2026-05-16",
+      "as_of": "2026-05-17",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
     },
@@ -272,7 +272,7 @@
       "change_1d": "+0.00%",
       "mtd": "+2.25%",
       "ytd": "-0.99%",
-      "as_of": "2026-05-16",
+      "as_of": "2026-05-17",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
     },
@@ -280,11 +280,11 @@
       "code": "GBPQAR",
       "name": "GBP/QAR",
       "ticker": "GBPQAR=X",
-      "px_last": 4.8541,
-      "change_1d": "+0.00%",
-      "mtd": "+1.09%",
-      "ytd": "-0.98%",
-      "as_of": "2026-05-16",
+      "px_last": 4.8545,
+      "change_1d": "+0.01%",
+      "mtd": "+1.10%",
+      "ytd": "-0.97%",
+      "as_of": "2026-05-17",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
     },
@@ -293,10 +293,10 @@
       "name": "CHF/QAR",
       "ticker": "CHFQAR",
       "px_last": 4.631,
-      "change_1d": "+0.06%",
+      "change_1d": "+0.00%",
       "mtd": "-0.87%",
       "ytd": "-2.26%",
-      "as_of": "2026-05-16",
+      "as_of": "2026-05-17",
       "source": "derived_from_usdqar_and_spot_fx_runtime",
       "status": "valid_runtime_derived_fx"
     },
@@ -305,10 +305,10 @@
       "name": "CNY/QAR",
       "ticker": "CNYQAR",
       "px_last": 0.5346,
-      "change_1d": "-0.05%",
+      "change_1d": "+0.00%",
       "mtd": "+3.40%",
       "ytd": "+2.75%",
-      "as_of": "2026-05-16",
+      "as_of": "2026-05-17",
       "source": "derived_from_usdqar_and_spot_fx_runtime",
       "status": "valid_runtime_derived_fx"
     }
@@ -322,7 +322,7 @@
       "change_1d": "+0.00%",
       "mtd": "+5.84%",
       "ytd": "+14.40%",
-      "as_of": "2026-05-16",
+      "as_of": "2026-05-17",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
     },
@@ -334,7 +334,7 @@
       "change_1d": "+0.00%",
       "mtd": "+4.67%",
       "ytd": "+10.38%",
-      "as_of": "2026-05-16",
+      "as_of": "2026-05-17",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
     }
@@ -344,11 +344,11 @@
       "code": "QIBK",
       "name": "QIB",
       "ticker": "QIBK.QA",
-      "px_last": 22.0,
-      "change_1d": "+0.00%",
-      "mtd": "-0.99%",
-      "ytd": "-8.14%",
-      "as_of": "2026-05-16",
+      "px_last": 21.96,
+      "change_1d": "-0.18%",
+      "mtd": "-1.17%",
+      "ytd": "-8.31%",
+      "as_of": "2026-05-17",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
     },
@@ -356,11 +356,11 @@
       "code": "CBQK",
       "name": "CBQ",
       "ticker": "CBQK.QA",
-      "px_last": 4.238,
-      "change_1d": "+0.00%",
-      "mtd": "-1.56%",
-      "ytd": "+0.90%",
-      "as_of": "2026-05-16",
+      "px_last": 4.269,
+      "change_1d": "+0.73%",
+      "mtd": "-0.84%",
+      "ytd": "+1.64%",
+      "as_of": "2026-05-17",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
     },
@@ -368,11 +368,11 @@
       "code": "QIIB",
       "name": "QIIB",
       "ticker": "QIIK.QA",
-      "px_last": 11.25,
-      "change_1d": "+0.00%",
-      "mtd": "-0.53%",
-      "ytd": "+1.08%",
-      "as_of": "2026-05-16",
+      "px_last": 11.2,
+      "change_1d": "-0.44%",
+      "mtd": "-0.97%",
+      "ytd": "+0.63%",
+      "as_of": "2026-05-17",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
     },
@@ -380,11 +380,11 @@
       "code": "DUBK",
       "name": "Dukhan",
       "ticker": "DUBK.QA",
-      "px_last": 3.503,
-      "change_1d": "+0.00%",
-      "mtd": "+1.04%",
-      "ytd": "+0.20%",
-      "as_of": "2026-05-16",
+      "px_last": 3.479,
+      "change_1d": "-0.69%",
+      "mtd": "+0.35%",
+      "ytd": "-0.49%",
+      "as_of": "2026-05-17",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
     },
@@ -392,11 +392,11 @@
       "code": "DHBK",
       "name": "Doha",
       "ticker": "DHBK.QA",
-      "px_last": 2.629,
-      "change_1d": "+0.00%",
-      "mtd": "-2.63%",
-      "ytd": "-8.40%",
-      "as_of": "2026-05-16",
+      "px_last": 2.633,
+      "change_1d": "+0.15%",
+      "mtd": "-2.48%",
+      "ytd": "-8.26%",
+      "as_of": "2026-05-17",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
     },
@@ -404,11 +404,11 @@
       "code": "ABQK",
       "name": "Ahli",
       "ticker": "ABQK.QA",
-      "px_last": 3.867,
-      "change_1d": "+0.00%",
-      "mtd": "+3.09%",
-      "ytd": "+3.15%",
-      "as_of": "2026-05-16",
+      "px_last": 3.866,
+      "change_1d": "-0.03%",
+      "mtd": "+3.07%",
+      "ytd": "+3.12%",
+      "as_of": "2026-05-17",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
     },
@@ -416,11 +416,11 @@
       "code": "QNBK",
       "name": "QNB",
       "ticker": "QNBK.QA",
-      "px_last": 17.34,
-      "change_1d": "+0.00%",
-      "mtd": "-0.06%",
-      "ytd": "-7.07%",
-      "as_of": "2026-05-16",
+      "px_last": 17.43,
+      "change_1d": "+0.52%",
+      "mtd": "+0.46%",
+      "ytd": "-6.59%",
+      "as_of": "2026-05-17",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
     },
@@ -428,11 +428,11 @@
       "code": "MARK",
       "name": "Al Rayan",
       "ticker": "MARK.QA",
-      "px_last": 2.15,
-      "change_1d": "+0.00%",
-      "mtd": "-0.69%",
-      "ytd": "-2.01%",
-      "as_of": "2026-05-16",
+      "px_last": 2.135,
+      "change_1d": "-0.70%",
+      "mtd": "-1.39%",
+      "ytd": "-2.69%",
+      "as_of": "2026-05-17",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
     },
@@ -440,11 +440,11 @@
       "code": "LESHA",
       "name": "Lesha",
       "ticker": "QFBQ.QA",
-      "px_last": 1.995,
-      "change_1d": "+0.00%",
-      "mtd": "+2.37%",
-      "ytd": "+6.53%",
-      "as_of": "2026-05-16",
+      "px_last": 1.992,
+      "change_1d": "-0.15%",
+      "mtd": "+2.22%",
+      "ytd": "+6.37%",
+      "as_of": "2026-05-17",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
     }
@@ -454,11 +454,11 @@
       "code": "LNGJK",
       "name": "LNG JP/KR",
       "ticker": "JKM",
-      "px_last": 17.02,
-      "change_1d": "+0.00%",
-      "mtd": "+3.01%",
-      "ytd": "+86.08%",
-      "as_of": "2026-05-16",
+      "px_last": 18.8,
+      "change_1d": "+10.43%",
+      "mtd": "+13.76%",
+      "ytd": "+105.49%",
+      "as_of": "2026-05-17",
       "source": "TradingView",
       "status": "valid_lng_jp_kr"
     },
@@ -467,10 +467,10 @@
       "name": "Brent Crude",
       "ticker": "BZ=F",
       "px_last": 109.26,
-      "change_1d": "-0.32%",
+      "change_1d": "+0.00%",
       "mtd": "-4.17%",
       "ytd": "+79.56%",
-      "as_of": "2026-05-16",
+      "as_of": "2026-05-17",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
     },
@@ -479,10 +479,10 @@
       "name": "Silver",
       "ticker": "SI=F",
       "px_last": 77.55,
-      "change_1d": "+1.63%",
+      "change_1d": "+0.00%",
       "mtd": "+5.46%",
       "ytd": "+10.57%",
-      "as_of": "2026-05-16",
+      "as_of": "2026-05-17",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
     },
@@ -491,123 +491,123 @@
       "name": "Gold",
       "ticker": "GC=F",
       "px_last": 4561.9,
-      "change_1d": "+0.40%",
+      "change_1d": "+0.00%",
       "mtd": "-5.64%",
       "ytd": "+3.73%",
-      "as_of": "2026-05-16",
+      "as_of": "2026-05-17",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
     }
   ],
-  "market_as_of_date": "2026-05-16",
+  "market_as_of_date": "2026-05-17",
   "global_news": [
     {
-      "headline": "Record Drone Attack on Moscow Kills Three",
-      "summary": "Russia's capital faced unprecedented overnight drone strikes, killing at least three people and wounding over a dozen, targeting key infrastructure including refineries.",
+      "headline": "Global Bonds Sell Off, Oil Rises on Iran War",
+      "summary": "Bond selloff extends as Iran war deadlock drives oil higher, fueling inflation concerns and central bank tightening bets.",
       "source": "Bloomberg",
-      "url": "https://www.bloomberg.com/news/articles/2026-05-17/record-drone-attack-on-moscow-kills-three-targets-refinery",
-      "metric": "3 killed",
-      "metric_label": "Casualties from Moscow drone att"
+      "url": "https://www.bloomberg.com/news/articles/2026-05-17/oil-climbs-as-iran-war-shows-no-sign-of-ending-markets-wrap",
+      "metric": "Oil surge",
+      "metric_label": "Oil price movement driving infla"
     },
     {
-      "headline": "Australia Plans Tax Changes for Housing Market",
-      "summary": "Treasurer Jim Chalmers reiterates capital gains tax overhaul aims to address Australia's broken housing market amid affordability crisis.",
+      "headline": "Indonesian Markets Plunge as Rupiah Hits Record Low",
+      "summary": "Rupiah hits record low, stocks fall and bond yields surge as Indonesia rejoins global selloff after holiday break.",
       "source": "Bloomberg",
-      "url": "https://www.bloomberg.com/news/articles/2026-05-17/australia-says-tax-changes-aim-to-fix-broken-housing-market",
-      "metric": "Capital gains ta",
-      "metric_label": "Key tax being reformed"
+      "url": "https://www.bloomberg.com/news/articles/2026-05-18/indonesian-rupiah-falls-to-record-low-on-oil-as-markets-reopen",
+      "metric": "Record low",
+      "metric_label": "Indonesian rupiah weakness"
     },
     {
-      "headline": "China Regulator Sets Private Sector Support Priorities",
-      "summary": "Market watchdog outlines 34 priorities for 2026 focusing on fair competition, legal protections and efficient regulation to boost private enterprise.",
+      "headline": "FTSE 100 Futures Fall, Pound Stalls on Oil",
+      "summary": "UK market futures decline and pound momentum stalls as rising oil prices weigh on investor sentiment.",
       "source": "Bloomberg",
-      "url": "https://www.bloomberg.com/news/articles/2026-05-17/china-market-watchdog-sets-priorities-to-support-private-sector",
-      "metric": "34 priorities",
-      "metric_label": "Regulatory measures for 2026"
+      "url": "https://www.bloomberg.com/news/live-blog/2026-05-18/ftse-100-live-keir-starmer-pound-gilts-bonds-burnham-streeting-what-s-moving-uk-markets-right-now-markets-today-mpas7ofe",
+      "metric": "Futures down",
+      "metric_label": "FTSE 100 futures performance"
     },
     {
-      "headline": "Malaysia Norway Missile Deal Tensions Escalate",
-      "summary": "Diplomatic relations strain as Norway confirms revoking export licenses for naval strike missile system in scrapped weapons agreement.",
+      "headline": "Robotphoenix Debuts on Hong Kong Stock Exchange",
+      "summary": "Chinese industrial robotics firm Robotphoenix lists in Hong Kong, chairman discusses profitability path amid investor expectations.",
       "source": "Bloomberg",
-      "url": "https://www.bloomberg.com/news/articles/2026-05-17/malaysia-norway-tensions-deepen-over-scrapped-missile-deal",
-      "metric": "Export licenses ",
-      "metric_label": "Norwegian action on missile deal"
+      "url": "https://www.bloomberg.com/news/videos/2026-05-18/robotphoenix-chairman-on-hk-debut-path-to-profitability-video",
+      "metric": "HK debut",
+      "metric_label": "Hong Kong Stock Exchange listing"
     },
     {
-      "headline": "Philippines Opposes Senator's ICC Arrest Protection",
-      "summary": "Government asks Supreme Court to reject Senator Dela Rosa's petition to prevent arrest on International Criminal Court warrant for alleged crimes.",
+      "headline": "APAC Investors Pivot to AI Beneficiaries Says BNP",
+      "summary": "BNP Paribas reports clients repositioning portfolios toward AI beneficiaries, driving North Asia market outperformance trends.",
       "source": "Bloomberg",
-      "url": "https://www.bloomberg.com/news/articles/2026-05-17/philippines-asks-court-to-deny-petition-of-senator-sought-by-icc",
-      "metric": "ICC warrant issu",
-      "metric_label": "International arrest warrant sta"
+      "url": "https://www.bloomberg.com/news/videos/2026-05-18/bnp-clients-focusing-more-on-ai-beneficiaries-in-apac-video",
+      "metric": "AI focus",
+      "metric_label": "Portfolio repositioning toward A"
     },
     {
-      "headline": "Malaysia Supports Airlines Amid Iran War Impact",
-      "summary": "Government introduces operational stability measures to ease financial strain on aviation industry affected by Middle East conflict disruptions.",
+      "headline": "Wall Street Doubles Price Targets on Kioxia",
+      "summary": "Major Wall Street firms raise price targets on Japanese memory-chip maker Kioxia after stronger-than-expected outlook.",
       "source": "Bloomberg",
-      "url": "https://www.bloomberg.com/news/articles/2026-05-17/malaysia-unveils-measures-to-help-airlines-hit-by-iran-war",
-      "metric": "Aviation support",
-      "metric_label": "Industry assistance measures"
+      "url": "https://www.bloomberg.com/news/articles/2026-05-18/wall-street-races-to-lift-targets-on-japan-s-chip-darling-kioxia",
+      "metric": "Targets doubled",
+      "metric_label": "Wall Street price target increas"
     }
   ],
   "qatar_news": [
     {
-      "headline": "QC, QFC sign MoU to boost private sector growth",
-      "summary": "Qatar Chamber and Qatar Financial Centre signed memorandum of understanding to enhance private sector development and growth opportunities in Qatar.",
+      "headline": "Real estate trade volume exceeds QR2 bn in April",
+      "summary": "Qatar's real estate market shows strong performance with trade volume surpassing QR2 billion in April 2026, indicating robust property sector activity.",
       "source": "Qatar Tribune",
-      "url": "https://www.qatar-tribune.com/article/234512/business/qc-qfc-sign-mou-to-boost-private-sector-growth",
-      "metric": "Strategic Partne",
-      "metric_label": "New collaboration agreement"
+      "url": "https://www.qatar-tribune.com/article/234763/business/real-estate-trade-volume-exceeds-qr2-bn-in-april-2026",
+      "metric": "QR2+ bn",
+      "metric_label": "Real estate trade volume April 2"
     },
     {
-      "headline": "Japan may intervene in currency market for yen",
-      "summary": "Japan considers potential currency market intervention to support weakening yen, potentially with backing from the United States government.",
+      "headline": "US Energy Secretary visits QatarEnergy's Golden Pass project",
+      "summary": "High-level diplomatic engagement as US Secretary of Energy makes official visit to QatarEnergy's strategic Golden Pass LNG development project.",
       "source": "Qatar Tribune",
-      "url": "https://www.qatar-tribune.com/article/234529/business/japan-may-step-into-currency-market-again-to-support-yen-with-us-backing",
-      "metric": "Currency Support",
-      "metric_label": "Potential yen intervention"
+      "url": "https://www.qatar-tribune.com/article/234713/business/us-secretary-of-energy-visits-qatarenergys-golden-pass-lng-project",
+      "metric": "Golden Pass LNG",
+      "metric_label": "Strategic energy project visited"
     },
     {
-      "headline": "Kioxia expects 47-fold profit surge on AI boom",
-      "summary": "Japanese chipmaker Kioxia anticipates dramatic 47-fold increase in net profit for April-June quarter driven by artificial intelligence demand surge.",
+      "headline": "QCB governor meets Chinese ambassador to Qatar",
+      "summary": "Qatar Central Bank governor holds diplomatic meeting with China's ambassador, potentially discussing bilateral financial cooperation and economic relations.",
       "source": "Qatar Tribune",
-      "url": "https://www.qatar-tribune.com/article/234530/business/chipmaker-kioxia-expects-april-june-net-profit-to-rise-47-fold-on-ai-boom",
-      "metric": "47x",
-      "metric_label": "Expected profit increase"
+      "url": "https://www.qatar-tribune.com/article/234718/business/qcb-governor-meets-ambassador-of-china-to-qatar",
+      "metric": "QCB-China",
+      "metric_label": "High-level financial diplomacy m"
     },
     {
-      "headline": "IMF warns Iran war risks global growth",
-      "summary": "International Monetary Fund identifies sustained conflict involving Iran as significant risk factor that could negatively impact global economic growth.",
+      "headline": "India struggles with rupee decline amid oil shock",
+      "summary": "India faces currency pressures as rupee weakens due to oil price volatility, creating economic headwinds and growth concerns for major regional economy.",
       "source": "Qatar Tribune",
-      "url": "https://www.qatar-tribune.com/article/234510/business/imf-sees-risks-to-global-growth-over-sustained-iran-war",
-      "metric": "Growth Risk",
-      "metric_label": "IMF global outlook concern"
+      "url": "https://www.qatar-tribune.com/article/234731/business/india-scrambles-to-steady-sinking-rupee-as-oil-shock-derails-growth",
+      "metric": "Rupee decline",
+      "metric_label": "Indian currency under pressure"
     }
   ],
   "kpis": [
     {
-      "value": "17.02",
+      "value": "18.80",
       "label": "LNG JP/KR",
-      "sublabel": "+0.00% today \u00b7 USD/MMBtu"
+      "sublabel": "+10.43% today \u00b7 USD/MMBtu"
     },
     {
       "value": "4,561.90",
       "label": "Gold",
-      "sublabel": "+0.40% today \u00b7 +3.73% YTD"
+      "sublabel": "+0.00% today \u00b7 +3.73% YTD"
     },
     {
-      "value": "10,493.27",
+      "value": "10,484.17",
       "label": "QSE Index",
-      "sublabel": "+0.00% today \u00b7 -2.50% YTD"
+      "sublabel": "-0.09% today \u00b7 -2.59% YTD"
     },
     {
       "value": "2.63",
       "label": "Doha Bank PX Last",
-      "sublabel": "+0.00% today \u00b7 -8.40% YTD"
+      "sublabel": "+0.15% today \u00b7 -8.26% YTD"
     }
   ],
   "validation_issues": [
-    "Using latest available Supabase market date 2026-05-16, not today 2026-05-17"
+    "Using latest available Supabase market date 2026-05-17, not today 2026-05-18"
   ],
   "report_status": "NEEDS_REVIEW",
   "email_send_allowed": false
