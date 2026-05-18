@@ -1,4 +1,4 @@
-import json
+    import json
 import os
 import re
 import datetime
@@ -33,9 +33,68 @@ EXPECTED_INSTRUMENT_COUNT = 39
 STALE_DATA_WARNING_DAYS = 3
 USD_QAR_SUSPICIOUS_MOVE_THRESHOLD = 10.0
 
-QATAR_NEWS_TARGET_COUNT = 4
-QATAR_NEWS_MIN_VALID_COUNT = 3
+QATAR_NEWS_TARGET_COUNT = 6
+QATAR_NEWS_MIN_VALID_COUNT = 4
 QATAR_NEWS_MAX_AGE_HOURS = 24
+
+GLOBAL_NEWS_TARGET_COUNT = 6
+GLOBAL_NEWS_MAX_AGE_HOURS = 36
+
+# ------------------------------------------------------------
+# Global news — US + GCC editorial focus
+# ------------------------------------------------------------
+# Items that match at least one INCLUDE keyword AND no EXCLUDE
+# keyword survive the relevance filter. The Claude summariser is
+# also prompted to prioritise these themes when picking the top 6.
+# ------------------------------------------------------------
+
+GLOBAL_FOCUS_KEYWORDS = [
+    # US macro / policy
+    "fed", "federal reserve", "fomc", "powell", "rate cut", "rate hike",
+    "interest rate", "treasury", "yield", "yields", "cpi", "ppi",
+    "inflation", "deflation", "gdp", "nfp", "jobs report", "unemployment",
+    "wall street", "s&p", "s&p 500", "dow", "nasdaq", "russell",
+    "trump", "biden", "white house", "congress", "tariff", "tariffs",
+    "sanctions", "sec",
+    # GCC / MENA
+    "saudi", "saudi arabia", "riyadh", "aramco", "saudi aramco",
+    "pif", "vision 2030", "neom",
+    "uae", "emirates", "dubai", "abu dhabi", "adnoc", "mubadala", "adia",
+    "kuwait", "bahrain", "oman", "qatar",
+    "gcc", "gulf", "gulf states", "mena", "middle east",
+    "tadawul", "dfm", "adx",
+    # Energy / OPEC
+    "opec", "opec+", "oil", "brent", "wti", "crude", "petroleum",
+    "lng", "liquefied natural gas", "natural gas", "energy",
+    # Geopolitics that moves Gulf markets
+    "iran", "israel", "hormuz", "strait of hormuz", "houthi", "yemen",
+    "russia", "ukraine", "china",
+    # Markets / FX / banking
+    "dollar", "dxy", "euro", "yen", "yuan", "renminbi",
+    "goldman", "jpmorgan", "morgan stanley", "blackrock",
+    "ipo", "merger", "acquisition", "sovereign wealth",
+    # Commodities
+    "gold", "silver", "commodity", "commodities",
+]
+
+GLOBAL_EXCLUDE_KEYWORDS = [
+    "football", "soccer", "cricket", "tennis", "basketball", "volleyball",
+    "golf", "league", "fifa", "world cup", "match", "player", "team",
+    "school", "teacher", "health", "weather", "traffic",
+    "entertainment", "celebrity", "movie", "film", "music", "album",
+    "award show", "fashion", "lifestyle", "recipe", "horoscope",
+]
+
+# Brave Search fallback queries — used if the RSS feeds return too few
+# items after relevance filtering.
+GLOBAL_NEWS_BRAVE_QUERIES = [
+    'US Fed Powell Treasury yields markets today',
+    'Saudi Aramco UAE Dubai Abu Dhabi GCC business',
+    'OPEC oil Brent crude price today',
+    'Middle East Iran Israel oil gas markets',
+    'Wall Street S&P 500 Nasdaq today',
+    'US dollar DXY currency Federal Reserve',
+]
 
 QATAR_BUSINESS_KEYWORDS = [
     "business", "economy", "economic", "investment", "investor", "investors",
@@ -56,6 +115,10 @@ QATAR_NEWS_BRAVE_QUERIES = [
     'Qatar banking finance economy investment Doha business',
     'Qatar stock exchange QSE banks economy investment',
     'Qatar energy LNG economy investment business',
+    'QatarEnergy gas North Field expansion project',
+    'Qatar Investment Authority QIA sovereign wealth deal',
+    'Qatar real estate construction infrastructure project',
+    'Qatar Central Bank QCB monetary policy banking sector',
 ]
 
 
@@ -206,6 +269,7 @@ EXPECTED_BY_CODE = {item["code"]: item for item in EXPECTED_INSTRUMENTS + OPTION
 
 NEWS_FEEDS = {
     "global": [
+        # --- Established global business feeds ---
         {
             "source": "Reuters",
             "url": "https://feeds.reuters.com/reuters/businessNews",
@@ -214,6 +278,54 @@ NEWS_FEEDS = {
         {
             "source": "Bloomberg",
             "url": "https://feeds.bloomberg.com/markets/news.rss",
+            "max": 10,
+        },
+        # --- US markets ---
+        {
+            "source": "CNBC",
+            "url": "https://www.cnbc.com/id/15839069/device/rss/rss.html",
+            "max": 10,
+        },
+        {
+            "source": "CNBC World",
+            "url": "https://www.cnbc.com/id/100727362/device/rss/rss.html",
+            "max": 10,
+        },
+        {
+            "source": "MarketWatch",
+            "url": "https://www.marketwatch.com/rss/topstories",
+            "max": 10,
+        },
+        # --- GCC business press ---
+        {
+            "source": "Khaleej Times",
+            "url": "https://www.khaleejtimes.com/rss/business",
+            "max": 10,
+        },
+        {
+            "source": "Gulf News",
+            "url": "https://gulfnews.com/business/rss",
+            "max": 10,
+        },
+        {
+            "source": "Arab News",
+            "url": "https://www.arabnews.com/rss/business.xml",
+            "max": 10,
+        },
+        # --- Google News query feeds (aggregate Reuters/Bloomberg/FT/WSJ for us) ---
+        {
+            "source": "US Markets",
+            "url": "https://news.google.com/rss/search?q=US+markets+Fed+Wall+Street+Treasury&hl=en-US&gl=US&ceid=US:en",
+            "max": 10,
+        },
+        {
+            "source": "GCC Markets",
+            "url": "https://news.google.com/rss/search?q=Saudi+UAE+GCC+oil+OPEC+aramco&hl=en&gl=US&ceid=US:en",
+            "max": 10,
+        },
+        {
+            "source": "Energy Markets",
+            "url": "https://news.google.com/rss/search?q=oil+OPEC+Brent+LNG+gas+energy+markets&hl=en&gl=US&ceid=US:en",
             "max": 10,
         },
     ],
@@ -226,6 +338,11 @@ NEWS_FEEDS = {
         {
             "source": "Qatar Tribune",
             "url": "https://www.qatar-tribune.com/rss",
+            "max": 10,
+        },
+        {
+            "source": "Gulf Times",
+            "url": "https://www.gulf-times.com/rss/business",
             "max": 10,
         },
     ],
@@ -853,6 +970,108 @@ def _parse_news_datetime(value: Any) -> Optional[datetime.datetime]:
         return None
 
 
+def _is_relevant_global_item(item: Dict[str, Any], now_utc: datetime.datetime) -> bool:
+    """
+    Light filter for the global news pool. An item is kept if:
+      - it mentions at least one US/GCC/energy/geopolitics keyword, AND
+      - it does NOT match any noise keyword (sports, entertainment, etc), AND
+      - it is recent enough (within GLOBAL_NEWS_MAX_AGE_HOURS) when a date is parseable.
+    Final story selection is done by Claude in summarise_news().
+    """
+    title = _clean_text(item.get("title") or item.get("headline") or "")
+    summary = _clean_text(item.get("summary") or item.get("description") or "")
+    blob = f"{title} {summary}".lower()
+
+    if any(bad in blob for bad in GLOBAL_EXCLUDE_KEYWORDS):
+        return False
+
+    if not any(word in blob for word in GLOBAL_FOCUS_KEYWORDS):
+        return False
+
+    dt = _parse_news_datetime(item.get("published"))
+    if dt is not None:
+        age_hours = (now_utc - dt).total_seconds() / 3600
+        if age_hours < -2 or age_hours > GLOBAL_NEWS_MAX_AGE_HOURS:
+            return False
+
+    return True
+
+
+def _brave_global_news() -> List[Dict[str, Any]]:
+    api_key = os.environ.get("BRAVE_API_KEY")
+    if not api_key:
+        print("[WARN] BRAVE_API_KEY not set, global Brave fallback skipped.")
+        return []
+
+    out: List[Dict[str, Any]] = []
+    headers = {
+        "Accept": "application/json",
+        "X-Subscription-Token": api_key,
+    }
+
+    for query in GLOBAL_NEWS_BRAVE_QUERIES:
+        try:
+            response = requests.get(
+                "https://api.search.brave.com/res/v1/web/search",
+                headers=headers,
+                params={
+                    "q": query,
+                    "count": "10",
+                    "search_lang": "en",
+                    "freshness": "pd",
+                    "safesearch": "moderate",
+                },
+                timeout=30,
+            )
+            response.raise_for_status()
+            payload = response.json()
+            for result in payload.get("web", {}).get("results", []) or []:
+                title = _clean_text(result.get("title", ""))
+                summary = _clean_text(result.get("description", ""))
+                url = result.get("url", "") or ""
+                source = result.get("profile", {}).get("name") or "Brave Search"
+                published = result.get("age") or result.get("page_age") or ""
+                if not title:
+                    continue
+                out.append({
+                    "source": source,
+                    "title": title,
+                    "summary": summary[:500],
+                    "link": url,
+                    "published": published,
+                })
+        except Exception as exc:
+            print(f"[WARN] Brave global news query failed: {query} | {exc}")
+
+    return out
+
+
+def fetch_global_news() -> List[Dict[str, Any]]:
+    """
+    Fetch from the global feed list, apply US/GCC relevance filter,
+    and top up via Brave Search if we don't have enough survivors.
+    """
+    now_utc = datetime.datetime.now(datetime.timezone.utc)
+    raw = dedupe_news(fetch_news(NEWS_FEEDS["global"]))
+    filtered = [item for item in raw if _is_relevant_global_item(item, now_utc)]
+
+    # If feeds gave us thin coverage, top up from Brave
+    if len(filtered) < GLOBAL_NEWS_TARGET_COUNT * 2:
+        brave_items = dedupe_news(_brave_global_news())
+        # Brave items don't always have a parseable date — apply only keyword filter
+        for item in brave_items:
+            blob = f"{item.get('title','')} {item.get('summary','')}".lower()
+            if any(bad in blob for bad in GLOBAL_EXCLUDE_KEYWORDS):
+                continue
+            if not any(word in blob for word in GLOBAL_FOCUS_KEYWORDS):
+                continue
+            filtered.append(item)
+        filtered = dedupe_news(filtered)
+
+    print(f"    Global news after US/GCC relevance filter: {len(filtered)}")
+    return filtered
+
+
 def _is_recent_qatar_business_item(item: Dict[str, Any], now_utc: datetime.datetime) -> bool:
     title = _clean_text(item.get("title") or item.get("headline") or "")
     summary = _clean_text(item.get("summary") or item.get("description") or "")
@@ -1146,9 +1365,21 @@ def summarise_news(raw_items: List[Dict[str, Any]], scope: str, count: int) -> L
         "Return only valid JSON. Select the most relevant stories and produce clean metric boxes."
     )
 
+    priority_hint = ""
+    if "us" in scope.lower() or "gcc" in scope.lower() or "global" in scope.lower():
+        priority_hint = (
+            "\nPRIORITISE stories in this order:\n"
+            "  1. US Federal Reserve / Treasury yields / inflation / Wall Street\n"
+            "  2. GCC region: Saudi Arabia, UAE, Kuwait, Bahrain, Oman (markets, sovereign funds, energy)\n"
+            "  3. OPEC+ decisions, oil price moves, LNG / gas\n"
+            "  4. Geopolitics that moves Gulf markets (Iran, Israel, Hormuz, sanctions)\n"
+            "  5. Major US/EU corporate or banking stories with global market impact\n"
+            "Avoid: sports, entertainment, celebrity, lifestyle.\n"
+        )
+
     prompt = f"""
 From the following {scope} news items, select the {count} most relevant stories.
-
+{priority_hint}
 Return a JSON array of exactly {count} objects.
 
 Each object must contain exactly these keys:
@@ -1313,10 +1544,12 @@ def run() -> Dict[str, Any]:
         data["market_as_of_date"] = None
 
     if cfg["sections"].get("global_news", True):
-        print("  · global news")
-        raw_global = dedupe_news(fetch_news(NEWS_FEEDS["global"]))
-        raw_global = ensure_min_news(raw_global, 6, "Reuters/Bloomberg")
-        data["global_news"] = summarise_news(raw_global, "regional and global", 6)
+        print("  · global news (US + GCC focus)")
+        raw_global = fetch_global_news()
+        raw_global = ensure_min_news(raw_global, GLOBAL_NEWS_TARGET_COUNT, "Reuters/Bloomberg")
+        data["global_news"] = summarise_news(
+            raw_global, "US and GCC", GLOBAL_NEWS_TARGET_COUNT
+        )
     else:
         data["global_news"] = []
 
@@ -1368,3 +1601,5 @@ if __name__ == "__main__":
         json.dump(result, f, indent=2, default=str)
 
     print("✓ Data written to market_data.json")
+
+    
