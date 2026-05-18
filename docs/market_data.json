@@ -15,7 +15,7 @@
       "qatar_news": true
     }
   },
-  "generated_at": "2026-05-18T21:13:43Z",
+  "generated_at": "2026-05-18T21:36:29Z",
   "generated_display_time": "07:00 AST",
   "global_indices": [
     {
@@ -502,102 +502,134 @@
   "market_as_of_date": "2026-05-18",
   "global_news": [
     {
-      "headline": "Foreign Treasury Holdings Drop in March Amid Bill Sales",
-      "summary": "Overseas investors reduced US Treasury holdings from record highs, selling short-term bills while increasing positions in longer-dated securities during March.",
-      "source": "Bloomberg",
-      "url": "https://www.bloomberg.com/news/articles/2026-05-18/foreign-holdings-of-us-treasuries-fell-in-march-amid-bill-sales",
-      "metric": "Record High",
-      "metric_label": "Previous foreign Treasury holdin"
+      "headline": "Trump halts Iran attack after Gulf states request",
+      "summary": "US president postpones planned military strike on Iran following serious negotiations and requests from Gulf allies, reducing regional tensions.",
+      "source": "BBC World",
+      "url": "https://www.bbc.com/news/articles/c7079e55zjro?at_medium=RSS&at_campaign=rss",
+      "metric": "Postponed",
+      "metric_label": "US military strike status"
     },
     {
-      "headline": "S&P 500 Ends Choppy Session Little Changed",
-      "summary": "US stocks closed flat after volatile trading driven by oil price swings and mixed US-Iran peace talk signals. Ten-year yields held below 4.6%.",
-      "source": "Bloomberg",
-      "url": "https://www.bloomberg.com/news/articles/2026-05-18/us-futures-slip-as-inflation-worries-feed-risk-off-sentiment",
-      "metric": "4.6%",
-      "metric_label": "10-year Treasury yield ceiling"
+      "headline": "Trump warns Iran as peace talks stall",
+      "summary": "President escalates pressure on Tehran as diplomatic exchanges continue but progress remains limited in nuclear negotiations.",
+      "source": "BBC World",
+      "url": "https://www.bbc.com/news/articles/cd0p4y9y48xo?at_medium=RSS&at_campaign=rss",
+      "metric": "Clock ticking",
+      "metric_label": "Diplomatic pressure level"
     },
     {
-      "headline": "Stocks and Oil Whipsaw on US-Iran Deal Signals",
-      "summary": "Wall Street experienced high volatility as traders reacted to mixed signals about potential US-Iran agreement affecting Strait of Hormuz energy flows.",
-      "source": "Bloomberg",
-      "url": "https://www.bloomberg.com/news/articles/2026-05-17/oil-climbs-as-iran-war-shows-no-sign-of-ending-markets-wrap",
-      "metric": "Strait of Hormuz",
-      "metric_label": "Key energy transit route at risk"
+      "headline": "Lebanon death toll passes 3,000 milestone",
+      "summary": "Israeli strikes death count reaches grim threshold despite nominal ceasefire in conflict with Hezbollah since March.",
+      "source": "BBC World",
+      "url": "https://www.bbc.com/news/articles/cqjpglyjwjeo?at_medium=RSS&at_campaign=rss",
+      "metric": "3,000+",
+      "metric_label": "Deaths from Israeli strikes"
     },
     {
-      "headline": "NextEra Acquires Dominion in $67 Billion Power Deal",
-      "summary": "NextEra Energy agreed to purchase Dominion Energy for $67 billion in stock, creating the largest utility acquisition ever in power sector consolidation.",
-      "source": "Bloomberg",
-      "url": "https://www.bloomberg.com/news/articles/2026-05-18/nextera-to-buy-dominion-for-67-billion-to-form-utility-colossus",
-      "metric": "$67B",
-      "metric_label": "Acquisition value, largest power"
+      "headline": "Israeli forces board Gaza-bound flotilla near Cyprus",
+      "summary": "Commandos intercept humanitarian vessels attempting to breach Gaza maritime blockade, escalating Mediterranean tensions.",
+      "source": "BBC World",
+      "url": "https://www.bbc.com/news/articles/c142vz80553o?at_medium=RSS&at_campaign=rss",
+      "metric": "Multiple boats",
+      "metric_label": "Vessels intercepted"
     },
     {
-      "headline": "Credit Markets Show Some Buyer Fatigue Signs",
-      "summary": "Invesco's credit head discusses emerging buyer fatigue in investment-grade credit markets amid inflation concerns affecting fixed income investor sentiment.",
-      "source": "Bloomberg",
-      "url": "https://www.bloomberg.com/news/videos/2026-05-18/some-buyer-fatigue-credit-matt-brill-video",
-      "metric": "Investment Grade",
-      "metric_label": "Credit segment showing fatigue"
+      "headline": "Ukrainian drones kill three in Moscow region",
+      "summary": "Large-scale drone attack on Russian territory kills civilians as Ukraine justifies strikes as response to Russian attacks.",
+      "source": "BBC Europe",
+      "url": "https://www.bbc.com/news/articles/c5ye480kxpmo?at_medium=RSS&at_campaign=rss",
+      "metric": "3",
+      "metric_label": "Deaths in Moscow region"
     },
     {
-      "headline": "SpaceX IPO Creates Risk for Tesla Investors",
-      "summary": "Upcoming SpaceX public offering will give retail investors second Musk stock option, potentially creating competition for Tesla investment flows and valuation.",
-      "source": "Bloomberg",
-      "url": "https://www.bloomberg.com/news/articles/2026-05-18/spacex-ipo-will-add-another-musk-stock-it-s-a-problem-for-tesla",
-      "metric": "2nd Stock",
-      "metric_label": "Musk companies available publicl"
+      "headline": "Ukraine front line sees weapons transformation warfare",
+      "summary": "Machines increasingly replace humans in combat zones while troops remain essential for territory defense operations.",
+      "source": "BBC Europe",
+      "url": "https://www.bbc.com/news/articles/c3w2xqj9x13o?at_medium=RSS&at_campaign=rss",
+      "metric": "Kill-zone",
+      "metric_label": "Front line designation"
+    },
+    {
+      "headline": "New York rail system shutdown causes chaos",
+      "summary": "Hundreds of thousands face commute disruption as workers strike over pay and conditions in busiest transit system.",
+      "source": "BBC US & Canada",
+      "url": "https://www.bbc.com/news/articles/cdjp839lxzvo?at_medium=RSS&at_campaign=rss",
+      "metric": "Hundreds of thou",
+      "metric_label": "Commuters affected"
+    },
+    {
+      "headline": "DR Congo Ebola outbreak involves rare strain",
+      "summary": "Health crisis complicated by conflict zone location and unusual virus variant making containment efforts extremely challenging.",
+      "source": "BBC World",
+      "url": "https://www.bbc.com/news/articles/cz72p75zg4qo?at_medium=RSS&at_campaign=rss",
+      "metric": "Rare strain",
+      "metric_label": "Ebola variant type"
     }
   ],
   "qatar_news": [
     {
-      "headline": "Real estate trade volume exceeds QR2 billion April",
-      "summary": "Qatar's real estate market demonstrates strong activity with trading volumes surpassing QR2 billion in April 2026, indicating robust property sector performance.",
+      "headline": "G7 Finance Ministers Meet Amid Middle East Crisis",
+      "summary": "G7 finance ministers convene to address global economic uncertainties arising from escalating Middle East conflicts and their potential worldwide impact.",
       "source": "Qatar Tribune",
-      "url": "https://www.qatar-tribune.com/article/234763/business/real-estate-trade-volume-exceeds-qr2-bn-in-april-2026",
-      "metric": "QR2+ billion",
-      "metric_label": "April real estate trade volume"
+      "url": "https://www.qatar-tribune.com/article/234969/business/g7-finance-ministers-meet-as-m-e-war-clouds-global-economy",
+      "metric": "G7 Meeting",
+      "metric_label": "Emergency finance ministers gath"
     },
     {
-      "headline": "QCB governor meets Chinese ambassador for discussions",
-      "summary": "Qatar Central Bank governor holds strategic meeting with China's ambassador, potentially discussing bilateral financial cooperation and monetary policy coordination.",
+      "headline": "Asian Markets Decline on Oil Price Surge",
+      "summary": "Asian stock markets experience significant drops as oil prices surge amid growing concerns over Middle East war escalation.",
       "source": "Qatar Tribune",
-      "url": "https://www.qatar-tribune.com/article/234718/business/qcb-governor-meets-ambassador-of-china-to-qatar",
-      "metric": "Bilateral meetin",
-      "metric_label": "QCB-China diplomatic engagement"
+      "url": "https://www.qatar-tribune.com/article/234967/business/asian-markets-slide-as-oil-surge-deepens-war-jitters",
+      "metric": "Market Drop",
+      "metric_label": "Asian equities decline trend"
     },
     {
-      "headline": "India faces rupee decline amid oil shock",
-      "summary": "India implements measures to stabilize its currency as rising oil prices threaten economic growth, impacting regional trading partners including Qatar.",
+      "headline": "QCB Governor Holds Bloomberg Board Meeting",
+      "summary": "Qatar Central Bank Governor engages with Bloomberg board member in high-level discussions on regional financial market developments.",
       "source": "Qatar Tribune",
-      "url": "https://www.qatar-tribune.com/article/234731/business/india-scrambles-to-steady-sinking-rupee-as-oil-shock-derails-growth",
-      "metric": "Currency pressur",
-      "metric_label": "Indian rupee stability concerns"
+      "url": "https://www.qatar-tribune.com/article/234962/business/qcb-governor-meets-with-bloomberg-board-member",
+      "metric": "Strategic Meetin",
+      "metric_label": "Central bank diplomatic engageme"
     },
     {
-      "headline": "US Energy Secretary visits Golden Pass LNG",
-      "summary": "High-level US official visits QatarEnergy's Golden Pass LNG facility, highlighting strategic energy partnership and Qatar's expanding US market presence.",
+      "headline": "Qatar Finance Minister Meets Global Leaders Paris",
+      "summary": "Qatar's Finance Minister conducts bilateral meetings with senior global economic and financial leaders during Paris diplomatic visit.",
       "source": "Qatar Tribune",
-      "url": "https://www.qatar-tribune.com/article/234713/business/us-secretary-of-energy-visits-qatarenergys-golden-pass-lng-project",
-      "metric": "Strategic visit",
-      "metric_label": "US-Qatar energy cooperation"
+      "url": "https://www.qatar-tribune.com/article/234976/business/minister-of-finance-meets-with-a-number-of-senior-global-economic-and-financial-leaders-in-paris",
+      "metric": "Multiple Meeting",
+      "metric_label": "International finance diplomacy"
     },
     {
-      "headline": "QC and QFC sign private sector MoU",
-      "summary": "Qatar Chamber and Qatar Financial Centre formalize partnership agreement aimed at accelerating private sector development and business growth initiatives.",
+      "headline": "SpaceX OpenAI Anthropic IPO Opportunities Risk Analysis",
+      "summary": "Major tech companies including SpaceX, OpenAI, and Anthropic present significant investment opportunities alongside considerable market risks.",
       "source": "Qatar Tribune",
-      "url": "https://www.qatar-tribune.com/article/234512/business/qc-qfc-sign-mou-to-boost-private-sector-growth",
-      "metric": "MoU signed",
-      "metric_label": "Private sector partnership agree"
+      "url": "https://www.qatar-tribune.com/article/234958/business/big-risks-and-rewards-in-upcoming-ipos-at-spacex-openai-anthropic",
+      "metric": "3 Major IPOs",
+      "metric_label": "Upcoming tech company listings"
     },
     {
-      "headline": "Qatar Business news coverage expanded",
-      "summary": "The Peninsula Qatar enhances business news section coverage, providing comprehensive reporting on Qatar's economic developments and market activities.",
-      "source": "The Peninsula Qatar",
-      "url": "https://thepeninsulaqatar.com/category/Qatar-Business",
-      "metric": "Enhanced coverag",
-      "metric_label": "Business news expansion"
+      "headline": "China Baidu Revenue Drops Despite AI Investment",
+      "summary": "Baidu reports quarterly revenue decline even as the Chinese tech giant continues heavy investments in artificial intelligence development.",
+      "source": "Qatar Tribune",
+      "url": "https://www.qatar-tribune.com/article/234948/business/chinas-baidu-posts-quarterly-revenue-drop-amid-ai-push",
+      "metric": "Revenue Drop",
+      "metric_label": "Quarterly performance decline"
+    },
+    {
+      "headline": "China Russia Trade Expo Amid Political Tensions",
+      "summary": "China and Russia host trade exposition while international attention focuses on Putin and Trump diplomatic visits.",
+      "source": "Qatar Tribune",
+      "url": "https://www.qatar-tribune.com/article/234963/business/chinarussia-hold-trade-expo-as-putin-and-trump-visits-draw-global-attention",
+      "metric": "Trade Expo",
+      "metric_label": "Bilateral commerce exhibition"
+    },
+    {
+      "headline": "Qatar Pakistan Business Council Inaugural Meeting",
+      "summary": "Qatar-Pakistan Business Council holds first official meeting aimed at strengthening bilateral trade relationships and economic cooperation.",
+      "source": "Qatar Tribune",
+      "url": "https://www.qatar-tribune.com/article/234936/business/qatarpakistan-business-council-holds-inaugural-meeting-to-boost-trade-ties",
+      "metric": "First Meeting",
+      "metric_label": "Business council establishment"
     }
   ],
   "kpis": [
