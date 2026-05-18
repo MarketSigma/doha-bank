@@ -15,7 +15,7 @@
       "qatar_news": true
     }
   },
-  "generated_at": "2026-05-18T22:28:45Z",
+  "generated_at": "2026-05-18T22:40:39Z",
   "generated_display_time": "07:00 AST",
   "global_indices": [
     {
@@ -502,20 +502,20 @@
   "market_as_of_date": "2026-05-18",
   "global_news": [
     {
-      "headline": "Trump calls off Iran attack after Gulf states request",
-      "summary": "US president says he is holding off on planned Tuesday attack as serious negotiations are now taking place with Gulf states involved.",
+      "headline": "Trump calls off Iran attack at Gulf states request",
+      "summary": "US president says he is holding off on planned US attack for Tuesday as serious negotiations are now taking place.",
       "source": "BBC World",
       "url": "https://www.bbc.com/news/articles/c7079e55zjro?at_medium=RSS&at_campaign=rss",
       "metric": "Tuesday",
-      "metric_label": "Planned attack date called off"
+      "metric_label": "Planned attack date postponed"
     },
     {
       "headline": "Israeli strikes on Lebanon death toll passes 3,000",
-      "summary": "Grim milestone reached in conflict between Israel and Hezbollah since March, despite nominal ceasefire currently in place.",
+      "summary": "Grim milestone in conflict between Israel and Hezbollah since March, despite nominal ceasefire between the parties.",
       "source": "BBC World",
       "url": "https://www.bbc.com/news/articles/cqjpglyjwjeo?at_medium=RSS&at_campaign=rss",
       "metric": "3,000+",
-      "metric_label": "Death toll from Israeli strikes"
+      "metric_label": "Deaths from Israeli strikes"
     },
     {
       "headline": "No additional story",
@@ -600,68 +600,68 @@
   ],
   "qatar_news": [
     {
-      "headline": "G7 finance ministers meet amid Middle East tensions",
-      "summary": "G7 finance ministers convene as Middle East war creates uncertainty for global economic outlook and stability.",
+      "headline": "G7 finance ministers meet as M-E war clouds economy",
+      "summary": "G7 finance ministers convene amid Middle East conflict concerns affecting global economic outlook.",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/234969/business/g7-finance-ministers-meet-as-m-e-war-clouds-global-economy",
       "metric": "G7",
-      "metric_label": "Major economies meeting"
+      "metric_label": "Finance ministers meeting"
     },
     {
-      "headline": "Asian markets decline as oil prices surge",
-      "summary": "Asian equity markets experience losses amid rising oil prices driven by Middle East war concerns and tensions.",
+      "headline": "Asian markets slide as oil surge deepens jitters",
+      "summary": "Asian financial markets decline amid oil price increases driven by war-related market concerns.",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/234967/business/asian-markets-slide-as-oil-surge-deepens-war-jitters",
-      "metric": "Oil Surge",
+      "metric": "Oil surge",
       "metric_label": "Market impact driver"
     },
     {
-      "headline": "QCB governor holds meeting with Bloomberg representative",
-      "summary": "Qatar Central Bank governor conducts discussion with Bloomberg board member in official meeting.",
+      "headline": "QCB governor meets with Bloomberg board member",
+      "summary": "Qatar Central Bank governor holds meeting with Bloomberg board member.",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/234962/business/qcb-governor-meets-with-bloomberg-board-member",
       "metric": "QCB",
       "metric_label": "Central bank engagement"
     },
     {
-      "headline": "Finance Minister engages global leaders in Paris",
-      "summary": "Qatar's Finance Minister holds meetings with senior global economic and financial leaders during Paris visit.",
+      "headline": "Minister of Finance meets global leaders in Paris",
+      "summary": "Qatar's Finance Minister conducts meetings with senior global economic and financial leaders in Paris.",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/234976/business/minister-of-finance-meets-with-a-number-of-senior-global-economic-and-financial-leaders-in-paris",
       "metric": "Paris",
-      "metric_label": "International meetings location"
+      "metric_label": "Meeting location"
     },
     {
-      "headline": "SpaceX, OpenAI, Anthropic IPOs present high stakes",
-      "summary": "Upcoming initial public offerings from major technology companies including SpaceX and AI firms carry significant risks and potential rewards.",
+      "headline": "Big risks and rewards in upcoming tech IPOs",
+      "summary": "Analysis of investment risks and opportunities in planned public offerings by SpaceX, OpenAI, and Anthropic.",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/234958/business/big-risks-and-rewards-in-upcoming-ipos-at-spacex-openai-anthropic",
       "metric": "3 IPOs",
-      "metric_label": "Major tech offerings"
+      "metric_label": "Tech companies going public"
     },
     {
-      "headline": "Baidu reports quarterly revenue decline despite AI investments",
-      "summary": "Chinese technology giant Baidu experiences revenue drop in latest quarter amid ongoing artificial intelligence development push.",
+      "headline": "China's Baidu posts quarterly revenue drop amid AI",
+      "summary": "Chinese technology company Baidu reports declining quarterly revenue despite artificial intelligence investment push.",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/234948/business/chinas-baidu-posts-quarterly-revenue-drop-amid-ai-push",
-      "metric": "Revenue Drop",
+      "metric": "Revenue drop",
       "metric_label": "Baidu quarterly performance"
     },
     {
-      "headline": "China-Russia trade expo amid global political attention",
-      "summary": "China and Russia conduct trade exhibition as international focus centers on visits from Putin and Trump.",
-      "source": "Qatar Tribune",
-      "url": "https://www.qatar-tribune.com/article/234963/business/chinarussia-hold-trade-expo-as-putin-and-trump-visits-draw-global-attention",
-      "metric": "Trade Expo",
-      "metric_label": "Bilateral commerce event"
-    },
-    {
-      "headline": "Qatar-Pakistan business council launches to enhance trade",
-      "summary": "Inaugural meeting of Qatar-Pakistan business council aims to strengthen commercial ties and boost bilateral trade relationships.",
+      "headline": "Qatar-Pakistan business council holds inaugural meeting",
+      "summary": "First meeting of Qatar-Pakistan business council aimed at strengthening bilateral trade relationships.",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/234936/business/qatarpakistan-business-council-holds-inaugural-meeting-to-boost-trade-ties",
       "metric": "Inaugural",
-      "metric_label": "New business council"
+      "metric_label": "Qatar-Pakistan council meeting"
+    },
+    {
+      "headline": "No additional story",
+      "summary": "No further qualifying news items were available for this section in this cycle.",
+      "source": "\u2014",
+      "url": "",
+      "metric": "NA",
+      "metric_label": "No data"
     }
   ],
   "kpis": [
