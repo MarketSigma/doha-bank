@@ -15,7 +15,7 @@
       "qatar_news": true
     }
   },
-  "generated_at": "2026-05-18T20:43:50Z",
+  "generated_at": "2026-05-18T21:13:43Z",
   "generated_display_time": "07:00 AST",
   "global_indices": [
     {
@@ -502,86 +502,102 @@
   "market_as_of_date": "2026-05-18",
   "global_news": [
     {
-      "headline": "S&P 500 Ends Flat as Oil Swings Drive Choppy Session",
-      "summary": "US stocks traded sideways Monday amid mixed US-Iran peace talk signals, with 10-year Treasury yields steady below 4.6% and semiconductor stocks declining.",
+      "headline": "Foreign Treasury Holdings Drop in March Amid Bill Sales",
+      "summary": "Overseas investors reduced US Treasury holdings from record highs, selling short-term bills while increasing positions in longer-dated securities during March.",
+      "source": "Bloomberg",
+      "url": "https://www.bloomberg.com/news/articles/2026-05-18/foreign-holdings-of-us-treasuries-fell-in-march-amid-bill-sales",
+      "metric": "Record High",
+      "metric_label": "Previous foreign Treasury holdin"
+    },
+    {
+      "headline": "S&P 500 Ends Choppy Session Little Changed",
+      "summary": "US stocks closed flat after volatile trading driven by oil price swings and mixed US-Iran peace talk signals. Ten-year yields held below 4.6%.",
       "source": "Bloomberg",
       "url": "https://www.bloomberg.com/news/articles/2026-05-18/us-futures-slip-as-inflation-worries-feed-risk-off-sentiment",
       "metric": "4.6%",
-      "metric_label": "10-year Treasury yield threshold"
+      "metric_label": "10-year Treasury yield ceiling"
     },
     {
-      "headline": "NextEra Acquires Dominion Energy for $67 Billion",
-      "summary": "Largest power sector deal ever creates utility giant spanning Florida to Virginia AI data centers, combining two major energy infrastructure companies.",
+      "headline": "Stocks and Oil Whipsaw on US-Iran Deal Signals",
+      "summary": "Wall Street experienced high volatility as traders reacted to mixed signals about potential US-Iran agreement affecting Strait of Hormuz energy flows.",
+      "source": "Bloomberg",
+      "url": "https://www.bloomberg.com/news/articles/2026-05-17/oil-climbs-as-iran-war-shows-no-sign-of-ending-markets-wrap",
+      "metric": "Strait of Hormuz",
+      "metric_label": "Key energy transit route at risk"
+    },
+    {
+      "headline": "NextEra Acquires Dominion in $67 Billion Power Deal",
+      "summary": "NextEra Energy agreed to purchase Dominion Energy for $67 billion in stock, creating the largest utility acquisition ever in power sector consolidation.",
       "source": "Bloomberg",
       "url": "https://www.bloomberg.com/news/articles/2026-05-18/nextera-to-buy-dominion-for-67-billion-to-form-utility-colossus",
       "metric": "$67B",
-      "metric_label": "Acquisition value in stock"
+      "metric_label": "Acquisition value, largest power"
     },
     {
-      "headline": "Akamai Launches $2.6 Billion Convertible Bond Offering",
-      "summary": "Cloud computing company seeks funding for infrastructure expansion through convertible debt issuance in corporate bond markets.",
-      "source": "Bloomberg",
-      "url": "https://www.bloomberg.com/news/articles/2026-05-18/akamai-seeks-to-raise-2-6-billion-in-convertbile-bond-offering",
-      "metric": "$2.6B",
-      "metric_label": "Convertible bond offering size"
-    },
-    {
-      "headline": "Foreign US Treasury Holdings Drop in March",
-      "summary": "Overseas investors reduced Treasury bill positions while increasing longer-dated securities, reflecting changing international demand patterns for US debt.",
-      "source": "Bloomberg",
-      "url": "https://www.bloomberg.com/news/articles/2026-05-18/foreign-holdings-of-us-treasuries-fell-in-march-amid-bill-sales",
-      "metric": "March",
-      "metric_label": "Month of foreign Treasury outflo"
-    },
-    {
-      "headline": "Texas Fund Backs State Street Credit ETF",
-      "summary": "60 billion dollar sovereign wealth fund supporting Texas public schools revealed as major investor in private credit exchange-traded fund.",
-      "source": "Bloomberg",
-      "url": "https://www.bloomberg.com/news/articles/2026-05-18/texas-fund-revealed-as-record-backer-of-state-street-credit-etf",
-      "metric": "$60B",
-      "metric_label": "Texas sovereign wealth fund size"
-    },
-    {
-      "headline": "Credit Markets Show Buyer Fatigue Says Invesco",
-      "summary": "Investment grade credit head discusses market conditions, inflation impact on fixed income, and ETF strategies amid changing investor sentiment.",
+      "headline": "Credit Markets Show Some Buyer Fatigue Signs",
+      "summary": "Invesco's credit head discusses emerging buyer fatigue in investment-grade credit markets amid inflation concerns affecting fixed income investor sentiment.",
       "source": "Bloomberg",
       "url": "https://www.bloomberg.com/news/videos/2026-05-18/some-buyer-fatigue-credit-matt-brill-video",
-      "metric": "GTO",
-      "metric_label": "Invesco Total Return Bond ETF ti"
+      "metric": "Investment Grade",
+      "metric_label": "Credit segment showing fatigue"
+    },
+    {
+      "headline": "SpaceX IPO Creates Risk for Tesla Investors",
+      "summary": "Upcoming SpaceX public offering will give retail investors second Musk stock option, potentially creating competition for Tesla investment flows and valuation.",
+      "source": "Bloomberg",
+      "url": "https://www.bloomberg.com/news/articles/2026-05-18/spacex-ipo-will-add-another-musk-stock-it-s-a-problem-for-tesla",
+      "metric": "2nd Stock",
+      "metric_label": "Musk companies available publicl"
     }
   ],
   "qatar_news": [
     {
-      "headline": "Real estate trade volume exceeds QR2 bn in April",
-      "summary": "Qatar's real estate sector demonstrates strong performance with trading volumes surpassing QR2 billion during April 2026, indicating robust market activity.",
+      "headline": "Real estate trade volume exceeds QR2 billion April",
+      "summary": "Qatar's real estate market demonstrates strong activity with trading volumes surpassing QR2 billion in April 2026, indicating robust property sector performance.",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/234763/business/real-estate-trade-volume-exceeds-qr2-bn-in-april-2026",
-      "metric": "QR2 bn+",
+      "metric": "QR2+ billion",
       "metric_label": "April real estate trade volume"
     },
     {
-      "headline": "US Energy Secretary visits QatarEnergy Golden Pass project",
-      "summary": "High-level diplomatic engagement as US Secretary of Energy tours QatarEnergy's strategic Golden Pass LNG facility, strengthening bilateral energy cooperation.",
-      "source": "Qatar Tribune",
-      "url": "https://www.qatar-tribune.com/article/234713/business/us-secretary-of-energy-visits-qatarenergys-golden-pass-lng-project",
-      "metric": "Golden Pass LNG",
-      "metric_label": "Strategic energy project visited"
-    },
-    {
-      "headline": "QCB governor meets Chinese ambassador for bilateral talks",
-      "summary": "Qatar Central Bank governor engages with China's ambassador, potentially discussing monetary cooperation and strengthening financial ties between nations.",
+      "headline": "QCB governor meets Chinese ambassador for discussions",
+      "summary": "Qatar Central Bank governor holds strategic meeting with China's ambassador, potentially discussing bilateral financial cooperation and monetary policy coordination.",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/234718/business/qcb-governor-meets-ambassador-of-china-to-qatar",
-      "metric": "China-Qatar",
-      "metric_label": "Bilateral financial cooperation "
+      "metric": "Bilateral meetin",
+      "metric_label": "QCB-China diplomatic engagement"
     },
     {
-      "headline": "India struggles with rupee decline amid oil shock",
-      "summary": "India faces currency pressures as rupee weakens due to oil price volatility, impacting regional economic stability and trade relationships.",
+      "headline": "India faces rupee decline amid oil shock",
+      "summary": "India implements measures to stabilize its currency as rising oil prices threaten economic growth, impacting regional trading partners including Qatar.",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/234731/business/india-scrambles-to-steady-sinking-rupee-as-oil-shock-derails-growth",
-      "metric": "Rupee decline",
-      "metric_label": "Indian currency pressure indicat"
+      "metric": "Currency pressur",
+      "metric_label": "Indian rupee stability concerns"
+    },
+    {
+      "headline": "US Energy Secretary visits Golden Pass LNG",
+      "summary": "High-level US official visits QatarEnergy's Golden Pass LNG facility, highlighting strategic energy partnership and Qatar's expanding US market presence.",
+      "source": "Qatar Tribune",
+      "url": "https://www.qatar-tribune.com/article/234713/business/us-secretary-of-energy-visits-qatarenergys-golden-pass-lng-project",
+      "metric": "Strategic visit",
+      "metric_label": "US-Qatar energy cooperation"
+    },
+    {
+      "headline": "QC and QFC sign private sector MoU",
+      "summary": "Qatar Chamber and Qatar Financial Centre formalize partnership agreement aimed at accelerating private sector development and business growth initiatives.",
+      "source": "Qatar Tribune",
+      "url": "https://www.qatar-tribune.com/article/234512/business/qc-qfc-sign-mou-to-boost-private-sector-growth",
+      "metric": "MoU signed",
+      "metric_label": "Private sector partnership agree"
+    },
+    {
+      "headline": "Qatar Business news coverage expanded",
+      "summary": "The Peninsula Qatar enhances business news section coverage, providing comprehensive reporting on Qatar's economic developments and market activities.",
+      "source": "The Peninsula Qatar",
+      "url": "https://thepeninsulaqatar.com/category/Qatar-Business",
+      "metric": "Enhanced coverag",
+      "metric_label": "Business news expansion"
     }
   ],
   "kpis": [
