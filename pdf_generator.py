@@ -1,4 +1,4 @@
-"""
+    """
 Doha Bank Market Updates - PDF Generator
 ========================================
 
@@ -96,7 +96,7 @@ SEC_H     = 5.5 * mm
 TBL_HDR_H = 4.2 * mm
 ROW_H     = 4.2 * mm
 GAP       = 3 * mm
-NEWS_CARD_H = 15 * mm   # fixed news card height; cards fit content, no stretching
+NEWS_CARD_H = 17.5 * mm   # fixed news card height; cards fit content, no stretching
 
 
 # ============================================================
@@ -305,7 +305,9 @@ def draw_header(c, report_date, generated_display_time,
     t(c, "DOHA BANK", M, H - 7 * mm,
       "Carlito-Bold", 9, SKY_BLUE, tracking=3)
 
-    meta_text = f"PAGE {page} / {total}  \u00b7  {generated_display_time}"
+    meta_text = f"PAGE {page} / {total}"
+    if generated_display_time:
+        meta_text += f"  \u00b7  {generated_display_time}"
     t(c, meta_text, W - M, H - 7 * mm,
       "Carlito", 7, HDR_META, "right", tracking=1.5)
 
@@ -499,18 +501,18 @@ def draw_news_card(c, x, y, w, h, item):
     inner_w = w - 2 * pad
 
     # Source tag — tracked uppercase accent blue
-    t(c, src.upper(), x + pad, y - 4 * mm,
-      "Carlito-Bold", 6, ACCENT_BLUE, tracking=1.5)
+    t(c, src.upper(), x + pad, y - 4.2 * mm,
+      "Carlito-Bold", 6.8, ACCENT_BLUE, tracking=1.5)
 
     # Headline — serif navy, up to 2 wrapped lines
-    headline_bottom = ml(c, hl_txt, x + pad, y - 7.5 * mm,
-                        "Caladea-Bold", 9, NAVY,
-                        inner_w, 3.4 * mm, maxl=2)
+    headline_bottom = ml(c, hl_txt, x + pad, y - 8.2 * mm,
+                        "Caladea-Bold", 10.2, NAVY,
+                        inner_w, 3.9 * mm, maxl=2)
 
-    # Summary — sans mid-blue, up to 3 wrapped lines (tighter for editorial feel)
-    ml(c, summ, x + pad, headline_bottom - 1.8 * mm,
-       "Carlito", 6.8, MID_BLUE,
-       inner_w, 2.7 * mm, maxl=3)
+    # Summary — sans mid-blue, up to 3 wrapped lines
+    ml(c, summ, x + pad, headline_bottom - 2 * mm,
+       "Carlito", 7.6, MID_BLUE,
+       inner_w, 3.1 * mm, maxl=3)
 
 
 def draw_news_grid(c, x, y, title, items, total_w, rows_count, card_h, card_gap=2 * mm, meta=None):
@@ -615,8 +617,7 @@ def page2(c, report_date, generated_display_time, market_as_of_date,
 
     y = draw_news_grid(
         c, M, y, "Regional & Global News", global_news, UW,
-        rows_count=6, card_h=NEWS_CARD_H, card_gap=card_gap,
-        meta=f"AS OF {generated_display_time}",
+        rows_count=5, card_h=NEWS_CARD_H, card_gap=card_gap,
     )
 
     y -= between_sections
@@ -624,7 +625,6 @@ def page2(c, report_date, generated_display_time, market_as_of_date,
     draw_news_grid(
         c, M, y, "Qatar News", qatar_news, UW,
         rows_count=3, card_h=NEWS_CARD_H, card_gap=card_gap,
-        meta=f"AS OF {generated_display_time}",
     )
 
     draw_footer(c, report_date)
@@ -636,7 +636,7 @@ def page2(c, report_date, generated_display_time, market_as_of_date,
 
 def generate(data, output_path):
     report_date            = data.get("config", {}).get("report_date", dt.today().strftime("%d %B %Y"))
-    generated_display_time = data.get("generated_display_time", "07:00 AST")
+    generated_display_time = data.get("generated_display_time", "")
     market_as_of_date      = data.get("market_as_of_date")
     report_status          = data.get("report_status", "PASS")
 
@@ -672,3 +672,5 @@ if __name__ == "__main__":
     else:
         print("Usage: python pdf_generator.py market_data.json report.pdf")
         raise SystemExit(1)
+
+    
