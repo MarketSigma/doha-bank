@@ -15,7 +15,7 @@
       "qatar_news": true
     }
   },
-  "generated_at": "2026-05-18T19:21:37Z",
+  "generated_at": "2026-05-18T20:42:04Z",
   "generated_display_time": "07:00 AST",
   "global_indices": [
     {
@@ -502,86 +502,86 @@
   "market_as_of_date": "2026-05-18",
   "global_news": [
     {
-      "headline": "US Stocks Slide on Iran Tensions Oil Surge",
-      "summary": "US equities fell as oil prices climbed amid fading hopes for US-Iran peace deal. Semiconductor stocks declined with inflation concerns weighing on sentiment.",
+      "headline": "S&P 500 Ends Choppy Session Little Changed",
+      "summary": "S&P 500 traded flat amid oil price swings and US-Iran peace talk signals. Ten-year Treasury yields held below 4.6%.",
       "source": "Bloomberg",
       "url": "https://www.bloomberg.com/news/articles/2026-05-18/us-futures-slip-as-inflation-worries-feed-risk-off-sentiment",
-      "metric": "30-year high",
-      "metric_label": "US 30-year yields near 2007 leve"
+      "metric": "4.6%",
+      "metric_label": "10-year Treasury yield level"
     },
     {
-      "headline": "Oil Rises as Hormuz Deal Hopes Fade",
-      "summary": "Oil prices climbed as doubts resurfaced about imminent US-Iran agreement that would restore energy flows through strategic Strait of Hormuz passage.",
+      "headline": "NextEra Buys Dominion for $67 Billion",
+      "summary": "Largest power sector acquisition creates utility giant spanning Florida to Virginia AI data centers in all-stock deal.",
       "source": "Bloomberg",
-      "url": "https://www.bloomberg.com/news/articles/2026-05-17/oil-climbs-as-iran-war-shows-no-sign-of-ending-markets-wrap",
-      "metric": "Strait closure r",
-      "metric_label": "Key energy shipping route uncert"
+      "url": "https://www.bloomberg.com/news/articles/2026-05-18/nextera-to-buy-dominion-for-67-billion-to-form-utility-colossus",
+      "metric": "$67B",
+      "metric_label": "Deal value in stock"
     },
     {
-      "headline": "Japan Finance Minister Eyes Bond Market Impact",
-      "summary": "Finance Minister Katayama will consider bond market effects when funding new spending to address Middle East conflict's economic impact on Japan.",
+      "headline": "Akamai Seeks $2.6 Billion Convertible Bond",
+      "summary": "Technology company plans convertible bond offering to fund cloud computing infrastructure expansion and development spending.",
       "source": "Bloomberg",
-      "url": "https://www.bloomberg.com/news/articles/2026-05-18/katayama-signals-care-for-bond-market-in-compiling-extra-budget",
-      "metric": "Extra budget",
-      "metric_label": "New spending for economic suppor"
+      "url": "https://www.bloomberg.com/news/articles/2026-05-18/akamai-seeks-to-raise-2-6-billion-in-convertbile-bond-offering",
+      "metric": "$2.6B",
+      "metric_label": "Convertible bond target amount"
     },
     {
-      "headline": "Blue Owl Raises $400 Million Bond Offering",
-      "summary": "Private credit fund successfully sold investment-grade bonds, easing capital access concerns following previous debt sale to bond giant PIMCO.",
+      "headline": "Foreign Holdings of US Treasuries Decline",
+      "summary": "Overseas investors reduced Treasury bill holdings in March while increasing positions in longer-dated government securities.",
       "source": "Bloomberg",
-      "url": "https://www.bloomberg.com/news/articles/2026-05-18/blue-owl-fund-returns-to-market-with-400-million-bond-offering",
-      "metric": "$400M",
-      "metric_label": "Investment-grade bond issuance"
+      "url": "https://www.bloomberg.com/news/articles/2026-05-18/foreign-holdings-of-us-treasuries-fell-in-march-amid-bill-sales",
+      "metric": "March",
+      "metric_label": "Month of holdings decline"
     },
     {
-      "headline": "SpaceX IPO Creates Tesla Competition Risk",
-      "summary": "Upcoming SpaceX public offering will give retail investors second option for Musk exposure, potentially creating serious risk for existing Tesla shareholders.",
+      "headline": "Texas Fund Backs State Street Credit ETF",
+      "summary": "$60 billion sovereign wealth fund supporting Texas public schools identified as major investor in private credit ETF.",
       "source": "Bloomberg",
-      "url": "https://www.bloomberg.com/news/articles/2026-05-18/spacex-ipo-will-add-another-musk-stock-it-s-a-problem-for-tesla",
-      "metric": "2nd Musk stock",
-      "metric_label": "Alternative investment option em"
+      "url": "https://www.bloomberg.com/news/articles/2026-05-18/texas-fund-revealed-as-record-backer-of-state-street-credit-etf",
+      "metric": "$60B",
+      "metric_label": "Texas sovereign fund size"
     },
     {
-      "headline": "ETF Knowledge Test Video Content",
-      "summary": "Bloomberg's educational content testing ETF expertise with market experts Scarlet Fu and Eric Balchunas in weekly IQ Test segment.",
+      "headline": "Credit Markets Show Buyer Fatigue Signs",
+      "summary": "Invesco's Matt Brill discusses high-grade credit conditions and inflation's impact on fixed income investment strategies.",
       "source": "Bloomberg",
-      "url": "https://www.bloomberg.com/news/videos/2026-05-18/test-your-etf-knowledge-in-our-iq-test-video",
-      "metric": "Educational",
-      "metric_label": "ETF market knowledge content"
+      "url": "https://www.bloomberg.com/news/videos/2026-05-18/some-buyer-fatigue-credit-matt-brill-video",
+      "metric": "GTO",
+      "metric_label": "Invesco Total Return Bond ETF ti"
     }
   ],
   "qatar_news": [
     {
       "headline": "Real estate trade volume exceeds QR2 bn in April",
-      "summary": "Qatar's real estate sector shows strong performance with trade volume surpassing QR2 billion in April 2026, indicating robust market activity.",
+      "summary": "Qatar's real estate market demonstrates strong performance with trading volumes surpassing QR2 billion during April 2026, indicating robust property sector activity.",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/234763/business/real-estate-trade-volume-exceeds-qr2-bn-in-april-2026",
-      "metric": "QR2 bn+",
+      "metric": "QR2bn+",
       "metric_label": "April real estate trade volume"
     },
     {
-      "headline": "QCB governor meets Chinese ambassador for bilateral talks",
-      "summary": "Qatar Central Bank governor holds meeting with China's ambassador to Qatar, potentially discussing financial cooperation and bilateral economic relations.",
-      "source": "Qatar Tribune",
-      "url": "https://www.qatar-tribune.com/article/234718/business/qcb-governor-meets-ambassador-of-china-to-qatar",
-      "metric": "Bilateral",
-      "metric_label": "China-Qatar banking dialogue"
-    },
-    {
-      "headline": "US Energy Secretary visits QatarEnergy LNG project",
-      "summary": "US Secretary of Energy visits QatarEnergy's Golden Pass LNG project, highlighting strategic energy partnership between Qatar and United States.",
+      "headline": "US Energy Secretary visits QatarEnergy Golden Pass project",
+      "summary": "Senior US energy official conducts site visit to QatarEnergy's Golden Pass LNG facility, highlighting strategic energy partnership between nations.",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/234713/business/us-secretary-of-energy-visits-qatarenergys-golden-pass-lng-project",
-      "metric": "Strategic",
-      "metric_label": "US-Qatar energy partnership"
+      "metric": "High-level visit",
+      "metric_label": "US-Qatar energy cooperation"
+    },
+    {
+      "headline": "QCB governor meets Chinese ambassador to Qatar",
+      "summary": "Qatar Central Bank governor holds discussions with China's ambassador, potentially strengthening bilateral financial and economic cooperation between countries.",
+      "source": "Qatar Tribune",
+      "url": "https://www.qatar-tribune.com/article/234718/business/qcb-governor-meets-ambassador-of-china-to-qatar",
+      "metric": "Bilateral meetin",
+      "metric_label": "Qatar-China financial relations"
     },
     {
       "headline": "India struggles with rupee decline amid oil shock",
-      "summary": "India faces currency challenges as rupee weakens due to oil price volatility, potentially impacting Qatar's energy export revenues.",
+      "summary": "Indian currency faces pressure as oil price volatility impacts economic growth, creating challenges for the subcontinent's monetary policy.",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/234731/business/india-scrambles-to-steady-sinking-rupee-as-oil-shock-derails-growth",
-      "metric": "Declining",
-      "metric_label": "Indian rupee performance"
+      "metric": "Currency pressur",
+      "metric_label": "Indian rupee stability concerns"
     }
   ],
   "kpis": [
