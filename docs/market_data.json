@@ -15,7 +15,7 @@
       "qatar_news": true
     }
   },
-  "generated_at": "2026-05-18T21:57:52Z",
+  "generated_at": "2026-05-18T22:07:57Z",
   "generated_display_time": "07:00 AST",
   "global_indices": [
     {
@@ -502,166 +502,166 @@
   "market_as_of_date": "2026-05-18",
   "global_news": [
     {
-      "headline": "Trump calls off Iran attack at Gulf states request",
-      "summary": "US president holds off planned Tuesday attack on Iran as serious negotiations take place, citing Gulf states' intervention.",
+      "headline": "Trump Calls Off Iran Attack After Gulf States Request",
+      "summary": "US President halts planned Tuesday attack on Iran following Gulf state requests. Serious negotiations now underway between parties.",
       "source": "BBC World",
       "url": "https://www.bbc.com/news/articles/c7079e55zjro?at_medium=RSS&at_campaign=rss",
-      "metric": "Delayed",
-      "metric_label": "US military action status"
+      "metric": "Cancelled",
+      "metric_label": "US Military Strike Status"
     },
     {
-      "headline": "Trump warns Iran as peace progress stalls",
-      "summary": "President says clock is ticking for Iran after Tehran responded to latest US proposal, exchanges continuing with Washington.",
-      "source": "BBC World",
-      "url": "https://www.bbc.com/news/articles/cd0p4y9y48xo?at_medium=RSS&at_campaign=rss",
-      "metric": "Ongoing",
-      "metric_label": "US-Iran diplomatic talks"
+      "headline": "Greek Protests Follow Israeli Gaza Flotilla Storm",
+      "summary": "Demonstrators gather outside Greece's foreign ministry in Athens protesting Israeli forces storming Gaza aid flotilla.",
+      "source": "Al Jazeera",
+      "url": "https://www.aljazeera.com/video/newsfeed/2026/5/18/protest-in-greece-after-israeli-forces-storm-gaza-aid-flotilla?traffic_source=rss",
+      "metric": "Active",
+      "metric_label": "Protest Status"
     },
     {
-      "headline": "Israeli strikes death toll passes 3000 in Lebanon",
-      "summary": "Grim milestone reached in Israel-Hezbollah conflict since March despite nominal ceasefire, officials report rising casualties.",
-      "source": "BBC World",
-      "url": "https://www.bbc.com/news/articles/cqjpglyjwjeo?at_medium=RSS&at_campaign=rss",
-      "metric": "3,000+",
-      "metric_label": "Lebanese deaths from Israeli str"
-    },
-    {
-      "headline": "Israeli forces board Gaza flotilla near Cyprus",
-      "summary": "Commandos board Global Sumud flotilla boats attempting to breach Gaza maritime blockade, activists report via live broadcasts.",
-      "source": "BBC World",
-      "url": "https://www.bbc.com/news/articles/c142vz80553o?at_medium=RSS&at_campaign=rss",
-      "metric": "Multiple vessels",
-      "metric_label": "Boats intercepted by Israeli for"
-    },
-    {
-      "headline": "Ukrainian drone attack kills three in Moscow region",
-      "summary": "Large-scale drone strikes hit Moscow region killing three, Ukraine's president calls attacks justified response to Russian strikes.",
-      "source": "BBC Europe",
-      "url": "https://www.bbc.com/news/articles/c5ye480kxpmo?at_medium=RSS&at_campaign=rss",
-      "metric": "3",
-      "metric_label": "Deaths in Moscow region"
-    },
-    {
-      "headline": "Ukraine front line sees weapons transformation warfare",
-      "summary": "Machines increasingly replace humans on battlefield as new weapons transform conflict dynamics, though troops remain vital.",
-      "source": "BBC Europe",
-      "url": "https://www.bbc.com/news/articles/c3w2xqj9x13o?at_medium=RSS&at_campaign=rss",
-      "metric": "Increasing",
-      "metric_label": "Machine warfare deployment"
-    },
-    {
-      "headline": "Trump unveils 1.7bn compensation fund for allies",
-      "summary": "Administration creates settlement fund for individuals alleging unfair investigations as president drops related tax lawsuit.",
-      "source": "BBC US & Canada",
-      "url": "https://www.bbc.com/news/articles/cvgzr7vr203o?at_medium=RSS&at_campaign=rss",
-      "metric": "$1.7bn",
-      "metric_label": "Compensation fund value"
-    },
-    {
-      "headline": "Trump challenger defeats Republican senator in Louisiana",
-      "summary": "Julia Letlow wins high-stakes contest with Trump's backing, defeating incumbent senator Trump branded disloyal for conviction vote.",
-      "source": "BBC US & Canada",
-      "url": "https://www.bbc.com/news/articles/cx21d4pxq23o?at_medium=RSS&at_campaign=rss",
-      "metric": "Victory",
-      "metric_label": "Trump-backed primary result"
-    },
-    {
-      "headline": "White House ballroom loses federal funding support",
-      "summary": "Senate rule-keeper blocks taxpayer funds for proposed 400m dollar White House ballroom security enhancement project.",
-      "source": "BBC US & Canada",
-      "url": "https://www.bbc.com/news/articles/cp3px2x96eeo?at_medium=RSS&at_campaign=rss",
-      "metric": "$400m",
-      "metric_label": "Blocked project funding"
-    },
-    {
-      "headline": "Trump faces Republican nemesis in Kentucky primary",
-      "summary": "Congressman Massie, who crossed president on spending and Epstein files, faces 20m dollar attack campaign from Trump.",
-      "source": "BBC US & Canada",
-      "url": "https://www.bbc.com/news/articles/cz924g45530o?at_medium=RSS&at_campaign=rss",
-      "metric": "$20m",
-      "metric_label": "Attack campaign spending"
-    },
-    {
-      "headline": "New York rail shutdown causes rush-hour chaos",
-      "summary": "Hundreds of thousands face difficult commutes as rail workers strike over better pay and working conditions continues.",
-      "source": "BBC US & Canada",
-      "url": "https://www.bbc.com/news/articles/cdjp839lxzvo?at_medium=RSS&at_campaign=rss",
-      "metric": "Hundreds of thou",
-      "metric_label": "Affected commuters"
-    },
-    {
-      "headline": "Ebola outbreak spreads in conflict-affected DR Congo",
-      "summary": "Rare Ebola strain outbreak in Democratic Republic of Congo complicated by ongoing conflict making containment efforts difficult.",
+      "headline": "Ebola Outbreak Continues in DR Congo Conflict Zone",
+      "summary": "Rare Ebola strain outbreak in Democratic Republic of Congo complicated by ongoing conflict in affected region.",
       "source": "BBC World",
       "url": "https://www.bbc.com/news/articles/cz72p75zg4qo?at_medium=RSS&at_campaign=rss",
-      "metric": "Rare strain",
-      "metric_label": "Ebola outbreak type"
+      "metric": "Ongoing",
+      "metric_label": "Outbreak Status"
+    },
+    {
+      "headline": "Reuters Market Feed Temporarily Unavailable",
+      "summary": "Market news source experiencing temporary disruption. Approved source feed returned no usable articles this cycle.",
+      "source": "Reuters/Bloomberg",
+      "url": "",
+      "metric": "Unavailable",
+      "metric_label": "Feed Status"
+    },
+    {
+      "headline": "Business News Feed Refresh Pending",
+      "summary": "Workflow will retry approved source on next run. Business feed refresh currently pending completion.",
+      "source": "Reuters/Bloomberg",
+      "url": "",
+      "metric": "Pending",
+      "metric_label": "Refresh Status"
+    },
+    {
+      "headline": "Market Coverage Awaiting Source Update",
+      "summary": "Approved publisher feed insufficient items for current report cycle. Market coverage update pending.",
+      "source": "Reuters/Bloomberg",
+      "url": "",
+      "metric": "Insufficient",
+      "metric_label": "Feed Items"
+    },
+    {
+      "headline": "Economy Headline Stream Incomplete",
+      "summary": "Economy section restricted to approved publisher sources only. Current headline stream incomplete.",
+      "source": "Reuters/Bloomberg",
+      "url": "",
+      "metric": "Incomplete",
+      "metric_label": "Stream Status"
+    },
+    {
+      "headline": "Gulf Diplomatic Intervention Prevents US Iran Strike",
+      "summary": "Regional Gulf states successfully intervened to prevent US military action against Iran scheduled for Tuesday.",
+      "source": "BBC World",
+      "url": "https://www.bbc.com/news/articles/c7079e55zjro?at_medium=RSS&at_campaign=rss",
+      "metric": "Successful",
+      "metric_label": "Diplomatic Intervention"
+    },
+    {
+      "headline": "Middle East Tensions Rise Following Gaza Flotilla Incident",
+      "summary": "Israeli forces storm Gaza aid flotilla sparking international protests and demonstrations in Greece.",
+      "source": "Al Jazeera",
+      "url": "https://www.aljazeera.com/video/newsfeed/2026/5/18/protest-in-greece-after-israeli-forces-storm-gaza-aid-flotilla?traffic_source=rss",
+      "metric": "Escalating",
+      "metric_label": "Regional Tensions"
+    },
+    {
+      "headline": "US Iran Negotiations Replace Military Action Plan",
+      "summary": "Serious negotiations between US and Iran commence after planned military strike cancelled at Gulf request.",
+      "source": "BBC World",
+      "url": "https://www.bbc.com/news/articles/c7079e55zjro?at_medium=RSS&at_campaign=rss",
+      "metric": "Active",
+      "metric_label": "Negotiation Status"
+    },
+    {
+      "headline": "Health Crisis Complicates Congo Conflict Situation",
+      "summary": "Ebola outbreak in conflict-affected DR Congo region presents additional challenges for humanitarian response efforts.",
+      "source": "BBC World",
+      "url": "https://www.bbc.com/news/articles/cz72p75zg4qo?at_medium=RSS&at_campaign=rss",
+      "metric": "Complex",
+      "metric_label": "Crisis Level"
+    },
+    {
+      "headline": "International Protest Response to Gaza Aid Disruption",
+      "summary": "Greek protesters demonstrate against Israeli military action on Gaza aid flotilla at Athens foreign ministry.",
+      "source": "Al Jazeera",
+      "url": "https://www.aljazeera.com/video/newsfeed/2026/5/18/protest-in-greece-after-israeli-forces-storm-gaza-aid-flotilla?traffic_source=rss",
+      "metric": "International",
+      "metric_label": "Protest Scope"
     }
   ],
   "qatar_news": [
     {
-      "headline": "G7 Finance Ministers Meet as Middle East War Clouds Economy",
-      "summary": "G7 finance ministers convene to address economic challenges posed by Middle East conflict and its global implications.",
+      "headline": "G7 finance ministers meet amid Middle East tensions",
+      "summary": "G7 finance ministers convene to address global economic challenges as Middle East war threatens worldwide financial stability.",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/234969/business/g7-finance-ministers-meet-as-m-e-war-clouds-global-economy",
       "metric": "G7 Meeting",
-      "metric_label": "Global finance response"
+      "metric_label": "Finance ministers summit status"
     },
     {
-      "headline": "Asian Markets Slide as Oil Surge Deepens War Jitters",
-      "summary": "Asian stock markets decline amid rising oil prices driven by Middle East conflict concerns and market volatility.",
+      "headline": "Asian markets decline as oil prices surge",
+      "summary": "Asian stock markets fall sharply while oil prices spike amid growing concerns over Middle East conflict escalation.",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/234967/business/asian-markets-slide-as-oil-surge-deepens-war-jitters",
       "metric": "Oil Surge",
-      "metric_label": "Price volatility impact"
+      "metric_label": "Crude price increase trend"
     },
     {
-      "headline": "QCB Governor Meets with Bloomberg Board Member",
+      "headline": "QCB governor meets Bloomberg board member",
       "summary": "Qatar Central Bank governor holds discussions with Bloomberg board member on financial market developments and cooperation opportunities.",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/234962/business/qcb-governor-meets-with-bloomberg-board-member",
-      "metric": "High-level Meeti",
-      "metric_label": "Central bank diplomacy"
+      "metric": "High-Level Meeti",
+      "metric_label": "Central bank diplomatic engageme"
     },
     {
-      "headline": "Qatar Finance Minister Meets Global Economic Leaders in Paris",
-      "summary": "Minister of Finance engages with senior international economic and financial leaders during strategic meetings in Paris.",
+      "headline": "Qatar Finance Minister meets global leaders in Paris",
+      "summary": "Minister of Finance engages with senior international economic and financial leaders during important meetings in Paris.",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/234976/business/minister-of-finance-meets-with-a-number-of-senior-global-economic-and-financial-leaders-in-paris",
       "metric": "Paris Summit",
-      "metric_label": "International engagement"
+      "metric_label": "International finance diplomacy"
     },
     {
-      "headline": "Big Risks and Rewards in SpaceX, OpenAI IPOs",
-      "summary": "Upcoming IPOs for SpaceX, OpenAI, and Anthropic present significant investment opportunities alongside substantial market risks.",
+      "headline": "SpaceX, OpenAI, Anthropic IPOs present high stakes",
+      "summary": "Upcoming initial public offerings from major tech companies SpaceX, OpenAI, and Anthropic offer significant investment risks and rewards.",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/234958/business/big-risks-and-rewards-in-upcoming-ipos-at-spacex-openai-anthropic",
-      "metric": "3 Major IPOs",
-      "metric_label": "Tech companies going public"
+      "metric": "3 IPOs",
+      "metric_label": "Major tech company listings"
     },
     {
-      "headline": "China's Baidu Posts Quarterly Revenue Drop Despite AI Push",
-      "summary": "Baidu reports declining quarterly revenue despite significant investments in artificial intelligence technology and market expansion efforts.",
+      "headline": "Baidu revenue drops despite AI investment push",
+      "summary": "Chinese tech giant Baidu reports quarterly revenue decline even as company continues heavy investments in artificial intelligence development.",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/234948/business/chinas-baidu-posts-quarterly-revenue-drop-amid-ai-push",
       "metric": "Revenue Drop",
       "metric_label": "Quarterly performance decline"
     },
     {
-      "headline": "China-Russia Trade Expo Draws Global Attention",
-      "summary": "China and Russia hold major trade exposition as international focus intensifies on Putin and Trump diplomatic visits.",
+      "headline": "China-Russia trade expo amid global political attention",
+      "summary": "China and Russia host trade exposition as international focus intensifies on Putin and Trump diplomatic visits and relationships.",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/234963/business/chinarussia-hold-trade-expo-as-putin-and-trump-visits-draw-global-attention",
       "metric": "Trade Expo",
-      "metric_label": "Bilateral economic cooperation"
+      "metric_label": "Bilateral economic cooperation e"
     },
     {
-      "headline": "Qatar-Pakistan Business Council Holds Inaugural Meeting",
-      "summary": "New business council between Qatar and Pakistan launches with inaugural meeting focused on strengthening bilateral trade relationships.",
+      "headline": "Qatar-Pakistan business council launches trade enhancement initiative",
+      "summary": "New Qatar-Pakistan business council holds inaugural meeting focused on strengthening bilateral trade relationships and economic cooperation opportunities.",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/234936/business/qatarpakistan-business-council-holds-inaugural-meeting-to-boost-trade-ties",
-      "metric": "New Council",
-      "metric_label": "Bilateral trade initiative"
+      "metric": "Inaugural Meetin",
+      "metric_label": "New bilateral trade council"
     }
   ],
   "kpis": [
