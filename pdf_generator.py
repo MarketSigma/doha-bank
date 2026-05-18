@@ -96,7 +96,7 @@ SEC_H     = 5.5 * mm
 TBL_HDR_H = 4.2 * mm
 ROW_H     = 4.2 * mm
 GAP       = 3 * mm
-NEWS_CARD_H = 25 * mm   # fixed news card height; cards fit content, no stretching
+NEWS_CARD_H = 15 * mm   # fixed news card height; cards fit content, no stretching
 
 
 # ============================================================
@@ -609,9 +609,9 @@ def page2(c, report_date, generated_display_time, market_as_of_date,
         report_status=report_status,
     )
 
-    y = top - 2 * mm
-    card_gap         = 2.5 * mm
-    between_sections = 4 * mm
+    y = top - 1.5 * mm
+    card_gap = 1.5 * mm
+    between_sections = 2.5 * mm
 
     y = draw_news_grid(
         c, M, y, "Regional & Global News", global_news, UW,
@@ -623,7 +623,7 @@ def page2(c, report_date, generated_display_time, market_as_of_date,
 
     draw_news_grid(
         c, M, y, "Qatar News", qatar_news, UW,
-        rows_count=4, card_h=NEWS_CARD_H, card_gap=card_gap,
+        rows_count=3, card_h=NEWS_CARD_H, card_gap=card_gap,
         meta=f"AS OF {generated_display_time}",
     )
 
