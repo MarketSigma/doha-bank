@@ -272,41 +272,41 @@ NEWS_FEEDS = {
         {
             "source": "BBC World",
             "url": "http://feeds.bbci.co.uk/news/world/rss.xml",
-            "max": 3,
+            "max": 6,
         },
         {
             "source": "Al Jazeera",
             "url": "https://www.aljazeera.com/xml/rss/all.xml",
-            "max": 3,
+            "max": 6,
         },
 
         # --- GCC business press ---
         {
             "source": "Khaleej Times",
             "url": "https://www.khaleejtimes.com/rss/business",
-            "max": 2,
+            "max": 4,
         },
         {
             "source": "Gulf News",
             "url": "https://gulfnews.com/business/rss",
-            "max": 1,
+            "max": 4,
         },
 
         # --- Google News query feeds ---
         {
             "source": "US Markets",
             "url": "https://news.google.com/rss/search?q=US+markets+Fed+Wall+Street+Treasury&hl=en-US&gl=US&ceid=US:en",
-            "max": 1,
+            "max": 4,
         },
         {
             "source": "GCC Markets",
             "url": "https://news.google.com/rss/search?q=Saudi+UAE+GCC+oil+OPEC+aramco&hl=en&gl=US&ceid=US:en",
-            "max": 1,
+            "max": 4,
         },
         {
             "source": "Energy Markets",
             "url": "https://news.google.com/rss/search?q=oil+OPEC+Brent+LNG+gas+energy+markets&hl=en&gl=US&ceid=US:en",
-            "max": 1,
+            "max": 4,
         },
     ],
 
@@ -314,17 +314,17 @@ NEWS_FEEDS = {
         {
             "source": "The Peninsula",
             "url": "https://thepeninsulaqatar.com/rss/category/Qatar-Business",
-            "max": 2,
+            "max": 4,
         },
         {
             "source": "Qatar Tribune",
             "url": "https://www.qatar-tribune.com/rss",
-            "max": 2,
+            "max": 4,
         },
         {
             "source": "Gulf Times",
             "url": "https://www.gulf-times.com/rss/business",
-            "max": 2,
+            "max": 4,
         },
     ],
 }
