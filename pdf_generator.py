@@ -453,105 +453,85 @@ def section_rows(data, sec):
 # News cards
 # ------------------------------------------------------------
 
-def draw_news_card(c, x, y, w, h, item, section="global"):
-    """
-    Clean full-width news card layout.
-    Removes:
-    - right-side mini highlight boxes
-    - vertical blue accent strip
-    """
+def draw_news_card(c, x, y, w, h, item):
 
-    # Card shadow
-    c.setFillColor(colors.HexColor("#DCE7F0"))
-    c.roundRect(x + 1.5, y - 1.5, w, h, 6, fill=1, stroke=0)
+    src = str(item.get("source", ""))
+    hl_txt = str(item.get("headline", ""))
+    summ = str(item.get("summary", ""))
 
-    # Main card
-    c.setFillColor(WHITE)
-    c.setStrokeColor(RULE)
-    c.setLineWidth(0.6)
-    c.roundRect(x, y, w, h, 6, fill=1, stroke=1)
+    # --------------------------------------------------------
+    # Main card background
+    # --------------------------------------------------------
 
-    pad = 8
+    fr(c, x, y - h, w, h, WHITE)
+    sr(c, x, y - h, w, h, RULE, 0.5)
 
-    content_x = x + pad
-    content_y = y + h - pad
+    # --------------------------------------------------------
+    # Full-width content area
+    # --------------------------------------------------------
 
-    usable_w = w - (pad * 2)
+    tx = x + 3 * mm
+    tw2 = w - 6 * mm
 
-    # Source
-    source = item.get("source", "Source")
-    ts = item.get("time", "")
-
-    c.setFont("Carlito-Bold", 8)
-    c.setFillColor(BLUE)
-    c.drawString(content_x, content_y, source)
-
-    # Timestamp
-    if ts:
-        c.setFont("Carlito", 7)
-        c.setFillColor(MUTED)
-
-        ts_w = c.stringWidth(ts, "Carlito", 7)
-
-        c.drawString(
-            x + w - pad - ts_w,
-            content_y,
-            ts
-        )
-
+    # --------------------------------------------------------
     # Headline
-    headline_y = content_y - 13
+    # --------------------------------------------------------
 
-    c.setFont("Carlito-Bold", 10)
-    c.setFillColor(TEXT)
+    headline_bottom = ml(
+        c,
+        hl_txt,
+        tx,
+        y - 3 * mm,
+        "Caladea-Bold",
+        7.5,
+        TEXT,
+        tw2,
+        2.7 * mm,
+        2
+    )
 
-    headline = item.get("title", "")
+    # --------------------------------------------------------
+    # Source
+    # --------------------------------------------------------
 
-    headline_lines = split_text(
-        headline,
-        usable_w,
+    t(
+        c,
+        src.upper(),
+        tx,
+        headline_bottom - 2 * mm,
         "Carlito-Bold",
-        10,
-        max_lines=2
+        5.5,
+        CYAN
     )
 
-    yy = headline_y
+    # --------------------------------------------------------
+    # Divider line
+    # --------------------------------------------------------
 
-    for line in headline_lines:
-        c.drawString(content_x, yy, line)
-        yy -= 11
-
-    # Body
-    body = item.get("summary", "") or item.get("description", "")
-
-    body_y = yy - 3
-
-    c.setFont("Carlito", 8)
-    c.setFillColor(TEXT)
-
-    body_lines = split_text(
-        body,
-        usable_w,
-        "Carlito",
-        8,
-        max_lines=5
+    hl(
+        c,
+        tx,
+        headline_bottom - 3.2 * mm,
+        tx + tw2,
+        RULE,
+        0.25
     )
 
-    yy = body_y
+    # --------------------------------------------------------
+    # Summary
+    # --------------------------------------------------------
 
-    for line in body_lines:
-        c.drawString(content_x, yy, line)
-        yy -= 9
-
-    # Bottom separator
-    c.setStrokeColor(colors.HexColor("#D8E3EC"))
-    c.setLineWidth(0.5)
-
-    c.line(
-        x + 6,
-        y + 6,
-        x + w - 6,
-        y + 6
+    ml(
+        c,
+        summ,
+        tx,
+        headline_bottom - 5.5 * mm,
+        "Carlito-Italic",
+        6,
+        MUTED,
+        tw2,
+        2.3 * mm,
+        4
     )
 
 def draw_news_grid(c, x, y, title, items, total_w, rows_count, card_h, card_gap=2 * mm):
