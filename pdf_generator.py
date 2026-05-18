@@ -615,7 +615,7 @@ def page2(c, report_date, generated_display_time, market_as_of_date,
 
     y = draw_news_grid(
         c, M, y, "Regional & Global News", global_news, UW,
-        rows_count=4, card_h=NEWS_CARD_H, card_gap=card_gap,
+        rows_count=6, card_h=NEWS_CARD_H, card_gap=card_gap,
         meta=f"AS OF {generated_display_time}",
     )
 
