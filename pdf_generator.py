@@ -623,7 +623,7 @@ def page2(c, report_date, generated_display_time, market_as_of_date,
 
     draw_news_grid(
         c, M, y, "Qatar News", qatar_news, UW,
-        rows_count=2, card_h=NEWS_CARD_H, card_gap=card_gap,
+        rows_count=3, card_h=NEWS_CARD_H, card_gap=card_gap,
         meta=f"AS OF {generated_display_time}",
     )
 
