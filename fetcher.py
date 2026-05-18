@@ -272,66 +272,41 @@ NEWS_FEEDS = {
         {
             "source": "BBC World",
             "url": "http://feeds.bbci.co.uk/news/world/rss.xml",
-            "max": 15,
-        },
-        {
-            "source": "BBC Europe",
-            "url": "http://feeds.bbci.co.uk/news/world/europe/rss.xml",
-            "max": 15,
-        },
-        {
-            "source": "BBC US & Canada",
-            "url": "http://feeds.bbci.co.uk/news/world/us_and_canada/rss.xml",
-            "max": 15,
-        },
-        {
-            "source": "BBC Asia",
-            "url": "http://feeds.bbci.co.uk/news/world/asia/rss.xml",
-            "max": 15,
+            "max": 3,
         },
         {
             "source": "Al Jazeera",
             "url": "https://www.aljazeera.com/xml/rss/all.xml",
-            "max": 15,
-        },
-        {
-            "source": "CNBC World",
-            "url": "https://www.cnbc.com/id/100727362/device/rss/rss.html",
-            "max": 10,
+            "max": 3,
         },
 
         # --- GCC business press ---
         {
             "source": "Khaleej Times",
             "url": "https://www.khaleejtimes.com/rss/business",
-            "max": 10,
+            "max": 2,
         },
         {
             "source": "Gulf News",
             "url": "https://gulfnews.com/business/rss",
-            "max": 10,
-        },
-        {
-            "source": "Arab News",
-            "url": "https://www.arabnews.com/rss/business.xml",
-            "max": 10,
+            "max": 1,
         },
 
         # --- Google News query feeds ---
         {
             "source": "US Markets",
             "url": "https://news.google.com/rss/search?q=US+markets+Fed+Wall+Street+Treasury&hl=en-US&gl=US&ceid=US:en",
-            "max": 10,
+            "max": 1,
         },
         {
             "source": "GCC Markets",
             "url": "https://news.google.com/rss/search?q=Saudi+UAE+GCC+oil+OPEC+aramco&hl=en&gl=US&ceid=US:en",
-            "max": 10,
+            "max": 1,
         },
         {
             "source": "Energy Markets",
             "url": "https://news.google.com/rss/search?q=oil+OPEC+Brent+LNG+gas+energy+markets&hl=en&gl=US&ceid=US:en",
-            "max": 10,
+            "max": 1,
         },
     ],
 
@@ -339,17 +314,17 @@ NEWS_FEEDS = {
         {
             "source": "The Peninsula",
             "url": "https://thepeninsulaqatar.com/rss/category/Qatar-Business",
-            "max": 10,
+            "max": 2,
         },
         {
             "source": "Qatar Tribune",
             "url": "https://www.qatar-tribune.com/rss",
-            "max": 10,
+            "max": 2,
         },
         {
             "source": "Gulf Times",
             "url": "https://www.gulf-times.com/rss/business",
-            "max": 10,
+            "max": 2,
         },
     ],
 }
