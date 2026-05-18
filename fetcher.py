@@ -1,4 +1,4 @@
-import json
+    import json
 import os
 import re
 import datetime
@@ -60,7 +60,9 @@ GLOBAL_FOCUS_KEYWORDS = [
     "saudi", "saudi arabia", "riyadh", "aramco", "saudi aramco",
     "pif", "vision 2030", "neom",
     "uae", "emirates", "dubai", "abu dhabi", "adnoc", "mubadala", "adia",
-    "kuwait", "bahrain", "oman", "qatar",
+    "kuwait", "bahrain", "oman",
+    # NOTE: 'qatar' deliberately excluded from this list. Qatar-focused
+    # stories belong in the Qatar section, not the global section.
     "gcc", "gulf", "gulf states", "mena", "middle east",
     "tadawul", "dfm", "adx",
     # Energy / OPEC
@@ -120,6 +122,116 @@ QATAR_NEWS_BRAVE_QUERIES = [
     'Qatar real estate construction infrastructure project',
     'Qatar Central Bank QCB monetary policy banking sector',
 ]
+
+
+# ============================================================
+# Source-quality controls
+# ============================================================
+# Brave Search returns the open web, including SEO farms, low-quality
+# aggregators and rumour blogs. We accept Brave items only when their host
+# is on this allowlist. RSS feeds are not filtered here because each feed
+# is already a curated publisher.
+# ============================================================
+
+CREDIBLE_GLOBAL_DOMAINS = {
+    # US / global wires & financial press
+    "reuters.com", "bloomberg.com", "ft.com", "wsj.com", "nytimes.com",
+    "washingtonpost.com", "cnbc.com", "marketwatch.com", "barrons.com",
+    "forbes.com", "businessinsider.com", "fortune.com", "axios.com",
+    "semafor.com", "politico.com", "apnews.com", "npr.org",
+    "economist.com", "theguardian.com", "bbc.com", "bbc.co.uk",
+    "cnn.com", "nbcnews.com", "abcnews.go.com", "cbsnews.com",
+    "yahoo.com", "finance.yahoo.com", "investing.com",
+    # GCC / MENA quality press (Qatar deliberately EXCLUDED — those go to Qatar section)
+    "arabnews.com", "saudigazette.com.sa", "alarabiya.net",
+    "thenationalnews.com", "thenational.ae",
+    "khaleejtimes.com", "gulfnews.com", "gulfbusiness.com",
+    "arabianbusiness.com", "zawya.com", "agbi.com",
+    "middleeasteye.net", "middleeastmonitor.com",
+    # Official / government primary sources
+    "federalreserve.gov", "treasury.gov", "sec.gov", "opec.org",
+    "imf.org", "worldbank.org",
+}
+
+CREDIBLE_QATAR_DOMAINS = {
+    # Qatar press
+    "thepeninsulaqatar.com", "peninsulaqatar.com",
+    "qatar-tribune.com", "gulf-times.com",
+    # Qatar official
+    "qna.org.qa", "qatarenergy.qa", "qcb.gov.qa",
+    # Reputable international coverage of Qatar
+    "reuters.com", "bloomberg.com", "ft.com", "wsj.com",
+    "aljazeera.com", "arabnews.com", "thenationalnews.com",
+    "khaleejtimes.com", "gulfnews.com", "zawya.com", "agbi.com",
+    "gulfbusiness.com", "arabianbusiness.com",
+}
+
+# Clean display labels for known publishers. The key is the registrable
+# domain, the value is the human-readable name shown in the report.
+DOMAIN_DISPLAY_NAMES = {
+    "reuters.com": "Reuters",
+    "bloomberg.com": "Bloomberg",
+    "ft.com": "Financial Times",
+    "wsj.com": "Wall Street Journal",
+    "nytimes.com": "New York Times",
+    "washingtonpost.com": "Washington Post",
+    "cnbc.com": "CNBC",
+    "marketwatch.com": "MarketWatch",
+    "barrons.com": "Barron's",
+    "forbes.com": "Forbes",
+    "businessinsider.com": "Business Insider",
+    "fortune.com": "Fortune",
+    "axios.com": "Axios",
+    "semafor.com": "Semafor",
+    "politico.com": "Politico",
+    "apnews.com": "AP News",
+    "npr.org": "NPR",
+    "economist.com": "The Economist",
+    "theguardian.com": "The Guardian",
+    "bbc.com": "BBC",
+    "bbc.co.uk": "BBC",
+    "cnn.com": "CNN",
+    "nbcnews.com": "NBC News",
+    "abcnews.go.com": "ABC News",
+    "cbsnews.com": "CBS News",
+    "yahoo.com": "Yahoo Finance",
+    "finance.yahoo.com": "Yahoo Finance",
+    "investing.com": "Investing.com",
+    "arabnews.com": "Arab News",
+    "saudigazette.com.sa": "Saudi Gazette",
+    "alarabiya.net": "Al Arabiya",
+    "thenationalnews.com": "The National",
+    "thenational.ae": "The National",
+    "khaleejtimes.com": "Khaleej Times",
+    "gulfnews.com": "Gulf News",
+    "gulfbusiness.com": "Gulf Business",
+    "arabianbusiness.com": "Arabian Business",
+    "zawya.com": "Zawya",
+    "agbi.com": "AGBI",
+    "aljazeera.com": "Al Jazeera",
+    "middleeasteye.net": "Middle East Eye",
+    "middleeastmonitor.com": "Middle East Monitor",
+    "thepeninsulaqatar.com": "The Peninsula",
+    "peninsulaqatar.com": "The Peninsula",
+    "qatar-tribune.com": "Qatar Tribune",
+    "gulf-times.com": "Gulf Times",
+    "qna.org.qa": "QNA",
+    "qatarenergy.qa": "QatarEnergy",
+    "qcb.gov.qa": "QCB",
+    "federalreserve.gov": "Federal Reserve",
+    "treasury.gov": "US Treasury",
+    "sec.gov": "SEC",
+    "opec.org": "OPEC",
+    "imf.org": "IMF",
+    "worldbank.org": "World Bank",
+}
+
+# Terms that mark a story as Qatar-focused. If any appear in the headline,
+# the item is routed to the Qatar section only and excluded from global.
+QATAR_FOCUS_TERMS = (
+    "qatar", "doha", "qse", "qnb", "qatarenergy", "qib", "qcb",
+    "qatari", "al udeid",
+)
 
 
 
@@ -438,8 +550,8 @@ def _clean_text(text: str) -> str:
     return text
 
 
-def _source_from_url(url: str) -> str:
-    """Derive a clean source name from a URL host (e.g. 'reuters.com' -> 'Reuters')."""
+def _domain_of(url: str) -> str:
+    """Return the registrable host of a URL (lowercase, no www/m/amp prefix)."""
     if not url:
         return ""
     try:
@@ -447,15 +559,60 @@ def _source_from_url(url: str) -> str:
         host = urlparse(url).netloc.lower()
         host = re.sub(r"^www\.", "", host)
         host = re.sub(r"^(m|amp|edition|news)\.", "", host)
-        # Use the registrable label (e.g. reuters from reuters.com)
-        parts = host.split(".")
-        if len(parts) >= 2:
-            label = parts[-2]
-        else:
-            label = host
-        return label.replace("-", " ").title()
+        return host
     except Exception:
         return ""
+
+
+def _host_matches_allowlist(host: str, allowlist) -> bool:
+    """True if host equals or is a subdomain of any entry in the allowlist."""
+    if not host:
+        return False
+    for allowed in allowlist:
+        if host == allowed or host.endswith("." + allowed):
+            return True
+    return False
+
+
+def _is_credible_global_source(url: str) -> bool:
+    return _host_matches_allowlist(_domain_of(url), CREDIBLE_GLOBAL_DOMAINS)
+
+
+def _is_credible_qatar_source(url: str) -> bool:
+    return _host_matches_allowlist(_domain_of(url), CREDIBLE_QATAR_DOMAINS)
+
+
+def _is_qatar_focused_item(item: Dict[str, Any]) -> bool:
+    """True if the headline strongly implies the story is about Qatar.
+    Used to keep Qatar content out of the global news section."""
+    title = (item.get("title") or "").lower()
+    return any(term in title for term in QATAR_FOCUS_TERMS)
+
+
+def _source_from_url(url: str) -> str:
+    """Derive a clean, human-readable source label from a URL.
+
+    Uses DOMAIN_DISPLAY_NAMES for known publishers (e.g. 'reuters.com' ->
+    'Reuters'). Falls back to a title-cased version of the host's
+    registrable label for unknown domains.
+    """
+    host = _domain_of(url)
+    if not host:
+        return ""
+
+    # Exact match first
+    if host in DOMAIN_DISPLAY_NAMES:
+        return DOMAIN_DISPLAY_NAMES[host]
+
+    # Subdomain match (e.g. uk.reuters.com -> reuters.com)
+    for allowed_host, display in DOMAIN_DISPLAY_NAMES.items():
+        if host.endswith("." + allowed_host):
+            return display
+
+    # Fallback: title-case the registrable label
+    parts = host.split(".")
+    label = parts[-2] if len(parts) >= 2 else host
+    return label.replace("-", " ").title()
 
 
 def _supabase_headers() -> Dict[str, str]:
@@ -975,9 +1132,14 @@ def _is_relevant_global_item(item: Dict[str, Any], now_utc: datetime.datetime) -
     Light filter for the global news pool. An item is kept if:
       - it mentions at least one US/GCC/energy/geopolitics keyword, AND
       - it does NOT match any noise keyword (sports, entertainment, etc), AND
+      - the headline is NOT Qatar-focused (Qatar has its own section), AND
       - it is recent enough (within GLOBAL_NEWS_MAX_AGE_HOURS) when a date is parseable.
     Final story selection is done by Claude in summarise_news().
     """
+    # Qatar-focused stories belong in the Qatar section, never in global.
+    if _is_qatar_focused_item(item):
+        return False
+
     title = _clean_text(item.get("title") or item.get("headline") or "")
     summary = _clean_text(item.get("summary") or item.get("description") or "")
     blob = f"{title} {summary}".lower()
@@ -1077,13 +1239,25 @@ def fetch_global_news() -> List[Dict[str, Any]]:
             print(f"    [global] Brave raw items (deduped across queries): {len(brave_items)}")
 
         kept_from_brave = 0
+        dropped_uncredible = 0
+        dropped_qatar = 0
         for item in brave_items:
             blob = f"{item.get('title','')} {item.get('summary','')}".lower()
             if any(bad in blob for bad in GLOBAL_EXCLUDE_KEYWORDS):
                 continue
+            # Qatar-focused stories belong in the Qatar section, never global.
+            if _is_qatar_focused_item(item):
+                dropped_qatar += 1
+                continue
+            # Reject open-web noise — only accept items from the curated
+            # credible publisher allowlist.
+            if not _is_credible_global_source(item.get("link", "")):
+                dropped_uncredible += 1
+                continue
             filtered.append(item)
             kept_from_brave += 1
-        print(f"    [global] Brave items kept after exclude-only filter: {kept_from_brave}")
+        print(f"    [global] Brave kept: {kept_from_brave}  "
+              f"(dropped {dropped_uncredible} non-credible, {dropped_qatar} Qatar-focused)")
 
         filtered = dedupe_news(filtered)
         print(f"    [global] After merging RSS + Brave and deduping: {len(filtered)}")
@@ -1235,17 +1409,23 @@ def fetch_qatar_business_news() -> List[Dict[str, Any]]:
             print(f"    [qatar] Brave raw items (deduped across queries): {len(brave_items)}")
 
         kept_from_brave = 0
+        dropped_uncredible = 0
         for item in brave_items:
             blob = f"{item.get('title','')} {item.get('summary','')} {item.get('source','')}".lower()
             if any(bad in blob for bad in QATAR_EXCLUDE_KEYWORDS):
                 continue
-            # Require at least a Qatar geographic anchor — Brave is broad search,
-            # not Qatar-only, so this guards against off-topic returns.
+            # Require a Qatar geographic anchor — Brave is broad search, so
+            # this stops off-topic returns leaking into the Qatar section.
             if not any(k in blob for k in ("qatar", "doha", "qnb", "qse", "qib", "qcb", "qatarenergy")):
+                continue
+            # Only accept Qatar-press and reputable international coverage.
+            if not _is_credible_qatar_source(item.get("link", "")):
+                dropped_uncredible += 1
                 continue
             filtered.append(item)
             kept_from_brave += 1
-        print(f"    [qatar] Brave items kept after Qatar-anchor + exclude filter: {kept_from_brave}")
+        print(f"    [qatar] Brave kept: {kept_from_brave} "
+              f"(dropped {dropped_uncredible} non-credible)")
 
         filtered = dedupe_news(filtered)
         print(f"    [qatar] After merging RSS + Brave and deduping: {len(filtered)}")
@@ -1420,13 +1600,22 @@ def summarise_news(raw_items: List[Dict[str, Any]], scope: str, count: int) -> L
     priority_hint = ""
     if "us" in scope.lower() or "gcc" in scope.lower() or "global" in scope.lower():
         priority_hint = (
-            "\nPRIORITISE stories in this order:\n"
-            "  1. US Federal Reserve / Treasury yields / inflation / Wall Street\n"
-            "  2. GCC region: Saudi Arabia, UAE, Kuwait, Bahrain, Oman (markets, sovereign funds, energy)\n"
-            "  3. OPEC+ decisions, oil price moves, LNG / gas\n"
-            "  4. Geopolitics that moves Gulf markets (Iran, Israel, Hormuz, sanctions)\n"
-            "  5. Major US/EU corporate or banking stories with global market impact\n"
-            "Avoid: sports, entertainment, celebrity, lifestyle.\n"
+            "\nORDERING is strict — output items in this priority order:\n"
+            "  1. US world and business: Federal Reserve, Treasury yields, inflation, "
+            "Wall Street (S&P, Nasdaq, Dow), US corporate earnings, US tariffs/policy, "
+            "US dollar, major US political developments with market impact.\n"
+            "  2. GCC world and business (EXCLUDING Qatar): Saudi Arabia, UAE, Kuwait, "
+            "Bahrain, Oman — markets, sovereign wealth funds (PIF, ADIA, Mubadala, KIA), "
+            "energy (Aramco, ADNOC), and major corporate or policy stories.\n"
+            "  3. OPEC+ decisions, Brent / WTI / crude price moves, LNG and gas.\n"
+            "  4. Geopolitics affecting Gulf markets (Iran, Israel, Hormuz, sanctions).\n"
+            "  5. Major EU / UK / Asia stories with global market impact.\n"
+            "ABSOLUTE RULES:\n"
+            "  - DO NOT include any Qatar-focused story in this list — Qatar has its "
+            "own dedicated section. If an item's primary subject is Qatar, Doha, QNB, "
+            "QSE, QIA or QatarEnergy, SKIP it entirely.\n"
+            "  - DO NOT include sports, entertainment, celebrity, lifestyle, weather, "
+            "or traffic items.\n"
         )
 
     prompt = f"""
@@ -1595,7 +1784,7 @@ def run() -> Dict[str, Any]:
     data: Dict[str, Any] = {
         "config": cfg,
         "generated_at": generated_at_utc,
-        "generated_display_time": cfg.get("delivery_time_ast", "07:00") + " AST",
+        "generated_display_time": "",
     }
 
     print("▶ Fetching market data from Supabase ...")
