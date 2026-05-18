@@ -1,15 +1,193 @@
+
+Claude finished the response
+
+fetcher (6).py
+py
+
+now the reuaters and bloombrg are returning hallucinations, i am using brave already, what is the case and how to fix fetcher file
+
+1:21 am
+
+Diagnosed placeholder padding bug causing fake Reuters/Bloomberg hallucinations
+Diagnosed placeholder padding bug causing fake Reuters/Bloomberg hallucinations
+I've found the bug. Let me show you exactly what's happening.
+
+The actual cause
+You think the hallucinations are coming from Brave or from Reuters/Bloomberg feeds — but Reuters and Bloomberg are not in your feed list at all. Look at NEWS_FEEDS["global"] (line 270): it's BBC, Al Jazeera, Khaleej Times, Gulf News, and Google News queries. Brave is your fallback. So where is "Reuters/Bloomberg" coming from?
+
+From your own code, fabricating it. Look at run() line 1529:
+
+python
+raw_global = ensure_min_news(raw_global, GLOBAL_NEWS_TARGET_COUNT, "Reuters/Bloomberg")
+And ensure_min_news (line 1237) pads the list to 12 items with hard-coded placeholders:
+
+python
+placeholders = [
+    {
+        "source": fallback_source,                  # ← "Reuters/Bloomberg"
+        "title": "Market news source temporarily unavailable",
+        "summary": "The approved source feed returned no usable article in this cycle.",
+        ...
+    },
+    ...
+]
+Then those placeholders get fed to Claude in summarise_news along with the real items:
+
+[Reuters/Bloomberg] Market news source temporarily unavailable — The approved source feed returned no usable article... (URL: )
+Claude is then prompted to "select the most relevant stories" and produce a 10-word headline + 40-word summary + metric for each item. Faced with an empty-shell input labelled "Reuters/Bloomberg" but instructed to return exactly count real-looking items, the model invents a plausible Reuters/Bloomberg story. That's your hallucination.
+
+The Brave fix you added is working — it's giving you real items. The hallucinations come from the synthetic padding slots that come after the real items, all attributed to a major news brand the model knows well.
+
+The fix
+Three targeted changes:
+
+Stop pre-padding with fake "Reuters/Bloomberg" items. Let summarise_news see only real items.
+Make the Claude prompt forbid invention and accept "at most N" instead of "exactly N".
+Pad the output after summarisation with neutral, unattributed slots (no fake source name).
+Let me apply these to your file.
+
+
+Ran a command, edited a file
+Ran a command, edited a file
+Now I'll harden summarise_news so Claude is explicitly told not to invent content, and so the post-summarisation padding uses neutral, non-attributed slots:
+
+
+Fix 2 & 3: harden Claude prompt against invention; pad output with neutral entries instead of fabricated sources
+Fix 2 & 3: harden Claude prompt against invention; pad output with neutral entries instead of fabricated sources
+Now fix the post-summarisation padding so it uses neutral slots — no fake "Reuters/Bloomberg" attribution and a clear sentinel metric so the front-end can render them as "no story" if it wants:
+
+
+Replace fabricated 'Market update' padding with neutral, clearly-empty slots so they cant be mistaken for real reporting
+Replace fabricated 'Market update' padding with neutral, clearly-empty slots so they cant be mistaken for real reporting
+Apply the same neutral-slot treatment in the non-LLM fallback path so it can't fabricate either:
+
+
+Fix the non-LLM fallback to use the same neutral slots instead of generic 'Market update'
+Fix the non-LLM fallback to use the same neutral slots instead of generic 'Market update'
+Now let me also normalise Brave's source attribution — Brave's profile.name is often missing or generic, and falling back to the URL domain prevents Claude from seeing items labelled with random aggregator names. I'll patch both Brave functions:
+
+
+Edited 3 files
+Edited 3 files
+Quick syntax check and then ship the file:
+
+
+Ran 2 commands, read a file
+Ran 2 commands, read a file
+Summary of what I changed
+#	Where	Change
+1	run()	Removed ensure_min_news(raw_global, …, "Reuters/Bloomberg") — this was the root cause. It was injecting up to 4 empty-shell items labelled "Reuters/Bloomberg" that Claude then "summarised" by inventing realistic-looking stories.
+2	summarise_news() prompt	System message and user prompt now explicitly forbid invention, demand the source string be preserved exactly, demand the URL come from the input, and accept "at most N" instead of "exactly N" so the model is never pressured to fabricate to hit a quota.
+3	summarise_news() output validation	Drop any item whose source is not one that appeared in the input AND whose url is not from the input — that combination is the fabrication signature. If the URL is real but the source was renamed, the source is coerced back to the input value.
+4	summarise_news() & _fallback_summarise_news() padding	Final padding now uses clearly-empty slots (source: "—", metric: "NA", headline "No additional story") instead of fake-source "Market update" items. Your front-end can hide rows where metric == "NA".
+5	_brave_global_news() and _brave_qatar_news()	Source is now derived from the URL host (e.g. reuters.com → Reuters) instead of Brave's profile.name (which is often missing and was falling back to the literal string "Brave Search"). Items without a URL are now dropped.
+You can leave ensure_min_news in the file — it's no longer called for global news. If you want to delete it entirely, it's safe to remove. The qatar path never called it.
+
+
+Fetcher fixed
+PY 
+but i have built an account in brave and can share api
+
+1:25 am
+Good — having a Brave API key is fine, and your code already reads it correctly:
+
+python
+api_key = os.environ.get("BRAVE_API_KEY")
+To be clear about one thing though: the hallucinations were never caused by a Brave problem. Even with a working Brave key returning real results, the fake "Reuters/Bloomberg" entries were being injected by your own ensure_min_news() call after Brave ran, then handed to Claude which dressed them up into realistic-looking fabricated stories. The fix I applied removes that injection — so Brave's real results are now the only thing Claude sees.
+
+A few practical notes on your Brave setup:
+
+Don't paste the key here. Set it as an environment variable wherever this script runs:
+
+bash
+export BRAVE_API_KEY="your_key_here"
+Or in a .env file / your CI secrets / GitHub Actions secrets — whatever your deployment uses. If you paste it into chat, treat it as compromised and rotate it in the Brave dashboard.
+
+Sanity check the key is reaching the script. Add this near the top of run() if you want to verify:
+
+python
+print(f"BRAVE_API_KEY set: {bool(os.environ.get('BRAVE_API_KEY'))}")
+print(f"ANTHROPIC_API_KEY set: {bool(os.environ.get('ANTHROPIC_API_KEY'))}")
+On the freshness param. Your code uses "freshness": "pd" (past day). If Brave is returning thin results, try "pw" (past week) for the global fallback queries — global macro stories don't go stale in 24h and you'll get more candidates for Claude to choose from. Qatar can stay at "pd".
+
+Watch your plan's rate limit. You're firing 6 global queries + 8 Qatar queries = 14 Brave calls per run. The free tier is 1 req/sec / 2,000/month. If you run this daily, you're at ~420/month — fine. If you run hourly or have retries, you'll hit the cap.
+
+Is there a specific Brave behaviour you're seeing that prompted this — empty results, 401s, rate-limit errors? If so, paste the log output (with the key redacted) and I can tell you what's going on.
+
+1779143398139_image.png
+now the report looks like this:
+
+1:30 am
+
+Scrutinizing Qatar filter reliability and date constraints
+Scrutinizing Qatar filter reliability and date constraints
+Good — the hallucinations are gone, but now we can see the underlying problem they were masking: the pipeline is only producing 2 real items. The fake "Reuters/Bloomberg" padding was hiding a sourcing problem.
+
+There are two likely causes, and we should diagnose before patching. Looking at your code, the most probable issue is:
+
+Brave items are being filtered out twice. In fetch_global_news(), after Brave returns results for a tightly-scoped query like "US Fed Powell Treasury yields markets today", the code then re-checks each item against GLOBAL_FOCUS_KEYWORDS:
+
+python
+if not any(word in blob for word in GLOBAL_FOCUS_KEYWORDS):
+    continue
+But Brave's response only contains a short snippet (typically 100-200 chars), and those snippets often don't literally contain words like "fed" or "powell" even when the article is about them. So Brave returns ~60 relevant items and your filter rejects nearly all of them. This is a classic double-filtering bug.
+
+The second possibility is that BRAVE_API_KEY isn't reaching the script at all — in which case Brave silently returns [] and only the 2 BBC items survive.
+
+Let me apply three fixes: trust Brave's own filtering, add visible per-stage logging so you can see exactly where items drop, and surface whether the key is set.
+
+
+Evaluated filtering logic and opted to streamline query validation
+Evaluated filtering logic and opted to streamline query validation
+Now add an environment-status print right at the top of run() so you see immediately if BRAVE_API_KEY isn't reaching the script:
+
+
+Viewed 2 files, edited a file, ran a command
+Viewed 2 files, edited a file, ran a command
+What changed and what to do next
+Changes in this version:
+
+Brave is no longer double-filtered. For global news, items returned by Brave skip the GLOBAL_FOCUS_KEYWORDS whitelist re-check — the Brave query is already the filter. Only the exclude list (sports/entertainment) is applied. For Qatar, a lighter Qatar-anchor check (qatar|doha|qnb|qse|...) replaces the full business-keyword whitelist.
+Per-stage counts logged. Every drop point now prints its survivor count, so you can see exactly where items disappear:
+   [global] RSS raw items (deduped): 28
+   [global] After include/exclude/age filter on RSS: 2
+   [global] Brave raw items (deduped across queries): 42
+   [global] Brave items kept after exclude-only filter: 38
+   [global] After merging RSS + Brave and deduping: 40
+   [global] Final items to summariser: 40
+Env-key visibility at startup — the first thing printed tells you whether BRAVE_API_KEY, ANTHROPIC_API_KEY, and SUPABASE_SERVICE_ROLE_KEY are actually visible to the process.
+What you should do:
+
+Run it once and check the log. The diagnosis falls into one of three clear cases:
+
+BRAVE_API_KEY set: False → your deployment isn't passing the key. Set it where your workflow runs (GitHub Actions secret, Vercel env var, Docker env, etc.). Don't paste the key here — set it in the deployment environment and confirm the line above prints True.
+BRAVE_API_KEY set: True but Brave raw items: 0 → the key is recognised but Brave is returning nothing. Most likely a 401 (invalid/expired key) or 429 (rate limited). The existing [WARN] Brave global news query failed: lines will show the HTTP error.
+Brave raw items: 40+ but kept: 2 → still a filter problem; paste me a few of the rejected items' titles and I'll tighten the exclude list.
+Once you see real numbers from the new logs, paste them and we'll know exactly what to do next.
+
+
+Fetcher fixed
+PY 
+
+
+
+
+Claude is AI and can make mistakes. Please double-check responses.
+Fetcher fixed · PY
+Copy
+
 import json
 import os
 import re
 import datetime
 from email.utils import parsedate_to_datetime
 from typing import Optional, List, Dict, Any
-
+ 
 import feedparser
 import anthropic
 import requests
-
-
+ 
+ 
 CONFIG = {
     "client_name": "Doha Bank",
     "report_date": datetime.date.today().strftime("%d %B %Y"),
@@ -26,20 +204,20 @@ CONFIG = {
         "qatar_news": True,
     }
 }
-
-
+ 
+ 
 SUPABASE_TABLE = "market_indices_history"
 EXPECTED_INSTRUMENT_COUNT = 39
 STALE_DATA_WARNING_DAYS = 3
 USD_QAR_SUSPICIOUS_MOVE_THRESHOLD = 10.0
-
+ 
 QATAR_NEWS_TARGET_COUNT = 8
 QATAR_NEWS_MIN_VALID_COUNT = 4
 QATAR_NEWS_MAX_AGE_HOURS = 24
-
+ 
 GLOBAL_NEWS_TARGET_COUNT = 12
 GLOBAL_NEWS_MAX_AGE_HOURS = 36
-
+ 
 # ------------------------------------------------------------
 # Global news — US + GCC editorial focus
 # ------------------------------------------------------------
@@ -47,7 +225,7 @@ GLOBAL_NEWS_MAX_AGE_HOURS = 36
 # keyword survive the relevance filter. The Claude summariser is
 # also prompted to prioritise these themes when picking the top 6.
 # ------------------------------------------------------------
-
+ 
 GLOBAL_FOCUS_KEYWORDS = [
     # US macro / policy
     "fed", "federal reserve", "fomc", "powell", "rate cut", "rate hike",
@@ -76,7 +254,7 @@ GLOBAL_FOCUS_KEYWORDS = [
     # Commodities
     "gold", "silver", "commodity", "commodities",
 ]
-
+ 
 GLOBAL_EXCLUDE_KEYWORDS = [
     "football", "soccer", "cricket", "tennis", "basketball", "volleyball",
     "golf", "league", "fifa", "world cup", "match", "player", "team",
@@ -84,7 +262,7 @@ GLOBAL_EXCLUDE_KEYWORDS = [
     "entertainment", "celebrity", "movie", "film", "music", "album",
     "award show", "fashion", "lifestyle", "recipe", "horoscope",
 ]
-
+ 
 # Brave Search fallback queries — used if the RSS feeds return too few
 # items after relevance filtering.
 GLOBAL_NEWS_BRAVE_QUERIES = [
@@ -95,7 +273,7 @@ GLOBAL_NEWS_BRAVE_QUERIES = [
     'Wall Street S&P 500 Nasdaq today',
     'US dollar DXY currency Federal Reserve',
 ]
-
+ 
 QATAR_BUSINESS_KEYWORDS = [
     "business", "economy", "economic", "investment", "investor", "investors",
     "bank", "banking", "finance", "financial", "market", "markets", "stock",
@@ -104,12 +282,12 @@ QATAR_BUSINESS_KEYWORDS = [
     "energy", "gas", "lng", "qse", "profit", "earnings", "revenue", "growth",
     "central bank", "qcb", "fund", "funding", "project", "sector", "digital economy"
 ]
-
+ 
 QATAR_EXCLUDE_KEYWORDS = [
     "football", "match", "league", "fifa", "world cup", "tennis", "basketball",
     "volleyball", "school", "teacher", "health", "traffic", "weather", "entertainment"
 ]
-
+ 
 QATAR_NEWS_BRAVE_QUERIES = [
     'Qatar business economy investment bank finance market',
     'Qatar banking finance economy investment Doha business',
@@ -120,10 +298,10 @@ QATAR_NEWS_BRAVE_QUERIES = [
     'Qatar real estate construction infrastructure project',
     'Qatar Central Bank QCB monetary policy banking sector',
 ]
-
-
-
-
+ 
+ 
+ 
+ 
 PRICE_RANGES = {
     "SPX": (5000, 9000),
     "FTSE100": (7000, 12000),
@@ -165,7 +343,7 @@ PRICE_RANGES = {
     "SILVER": (10, 120),
     "GOLD": (1000, 7000),
 }
-
+ 
 MAX_REASONABLE_1D_PCT = {
     "default": 15.0,
     "USDQAR": 0.25,
@@ -191,12 +369,12 @@ MAX_REASONABLE_1D_PCT = {
     "LESHA": 10.0,
     "LNGJK": 25.0,
 }
-
+ 
 QATAR_BUSINESS_PAGES = [
     "https://www.qatar-tribune.com/business",
     "https://thepeninsulaqatar.com/category/Qatar-Business",
 ]
-
+ 
 REPORT_SECTION_TO_OUTPUT_KEY = {
     "GLOBAL INDICES": "global_indices",
     "GCC & REGIONAL INDICES": "gcc_indices",
@@ -207,8 +385,8 @@ REPORT_SECTION_TO_OUTPUT_KEY = {
     "QATARI BANKS": "qatari_banks",
     "COMMODITIES & ENERGY": "commodities",
 }
-
-
+ 
+ 
 EXPECTED_INSTRUMENTS = [
     {"code": "SPX", "name": "US S&P 500", "symbol": "^GSPC", "report_section": "GLOBAL INDICES", "display_order": 1},
     {"code": "FTSE100", "name": "UK FTSE 100", "symbol": "^FTSE", "report_section": "GLOBAL INDICES", "display_order": 2},
@@ -216,7 +394,7 @@ EXPECTED_INSTRUMENTS = [
     {"code": "DAX", "name": "Germany DAX", "symbol": "^GDAXI", "report_section": "GLOBAL INDICES", "display_order": 4},
     {"code": "HSI", "name": "Hong Kong HSI", "symbol": "^HSI", "report_section": "GLOBAL INDICES", "display_order": 5},
     {"code": "NIFTY50", "name": "India Nifty 50", "symbol": "^NSEI", "report_section": "GLOBAL INDICES", "display_order": 6},
-
+ 
     {"code": "QE", "name": "Qatar QE Index", "symbol": "^GNRI.QA", "report_section": "GCC & REGIONAL INDICES", "display_order": 1},
     {"code": "TASI", "name": "Saudi Tadawul", "symbol": "^TASI.SR", "report_section": "GCC & REGIONAL INDICES", "display_order": 2},
     {"code": "DFMGI", "name": "Dubai DFM", "symbol": "DFMGI", "report_section": "GCC & REGIONAL INDICES", "display_order": 3},
@@ -224,23 +402,23 @@ EXPECTED_INSTRUMENTS = [
     {"code": "BKA", "name": "Kuwait Boursa", "symbol": "BKA", "report_section": "GCC & REGIONAL INDICES", "display_order": 5},
     {"code": "OMAN", "name": "Oman", "symbol": "MSX30", "report_section": "GCC & REGIONAL INDICES", "display_order": 6},
     {"code": "BHSEASI", "name": "Bahrain", "symbol": "BHSEASI", "report_section": "GCC & REGIONAL INDICES", "display_order": 7},
-
+ 
     {"code": "DXY", "name": "USD Index", "symbol": "DXY", "report_section": "SPOT CURRENCY", "display_order": 1},
     {"code": "EURUSD", "name": "EUR/USD", "symbol": "EURUSD", "report_section": "SPOT CURRENCY", "display_order": 2},
     {"code": "GBPUSD", "name": "GBP/USD", "symbol": "GBPUSD", "report_section": "SPOT CURRENCY", "display_order": 3},
     {"code": "USDCHF", "name": "USD/CHF", "symbol": "USDCHF", "report_section": "SPOT CURRENCY", "display_order": 4},
     {"code": "USDJPY", "name": "USD/JPY", "symbol": "USDJPY", "report_section": "SPOT CURRENCY", "display_order": 5},
     {"code": "USDCNY", "name": "USD/CNY", "symbol": "USDCNY", "report_section": "SPOT CURRENCY", "display_order": 6},
-
+ 
     {"code": "USDQAR", "name": "USD/QAR", "symbol": "USDQAR", "report_section": "QAR CROSS RATES", "display_order": 1},
     {"code": "EURQAR", "name": "EUR/QAR", "symbol": "EURQAR", "report_section": "QAR CROSS RATES", "display_order": 2},
     {"code": "GBPQAR", "name": "GBP/QAR", "symbol": "GBPQAR", "report_section": "QAR CROSS RATES", "display_order": 3},
     {"code": "CHFQAR", "name": "CHF/QAR", "symbol": "CHFQAR", "report_section": "QAR CROSS RATES", "display_order": 4},
     {"code": "CNYQAR", "name": "CNY/QAR", "symbol": "CNYQAR", "report_section": "QAR CROSS RATES", "display_order": 5},
-
+ 
     {"code": "UST5Y", "name": "UST 5-Year", "symbol": "US5Y", "report_section": "FIXED INCOME — UST YIELDS", "display_order": 1},
     {"code": "UST10Y", "name": "UST 10-Year", "symbol": "US10Y", "report_section": "FIXED INCOME — UST YIELDS", "display_order": 2},
-
+ 
     {"code": "QIBK", "name": "QIB", "symbol": "QIBK.QA", "report_section": "QATARI BANKS", "display_order": 1},
     {"code": "CBQK", "name": "CBQ", "symbol": "CBQK.QA", "report_section": "QATARI BANKS", "display_order": 2},
     {"code": "QIIB", "name": "QIIB", "symbol": "QIIK.QA", "report_section": "QATARI BANKS", "display_order": 3},
@@ -250,23 +428,23 @@ EXPECTED_INSTRUMENTS = [
     {"code": "QNBK", "name": "QNB", "symbol": "QNBK.QA", "report_section": "QATARI BANKS", "display_order": 7},
     {"code": "MARK", "name": "Al Rayan", "symbol": "MARK.QA", "report_section": "QATARI BANKS", "display_order": 8},
     {"code": "LESHA", "name": "Lesha", "symbol": "QFBQ.QA", "report_section": "QATARI BANKS", "display_order": 9},
-
+ 
     {"code": "BRENT", "name": "Brent Crude", "symbol": "BZ=F", "report_section": "COMMODITIES & ENERGY", "display_order": 1},
     {"code": "LNGJK", "name": "LNG JP/KR", "symbol": "JKM", "report_section": "COMMODITIES & ENERGY", "display_order": 2},
     {"code": "SILVER", "name": "Silver", "symbol": "XAGUSD", "report_section": "COMMODITIES & ENERGY", "display_order": 3},
     {"code": "GOLD", "name": "Gold", "symbol": "XAUUSD", "report_section": "COMMODITIES & ENERGY", "display_order": 4},
 ]
-
-
+ 
+ 
 OPTIONAL_INSTRUMENTS = [
     {"code": "LNG", "name": "Liquefied Natural Gas (LNG)", "symbol": "LNG", "report_section": "COMMODITIES & ENERGY", "display_order": 2},
     {"code": "LNGJKM", "name": "Liquefied Natural Gas (LNG)", "symbol": "LNGJKM", "report_section": "COMMODITIES & ENERGY", "display_order": 2},
     {"code": "JKM", "name": "Liquefied Natural Gas (LNG)", "symbol": "JKM", "report_section": "COMMODITIES & ENERGY", "display_order": 2},
 ]
-
+ 
 EXPECTED_BY_CODE = {item["code"]: item for item in EXPECTED_INSTRUMENTS + OPTIONAL_INSTRUMENTS}
-
-
+ 
+ 
 NEWS_FEEDS = {
     "global": [
         {
@@ -279,7 +457,7 @@ NEWS_FEEDS = {
             "url": "https://www.aljazeera.com/xml/rss/all.xml",
             "max": 6,
         },
-
+ 
         # --- GCC business press ---
         {
             "source": "Khaleej Times",
@@ -291,7 +469,7 @@ NEWS_FEEDS = {
             "url": "https://gulfnews.com/business/rss",
             "max": 4,
         },
-
+ 
         # --- Google News query feeds ---
         {
             "source": "US Markets",
@@ -309,7 +487,7 @@ NEWS_FEEDS = {
             "max": 4,
         },
     ],
-
+ 
     "qatar": [
         {
             "source": "The Peninsula",
@@ -328,7 +506,7 @@ NEWS_FEEDS = {
         },
     ],
 }
-
+ 
 def _to_float(value: Any) -> Optional[float]:
     try:
         if value is None:
@@ -341,10 +519,10 @@ def _to_float(value: Any) -> Optional[float]:
         return float(value)
     except Exception:
         return None
-
-
-
-
+ 
+ 
+ 
+ 
 def _is_valid_px_for_code(code: str, px: Optional[float]) -> bool:
     if px is None:
         return False
@@ -352,8 +530,8 @@ def _is_valid_px_for_code(code: str, px: Optional[float]) -> bool:
     if not rng:
         return True
     return rng[0] <= float(px) <= rng[1]
-
-
+ 
+ 
 def _pct_float(current: Optional[float], base: Optional[float]) -> Optional[float]:
     if current is None or base in (None, 0):
         return None
@@ -361,8 +539,8 @@ def _pct_float(current: Optional[float], base: Optional[float]) -> Optional[floa
         return ((float(current) - float(base)) / float(base)) * 100.0
     except Exception:
         return None
-
-
+ 
+ 
 def _format_pct_value(value: Optional[float], digits: int = 2) -> str:
     if value is None:
         return "N/A"
@@ -370,15 +548,15 @@ def _format_pct_value(value: Optional[float], digits: int = 2) -> str:
         return f"{float(value):+.{digits}f}%"
     except Exception:
         return "N/A"
-
-
+ 
+ 
 def _reasonable_1d_pct(code: str, pct: Optional[float]) -> bool:
     if pct is None:
         return False
     limit = MAX_REASONABLE_1D_PCT.get(code, MAX_REASONABLE_1D_PCT["default"])
     return abs(float(pct)) <= limit
-
-
+ 
+ 
 def _to_int(value: Any, default: int = 999) -> int:
     try:
         if value is None:
@@ -386,8 +564,8 @@ def _to_int(value: Any, default: int = 999) -> int:
         return int(value)
     except Exception:
         return default
-
-
+ 
+ 
 def _parse_date(value: Any) -> Optional[datetime.date]:
     if value is None:
         return None
@@ -399,8 +577,8 @@ def _parse_date(value: Any) -> Optional[datetime.date]:
         return datetime.datetime.strptime(str(value)[:10], "%Y-%m-%d").date()
     except Exception:
         return None
-
-
+ 
+ 
 def _format_price(value: Optional[float], digits: int = 2):
     if value is None:
         return "N/A"
@@ -409,8 +587,8 @@ def _format_price(value: Optional[float], digits: int = 2):
         return rounded
     except Exception:
         return "N/A"
-
-
+ 
+ 
 def _fmt_pct_from_value(value: Optional[float], digits: int = 2) -> str:
     if value is None:
         return "N/A"
@@ -418,8 +596,8 @@ def _fmt_pct_from_value(value: Optional[float], digits: int = 2) -> str:
         return f"{float(value):+.{digits}f}%"
     except Exception:
         return "N/A"
-
-
+ 
+ 
 def _fmt_pct_number(current: Optional[float], base: Optional[float], digits: int = 2) -> str:
     if current is None or base in (None, 0):
         return "N/A"
@@ -428,16 +606,16 @@ def _fmt_pct_number(current: Optional[float], base: Optional[float], digits: int
         return f"{pct:+.{digits}f}%"
     except Exception:
         return "N/A"
-
-
+ 
+ 
 def _clean_text(text: str) -> str:
     if not text:
         return ""
     text = re.sub(r"<[^>]+>", "", text)
     text = re.sub(r"\s+", " ", text).strip()
     return text
-
-
+ 
+ 
 def _source_from_url(url: str) -> str:
     """Derive a clean source name from a URL host (e.g. 'reuters.com' -> 'Reuters')."""
     if not url:
@@ -456,27 +634,27 @@ def _source_from_url(url: str) -> str:
         return label.replace("-", " ").title()
     except Exception:
         return ""
-
-
+ 
+ 
 def _supabase_headers() -> Dict[str, str]:
     supabase_key = os.environ.get("SUPABASE_SERVICE_ROLE_KEY")
     if not supabase_key:
         raise RuntimeError("Missing SUPABASE_SERVICE_ROLE_KEY environment variable")
-
+ 
     return {
         "apikey": supabase_key,
         "Authorization": f"Bearer {supabase_key}",
         "Content-Type": "application/json",
     }
-
-
+ 
+ 
 def _supabase_base_url() -> str:
     supabase_url = os.environ.get("SUPABASE_URL")
     if not supabase_url:
         raise RuntimeError("Missing SUPABASE_URL environment variable")
     return supabase_url.rstrip("/")
-
-
+ 
+ 
 def _supabase_get(path: str, params: Optional[Dict[str, str]] = None) -> Any:
     url = f"{_supabase_base_url()}/rest/v1/{path}"
     response = requests.get(
@@ -487,63 +665,63 @@ def _supabase_get(path: str, params: Optional[Dict[str, str]] = None) -> Any:
     )
     response.raise_for_status()
     return response.json()
-
-
+ 
+ 
 def _get_latest_available_date(today: datetime.date) -> Optional[datetime.date]:
     params = {
         "select": "as_of_date",
         "order": "as_of_date.desc",
         "limit": "1",
     }
-
+ 
     rows = _supabase_get(SUPABASE_TABLE, params=params)
-
+ 
     if not rows:
         return None
-
+ 
     return _parse_date(rows[0].get("as_of_date"))
-
-
+ 
+ 
 def _get_rows_for_date(as_of_date: datetime.date) -> List[Dict[str, Any]]:
     params = {
         "select": "*",
         "as_of_date": f"eq.{as_of_date.isoformat()}",
         "order": "report_section.asc,display_order.asc,instrument_code.asc",
     }
-
+ 
     rows = _supabase_get(SUPABASE_TABLE, params=params)
     return rows or []
-
-
+ 
+ 
 def _get_history_rows_for_calculations(as_of_date: datetime.date) -> List[Dict[str, Any]]:
     year_start = datetime.date(as_of_date.year, 1, 1)
     history_start = year_start - datetime.timedelta(days=10)
-
+ 
     params = {
         "select": "instrument_code,px_last,change_1d_pct,as_of_date,status,source",
         "as_of_date": f"gte.{history_start.isoformat()}",
         "order": "instrument_code.asc,as_of_date.asc",
     }
-
+ 
     rows = _supabase_get(SUPABASE_TABLE, params=params)
     return rows or []
-
-
+ 
+ 
 def _group_history_by_code(rows: List[Dict[str, Any]]) -> Dict[str, List[Dict[str, Any]]]:
     grouped: Dict[str, List[Dict[str, Any]]] = {}
-
+ 
     for row in rows:
         code = row.get("instrument_code")
         if not code:
             continue
         grouped.setdefault(code, []).append(row)
-
+ 
     for code in grouped:
         grouped[code].sort(key=lambda r: str(r.get("as_of_date", "")))
-
+ 
     return grouped
-
-
+ 
+ 
 DERIVED_QAR_CROSSES = {
     "CHFQAR": {
         "name": "CHF/QAR",
@@ -558,8 +736,8 @@ DERIVED_QAR_CROSSES = {
         "display_order": 5,
     },
 }
-
-
+ 
+ 
 def _derive_qar_cross_row(
     as_of_date: datetime.date,
     code: str,
@@ -569,12 +747,12 @@ def _derive_qar_cross_row(
 ) -> Optional[Dict[str, Any]]:
     usdqar = _to_float(usdqar_row.get("px_last"))
     quote = _to_float(quote_row.get("px_last"))
-
+ 
     if usdqar is None or quote in (None, 0):
         return None
-
+ 
     px = usdqar / quote
-
+ 
     return {
         "as_of_date": as_of_date.isoformat(),
         "instrument_code": code,
@@ -589,20 +767,20 @@ def _derive_qar_cross_row(
         "source_url": "",
         "status": "valid_runtime_derived_fx",
     }
-
-
+ 
+ 
 def _derive_missing_qar_cross_rows_for_date(
     rows: List[Dict[str, Any]],
     effective_date: datetime.date,
 ) -> List[Dict[str, Any]]:
     by_code = {str(row.get("instrument_code")): row for row in rows if row.get("instrument_code")}
     usdqar_row = by_code.get("USDQAR")
-
+ 
     if not usdqar_row:
         return rows
-
+ 
     out = list(rows)
-
+ 
     for code, cfg in DERIVED_QAR_CROSSES.items():
         if code in by_code:
             continue
@@ -612,22 +790,22 @@ def _derive_missing_qar_cross_rows_for_date(
         derived = _derive_qar_cross_row(effective_date, code, cfg, usdqar_row, quote_row)
         if derived:
             out.append(derived)
-
+ 
     return out
-
-
+ 
+ 
 def _derive_missing_qar_cross_history_rows(rows: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
     by_date: Dict[datetime.date, Dict[str, Dict[str, Any]]] = {}
-
+ 
     for row in rows:
         row_date = _parse_date(row.get("as_of_date"))
         code = row.get("instrument_code")
         if row_date is None or not code:
             continue
         by_date.setdefault(row_date, {})[str(code)] = row
-
+ 
     out = list(rows)
-
+ 
     for row_date, rows_by_code in by_date.items():
         usdqar_row = rows_by_code.get("USDQAR")
         if not usdqar_row:
@@ -641,52 +819,52 @@ def _derive_missing_qar_cross_history_rows(rows: List[Dict[str, Any]]) -> List[D
             derived = _derive_qar_cross_row(row_date, code, cfg, usdqar_row, quote_row)
             if derived:
                 out.append(derived)
-
+ 
     return out
-
-
+ 
+ 
 def _row_is_usable_for_calculation(row: Dict[str, Any], code: str = "") -> bool:
     status = str(row.get("status") or "").lower()
     if status.startswith("invalid") or "outlier" in status or "quarantine" in status:
         return False
     px = _to_float(row.get("px_last"))
     return _is_valid_px_for_code(code, px)
-
-
+ 
+ 
 def _last_px_before_or_on(
     history: List[Dict[str, Any]],
     target_date: datetime.date,
     code: str = "",
 ) -> Optional[float]:
     found = None
-
+ 
     for row in history:
         row_date = _parse_date(row.get("as_of_date"))
         if row_date is None:
             continue
         if row_date <= target_date and _row_is_usable_for_calculation(row, code):
             found = _to_float(row.get("px_last"))
-
+ 
     return found
-
-
+ 
+ 
 def _previous_valid_row_before_date(
     history: List[Dict[str, Any]],
     target_date: datetime.date,
     code: str = "",
 ) -> Optional[Dict[str, Any]]:
     found = None
-
+ 
     for row in history:
         row_date = _parse_date(row.get("as_of_date"))
         if row_date is None or row_date >= target_date:
             continue
         if _row_is_usable_for_calculation(row, code):
             found = row
-
+ 
     return found
-
-
+ 
+ 
 def _digits_for_code(code: str) -> int:
     if code in {
         "USDQAR",
@@ -701,18 +879,18 @@ def _digits_for_code(code: str) -> int:
         "USDJPY",
     }:
         return 4
-
+ 
     if code in {"DHBK", "CBQK", "MARK", "DUBK", "ABQK", "QIIB", "LESHA"}:
         return 3
-
+ 
     if code in {"UST5Y", "UST10Y"}:
         return 4
-
+ 
     if code in {"BRENT", "SILVER", "GOLD", "LNGJK", "LNG", "LNGJKM", "JKM"}:
         return 2
-
+ 
     return 2
-
+ 
 def _normalise_market_row(
     row: Dict[str, Any],
     history_by_code: Dict[str, List[Dict[str, Any]]],
@@ -720,19 +898,19 @@ def _normalise_market_row(
 ) -> Dict[str, Any]:
     code = row.get("instrument_code") or ""
     expected = EXPECTED_BY_CODE.get(code, {})
-
+ 
     px_last = _to_float(row.get("px_last"))
     history = history_by_code.get(code, [])
     prev_row = _previous_valid_row_before_date(history, effective_date, code)
     prev_px = _to_float(prev_row.get("px_last")) if prev_row else None
     prev_date = _parse_date(prev_row.get("as_of_date")) if prev_row else None
-
+ 
     month_start = datetime.date(effective_date.year, effective_date.month, 1)
     year_start = datetime.date(effective_date.year, 1, 1)
-
+ 
     month_base = _last_px_before_or_on(history, month_start - datetime.timedelta(days=1), code)
     year_base = _last_px_before_or_on(history, year_start - datetime.timedelta(days=1), code)
-
+ 
     # 1D logic:
     # Calculate 1D only from Supabase price history.
     # Do not use Make/Yahoo supplied change_1d_pct, because Make is now price-only.
@@ -740,17 +918,17 @@ def _normalise_market_row(
     calc_1d_pct = None
     if prev_date is not None and 0 < (effective_date - prev_date).days <= 4:
         calc_1d_pct = _pct_float(px_last, prev_px)
-
+ 
     if _reasonable_1d_pct(code, calc_1d_pct):
         change_1d = _format_pct_value(calc_1d_pct, 2)
     else:
         change_1d = "N/A"
-
+ 
     mtd = _fmt_pct_number(px_last, month_base, 2)
     ytd = _fmt_pct_number(px_last, year_base, 2)
-
+ 
     report_section = row.get("report_section") or expected.get("report_section") or "UNKNOWN"
-
+ 
     return {
         "code": code,
         "name": row.get("instrument_name") or expected.get("name") or code,
@@ -765,49 +943,49 @@ def _normalise_market_row(
         "report_section": report_section,
         "display_order": _to_int(row.get("display_order"), expected.get("display_order", 999)),
     }
-
-
+ 
+ 
 def fetch_market_data_from_supabase(today: datetime.date) -> tuple[Dict[str, List[Dict[str, Any]]], List[str], Optional[datetime.date]]:
     issues: List[str] = []
-
+ 
     latest_date = _get_latest_available_date(today)
     if latest_date is None:
         raise RuntimeError(f"No rows found in Supabase table {SUPABASE_TABLE}")
-
+ 
     effective_date = latest_date
-
+ 
     if effective_date != today:
         delta_days = (today - effective_date).days
         issues.append(f"Using latest available Supabase market date {effective_date.isoformat()}, not today {today.isoformat()}")
-
+ 
         if delta_days > STALE_DATA_WARNING_DAYS:
             issues.append(f"Supabase market data is stale by {delta_days} days")
-
+ 
     rows = _get_rows_for_date(effective_date)
     rows = _derive_missing_qar_cross_rows_for_date(rows, effective_date)
-
+ 
     history_rows = _get_history_rows_for_calculations(effective_date)
     history_rows = _derive_missing_qar_cross_history_rows(history_rows)
     history_by_code = _group_history_by_code(history_rows)
-
+ 
     expected_codes = {item["code"] for item in EXPECTED_INSTRUMENTS}
     optional_codes = {item["code"] for item in OPTIONAL_INSTRUMENTS}
     known_codes = expected_codes | optional_codes
     actual_codes = {row.get("instrument_code") for row in rows if row.get("instrument_code")}
     mandatory_actual_codes = actual_codes & expected_codes
-
+ 
     missing_codes = sorted(expected_codes - actual_codes)
     extra_codes = sorted(actual_codes - known_codes)
-
+ 
     if missing_codes:
         issues.append(f"Missing instruments from Supabase: {', '.join(missing_codes)}")
-
+ 
     if extra_codes:
         issues.append(f"Unexpected instruments in Supabase: {', '.join(extra_codes)}")
-
+ 
     if len(mandatory_actual_codes) != EXPECTED_INSTRUMENT_COUNT:
         issues.append(f"Expected {EXPECTED_INSTRUMENT_COUNT} mandatory instruments, found {len(mandatory_actual_codes)}")
-
+ 
     output = {
         "global_indices": [],
         "gcc_indices": [],
@@ -817,21 +995,21 @@ def fetch_market_data_from_supabase(today: datetime.date) -> tuple[Dict[str, Lis
         "qatari_banks": [],
         "commodities": [],
     }
-
+ 
     normalised_rows = [
         _normalise_market_row(row, history_by_code, effective_date)
         for row in rows
         if row.get("instrument_code") in known_codes
     ]
-
+ 
     for row in normalised_rows:
         section_name = row.get("report_section", "")
         output_key = REPORT_SECTION_TO_OUTPUT_KEY.get(section_name)
-
+ 
         if not output_key:
             issues.append(f"Unknown report section for {row.get('code')}: {section_name}")
             continue
-
+ 
         clean_row = {
             "code": row["code"],
             "name": row["name"],
@@ -844,30 +1022,30 @@ def fetch_market_data_from_supabase(today: datetime.date) -> tuple[Dict[str, Lis
             "source": row["source"],
             "status": row["status"],
         }
-
+ 
         output[output_key].append((row["display_order"], clean_row))
-
+ 
     for key in output:
         output[key] = [
             row for _, row in sorted(output[key], key=lambda item: item[0])
         ]
-
+ 
     return output, issues, effective_date
-
-
+ 
+ 
 def _find_row(rows: List[Dict[str, Any]], name: str) -> Optional[Dict[str, Any]]:
     for row in rows:
         if row.get("name") == name:
             return row
     return None
-
-
+ 
+ 
 def validate_market_data(data: Dict[str, Any]) -> List[str]:
     issues: List[str] = []
-
+ 
     for issue in data.get("_supabase_issues", []):
         issues.append(issue)
-
+ 
     total_market_rows = sum(
         len(data.get(section, []))
         for section in [
@@ -880,10 +1058,10 @@ def validate_market_data(data: Dict[str, Any]) -> List[str]:
             "commodities",
         ]
     )
-
+ 
     if total_market_rows != EXPECTED_INSTRUMENT_COUNT:
         issues.append(f"Market row count mismatch: expected {EXPECTED_INSTRUMENT_COUNT}, found {total_market_rows}")
-
+ 
     qe = _find_row(data.get("gcc_indices", []), "Qatar QE Index")
     doha = _find_row(data.get("qatari_banks", []), "Doha")
     usdqar = _find_row(data.get("qar_cross_rates", []), "USD/QAR")
@@ -900,7 +1078,7 @@ def validate_market_data(data: Dict[str, Any]) -> List[str]:
     chfqar = _find_row(data.get("qar_cross_rates", []), "CHF/QAR")
     cnyqar = _find_row(data.get("qar_cross_rates", []), "CNY/QAR")
     lesha = _find_row(data.get("qatari_banks", []), "Lesha")
-
+ 
     required_rows = [
         ("Qatar QE Index", qe),
         ("Doha Bank price", doha),
@@ -918,31 +1096,31 @@ def validate_market_data(data: Dict[str, Any]) -> List[str]:
         ("LNG JP/KR", lng),
         ("Gold", gold),
     ]
-
+ 
     for label, row in required_rows:
         if not row or row.get("px_last") in (None, "N/A", ""):
             issues.append(f"{label} missing or invalid")
-
+ 
     def numeric_px(row: Optional[Dict[str, Any]]) -> Optional[float]:
         if not row:
             return None
         return _to_float(row.get("px_last"))
-
+ 
     if numeric_px(usdjpy) is not None and numeric_px(usdjpy) < 100:
         issues.append(f"USD/JPY suspicious value: {usdjpy.get('px_last')}")
-
+ 
     if numeric_px(gbpusd) is not None and numeric_px(gbpusd) < 1:
         issues.append(f"GBP/USD suspicious value: {gbpusd.get('px_last')}")
-
+ 
     if numeric_px(usdchf) is not None and not (0.5 <= numeric_px(usdchf) <= 1.2):
         issues.append(f"USD/CHF suspicious value: {usdchf.get('px_last')}")
-
+ 
     if numeric_px(bka) is not None and numeric_px(bka) < 1000:
         issues.append(f"Kuwait Boursa suspicious value: {bka.get('px_last')}")
-
+ 
     if numeric_px(gold) is not None and not (1000 <= numeric_px(gold) <= 7000):
         issues.append(f"Gold suspicious value: {gold.get('px_last')}")
-
+ 
     if usdqar and usdqar.get("change_1d") not in (None, "N/A"):
         try:
             raw = str(usdqar["change_1d"]).replace("%", "").strip()
@@ -951,10 +1129,10 @@ def validate_market_data(data: Dict[str, Any]) -> List[str]:
                 issues.append(f"USD/QAR daily change suspicious: {usdqar['change_1d']}")
         except Exception:
             issues.append("USD/QAR daily change unparsable")
-
+ 
     return issues
-
-
+ 
+ 
 def _parse_news_datetime(value: Any) -> Optional[datetime.datetime]:
     if not value:
         return None
@@ -968,8 +1146,8 @@ def _parse_news_datetime(value: Any) -> Optional[datetime.datetime]:
         return dt.astimezone(datetime.timezone.utc)
     except Exception:
         return None
-
-
+ 
+ 
 def _is_relevant_global_item(item: Dict[str, Any], now_utc: datetime.datetime) -> bool:
     """
     Light filter for the global news pool. An item is kept if:
@@ -981,34 +1159,34 @@ def _is_relevant_global_item(item: Dict[str, Any], now_utc: datetime.datetime) -
     title = _clean_text(item.get("title") or item.get("headline") or "")
     summary = _clean_text(item.get("summary") or item.get("description") or "")
     blob = f"{title} {summary}".lower()
-
+ 
     if any(bad in blob for bad in GLOBAL_EXCLUDE_KEYWORDS):
         return False
-
+ 
     if not any(word in blob for word in GLOBAL_FOCUS_KEYWORDS):
         return False
-
+ 
     dt = _parse_news_datetime(item.get("published"))
     if dt is not None:
         age_hours = (now_utc - dt).total_seconds() / 3600
         if age_hours < -2 or age_hours > GLOBAL_NEWS_MAX_AGE_HOURS:
             return False
-
+ 
     return True
-
-
+ 
+ 
 def _brave_global_news() -> List[Dict[str, Any]]:
     api_key = os.environ.get("BRAVE_API_KEY")
     if not api_key:
         print("[WARN] BRAVE_API_KEY not set, global Brave fallback skipped.")
         return []
-
+ 
     out: List[Dict[str, Any]] = []
     headers = {
         "Accept": "application/json",
         "X-Subscription-Token": api_key,
     }
-
+ 
     for query in GLOBAL_NEWS_BRAVE_QUERIES:
         try:
             response = requests.get(
@@ -1045,10 +1223,10 @@ def _brave_global_news() -> List[Dict[str, Any]]:
                 })
         except Exception as exc:
             print(f"[WARN] Brave global news query failed: {query} | {exc}")
-
+ 
     return out
-
-
+ 
+ 
 def fetch_global_news() -> List[Dict[str, Any]]:
     """
     Fetch from the global feed list, apply US/GCC relevance filter,
@@ -1056,51 +1234,68 @@ def fetch_global_news() -> List[Dict[str, Any]]:
     """
     now_utc = datetime.datetime.now(datetime.timezone.utc)
     raw = dedupe_news(fetch_news(NEWS_FEEDS["global"]))
+    print(f"    [global] RSS raw items (deduped): {len(raw)}")
+ 
     filtered = [item for item in raw if _is_relevant_global_item(item, now_utc)]
-
-    # If feeds gave us thin coverage, top up from Brave
+    print(f"    [global] After include/exclude/age filter on RSS: {len(filtered)}")
+ 
+    # If feeds gave us thin coverage, top up from Brave.
+    # IMPORTANT: do NOT re-apply the INCLUDE keyword whitelist to Brave items.
+    # The Brave query itself ('US Fed Powell Treasury ...') is the include filter,
+    # and Brave only returns a short snippet that often doesn't repeat those
+    # exact keywords. Applying GLOBAL_FOCUS_KEYWORDS here was rejecting most
+    # genuinely relevant Brave results. We only enforce the EXCLUDE list
+    # (sports/entertainment noise).
     if len(filtered) < GLOBAL_NEWS_TARGET_COUNT * 2:
-        brave_items = dedupe_news(_brave_global_news())
-        # Brave items don't always have a parseable date — apply only keyword filter
+        if not os.environ.get("BRAVE_API_KEY"):
+            print("    [global] BRAVE_API_KEY not set — Brave fallback skipped.")
+            brave_items: List[Dict[str, Any]] = []
+        else:
+            brave_items = dedupe_news(_brave_global_news())
+            print(f"    [global] Brave raw items (deduped across queries): {len(brave_items)}")
+ 
+        kept_from_brave = 0
         for item in brave_items:
             blob = f"{item.get('title','')} {item.get('summary','')}".lower()
             if any(bad in blob for bad in GLOBAL_EXCLUDE_KEYWORDS):
                 continue
-            if not any(word in blob for word in GLOBAL_FOCUS_KEYWORDS):
-                continue
             filtered.append(item)
+            kept_from_brave += 1
+        print(f"    [global] Brave items kept after exclude-only filter: {kept_from_brave}")
+ 
         filtered = dedupe_news(filtered)
-
-    print(f"    Global news after US/GCC relevance filter: {len(filtered)}")
+        print(f"    [global] After merging RSS + Brave and deduping: {len(filtered)}")
+ 
+    print(f"    [global] Final items to summariser: {len(filtered)}")
     return filtered
-
-
+ 
+ 
 def _is_recent_qatar_business_item(item: Dict[str, Any], now_utc: datetime.datetime) -> bool:
     title = _clean_text(item.get("title") or item.get("headline") or "")
     summary = _clean_text(item.get("summary") or item.get("description") or "")
     source = _clean_text(item.get("source") or "")
     blob = f"{title} {summary} {source}".lower()
-
+ 
     if "qatar" not in blob and "doha" not in blob and "qnb" not in blob and "qse" not in blob:
         return False
-
+ 
     if any(bad in blob for bad in QATAR_EXCLUDE_KEYWORDS):
         return False
-
+ 
     if not any(word in blob for word in QATAR_BUSINESS_KEYWORDS):
         return False
-
+ 
     dt = _parse_news_datetime(item.get("published"))
     if dt is not None:
         age_hours = (now_utc - dt).total_seconds() / 3600
         if age_hours < -2 or age_hours > QATAR_NEWS_MAX_AGE_HOURS:
             return False
-
+ 
     return True
-
-
-
-
+ 
+ 
+ 
+ 
 def _extract_qatar_page_items() -> List[Dict[str, Any]]:
     """Best-effort scraper for user-approved Qatar business pages.
     It does not invent news. It extracts titles/links from the business pages,
@@ -1113,7 +1308,7 @@ def _extract_qatar_page_items() -> List[Dict[str, Any]]:
     }
     link_re = re.compile(r'<a[^>]+href=["\']([^"\']+)["\'][^>]*>(.*?)</a>', re.I | re.S)
     date_re = re.compile(r'(\d{1,2}\s+[A-Z][a-z]{2}\s+2026|\d{1,2}/\d{1,2}/2026|2026-\d{2}-\d{2})')
-
+ 
     for page_url in QATAR_BUSINESS_PAGES:
         try:
             resp = requests.get(page_url, headers=headers, timeout=30)
@@ -1145,20 +1340,20 @@ def _extract_qatar_page_items() -> List[Dict[str, Any]]:
         except Exception as exc:
             print(f"[WARN] Qatar business page scrape failed {page_url}: {exc}")
     return items
-
-
+ 
+ 
 def _brave_qatar_news() -> List[Dict[str, Any]]:
     api_key = os.environ.get("BRAVE_API_KEY")
     if not api_key:
         print("[WARN] BRAVE_API_KEY not set, Qatar Brave fallback skipped.")
         return []
-
+ 
     out: List[Dict[str, Any]] = []
     headers = {
         "Accept": "application/json",
         "X-Subscription-Token": api_key,
     }
-
+ 
     for query in QATAR_NEWS_BRAVE_QUERIES:
         try:
             response = requests.get(
@@ -1194,40 +1389,65 @@ def _brave_qatar_news() -> List[Dict[str, Any]]:
                 })
         except Exception as exc:
             print(f"[WARN] Brave Qatar news query failed: {query} | {exc}")
-
+ 
     return out
-
-
+ 
+ 
 def fetch_qatar_business_news() -> List[Dict[str, Any]]:
     now_utc = datetime.datetime.now(datetime.timezone.utc)
     raw = dedupe_news(fetch_news(NEWS_FEEDS["qatar"]) + _extract_qatar_page_items())
+    print(f"    [qatar] RSS + scrape raw items (deduped): {len(raw)}")
+ 
     filtered = [item for item in raw if _is_recent_qatar_business_item(item, now_utc)]
-
+    print(f"    [qatar] After Qatar relevance + age filter on RSS: {len(filtered)}")
+ 
+    # Top up from Brave if RSS coverage is thin. Trust the Brave query
+    # (which already mentions 'Qatar') — only enforce the exclude list and
+    # require 'qatar'/'doha'/'qnb'/'qse' to appear somewhere in the blob.
     if len(filtered) < QATAR_NEWS_MIN_VALID_COUNT:
-        brave_items = dedupe_news(_brave_qatar_news())
-        combined = dedupe_news(filtered + brave_items)
-        filtered = [item for item in combined if _is_recent_qatar_business_item(item, now_utc)]
-
-    print(f"    Qatar valid recent business news items: {len(filtered)}")
+        if not os.environ.get("BRAVE_API_KEY"):
+            print("    [qatar] BRAVE_API_KEY not set — Brave fallback skipped.")
+            brave_items: List[Dict[str, Any]] = []
+        else:
+            brave_items = dedupe_news(_brave_qatar_news())
+            print(f"    [qatar] Brave raw items (deduped across queries): {len(brave_items)}")
+ 
+        kept_from_brave = 0
+        for item in brave_items:
+            blob = f"{item.get('title','')} {item.get('summary','')} {item.get('source','')}".lower()
+            if any(bad in blob for bad in QATAR_EXCLUDE_KEYWORDS):
+                continue
+            # Require at least a Qatar geographic anchor — Brave is broad search,
+            # not Qatar-only, so this guards against off-topic returns.
+            if not any(k in blob for k in ("qatar", "doha", "qnb", "qse", "qib", "qcb", "qatarenergy")):
+                continue
+            filtered.append(item)
+            kept_from_brave += 1
+        print(f"    [qatar] Brave items kept after Qatar-anchor + exclude filter: {kept_from_brave}")
+ 
+        filtered = dedupe_news(filtered)
+        print(f"    [qatar] After merging RSS + Brave and deduping: {len(filtered)}")
+ 
+    print(f"    [qatar] Final items to summariser: {len(filtered)}")
     return filtered[:QATAR_NEWS_TARGET_COUNT]
-
+ 
 def fetch_news(feed_list: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
     items = []
-
+ 
     for feed_cfg in feed_list:
         try:
             feed = feedparser.parse(feed_cfg["url"])
             print(f"    RSS {feed_cfg['source']} entries: {len(feed.entries)}")
-
+ 
             for entry in feed.entries[: feed_cfg["max"]]:
                 title = _clean_text(entry.get("title", ""))
                 summary = _clean_text(getattr(entry, "summary", ""))
                 link = entry.get("link", "")
                 published = entry.get("published", "") or entry.get("updated", "")
-
+ 
                 if not title:
                     continue
-
+ 
                 items.append({
                     "source": feed_cfg["source"],
                     "title": title,
@@ -1235,32 +1455,32 @@ def fetch_news(feed_list: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
                     "link": link,
                     "published": published,
                 })
-
+ 
         except Exception as e:
             print(f"[WARN] RSS {feed_cfg['source']}: {e}")
-
+ 
     return items
-
-
+ 
+ 
 def dedupe_news(items: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
     seen = set()
     out = []
-
+ 
     for item in items:
         key = re.sub(r"[^a-z0-9]+", "", item.get("title", "").lower())[:120]
-
+ 
         if not key or key in seen:
             continue
-
+ 
         seen.add(key)
         out.append(item)
-
+ 
     return out
-
-
+ 
+ 
 def ensure_min_news(items: List[Dict[str, Any]], count: int, fallback_source: str) -> List[Dict[str, Any]]:
     out = list(items)
-
+ 
     placeholders = [
         {
             "source": fallback_source,
@@ -1291,27 +1511,27 @@ def ensure_min_news(items: List[Dict[str, Any]], count: int, fallback_source: st
             "published": "",
         },
     ]
-
+ 
     i = 0
     while len(out) < count and i < len(placeholders):
         out.append(placeholders[i])
         i += 1
-
+ 
     return out[:count]
-
-
+ 
+ 
 def _fallback_summarise_news(raw_items: List[Dict[str, Any]], count: int) -> List[Dict[str, Any]]:
     fallback = []
-
+ 
     for item in raw_items[:count]:
         source = item.get("source", "Feed")
         title = item.get("title", "")[:120]
         summary = item.get("summary", "")[:240]
-
+ 
         blob = f"{title.lower()} {summary.lower()}"
         metric = source.upper()[:8] if source else "NEWS"
         metric_label = "Source"
-
+ 
         if "oil" in blob or "gas" in blob or "energy" in blob:
             metric = "ENERGY"
             metric_label = "Sector"
@@ -1324,7 +1544,7 @@ def _fallback_summarise_news(raw_items: List[Dict[str, Any]], count: int) -> Lis
         elif "qatar" in blob:
             metric = "QATAR"
             metric_label = "Domestic"
-
+ 
         fallback.append({
             "headline": title or "Market update",
             "summary": summary or "Latest development relevant to markets.",
@@ -1333,7 +1553,7 @@ def _fallback_summarise_news(raw_items: List[Dict[str, Any]], count: int) -> Lis
             "metric": metric,
             "metric_label": metric_label,
         })
-
+ 
     while len(fallback) < count:
         fallback.append({
             "headline": "No additional story",
@@ -1343,27 +1563,27 @@ def _fallback_summarise_news(raw_items: List[Dict[str, Any]], count: int) -> Lis
             "metric": "NA",
             "metric_label": "No data",
         })
-
+ 
     return fallback[:count]
-
-
+ 
+ 
 def summarise_news(raw_items: List[Dict[str, Any]], scope: str, count: int) -> List[Dict[str, Any]]:
     if not raw_items:
         return []
-
+ 
     api_key = os.environ.get("ANTHROPIC_API_KEY")
-
+ 
     if not api_key:
         print("[WARN] ANTHROPIC_API_KEY not set, using fallback summarisation.")
         return _fallback_summarise_news(raw_items, count)
-
+ 
     client = anthropic.Anthropic(api_key=api_key)
-
+ 
     headlines_txt = "\n".join(
         f"[{item['source']}] {item['title']} — {item['summary']} (URL: {item['link']})"
         for item in raw_items
     )
-
+ 
     system = (
         "You are a financial news editor for a Gulf bank daily market intelligence report. "
         "Return only valid JSON. Select the most relevant stories and produce clean metric boxes. "
@@ -1374,7 +1594,7 @@ def summarise_news(raw_items: List[Dict[str, Any]], scope: str, count: int) -> L
         "not pad it with plausible-sounding details. If fewer than the requested count of real "
         "items are usable, return fewer items rather than fabricating to hit the target."
     )
-
+ 
     priority_hint = ""
     if "us" in scope.lower() or "gcc" in scope.lower() or "global" in scope.lower():
         priority_hint = (
@@ -1386,12 +1606,12 @@ def summarise_news(raw_items: List[Dict[str, Any]], scope: str, count: int) -> L
             "  5. Major US/EU corporate or banking stories with global market impact\n"
             "Avoid: sports, entertainment, celebrity, lifestyle.\n"
         )
-
+ 
     prompt = f"""
 From the following {scope} news items, select AT MOST {count} of the most relevant stories.
 {priority_hint}
 Return a JSON array of UP TO {count} objects (fewer is acceptable if fewer real items qualify).
-
+ 
 Each object must contain exactly these keys:
 - headline
 - summary
@@ -1399,7 +1619,7 @@ Each object must contain exactly these keys:
 - url
 - metric
 - metric_label
-
+ 
 Strict rules:
 - Use ONLY the source string exactly as it appears in brackets for that item. Do not
   rename, generalise, or re-attribute (e.g. do not relabel a "BBC World" item as
@@ -1415,11 +1635,11 @@ Strict rules:
   rather than inventing content to fill the slot.
 - no markdown fences
 - no preamble
-
+ 
 News:
 {headlines_txt}
 """
-
+ 
     try:
         response = client.messages.create(
             model=os.environ.get("ANTHROPIC_MODEL", "claude-sonnet-4-20250514"),
@@ -1427,16 +1647,16 @@ News:
             system=system,
             messages=[{"role": "user", "content": prompt}],
         )
-
+ 
         text = response.content[0].text.strip()
         text = re.sub(r"```json|```", "", text).strip()
         parsed = json.loads(text)
-
+ 
         if not isinstance(parsed, list):
             raise ValueError("Claude did not return a list")
-
+ 
         cleaned = []
-
+ 
         for item in parsed[:count]:
             # Defensive validation: only keep items whose source is one that
             # actually appeared in our input list. This stops the model from
@@ -1455,7 +1675,7 @@ News:
                     if (it.get("link") or "") == item.get("url"):
                         item_source = it.get("source") or item_source
                         break
-
+ 
             cleaned.append({
                 "headline": (item.get("headline") or "")[:120] or "Market update",
                 "summary": (item.get("summary") or "")[:240] or "Latest development relevant to markets.",
@@ -1464,7 +1684,7 @@ News:
                 "metric": (item.get("metric") or "")[:16] or "NEWS",
                 "metric_label": (item.get("metric_label") or "")[:32] or "Signal",
             })
-
+ 
         # Pad with NEUTRAL, clearly-empty slots (no fake source attribution).
         # The front-end can choose to hide entries with metric == "NA".
         while len(cleaned) < count:
@@ -1476,14 +1696,14 @@ News:
                 "metric": "NA",
                 "metric_label": "No data",
             })
-
+ 
         return cleaned[:count]
-
+ 
     except Exception as e:
         print(f"[WARN] Claude summarisation failed ({scope}): {e}")
         return _fallback_summarise_news(raw_items, count)
-
-
+ 
+ 
 def build_kpis(market_data: Dict[str, Any]) -> List[Dict[str, Any]]:
     def find_by_code(rows: List[Dict[str, Any]], code: str):
         code = str(code or "").upper()
@@ -1491,27 +1711,27 @@ def build_kpis(market_data: Dict[str, Any]) -> List[Dict[str, Any]]:
             if str(row.get("code") or "").upper() == code:
                 return row
         return None
-
+ 
     def value(row: Optional[Dict[str, Any]], field: str, default: str = "N/A"):
         if not row:
             return default
         v = row.get(field)
         return v if v not in (None, "", "N/A") else default
-
+ 
     def format_number(v):
         if isinstance(v, (int, float)):
             return f"{v:,.2f}"
         return str(v or "N/A")
-
+ 
     commodities = market_data.get("commodities", [])
     gcc_indices = market_data.get("gcc_indices", [])
     qatari_banks = market_data.get("qatari_banks", [])
-
+ 
     lng_row = find_by_code(commodities, "LNGJK")
     gold_row = find_by_code(commodities, "GOLD")
     qse_row = find_by_code(gcc_indices, "QE")
     doha_row = find_by_code(qatari_banks, "DHBK")
-
+ 
     return [
         {
             "value": format_number(value(lng_row, "px_last")),
@@ -1534,39 +1754,47 @@ def build_kpis(market_data: Dict[str, Any]) -> List[Dict[str, Any]]:
             "sublabel": f"{value(doha_row, 'change_1d')} today · {value(doha_row, 'ytd')} YTD",
         },
     ]
-
-
+ 
+ 
 def run() -> Dict[str, Any]:
     today = datetime.date.today()
     cfg = CONFIG
-
+ 
     generated_at_utc = datetime.datetime.utcnow().replace(microsecond=0).isoformat() + "Z"
-
+ 
+    # Visibility into which credentials are reaching the script. If any of
+    # these print False at runtime, fix the deployment env / secrets before
+    # anything else — most "empty news" reports come from missing keys.
+    print("▶ Environment check:")
+    print(f"    ANTHROPIC_API_KEY set:        {bool(os.environ.get('ANTHROPIC_API_KEY'))}")
+    print(f"    BRAVE_API_KEY set:            {bool(os.environ.get('BRAVE_API_KEY'))}")
+    print(f"    SUPABASE_SERVICE_ROLE_KEY set:{bool(os.environ.get('SUPABASE_SERVICE_ROLE_KEY'))}")
+ 
     data: Dict[str, Any] = {
         "config": cfg,
         "generated_at": generated_at_utc,
         "generated_display_time": cfg.get("delivery_time_ast", "07:00") + " AST",
     }
-
+ 
     print("▶ Fetching market data from Supabase ...")
-
+ 
     try:
         market_sections, supabase_issues, effective_date = fetch_market_data_from_supabase(today)
-
+ 
         for key, rows in market_sections.items():
             if not cfg["sections"].get(key, True):
                 data[key] = []
             else:
                 data[key] = rows
-
+ 
             print(f"  · {key}: {len(data[key])} rows")
-
+ 
         data["_supabase_issues"] = supabase_issues
         data["market_as_of_date"] = effective_date.isoformat() if effective_date else None
-
+ 
     except Exception as e:
         print(f"[ERROR] Supabase market fetch failed: {e}")
-
+ 
         for key in [
             "global_indices",
             "gcc_indices",
@@ -1577,10 +1805,10 @@ def run() -> Dict[str, Any]:
             "commodities",
         ]:
             data[key] = []
-
+ 
         data["_supabase_issues"] = [f"Supabase market fetch failed: {e}"]
         data["market_as_of_date"] = None
-
+ 
     if cfg["sections"].get("global_news", True):
         print("  · global news (US + GCC focus)")
         raw_global = fetch_global_news()
@@ -1596,7 +1824,7 @@ def run() -> Dict[str, Any]:
         )
     else:
         data["global_news"] = []
-
+ 
     qatar_valid_count = 0
     if cfg["sections"].get("qatar_news", True):
         print("  · qatar news")
@@ -1608,11 +1836,11 @@ def run() -> Dict[str, Any]:
             data["qatar_news"] = []
     else:
         data["qatar_news"] = []
-
+ 
     data["_qatar_valid_news_count"] = qatar_valid_count
-
+ 
     data["kpis"] = build_kpis(data)
-
+ 
     validation_issues = validate_market_data(data)
     if cfg["sections"].get("qatar_news", True) and data.get("_qatar_valid_news_count", 0) < QATAR_NEWS_MIN_VALID_COUNT:
         validation_issues.append(
@@ -1620,28 +1848,32 @@ def run() -> Dict[str, Any]:
         )
     data["validation_issues"] = validation_issues
     data["report_status"] = "ok" if not validation_issues else "needs_review"
-
+ 
     if "_supabase_issues" in data:
         del data["_supabase_issues"]
     if "_qatar_valid_news_count" in data:
         del data["_qatar_valid_news_count"]
-
+ 
     print("✓ Fetch complete.")
-
+ 
     if validation_issues:
         print("⚠ Validation issues found:")
         for issue in validation_issues:
             print(f"   - {issue}")
     else:
         print("✓ Validation passed.")
-
+ 
     return data
-
-
+ 
+ 
 if __name__ == "__main__":
     result = run()
-
+ 
     with open("market_data.json", "w", encoding="utf-8") as f:
         json.dump(result, f, indent=2, default=str)
-
+ 
     print("✓ Data written to market_data.json")
+ 
+    
+ 
+
