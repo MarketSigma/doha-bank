@@ -15,7 +15,7 @@
       "qatar_news": true
     }
   },
-  "generated_at": "2026-05-18T23:03:13Z",
+  "generated_at": "2026-05-18T23:13:12Z",
   "generated_display_time": "07:00 AST",
   "global_indices": [
     {
@@ -502,28 +502,28 @@
   "market_as_of_date": "2026-05-18",
   "global_news": [
     {
-      "headline": "Trump calls off Iran attack after Gulf states request",
-      "summary": "US president says he is holding off on planned Tuesday attack as serious negotiations are now taking place with Gulf states.",
+      "headline": "Trump halts Iran attack after Gulf states intervention",
+      "summary": "US president says he called off planned Tuesday attack on Iran following request from Gulf states, with serious negotiations now underway.",
       "source": "BBC World",
       "url": "https://www.bbc.com/news/articles/c7079e55zjro?at_medium=RSS&at_campaign=rss",
-      "metric": "Tuesday",
-      "metric_label": "Planned attack date postponed"
+      "metric": "Attack cancelled",
+      "metric_label": "Military action status"
     },
     {
-      "headline": "Israeli strikes on Lebanon death toll passes 3,000",
-      "summary": "Grim milestone reached in conflict between Israel and Hezbollah since March, despite nominal ceasefire in place.",
+      "headline": "Israeli strikes kill over 3,000 in Lebanon",
+      "summary": "Death toll passes grim milestone in Israel-Hezbollah conflict since March, despite nominal ceasefire between the warring parties.",
       "source": "BBC World",
       "url": "https://www.bbc.com/news/articles/cqjpglyjwjeo?at_medium=RSS&at_campaign=rss",
       "metric": "3,000+",
-      "metric_label": "Death toll from strikes"
+      "metric_label": "Lebanese casualties"
     },
     {
-      "headline": "Trump unveils $1.7bn fund to compensate allies",
-      "summary": "Settlement will go towards individuals who allege they were subjected to unfair investigations as tax lawsuit dropped.",
+      "headline": "Trump unveils $1.7bn compensation fund for allies",
+      "summary": "Administration establishes settlement fund for individuals alleging unfair investigations as tax lawsuit is dropped.",
       "source": "BBC World",
       "url": "https://www.bbc.com/news/articles/cvgzr7vr203o?at_medium=RSS&at_campaign=rss",
       "metric": "$1.7bn",
-      "metric_label": "Compensation fund value"
+      "metric_label": "Compensation fund"
     },
     {
       "headline": "No additional story",
@@ -600,24 +600,24 @@
   ],
   "qatar_news": [
     {
-      "headline": "G7 finance ministers meet as M-E war clouds economy",
-      "summary": "G7 finance ministers convene to address global economic concerns amid Middle East conflict developments.",
+      "headline": "G7 finance ministers meet amid Middle East tensions",
+      "summary": "G7 finance ministers convene as Middle East war creates uncertainty for global economic outlook and stability.",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/234969/business/g7-finance-ministers-meet-as-m-e-war-clouds-global-economy",
       "metric": "G7",
       "metric_label": "Finance ministers meeting"
     },
     {
-      "headline": "Asian markets slide as oil surge deepens jitters",
-      "summary": "Asian financial markets decline while oil prices surge, reflecting increased market volatility from war concerns.",
+      "headline": "Asian markets decline on oil surge war concerns",
+      "summary": "Asian stock markets fall as oil prices surge amid escalating war jitters affecting regional investor sentiment.",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/234967/business/asian-markets-slide-as-oil-surge-deepens-war-jitters",
       "metric": "Oil surge",
-      "metric_label": "Market volatility indicator"
+      "metric_label": "Market impact driver"
     },
     {
-      "headline": "QCB governor meets with Bloomberg board member",
-      "summary": "Qatar Central Bank governor holds meeting with Bloomberg board member for discussions.",
+      "headline": "QCB governor meets Bloomberg board member",
+      "summary": "Qatar Central Bank governor holds meeting with Bloomberg board member for discussions on financial matters.",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/234962/business/qcb-governor-meets-with-bloomberg-board-member",
       "metric": "QCB",
@@ -625,35 +625,35 @@
     },
     {
       "headline": "Qatar Finance Minister meets global leaders in Paris",
-      "summary": "Minister of Finance conducts meetings with senior global economic and financial leaders in Paris.",
+      "summary": "Minister of Finance conducts meetings with senior global economic and financial leaders during Paris visit.",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/234976/business/minister-of-finance-meets-with-a-number-of-senior-global-economic-and-financial-leaders-in-paris",
       "metric": "Paris",
-      "metric_label": "International finance meeting"
+      "metric_label": "Global meeting location"
     },
     {
-      "headline": "Big risks in upcoming SpaceX OpenAI IPOs",
-      "summary": "Analysis of significant risks and rewards in anticipated IPOs at SpaceX, OpenAI, and Anthropic.",
+      "headline": "SpaceX OpenAI Anthropic IPOs present risks rewards",
+      "summary": "Upcoming initial public offerings at SpaceX, OpenAI, and Anthropic present significant risks and potential rewards.",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/234958/business/big-risks-and-rewards-in-upcoming-ipos-at-spacex-openai-anthropic",
       "metric": "3 IPOs",
-      "metric_label": "Major upcoming listings"
+      "metric_label": "Major upcoming offerings"
     },
     {
-      "headline": "China's Baidu posts quarterly revenue drop amid AI",
-      "summary": "Baidu reports quarterly revenue decline while continuing its artificial intelligence development initiatives.",
+      "headline": "Baidu quarterly revenue drops amid AI investment",
+      "summary": "China's Baidu reports quarterly revenue decline while continuing to invest heavily in artificial intelligence development.",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/234948/business/chinas-baidu-posts-quarterly-revenue-drop-amid-ai-push",
       "metric": "Revenue drop",
-      "metric_label": "Baidu quarterly performance"
+      "metric_label": "Quarterly performance"
     },
     {
-      "headline": "Qatar-Pakistan business council holds inaugural meeting",
-      "summary": "Qatar-Pakistan business council convenes inaugural meeting to strengthen bilateral trade relationships.",
+      "headline": "Qatar Pakistan business council inaugural meeting held",
+      "summary": "Qatar-Pakistan business council conducts first meeting aimed at strengthening bilateral trade relationships and cooperation.",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/234936/business/qatarpakistan-business-council-holds-inaugural-meeting-to-boost-trade-ties",
       "metric": "Inaugural",
-      "metric_label": "Business council launch"
+      "metric_label": "First council meeting"
     },
     {
       "headline": "No additional story",
