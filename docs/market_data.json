@@ -15,7 +15,7 @@
       "qatar_news": true
     }
   },
-  "generated_at": "2026-05-18T21:45:03Z",
+  "generated_at": "2026-05-18T21:52:16Z",
   "generated_display_time": "07:00 AST",
   "global_indices": [
     {
@@ -502,134 +502,134 @@
   "market_as_of_date": "2026-05-18",
   "global_news": [
     {
-      "headline": "Trump Halts Iran Attack After Gulf States Request",
-      "summary": "US president delays planned Tuesday attack on Iran following requests from Gulf states as serious negotiations begin.",
+      "headline": "Trump calls off Iran attack after Gulf states request",
+      "summary": "US president delays planned Tuesday attack on Iran, citing Gulf states' intervention and ongoing serious negotiations with Tehran.",
       "source": "BBC World",
       "url": "https://www.bbc.com/news/articles/c7079e55zjro?at_medium=RSS&at_campaign=rss",
-      "metric": "Tuesday",
-      "metric_label": "Planned attack date postponed"
+      "metric": "Delayed",
+      "metric_label": "US military action status"
     },
     {
-      "headline": "Trump Warns Iran as Peace Talks Stall",
-      "summary": "President says 'clock is ticking' for Iran as peace progress stalls despite ongoing exchanges with Washington.",
+      "headline": "Trump warns Iran as peace progress stalls",
+      "summary": "President says 'clock is ticking' for Iran after Tehran responds to latest US proposal, exchanges continue.",
       "source": "BBC World",
       "url": "https://www.bbc.com/news/articles/cd0p4y9y48xo?at_medium=RSS&at_campaign=rss",
-      "metric": "Ongoing",
-      "metric_label": "US-Iran exchange status"
+      "metric": "Active",
+      "metric_label": "US-Iran diplomatic exchanges"
     },
     {
-      "headline": "Israeli Strikes on Lebanon Pass 3,000 Deaths",
-      "summary": "Death toll reaches grim milestone in Israel-Hezbollah conflict since March despite nominal ceasefire agreement.",
+      "headline": "Israeli strikes on Lebanon surpass 3,000 deaths",
+      "summary": "Grim milestone reached in Israel-Hezbollah conflict since March, despite nominal ceasefire between the parties.",
       "source": "BBC World",
       "url": "https://www.bbc.com/news/articles/cqjpglyjwjeo?at_medium=RSS&at_campaign=rss",
       "metric": "3,000+",
-      "metric_label": "Death toll from strikes"
+      "metric_label": "Lebanese casualties from Israeli"
     },
     {
-      "headline": "Israeli Forces Board Gaza-Bound Flotilla Near Cyprus",
-      "summary": "Commandos intercept Global Sumud flotilla boats attempting to breach Gaza maritime blockade near Cypriot waters.",
+      "headline": "Israeli forces board Gaza flotilla near Cyprus",
+      "summary": "Commandos intercept Global Sumud flotilla boats attempting to breach Gaza maritime blockade, activists report live.",
       "source": "BBC World",
       "url": "https://www.bbc.com/news/articles/c142vz80553o?at_medium=RSS&at_campaign=rss",
       "metric": "Multiple",
-      "metric_label": "Boats intercepted by commandos"
+      "metric_label": "Boats boarded by Israeli forces"
     },
     {
-      "headline": "Ukrainian Drone Attack Kills Three in Moscow",
-      "summary": "Large-scale drone strikes hit Moscow region killing three as Ukraine responds to Russian attacks on cities.",
+      "headline": "Large Ukrainian drone attack kills three in Moscow",
+      "summary": "Ukraine strikes Russian capital region, president calls attacks 'justified' response to deadly Russian strikes on cities.",
       "source": "BBC Europe",
       "url": "https://www.bbc.com/news/articles/c5ye480kxpmo?at_medium=RSS&at_campaign=rss",
       "metric": "3",
-      "metric_label": "Deaths in Moscow region"
+      "metric_label": "Deaths in Moscow region attack"
     },
     {
-      "headline": "New Weapons Transform Ukraine Front Line Warfare",
-      "summary": "Machines increasingly replace humans in Ukraine's kill-zone but troops remain vital for territory defense.",
+      "headline": "New weapons transform Ukraine front line warfare",
+      "summary": "Machines increasingly replace humans in 'kill-zone' combat, though troops remain vital for territory defense operations.",
       "source": "BBC Europe",
       "url": "https://www.bbc.com/news/articles/c3w2xqj9x13o?at_medium=RSS&at_campaign=rss",
-      "metric": "Increasing",
-      "metric_label": "Machine warfare adoption"
+      "metric": "Evolving",
+      "metric_label": "Warfare technology deployment"
     },
     {
-      "headline": "New York Rail Strike Causes Rush-Hour Chaos",
-      "summary": "Hundreds of thousands face transport disruption as rail workers strike over better pay and working conditions.",
+      "headline": "Trump faces Republican challenger Massie in Kentucky",
+      "summary": "Congressman who crossed president on federal spending and Epstein files faces $20m campaign to oust him.",
       "source": "BBC US & Canada",
-      "url": "https://www.bbc.com/news/articles/cdjp839lxzvo?at_medium=RSS&at_campaign=rss",
-      "metric": "100,000s",
-      "metric_label": "Commuters affected by strike"
+      "url": "https://www.bbc.com/news/articles/cz924g45530o?at_medium=RSS&at_campaign=rss",
+      "metric": "$20M",
+      "metric_label": "Campaign spending against Massie"
     },
     {
-      "headline": "Ebola Outbreak Spreads in Conflict-Affected Congo",
-      "summary": "Rare Ebola strain outbreak in DR Congo proves difficult to contain due to ongoing regional conflict.",
+      "headline": "Ebola outbreak in DR Congo involves rare strain",
+      "summary": "Difficult-to-stop outbreak affects conflict zone, involves uncommon Ebola strain complicating containment efforts in region.",
       "source": "BBC World",
       "url": "https://www.bbc.com/news/articles/cz72p75zg4qo?at_medium=RSS&at_campaign=rss",
       "metric": "Rare strain",
-      "metric_label": "Ebola variant type"
+      "metric_label": "Ebola variant in DR Congo"
     }
   ],
   "qatar_news": [
     {
-      "headline": "G7 finance ministers meet as M-E war clouds economy",
-      "summary": "G7 finance ministers convene to address economic challenges posed by escalating Middle East conflicts affecting global markets.",
+      "headline": "G7 finance ministers meet as Middle East war clouds economy",
+      "summary": "G7 finance ministers convene to address global economic challenges posed by escalating Middle East conflicts and their widespread implications.",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/234969/business/g7-finance-ministers-meet-as-m-e-war-clouds-global-economy",
-      "metric": "G7 meeting",
-      "metric_label": "Emergency finance summit"
+      "metric": "G7 Meeting",
+      "metric_label": "High-level financial coordinatio"
     },
     {
       "headline": "Asian markets slide as oil surge deepens war jitters",
-      "summary": "Asian equity markets decline amid rising oil prices and escalating geopolitical tensions from Middle East conflicts.",
+      "summary": "Asian equity markets decline significantly as crude oil prices surge amid growing concerns over Middle East geopolitical tensions.",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/234967/business/asian-markets-slide-as-oil-surge-deepens-war-jitters",
-      "metric": "Oil surge",
-      "metric_label": "Price increase impact"
+      "metric": "Market Decline",
+      "metric_label": "Regional equity performance"
     },
     {
       "headline": "QCB governor meets with Bloomberg board member",
-      "summary": "Qatar Central Bank governor holds strategic discussions with Bloomberg board member on financial market developments.",
+      "summary": "Qatar Central Bank governor holds strategic discussions with Bloomberg board member on financial market developments and cooperation opportunities.",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/234962/business/qcb-governor-meets-with-bloomberg-board-member",
-      "metric": "High-level meeti",
-      "metric_label": "Strategic banking dialogue"
+      "metric": "High-Level Meeti",
+      "metric_label": "Central bank engagement"
     },
     {
       "headline": "Qatar Finance Minister meets global economic leaders in Paris",
-      "summary": "Qatar's Finance Minister engages with senior international economic and financial leaders during Paris meetings.",
+      "summary": "Qatar's Finance Minister engages with senior international economic and financial leaders in Paris for strategic policy discussions.",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/234976/business/minister-of-finance-meets-with-a-number-of-senior-global-economic-and-financial-leaders-in-paris",
-      "metric": "Paris summit",
-      "metric_label": "Global economic engagement"
+      "metric": "Diplomatic Engag",
+      "metric_label": "International finance cooperatio"
     },
     {
-      "headline": "Big risks and rewards in SpaceX, OpenAI IPOs",
-      "summary": "Analysis of potential initial public offerings from major tech companies including SpaceX, OpenAI, and Anthropic.",
+      "headline": "Major IPOs planned for SpaceX, OpenAI, Anthropic ventures",
+      "summary": "Technology giants SpaceX, OpenAI, and Anthropic prepare for significant initial public offerings presenting substantial investment opportunities and risks.",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/234958/business/big-risks-and-rewards-in-upcoming-ipos-at-spacex-openai-anthropic",
-      "metric": "3 major IPOs",
-      "metric_label": "Tech company listings"
+      "metric": "3 Major IPOs",
+      "metric_label": "Tech sector listings"
     },
     {
-      "headline": "China's Baidu posts quarterly revenue drop amid AI push",
-      "summary": "Chinese tech giant Baidu reports declining quarterly revenues despite significant investments in artificial intelligence technology.",
+      "headline": "China's Baidu reports quarterly revenue drop amid AI push",
+      "summary": "Chinese tech giant Baidu experiences revenue decline in latest quarter despite significant investments in artificial intelligence technology development.",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/234948/business/chinas-baidu-posts-quarterly-revenue-drop-amid-ai-push",
-      "metric": "Revenue decline",
-      "metric_label": "Quarterly performance drop"
+      "metric": "Revenue Drop",
+      "metric_label": "Quarterly performance decline"
     },
     {
-      "headline": "China-Russia hold trade expo amid global attention",
-      "summary": "China and Russia organize joint trade exposition as international focus intensifies on Putin and Trump diplomatic activities.",
+      "headline": "China-Russia trade expo amid Putin, Trump global attention",
+      "summary": "China and Russia host bilateral trade exposition as international focus intensifies on Putin and Trump diplomatic movements worldwide.",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/234963/business/chinarussia-hold-trade-expo-as-putin-and-trump-visits-draw-global-attention",
-      "metric": "Trade expo",
+      "metric": "Trade Expo",
       "metric_label": "Bilateral commerce event"
     },
     {
-      "headline": "Qatar-Pakistan business council launches to boost trade",
-      "summary": "New Qatar-Pakistan business council holds inaugural meeting aimed at strengthening bilateral trade relationships and opportunities.",
+      "headline": "Qatar-Pakistan business council inaugural meeting boosts trade ties",
+      "summary": "Qatar and Pakistan establish new business council in inaugural meeting aimed at strengthening bilateral trade relationships and commercial cooperation.",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/234936/business/qatarpakistan-business-council-holds-inaugural-meeting-to-boost-trade-ties",
-      "metric": "New council",
-      "metric_label": "Bilateral trade initiative"
+      "metric": "New Council",
+      "metric_label": "Bilateral trade framework"
     }
   ],
   "kpis": [
