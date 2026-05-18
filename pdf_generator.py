@@ -453,55 +453,106 @@ def section_rows(data, sec):
 # News cards
 # ------------------------------------------------------------
 
-def draw_news_card(c, x, y, w, h, item):
-    metric = str(item.get("metric", "—"))
-    mlbl = str(item.get("metric_label", ""))
-    src = str(item.get("source", ""))
-    hl_txt = str(item.get("headline", ""))
-    summ = str(item.get("summary", ""))
+def draw_news_card(c, x, y, w, h, item, section="global"):
+    """
+    Clean full-width news card layout.
+    Removes:
+    - right-side mini highlight boxes
+    - vertical blue accent strip
+    """
 
-    bw = 18 * mm
+    # Card shadow
+    c.setFillColor(colors.HexColor("#DCE7F0"))
+    c.roundRect(x + 1.5, y - 1.5, w, h, 6, fill=1, stroke=0)
 
-    fr(c, x, y - h, w, h, WHITE)
-    sr(c, x, y - h, w, h, RULE, 0.5)
+    # Main card
+    c.setFillColor(WHITE)
+    c.setStrokeColor(RULE)
+    c.setLineWidth(0.6)
+    c.roundRect(x, y, w, h, 6, fill=1, stroke=1)
 
-    bx = x + w - bw
+    pad = 8
 
-    # Metric panel, no navy fill.
-    # Keep a thin cyan divider only, so the news cards remain clean and consistent
-    # with the white report body.
-    fr(c, bx, y - h, 0.8 * mm, h, CYAN)
-    sr(c, bx, y - h, bw, h, RULE, 0.25)
+    content_x = x + pad
+    content_y = y + h - pad
 
-    msz = 9 if len(metric) <= 7 else (7.5 if len(metric) <= 10 else 6.5)
-    t(c, metric, bx + bw / 2 + 0.4 * mm, y - h / 2 + 1.5 * mm, "Caladea-Bold", msz, CYAN, "center")
+    usable_w = w - (pad * 2)
 
-    mw = bw - 3 * mm
-    if c.stringWidth(mlbl, "Carlito", 5) <= mw:
-        t(c, mlbl, bx + bw / 2 + 0.4 * mm, y - h + 2.5 * mm, "Carlito", 5, MUTED, "center")
-    else:
-        words = mlbl.split()
-        ln1 = ""
-        ln2 = ""
+    # Source
+    source = item.get("source", "Source")
+    ts = item.get("time", "")
 
-        for word in words:
-            test = (ln1 + " " + word).strip()
-            if c.stringWidth(test, "Carlito", 5) <= mw:
-                ln1 = test
-            else:
-                ln2 = (ln2 + " " + word).strip()
+    c.setFont("Carlito-Bold", 8)
+    c.setFillColor(BLUE)
+    c.drawString(content_x, content_y, source)
 
-        t(c, ln1, bx + bw / 2 + 0.4 * mm, y - h + 5 * mm, "Carlito", 5, MUTED, "center")
-        t(c, ln2, bx + bw / 2 + 0.4 * mm, y - h + 2.5 * mm, "Carlito", 5, MUTED, "center")
+    # Timestamp
+    if ts:
+        c.setFont("Carlito", 7)
+        c.setFillColor(MUTED)
 
-    tx = x + 3 * mm
-    tw2 = w - bw - 5 * mm
+        ts_w = c.stringWidth(ts, "Carlito", 7)
 
-    headline_bottom = ml(c, hl_txt, tx, y - 3 * mm, "Caladea-Bold", 7.5, TEXT, tw2, 2.7 * mm, 2)
-    t(c, src.upper(), tx, headline_bottom - 2 * mm, "Carlito-Bold", 5.5, CYAN)
-    hl(c, tx, headline_bottom - 3.2 * mm, tx + tw2, RULE, 0.25)
-    ml(c, summ, tx, headline_bottom - 5.5 * mm, "Carlito-Italic", 6, MUTED, tw2, 2.3 * mm, 4)
+        c.drawString(
+            x + w - pad - ts_w,
+            content_y,
+            ts
+        )
 
+    # Headline
+    headline_y = content_y - 13
+
+    c.setFont("Carlito-Bold", 10)
+    c.setFillColor(TEXT)
+
+    headline = item.get("title", "")
+
+    headline_lines = split_text(
+        headline,
+        usable_w,
+        "Carlito-Bold",
+        10,
+        max_lines=2
+    )
+
+    yy = headline_y
+
+    for line in headline_lines:
+        c.drawString(content_x, yy, line)
+        yy -= 11
+
+    # Body
+    body = item.get("summary", "") or item.get("description", "")
+
+    body_y = yy - 3
+
+    c.setFont("Carlito", 8)
+    c.setFillColor(TEXT)
+
+    body_lines = split_text(
+        body,
+        usable_w,
+        "Carlito",
+        8,
+        max_lines=5
+    )
+
+    yy = body_y
+
+    for line in body_lines:
+        c.drawString(content_x, yy, line)
+        yy -= 9
+
+    # Bottom separator
+    c.setStrokeColor(colors.HexColor("#D8E3EC"))
+    c.setLineWidth(0.5)
+
+    c.line(
+        x + 6,
+        y + 6,
+        x + w - 6,
+        y + 6
+    )
 
 def draw_news_grid(c, x, y, title, items, total_w, rows_count, card_h, card_gap=2 * mm):
     y = sec_hdr(c, x, y, title, total_w)
