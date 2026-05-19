@@ -38,6 +38,7 @@ QATAR_NEWS_MIN_VALID_COUNT = 4
 QATAR_NEWS_MAX_AGE_HOURS = 24
 
 GLOBAL_NEWS_TARGET_COUNT = 10
+GLOBAL_NEWS_MIN_FLOOR = 8       # hard minimum — past-week top-up fires if pass-1 yields fewer
 GLOBAL_NEWS_MAX_AGE_HOURS = 36
 
 # ------------------------------------------------------------
@@ -1268,15 +1269,15 @@ def _apply_global_brave_filter(brave_items, current_filtered):
 
 def fetch_global_news() -> List[Dict[str, Any]]:
     """
-    Fetch global news in two passes:
-      1. RSS feeds with strict include/exclude/age filter.
-      2. Brave Search (past day only) over the credible-publisher allowlist.
+    Fetch global news in up to two passes:
+      1. RSS feeds + Brave Search (past day) over the credible-publisher allowlist.
+      2. Brave Search (past week) — fires ONLY if pass 1 yielded fewer than
+         GLOBAL_NEWS_MIN_FLOOR credible items. This guarantees the report
+         meets the minimum-card rule (8 cards) even on quiet news days,
+         while preferring same-day stories when they're available.
 
-    No stale-news fallback. If today's coverage is thin, the report shows
-    fewer cards rather than dragging in old stories.
-
-    Items are then sorted so premium wires (Reuters, Bloomberg, FT, WSJ
-    etc.) reach the summariser first.
+    Items are sorted so premium wires (Reuters, Bloomberg, FT, WSJ etc.)
+    reach the summariser first.
     """
     now_utc = datetime.datetime.now(datetime.timezone.utc)
     raw = dedupe_news(fetch_news(NEWS_FEEDS["global"]))
@@ -1288,6 +1289,7 @@ def fetch_global_news() -> List[Dict[str, Any]]:
     if not os.environ.get("BRAVE_API_KEY"):
         print("    [global] BRAVE_API_KEY not set — Brave fallback skipped.")
     else:
+        # --- Pass 1: past day ---
         brave_pd = dedupe_news(_brave_global_news(freshness="pd"))
         print(f"    [global] Brave (past day) raw items: {len(brave_pd)}")
         kept, du, dq, de = _apply_global_brave_filter(brave_pd, filtered)
@@ -1296,10 +1298,24 @@ def fetch_global_news() -> List[Dict[str, Any]]:
               f"(dropped {du} non-credible, {dq} Qatar-focused, {de} excluded-noise)")
 
         filtered = dedupe_news(filtered)
-        print(f"    [global] After RSS + Brave merge & dedupe: {len(filtered)}")
+        print(f"    [global] After RSS + Brave(pd) merge & dedupe: {len(filtered)}")
 
-    # Sort so premium wires reach Claude first; Claude picks the top
-    # GLOBAL_NEWS_TARGET_COUNT items and our prompt enforces US > GCC ordering.
+        # --- Pass 2: past week, only if we're below the minimum floor ---
+        if len(filtered) < GLOBAL_NEWS_MIN_FLOOR:
+            print(f"    [global] Only {len(filtered)} credible items so far — "
+                  f"below the {GLOBAL_NEWS_MIN_FLOOR}-card minimum. Running "
+                  f"Brave past-week top-up to meet the floor.")
+            brave_pw = dedupe_news(_brave_global_news(freshness="pw"))
+            print(f"    [global] Brave (past week) raw items: {len(brave_pw)}")
+            kept2, du2, dq2, de2 = _apply_global_brave_filter(brave_pw, filtered)
+            filtered.extend(kept2)
+            print(f"    [global] Brave (past week) kept: {len(kept2)} "
+                  f"(dropped {du2} non-credible, {dq2} Qatar-focused, {de2} excluded-noise)")
+            filtered = dedupe_news(filtered)
+            print(f"    [global] After past-week top-up & dedupe: {len(filtered)}")
+
+    # Sort so premium wires reach Claude first; Claude picks the top items
+    # and our prompt enforces US > GCC ordering.
     def _rank(item):
         url = item.get("link", "")
         # 0 = premium, 1 = credible-but-not-premium, 2 = anything else (RSS feeds)
@@ -1881,6 +1897,24 @@ def run() -> Dict[str, Any]:
             "US politics, Europe, China, geopolitics, GCC, technology, AI, energy and major world developments",
             GLOBAL_NEWS_TARGET_COUNT,
         )
+
+        # Grid balance + floor rule:
+        #   - 10+ items   -> take 10
+        #   -  8 or 9     -> take 8 (drop the odd one out)
+        #   - fewer than 8 is an unexpected edge case (would only happen if
+        #     RSS + both Brave passes all failed). In that case fall through
+        #     to whatever we have, but the past-week top-up should almost
+        #     always prevent it.
+        n = len(data["global_news"])
+        if n >= 10:
+            data["global_news"] = data["global_news"][:10]
+        elif n >= 8:
+            data["global_news"] = data["global_news"][:8]
+        else:
+            print(f"  · [WARN] global news only has {n} items — below the "
+                  f"8-card minimum. Check Brave logs upstream.")
+        print(f"  · global news after grid-balance + floor trim: "
+              f"{len(data['global_news'])} cards")
     else:
         data["global_news"] = []
 
