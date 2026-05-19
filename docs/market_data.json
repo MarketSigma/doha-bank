@@ -15,7 +15,7 @@
       "qatar_news": true
     }
   },
-  "generated_at": "2026-05-19T00:19:43Z",
+  "generated_at": "2026-05-19T04:45:42Z",
   "generated_display_time": "",
   "global_indices": [
     {
@@ -502,74 +502,74 @@
   "market_as_of_date": "2026-05-18",
   "global_news": [
     {
-      "headline": "Trump postpones Iran attack at Gulf states request",
-      "summary": "US president holds off planned Tuesday attack saying serious negotiations now taking place at request of Gulf allies.",
+      "headline": "Trump calls off Iran attack at Gulf states request",
+      "summary": "US president says he is holding off on planned US attack for Tuesday as serious negotiations are now taking place.",
       "source": "BBC World",
       "url": "https://www.bbc.com/news/articles/c7079e55zjro?at_medium=RSS&at_campaign=rss",
       "metric": "Attack postponed",
       "metric_label": "US military action status"
     },
     {
-      "headline": "Inflation projected to hit 6% in Q2",
-      "summary": "Top economic forecasters expect elevated inflation to persist into third quarter with headline CPI at 3% and core at 2.9%.",
+      "headline": "10-year Treasury yield touches highest in year",
+      "summary": "US Treasury yields were little changed Monday, taking a breather after global bond rout that sent them sharply higher last week.",
+      "source": "CNBC",
+      "url": "https://www.cnbc.com/2026/05/18/treasury-yields-inflation-bond-rout-oil.html",
+      "metric": "Year high",
+      "metric_label": "10-year Treasury yield"
+    },
+    {
+      "headline": "Inflation rate projected to hit 6% in Q2",
+      "summary": "Top economic forecasters expect elevated inflation levels to persist into third quarter, with headline CPI projected at 3%.",
       "source": "CNBC",
       "url": "https://www.cnbc.com/2026/05/15/inflation-rate-projected-to-hit-6percent-in-the-second-quarter-top-economic-forecasters-say.html",
       "metric": "6%",
-      "metric_label": "Q2 inflation forecast"
+      "metric_label": "Q2 inflation projection"
     },
     {
-      "headline": "10-year Treasury yield touches highest in year",
-      "summary": "US Treasury yields little changed Monday after global bond rout sent them sharply higher last week.",
-      "source": "CNBC",
-      "url": "https://www.cnbc.com/2026/05/18/treasury-yields-inflation-bond-rout-oil.html",
-      "metric": "Highest in year",
-      "metric_label": "10-year yield level"
-    },
-    {
-      "headline": "Nasdaq posts back-to-back losses on tech decline",
-      "summary": "Tech-heavy Nasdaq lost 0.51% to 26,090.73 while Dow added 0.32% to 49,686.12 as Micron weighed down sector.",
+      "headline": "Nasdaq posts back-to-back losses from tech decline",
+      "summary": "Tech-heavy Nasdaq lost 0.51% to end at 26,090.73 while Dow added 0.32% to settle at 49,686.12.",
       "source": "CNBC",
       "url": "https://www.cnbc.com/2026/05/17/stock-market-today-live-updates.html",
       "metric": "-0.51%",
       "metric_label": "Nasdaq daily change"
     },
     {
+      "headline": "Kevin Warsh to be sworn in as Fed chair",
+      "summary": "Federal Reserve begins new era with former governor Kevin Warsh soon to be sworn in as chair after eight years of friction.",
+      "source": "Reuters",
+      "url": "https://www.reuters.com/markets/us/federal-reserve/",
+      "metric": "New chair",
+      "metric_label": "Fed leadership change"
+    },
+    {
       "headline": "Aramco launches Saudi Arabia's first quantum computer",
-      "summary": "Initiative supports Vision 2030 targets for knowledge-based economy development less dependent on oil revenues through advanced technology sectors.",
+      "summary": "Vision 2030 targets development of knowledge-based economy less dependent on oil revenues, with advanced technology sectors as priority pillars.",
       "source": "Arab News",
       "url": "https://www.arabnews.com/node/2644041/business-economy",
-      "metric": "First quantum",
-      "metric_label": "Saudi tech milestone"
+      "metric": "First",
+      "metric_label": "Saudi quantum computer"
     },
     {
-      "headline": "ADNOC firms post $2.2bn Q1 profit",
-      "summary": "Listed companies achieved strong quarterly results amid Strait of Hormuz disruption with long-term growth ambitions remaining intact.",
-      "source": "Zawya",
-      "url": "https://www.zawya.com/en/business/energy/adnoc-listed-firms-post-22bln-q1-profit-amid-strait-of-hormuz-disruption-osq2xzcn",
-      "metric": "$2.2bn",
-      "metric_label": "Q1 profit total"
+      "headline": "Blocked Strait of Hormuz creates Syria opportunities",
+      "summary": "Iraq and Gulf states including UAE have begun transporting oil and goods overland to ship from Syrian ports.",
+      "source": "New York Times",
+      "url": "https://www.nytimes.com/2026/05/18/world/middleeast/strait-hormuz-blockade-iran-war-syria-oil.html",
+      "metric": "Blocked",
+      "metric_label": "Strait of Hormuz status"
     },
     {
-      "headline": "WTI crude futures rise to $103.24",
-      "summary": "Current crude oil WTI futures price increased from previous close of $101.02 amid supply and demand dynamics.",
-      "source": "Investing.com",
-      "url": "https://www.investing.com/commodities/crude-oil",
-      "metric": "$103.24",
-      "metric_label": "WTI futures price"
-    },
-    {
-      "headline": "Iran war tests global oil trading system",
-      "summary": "US dollar-dominated system faces challenges from Iran conflict and Strait of Hormuz closure as nations seek opaque deals.",
-      "source": "Reuters",
-      "url": "https://www.reuters.com/world/iran/",
-      "metric": "Trading disrupte",
-      "metric_label": "Global oil system status"
+      "headline": "Putin says Russia-China ties stabilising force globally",
+      "summary": "Russia's Vladimir Putin travelling to China for second meeting with Chinese leader Xi Jinping in less than year.",
+      "source": "Al Jazeera",
+      "url": "https://www.aljazeera.com/news/2026/5/19/russia-china-ties-stabilising-force-in-world-putin-says-before-xi-talks?traffic_source=rss",
+      "metric": "2nd meeting",
+      "metric_label": "Putin-Xi meetings per year"
     }
   ],
   "qatar_news": [
     {
       "headline": "QCB governor meets with Bloomberg board member",
-      "summary": "Qatar Central Bank governor holds meeting with Bloomberg board member to discuss financial cooperation opportunities.",
+      "summary": "Qatar Central Bank governor holds meeting with Bloomberg board member to discuss financial matters.",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/234962/business/qcb-governor-meets-with-bloomberg-board-member",
       "metric": "1",
@@ -577,15 +577,15 @@
     },
     {
       "headline": "Qatar-Pakistan business council holds inaugural meeting",
-      "summary": "Qatar-Pakistan business council conducts first meeting aimed at strengthening bilateral trade relationships and economic cooperation.",
+      "summary": "First meeting of Qatar-Pakistan business council aims to strengthen trade ties between the two countries.",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/234936/business/qatarpakistan-business-council-holds-inaugural-meeting-to-boost-trade-ties",
-      "metric": "Inaugural",
-      "metric_label": "Council meeting status"
+      "metric": "1st",
+      "metric_label": "Inaugural meeting"
     },
     {
       "headline": "QCB governor meets ambassador of China",
-      "summary": "Qatar Central Bank governor conducts meeting with Chinese ambassador to Qatar for bilateral discussions.",
+      "summary": "Qatar Central Bank governor holds meeting with Chinese ambassador to Qatar.",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/234718/business/qcb-governor-meets-ambassador-of-china-to-qatar",
       "metric": "1",
@@ -593,15 +593,15 @@
     },
     {
       "headline": "Qatar Pakistan business leaders seek stronger partnership",
-      "summary": "Business leaders from Qatar and Pakistan explore opportunities to enhance economic partnership and bilateral trade relations.",
+      "summary": "Business leaders from Qatar and Pakistan work towards strengthening economic partnership between nations.",
       "source": "The Peninsula Qatar",
       "url": "https://thepeninsulaqatar.com/article/18/05/2026/qatar-and-pakistan-business-leaders-seek-stronger-economic-partnership",
-      "metric": "Bilateral",
-      "metric_label": "Partnership type"
+      "metric": "2",
+      "metric_label": "Countries involved"
     },
     {
       "headline": "QSE index closes lower",
-      "summary": "Qatar Stock Exchange index ended trading session with decline in market performance.",
+      "summary": "Qatar Stock Exchange index ended trading session with lower closing values.",
       "source": "The Peninsula Qatar",
       "url": "https://thepeninsulaqatar.com/article/17/05/2026/qse-index-closes-lower-23",
       "metric": "Lower",
@@ -609,11 +609,11 @@
     },
     {
       "headline": "Infrastructure expert highlights Qatar GCC growth opportunities",
-      "summary": "Infrastructure expert discusses growth opportunities and development potential in Qatar and broader GCC region.",
+      "summary": "Expert discusses growth opportunities in infrastructure sector across Qatar and GCC region.",
       "source": "The Peninsula Qatar",
       "url": "https://thepeninsulaqatar.com/article/17/05/2026/infrastructure-expert-highlights-qatar-gcc-growth-opportunities",
-      "metric": "Growth",
-      "metric_label": "Opportunity assessment"
+      "metric": "6",
+      "metric_label": "GCC countries"
     }
   ],
   "kpis": [
