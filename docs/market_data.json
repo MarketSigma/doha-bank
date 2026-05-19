@@ -15,7 +15,7 @@
       "qatar_news": true
     }
   },
-  "generated_at": "2026-05-19T04:45:42Z",
+  "generated_at": "2026-05-19T05:57:35Z",
   "generated_display_time": "",
   "global_indices": [
     {
@@ -502,118 +502,118 @@
   "market_as_of_date": "2026-05-18",
   "global_news": [
     {
-      "headline": "Trump calls off Iran attack at Gulf states request",
-      "summary": "US president says he is holding off on planned US attack for Tuesday as serious negotiations are now taking place.",
-      "source": "BBC World",
-      "url": "https://www.bbc.com/news/articles/c7079e55zjro?at_medium=RSS&at_campaign=rss",
-      "metric": "Attack postponed",
-      "metric_label": "US military action status"
+      "headline": "Kevin Warsh sworn in as Federal Reserve chair",
+      "summary": "Former governor Kevin Warsh begins new era as Fed chair after eight years of friction, pandemic, and inflation fight.",
+      "source": "Reuters",
+      "url": "https://www.reuters.com/markets/us/federal-reserve/",
+      "metric": "New Chair",
+      "metric_label": "Fed Leadership Change"
     },
     {
-      "headline": "10-year Treasury yield touches highest in year",
-      "summary": "US Treasury yields were little changed Monday, taking a breather after global bond rout that sent them sharply higher last week.",
+      "headline": "10-year Treasury yield hits highest in year",
+      "summary": "U.S. Treasury yields little changed Monday after global bond rout sent them sharply higher last week.",
       "source": "CNBC",
       "url": "https://www.cnbc.com/2026/05/18/treasury-yields-inflation-bond-rout-oil.html",
-      "metric": "Year high",
-      "metric_label": "10-year Treasury yield"
+      "metric": "1-Year High",
+      "metric_label": "Treasury Yield Level"
     },
     {
-      "headline": "Inflation rate projected to hit 6% in Q2",
-      "summary": "Top economic forecasters expect elevated inflation levels to persist into third quarter, with headline CPI projected at 3%.",
+      "headline": "Inflation projected to hit 6% second quarter",
+      "summary": "Top forecasters expect elevated inflation to persist into third quarter, with headline CPI easing by year-end.",
       "source": "CNBC",
       "url": "https://www.cnbc.com/2026/05/15/inflation-rate-projected-to-hit-6percent-in-the-second-quarter-top-economic-forecasters-say.html",
       "metric": "6%",
-      "metric_label": "Q2 inflation projection"
+      "metric_label": "Q2 Inflation Forecast"
     },
     {
-      "headline": "Nasdaq posts back-to-back losses from tech decline",
-      "summary": "Tech-heavy Nasdaq lost 0.51% to end at 26,090.73 while Dow added 0.32% to settle at 49,686.12.",
+      "headline": "S&P 500 futures fall amid tech sell-off",
+      "summary": "S&P 500 futures down 0.23%, Nasdaq 100 futures fell 0.46% after back-to-back market losses.",
       "source": "CNBC",
-      "url": "https://www.cnbc.com/2026/05/17/stock-market-today-live-updates.html",
-      "metric": "-0.51%",
-      "metric_label": "Nasdaq daily change"
-    },
-    {
-      "headline": "Kevin Warsh to be sworn in as Fed chair",
-      "summary": "Federal Reserve begins new era with former governor Kevin Warsh soon to be sworn in as chair after eight years of friction.",
-      "source": "Reuters",
-      "url": "https://www.reuters.com/markets/us/federal-reserve/",
-      "metric": "New chair",
-      "metric_label": "Fed leadership change"
+      "url": "https://www.cnbc.com/2026/05/18/stock-market-today-live-updates.html",
+      "metric": "-0.23%",
+      "metric_label": "S&P 500 Futures"
     },
     {
       "headline": "Aramco launches Saudi Arabia's first quantum computer",
-      "summary": "Vision 2030 targets development of knowledge-based economy less dependent on oil revenues, with advanced technology sectors as priority pillars.",
+      "summary": "Launch supports Vision 2030 targets for knowledge-based economy less dependent on oil revenues.",
       "source": "Arab News",
       "url": "https://www.arabnews.com/node/2644041/business-economy",
       "metric": "First",
-      "metric_label": "Saudi quantum computer"
+      "metric_label": "Saudi Quantum Computer"
     },
     {
-      "headline": "Blocked Strait of Hormuz creates Syria opportunities",
-      "summary": "Iraq and Gulf states including UAE have begun transporting oil and goods overland to ship from Syrian ports.",
+      "headline": "Trump calls off Iran attack after Gulf states",
+      "summary": "US president holds off planned Tuesday attack as serious negotiations now taking place with Iran.",
+      "source": "BBC World",
+      "url": "https://www.bbc.com/news/articles/c7079e55zjro?at_medium=RSS&at_campaign=rss",
+      "metric": "Attack Delayed",
+      "metric_label": "Iran Military Action"
+    },
+    {
+      "headline": "Blocked Hormuz creates opportunities for Syria ports",
+      "summary": "Iraq and Gulf states transport oil overland to Syria after Strait of Hormuz closure impacts shipping.",
       "source": "New York Times",
       "url": "https://www.nytimes.com/2026/05/18/world/middleeast/strait-hormuz-blockade-iran-war-syria-oil.html",
-      "metric": "Blocked",
-      "metric_label": "Strait of Hormuz status"
+      "metric": "Alternative Rout",
+      "metric_label": "Oil Transport Shift"
     },
     {
-      "headline": "Putin says Russia-China ties stabilising force globally",
-      "summary": "Russia's Vladimir Putin travelling to China for second meeting with Chinese leader Xi Jinping in less than year.",
+      "headline": "Putin visits China calling ties stabilising force",
+      "summary": "Russian leader travels to China for second meeting with Xi Jinping in less than year.",
       "source": "Al Jazeera",
       "url": "https://www.aljazeera.com/news/2026/5/19/russia-china-ties-stabilising-force-in-world-putin-says-before-xi-talks?traffic_source=rss",
-      "metric": "2nd meeting",
-      "metric_label": "Putin-Xi meetings per year"
+      "metric": "2nd Meeting",
+      "metric_label": "Putin-Xi Talks"
     }
   ],
   "qatar_news": [
     {
       "headline": "QCB governor meets with Bloomberg board member",
-      "summary": "Qatar Central Bank governor holds meeting with Bloomberg board member to discuss financial matters.",
+      "summary": "Qatar Central Bank governor held meeting with Bloomberg board member to discuss financial matters and cooperation.",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/234962/business/qcb-governor-meets-with-bloomberg-board-member",
       "metric": "1",
-      "metric_label": "High-level meeting"
+      "metric_label": "High-level meetings"
     },
     {
-      "headline": "Qatar-Pakistan business council holds inaugural meeting",
-      "summary": "First meeting of Qatar-Pakistan business council aims to strengthen trade ties between the two countries.",
+      "headline": "Qatar-Pakistan business council inaugural meeting boosts trade",
+      "summary": "Qatar-Pakistan business council holds first meeting aimed at strengthening bilateral trade relationships and economic cooperation.",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/234936/business/qatarpakistan-business-council-holds-inaugural-meeting-to-boost-trade-ties",
       "metric": "1st",
       "metric_label": "Inaugural meeting"
     },
     {
-      "headline": "QCB governor meets ambassador of China",
-      "summary": "Qatar Central Bank governor holds meeting with Chinese ambassador to Qatar.",
+      "headline": "QCB governor meets Chinese ambassador to Qatar",
+      "summary": "Qatar Central Bank governor conducted meeting with China's ambassador to Qatar for bilateral discussions.",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/234718/business/qcb-governor-meets-ambassador-of-china-to-qatar",
       "metric": "1",
-      "metric_label": "Diplomatic meeting"
+      "metric_label": "Diplomatic meetings"
     },
     {
-      "headline": "Qatar Pakistan business leaders seek stronger partnership",
-      "summary": "Business leaders from Qatar and Pakistan work towards strengthening economic partnership between nations.",
+      "headline": "Qatar deepens investment in digital skills development",
+      "summary": "Qatar increases investment focus on digital skills and technology development initiatives for economic advancement.",
+      "source": "The Peninsula Qatar",
+      "url": "https://thepeninsulaqatar.com/article/19/05/2026/qatar-deepens-investment-in-digital-skills-tech-development",
+      "metric": "Growing",
+      "metric_label": "Digital investment"
+    },
+    {
+      "headline": "Qatar-Pakistan leaders seek stronger economic partnership",
+      "summary": "Business leaders from Qatar and Pakistan explore opportunities for enhanced economic partnership and collaboration.",
       "source": "The Peninsula Qatar",
       "url": "https://thepeninsulaqatar.com/article/18/05/2026/qatar-and-pakistan-business-leaders-seek-stronger-economic-partnership",
-      "metric": "2",
-      "metric_label": "Countries involved"
+      "metric": "Bilateral",
+      "metric_label": "Economic partnership"
     },
     {
       "headline": "QSE index closes lower",
-      "summary": "Qatar Stock Exchange index ended trading session with lower closing values.",
+      "summary": "Qatar Stock Exchange index ended trading session with decline in market performance.",
       "source": "The Peninsula Qatar",
       "url": "https://thepeninsulaqatar.com/article/17/05/2026/qse-index-closes-lower-23",
       "metric": "Lower",
-      "metric_label": "Market direction"
-    },
-    {
-      "headline": "Infrastructure expert highlights Qatar GCC growth opportunities",
-      "summary": "Expert discusses growth opportunities in infrastructure sector across Qatar and GCC region.",
-      "source": "The Peninsula Qatar",
-      "url": "https://thepeninsulaqatar.com/article/17/05/2026/infrastructure-expert-highlights-qatar-gcc-growth-opportunities",
-      "metric": "6",
-      "metric_label": "GCC countries"
+      "metric_label": "Market close"
     }
   ],
   "kpis": [
