@@ -1,4 +1,4 @@
-import json
+    import json
 import os
 import re
 import datetime
@@ -150,35 +150,56 @@ QATAR_NEWS_BRAVE_QUERIES = [
 # ============================================================
 
 CREDIBLE_GLOBAL_DOMAINS = {
-    # US / global wires & financial press
-    "reuters.com", "bloomberg.com", "ft.com", "wsj.com", "nytimes.com",
-    "washingtonpost.com", "cnbc.com", "marketwatch.com", "barrons.com",
-    "forbes.com", "businessinsider.com", "fortune.com", "axios.com",
-    "semafor.com", "politico.com", "apnews.com", "npr.org",
-    "economist.com", "theguardian.com", "bbc.com", "bbc.co.uk",
+    # ---- US / global wires & agencies ----
+    "reuters.com", "bloomberg.com", "apnews.com", "afp.com",
+    # ---- Top financial press ----
+    "ft.com", "wsj.com", "nytimes.com", "washingtonpost.com",
+    "economist.com", "cnbc.com", "marketwatch.com", "barrons.com",
+    # ---- Asian financial press ----
+    "nikkei.com", "asia.nikkei.com", "scmp.com", "straitstimes.com",
+    "japantimes.co.jp",
+    # ---- US TV networks ----
     "cnn.com", "nbcnews.com", "abcnews.go.com", "cbsnews.com",
-    "yahoo.com", "finance.yahoo.com", "investing.com",
-    # GCC / MENA quality press (Qatar deliberately EXCLUDED — those go to Qatar section)
-    "arabnews.com", "saudigazette.com.sa", "alarabiya.net",
+    # ---- UK / European wire-grade ----
+    "bbc.com", "bbc.co.uk", "theguardian.com",
+    # ---- US policy / national press ----
+    "politico.com", "npr.org", "axios.com",
+    # ---- GCC / MENA quality press (Qatar EXCLUDED — those go to Qatar section) ----
+    "arabnews.com", "alarabiya.net", "aljazeera.com",
     "thenationalnews.com", "thenational.ae",
     "khaleejtimes.com", "gulfnews.com", "gulfbusiness.com",
-    "arabianbusiness.com", "zawya.com", "agbi.com",
-    "middleeasteye.net", "middleeastmonitor.com",
-    # Official / government primary sources
-    "federalreserve.gov", "treasury.gov", "sec.gov", "opec.org",
-    "imf.org", "worldbank.org",
+    "arabianbusiness.com", "saudigazette.com.sa",
+    "english.aawsat.com",
+    "agbi.com",
+    # ---- Central banks & multilateral institutions ----
+    "federalreserve.gov", "treasury.gov", "sec.gov",
+    "ecb.europa.eu", "bankofengland.co.uk", "boj.or.jp",
+    "bis.org", "imf.org", "worldbank.org",
+    "opec.org", "iea.org",
 }
 
 # Premium / wire-grade subset of the global allowlist. Items from these
 # domains are sorted to the top of the candidate list so they reach Claude
-# first and get the prime story slots.
+# first and get the prime story slots. With the wire-grade-only trim, this
+# now overlaps almost entirely with the credible set.
 PREMIUM_GLOBAL_DOMAINS = {
-    "reuters.com", "bloomberg.com", "ft.com", "wsj.com", "nytimes.com",
-    "economist.com", "cnbc.com", "apnews.com", "bbc.com", "bbc.co.uk",
-    "marketwatch.com", "axios.com", "barrons.com",
+    # Wires
+    "reuters.com", "bloomberg.com", "apnews.com", "afp.com",
+    # Top financial press
+    "ft.com", "wsj.com", "nytimes.com", "washingtonpost.com",
+    "economist.com", "cnbc.com", "marketwatch.com", "barrons.com",
+    # Asian financial press
+    "nikkei.com", "asia.nikkei.com", "scmp.com",
+    # UK
+    "bbc.com", "bbc.co.uk", "theguardian.com",
+    # Top GCC
     "arabnews.com", "thenationalnews.com", "thenational.ae",
-    "agbi.com", "zawya.com", "alarabiya.net",
-    "federalreserve.gov", "treasury.gov", "sec.gov", "opec.org",
+    "agbi.com", "alarabiya.net", "aljazeera.com",
+    # Central banks / officials
+    "federalreserve.gov", "treasury.gov", "sec.gov",
+    "ecb.europa.eu", "bankofengland.co.uk", "boj.or.jp",
+    "bis.org", "imf.org", "worldbank.org",
+    "opec.org", "iea.org",
 }
 
 CREDIBLE_QATAR_DOMAINS = {
@@ -190,7 +211,7 @@ CREDIBLE_QATAR_DOMAINS = {
     # Reputable international coverage of Qatar
     "reuters.com", "bloomberg.com", "ft.com", "wsj.com",
     "aljazeera.com", "arabnews.com", "thenationalnews.com",
-    "khaleejtimes.com", "gulfnews.com", "zawya.com", "agbi.com",
+    "khaleejtimes.com", "gulfnews.com", "agbi.com",
     "gulfbusiness.com", "arabianbusiness.com",
 }
 
@@ -199,6 +220,8 @@ CREDIBLE_QATAR_DOMAINS = {
 DOMAIN_DISPLAY_NAMES = {
     "reuters.com": "Reuters",
     "bloomberg.com": "Bloomberg",
+    "apnews.com": "AP News",
+    "afp.com": "AFP",
     "ft.com": "Financial Times",
     "wsj.com": "Wall Street Journal",
     "nytimes.com": "New York Times",
@@ -206,14 +229,6 @@ DOMAIN_DISPLAY_NAMES = {
     "cnbc.com": "CNBC",
     "marketwatch.com": "MarketWatch",
     "barrons.com": "Barron's",
-    "forbes.com": "Forbes",
-    "businessinsider.com": "Business Insider",
-    "fortune.com": "Fortune",
-    "axios.com": "Axios",
-    "semafor.com": "Semafor",
-    "politico.com": "Politico",
-    "apnews.com": "AP News",
-    "npr.org": "NPR",
     "economist.com": "The Economist",
     "theguardian.com": "The Guardian",
     "bbc.com": "BBC",
@@ -222,9 +237,14 @@ DOMAIN_DISPLAY_NAMES = {
     "nbcnews.com": "NBC News",
     "abcnews.go.com": "ABC News",
     "cbsnews.com": "CBS News",
-    "yahoo.com": "Yahoo Finance",
-    "finance.yahoo.com": "Yahoo Finance",
-    "investing.com": "Investing.com",
+    "nikkei.com": "Nikkei",
+    "asia.nikkei.com": "Nikkei Asia",
+    "scmp.com": "South China Morning Post",
+    "straitstimes.com": "The Straits Times",
+    "japantimes.co.jp": "Japan Times",
+    "politico.com": "Politico",
+    "npr.org": "NPR",
+    "axios.com": "Axios",
     "arabnews.com": "Arab News",
     "saudigazette.com.sa": "Saudi Gazette",
     "alarabiya.net": "Al Arabiya",
@@ -234,11 +254,9 @@ DOMAIN_DISPLAY_NAMES = {
     "gulfnews.com": "Gulf News",
     "gulfbusiness.com": "Gulf Business",
     "arabianbusiness.com": "Arabian Business",
-    "zawya.com": "Zawya",
+    "english.aawsat.com": "Asharq Al-Awsat",
     "agbi.com": "AGBI",
     "aljazeera.com": "Al Jazeera",
-    "middleeasteye.net": "Middle East Eye",
-    "middleeastmonitor.com": "Middle East Monitor",
     "thepeninsulaqatar.com": "The Peninsula",
     "peninsulaqatar.com": "The Peninsula",
     "qatar-tribune.com": "Qatar Tribune",
@@ -249,9 +267,14 @@ DOMAIN_DISPLAY_NAMES = {
     "federalreserve.gov": "Federal Reserve",
     "treasury.gov": "US Treasury",
     "sec.gov": "SEC",
-    "opec.org": "OPEC",
+    "ecb.europa.eu": "ECB",
+    "bankofengland.co.uk": "Bank of England",
+    "boj.or.jp": "Bank of Japan",
+    "bis.org": "BIS",
     "imf.org": "IMF",
     "worldbank.org": "World Bank",
+    "opec.org": "OPEC",
+    "iea.org": "IEA",
 }
 
 # Terms that mark a story as Qatar-focused. If any appear in the headline,
