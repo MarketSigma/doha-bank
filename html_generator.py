@@ -216,14 +216,20 @@ def render_news_cards(title, meta, items):
                     f'<a class="news-link" href="{e(url)}" '
                     f'target="_blank" rel="noopener noreferrer">{headline_text}</a>'
                 )
+                more_html = (
+                    f'<a class="news-more" href="{e(url)}" '
+                    f'target="_blank" rel="noopener noreferrer">Read more &rarr;</a>'
+                )
             else:
                 headline_html = headline_text
+                more_html = ""
 
             cards.append(
                 '<article class="news-card">'
                 f'<div class="news-source">{e(str(item.get("source", "")).upper())}</div>'
                 f'<h3 class="news-headline">{headline_html}</h3>'
                 f'<p class="news-summary">{e(item.get("summary", ""))}</p>'
+                f'{more_html}'
                 '</article>'
             )
         cards_html = "".join(cards)
@@ -551,6 +557,29 @@ td.pct-na   { color: var(--muted); }
   margin: 0;
 }
 
+.news-more {
+  display: block;
+  text-align: right;
+  margin-top: 10px;
+  font-family: var(--sans);
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--accent-blue);
+  text-decoration: none;
+  letter-spacing: 0.04em;
+  transition: color 0.15s ease, text-decoration-color 0.15s ease;
+}
+
+.news-more:hover,
+.news-more:focus {
+  color: var(--brand-blue);
+  text-decoration: underline;
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 2px;
+}
+
+.news-more:focus { outline: 2px solid var(--accent-blue); outline-offset: 2px; }
+
 .news-empty {
   color: var(--muted);
   font-size: 14px;
@@ -681,7 +710,7 @@ def generate(data, output_path):
 
     news_global  = render_news_cards("Regional & Global News", None, data.get("global_news", [])[:6])
     news_qatar   = render_news_cards("Qatar News",             None, data.get("qatar_news",  [])[:4])
-    news_drivers = render_news_cards("Market Drivers", "What Moved Markets", data.get("market_drivers", []))
+    news_drivers = render_news_cards("Market Drivers", "What Moved Markets", data.get("market_drivers", [])[:4])
 
     output = HTML_TEMPLATE.format(
         title=f"Doha Bank Market Updates – {e(report_date)}",
