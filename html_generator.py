@@ -318,7 +318,7 @@ html, body {
 .title-row h1 {
   font-family: var(--serif);
   font-weight: 700;
-  font-size: clamp(28px, 7vw, 42px);
+  font-size: clamp(28px, 7vw, 56px);
   margin: 0;
   line-height: 1.05;
   letter-spacing: -0.005em;
@@ -327,7 +327,7 @@ html, body {
 .report-date {
   font-family: var(--serif);
   font-style: italic;
-  font-size: clamp(14px, 3.6vw, 17px);
+  font-size: clamp(14px, 3.6vw, 22px);
   color: var(--hdr-sub);
 }
 
@@ -376,7 +376,7 @@ main {
 .kpi-value {
   font-family: var(--serif);
   font-weight: 700;
-  font-size: clamp(22px, 5.4vw, 28px);
+  font-size: clamp(22px, 5.4vw, 36px);
   color: var(--navy);
   letter-spacing: -0.01em;
   line-height: 1.1;
@@ -528,7 +528,7 @@ td.pct-na   { color: var(--muted); }
 .news-headline {
   font-family: var(--serif);
   font-weight: 700;
-  font-size: clamp(18px, 4.5vw, 21px);
+  font-size: clamp(18px, 4.5vw, 26px);
   color: var(--navy);
   line-height: 1.28;
   margin: 0 0 9px 0;
@@ -611,6 +611,40 @@ footer .brand-wordmark {
   color: var(--sky-blue);
   font-weight: 700;
   letter-spacing: 0.28em;
+}
+
+/* ---------------- Desktop bump ---------------- */
+/* Mobile sizes are tuned for ~380px phones. On laptops and larger we
+   scale the fixed-pixel elements up so the report reads comfortably from
+   a typical viewing distance. The clamped elements (h1, kpi-value,
+   news-headline, report-date) already grow with viewport — this block
+   handles the rest. */
+
+@media (min-width: 1024px) {
+  body { font-size: 17px; }
+
+  /* Masthead chrome */
+  .brand-row     { font-size: 12.5px; }
+
+  /* Section header */
+  .section-header { font-size: 12.5px; padding-bottom: 8px; }
+  .section-meta   { font-size: 11.5px; }
+
+  /* KPI strip */
+  .kpi-card  { padding: 16px 18px; }
+  .kpi-label { font-size: 12px; }
+  .kpi-sub   { font-size: 14px; margin-top: 6px; }
+
+  /* Data tables */
+  table      { font-size: 15.5px; }
+  thead th   { font-size: 11.5px; padding: 10px 12px; }
+  tbody td   { padding: 11px 12px; }
+
+  /* News cards */
+  .news-card     { padding: 18px 22px; }
+  .news-source   { font-size: 13px; margin-bottom: 8px; }
+  .news-summary  { font-size: 17px; line-height: 1.6; }
+  .news-more     { font-size: 14px; margin-top: 12px; }
 }
 
 /* ---------------- Print ---------------- */
