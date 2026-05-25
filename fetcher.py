@@ -1856,11 +1856,16 @@ def build_kpis(market_data: Dict[str, Any]) -> List[Dict[str, Any]]:
 
 
 # ============================================================
-# Market Drivers — editorial synthesis of the day's news + moves
+# Market Drivers — technical analysis section
 # ------------------------------------------------------------
-# Generates the 6 forward-looking themes that swing risk sentiment
-# for Gulf institutional readers. Output shape mirrors news items
-# so the PDF/HTML generators can render them as news cards.
+# Each driver is anchored to a real news item (so the source field
+# carries through the publication name — Reuters, Bloomberg, FT,
+# Gulf Times, etc.) but the headline and summary are TECHNICAL
+# ANALYSIS for portfolio managers — specific levels to watch, the
+# mechanism, what's at risk — not a news paraphrase.
+#
+# Output shape mirrors news items so the PDF/HTML generators can
+# render them with the existing news-card vocabulary.
 # ============================================================
 
 MARKET_DRIVERS_TARGET_COUNT = 6
@@ -1869,23 +1874,50 @@ MARKET_DRIVERS_MIN_COUNT    = 4
 
 def build_market_drivers(data: Dict[str, Any]) -> List[Dict[str, Any]]:
     """
-    Editorial synthesis: identify the 4-6 most important market drivers
-    for Gulf institutional readers based on today's market moves and news.
+    Technical analysis section anchored to today's news.
+
+    Each driver:
+      - cites a real publication (source = e.g. "Reuters", "Bloomberg",
+        "FT", "Gulf Times") taken from the news item it's anchored to
+      - frames the implication as TECHNICAL ANALYSIS (levels, mechanism,
+        what's at risk) — NOT a news summary
 
     Returns a list of dicts with the same shape as news items:
         { source, headline, summary, metric, metric_label }
 
-    Returns [] on failure — the PDF/HTML generators handle empty lists
-    gracefully (section header renders, card grid is empty).
+    Returns [] on failure or when there's no news to anchor to.
     """
     api_key = os.environ.get("ANTHROPIC_API_KEY")
     if not api_key:
         print("[WARN] ANTHROPIC_API_KEY not set — skipping market drivers.")
         return []
 
+    # --- Aggregate news as the candidate pool of trigger items ---
+    # Each driver must anchor to one of these, so we have a real
+    # publication name (and URL) to cite.
+    all_news: List[Dict[str, str]] = []
+    for item in data.get("global_news", []):
+        all_news.append({
+            "source":   (item.get("source") or "").strip(),
+            "headline": (item.get("headline") or "").strip(),
+            "summary":  (item.get("summary") or "").strip(),
+            "url":      (item.get("url") or "").strip(),
+        })
+    for item in data.get("qatar_news", []):
+        all_news.append({
+            "source":   (item.get("source") or "").strip(),
+            "headline": (item.get("headline") or "").strip(),
+            "summary":  (item.get("summary") or "").strip(),
+            "url":      (item.get("url") or "").strip(),
+        })
+    # Need a real source AND a real headline to anchor a driver
+    all_news = [n for n in all_news if n["source"] and n["headline"]]
+
+    if not all_news:
+        print("  · [WARN] no news items available — skipping market drivers.")
+        return []
+
     # --- Compact representation of biggest movers across sections ---
-    # We give Claude just the top-3 movers per section by absolute 1D %.
-    # Smaller payload = cleaner reasoning + lower token cost.
     def top_movers(rows: List[Dict[str, Any]], n: int = 3) -> List[Dict[str, Any]]:
         scored = []
         for r in rows:
@@ -1905,61 +1937,96 @@ def build_market_drivers(data: Dict[str, Any]) -> List[Dict[str, Any]]:
         for r in top_movers(data.get(section, []), n=3):
             movers_lines.append(
                 f"  - {r.get('name', '')}: "
+                f"px {r.get('px_last', 'N/A')}, "
                 f"{r.get('change_1d', 'N/A')} 1D, "
+                f"{r.get('mtd', 'N/A')} MTD, "
                 f"{r.get('ytd', 'N/A')} YTD"
             )
     movers_block = "\n".join(movers_lines) if movers_lines else "  (no market data)"
 
-    # --- Compact news context: just headlines, both regions ---
+    # --- News block with bracketed sources and URLs (matches summarise_news style) ---
+    # Numbered so Claude can reference exactly which item it anchored to.
     news_lines = []
-    for label, items in (("Global", data.get("global_news", [])[:6]),
-                         ("Qatar",  data.get("qatar_news",  [])[:4])):
-        for item in items:
-            headline = (item.get("headline") or "").strip()
-            if headline:
-                news_lines.append(f"  - [{label}] {headline}")
-    news_block = "\n".join(news_lines) if news_lines else "  (no news available)"
+    for i, n in enumerate(all_news, 1):
+        news_lines.append(
+            f"  [{i}] [{n['source']}] {n['headline']} — {n['summary']} "
+            f"(URL: {n.get('url', '')})"
+        )
+    news_block = "\n".join(news_lines)
+
+    # Whitelists for defensive validation post-call
+    allowed_sources = {n["source"] for n in all_news}
+    allowed_urls    = {n["url"] for n in all_news if n["url"]}
 
     system = (
         "You are a senior markets strategist at Doha Bank writing the "
-        "'Market Drivers' section of the morning brief for Gulf institutional "
-        "investors. Identify the SWING FACTORS — themes likely to move risk "
-        "assets over the coming session or week — not just rewrites of today's "
-        "news. Tone: editorial, forward-looking, specific about levels, dates, "
-        "and magnitudes where the input supports it. Do not invent figures."
+        "'Market Drivers' TECHNICAL ANALYSIS section for institutional "
+        "clients (portfolio managers, treasury desks, sovereign wealth "
+        "allocators). Each driver must cite a real publication (anchored "
+        "to one of the news items provided) but your output is technical "
+        "analysis — specific price levels, the transmission mechanism, "
+        "what's at risk for portfolios — NOT a news summary. "
+        "Tone: quantitative, forward-looking, specific. Use the levels, "
+        "ranges and magnitudes from the inputs. Do not invent figures."
     )
 
     prompt = f"""
 Today's biggest market movers:
 {movers_block}
 
-Today's top news headlines:
+Today's news (numbered, with publication source in brackets):
 {news_block}
 
-Identify the {MARKET_DRIVERS_TARGET_COUNT} most important market drivers — themes that will swing risk
-sentiment for Gulf institutional investors in coming sessions.
+Identify the {MARKET_DRIVERS_TARGET_COUNT} most important market drivers. Each driver MUST be
+anchored to ONE of the numbered news items above. For each driver, output:
 
-Return a JSON array of UP TO {MARKET_DRIVERS_TARGET_COUNT} objects. Each object must contain exactly:
-- source: short category tag, one of: "Macro", "Energy", "FX", "Geopolitics",
-  "China", "Equities", "Rates", "Qatar", "GCC", or similar (1-2 words)
-- headline: max 12 words, the driver as a forward-looking insight
-- summary: max 45 words, explaining mechanism and what specifically to watch
-- metric: short numeric or qualitative tag (e.g. "+1.12%", "$4-7", "PMI 50.8", "48 mtpa")
-- metric_label: 1-3 words explaining what the metric refers to (e.g. "Brent 1D", "Oil premium")
+- source: the publication EXACTLY as it appears in brackets for the news
+  item you anchored to (e.g. "Reuters", "Bloomberg", "FT", "Gulf Times",
+  "QNA", "WSJ"). Do not invent or generalise the source.
+- url: the URL EXACTLY as provided after "URL:" in the same news item
+  you anchored the source to. Empty string if the news item has no URL.
+- headline: max 14 words. TECHNICAL ANALYSIS framing — name the level
+  to watch, the specific risk, the quantitative implication. NOT a
+  news paraphrase.
+- summary: max 50 words. The transmission mechanism + specific levels,
+  ranges, dates, or magnitudes that matter. Written for portfolio
+  managers, not retail.
+- metric: short numeric or quantitative tag (e.g. "4.45%", "$82.34",
+  "PMI 50.8", "1.0842", "48 mtpa")
+- metric_label: 1-3 words explaining the metric (e.g. "UST10Y",
+  "Brent spot", "EURUSD", "China Mfg PMI")
+
+EXAMPLE — what GOOD looks like:
+  Input news [3]: [Reuters] Fed minutes signal patience on rate cuts as inflation lingers
+  GOOD driver output:
+    {{
+      "source": "Reuters",
+      "url": "https://www.reuters.com/world/fed-minutes-...",
+      "headline": "UST10Y in 4.40-4.60% range; break above 4.6% triggers rotation",
+      "summary": "Fed patience anchors yields in current range. Sustained close above 4.60% on the 10y would pressure REITs, utilities and EM duration. Watch June FOMC dots for next directional signal.",
+      "metric": "4.45%",
+      "metric_label": "UST10Y"
+    }}
+
+  BAD driver output (rejected — this is news, not analysis):
+    "headline": "Fed minutes signal patience on rate cuts"
+    "summary": "Officials are divided over the timing of the first rate cut..."
 
 Strict rules:
-- Base each driver on the inputs above. Do not invent facts or figures.
-- If fewer than {MARKET_DRIVERS_TARGET_COUNT} substantive drivers can be supported by the input,
-  return fewer rather than padding with weak entries.
-- Cover a mix of asset classes / themes — avoid {MARKET_DRIVERS_TARGET_COUNT} drivers all about the same thing.
-- no markdown fences, no preamble
+- Source MUST match a publication name from the bracketed news above.
+  Do not output category tags like "Macro", "Energy", "FX" as the source.
+- Headline and summary must be TECHNICAL ANALYSIS, not news rewrites.
+- Cite specific numbers from the market data or news content; do not invent.
+- Cover a mix of asset classes / themes — avoid {MARKET_DRIVERS_TARGET_COUNT} drivers about one topic.
+- If fewer than {MARKET_DRIVERS_TARGET_COUNT} substantive drivers can be supported, return fewer.
+- Return ONLY a JSON array. No markdown fences. No preamble.
 """
 
     try:
         client = anthropic.Anthropic(api_key=api_key)
         response = client.messages.create(
             model=os.environ.get("ANTHROPIC_MODEL", "claude-sonnet-4-20250514"),
-            max_tokens=1500,
+            max_tokens=1800,
             system=system,
             messages=[{"role": "user", "content": prompt}],
         )
@@ -1975,11 +2042,28 @@ Strict rules:
         for item in parsed[:MARKET_DRIVERS_TARGET_COUNT]:
             headline = (item.get("headline") or "").strip()
             summary  = (item.get("summary") or "").strip()
-            # Skip empty/placeholder entries rather than padding
+            source   = (item.get("source") or "").strip()
+
             if not headline or not summary:
                 continue
+
+            # Defensive: source must match an actual publication from the
+            # news pool. Stops the model from regressing to category tags.
+            if source not in allowed_sources:
+                print(f"  · [WARN] dropping driver with unrecognised source "
+                      f"'{source}' (not in news pool)")
+                continue
+
+            # Defensive: URL must match one we actually showed Claude.
+            # If Claude returns a fabricated URL, blank it out — keep the
+            # driver but make the headline non-clickable rather than route
+            # the user to something we can't vouch for.
+            url_raw = (item.get("url") or "").strip()
+            url_clean = url_raw if url_raw in allowed_urls else ""
+
             cleaned.append({
-                "source":       (item.get("source") or "Markets")[:24],
+                "source":       source[:24],
+                "url":          url_clean,
                 "headline":     headline[:140],
                 "summary":      summary[:280],
                 "metric":       (item.get("metric") or "")[:16],
