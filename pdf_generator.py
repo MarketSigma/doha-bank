@@ -1,4 +1,4 @@
-    """
+"""
 Doha Bank Market Updates - PDF Generator (v2)
 =============================================
 
