@@ -81,12 +81,18 @@ jobs:
         run: |
           python3 pdf_generator.py market_data.json report.pdf
 
+      - name: Generate HTML report
+        if: steps.schedule_check.outputs.run_report == 'true'
+        run: |
+          python3 html_generator.py market_data.json report.html
+
       - name: Copy live files to dashboard docs
         if: steps.schedule_check.outputs.run_report == 'true'
         run: |
           mkdir -p docs
           cp market_data.json docs/market_data.json
           cp report.pdf docs/report.pdf
+          cp report.html docs/report.html
 
       - name: Register generated report in dashboard
         if: steps.schedule_check.outputs.run_report == 'true'
@@ -108,7 +114,7 @@ jobs:
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
 
-          git add market_data.json report.pdf docs/market_data.json docs/report.pdf docs/index.html || true
+          git add market_data.json report.pdf report.html docs/market_data.json docs/report.pdf docs/report.html docs/index.html || true
 
           if git diff --cached --quiet; then
             echo "No generated file changes to commit."
@@ -123,3 +129,5 @@ jobs:
           echo "Report generated from Supabase data and emailed automatically."
           echo "Validation warnings, if any, were retained for dashboard visibility only."
           echo "Approval is not required in Phase 1."
+
+    
