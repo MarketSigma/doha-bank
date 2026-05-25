@@ -433,6 +433,7 @@ def draw_news_card(c, x, y, w, h, item):
     src    = str(item.get("source", ""))
     hl_txt = str(item.get("headline", ""))
     summ   = str(item.get("summary", ""))
+    url    = str(item.get("url", "") or "").strip()
 
     fr(c, x, y - h, w, h, WHITE)
     sr(c, x, y - h, w, h, BORDER, 0.5)
@@ -444,9 +445,26 @@ def draw_news_card(c, x, y, w, h, item):
     t(c, src.upper(), x + pad, y - 4.2 * mm,
       "Carlito-Bold", 6.8, ACCENT_BLUE, tracking=1.5)
 
-    headline_bottom = ml(c, hl_txt, x + pad, y - 8.2 * mm,
+    headline_top_y = y - 8.2 * mm
+    headline_bottom = ml(c, hl_txt, x + pad, headline_top_y,
                         "Caladea-Bold", 10.2, NAVY,
                         inner_w, 3.9 * mm, maxl=2)
+
+    # Clickable region over the headline if a URL is present.
+    # ReportLab linkURL takes a rect (x1, y1, x2, y2); we cover from a
+    # bit above the first baseline (to catch ascenders) down to a bit
+    # below the last baseline. thickness=0 keeps the link invisible —
+    # no border drawn around the clickable area.
+    if url and url.startswith(("http://", "https://")):
+        c.linkURL(
+            url,
+            (x + pad,
+             headline_bottom + 0.5 * mm,
+             x + pad + inner_w,
+             headline_top_y + 3 * mm),
+            relative=0,
+            thickness=0,
+        )
 
     # Card sized to content: small cards on page 2 → 2 summary lines max
     # (prevents overflow when headline wraps to 2 lines).
