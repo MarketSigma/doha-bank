@@ -507,25 +507,25 @@ td.pct-na   { color: var(--muted); }
   background: var(--white);
   border: 1px solid var(--border);
   border-left: 3px solid var(--brand-blue);
-  padding: 14px 16px;
+  padding: 16px 18px;
   border-radius: 2px;
 }
 
 .news-source {
-  font-size: 10.5px;
+  font-size: 11.5px;
   font-weight: 700;
   color: var(--accent-blue);
   letter-spacing: 0.16em;
-  margin-bottom: 6px;
+  margin-bottom: 7px;
 }
 
 .news-headline {
   font-family: var(--serif);
   font-weight: 700;
-  font-size: clamp(16px, 4vw, 18px);
+  font-size: clamp(18px, 4.5vw, 21px);
   color: var(--navy);
-  line-height: 1.25;
-  margin: 0 0 8px 0;
+  line-height: 1.28;
+  margin: 0 0 9px 0;
 }
 
 .news-link {
@@ -545,15 +545,15 @@ td.pct-na   { color: var(--muted); }
 .news-link:focus { outline: 2px solid var(--accent-blue); outline-offset: 2px; }
 
 .news-summary {
-  font-size: 13.5px;
+  font-size: 15px;
   color: var(--mid-blue);
-  line-height: 1.5;
+  line-height: 1.55;
   margin: 0;
 }
 
 .news-empty {
   color: var(--muted);
-  font-size: 13px;
+  font-size: 14px;
   font-style: italic;
 }
 
@@ -714,5 +714,3 @@ if __name__ == "__main__":
     else:
         print("Usage: python html_generator.py market_data.json report.html")
         raise SystemExit(1)
-
-    
