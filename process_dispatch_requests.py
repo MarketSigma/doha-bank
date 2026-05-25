@@ -134,15 +134,37 @@ def ensure_report_approved(report):
 
 def build_payload_from_report(report):
     report_date = str(report.get("report_date"))
-    return {
-        "title": f"Market Intelligence – {report_date}",
-        "caption": (
+    pdf_url  = report.get("pdf_url")
+    # Optional secondary attachment — populated when the upstream pipeline
+    # has uploaded an HTML version of the report. Falls back gracefully
+    # to PDF-only when not present, so this change is backward compatible.
+    html_url = report.get("html_url")
+
+    if html_url:
+        caption = (
+            f"Doha Bank Market Intelligence\n"
+            f"{report_date}\n\n"
+            f"Please find the approved market intelligence report attached. "
+            f"The PDF is best for desktop or print; the HTML version is "
+            f"optimised for mobile reading — open it in any browser."
+        )
+    else:
+        caption = (
             f"Doha Bank Market Intelligence\n"
             f"{report_date}\n\n"
             f"Please find attached the approved market intelligence report."
-        ),
-        "file_url": report.get("pdf_url"),
+        )
+
+    return {
+        "title": f"Market Intelligence – {report_date}",
+        "caption": caption,
+        # Primary attachment (PDF) — also used as the WhatsApp link
+        "file_url": pdf_url,
         "file_name": f"Market-Intelligence-{report_date}.pdf",
+        # Optional secondary attachment (HTML). Both fields must be set
+        # for send_email to include it; if either is missing, PDF-only.
+        "html_url": html_url,
+        "html_file_name": f"Market-Intelligence-{report_date}.html" if html_url else None,
     }
 
 
@@ -189,6 +211,18 @@ def send_whatsapp(payload_data, recipient, action_type, triggered_by, report_id=
         return False, f"WhatsApp exception: {e}"
 
 
+def _fetch_attachment(url: str, default_content_type: str = "application/octet-stream"):
+    """
+    Fetch a file from a URL and return (content_type, base64_content).
+    Raises ValueError on non-200 response.
+    """
+    resp = requests.get(url, timeout=60)
+    if resp.status_code != 200:
+        raise ValueError(f"Could not fetch attachment from {url}: HTTP {resp.status_code}")
+    content_type = resp.headers.get("content-type", default_content_type)
+    return content_type, base64.b64encode(resp.content).decode()
+
+
 def send_email(payload_data, recipient, action_type, triggered_by, report_id=None):
     email = (recipient.get("email") or "").strip()
     if not valid_email(email):
@@ -202,12 +236,33 @@ def send_email(payload_data, recipient, action_type, triggered_by, report_id=Non
     if not file_url:
         raise ValueError("File URL missing")
 
-    file_resp = requests.get(file_url, timeout=60)
-    if file_resp.status_code != 200:
-        raise ValueError(f"Could not fetch file for email attachment: {file_resp.status_code}")
+    # --- Primary attachment (the PDF for report sends, or whatever the
+    # broadcast file is for broadcasts) ---
+    primary_content_type, primary_b64 = _fetch_attachment(file_url, "application/pdf")
+    attachments = [
+        {
+            "filename": file_name,
+            "content": primary_b64,
+            "content_type": primary_content_type,
+        }
+    ]
 
-    content_type = file_resp.headers.get("content-type", "application/octet-stream")
-    file_b64 = base64.b64encode(file_resp.content).decode()
+    # --- Optional secondary attachment: HTML companion of the report ---
+    # Best-effort. If the HTML fetch fails for any reason, log a warning
+    # and proceed with PDF-only delivery — never block an approved
+    # dispatch on a missing companion file.
+    html_url = payload_data.get("html_url")
+    html_file_name = payload_data.get("html_file_name")
+    if html_url and html_file_name:
+        try:
+            html_content_type, html_b64 = _fetch_attachment(html_url, "text/html; charset=utf-8")
+            attachments.append({
+                "filename": html_file_name,
+                "content": html_b64,
+                "content_type": html_content_type,
+            })
+        except Exception as e:
+            print(f"[WARN] HTML companion fetch failed ({e}); sending PDF only")
 
     payload = {
         "from": FROM_EMAIL,
@@ -217,13 +272,7 @@ def send_email(payload_data, recipient, action_type, triggered_by, report_id=Non
             <p>Dear {recipient.get('name') or 'Client'},</p>
             <p>{caption}</p>
         """,
-        "attachments": [
-            {
-                "filename": file_name,
-                "content": file_b64,
-                "content_type": content_type,
-            }
-        ],
+        "attachments": attachments,
     }
 
     log_id = insert_dispatch_log(
@@ -247,7 +296,11 @@ def send_email(payload_data, recipient, action_type, triggered_by, report_id=Non
         )
         if res.status_code in (200, 201):
             update_dispatch_log(log_id, "sent", res.text)
-            return True, f"Email sent: {res.text}"
+            attach_count = len(attachments)
+            return True, (
+                f"Email sent with {attach_count} attachment"
+                f"{'s' if attach_count != 1 else ''}: {res.text}"
+            )
         update_dispatch_log(log_id, "failed", res.text)
         return False, f"Email failed: {res.status_code} {res.text}"
     except Exception as e:
@@ -319,3 +372,5 @@ def main():
 
 if __name__ == "__main__":
     raise SystemExit(main())
+
+    
