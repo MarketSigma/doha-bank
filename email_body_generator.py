@@ -157,10 +157,10 @@ def _masthead(report_date: str, generated_display_time: str) -> str:
     </tr>
     <tr><td colspan="2" height="10" style="line-height:0;font-size:0;">&nbsp;</td></tr>
     <tr>
-      <td style="font-family:{SERIF};color:{WHITE};font-size:30px;font-weight:700;line-height:1.05;">
+      <td class="eb-title" style="font-family:{SERIF};color:{WHITE};font-size:30px;font-weight:700;line-height:1.05;">
         Market Updates
       </td>
-      <td align="right" style="font-family:{SERIF};color:#C5DCEF;font-size:14px;font-style:italic;">
+      <td align="right" class="eb-date" style="font-family:{SERIF};color:#C5DCEF;font-size:14px;font-style:italic;">
         {_e(report_date)}
       </td>
     </tr>
@@ -183,13 +183,13 @@ def _kpi_block(kpis: List[Dict[str, Any]]) -> str:
   <table cellpadding="0" cellspacing="0" border="0" width="100%"
          style="background:{KPI_BG};border-left:3px solid {BRAND_BLUE};">
     <tr><td style="padding:12px 14px;">
-      <div style="font-family:{SANS};font-size:10.5px;font-weight:700;color:{MID_BLUE};letter-spacing:0.16em;">
+      <div class="eb-kpi-label" style="font-family:{SANS};font-size:10.5px;font-weight:700;color:{MID_BLUE};letter-spacing:0.16em;">
         {_e(label)}
       </div>
-      <div style="font-family:{SERIF};font-size:24px;font-weight:700;color:{NAVY};margin-top:4px;line-height:1.1;">
+      <div class="eb-kpi-value" style="font-family:{SERIF};font-size:24px;font-weight:700;color:{NAVY};margin-top:4px;line-height:1.1;">
         {_e(value)}
       </div>
-      <div style="font-family:{SANS};font-size:12px;color:{MID_BLUE};margin-top:5px;">
+      <div class="eb-kpi-sub" style="font-family:{SANS};font-size:12px;color:{MID_BLUE};margin-top:5px;">
         {sub}
       </div>
     </td></tr>
@@ -215,7 +215,7 @@ def _kpi_block(kpis: List[Dict[str, Any]]) -> str:
 
 def _section_header_row(title: str, meta: str = "") -> str:
     meta_html = (
-        f'<td align="right" style="font-family:{SANS};font-size:10px;color:{ACCENT_BLUE};'
+        f'<td align="right" class="eb-section-meta" style="font-family:{SANS};font-size:10px;color:{ACCENT_BLUE};'
         f'letter-spacing:0.14em;font-weight:400;">{_e(meta.upper())}</td>'
         if meta else ""
     )
@@ -223,7 +223,7 @@ def _section_header_row(title: str, meta: str = "") -> str:
 <table cellpadding="0" cellspacing="0" border="0" width="100%"
        style="border-bottom:1.5px solid {BRAND_BLUE};margin-bottom:6px;">
   <tr>
-    <td style="font-family:{SANS};font-size:11px;color:{NAVY};font-weight:700;
+    <td class="eb-section-hdr" style="font-family:{SANS};font-size:11px;color:{NAVY};font-weight:700;
                letter-spacing:0.22em;padding:0 0 6px 0;">
       {_e(title.upper())}
     </td>
@@ -240,7 +240,7 @@ def _data_table_block(title: str, meta: str, headers: List[str],
     for i, h in enumerate(headers):
         align = "left" if i == 0 else "right"
         hdr_cells.append(
-            f'<th align="{align}" style="font-family:{SANS};font-size:10px;color:{ACCENT_BLUE};'
+            f'<th align="{align}" class="eb-thead" style="font-family:{SANS};font-size:10px;color:{ACCENT_BLUE};'
             f'font-weight:700;letter-spacing:0.14em;padding:8px 10px;'
             f'border-bottom:1px solid {BORDER};white-space:nowrap;">{_e(h.upper())}</th>'
         )
@@ -252,17 +252,17 @@ def _data_table_block(title: str, meta: str, headers: List[str],
         for ci, cell in enumerate(row):
             if ci == 0:
                 cells.append(
-                    f'<td style="font-family:{SANS};font-size:13px;font-weight:700;color:{NAVY};'
+                    f'<td class="eb-cell-name" style="font-family:{SANS};font-size:13px;font-weight:700;color:{NAVY};'
                     f'padding:8px 10px;border-bottom:1px solid {BORDER};">{_e(cell)}</td>'
                 )
             elif ci == 1:
                 cells.append(
-                    f'<td align="right" style="font-family:{SANS};font-size:13px;color:{NAVY};'
+                    f'<td align="right" class="eb-cell-num" style="font-family:{SANS};font-size:13px;color:{NAVY};'
                     f'padding:8px 10px;border-bottom:1px solid {BORDER};white-space:nowrap;">{_e(cell)}</td>'
                 )
             else:
                 cells.append(
-                    f'<td align="right" style="font-family:{SANS};font-size:13px;'
+                    f'<td align="right" class="eb-cell-num" style="font-family:{SANS};font-size:13px;'
                     f'padding:8px 10px;border-bottom:1px solid {BORDER};white-space:nowrap;">'
                     f'{_pct_inline(cell)}</td>'
                 )
@@ -307,7 +307,7 @@ def _news_card_block(item: Dict[str, Any]) -> str:
         )
         more_html = (
             f'<div style="text-align:right;margin-top:10px;">'
-            f'<a href="{_e(url)}" target="_blank" rel="noopener noreferrer" '
+            f'<a class="eb-news-more" href="{_e(url)}" target="_blank" rel="noopener noreferrer" '
             f'style="font-family:{SANS};font-size:12.5px;font-weight:700;'
             f'color:{ACCENT_BLUE};text-decoration:none;letter-spacing:0.04em;">'
             f'Read more &rarr;</a></div>'
@@ -321,11 +321,11 @@ def _news_card_block(item: Dict[str, Any]) -> str:
        style="background:{WHITE};border:1px solid {BORDER};border-left:3px solid {BRAND_BLUE};
               margin-bottom:10px;">
   <tr><td style="padding:12px 14px;">
-    <div style="font-family:{SANS};font-size:10.5px;font-weight:700;color:{ACCENT_BLUE};
+    <div class="eb-news-source" style="font-family:{SANS};font-size:10.5px;font-weight:700;color:{ACCENT_BLUE};
                 letter-spacing:0.16em;margin-bottom:5px;">{_e(src)}</div>
-    <div style="font-family:{SERIF};font-size:16px;font-weight:700;color:{NAVY};
+    <div class="eb-news-head" style="font-family:{SERIF};font-size:16px;font-weight:700;color:{NAVY};
                 line-height:1.3;margin-bottom:6px;">{headline_html}</div>
-    <div style="font-family:{SANS};font-size:13px;color:{MID_BLUE};line-height:1.5;">
+    <div class="eb-news-summ" style="font-family:{SANS};font-size:13px;color:{MID_BLUE};line-height:1.5;">
       {summary}
     </div>
     {more_html}
@@ -440,9 +440,36 @@ def build_email_body(data: Dict[str, Any]) -> str:
 
     inner = "".join(sections)
 
+    # Desktop bump via @media query. Inline styles in the body are the
+    # mobile/safe default — guaranteed to render on every client. Modern
+    # clients (Gmail web/iOS/Android, Apple Mail Mac/iOS, Outlook 365 web)
+    # honour this <style> block and apply the larger sizes; Outlook
+    # desktop on Windows strips it and keeps the mobile sizing — no crash,
+    # just no bump for those recipients.
+    style_block = '''
+<style>
+  @media only screen and (min-width: 700px) {
+    .eb-title       { font-size: 38px !important; }
+    .eb-date        { font-size: 18px !important; }
+    .eb-kpi-label   { font-size: 12px !important; }
+    .eb-kpi-value   { font-size: 30px !important; }
+    .eb-kpi-sub     { font-size: 14px !important; }
+    .eb-section-hdr { font-size: 13px !important; }
+    .eb-section-meta{ font-size: 11.5px !important; }
+    .eb-thead       { font-size: 11.5px !important; }
+    .eb-cell-name   { font-size: 15px !important; }
+    .eb-cell-num    { font-size: 15px !important; }
+    .eb-news-source { font-size: 13px !important; }
+    .eb-news-head   { font-size: 20px !important; }
+    .eb-news-summ   { font-size: 15px !important; line-height: 1.55 !important; }
+    .eb-news-more   { font-size: 14px !important; }
+  }
+</style>
+'''
+
     # Outer container: 600px max, centred, light page background. The HTML
     # shell is minimal because Resend / clients wrap their own boilerplate.
-    return f'''
+    return style_block + f'''
 <table cellpadding="0" cellspacing="0" border="0" width="100%"
        style="background:{PAGE_BG};padding:8px 0;">
   <tr><td align="center">
