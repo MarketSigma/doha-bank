@@ -1,6 +1,6 @@
-"""
-Doha Bank Market Updates - PDF Generator
-========================================
+    """
+Doha Bank Market Updates - PDF Generator (v2)
+=============================================
 
 Monochrome blue editorial design:
   - Brand blue (#1B5FA5) header band, section underlines, footer
@@ -12,6 +12,12 @@ Monochrome blue editorial design:
         ● in accent blue neutral / pegged
   - Serif (Caladea) for headlines + KPI numbers
   - Sans (Carlito) for tabular data and tracked-uppercase labels
+
+v2 changes:
+  - Added Market Drivers as a dedicated third page (same news-card style)
+  - Page counter now reads "X / 3"
+  - Companion html_generator.py produces a mobile-friendly version
+    from the same market_data.json
 """
 
 from reportlab.lib.pagesizes import A4, landscape
@@ -58,45 +64,43 @@ W, H = landscape(A4)
 M    = 11 * mm           # outer margin
 UW   = W - 2 * M         # usable width
 
+TOTAL_PAGES = 3          # was 2 — added Market Drivers page
+
 
 # ============================================================
 # Monochrome blue palette
-# ------------------------------------------------------------
-# A single-hue stack. All gradations of blue. No green / red / gold.
 # ============================================================
 
-# Brand chrome
-BRAND_BLUE  = colors.HexColor("#1B5FA5")  # header band, section rules, footer
-SKY_BLUE    = colors.HexColor("#38B6FF")  # "DOHA BANK" wordmark — logo blue
-HDR_SUB     = colors.HexColor("#C5DCEF")  # subtitle on header band
-HDR_META    = colors.HexColor("#9EBEDF")  # page meta on header band
+BRAND_BLUE  = colors.HexColor("#1B5FA5")
+SKY_BLUE    = colors.HexColor("#38B6FF")
+HDR_SUB     = colors.HexColor("#C5DCEF")
+HDR_META    = colors.HexColor("#9EBEDF")
 
-# Text & data
-NAVY        = colors.HexColor("#0A2540")  # primary text, big numbers, ▲ glyph
-MID_BLUE    = colors.HexColor("#4677B0")  # secondary text, declined values
-ACCENT_BLUE = colors.HexColor("#6595CB")  # column headers, neutral ● glyph
-LIGHT_BLUE  = colors.HexColor("#9EBEDF")  # ▼ glyph
-MUTED       = colors.HexColor("#88A5C2")  # N/A placeholders
+NAVY        = colors.HexColor("#0A2540")
+MID_BLUE    = colors.HexColor("#4677B0")
+ACCENT_BLUE = colors.HexColor("#6595CB")
+LIGHT_BLUE  = colors.HexColor("#9EBEDF")
+MUTED       = colors.HexColor("#88A5C2")
 
-# Surfaces
 WHITE       = colors.white
-TINT        = colors.HexColor("#F5F9FC")  # alternating row tint
-KPI_BG      = colors.HexColor("#F1F6FB")  # KPI card fill
-BORDER      = colors.HexColor("#E8F0F8")  # hairline borders
+TINT        = colors.HexColor("#F5F9FC")
+KPI_BG      = colors.HexColor("#F1F6FB")
+BORDER      = colors.HexColor("#E8F0F8")
 
 
 # ============================================================
 # Layout constants
 # ============================================================
 
-HEADER_H  = 25 * mm
-FTR_H     = 5  * mm
-KPI_H     = 13 * mm     # tighter — content was leaving empty space at bottom
-SEC_H     = 5.5 * mm
-TBL_HDR_H = 4.2 * mm
-ROW_H     = 4.2 * mm
-GAP       = 3 * mm
-NEWS_CARD_H = 17.5 * mm   # fixed news card height; cards fit content, no stretching
+HEADER_H    = 25 * mm
+FTR_H       = 5  * mm
+KPI_H       = 13 * mm
+SEC_H       = 5.5 * mm
+TBL_HDR_H   = 4.2 * mm
+ROW_H       = 4.2 * mm
+GAP         = 3 * mm
+NEWS_CARD_H = 18.5 * mm   # used on page 2 (bumped from 17.5 to prevent summary overflow)
+DRIVER_CARD_H = 26 * mm   # page 3 has its own page, so cards can breathe
 
 
 # ============================================================
@@ -104,20 +108,17 @@ NEWS_CARD_H = 17.5 * mm   # fixed news card height; cards fit content, no stretc
 # ============================================================
 
 def fr(c, x, y, w, h, col):
-    """Filled rectangle."""
     c.setFillColor(col)
     c.rect(x, y, w, h, fill=1, stroke=0)
 
 
 def sr(c, x, y, w, h, col, lw=0.4):
-    """Stroked rectangle."""
     c.setStrokeColor(col)
     c.setLineWidth(lw)
     c.rect(x, y, w, h, fill=0, stroke=1)
 
 
 def hl(c, x1, y, x2, col=BORDER, lw=0.35):
-    """Horizontal rule."""
     c.setStrokeColor(col)
     c.setLineWidth(lw)
     c.line(x1, y, x2, y)
@@ -125,13 +126,6 @@ def hl(c, x1, y, x2, col=BORDER, lw=0.35):
 
 def t(c, txt, x, y, font="Carlito", size=8, color=NAVY,
       align="left", maxw=None, tracking=0):
-    """
-    Draw text. Optional `tracking` (in points) applies letter-spacing
-    for uppercase labels (~1.2-2.5 points reads as 'tracked').
-
-    Uses canvas.beginText() when tracking is requested because the
-    canvas itself doesn't expose setCharSpace publicly.
-    """
     txt = "" if txt is None else str(txt)
     c.setFont(font, size)
     c.setFillColor(color)
@@ -141,7 +135,6 @@ def t(c, txt, x, y, font="Carlito", size=8, color=NAVY,
             txt = txt[:-4] + "..."
 
     if tracking:
-        # Width including extra inter-character spacing for alignment math
         text_w = c.stringWidth(txt, font, size) + tracking * max(0, len(txt) - 1)
         if align == "right":
             start_x = x - text_w
@@ -149,13 +142,11 @@ def t(c, txt, x, y, font="Carlito", size=8, color=NAVY,
             start_x = x - text_w / 2
         else:
             start_x = x
-
         to = c.beginText(start_x, y)
         to.setFont(font, size)
         to.setFillColor(color)
         to.setCharSpace(tracking)
         to.textOut(txt)
-        # Reset char spacing so it doesn't leak into subsequent drawString calls
         to.setCharSpace(0)
         c.drawText(to)
         return
@@ -169,7 +160,6 @@ def t(c, txt, x, y, font="Carlito", size=8, color=NAVY,
 
 
 def ml(c, txt, x, y, font, size, color, maxw, lh, maxl=3):
-    """Word-wrapped text. Returns y after the last drawn line."""
     txt = "" if txt is None else str(txt)
     c.setFont(font, size)
     c.setFillColor(color)
@@ -193,20 +183,11 @@ def ml(c, txt, x, y, font, size, color, maxw, lh, maxl=3):
 
 
 # ============================================================
-# Percentage rendering — monochrome blue, no red/green
-# ------------------------------------------------------------
-# Direction is shown by glyph weight, not hue:
-#   ▲ NAVY (dark)        — gain
-#   ▼ LIGHT_BLUE         — decline
-#   ● ACCENT_BLUE        — neutral (pegged / 0.00%)
-# Number weight reinforces direction:
-#   gains  → NAVY bold
-#   losses → MID_BLUE regular
+# Percentage rendering
 # ============================================================
 
 def _parse_pct(value):
     value = str(value or "").strip()
-    # Check zero-magnitude values first (regardless of any leading +/-)
     if value in ("Pegged", "0.00%", "0%", "+0.00%", "-0.00%", "+0%", "-0%"):
         display = "Pegged" if value == "Pegged" else "0.00%"
         return ("●", ACCENT_BLUE, display,           MID_BLUE, "Carlito")
@@ -220,13 +201,10 @@ def _parse_pct(value):
 
 
 def draw_pct(c, right_x, y, value, size=7.2):
-    """Render percentage right-aligned at right_x with directional glyph."""
     glyph, glyph_color, num, text_color, font = _parse_pct(value)
-    # Number in the chosen body font (Carlito / Carlito-Bold)
     c.setFillColor(text_color)
     c.setFont(font, size)
     c.drawRightString(right_x, y, num)
-    # Glyph in DejaVu Sans Bold — thicker strokes survive small-size rasterization
     if glyph and glyph_color:
         num_w = c.stringWidth(num, font, size)
         glyph_size = size - 0.4
@@ -236,7 +214,7 @@ def draw_pct(c, right_x, y, value, size=7.2):
 
 
 # ============================================================
-# Data formatting helpers (unchanged from v1)
+# Data formatting helpers
 # ============================================================
 
 def _to_float(value):
@@ -293,15 +271,10 @@ def cw5(w):
 # ============================================================
 
 def draw_header(c, report_date, generated_display_time,
-                market_as_of_date=None, page=1, total=2, report_status="PASS"):
-    """
-    Editorial masthead — two tiers separated by a thin sky-blue rule.
-      Upper tier: DOHA BANK wordmark (left) · page meta (right)
-      Lower tier: Market Updates (large serif, left) · report date (serif italic, right)
-    """
+                market_as_of_date=None, page=1, total=TOTAL_PAGES,
+                report_status="PASS"):
     fr(c, 0, H - HEADER_H, W, HEADER_H, BRAND_BLUE)
 
-    # --- Upper tier: chrome row ---
     t(c, "DOHA BANK", M, H - 7 * mm,
       "Carlito-Bold", 9, SKY_BLUE, tracking=3)
 
@@ -311,7 +284,6 @@ def draw_header(c, report_date, generated_display_time,
     t(c, meta_text, W - M, H - 7 * mm,
       "Carlito", 7, HDR_META, "right", tracking=1.5)
 
-    # --- Lower tier: title + date on the same baseline ---
     t(c, "Market Updates", M, H - 20 * mm,
       "Caladea-Bold", 26, WHITE)
 
@@ -322,17 +294,14 @@ def draw_header(c, report_date, generated_display_time,
 
 
 def draw_footer(c, report_date):
-    """Brand-blue footer band with brand mark left, tracked caption right."""
     fr(c, 0, 0, W, FTR_H, BRAND_BLUE)
-    # Left: small sky-blue wordmark echo, ties to the header
     t(c, "DOHA BANK", M, 1.8 * mm, "Carlito-Bold", 6, SKY_BLUE, tracking=2)
-    # Right: tracked caption
     t(c, f"MARKET UPDATES  \u00b7  {report_date}",
       W - M, 1.8 * mm, "Carlito", 5.5, HDR_META, "right", tracking=1.5)
 
 
 # ============================================================
-# KPI strip — pale-blue cards, serif navy numbers
+# KPI strip
 # ============================================================
 
 def draw_kpi(c, y, kpis):
@@ -348,21 +317,15 @@ def draw_kpi(c, y, kpis):
         sub = str(k.get("sublabel", ""))
         cx  = M + i * (cw + gap)
 
-        # Card surface
         fr(c, cx, y - KPI_H, cw, KPI_H, KPI_BG)
-
-        # Left accent rule — thin brand-blue marker on the leading edge
         fr(c, cx, y - KPI_H, 0.7 * mm, KPI_H, BRAND_BLUE)
 
-        # Tracked uppercase label
         t(c, lbl.upper(), cx + 3.5 * mm, y - 3.2 * mm,
           "Carlito-Bold", 6.5, MID_BLUE, tracking=1.6)
 
-        # Big serif number
         t(c, val, cx + 3.5 * mm, y - 8 * mm,
           "Caladea-Bold", 14, NAVY)
 
-        # Change line — leading glyph + sub text
         sub_clean = sub
         glyph, glyph_color = "", None
         first_token = sub.split()[0] if sub else ""
@@ -388,15 +351,10 @@ def draw_kpi(c, y, kpis):
 
 
 # ============================================================
-# Section header — tracked uppercase + thin brand-blue rule
+# Section header
 # ============================================================
 
 def sec_hdr(c, x, y, title, w, meta=None):
-    """
-    Section header: tracked uppercase navy label on the left,
-    optional tracked meta tag on the right (e.g. "USD", "BPS"),
-    thin brand-blue rule beneath. Returns y where the table begins.
-    """
     label_baseline = y - 3.5 * mm
     t(c, title.upper(), x, label_baseline,
       "Carlito-Bold", 7, NAVY, tracking=2.2)
@@ -413,14 +371,6 @@ def sec_hdr(c, x, y, title, w, meta=None):
 # ============================================================
 
 def draw_table(c, x, y, hdrs, rows, tw, cws):
-    """
-    Editorial table:
-      - column headers tracked uppercase accent blue (no fill)
-      - hairline underline beneath
-      - subtle alternating row tint
-      - right-aligned percentages with directional blue glyphs
-    """
-    # Column headers
     cx = x
     for i, (h, cw) in enumerate(zip(hdrs, cws)):
         hy = y - TBL_HDR_H + 1.3 * mm
@@ -435,7 +385,6 @@ def draw_table(c, x, y, hdrs, rows, tw, cws):
     y -= TBL_HDR_H
     hl(c, x, y, x + tw, BORDER, 0.6)
 
-    # Data rows
     for ri, row in enumerate(rows):
         if ri % 2 == 1:
             fr(c, x, y - ROW_H, tw, ROW_H, TINT)
@@ -481,41 +430,35 @@ def section_rows(data, sec):
 # ============================================================
 
 def draw_news_card(c, x, y, w, h, item):
-    """
-    Editorial news card:
-      - hairline border, white surface
-      - thin brand-blue accent rule along the left edge
-      - tracked source tag → serif navy headline → mid-blue body
-    """
     src    = str(item.get("source", ""))
     hl_txt = str(item.get("headline", ""))
     summ   = str(item.get("summary", ""))
 
     fr(c, x, y - h, w, h, WHITE)
     sr(c, x, y - h, w, h, BORDER, 0.5)
-
-    # Thin brand-blue accent along the left edge
     fr(c, x, y - h, 0.7 * mm, h, BRAND_BLUE)
 
     pad     = 3.5 * mm
     inner_w = w - 2 * pad
 
-    # Source tag — tracked uppercase accent blue
     t(c, src.upper(), x + pad, y - 4.2 * mm,
       "Carlito-Bold", 6.8, ACCENT_BLUE, tracking=1.5)
 
-    # Headline — serif navy, up to 2 wrapped lines
     headline_bottom = ml(c, hl_txt, x + pad, y - 8.2 * mm,
                         "Caladea-Bold", 10.2, NAVY,
                         inner_w, 3.9 * mm, maxl=2)
 
-    # Summary — sans mid-blue, up to 3 wrapped lines
+    # Card sized to content: small cards on page 2 → 2 summary lines max
+    # (prevents overflow when headline wraps to 2 lines).
+    # Bigger cards on page 3 can show more.
+    summary_lines = 5 if h >= 24 * mm else 2
     ml(c, summ, x + pad, headline_bottom - 2 * mm,
        "Carlito", 7.6, MID_BLUE,
-       inner_w, 3.1 * mm, maxl=3)
+       inner_w, 3.1 * mm, maxl=summary_lines)
 
 
-def draw_news_grid(c, x, y, title, items, total_w, rows_count, card_h, card_gap=2 * mm, meta=None):
+def draw_news_grid(c, x, y, title, items, total_w, rows_count,
+                   card_h, card_gap=2 * mm, meta=None):
     y = sec_hdr(c, x, y, title, total_w, meta=meta)
     y -= 1.5 * mm
 
@@ -542,8 +485,8 @@ def page1(c, report_date, generated_display_time, market_as_of_date, data):
     top = draw_header(
         c, report_date, generated_display_time,
         market_as_of_date=market_as_of_date,
-        page=1, total=2,
-        report_status=data.get("report_status", "ok"),
+        page=1, total=TOTAL_PAGES,
+        report_status=data.get("report_status", "PASS"),
     )
 
     y = top - 2 * mm
@@ -607,7 +550,7 @@ def page2(c, report_date, generated_display_time, market_as_of_date,
     top = draw_header(
         c, report_date, generated_display_time,
         market_as_of_date=market_as_of_date,
-        page=2, total=2,
+        page=2, total=TOTAL_PAGES,
         report_status=report_status,
     )
 
@@ -617,14 +560,38 @@ def page2(c, report_date, generated_display_time, market_as_of_date,
 
     y = draw_news_grid(
         c, M, y, "Regional & Global News", global_news, UW,
-        rows_count=5, card_h=NEWS_CARD_H, card_gap=card_gap,
+        rows_count=3, card_h=NEWS_CARD_H, card_gap=card_gap,
     )
 
     y -= between_sections
 
     draw_news_grid(
         c, M, y, "Qatar News", qatar_news, UW,
-        rows_count=3, card_h=NEWS_CARD_H, card_gap=card_gap,
+        rows_count=2, card_h=NEWS_CARD_H, card_gap=card_gap,
+    )
+
+    draw_footer(c, report_date)
+
+
+def page3(c, report_date, generated_display_time, market_as_of_date,
+          market_drivers, report_status="ok"):
+    """Dedicated page for Market Drivers — same news-card style, larger cards."""
+    fr(c, 0, 0, W, H, WHITE)
+
+    top = draw_header(
+        c, report_date, generated_display_time,
+        market_as_of_date=market_as_of_date,
+        page=3, total=TOTAL_PAGES,
+        report_status=report_status,
+    )
+
+    y = top - 1.5 * mm
+    card_gap = 2 * mm
+
+    draw_news_grid(
+        c, M, y, "Market Drivers", market_drivers, UW,
+        rows_count=3, card_h=DRIVER_CARD_H, card_gap=card_gap,
+        meta="What Moved Markets",
     )
 
     draw_footer(c, report_date)
@@ -651,6 +618,13 @@ def generate(data, output_path):
         c, report_date, generated_display_time, market_as_of_date,
         data.get("global_news", []),
         data.get("qatar_news", []),
+        report_status,
+    )
+    c.showPage()
+
+    page3(
+        c, report_date, generated_display_time, market_as_of_date,
+        data.get("market_drivers", []),
         report_status,
     )
     c.showPage()
