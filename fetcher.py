@@ -1,4 +1,4 @@
-import json
+    import json
 import os
 import re
 import datetime
@@ -24,6 +24,7 @@ CONFIG = {
         "commodities": True,
         "global_news": True,
         "qatar_news": True,
+        "market_drivers": True,
     }
 }
 
@@ -1854,6 +1855,148 @@ def build_kpis(market_data: Dict[str, Any]) -> List[Dict[str, Any]]:
     ]
 
 
+# ============================================================
+# Market Drivers — editorial synthesis of the day's news + moves
+# ------------------------------------------------------------
+# Generates the 6 forward-looking themes that swing risk sentiment
+# for Gulf institutional readers. Output shape mirrors news items
+# so the PDF/HTML generators can render them as news cards.
+# ============================================================
+
+MARKET_DRIVERS_TARGET_COUNT = 6
+MARKET_DRIVERS_MIN_COUNT    = 4
+
+
+def build_market_drivers(data: Dict[str, Any]) -> List[Dict[str, Any]]:
+    """
+    Editorial synthesis: identify the 4-6 most important market drivers
+    for Gulf institutional readers based on today's market moves and news.
+
+    Returns a list of dicts with the same shape as news items:
+        { source, headline, summary, metric, metric_label }
+
+    Returns [] on failure — the PDF/HTML generators handle empty lists
+    gracefully (section header renders, card grid is empty).
+    """
+    api_key = os.environ.get("ANTHROPIC_API_KEY")
+    if not api_key:
+        print("[WARN] ANTHROPIC_API_KEY not set — skipping market drivers.")
+        return []
+
+    # --- Compact representation of biggest movers across sections ---
+    # We give Claude just the top-3 movers per section by absolute 1D %.
+    # Smaller payload = cleaner reasoning + lower token cost.
+    def top_movers(rows: List[Dict[str, Any]], n: int = 3) -> List[Dict[str, Any]]:
+        scored = []
+        for r in rows:
+            raw = str(r.get("change_1d") or "").replace("%", "").replace("+", "").strip()
+            if not raw or raw.lower() in ("n/a", "na", "pegged", "none"):
+                continue
+            try:
+                scored.append((abs(float(raw)), r))
+            except (ValueError, TypeError):
+                continue
+        scored.sort(key=lambda x: -x[0])
+        return [r for _, r in scored[:n]]
+
+    movers_lines = []
+    for section in ("global_indices", "gcc_indices", "commodities",
+                    "spot_currency", "fixed_income"):
+        for r in top_movers(data.get(section, []), n=3):
+            movers_lines.append(
+                f"  - {r.get('name', '')}: "
+                f"{r.get('change_1d', 'N/A')} 1D, "
+                f"{r.get('ytd', 'N/A')} YTD"
+            )
+    movers_block = "\n".join(movers_lines) if movers_lines else "  (no market data)"
+
+    # --- Compact news context: just headlines, both regions ---
+    news_lines = []
+    for label, items in (("Global", data.get("global_news", [])[:6]),
+                         ("Qatar",  data.get("qatar_news",  [])[:4])):
+        for item in items:
+            headline = (item.get("headline") or "").strip()
+            if headline:
+                news_lines.append(f"  - [{label}] {headline}")
+    news_block = "\n".join(news_lines) if news_lines else "  (no news available)"
+
+    system = (
+        "You are a senior markets strategist at Doha Bank writing the "
+        "'Market Drivers' section of the morning brief for Gulf institutional "
+        "investors. Identify the SWING FACTORS — themes likely to move risk "
+        "assets over the coming session or week — not just rewrites of today's "
+        "news. Tone: editorial, forward-looking, specific about levels, dates, "
+        "and magnitudes where the input supports it. Do not invent figures."
+    )
+
+    prompt = f"""
+Today's biggest market movers:
+{movers_block}
+
+Today's top news headlines:
+{news_block}
+
+Identify the {MARKET_DRIVERS_TARGET_COUNT} most important market drivers — themes that will swing risk
+sentiment for Gulf institutional investors in coming sessions.
+
+Return a JSON array of UP TO {MARKET_DRIVERS_TARGET_COUNT} objects. Each object must contain exactly:
+- source: short category tag, one of: "Macro", "Energy", "FX", "Geopolitics",
+  "China", "Equities", "Rates", "Qatar", "GCC", or similar (1-2 words)
+- headline: max 12 words, the driver as a forward-looking insight
+- summary: max 45 words, explaining mechanism and what specifically to watch
+- metric: short numeric or qualitative tag (e.g. "+1.12%", "$4-7", "PMI 50.8", "48 mtpa")
+- metric_label: 1-3 words explaining what the metric refers to (e.g. "Brent 1D", "Oil premium")
+
+Strict rules:
+- Base each driver on the inputs above. Do not invent facts or figures.
+- If fewer than {MARKET_DRIVERS_TARGET_COUNT} substantive drivers can be supported by the input,
+  return fewer rather than padding with weak entries.
+- Cover a mix of asset classes / themes — avoid {MARKET_DRIVERS_TARGET_COUNT} drivers all about the same thing.
+- no markdown fences, no preamble
+"""
+
+    try:
+        client = anthropic.Anthropic(api_key=api_key)
+        response = client.messages.create(
+            model=os.environ.get("ANTHROPIC_MODEL", "claude-sonnet-4-20250514"),
+            max_tokens=1500,
+            system=system,
+            messages=[{"role": "user", "content": prompt}],
+        )
+
+        text = response.content[0].text.strip()
+        text = re.sub(r"```json|```", "", text).strip()
+        parsed = json.loads(text)
+
+        if not isinstance(parsed, list):
+            raise ValueError("Claude did not return a list")
+
+        cleaned = []
+        for item in parsed[:MARKET_DRIVERS_TARGET_COUNT]:
+            headline = (item.get("headline") or "").strip()
+            summary  = (item.get("summary") or "").strip()
+            # Skip empty/placeholder entries rather than padding
+            if not headline or not summary:
+                continue
+            cleaned.append({
+                "source":       (item.get("source") or "Markets")[:24],
+                "headline":     headline[:140],
+                "summary":      summary[:280],
+                "metric":       (item.get("metric") or "")[:16],
+                "metric_label": (item.get("metric_label") or "")[:32],
+            })
+
+        if len(cleaned) < MARKET_DRIVERS_MIN_COUNT:
+            print(f"  · [WARN] market drivers returned only {len(cleaned)} items — "
+                  f"below the {MARKET_DRIVERS_MIN_COUNT}-card minimum.")
+
+        return cleaned
+
+    except Exception as e:
+        print(f"[WARN] Market drivers generation failed: {e}")
+        return []
+
+
 def run() -> Dict[str, Any]:
     today = datetime.date.today()
     cfg = CONFIG
@@ -1957,6 +2100,13 @@ def run() -> Dict[str, Any]:
 
     data["kpis"] = build_kpis(data)
 
+    if cfg["sections"].get("market_drivers", True):
+        print("  · market drivers (editorial synthesis)")
+        data["market_drivers"] = build_market_drivers(data)
+        print(f"  · market drivers: {len(data['market_drivers'])} items")
+    else:
+        data["market_drivers"] = []
+
     validation_issues = validate_market_data(data)
     if cfg["sections"].get("qatar_news", True) and data.get("_qatar_valid_news_count", 0) < QATAR_NEWS_MIN_VALID_COUNT:
         validation_issues.append(
@@ -1989,6 +2139,8 @@ if __name__ == "__main__":
         json.dump(result, f, indent=2, default=str)
 
     print("✓ Data written to market_data.json")
+
+    
 
     
 
