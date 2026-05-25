@@ -12,10 +12,11 @@
       "qatari_banks": true,
       "commodities": true,
       "global_news": true,
-      "qatar_news": true
+      "qatar_news": true,
+      "market_drivers": true
     }
   },
-  "generated_at": "2026-05-25T05:57:30Z",
+  "generated_at": "2026-05-25T07:02:40Z",
   "generated_display_time": "",
   "global_indices": [
     {
@@ -502,118 +503,110 @@
   "market_as_of_date": "2026-05-24",
   "global_news": [
     {
-      "headline": "Oil prices fall 5% on Trump Iran talks progress",
-      "summary": "Oil prices dropped 5% after Trump said Iran talks proceeding constructively. Hormuz blockade has dramatically cut Middle East oil exports, affecting 20% of global supply.",
+      "headline": "Oil prices fall 5% on Iran peace talks progress",
+      "summary": "Oil prices dropped significantly after Trump said Iran talks proceeding constructively. About 20% of global oil supply normally passes through Hormuz strait.",
       "source": "CNBC",
       "url": "https://www.cnbc.com/2026/05/24/oil-price-iran-war-strait-hormuz-trump-peace-talks.html",
-      "metric": "5%",
+      "metric": "-5%",
       "metric_label": "Oil price decline"
     },
     {
-      "headline": "Iran declares Strait of Hormuz completely open",
-      "summary": "Iran reopened Hormuz strait with coordinated shipping routes. Oil dropped 12% and stocks surged on the news, though Trump maintains US blockade until peace deal.",
+      "headline": "Iran reopens Strait of Hormuz amid ceasefire talks",
+      "summary": "Iran declares Hormuz strait completely open with coordinated shipping routes. Oil drops 12% and stocks surge on the news of progress.",
       "source": "NBC News",
       "url": "https://www.nbcnews.com/world/iran/live-blog/live-updates-israel-lebanon-ceasefire-trump-iran-talks-hormuz-summit-rcna332294",
-      "metric": "12%",
-      "metric_label": "Oil price drop"
+      "metric": "-12%",
+      "metric_label": "Oil price drop on reopening"
     },
     {
-      "headline": "Oil prices slide on US-Iran peace hopes",
-      "summary": "Oil prices fell as Trump mentioned potential agreement including Strait of Hormuz reopening, without providing further details on the deal.",
-      "source": "BBC World",
-      "url": "https://www.bbc.com/news/articles/c809m7g29r7o?at_medium=RSS&at_campaign=rss",
+      "headline": "Brent crude falls to two-week lows",
+      "summary": "Brent crude futures fell $4.71 to $98.83 per barrel, down 4.55%. WTI dropped $4.57 to $92.03, declining 4.73% amid peace talks.",
+      "source": "The Guardian",
+      "url": "https://www.theguardian.com/world/live/2026/may/24/iran-deal-strait-of-hormuz-trump-middle-east-crisis-live",
       "metric": "$98.83",
       "metric_label": "Brent crude per barrel"
     },
     {
-      "headline": "Brent crude falls to two-week lows",
-      "summary": "Brent crude futures fell $4.71 or 4.55% to $98.83 per barrel. WTI dropped $4.57 or 4.73% to $92.03, touching lowest since May 7.",
-      "source": "The Guardian",
-      "url": "https://www.theguardian.com/world/live/2026/may/24/iran-deal-strait-of-hormuz-trump-middle-east-crisis-live",
-      "metric": "4.55%",
-      "metric_label": "Brent crude decline"
-    },
-    {
-      "headline": "US-Iran agree to 60-day ceasefire extension framework",
-      "summary": "US and Iran close to signing deal with 60-day ceasefire extension, Hormuz reopening, free Iranian oil sales, and nuclear negotiations according to Reuters.",
-      "source": "Reuters",
-      "url": "https://www.reuters.com/world/iran/",
-      "metric": "60 days",
-      "metric_label": "Ceasefire extension"
-    },
-    {
-      "headline": "Trump tells negotiators not to rush Iran deal",
-      "summary": "Deal under discussion involves 60-day ceasefire extension with Strait of Hormuz reopening during negotiations, according to US media reports.",
+      "headline": "US-Iran deal may include 60-day ceasefire extension",
+      "summary": "Rubio says solid Iran deal possible Monday involving 60-day ceasefire extension and Strait of Hormuz reopening according to US media reports.",
       "source": "BBC World",
-      "url": "https://www.bbc.com/news/articles/clyp0040x7po?at_medium=RSS&at_campaign=rss",
+      "url": "https://www.bbc.com/news/articles/cglpp2yk336o?at_medium=RSS&at_campaign=rss",
       "metric": "60 days",
-      "metric_label": "Proposed ceasefire period"
+      "metric_label": "Proposed ceasefire extension"
     },
     {
-      "headline": "Oil markets near danger zone amid crisis",
-      "summary": "Crude oil spot prices bounced around $100 since Iran closed Hormuz strait following US-Israel onslaught, creating market volatility and supply concerns.",
+      "headline": "Oil markets hover near danger zone levels",
+      "summary": "Crude oil spot market prices bounced around $100 since Iran closed Hormuz strait in response to US and Israel actions.",
       "source": "The Guardian",
       "url": "https://www.theguardian.com/business/2026/may/24/oil-markets-danger-zone-us-iran-deal",
       "metric": "$100",
-      "metric_label": "Crude oil spot price"
+      "metric_label": "Oil spot market price"
     },
     {
-      "headline": "US-Iran negotiators agree on broad principles",
-      "summary": "Iran-US negotiators agreed to broad principles. Trump says time is on US side while emphasizing America won't let Iran hold global energy market hostage.",
-      "source": "CBS News",
-      "url": "https://www.cbsnews.com/live-updates/iran-war-trump-us-peace-talks-strait-of-hormuz-control/",
+      "headline": "GCC should insure against future Hormuz crises",
+      "summary": "Kuwait, Bahrain and other GCC states face economic isolation when Hormuz closes, highlighting need for crisis insurance mechanisms.",
+      "source": "Al Jazeera",
+      "url": "https://www.aljazeera.com/opinions/2026/5/24/the-gcc-should-insure-itself-against-the-next-strait-of-hormuz-crisis",
       "metric": "20%",
-      "metric_label": "Global supply through Hormuz"
+      "metric_label": "Global oil supply via Hormuz"
+    },
+    {
+      "headline": "Singapore economy beats expectations despite Iran tensions",
+      "summary": "GDP grows 6 percent year-on-year in first quarter as AI boom outweighs rising energy costs from Iran war fallout.",
+      "source": "Al Jazeera",
+      "url": "https://www.aljazeera.com/economy/2026/5/25/singapores-economy-beats-expectations-as-govt-warns-of-iran-war-fallout?traffic_source=rss",
+      "metric": "6%",
+      "metric_label": "Singapore GDP growth YoY"
+    },
+    {
+      "headline": "Russia launches hypersonic missile attack on Ukraine",
+      "summary": "Large-scale Russian attack leaves four dead and dozens injured. Hypersonic missile travels over 10 times the speed of sound, Russia confirmed.",
+      "source": "BBC World",
+      "url": "https://www.bbc.com/news/articles/clyp6831yp5o?at_medium=RSS&at_campaign=rss",
+      "metric": "10x",
+      "metric_label": "Speed of sound multiplier"
     }
   ],
   "qatar_news": [
     {
-      "headline": "Invest Qatar showcases business opportunities during China visit",
-      "summary": "Invest Qatar showcases business opportunities during China visit to strengthen investment engagements and partnerships.",
-      "source": "Qatar Tribune",
-      "url": "https://www.qatar-tribune.com/article/235932/business/invest-qatar-showcases-business-opportunities-during-china-visit",
-      "metric": "China tour",
-      "metric_label": "Investment promotion activity"
+      "headline": "Strong bullish momentum lifts QSE index by 327 points",
+      "summary": "Qatar Stock Exchange index rises by 327 points due to strong bullish momentum in the market.",
+      "source": "The Peninsula Qatar",
+      "url": "https://thepeninsulaqatar.com/article/25/05/2026/strong-bullish-momentum-lifts-qse-index-by-327-points",
+      "metric": "+327",
+      "metric_label": "QSE index points gain"
     },
     {
-      "headline": "Doha Bank unveils Al Dana 2026 savings prize",
-      "summary": "Doha Bank unveils Al Dana 2026 with Qatar's biggest savings draw prize pool for customers.",
+      "headline": "Doha Bank unveils Al Dana 2026 savings program",
+      "summary": "Doha Bank launches Al Dana 2026 featuring Qatar's biggest savings draw prize pool for customers.",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/235935/business/doha-bank-unveils-al-dana-2026-with-qatars-biggest-savings-draw-prize-pool",
       "metric": "2026",
-      "metric_label": "Product launch year"
+      "metric_label": "Program launch year"
     },
     {
-      "headline": "QFMA hosts seminar on Qatar debt market",
-      "summary": "QFMA hosts seminar on Qatar's debt market to provide market insights and education.",
+      "headline": "QFMA hosts seminar on Qatar's debt market",
+      "summary": "Qatar Financial Markets Authority organises specialised seminar focused on Qatar's debt market development and opportunities.",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/235967/business/qfma-hosts-seminar-on-qatars-debt-market",
-      "metric": "Debt market",
-      "metric_label": "Seminar topic"
+      "metric": "1",
+      "metric_label": "QFMA debt market seminar"
     },
     {
-      "headline": "Qatar Stock Exchange announces Eid Al Adha holiday",
-      "summary": "Qatar Stock Exchange announces Eid Al Adha holiday schedule for trading operations.",
-      "source": "The Peninsula Qatar",
-      "url": "https://thepeninsulaqatar.com/article/24/05/2026/qatar-stock-exchange-announces-eid-al-adha-holiday",
-      "metric": "Eid holiday",
-      "metric_label": "Trading schedule"
+      "headline": "Invest Qatar showcases opportunities during China visit",
+      "summary": "Invest Qatar promotes business opportunities and strengthens investment partnerships during official tour of China.",
+      "source": "Qatar Tribune",
+      "url": "https://www.qatar-tribune.com/article/235932/business/invest-qatar-showcases-business-opportunities-during-china-visit",
+      "metric": "China",
+      "metric_label": "Investment destination focus"
     },
     {
-      "headline": "Qatar Central Bank announces Eid holiday schedule",
-      "summary": "Qatar Central Bank announces Eid Al-Adha holiday for financial institutions across the country.",
+      "headline": "Qatar, Vietnam explore trade and investment opportunities",
+      "summary": "Qatar and Vietnam discuss expanding bilateral trade relations and exploring new investment opportunities between both nations.",
       "source": "The Peninsula Qatar",
-      "url": "https://thepeninsulaqatar.com/article/24/05/2026/qatar-central-bank-announces-eid-al-adha-holiday-for-financial-institutions-3",
-      "metric": "Financial instit",
-      "metric_label": "Holiday coverage"
-    },
-    {
-      "headline": "Hamad Port strengthens Qatar's regional trade position",
-      "summary": "Hamad Port strengthens Qatar's position as regional trade hub according to Mwani Qatar officials.",
-      "source": "The Peninsula Qatar",
-      "url": "https://thepeninsulaqatar.com/article/24/05/2026/hamad-port-strengthens-qatars-position-as-regional-trade-hub-mwani-qatar",
-      "metric": "Regional hub",
-      "metric_label": "Trade position"
+      "url": "https://thepeninsulaqatar.com/article/25/05/2026/qatar-vietnam-explore-trade-and-investment-opportunities",
+      "metric": "Vietnam",
+      "metric_label": "New trade partner focus"
     }
   ],
   "kpis": [
@@ -636,6 +629,50 @@
       "value": "2.68",
       "label": "Doha Bank PX Last",
       "sublabel": "+3.15% today \u00b7 -6.48% YTD"
+    }
+  ],
+  "market_drivers": [
+    {
+      "source": "Geopolitics",
+      "headline": "Iran peace talks momentum threatens oil risk premium collapse",
+      "summary": "Strait of Hormuz reopening and potential 60-day ceasefire extension signal de-escalation. Watch for further premium compression if diplomatic progress continues.",
+      "metric": "-5%",
+      "metric_label": "Oil 1D"
+    },
+    {
+      "source": "Energy",
+      "headline": "Brent at two-week lows approaches critical support levels",
+      "summary": "Oil markets hovering near danger zone levels after recent falls. Break below current levels could accelerate selling pressure across energy complex.",
+      "metric": "+64.68%",
+      "metric_label": "Brent YTD"
+    },
+    {
+      "source": "Qatar",
+      "headline": "QSE surge signals renewed Gulf equity appetite amid volatility",
+      "summary": "Qatar's +3.15% jump and 327-point gain contrasts with flat regional performance. Momentum could spill over to other GCC markets if sustained.",
+      "metric": "+3.15%",
+      "metric_label": "QSE 1D"
+    },
+    {
+      "source": "GCC",
+      "headline": "Hormuz crisis insurance gap exposes regional vulnerability premium",
+      "summary": "Recent disruptions highlight need for protective mechanisms. Institutional focus on supply chain resilience could drive defensive positioning across GCC assets.",
+      "metric": "+106.86%",
+      "metric_label": "LNG YTD"
+    },
+    {
+      "source": "Rates",
+      "headline": "UST curve steepening continues amid geopolitical uncertainty fade",
+      "summary": "10-year outperforming 5-year as Iran tensions ease. Watch for further steepening if risk-off flows reverse from safe haven bonds.",
+      "metric": "+9.49%",
+      "metric_label": "UST 10Y YTD"
+    },
+    {
+      "source": "FX",
+      "headline": "Dollar strength pause creates emerging market breathing room",
+      "summary": "Flat DXY and JPY gains suggest peak dollar momentum. Gulf pegs benefit from reduced pressure, but watch for renewed strength on data.",
+      "metric": "+1.06%",
+      "metric_label": "DXY YTD"
     }
   ],
   "validation_issues": [
