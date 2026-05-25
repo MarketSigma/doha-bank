@@ -209,10 +209,20 @@ def render_news_cards(title, meta, items):
     else:
         cards = []
         for item in items:
+            headline_text = e(item.get("headline", ""))
+            url = (item.get("url") or "").strip()
+            if url and url.startswith(("http://", "https://")):
+                headline_html = (
+                    f'<a class="news-link" href="{e(url)}" '
+                    f'target="_blank" rel="noopener noreferrer">{headline_text}</a>'
+                )
+            else:
+                headline_html = headline_text
+
             cards.append(
                 '<article class="news-card">'
                 f'<div class="news-source">{e(str(item.get("source", "")).upper())}</div>'
-                f'<h3 class="news-headline">{e(item.get("headline", ""))}</h3>'
+                f'<h3 class="news-headline">{headline_html}</h3>'
                 f'<p class="news-summary">{e(item.get("summary", ""))}</p>'
                 '</article>'
             )
@@ -517,6 +527,22 @@ td.pct-na   { color: var(--muted); }
   line-height: 1.25;
   margin: 0 0 8px 0;
 }
+
+.news-link {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.15s ease, text-decoration-color 0.15s ease;
+}
+
+.news-link:hover,
+.news-link:focus {
+  color: var(--brand-blue);
+  text-decoration: underline;
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 2px;
+}
+
+.news-link:focus { outline: 2px solid var(--accent-blue); outline-offset: 2px; }
 
 .news-summary {
   font-size: 13.5px;
