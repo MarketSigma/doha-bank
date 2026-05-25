@@ -96,9 +96,9 @@ HEADER_H    = 25 * mm
 FTR_H       = 5  * mm
 KPI_H       = 17 * mm      # was 13 — larger KPI cards, room for bigger value
 SEC_H       = 6.5 * mm     # was 5.5
-TBL_HDR_H   = 5.2 * mm     # was 4.2
-ROW_H       = 5.6 * mm     # was 4.2 — taller rows so 9pt body has breathing room
-GAP         = 3.5 * mm     # was 3
+TBL_HDR_H   = 4.6 * mm     # was 5.2 — header tightened, font unchanged
+ROW_H       = 5.0 * mm     # was 5.6 — tighter rows, room for more instruments
+GAP         = 3 * mm       # was 3.5
 NEWS_CARD_H = 28 * mm      # was 18.5 — substantially larger, room for full headlines + summary
 DRIVER_CARD_H = 36 * mm    # was 26 — drivers carry the densest content, give them the most room
 
@@ -373,7 +373,7 @@ def sec_hdr(c, x, y, title, w, meta=None):
 def draw_table(c, x, y, hdrs, rows, tw, cws):
     cx = x
     for i, (h, cw) in enumerate(zip(hdrs, cws)):
-        hy = y - TBL_HDR_H + 1.6 * mm
+        hy = y - TBL_HDR_H + 1.3 * mm
         if i == 0:
             t(c, h.upper(), cx + 2 * mm, hy,
               "Carlito-Bold", 8, ACCENT_BLUE, tracking=1.3)
@@ -390,7 +390,7 @@ def draw_table(c, x, y, hdrs, rows, tw, cws):
             fr(c, x, y - ROW_H, tw, ROW_H, TINT)
 
         cx = x
-        cell_y = y - ROW_H + 1.7 * mm
+        cell_y = y - ROW_H + 1.4 * mm
 
         for ci, (cell, cw) in enumerate(zip(row, cws)):
             cell_text = safe_text(cell)
@@ -406,7 +406,7 @@ def draw_table(c, x, y, hdrs, rows, tw, cws):
 
         y -= ROW_H
 
-    return y - 1.8 * mm
+    return y - 1.2 * mm
 
 
 def section_rows(data, sec):
