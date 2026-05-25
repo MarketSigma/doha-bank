@@ -99,8 +99,8 @@ SEC_H       = 6.5 * mm     # was 5.5
 TBL_HDR_H   = 4.6 * mm     # was 5.2 — header tightened, font unchanged
 ROW_H       = 5.0 * mm     # was 5.6 — tighter rows, room for more instruments
 GAP         = 3 * mm       # was 3.5
-NEWS_CARD_H = 28 * mm      # was 18.5 — substantially larger, room for full headlines + summary
-DRIVER_CARD_H = 36 * mm    # was 26 — drivers carry the densest content, give them the most room
+NEWS_CARD_H = 31 * mm      # was 30 — room for the "Read more →" affordance
+DRIVER_CARD_H = 40 * mm    # was 36 — room for footer + slightly more breathing space
 
 
 # ============================================================
@@ -434,6 +434,7 @@ def draw_news_card(c, x, y, w, h, item):
     hl_txt = str(item.get("headline", ""))
     summ   = str(item.get("summary", ""))
     url    = str(item.get("url", "") or "").strip()
+    has_url = bool(url and url.startswith(("http://", "https://")))
 
     fr(c, x, y - h, w, h, WHITE)
     sr(c, x, y - h, w, h, BORDER, 0.5)
@@ -450,11 +451,9 @@ def draw_news_card(c, x, y, w, h, item):
                         "Caladea-Bold", 12.5, NAVY,
                         inner_w, 4.8 * mm, maxl=2)
 
-    # Clickable region over the headline if a URL is present.
-    # Rect covers from a touch above the first baseline (for ascenders)
-    # down to a touch below the last baseline. thickness=0 keeps the
-    # link visually invisible — no border drawn around the area.
-    if url and url.startswith(("http://", "https://")):
+    # Headline click region — covers from just above the first baseline
+    # (ascenders) down to a touch below the last baseline.
+    if has_url:
         c.linkURL(
             url,
             (x + pad,
@@ -465,12 +464,37 @@ def draw_news_card(c, x, y, w, h, item):
             thickness=0,
         )
 
-    # Card sized to content: page-2 cards (28mm) → up to 3 summary lines,
-    # page-3 driver cards (36mm) → up to 5 lines.
-    summary_lines = 5 if h >= 33 * mm else 3
+    # Summary — page-2 cards (30mm) → up to 2 summary lines so the
+    # "Read more →" affordance has room. Page-3 driver cards (36mm)
+    # → up to 4 lines.
+    summary_lines = 4 if h >= 33 * mm else 2
     ml(c, summ, x + pad, headline_bottom - 2.5 * mm,
        "Carlito", 9.5, MID_BLUE,
        inner_w, 3.9 * mm, maxl=summary_lines)
+
+    # "Read more →" affordance at the bottom-right corner — visual cue
+    # that the card links to the source. Drawn only when a URL is present.
+    # An invisible link rect covers the label so clicking it also opens
+    # the URL (in addition to clicking the headline).
+    if has_url:
+        more_text = "Read more \u2192"
+        more_font = "Carlito-Bold"
+        more_size = 8
+        more_baseline = y - h + 2.8 * mm
+        c.setFont(more_font, more_size)
+        c.setFillColor(ACCENT_BLUE)
+        more_w = c.stringWidth(more_text, more_font, more_size)
+        more_x = x + w - pad - more_w
+        c.drawString(more_x, more_baseline, more_text)
+        c.linkURL(
+            url,
+            (more_x - 1 * mm,
+             more_baseline - 0.8 * mm,
+             more_x + more_w + 1 * mm,
+             more_baseline + more_size * 0.36),
+            relative=0,
+            thickness=0,
+        )
 
 
 def draw_news_grid(c, x, y, title, items, total_w, rows_count,
@@ -606,7 +630,7 @@ def page3(c, report_date, generated_display_time, market_as_of_date,
 
     draw_news_grid(
         c, M, y, "Market Drivers", market_drivers, UW,
-        rows_count=3, card_h=DRIVER_CARD_H, card_gap=card_gap,
+        rows_count=2, card_h=DRIVER_CARD_H, card_gap=card_gap,
         meta="What Moved Markets",
     )
 
@@ -662,5 +686,3 @@ if __name__ == "__main__":
     else:
         print("Usage: python pdf_generator.py market_data.json report.pdf")
         raise SystemExit(1)
-
-    
