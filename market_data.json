@@ -16,7 +16,7 @@
       "market_drivers": true
     }
   },
-  "generated_at": "2026-05-25T07:47:35Z",
+  "generated_at": "2026-05-25T08:01:18Z",
   "generated_display_time": "",
   "global_indices": [
     {
@@ -503,106 +503,90 @@
   "market_as_of_date": "2026-05-24",
   "global_news": [
     {
-      "headline": "Oil prices fall 5% on Iran deal progress",
-      "summary": "Brent crude fell to $98.83 and WTI to $92.03 after Trump said Iran talks proceeding constructively regarding Strait of Hormuz reopening.",
-      "source": "CNBC",
-      "url": "https://www.cnbc.com/2026/05/24/oil-price-iran-war-strait-hormuz-trump-peace-talks.html",
-      "metric": "-4.7%",
-      "metric_label": "Brent crude decline"
+      "headline": "US-Iran peace talks progress amid Strait reopening hopes",
+      "summary": "Rubio says 'solid' Iran deal may come Monday involving 60-day ceasefire extension and Strait of Hormuz reopening, though Trump says US not rushing agreement.",
+      "source": "BBC World",
+      "url": "https://www.bbc.com/news/articles/cglpp2yk336o?at_medium=RSS&at_campaign=rss",
+      "metric": "60-day",
+      "metric_label": "Proposed ceasefire extension dur"
     },
     {
-      "headline": "Oil drops 12% as Iran opens Hormuz",
-      "summary": "Iran declared Strait of Hormuz completely open while Trump maintains US blockade until peace deal. Stocks surged on the news.",
+      "headline": "Oil prices plunge on US-Iran deal optimism",
+      "summary": "Brent crude fell 4.55% to $98.83 while WTI dropped 4.73% to $92.03 as Trump indicates agreement would include Strait of Hormuz reopening.",
+      "source": "The Guardian",
+      "url": "https://www.theguardian.com/world/live/2026/may/24/iran-deal-strait-of-hormuz-trump-middle-east-crisis-live",
+      "metric": "-4.73%",
+      "metric_label": "WTI crude price decline"
+    },
+    {
+      "headline": "Iran declares Strait of Hormuz 'completely open'",
+      "summary": "Iran announces coordinated shipping route through Strait while Trump maintains US blockade will remain until peace deal finalized, causing stocks surge and oil drop.",
       "source": "NBC News",
       "url": "https://www.nbcnews.com/world/iran/live-blog/live-updates-israel-lebanon-ceasefire-trump-iran-talks-hormuz-summit-rcna332294",
       "metric": "-12%",
-      "metric_label": "Oil price drop"
+      "metric_label": "Oil price drop on news"
     },
     {
-      "headline": "Rubio says solid Iran deal may come Monday",
-      "summary": "Deal would involve 60-day ceasefire extension during which Strait of Hormuz would be reopened, according to US media reports.",
-      "source": "BBC World",
-      "url": "https://www.bbc.com/news/articles/cglpp2yk336o?at_medium=RSS&at_campaign=rss",
-      "metric": "60 days",
-      "metric_label": "Proposed ceasefire extension"
-    },
-    {
-      "headline": "Oil slides on US-Iran peace deal hopes",
-      "summary": "Trump said agreement would include reopening of Strait of Hormuz without giving further details on Saturday.",
-      "source": "BBC World",
-      "url": "https://www.bbc.com/news/articles/c809m7g29r7o?at_medium=RSS&at_campaign=rss",
-      "metric": "Hormuz reopening",
-      "metric_label": "Key deal component"
-    },
-    {
-      "headline": "US-Iran negotiators agree broad principles",
-      "summary": "Iran-US negotiators have agreed to broad principles of agreement while Trump says time is on our side, official confirms.",
-      "source": "CBS News",
-      "url": "https://www.cbsnews.com/live-updates/iran-war-trump-us-peace-talks-strait-of-hormuz-control/",
-      "metric": "Broad principles",
-      "metric_label": "Agreement status"
-    },
-    {
-      "headline": "Oil falls to two-week lows",
-      "summary": "Brent crude futures fell $4.71 to $98.83 a barrel while WTI dropped $4.57 to $92.03, touching lowest since 7 May.",
+      "headline": "Oil markets near danger zone amid crisis",
+      "summary": "Crude oil spot market bouncing around $100 since Iran closed Strait of Hormuz, with about 20% of global supply normally passing through chokepoint.",
       "source": "The Guardian",
-      "url": "https://www.theguardian.com/world/live/2026/may/24/iran-deal-strait-of-hormuz-trump-middle-east-crisis-live",
-      "metric": "$98.83",
-      "metric_label": "Brent crude price"
+      "url": "https://www.theguardian.com/business/2026/may/24/oil-markets-danger-zone-us-iran-deal",
+      "metric": "20%",
+      "metric_label": "Global oil supply through Hormuz"
     },
     {
-      "headline": "Singapore economy beats expectations amid Iran fallout",
-      "summary": "GDP grows 6 percent year-on-year in first quarter as AI boom outweighs rising energy costs, government warns of Iran war impact.",
+      "headline": "Singapore economy beats expectations despite Iran fallout",
+      "summary": "GDP grows 6% year-on-year in first quarter as AI boom outweighs rising energy costs from Iran war impact.",
       "source": "Al Jazeera",
       "url": "https://www.aljazeera.com/economy/2026/5/25/singapores-economy-beats-expectations-as-govt-warns-of-iran-war-fallout?traffic_source=rss",
       "metric": "6%",
-      "metric_label": "GDP growth rate"
+      "metric_label": "Singapore Q1 GDP growth rate"
     },
     {
-      "headline": "Russia launches large-scale attack on Ukraine",
-      "summary": "Hypersonic missile traveling over 10 times speed of sound used in attack leaving four dead and dozens injured, Russia confirms.",
+      "headline": "Large-scale Russian attack leaves four dead in Ukraine",
+      "summary": "Russia confirms using hypersonic missile traveling over 10 times speed of sound in attack that injured dozens across Ukraine.",
       "source": "BBC World",
       "url": "https://www.bbc.com/news/articles/clyp6831yp5o?at_medium=RSS&at_campaign=rss",
       "metric": "10x",
-      "metric_label": "Hypersonic missile speed"
+      "metric_label": "Speed of sound multiplier for mi"
     }
   ],
   "qatar_news": [
     {
-      "headline": "Invest Qatar showcases business opportunities during China visit",
-      "summary": "Invest Qatar showcases business opportunities during China visit to strengthen investment engagements and partnerships.",
+      "headline": "Invest Qatar showcases opportunities during China visit",
+      "summary": "Invest Qatar promotes business opportunities and strengthens investment engagements and partnerships during official tour to China.",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/235932/business/invest-qatar-showcases-business-opportunities-during-china-visit",
-      "metric": "China",
-      "metric_label": "Target market"
+      "metric": "China tour",
+      "metric_label": "Investment promotion mission"
     },
     {
       "headline": "Doha Bank unveils Al Dana 2026 savings draw",
-      "summary": "Doha Bank unveils Al Dana 2026 with Qatar's biggest savings draw prize pool for customers.",
+      "summary": "Doha Bank launches Al Dana 2026 featuring Qatar's biggest savings draw prize pool for customers.",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/235935/business/doha-bank-unveils-al-dana-2026-with-qatars-biggest-savings-draw-prize-pool",
       "metric": "2026",
       "metric_label": "Launch year"
     },
     {
-      "headline": "QFMA hosts seminar on Qatar's debt market",
-      "summary": "QFMA hosts seminar on Qatar's debt market to provide specialized knowledge and insights.",
+      "headline": "QFMA hosts Qatar debt market seminar",
+      "summary": "Qatar Financial Markets Authority organises specialised seminar focused on Qatar's debt market for industry participants.",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/235967/business/qfma-hosts-seminar-on-qatars-debt-market",
       "metric": "Debt market",
-      "metric_label": "Focus area"
+      "metric_label": "Seminar focus"
     },
     {
       "headline": "Qatar Vietnam explore trade investment opportunities",
-      "summary": "Qatar and Vietnam explore trade and investment opportunities to strengthen bilateral economic relations.",
+      "summary": "Qatar and Vietnam explore potential trade and investment opportunities to strengthen bilateral economic cooperation.",
       "source": "The Peninsula Qatar",
       "url": "https://thepeninsulaqatar.com/article/25/05/2026/qatar-vietnam-explore-trade-and-investment-opportunities",
-      "metric": "Vietnam",
-      "metric_label": "Partner country"
+      "metric": "Bilateral",
+      "metric_label": "Trade cooperation type"
     },
     {
-      "headline": "Strong bullish momentum lifts QSE index points",
-      "summary": "Strong bullish momentum lifts QSE index by 327 points showing positive market performance.",
+      "headline": "Strong bullish momentum lifts QSE by 327 points",
+      "summary": "Qatar Stock Exchange index gains 327 points driven by strong bullish momentum in trading session.",
       "source": "The Peninsula Qatar",
       "url": "https://thepeninsulaqatar.com/article/25/05/2026/strong-bullish-momentum-lifts-qse-index-by-327-points",
       "metric": "327",
@@ -633,50 +617,50 @@
   ],
   "market_drivers": [
     {
-      "source": "CNBC",
-      "url": "https://www.cnbc.com/2026/05/24/oil-price-iran-war-strait-hormuz-trump-peace-talks.html",
-      "headline": "Brent crude breaks $100 support; $95-98 range targets energy rotation",
-      "summary": "Iran deal progress triggers -12.10% MTD decline from $114+ peaks. Break below $98.83 confirms technical breakdown with $95 next target. Energy sector faces 15-20% correction risk on supply normalization. Watch Hormuz reopening timeline for volatility catalyst.",
-      "metric": "$100.21",
-      "metric_label": "Brent crude"
-    },
-    {
       "source": "The Guardian",
       "url": "https://www.theguardian.com/world/live/2026/may/24/iran-deal-strait-of-hormuz-trump-middle-east-crisis-live",
-      "headline": "WTI $92.03 level confirms energy complex breakdown below key support",
-      "summary": "$4.57 daily decline breaks critical $95 support established in April. Two-week lows signal momentum shift from geopolitical premium unwinding. Energy equities vulnerable to 10-15% correction as risk premium compresses toward pre-conflict levels.",
-      "metric": "$92.03",
-      "metric_label": "WTI crude"
+      "headline": "Brent crude testing $95-98 support; break triggers energy equity rotation",
+      "summary": "4.55% oil decline on Hormuz reopening optimism tests critical $95-98 Brent support zone. Sustained break below $95 would pressure integrated oil names while benefiting airlines, chemicals. Watch Monday Iran deal announcement for directional catalyst.",
+      "metric": "$98.83",
+      "metric_label": "Brent crude"
     },
     {
       "source": "The Peninsula Qatar",
       "url": "https://thepeninsulaqatar.com/article/25/05/2026/strong-bullish-momentum-lifts-qse-index-by-327-points",
-      "headline": "QSE 10706 breakout above 10600 resistance targets 11000 extension",
-      "summary": "+3.15% daily surge confirms technical breakout from 10400-10600 consolidation. 327-point gain establishes momentum above key resistance. Regional energy names driving outperformance despite oil weakness. Next resistance cluster at 10900-11000 levels.",
-      "metric": "10706.7",
-      "metric_label": "QSE Index"
-    },
-    {
-      "source": "BBC World",
-      "url": "https://www.bbc.com/news/articles/clyp6831yp5o?at_medium=RSS&at_campaign=rss",
-      "headline": "Safe haven bid emerges; USD Index 99.32 holds above 99 pivot",
-      "summary": "Russia hypersonic missile escalation supports dollar strength despite Iran peace progress. +1.26% MTD gain maintains bullish structure above 99.00 support. CHF and JPY underperforming on risk-off flows. Watch 100.50 resistance for next breakout signal.",
-      "metric": "99.32",
-      "metric_label": "USD Index"
+      "headline": "QSE breaks 10,700 resistance; momentum targets 11,000-11,200 zone",
+      "summary": "327-point surge pushes QSE through key 10,700 resistance with 3.15% daily gain. Technical momentum suggests extension toward 11,000-11,200 resistance cluster. Banking and energy sector rotation driving outperformance versus regional peers.",
+      "metric": "327 pts",
+      "metric_label": "QSE daily gain"
     },
     {
       "source": "Al Jazeera",
       "url": "https://www.aljazeera.com/economy/2026/5/25/singapores-economy-beats-expectations-as-govt-warns-of-iran-war-fallout?traffic_source=rss",
-      "headline": "Nikkei 63339 momentum continues; 6% GDP print supports 65000 targets",
-      "summary": "Singapore's 6% GDP growth demonstrates Asian resilience amid energy shock. Nikkei +25.82% YTD outperformance reflects AI boom offsetting Iran war costs. Technical momentum supports continued outperformance versus global indices through Q2.",
-      "metric": "63339.07",
-      "metric_label": "Nikkei"
+      "headline": "Asia growth resilience supports Nikkei 65,000 target despite energy headwinds",
+      "summary": "Singapore's 6% GDP growth demonstrates AI sector offsetting energy cost pressures across Asia. Nikkei's 25.82% YTD gain positions for test of 65,000 psychological resistance. Tech rotation benefiting from regional growth divergence.",
+      "metric": "6%",
+      "metric_label": "Singapore GDP"
+    },
+    {
+      "source": "The Guardian",
+      "url": "https://www.theguardian.com/business/2026/may/24/oil-markets-danger-zone-us-iran-deal",
+      "headline": "LNG prices vulnerable at $19; Hormuz reopening threatens 15-20% correction",
+      "summary": "LNG trading at $18.92 after 106.86% YTD surge reflects supply disruption premium. Strait reopening would eliminate 20% of global chokepoint risk, targeting $15-16 LNG correction. Asian buyers positioned for sharp energy cost relief.",
+      "metric": "20%",
+      "metric_label": "Hormuz supply share"
+    },
+    {
+      "source": "NBC News",
+      "url": "https://www.nbcnews.com/world/iran/live-blog/live-updates-israel-lebanon-ceasefire-trump-iran-talks-hormuz-summit-rcna332294",
+      "headline": "USD/JPY consolidating at 158.8; intervention zone remains 160-162",
+      "summary": "Dollar strength from geopolitical premium keeps USD/JPY elevated despite -0.19% daily pullback. BoJ intervention threshold likely unchanged at 160-162 zone. Energy price volatility sustaining safe-haven flows into both currencies.",
+      "metric": "158.858",
+      "metric_label": "USD/JPY"
     },
     {
       "source": "BBC World",
-      "url": "https://www.bbc.com/news/articles/c809m7g29r7o?at_medium=RSS&at_campaign=rss",
-      "headline": "UST yields 4.558% hold elevated; Iran deal caps bond rally potential",
-      "summary": "Peace deal progress limits safe haven demand for Treasuries. 10Y +3.83% MTD reflects sticky inflation expectations despite geopolitical easing. Yield resistance at 4.60% critical for duration strategies. Fed policy normalization path unchanged by Middle East developments.",
+      "url": "https://www.bbc.com/news/articles/cglpp2yk336o?at_medium=RSS&at_campaign=rss",
+      "headline": "UST yields capped at 4.56%; Iran deal removes term premium pressure",
+      "summary": "10-year yield holding 4.558% as Iran peace progress reduces geopolitical risk premium embedded in term structure. Successful 60-day ceasefire extension would target 4.20-4.40% range, benefiting duration-sensitive sectors.",
       "metric": "4.558%",
       "metric_label": "UST 10Y"
     }
