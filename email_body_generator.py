@@ -298,14 +298,23 @@ def _news_card_block(item: Dict[str, Any]) -> str:
     headline = _e(item.get("headline", ""))
     summary  = _e(item.get("summary", ""))
     url      = (item.get("url") or "").strip()
+    has_url  = bool(url and url.startswith(("http://", "https://")))
 
-    if url and url.startswith(("http://", "https://")):
+    if has_url:
         headline_html = (
             f'<a href="{_e(url)}" target="_blank" rel="noopener noreferrer" '
             f'style="color:{NAVY};text-decoration:none;">{headline}</a>'
         )
+        more_html = (
+            f'<div style="text-align:right;margin-top:10px;">'
+            f'<a href="{_e(url)}" target="_blank" rel="noopener noreferrer" '
+            f'style="font-family:{SANS};font-size:12.5px;font-weight:700;'
+            f'color:{ACCENT_BLUE};text-decoration:none;letter-spacing:0.04em;">'
+            f'Read more &rarr;</a></div>'
+        )
     else:
         headline_html = headline
+        more_html = ""
 
     return f'''
 <table cellpadding="0" cellspacing="0" border="0" width="100%"
@@ -319,6 +328,7 @@ def _news_card_block(item: Dict[str, Any]) -> str:
     <div style="font-family:{SANS};font-size:13px;color:{MID_BLUE};line-height:1.5;">
       {summary}
     </div>
+    {more_html}
   </td></tr>
 </table>
 '''
@@ -423,7 +433,7 @@ def build_email_body(data: Dict[str, Any]) -> str:
     ))
     sections.append(_news_section_block(
         "Market Drivers", "What Moved Markets",
-        data.get("market_drivers", []),
+        data.get("market_drivers", [])[:4],
     ))
 
     sections.append(_footer(report_date))
@@ -459,5 +469,3 @@ if __name__ == "__main__":
         # Wrap in minimal full-HTML scaffolding for standalone preview
         f.write(f'<!doctype html><html><body>{body}</body></html>')
     print(f"Email body written to {out_path} ({len(body)} chars)")
-
-    
