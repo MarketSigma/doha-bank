@@ -94,13 +94,13 @@ BORDER      = colors.HexColor("#E8F0F8")
 
 HEADER_H    = 25 * mm
 FTR_H       = 5  * mm
-KPI_H       = 13 * mm
-SEC_H       = 5.5 * mm
-TBL_HDR_H   = 4.2 * mm
-ROW_H       = 4.2 * mm
-GAP         = 3 * mm
-NEWS_CARD_H = 18.5 * mm   # used on page 2 (bumped from 17.5 to prevent summary overflow)
-DRIVER_CARD_H = 26 * mm   # page 3 has its own page, so cards can breathe
+KPI_H       = 17 * mm      # was 13 — larger KPI cards, room for bigger value
+SEC_H       = 6.5 * mm     # was 5.5
+TBL_HDR_H   = 5.2 * mm     # was 4.2
+ROW_H       = 5.6 * mm     # was 4.2 — taller rows so 9pt body has breathing room
+GAP         = 3.5 * mm     # was 3
+NEWS_CARD_H = 28 * mm      # was 18.5 — substantially larger, room for full headlines + summary
+DRIVER_CARD_H = 36 * mm    # was 26 — drivers carry the densest content, give them the most room
 
 
 # ============================================================
@@ -318,13 +318,13 @@ def draw_kpi(c, y, kpis):
         cx  = M + i * (cw + gap)
 
         fr(c, cx, y - KPI_H, cw, KPI_H, KPI_BG)
-        fr(c, cx, y - KPI_H, 0.7 * mm, KPI_H, BRAND_BLUE)
+        fr(c, cx, y - KPI_H, 0.9 * mm, KPI_H, BRAND_BLUE)
 
-        t(c, lbl.upper(), cx + 3.5 * mm, y - 3.2 * mm,
-          "Carlito-Bold", 6.5, MID_BLUE, tracking=1.6)
+        t(c, lbl.upper(), cx + 4 * mm, y - 4.2 * mm,
+          "Carlito-Bold", 8.5, MID_BLUE, tracking=1.8)
 
-        t(c, val, cx + 3.5 * mm, y - 8 * mm,
-          "Caladea-Bold", 14, NAVY)
+        t(c, val, cx + 4 * mm, y - 10.5 * mm,
+          "Caladea-Bold", 19, NAVY)
 
         sub_clean = sub
         glyph, glyph_color = "", None
@@ -339,15 +339,15 @@ def draw_kpi(c, y, kpis):
             glyph, glyph_color = "▼", LIGHT_BLUE
             sub_clean = sub.lstrip("-")
 
-        text_x = cx + 3.5 * mm
+        text_x = cx + 4 * mm
         if glyph:
             c.setFillColor(glyph_color)
-            c.setFont("Symbol-Bold", 6.5)
-            c.drawString(text_x, y - 11.3 * mm, glyph)
-            text_x += 2.8 * mm
-        t(c, sub_clean, text_x, y - 11.3 * mm, "Carlito", 6.8, MID_BLUE)
+            c.setFont("Symbol-Bold", 8)
+            c.drawString(text_x, y - 14.5 * mm, glyph)
+            text_x += 3.4 * mm
+        t(c, sub_clean, text_x, y - 14.5 * mm, "Carlito", 9, MID_BLUE)
 
-    return y - KPI_H - 3 * mm
+    return y - KPI_H - 3.5 * mm
 
 
 # ============================================================
@@ -355,15 +355,15 @@ def draw_kpi(c, y, kpis):
 # ============================================================
 
 def sec_hdr(c, x, y, title, w, meta=None):
-    label_baseline = y - 3.5 * mm
+    label_baseline = y - 4.2 * mm
     t(c, title.upper(), x, label_baseline,
-      "Carlito-Bold", 7, NAVY, tracking=2.2)
+      "Carlito-Bold", 8.5, NAVY, tracking=2.2)
     if meta:
         t(c, meta.upper(), x + w, label_baseline,
-          "Carlito", 6, ACCENT_BLUE, "right", tracking=1.5)
-    rule_y = label_baseline - 1.4 * mm
+          "Carlito", 7, ACCENT_BLUE, "right", tracking=1.5)
+    rule_y = label_baseline - 1.6 * mm
     hl(c, x, rule_y, x + w, BRAND_BLUE, 1.2)
-    return rule_y - 1 * mm
+    return rule_y - 1.2 * mm
 
 
 # ============================================================
@@ -373,13 +373,13 @@ def sec_hdr(c, x, y, title, w, meta=None):
 def draw_table(c, x, y, hdrs, rows, tw, cws):
     cx = x
     for i, (h, cw) in enumerate(zip(hdrs, cws)):
-        hy = y - TBL_HDR_H + 1.3 * mm
+        hy = y - TBL_HDR_H + 1.6 * mm
         if i == 0:
             t(c, h.upper(), cx + 2 * mm, hy,
-              "Carlito-Bold", 6.5, ACCENT_BLUE, tracking=1.3)
+              "Carlito-Bold", 8, ACCENT_BLUE, tracking=1.3)
         else:
             t(c, h.upper(), cx + cw - 1.5 * mm, hy,
-              "Carlito-Bold", 6.5, ACCENT_BLUE, "right", tracking=1.3)
+              "Carlito-Bold", 8, ACCENT_BLUE, "right", tracking=1.3)
         cx += cw
 
     y -= TBL_HDR_H
@@ -390,23 +390,23 @@ def draw_table(c, x, y, hdrs, rows, tw, cws):
             fr(c, x, y - ROW_H, tw, ROW_H, TINT)
 
         cx = x
-        cell_y = y - ROW_H + 1.4 * mm
+        cell_y = y - ROW_H + 1.7 * mm
 
         for ci, (cell, cw) in enumerate(zip(row, cws)):
             cell_text = safe_text(cell)
             if ci == 0:
                 t(c, cell_text, cx + 2 * mm, cell_y,
-                  "Carlito-Bold", 7.2, NAVY, maxw=cw - 3 * mm)
+                  "Carlito-Bold", 9, NAVY, maxw=cw - 3 * mm)
             elif ci == 1:
                 t(c, cell_text, cx + cw - 1.5 * mm, cell_y,
-                  "Carlito", 7.2, NAVY, "right")
+                  "Carlito", 9, NAVY, "right")
             else:
-                draw_pct(c, cx + cw - 1.5 * mm, cell_y, cell_text, size=7.2)
+                draw_pct(c, cx + cw - 1.5 * mm, cell_y, cell_text, size=9)
             cx += cw
 
         y -= ROW_H
 
-    return y - 1.5 * mm
+    return y - 1.8 * mm
 
 
 def section_rows(data, sec):
@@ -437,42 +437,40 @@ def draw_news_card(c, x, y, w, h, item):
 
     fr(c, x, y - h, w, h, WHITE)
     sr(c, x, y - h, w, h, BORDER, 0.5)
-    fr(c, x, y - h, 0.7 * mm, h, BRAND_BLUE)
+    fr(c, x, y - h, 0.9 * mm, h, BRAND_BLUE)
 
-    pad     = 3.5 * mm
+    pad     = 4.5 * mm
     inner_w = w - 2 * pad
 
-    t(c, src.upper(), x + pad, y - 4.2 * mm,
-      "Carlito-Bold", 6.8, ACCENT_BLUE, tracking=1.5)
+    t(c, src.upper(), x + pad, y - 5 * mm,
+      "Carlito-Bold", 8.5, ACCENT_BLUE, tracking=1.5)
 
-    headline_top_y = y - 8.2 * mm
+    headline_top_y = y - 10.5 * mm
     headline_bottom = ml(c, hl_txt, x + pad, headline_top_y,
-                        "Caladea-Bold", 10.2, NAVY,
-                        inner_w, 3.9 * mm, maxl=2)
+                        "Caladea-Bold", 12.5, NAVY,
+                        inner_w, 4.8 * mm, maxl=2)
 
     # Clickable region over the headline if a URL is present.
-    # ReportLab linkURL takes a rect (x1, y1, x2, y2); we cover from a
-    # bit above the first baseline (to catch ascenders) down to a bit
-    # below the last baseline. thickness=0 keeps the link invisible —
-    # no border drawn around the clickable area.
+    # Rect covers from a touch above the first baseline (for ascenders)
+    # down to a touch below the last baseline. thickness=0 keeps the
+    # link visually invisible — no border drawn around the area.
     if url and url.startswith(("http://", "https://")):
         c.linkURL(
             url,
             (x + pad,
              headline_bottom + 0.5 * mm,
              x + pad + inner_w,
-             headline_top_y + 3 * mm),
+             headline_top_y + 3.5 * mm),
             relative=0,
             thickness=0,
         )
 
-    # Card sized to content: small cards on page 2 → 2 summary lines max
-    # (prevents overflow when headline wraps to 2 lines).
-    # Bigger cards on page 3 can show more.
-    summary_lines = 5 if h >= 24 * mm else 2
-    ml(c, summ, x + pad, headline_bottom - 2 * mm,
-       "Carlito", 7.6, MID_BLUE,
-       inner_w, 3.1 * mm, maxl=summary_lines)
+    # Card sized to content: page-2 cards (28mm) → up to 3 summary lines,
+    # page-3 driver cards (36mm) → up to 5 lines.
+    summary_lines = 5 if h >= 33 * mm else 3
+    ml(c, summ, x + pad, headline_bottom - 2.5 * mm,
+       "Carlito", 9.5, MID_BLUE,
+       inner_w, 3.9 * mm, maxl=summary_lines)
 
 
 def draw_news_grid(c, x, y, title, items, total_w, rows_count,
