@@ -8,6 +8,7 @@ import requests
 
 MARKET_DATA_PATH = Path(os.environ.get('MARKET_DATA_PATH', 'market_data.json'))
 PDF_PATH = Path(os.environ.get('PDF_PATH', 'report.pdf'))
+HTML_PATH = Path(os.environ.get('HTML_PATH', 'report.html'))
 BRANCH = os.environ.get('GITHUB_REF_NAME', 'main')
 REPOSITORY = os.environ.get('GITHUB_REPOSITORY', '')
 RUN_ID = os.environ.get('GITHUB_RUN_ID', '')
@@ -85,6 +86,15 @@ def main() -> int:
     report_date = iso_report_date(data)
     generated_at = dt.datetime.now(dt.timezone.utc).isoformat()
 
+    # HTML is optional — if the workflow ran html_generator.py we'll have it,
+    # otherwise leave html_url as None and let the dispatch script fall back
+    # to PDF-only delivery. Logged either way.
+    html_url = raw_github_url('report.html') if HTML_PATH.exists() else None
+    if html_url:
+        print(f'HTML companion found: {HTML_PATH}')
+    else:
+        print(f'No HTML companion at {HTML_PATH} — registering PDF-only.')
+
     record = {
         'report_date': report_date,
         'status': dashboard_status(report_status),
@@ -95,6 +105,7 @@ def main() -> int:
         'approved_by': None,
         'approved_at': None,
         'pdf_url': raw_github_url('report.pdf'),
+        'html_url': html_url,
         'market_data_url': raw_github_url('market_data.json'),
         'github_run_id': RUN_ID,
         'github_run_number': RUN_NUMBER,
@@ -116,3 +127,5 @@ def main() -> int:
 
 if __name__ == '__main__':
     raise SystemExit(main())
+
+    
