@@ -1,4 +1,3 @@
-import base64
 import datetime
 import json
 import os
@@ -12,7 +11,6 @@ from email_body_generator import build_email_body
 
 RESEND_API_KEY = os.environ["RESEND_API_KEY"]
 FROM_EMAIL = os.environ.get("FROM_EMAIL", "DB Strategy Team <updates@market-sigma.com>")
-PDF_PATH = Path("report.pdf")
 MARKET_DATA_PATH = Path("market_data.json")
 SCHEDULE_ID = "main"
 QATAR_TZ = ZoneInfo("Asia/Qatar")
@@ -24,9 +22,6 @@ def load_market_data() -> dict:
 
     with MARKET_DATA_PATH.open("r", encoding="utf-8") as f:
         data = json.load(f)
-
-    if not PDF_PATH.exists():
-        raise SystemExit("[BLOCKED] report.pdf not found. Email not sent.")
 
     status = str(data.get("report_status") or "unknown")
     issues = data.get("validation_issues") or []
@@ -125,30 +120,18 @@ def send() -> None:
         mark_schedule_sent("no_recipients", "No active email recipients found in Supabase")
         return
 
-    # --- Build the full report as an email-safe HTML body ---
-    # Uses table-based layout and inline styles so it renders correctly
-    # across Gmail, Outlook, Apple Mail and mobile clients.
+    # Full report is embedded in the email body via email_body_generator.
+    # No attachments — recipients read the report inline. The PDF that the
+    # workflow still generates is retained for the dashboard / archive
+    # only; it does not go out via email anymore.
     body_html = build_email_body(data)
     print(f"[INFO] Email body rendered: {len(body_html):,} characters")
-
-    # --- PDF stays as an attachment for desktop / printing readers ---
-    with PDF_PATH.open("rb") as f:
-        pdf_b64 = base64.b64encode(f.read()).decode()
-
-    attachments = [
-        {
-            "filename": f"Doha-Bank-Market-updates-{report_date}.pdf",
-            "content": pdf_b64,
-            "content_type": "application/pdf",
-        }
-    ]
 
     payload = {
         "from": FROM_EMAIL,
         "to": recipients,
         "subject": f"Doha Bank Market updates - {report_date}",
         "html": body_html,
-        "attachments": attachments,
     }
 
     resp = requests.post(
@@ -162,11 +145,8 @@ def send() -> None:
     )
 
     if resp.status_code in (200, 201):
-        print(f"✓ Email sent to {recipients} (full report embedded in body, PDF attached)")
-        mark_schedule_sent(
-            "sent",
-            f"Email sent to {len(recipients)} recipient(s) with embedded body + PDF attachment",
-        )
+        print(f"✓ Email sent to {recipients} (body-only, no attachments)")
+        mark_schedule_sent("sent", f"Email sent to {len(recipients)} recipient(s) — body-only")
         return
 
     print(f"[ERROR] Resend API: {resp.status_code} - {resp.text}")
@@ -175,5 +155,3 @@ def send() -> None:
 
 if __name__ == "__main__":
     send()
-
-    
