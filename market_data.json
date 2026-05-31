@@ -16,7 +16,7 @@
       "market_drivers": true
     }
   },
-  "generated_at": "2026-05-31T05:57:34Z",
+  "generated_at": "2026-05-31T07:58:03Z",
   "generated_display_time": "",
   "global_indices": [
     {
@@ -504,109 +504,109 @@
   "global_news": [
     {
       "headline": "Key inflation gauge hits multiyear high in April",
-      "summary": "Federal Reserve's closely monitored inflation gauge accelerated to highest level in three years, squeezing American finances and creating political challenges ahead of midterm elections.",
+      "summary": "Federal Reserve's closely monitored inflation measure accelerated in April to highest level in three years, creating political challenges for President Trump ahead of midterm elections.",
       "source": "AP News",
       "url": "https://apnews.com/article/inflation-economy-gas-trump-mortgage-iran-unemployment-618324105c9f0dc322f54ef8923a3d63",
       "metric": "3-year high",
       "metric_label": "Inflation gauge level"
     },
     {
-      "headline": "Iran war drives oil price analysis concerns",
-      "summary": "Dallas Fed economists estimate war-driven oil price rises could add 0.2 to 1.8 percentage points to annual inflation, depending on Strait of Hormuz reopening timeline.",
-      "source": "The Guardian",
-      "url": "https://www.theguardian.com/business/2026/may/30/inflation-trump-presidency-midterm-election",
-      "metric": "0.2-1.8pp",
-      "metric_label": "Potential inflation increase"
-    },
-    {
-      "headline": "Brent crude drops 19% since April end",
-      "summary": "Oil prices on track for steepest monthly fall since 2020, with Brent crude down 1.3% Friday at about $92 per barrel.",
+      "headline": "Oil prices track steepest monthly fall since 2020",
+      "summary": "Brent crude futures down 1.3% at about $92, falling 19% since end of April as hopes grow for US-Iran peace deal.",
       "source": "The Guardian",
       "url": "https://www.theguardian.com/business/2026/may/29/oil-price-drops-amid-hopes-of-us-iran-peace-deal",
-      "metric": "$92",
-      "metric_label": "Brent crude price"
+      "metric": "-19%",
+      "metric_label": "Brent crude monthly decline"
     },
     {
-      "headline": "Iran blockade creates largest oil supply disruption",
-      "summary": "Iran's Hormuz blockade triggers historic oil supply disruption, pressuring US for deal as global economic threat grows daily.",
+      "headline": "Iran blockade triggers largest oil supply disruption ever",
+      "summary": "Iran's Strait of Hormuz blockade creates historic oil supply disruption, pressuring US to negotiate deal as global economic threat grows daily.",
       "source": "CNBC",
       "url": "https://www.cnbc.com/2026/05/30/oil-exports-through-hormuz-might-not-return-to-levels-before-iran-war.html",
-      "metric": "Historic high",
-      "metric_label": "Oil supply disruption"
+      "metric": "Largest ever",
+      "metric_label": "Oil supply disruption scale"
     },
     {
-      "headline": "Lebanese PM condemns Israeli invasion as punishment",
-      "summary": "Lebanon describes Israel's attacks as collective punishment while US warns Iran of strikes if no deal reached.",
+      "headline": "Trump weighs Iran deal, demands Hormuz reopening",
+      "summary": "Oil prices fell and stocks rose on potential deal news. Trump faces pressure to reopen Strait of Hormuz and reduce gasoline prices before November elections.",
+      "source": "Reuters",
+      "url": "https://www.reuters.com/world/middle-east/iran-calls-actions-not-words-after-us-officials-say-peace-deal-is-near-2026-05-29/",
+      "metric": "November",
+      "metric_label": "Election deadline pressure"
+    },
+    {
+      "headline": "Hezbollah rockets target northern Israel beach area",
+      "summary": "Videos show people running for shelter on Nahariya beach as Hezbollah launches rockets, escalating regional tensions affecting markets.",
       "source": "Al Jazeera",
-      "url": "https://www.aljazeera.com/news/liveblog/2026/5/31/iran-war-live-lebanon-accuses-israel-of-scorched-earth-policy?traffic_source=rss",
-      "metric": "Active conflict",
-      "metric_label": "Regional tensions"
+      "url": "https://www.aljazeera.com/video/newsfeed/2026/5/31/panic-on-beach-in-northern-israel-during-hezbollah-strikes?traffic_source=rss",
+      "metric": "Active strikes",
+      "metric_label": "Regional conflict status"
     },
     {
-      "headline": "Romanian city residents fear drone strike aftermath",
-      "summary": "Residents begin returning to check homes in block hit by drone strike Friday morning, expressing widespread safety concerns.",
+      "headline": "Japan minister criticizes China's military arsenal buildup",
+      "summary": "Defense Minister Shinjiro Koizumi makes pointed remarks about China's military expansion, denying Japanese militarism while highlighting regional security concerns.",
       "source": "BBC World",
-      "url": "https://www.bbc.com/news/articles/cvgzyp93jq1o?at_medium=RSS&at_campaign=rss",
-      "metric": "Friday morning",
-      "metric_label": "Strike timing"
+      "url": "https://www.bbc.com/news/articles/cp8p4ejy8ppo?at_medium=RSS&at_campaign=rss",
+      "metric": "Military tension",
+      "metric_label": "Japan-China relations"
     }
   ],
   "qatar_news": [
     {
       "headline": "Energy sector bolsters Qatar's economic resilience",
-      "summary": "Energy sector strengthens Qatar's economic stability according to expert analysis.",
+      "summary": "Experts highlight the energy sector's role in strengthening Qatar's economic resilience.",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/236837/business/energy-sector-bolsters-qatars-economic-resilience-experts",
-      "metric": "Resilience boost",
-      "metric_label": "Economic stability enhancement"
+      "metric": "Energy sector",
+      "metric_label": "Key economic driver"
     },
     {
       "headline": "Qatar shares advance on long-term growth focus",
-      "summary": "Qatar stock market gains as investors concentrate on long-term growth opportunities.",
+      "summary": "Qatar shares advance as investors focus on long-term growth prospects.",
       "source": "The Peninsula Qatar",
       "url": "https://thepeninsulaqatar.com/article/29/05/2026/qatar-shares-advance-as-investors-focus-on-long-term-growth",
-      "metric": "Market advance",
-      "metric_label": "Stock market performance"
+      "metric": "Shares advance",
+      "metric_label": "Market performance"
     },
     {
       "headline": "Qatar, Rwanda discuss enhancing trade relations",
-      "summary": "Qatar and Rwanda hold discussions to strengthen bilateral trade relationships.",
+      "summary": "Qatar and Rwanda discuss opportunities to enhance bilateral trade relations.",
       "source": "The Peninsula Qatar",
       "url": "https://thepeninsulaqatar.com/article/27/05/2026/qatar-rwanda-discuss-enhancing-trade-relations",
-      "metric": "Trade expansion",
-      "metric_label": "Bilateral trade enhancement"
+      "metric": "Trade relations",
+      "metric_label": "Bilateral cooperation"
     },
     {
       "headline": "HMK Capital registers Qatar's first REIT fund",
-      "summary": "QFC firm HMK Capital establishes Qatar's inaugural Real Estate Investment Trust fund.",
+      "summary": "QFC firm HMK Capital registers Qatar's first Real Estate Investment Trust fund.",
       "source": "The Peninsula Qatar",
       "url": "https://thepeninsulaqatar.com/article/26/05/2026/qfc-firm-hmk-capital-registers-qatars-first-real-estate-investment-trust-fund",
       "metric": "First REIT",
-      "metric_label": "Investment fund milestone"
+      "metric_label": "Investment milestone"
     },
     {
       "headline": "Government project tenders reach QR8.6bn in Q1",
-      "summary": "Qatar experiences sharp increase in government projects with Q1 tenders totaling QR8.6 billion.",
+      "summary": "Qatar registers sharp rise in government projects as tenders reach QR8.6bn in Q1.",
       "source": "The Peninsula Qatar",
       "url": "https://thepeninsulaqatar.com/article/26/05/2026/qatar-registers-sharp-rise-in-government-projects-as-tenders-reach-qr86bn-in-q1",
       "metric": "QR8.6bn",
-      "metric_label": "Q1 government tender value"
+      "metric_label": "Q1 tender value"
     },
     {
-      "headline": "QIA participates in Power Corporation capital increase",
-      "summary": "Qatar Investment Authority joins as anchor investor in Public Power Corporation's capital expansion.",
+      "headline": "QIA participates in Greek utility capital increase",
+      "summary": "QIA participates as anchor investor in Public Power Corporation Capital increase.",
       "source": "The Peninsula Qatar",
       "url": "https://thepeninsulaqatar.com/article/25/05/2026/qia-participates-as-anchor-investor-in-public-power-corporation-capital-increase",
-      "metric": "Anchor investmen",
-      "metric_label": "QIA strategic participation"
+      "metric": "Anchor investor",
+      "metric_label": "QIA participation"
     },
     {
       "headline": "QSE index opens lower",
-      "summary": "Qatar Stock Exchange index begins trading session with lower opening values.",
+      "summary": "QSE index opens lower.",
       "source": "The Peninsula Qatar",
       "url": "https://thepeninsulaqatar.com/article/25/05/2026/qse-index-opens-lower-6",
-      "metric": "Lower opening",
-      "metric_label": "Market session start"
+      "metric": "Opens lower",
+      "metric_label": "Market opening"
     }
   ],
   "kpis": [
@@ -635,50 +635,50 @@
     {
       "source": "The Guardian",
       "url": "https://www.theguardian.com/business/2026/may/29/oil-price-drops-amid-hopes-of-us-iran-peace-deal",
-      "headline": "Brent crude tests $90 support; break below risks $82-85 range",
-      "summary": "Monthly decline of 20.08% places Brent at critical $91.12 level. Peace deal expectations drive selling pressure. Technical support at $90 coincides with 200-DMA. Sustained break risks energy sector rotation and inflation repricing globally.",
+      "headline": "Brent crude tests $90 support; break below targets $82-85 range",
+      "summary": "Monthly -20.08% decline accelerates on Iran deal optimism. Critical support at $90 psychological level. Sustained break targets $82-85 zone, pressuring energy sector allocations and EM oil exporters. Watch geopolitical headlines for volatility spikes.",
       "metric": "$91.12",
-      "metric_label": "Brent spot"
+      "metric_label": "Brent crude"
     },
     {
       "source": "AP News",
       "url": "https://apnews.com/article/inflation-economy-gas-trump-mortgage-iran-unemployment-618324105c9f0dc322f54ef8923a3d63",
-      "headline": "UST10Y surge to 4.45% pressures duration; 4.60% critical resistance",
-      "summary": "Inflation acceleration drives yield spike of 144bp month-to-date. Current 4.45% level approaches February highs. Break above 4.60% would trigger significant outflows from REITs, utilities, and mortgage-sensitive sectors. Portfolio duration risk elevated.",
-      "metric": "4.45%",
+      "headline": "UST10Y breaks 4.45%; inflation surge threatens Fed pivot timeline",
+      "summary": "Multi-year high inflation data drives yields through 4.45% resistance. Next target 4.60% level pressures duration-sensitive sectors. Political pressure for Fed dovishness conflicts with data trajectory, creating policy uncertainty premium.",
+      "metric": "4.453%",
       "metric_label": "UST10Y"
-    },
-    {
-      "source": "The Guardian",
-      "url": "https://www.theguardian.com/business/2026/may/30/inflation-trump-presidency-midterm-election",
-      "headline": "Oil volatility adds 20-180bp inflation risk; watch energy correlation divergence",
-      "summary": "Dallas Fed estimates Hormuz disruption could add 0.2-1.8pp to annual inflation depending on reopening timeline. Current oil-equity correlation breakdown signals broader macro repricing ahead. Monitor WTI-Brent spread and regional energy differentials.",
-      "metric": "0.2-1.8pp",
-      "metric_label": "Inflation add"
-    },
-    {
-      "source": "The Peninsula Qatar",
-      "url": "https://thepeninsulaqatar.com/article/26/05/2026/qatar-registers-sharp-rise-in-government-projects-as-tenders-reach-qr86bn-in-q1",
-      "headline": "QSE tests 10,600 resistance; QR8.6bn capex supports construction breakout",
-      "summary": "Government project acceleration provides fundamental support for QSE at current 10,591 level. Sharp Q1 capex increase suggests infrastructure theme emergence. Watch for break above 10,650 to target 11,000 resistance with construction sector leadership.",
-      "metric": "QR8.6bn",
-      "metric_label": "Q1 tenders"
     },
     {
       "source": "CNBC",
       "url": "https://www.cnbc.com/2026/05/30/oil-exports-through-hormuz-might-not-return-to-levels-before-iran-war.html",
-      "headline": "LNG Japan/Korea +100% YTD signals energy supply crisis premium",
-      "summary": "Historic Hormuz disruption drives LNG prices to $18.30, doubling year-to-date. Supply bottleneck creates structural premium in Asian energy markets. Sustained levels above $20 would pressure Japanese utilities and Korean industrials significantly.",
-      "metric": "+100.08%",
-      "metric_label": "LNG YTD"
+      "headline": "LNG prices surge +100% YTD on Hormuz disruption supply shock",
+      "summary": "Historic supply disruption drives LNG to $18.30, up +10.76% MTD and +100.08% YTD. Asian buyers face energy security premium. Watch for demand destruction above $20 threshold and European storage capacity constraints through Q3.",
+      "metric": "$18.3",
+      "metric_label": "LNG JP/KR"
+    },
+    {
+      "source": "BBC World",
+      "url": "https://www.bbc.com/news/articles/cp8p4ejy8ppo?at_medium=RSS&at_campaign=rss",
+      "headline": "Nikkei momentum stalls at 66,329; China tensions cap regional rally",
+      "summary": "+31.76% YTD gains face headwinds from defense spending concerns. Key resistance at 67,000 level. Military tensions with China threaten tech supply chains, creating sector rotation risk from growth to defensive names.",
+      "metric": "66329.5",
+      "metric_label": "Nikkei"
     },
     {
       "source": "The Peninsula Qatar",
-      "url": "https://thepeninsulaqatar.com/article/26/05/2026/qfc-firm-hmk-capital-registers-qatars-first-real-estate-investment-trust-fund",
-      "headline": "Qatar REIT launch signals real estate financialization; watch QSE property index",
-      "summary": "First REIT registration marks structural shift in Qatari real estate investment landscape. Creates new institutional vehicle for property exposure. Monitor QSE real estate sub-index for momentum as REIT attracts regional capital flows.",
-      "metric": "1st REIT",
-      "metric_label": "Qatar fund"
+      "url": "https://thepeninsulaqatar.com/article/26/05/2026/qatar-registers-sharp-rise-in-government-projects-as-tenders-reach-qr86bn-in-q1",
+      "headline": "QR8.6bn Q1 projects support QE Index above 10,500 resistance",
+      "summary": "Government spending acceleration underpins construction and services sectors. QE Index holds 10,500 level with +0.99% MTD performance. Infrastructure capex cycle supports local equity premiums versus regional peers trading negative YTD.",
+      "metric": "QR8.6bn",
+      "metric_label": "Q1 tenders"
+    },
+    {
+      "source": "Reuters",
+      "url": "https://www.reuters.com/world/middle-east/iran-calls-actions-not-words-after-us-officials-say-peace-deal-is-near-2026-05-29/",
+      "headline": "USD strength tests EUR/USD 1.16 support on safe-haven flows",
+      "summary": "Geopolitical uncertainty drives USD demand despite potential Iran deal. EUR/USD at 1.1659 tests monthly lows. Break below 1.16 targets 1.14-1.15 zone. Fed policy divergence versus ECB adds structural headwinds for euro positioning.",
+      "metric": "1.1659",
+      "metric_label": "EUR/USD"
     }
   ],
   "validation_issues": [
