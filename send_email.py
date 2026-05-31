@@ -11,6 +11,16 @@ from email_body_generator import build_email_body
 
 RESEND_API_KEY = os.environ["RESEND_API_KEY"]
 FROM_EMAIL = os.environ.get("FROM_EMAIL", "DB Strategy Team <updates@market-sigma.com>")
+# Visible "To:" address. All actual recipients go into BCC so they can't see
+# each other. The To: header needs to be a real deliverable address (some
+# email providers flag empty / placeholder To: fields as spam), so we point
+# it at the sender's own mailbox by default. The display name "DB Strategy
+# Team" is what recipients see in their To: column; the address itself only
+# shows when they expand the header. Override via env if needed.
+TO_HEADER_EMAIL = os.environ.get(
+    "TO_HEADER_EMAIL",
+    "DB Strategy Team <updates@market-sigma.com>",
+)
 MARKET_DATA_PATH = Path("market_data.json")
 SCHEDULE_ID = "main"
 QATAR_TZ = ZoneInfo("Asia/Qatar")
@@ -127,9 +137,14 @@ def send() -> None:
     body_html = build_email_body(data)
     print(f"[INFO] Email body rendered: {len(body_html):,} characters")
 
+    # Privacy: every recipient goes into BCC so they cannot see who else
+    # received the report. Resend requires a non-empty To: field; we send
+    # it to the sender's own configured mailbox. Each recipient sees only
+    # their own address in the headers — the rest are blind-copied.
     payload = {
         "from": FROM_EMAIL,
-        "to": recipients,
+        "to": [TO_HEADER_EMAIL],
+        "bcc": recipients,
         "subject": f"Doha Bank Market updates - {report_date}",
         "html": body_html,
     }
@@ -145,8 +160,11 @@ def send() -> None:
     )
 
     if resp.status_code in (200, 201):
-        print(f"✓ Email sent to {recipients} (body-only, no attachments)")
-        mark_schedule_sent("sent", f"Email sent to {len(recipients)} recipient(s) — body-only")
+        print(f"✓ Email sent — To:{TO_HEADER_EMAIL}, BCC:{len(recipients)} recipient(s)")
+        mark_schedule_sent(
+            "sent",
+            f"Email sent — {len(recipients)} BCC recipient(s) — body-only",
+        )
         return
 
     print(f"[ERROR] Resend API: {resp.status_code} - {resp.text}")
@@ -155,3 +173,5 @@ def send() -> None:
 
 if __name__ == "__main__":
     send()
+
+    
