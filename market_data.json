@@ -16,7 +16,7 @@
       "market_drivers": true
     }
   },
-  "generated_at": "2026-06-01T03:20:40Z",
+  "generated_at": "2026-06-01T04:57:32Z",
   "generated_display_time": "",
   "global_indices": [
     {
@@ -467,60 +467,60 @@
   "market_as_of_date": "2026-06-01",
   "global_news": [
     {
-      "headline": "Trump seeking edits to US-Iran deal",
-      "summary": "Requested changes relate to Strait of Hormuz and removal of highly enriched uranium, according to US media reports.",
+      "headline": "Trump seeks edits to US-Iran Hormuz deal",
+      "summary": "Requested changes relate to Strait of Hormuz and removal of highly enriched uranium according to US media reports.",
       "source": "BBC World",
       "url": "https://www.bbc.com/news/articles/c1w2xve315do?at_medium=RSS&at_campaign=rss",
-      "metric": "Strait of Hormuz",
-      "metric_label": "Strategic waterway in negotiatio"
+      "metric": "Hormuz shipping",
+      "metric_label": "Strategic waterway negotiations"
     },
     {
-      "headline": "US ban on AI chips applies globally",
-      "summary": "Commerce Department issues guidance on chip restrictions to Chinese firms outside China amid export control concerns.",
+      "headline": "US bans AI chips to Chinese firms globally",
+      "summary": "Department of Commerce issues guidance on chip restrictions amid concerns about loopholes in export control regime.",
       "source": "Al Jazeera",
       "url": "https://www.aljazeera.com/economy/2026/6/1/us-says-ban-on-ai-chip-shipments-applies-to-chinese-firms-outside-china?traffic_source=rss",
-      "metric": "Global scope",
-      "metric_label": "AI chip export restrictions"
+      "metric": "Global chip ban",
+      "metric_label": "Technology export controls"
     },
     {
-      "headline": "Oman unveils manufacturing investment opportunities",
-      "summary": "Manufacturing investment opportunities worth up to $17 million each launched with guaranteed purchase agreements to reduce risk.",
+      "headline": "Oman launches manufacturing investment opportunities worth $17M",
+      "summary": "Manufacturing investment opportunities worth up to 6.54 million Omani rials each, backed by guaranteed purchase agreements.",
       "source": "Arab News",
       "url": "https://www.arabnews.com/node/2645546/business-economy",
       "metric": "$17 million",
-      "metric_label": "Maximum investment per opportuni"
+      "metric_label": "Investment opportunity value"
     },
     {
-      "headline": "Oil prices decline amid Iran deal hopes",
-      "summary": "Oil prices have come down amid hopes that US and Iran will reach deal to reopen Strait of Hormuz.",
-      "source": "CNN",
-      "url": "https://www.cnn.com/2026/05/29/world/live-news/iran-trump-war-news",
-      "metric": "One-fifth",
-      "metric_label": "Share of world oil supplies via "
+      "headline": "Oil exports through Hormuz disrupted by Iran",
+      "summary": "Iran's blockade has triggered largest oil supply disruption in history, putting pressure on US for deal.",
+      "source": "CNBC",
+      "url": "https://www.cnbc.com/2026/05/30/oil-exports-through-hormuz-might-not-return-to-levels-before-iran-war.html",
+      "metric": "Largest disrupti",
+      "metric_label": "Historical oil supply impact"
     },
     {
-      "headline": "Israel seizes castle in Lebanon offensive",
-      "summary": "Netanyahu calls capture of strategic fortress a decisive shift in campaign against Hezbollah as European governments criticise escalation.",
+      "headline": "US-Iran ceasefire agreement reached for Hormuz shipping",
+      "summary": "United States and Iran reached agreement to extend ceasefire and allow shipping through Strait of Hormuz.",
+      "source": "Reuters",
+      "url": "https://www.reuters.com/world/iran/",
+      "metric": "Ceasefire extend",
+      "metric_label": "Hormuz shipping status"
+    },
+    {
+      "headline": "Israel expands ground offensive into Lebanon castle",
+      "summary": "Netanyahu calls capture of strategic fortress a decisive shift in campaign against Hezbollah as Europeans criticise escalation.",
       "source": "BBC World",
       "url": "https://www.bbc.com/news/articles/cdep04kzz5wo?at_medium=RSS&at_campaign=rss",
       "metric": "Strategic fortre",
-      "metric_label": "Captured Lebanese position"
+      "metric_label": "Military escalation"
     },
     {
-      "headline": "Iran war strains global energy supplies",
-      "summary": "International organizations warn Middle East war is straining global energy supplies and hitting vulnerable economies hardest.",
-      "source": "Reuters",
-      "url": "https://www.reuters.com/world/iran/",
-      "metric": "Global impact",
-      "metric_label": "Energy supply strain level"
-    },
-    {
-      "headline": "US military ready for Gulf combat",
-      "summary": "Defense secretary warns US military ready to resume combat in Gulf if needed amid ongoing tensions.",
-      "source": "CNN",
-      "url": "https://www.cnn.com/2026/05/29/world/live-news/iran-trump-war-news",
-      "metric": "Combat ready",
-      "metric_label": "US military Gulf posture"
+      "headline": "US bombs Iranian positions amid Kuwait attacks",
+      "summary": "France requests UN Security Council meeting over Israel's Lebanon invasion as Iran says US talks continue.",
+      "source": "Al Jazeera",
+      "url": "https://www.aljazeera.com/news/liveblog/2026/6/1/iran-war-live-israels-expanding-invasion-of-lebanon-draws-global-alarm?traffic_source=rss",
+      "metric": "UN meeting",
+      "metric_label": "International response"
     }
   ],
   "qatar_news": [
@@ -529,40 +529,32 @@
       "summary": "QCB Governor meets with Apollo Global Management CEO",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/236935/business/qcb-governor-meets-with-apollo-global-management-ceo",
-      "metric": "Meeting held",
-      "metric_label": "High-level financial meeting"
+      "metric": "High-level meeti",
+      "metric_label": "Central bank engagement"
     },
     {
-      "headline": "QSE index gains 52.10 points Sunday trading start",
+      "headline": "QSE index gains 52.10 points at trading start",
       "summary": "QSE index gains 52.10 points at start of Sunday's trading",
       "source": "The Peninsula Qatar",
       "url": "https://thepeninsulaqatar.com/article/31/05/2026/qse-index-gains-5210-points-at-start-of-sundays-trading",
-      "metric": "+52.10",
-      "metric_label": "QSE index points gained"
+      "metric": "52.10 points",
+      "metric_label": "QSE opening gain"
     },
     {
       "headline": "Qatar shares advance on long-term growth focus",
       "summary": "Qatar shares advance as investors focus on long-term growth",
       "source": "The Peninsula Qatar",
       "url": "https://thepeninsulaqatar.com/article/29/05/2026/qatar-shares-advance-as-investors-focus-on-long-term-growth",
-      "metric": "Positive trend",
+      "metric": "Growth focus",
       "metric_label": "Market sentiment"
     },
     {
-      "headline": "Qatar, Rwanda discuss enhancing trade relations",
-      "summary": "Qatar, Rwanda discuss enhancing trade relations",
-      "source": "The Peninsula Qatar",
-      "url": "https://thepeninsulaqatar.com/article/27/05/2026/qatar-rwanda-discuss-enhancing-trade-relations",
-      "metric": "Trade talks",
-      "metric_label": "Bilateral discussion"
-    },
-    {
-      "headline": "HMK Capital registers Qatar's first REIT fund",
+      "headline": "Qatar launches first Real Estate Investment Trust",
       "summary": "QFC firm HMK Capital registers Qatar's first Real Estate Investment Trust fund",
       "source": "The Peninsula Qatar",
       "url": "https://thepeninsulaqatar.com/article/26/05/2026/qfc-firm-hmk-capital-registers-qatars-first-real-estate-investment-trust-fund",
       "metric": "First REIT",
-      "metric_label": "Fund registration milestone"
+      "metric_label": "Market milestone"
     },
     {
       "headline": "Government project tenders reach QR8.6bn in Q1",
@@ -570,7 +562,15 @@
       "source": "The Peninsula Qatar",
       "url": "https://thepeninsulaqatar.com/article/26/05/2026/qatar-registers-sharp-rise-in-government-projects-as-tenders-reach-qr86bn-in-q1",
       "metric": "QR8.6bn",
-      "metric_label": "Q1 government tender value"
+      "metric_label": "Q1 tender value"
+    },
+    {
+      "headline": "Qatar, Rwanda discuss enhancing trade relations",
+      "summary": "Qatar, Rwanda discuss enhancing trade relations",
+      "source": "The Peninsula Qatar",
+      "url": "https://thepeninsulaqatar.com/article/27/05/2026/qatar-rwanda-discuss-enhancing-trade-relations",
+      "metric": "Trade talks",
+      "metric_label": "Bilateral cooperation"
     }
   ],
   "kpis": [
@@ -597,52 +597,52 @@
   ],
   "market_drivers": [
     {
-      "source": "CNN",
-      "url": "https://www.cnn.com/2026/05/29/world/live-news/iran-trump-war-news",
-      "headline": "Brent 93.20 tests resistance; break below 89 triggers energy rotation",
-      "summary": "Iran-US negotiations creating technical reversal after 53% YTD rally. Watch 89 support level - break triggers rotation from energy to defensives. Geopolitical premium compression threatens energy sector outperformance.",
-      "metric": "93.2",
+      "source": "CNBC",
+      "url": "https://www.cnbc.com/2026/05/30/oil-exports-through-hormuz-might-not-return-to-levels-before-iran-war.html",
+      "headline": "Brent crude tests $95 resistance; Hormuz disruption sustains supply shock",
+      "summary": "Iran's Hormuz blockade drives Brent +2.28% to $93.20, approaching key $95 technical resistance. Break above targets $100-105 range, amplifying energy sector rotation and inflationary pressures across EM sovereigns.",
+      "metric": "$93.20",
       "metric_label": "Brent spot"
-    },
-    {
-      "source": "Reuters",
-      "url": "https://www.reuters.com/world/iran/",
-      "headline": "LNG 18.23 vulnerable below 17.50; supply strain supports 99% YTD gain",
-      "summary": "Middle East conflict sustaining LNG premium despite modest 0.36% daily decline. Critical support at 17.50 - breach would signal supply normalization. Asian winter demand curve remains elevated through Q1.",
-      "metric": "18.23",
-      "metric_label": "LNG JP/KR"
     },
     {
       "source": "Al Jazeera",
       "url": "https://www.aljazeera.com/economy/2026/6/1/us-says-ban-on-ai-chip-shipments-applies-to-chinese-firms-outside-china?traffic_source=rss",
-      "headline": "Nikkei 67038 momentum stalls at resistance; tech export controls pressure",
-      "summary": "Global AI chip restrictions threaten Japanese semiconductor exporters despite 33% YTD gain. Watch 66000 support - break below signals tech sector rotation. Export-dependent names face earnings revision risk.",
-      "metric": "67038.24",
-      "metric_label": "Nikkei 225"
+      "headline": "HSI 25351 vulnerable below 25000; semiconductor exposure weighs",
+      "summary": "Global AI chip restrictions pressure Hong Kong tech proxies. HSI +0.67% bounce from 25000 support fragile; sustained break targets 24500-24000 range, impacting Greater China equity allocations significantly.",
+      "metric": "25351",
+      "metric_label": "HSI level"
+    },
+    {
+      "source": "Reuters",
+      "url": "https://www.reuters.com/world/iran/",
+      "headline": "USD/JPY 159.46 near intervention zone; ceasefire reduces safe haven demand",
+      "summary": "Hormuz ceasefire agreement diminishes yen safe haven flows. USD/JPY at 159.46 approaches 160 intervention threshold. Break above risks accelerated BoJ response, triggering cross-currency volatility spikes.",
+      "metric": "159.46",
+      "metric_label": "USD/JPY"
     },
     {
       "source": "BBC World",
       "url": "https://www.bbc.com/news/articles/cdep04kzz5wo?at_medium=RSS&at_campaign=rss",
-      "headline": "Gold 4550 breaks 4600 resistance; safe haven bid tests highs",
-      "summary": "Lebanon escalation driving haven flows despite 0.93% daily decline. Technical setup favors retest of 4650 resistance. Flight-to-quality positioning increases ahead of Middle East weekend developments.",
-      "metric": "4550.4",
+      "headline": "Gold $4550 consolidation; Lebanon escalation tests $4600 breakout potential",
+      "summary": "Israel's Lebanon offensive counters broader risk-on sentiment. Gold -0.93% to $4550 holds above $4500 support. Middle East escalation sustains upside bias toward $4600-4650 resistance zone.",
+      "metric": "$4550",
       "metric_label": "Gold spot"
     },
     {
       "source": "The Peninsula Qatar",
       "url": "https://thepeninsulaqatar.com/article/26/05/2026/qatar-registers-sharp-rise-in-government-projects-as-tenders-reach-qr86bn-in-q1",
-      "headline": "QSE 10555 range-bound; QR8.6bn capex pipeline supports infrastructure",
-      "summary": "Government capex acceleration provides sector rotation catalyst despite flat YTD performance. Construction and materials names benefit from tender pipeline. Watch for breakout above 10650 resistance level.",
-      "metric": "8.6bn",
-      "metric_label": "QAR capex"
+      "headline": "QSE 10555 range-bound; QR8.6bn Q1 capex supports construction sector",
+      "summary": "Q1 government tenders at QR8.6bn underpin infrastructure plays. QSE flat at 10555 within 10400-10700 range. Sustained capex acceleration targets 10800-11000 breakout, benefiting materials and utilities.",
+      "metric": "QR8.6bn",
+      "metric_label": "Q1 tenders"
     },
     {
       "source": "The Peninsula Qatar",
       "url": "https://thepeninsulaqatar.com/article/26/05/2026/qfc-firm-hmk-capital-registers-qatars-first-real-estate-investment-trust-fund",
-      "headline": "Qatar REIT launch signals real estate liquidity; 10550 technical support",
-      "summary": "First REIT registration enhances real estate investment access and portfolio diversification. Structural shift toward institutionalization supports property sector valuations. QSE financials benefit from fee income streams.",
-      "metric": "10554.96",
-      "metric_label": "QSE Index"
+      "headline": "Qatar REIT launch signals 10600-10800 QSE target; financials outperform",
+      "summary": "First REIT registration enhances market depth and foreign accessibility. QSE financial sector benefits from capital markets development. Technical target 10600-10800 supported by institutional flow expectations.",
+      "metric": "10555",
+      "metric_label": "QSE level"
     }
   ],
   "validation_issues": [
