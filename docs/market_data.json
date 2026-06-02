@@ -16,15 +16,15 @@
       "market_drivers": true
     }
   },
-  "generated_at": "2026-06-02T19:59:56Z",
+  "generated_at": "2026-06-02T20:32:10Z",
   "generated_display_time": "",
   "global_indices": [
     {
       "code": "SPX",
       "name": "US S&P 500",
       "ticker": "^GSPC",
-      "px_last": 7609.42,
-      "change_1d": "-0.05%",
+      "px_last": 7609.78,
+      "change_1d": "-0.04%",
       "mtd": "+0.39%",
       "ytd": "+11.16%",
       "as_of": "2026-06-02",
@@ -143,11 +143,11 @@
     },
     {
       "code": "BKA",
-      "name": "Kuwait Premier Market",
+      "name": "Kuwait",
       "ticker": "^BKP.KW",
       "px_last": 9233.8,
-      "change_1d": "+4.75%",
-      "mtd": "+4.75%",
+      "change_1d": "+0.03%",
+      "mtd": "-0.76%",
       "ytd": "+3.66%",
       "as_of": "2026-06-02",
       "source": "yahoo_chart_structured",
@@ -158,8 +158,8 @@
       "name": "Oman",
       "ticker": "MSX30",
       "px_last": 7772.0,
-      "change_1d": "-0.04%",
-      "mtd": "-0.04%",
+      "change_1d": "-0.30%",
+      "mtd": "+0.19%",
       "ytd": "+31.37%",
       "as_of": "2026-06-02",
       "source": "tradingeconomics_direct_page",
@@ -170,8 +170,8 @@
       "name": "Bahrain",
       "ticker": "BHSEASI",
       "px_last": 1980.0,
-      "change_1d": "+2.38%",
-      "mtd": "+2.38%",
+      "change_1d": "+0.02%",
+      "mtd": "+0.05%",
       "ytd": "-4.19%",
       "as_of": "2026-06-02",
       "source": "tradingeconomics_direct_page",
@@ -186,7 +186,7 @@
       "px_last": 99.21,
       "change_1d": "+0.02%",
       "mtd": "+0.27%",
-      "ytd": "+0.95%",
+      "ytd": "+0.94%",
       "as_of": "2026-06-02",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
@@ -195,10 +195,10 @@
       "code": "EURUSD",
       "name": "EUR/USD",
       "ticker": "EURUSD=X",
-      "px_last": 1.1635,
-      "change_1d": "+0.00%",
-      "mtd": "-0.21%",
-      "ytd": "-0.96%",
+      "px_last": 1.1637,
+      "change_1d": "+0.02%",
+      "mtd": "-0.19%",
+      "ytd": "-0.94%",
       "as_of": "2026-06-02",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
@@ -207,10 +207,10 @@
       "code": "GBPUSD",
       "name": "GBP/USD",
       "ticker": "GBPUSD=X",
-      "px_last": 1.3471,
-      "change_1d": "+0.09%",
-      "mtd": "+0.14%",
-      "ytd": "+0.03%",
+      "px_last": 1.3472,
+      "change_1d": "+0.10%",
+      "mtd": "+0.15%",
+      "ytd": "+0.04%",
       "as_of": "2026-06-02",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
@@ -219,10 +219,10 @@
       "code": "USDCHF",
       "name": "USD/CHF",
       "ticker": "CHF=X",
-      "px_last": 0.7872,
-      "change_1d": "+0.10%",
-      "mtd": "+0.87%",
-      "ytd": "+2.45%",
+      "px_last": 0.7868,
+      "change_1d": "+0.05%",
+      "mtd": "+0.82%",
+      "ytd": "+2.39%",
       "as_of": "2026-06-02",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
@@ -231,7 +231,7 @@
       "code": "USDJPY",
       "name": "USD/JPY",
       "ticker": "JPY=X",
-      "px_last": 159.896,
+      "px_last": 159.925,
       "change_1d": "N/A",
       "mtd": "N/A",
       "ytd": "N/A",
@@ -293,10 +293,10 @@
       "code": "CHFQAR",
       "name": "CHF/QAR",
       "ticker": "CHFQAR",
-      "px_last": 4.624,
+      "px_last": 4.6263,
       "change_1d": "N/A",
-      "mtd": "-0.53%",
-      "ytd": "-2.41%",
+      "mtd": "-0.48%",
+      "ytd": "-2.36%",
       "as_of": "2026-06-02",
       "source": "derived_from_usdqar_and_spot_fx_runtime",
       "status": "valid_runtime_derived_fx"
@@ -319,7 +319,7 @@
       "code": "UST5Y",
       "name": "UST 5-Year",
       "ticker": "^FVX",
-      "px_last": 4.174,
+      "px_last": 4.177,
       "change_1d": "N/A",
       "mtd": "N/A",
       "ytd": "N/A",
@@ -467,10 +467,10 @@
       "code": "BRENT",
       "name": "Brent Crude",
       "ticker": "BZ=F",
-      "px_last": 96.16,
-      "change_1d": "+0.98%",
-      "mtd": "+5.53%",
-      "ytd": "+58.03%",
+      "px_last": 96.04,
+      "change_1d": "+0.85%",
+      "mtd": "+5.40%",
+      "ytd": "+57.83%",
       "as_of": "2026-06-02",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
@@ -481,8 +481,8 @@
       "ticker": "SI=F",
       "px_last": 75.47,
       "change_1d": "-0.07%",
-      "mtd": "-0.54%",
-      "ytd": "+7.60%",
+      "mtd": "-0.53%",
+      "ytd": "+7.61%",
       "as_of": "2026-06-02",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
@@ -491,10 +491,10 @@
       "code": "GOLD",
       "name": "Gold",
       "ticker": "GC=F",
-      "px_last": 4517.0,
-      "change_1d": "+0.00%",
+      "px_last": 4517.3,
+      "change_1d": "+0.01%",
       "mtd": "-1.65%",
-      "ytd": "+2.70%",
+      "ytd": "+2.71%",
       "as_of": "2026-06-02",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
@@ -503,126 +503,126 @@
   "market_as_of_date": "2026-06-02",
   "global_news": [
     {
-      "headline": "Fed's Powell warns Trump's stress test threatens trust",
-      "summary": "Federal Reserve Chair Powell warns that political pressure from Trump could damage public confidence in the central bank's independence.",
+      "headline": "S&P 500 hits record close above 7,600",
+      "summary": "S&P 500 rose 0.13% to 7,609.78, Nasdaq gained 0.03% to 27,093.90, Dow added 228.91 points or 0.45% to 51,307.79.",
       "source": "CNBC",
-      "url": "https://www.cnbc.com/2026/06/01/federal-reserve-trump-political-pressure-powell-stress-test.html",
-      "metric": "Political pressu",
-      "metric_label": "Fed independence concerns"
-    },
-    {
-      "headline": "10-year Treasury yields rise on Iran communication halt",
-      "summary": "Bond yields increased after reports that Iran stopped communication with the U.S., affecting Treasury market sentiment.",
-      "source": "CNBC",
-      "url": "https://www.cnbc.com/2026/06/01/treasury-yields-us-iran-war-oil.html",
-      "metric": "Yields rising",
-      "metric_label": "10-year Treasury movement"
-    },
-    {
-      "headline": "S&P 500 hits record high as tech rally continues",
-      "summary": "The S&P 500 rose 0.26% to 7,599.96, setting a new record as technology stocks powered gains despite oil price spikes.",
-      "source": "CNBC",
-      "url": "https://www.cnbc.com/2026/05/31/stock-market-today-live-updates.html",
-      "metric": "7,599.96",
+      "url": "https://www.cnbc.com/2026/06/01/stock-market-today-live-updates.html",
+      "metric": "7,609.78",
       "metric_label": "S&P 500 record close"
     },
     {
-      "headline": "US job openings surge most since 2021",
-      "summary": "U.S. job openings rose by the most since 2021, though hiring remained weak amid economic uncertainty.",
+      "headline": "10-year Treasury yields rise amid Iran tensions",
+      "summary": "Bond yields moved higher after Iran reportedly stopped communication with U.S. amid geopolitical developments.",
+      "source": "CNBC",
+      "url": "https://www.cnbc.com/2026/06/01/treasury-yields-us-iran-war-oil.html",
+      "metric": "Rising",
+      "metric_label": "10-year Treasury yield trend"
+    },
+    {
+      "headline": "US job openings rise most since 2021",
+      "summary": "U.S. job openings jumped to near two-year high in April amid weak hiring and economic uncertainty.",
       "source": "Reuters",
       "url": "https://www.reuters.com/business/us-job-openings-jump-near-two-year-high-april-2026-06-02/",
-      "metric": "Most since 2021",
-      "metric_label": "Job openings increase"
+      "metric": "Highest since 20",
+      "metric_label": "Job openings growth"
     },
     {
       "headline": "Dollar steady amid Middle East peace talks",
-      "summary": "The dollar remained stable as traders awaited progress on Lebanon ceasefire talks, though broader uncertainties persisted.",
+      "summary": "Dollar steadied after Lebanon announced limited ceasefire between Hezbollah and Israel, though broader uncertainties kept traders cautious.",
       "source": "CNBC",
       "url": "https://www.cnbc.com/amp/2026/06/02/dollar-steady-as-traders-await-progress-on-middle-east-peace-talks.html",
       "metric": "Stable",
-      "metric_label": "Dollar movement"
+      "metric_label": "Dollar performance"
     },
     {
-      "headline": "GCC stocks fall 1.3% despite global AI rally",
-      "summary": "Gulf markets declined 1.3% in May as Hormuz disruption offset global tech gains. Oman fell 7.3% but remained up 32.2% year-to-date.",
+      "headline": "GCC stocks drop 1.3% in May",
+      "summary": "Oman recorded steepest decline with MSX 30 Index falling 7.3 percent, though remained up 32.2 percent year to date.",
       "source": "Arab News",
       "url": "https://www.arabnews.com/node/2645649/business-economy",
       "metric": "-1.3%",
-      "metric_label": "GCC stocks May decline"
-    },
-    {
-      "headline": "US bombs Iran sites, Tehran strikes Kuwait",
-      "summary": "Air sirens sounded in Kuwait City as Iran fired missiles at U.S. troops in Kuwait, responding to American bombing of Iranian military sites.",
-      "source": "AP News",
-      "url": "https://apnews.com/article/iran-us-irael-war-kuwait-strikes-88daa9f90b48baaa7beb18e35515c59d",
-      "metric": "Military strikes",
-      "metric_label": "US-Iran escalation"
+      "metric_label": "GCC stocks May performance"
     },
     {
       "headline": "Oil jumps 4% as Trump dismisses Iran talks",
-      "summary": "Oil prices rallied as President Trump told CNBC he doesn't care if Iran negotiations end, raising fears about Hormuz closure.",
+      "summary": "Oil prices rallied as President Trump told CNBC he doesn't care if talks with Iran end, stoking fears over Hormuz closure.",
       "source": "CNBC",
       "url": "https://www.cnbc.com/2026/06/01/oil-prices-wti-brent-crude-israel-lebanon-hezbollah-iran-trump-us.html",
       "metric": "+4%",
       "metric_label": "Oil price surge"
     },
     {
-      "headline": "Brent oil up 30% since February crisis",
-      "summary": "Oil prices soared with Brent crude up nearly 30% since February 28 due to Hormuz strait disruption concerns.",
+      "headline": "Oil prices up 6% amid Hormuz tensions",
+      "summary": "International oil price climbed 6 percent Monday, could rise further if Strait of Hormuz doesn't reopen soon.",
+      "source": "New York Times",
+      "url": "https://www.nytimes.com/2026/06/01/business/energy-environment/iran-war-oil-prices.html",
+      "metric": "+6%",
+      "metric_label": "Oil price Monday gain"
+    },
+    {
+      "headline": "Brent crude up 30% since February",
+      "summary": "Disruption has sent oil prices soaring with Brent up nearly 30 percent since Feb. 28 amid Middle East tensions.",
       "source": "New York Times",
       "url": "https://www.nytimes.com/live/2026/06/02/world/iran-war-trump-israel-lebanon",
       "metric": "+30%",
       "metric_label": "Brent crude since Feb 28"
     },
     {
+      "headline": "US bombs Iranian sites, Iran strikes Kuwait",
+      "summary": "Air sirens went off across Kuwait City as Tehran struck Kuwait in response to US bombing military sites in Iran.",
+      "source": "AP News",
+      "url": "https://apnews.com/article/iran-us-irael-war-kuwait-strikes-88daa9f90b48baaa7beb18e35515c59d",
+      "metric": "Active conflict",
+      "metric_label": "Iran-US military escalation"
+    },
+    {
       "headline": "GCC condemns continued Iranian attacks on Kuwait",
-      "summary": "Gulf Cooperation Council Secretary General strongly condemned continued hostile Iranian attacks targeting Kuwait as dangerous escalation.",
+      "summary": "GCC Secretary General expressed condemnation in strongest possible terms of continued hostile Iranian attacks targeting Kuwait.",
       "source": "Gulf News",
       "url": "https://gulfnews.com/world/mena/continued-iranian-attacks-on-kuwait-constitute-dangerous-unacceptable-escalation-gcc-1.500560039",
-      "metric": "Continued attack",
-      "metric_label": "Iran-Kuwait escalation"
+      "metric": "Ongoing",
+      "metric_label": "Iranian attacks on Kuwait"
     }
   ],
   "qatar_news": [
     {
-      "headline": "QCB's Eidiya ATM sees QR161 mn in withdrawals",
-      "summary": "QCB's Eidiya ATM sees QR161 mn in withdrawals",
+      "headline": "QCB's Eidiya ATM sees QR161 mn withdrawals",
+      "summary": "Qatar Central Bank's Eidiya ATM service recorded QR161 million in withdrawals during the period.",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/237110/business/qcbs-eidiya-atm-sees-qr161-mn-in-withdrawals",
       "metric": "QR161 mn",
       "metric_label": "Eidiya ATM withdrawals"
     },
     {
-      "headline": "Qatar Stock Exchange index closes lower",
-      "summary": "Qatar Stock Exchange index closes lower",
-      "source": "The Peninsula Qatar",
-      "url": "https://thepeninsulaqatar.com/article/02/06/2026/qatar-stock-exchange-index-closes-lower-6",
-      "metric": "Lower",
-      "metric_label": "QSE index performance"
-    },
-    {
-      "headline": "Qatar, Uzbekistan chambers discuss activation of joint business council",
-      "summary": "Qatar, Uzbekistan chambers discuss activation of joint business council",
-      "source": "Qatar Tribune",
-      "url": "https://www.qatar-tribune.com/article/237156/business/qatar-uzbekistan-chambers-discuss-activation-of-joint-business-council",
-      "metric": "Joint council",
-      "metric_label": "Business cooperation initiative"
-    },
-    {
       "headline": "Qatar ports handle 73,000 containers in May",
-      "summary": "Qatar ports handle more than 73,000 containers in May as trade activity surges",
+      "summary": "Qatar ports processed more than 73,000 containers in May as trade activity surges across the country's maritime facilities.",
       "source": "The Peninsula Qatar",
       "url": "https://thepeninsulaqatar.com/article/01/06/2026/qatar-ports-handle-more-than-73000-containers-in-may-as-trade-activity-surges",
       "metric": "73,000+",
       "metric_label": "Containers handled in May"
     },
     {
-      "headline": "QSE index gains 52.10 points at Sunday trading",
-      "summary": "QSE index gains 52.10 points at start of Sunday's trading",
+      "headline": "Qatar Stock Exchange index closes lower",
+      "summary": "Qatar Stock Exchange index ended trading session with a decline in market performance.",
+      "source": "The Peninsula Qatar",
+      "url": "https://thepeninsulaqatar.com/article/02/06/2026/qatar-stock-exchange-index-closes-lower-6",
+      "metric": "Lower",
+      "metric_label": "QSE closing direction"
+    },
+    {
+      "headline": "QSE index gains 52.10 points Sunday opening",
+      "summary": "Qatar Stock Exchange index gained 52.10 points at the start of Sunday's trading session.",
       "source": "The Peninsula Qatar",
       "url": "https://thepeninsulaqatar.com/article/31/05/2026/qse-index-gains-5210-points-at-start-of-sundays-trading",
-      "metric": "52.10 points",
-      "metric_label": "QSE opening gains"
+      "metric": "52.10",
+      "metric_label": "Points gained at opening"
+    },
+    {
+      "headline": "Qatar Uzbekistan chambers discuss joint business council",
+      "summary": "Qatar and Uzbekistan chambers of commerce discussed activation of joint business council to enhance bilateral trade cooperation.",
+      "source": "Qatar Tribune",
+      "url": "https://www.qatar-tribune.com/article/237156/business/qatar-uzbekistan-chambers-discuss-activation-of-joint-business-council",
+      "metric": "Joint Council",
+      "metric_label": "Bilateral business initiative"
     }
   ],
   "kpis": [
@@ -632,9 +632,9 @@
       "sublabel": "+0.00% today \u00b7 USD/MMBtu"
     },
     {
-      "value": "4,517.00",
+      "value": "4,517.30",
       "label": "Gold",
-      "sublabel": "+0.00% today \u00b7 +2.70% YTD"
+      "sublabel": "+0.01% today \u00b7 +2.71% YTD"
     },
     {
       "value": "10,407.45",
@@ -649,52 +649,52 @@
   ],
   "market_drivers": [
     {
-      "source": "CNBC",
-      "url": "https://www.cnbc.com/2026/06/01/oil-prices-wti-brent-crude-israel-lebanon-hezbollah-iran-trump-us.html",
-      "headline": "Brent crude tests 96.16 resistance; break above 98 targets 102-105 zone",
-      "summary": "Trump dismisses Iran talks while Brent holds +58.03% YTD gains. Hormuz closure risk premium pushes through 96 handle. Sustained break above 98 activates momentum toward 102-105 target zone, pressuring airline/transport margins.",
-      "metric": "96.16",
+      "source": "New York Times",
+      "url": "https://www.nytimes.com/2026/06/01/business/energy-environment/iran-war-oil-prices.html",
+      "headline": "Brent crude tests $100 resistance; break above triggers $110-115 target",
+      "summary": "6% intraday move signals momentum toward psychological $100 level. Sustained breach activates next resistance cluster at $110-115, pressuring airline equity allocations and inflation-sensitive bond positions.",
+      "metric": "96.04",
       "metric_label": "Brent spot"
     },
     {
       "source": "CNBC",
       "url": "https://www.cnbc.com/2026/06/01/treasury-yields-us-iran-war-oil.html",
-      "headline": "UST10Y breakout above 4.6% pressures duration-sensitive allocations",
-      "summary": "Iran communication halt lifts yields through key resistance. Sustained close above 4.6% triggers rotation from REITs, utilities into financials. Watch for accelerated selling if yields breach 4.75% on risk-off positioning.",
-      "metric": "4.6%",
-      "metric_label": "UST10Y"
-    },
-    {
-      "source": "AP News",
-      "url": "https://apnews.com/article/iran-us-irael-war-kuwait-strikes-88daa9f90b48baaa7beb18e35515c59d",
-      "headline": "Kuwait Premier at 9233.8 vulnerable below 9000 on missile strikes",
-      "summary": "Iran missiles target Kuwait despite +4.75% rally. Geopolitical escalation threatens 9000 support level. Break below triggers defensive rotation into Saudi/UAE proxies. Monitor 8800-9000 zone for tactical entries.",
-      "metric": "9233.8",
-      "metric_label": "Kuwait Premier"
-    },
-    {
-      "source": "CNBC",
-      "url": "https://www.cnbc.com/amp/2026/06/02/dollar-steady-as-traders-await-progress-on-middle-east-peace-talks.html",
-      "headline": "DXY consolidation at 99.21 ahead of 100 breakout on haven flows",
-      "summary": "Dollar steady despite Middle East tensions. Peace talk uncertainty keeps DXY range-bound. Break above 100 psychological level triggers EM FX pressure, particularly vulnerable GCC pegs facing dual oil/dollar strength.",
-      "metric": "99.21",
-      "metric_label": "USD Index"
+      "headline": "UST10Y upside pressure from Iran tensions; 4.8% break pressures duration",
+      "summary": "Geopolitical risk premium lifting yields from current levels. Move above 4.8% would pressure long-duration assets including REITs and growth equities. Iran communication breakdown escalates breakout probability.",
+      "metric": "4.8%",
+      "metric_label": "UST10Y target"
     },
     {
       "source": "Arab News",
       "url": "https://www.arabnews.com/node/2645649/business-economy",
-      "headline": "GCC equity index -1.3% signals rotation despite global tech rally",
-      "summary": "Gulf markets underperform despite AI rally elsewhere. Hormuz disruption risk overrides tech momentum. Watch for defensive flows into Oman (+32.2% YTD) if regional tensions escalate further. Dubai DFM vulnerable below 5700.",
+      "headline": "GCC equities test May lows; -1.3% signals broader EM rotation risk",
+      "summary": "Regional underperformance despite oil rally indicates defensive positioning. QE Index at 10407 approaches 10200 support; break below triggers broader GCC weakness toward 9800-10000 zone.",
       "metric": "-1.3%",
-      "metric_label": "GCC equity"
+      "metric_label": "GCC May return"
+    },
+    {
+      "source": "CNBC",
+      "url": "https://www.cnbc.com/2026/06/01/stock-market-today-live-updates.html",
+      "headline": "S&P 500 at 7609 tests all-time highs; failure signals 7400-7500 retest",
+      "summary": "Record close above 7600 maintains bullish momentum despite geopolitical backdrop. Key resistance cluster at 7650-7700; rejection here targets 7400-7500 support for profit-taking opportunities.",
+      "metric": "7609.78",
+      "metric_label": "S&P 500"
     },
     {
       "source": "Reuters",
       "url": "https://www.reuters.com/business/us-job-openings-jump-near-two-year-high-april-2026-06-02/",
-      "headline": "Job openings surge supports Fed hawkish pivot; watch 4.8% UST10Y",
-      "summary": "Strongest job openings since 2021 despite weak hiring signals labor market resilience. Supports Fed patience narrative, anchoring yields higher. UST10Y break above 4.8% pressures growth stocks and emerging market debt flows.",
-      "metric": "4.8%",
-      "metric_label": "UST10Y target"
+      "headline": "Job openings surge pressures Fed pivot expectations; USD index eyes 100",
+      "summary": "Two-year high in openings reduces dovish Fed probability, supporting dollar strength. USD Index at 99.21 approaching key 100 resistance; break above targets 101-102 range, pressuring EM currencies.",
+      "metric": "99.21",
+      "metric_label": "USD Index"
+    },
+    {
+      "source": "CNBC",
+      "url": "https://www.cnbc.com/amp/2026/06/02/dollar-steady-as-traders-await-progress-on-middle-east-peace-talks.html",
+      "headline": "GBP/USD consolidates near 1.3472; break below 1.34 targets 1.32-1.33",
+      "summary": "Limited ceasefire progress keeps cable range-bound despite dollar steadiness. Support at 1.34 critical; sustained break activates 1.32-1.33 downside target, impacting UK equity valuations.",
+      "metric": "1.3472",
+      "metric_label": "GBP/USD"
     }
   ],
   "validation_issues": [
