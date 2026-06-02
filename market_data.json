@@ -16,7 +16,7 @@
       "market_drivers": true
     }
   },
-  "generated_at": "2026-06-02T19:45:56Z",
+  "generated_at": "2026-06-02T19:59:56Z",
   "generated_display_time": "",
   "global_indices": [
     {
@@ -503,24 +503,24 @@
   "market_as_of_date": "2026-06-02",
   "global_news": [
     {
-      "headline": "Powell warns Trump pressure threatens Fed trust",
-      "summary": "Federal Reserve chair warns political pressure from Trump could damage public trust in central bank independence.",
+      "headline": "Fed's Powell warns Trump's stress test threatens trust",
+      "summary": "Federal Reserve Chair Powell warns that political pressure from Trump could damage public confidence in the central bank's independence.",
       "source": "CNBC",
       "url": "https://www.cnbc.com/2026/06/01/federal-reserve-trump-political-pressure-powell-stress-test.html",
-      "metric": "Trust Risk",
-      "metric_label": "Fed independence threat"
+      "metric": "Political pressu",
+      "metric_label": "Fed independence concerns"
     },
     {
-      "headline": "Treasury yields rise on Iran tensions",
-      "summary": "Ten-year Treasury yields moved higher after reports Iran stopped communicating with US.",
+      "headline": "10-year Treasury yields rise on Iran communication halt",
+      "summary": "Bond yields increased after reports that Iran stopped communication with the U.S., affecting Treasury market sentiment.",
       "source": "CNBC",
       "url": "https://www.cnbc.com/2026/06/01/treasury-yields-us-iran-war-oil.html",
-      "metric": "Rising",
-      "metric_label": "10-year yield move"
+      "metric": "Yields rising",
+      "metric_label": "10-year Treasury movement"
     },
     {
-      "headline": "S&P 500 hits record closing high",
-      "summary": "S&P 500 rose 0.26% to close at record 7,599.96 as tech rally overpowered oil spike.",
+      "headline": "S&P 500 hits record high as tech rally continues",
+      "summary": "The S&P 500 rose 0.26% to 7,599.96, setting a new record as technology stocks powered gains despite oil price spikes.",
       "source": "CNBC",
       "url": "https://www.cnbc.com/2026/05/31/stock-market-today-live-updates.html",
       "metric": "7,599.96",
@@ -528,59 +528,59 @@
     },
     {
       "headline": "US job openings surge most since 2021",
-      "summary": "Job openings rose by the most since 2021 while hiring remained weak amid economic uncertainty.",
+      "summary": "U.S. job openings rose by the most since 2021, though hiring remained weak amid economic uncertainty.",
       "source": "Reuters",
       "url": "https://www.reuters.com/business/us-job-openings-jump-near-two-year-high-april-2026-06-02/",
-      "metric": "Highest since 20",
+      "metric": "Most since 2021",
       "metric_label": "Job openings increase"
     },
     {
-      "headline": "US bombs Iran then downs Kuwait missiles",
-      "summary": "US bombed Iranian military sites then intercepted missiles Tehran fired at troops in Kuwait.",
-      "source": "AP News",
-      "url": "https://apnews.com/article/iran-us-irael-war-kuwait-strikes-88daa9f90b48baaa7beb18e35515c59d",
-      "metric": "Military Strike",
-      "metric_label": "US-Iran escalation"
+      "headline": "Dollar steady amid Middle East peace talks",
+      "summary": "The dollar remained stable as traders awaited progress on Lebanon ceasefire talks, though broader uncertainties persisted.",
+      "source": "CNBC",
+      "url": "https://www.cnbc.com/amp/2026/06/02/dollar-steady-as-traders-await-progress-on-middle-east-peace-talks.html",
+      "metric": "Stable",
+      "metric_label": "Dollar movement"
     },
     {
-      "headline": "GCC stocks drop 1.3% in May",
-      "summary": "Oman fell steepest at 7.3% while Hormuz disruption offset global AI rally across Gulf markets.",
+      "headline": "GCC stocks fall 1.3% despite global AI rally",
+      "summary": "Gulf markets declined 1.3% in May as Hormuz disruption offset global tech gains. Oman fell 7.3% but remained up 32.2% year-to-date.",
       "source": "Arab News",
       "url": "https://www.arabnews.com/node/2645649/business-economy",
       "metric": "-1.3%",
-      "metric_label": "GCC May performance"
+      "metric_label": "GCC stocks May decline"
     },
     {
-      "headline": "Oil jumps 4% as Trump dismisses talks",
-      "summary": "Oil prices rallied as Trump told CNBC he doesn't care if Iran negotiations end.",
+      "headline": "US bombs Iran sites, Tehran strikes Kuwait",
+      "summary": "Air sirens sounded in Kuwait City as Iran fired missiles at U.S. troops in Kuwait, responding to American bombing of Iranian military sites.",
+      "source": "AP News",
+      "url": "https://apnews.com/article/iran-us-irael-war-kuwait-strikes-88daa9f90b48baaa7beb18e35515c59d",
+      "metric": "Military strikes",
+      "metric_label": "US-Iran escalation"
+    },
+    {
+      "headline": "Oil jumps 4% as Trump dismisses Iran talks",
+      "summary": "Oil prices rallied as President Trump told CNBC he doesn't care if Iran negotiations end, raising fears about Hormuz closure.",
       "source": "CNBC",
       "url": "https://www.cnbc.com/2026/06/01/oil-prices-wti-brent-crude-israel-lebanon-hezbollah-iran-trump-us.html",
       "metric": "+4%",
       "metric_label": "Oil price surge"
     },
     {
-      "headline": "Brent up 30% since February tensions",
-      "summary": "Oil prices soared with Brent crude up nearly 30% since February 28 amid Middle East crisis.",
+      "headline": "Brent oil up 30% since February crisis",
+      "summary": "Oil prices soared with Brent crude up nearly 30% since February 28 due to Hormuz strait disruption concerns.",
       "source": "New York Times",
       "url": "https://www.nytimes.com/live/2026/06/02/world/iran-war-trump-israel-lebanon",
       "metric": "+30%",
-      "metric_label": "Brent since Feb 28"
+      "metric_label": "Brent crude since Feb 28"
     },
     {
-      "headline": "GCC condemns Iranian attacks on Kuwait",
-      "summary": "Gulf Cooperation Council strongly condemned continued hostile Iranian attacks targeting Kuwait as dangerous escalation.",
+      "headline": "GCC condemns continued Iranian attacks on Kuwait",
+      "summary": "Gulf Cooperation Council Secretary General strongly condemned continued hostile Iranian attacks targeting Kuwait as dangerous escalation.",
       "source": "Gulf News",
       "url": "https://gulfnews.com/world/mena/continued-iranian-attacks-on-kuwait-constitute-dangerous-unacceptable-escalation-gcc-1.500560039",
-      "metric": "Escalation",
-      "metric_label": "Iran-Kuwait tensions"
-    },
-    {
-      "headline": "Rubio says Hormuz first condition for talks",
-      "summary": "US Secretary of State says opening Strait of Hormuz is first condition in negotiations with Iran.",
-      "source": "The Guardian",
-      "url": "https://www.theguardian.com/world/live/2026/jun/02/iran-us-israel-lebanon-trump-netanyahu-hezbollah-beirut-hormuz-talks-oil-latest-news-updates",
-      "metric": "First Condition",
-      "metric_label": "Hormuz reopening demand"
+      "metric": "Continued attack",
+      "metric_label": "Iran-Kuwait escalation"
     }
   ],
   "qatar_news": [
@@ -597,19 +597,19 @@
       "summary": "Qatar Stock Exchange index closes lower",
       "source": "The Peninsula Qatar",
       "url": "https://thepeninsulaqatar.com/article/02/06/2026/qatar-stock-exchange-index-closes-lower-6",
-      "metric": "Lower close",
-      "metric_label": "QSE performance"
+      "metric": "Lower",
+      "metric_label": "QSE index performance"
     },
     {
-      "headline": "Qatar, Uzbekistan chambers discuss joint business council",
+      "headline": "Qatar, Uzbekistan chambers discuss activation of joint business council",
       "summary": "Qatar, Uzbekistan chambers discuss activation of joint business council",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/237156/business/qatar-uzbekistan-chambers-discuss-activation-of-joint-business-council",
-      "metric": "Partnership",
-      "metric_label": "Bilateral cooperation"
+      "metric": "Joint council",
+      "metric_label": "Business cooperation initiative"
     },
     {
-      "headline": "Qatar ports handle 73,000+ containers in May",
+      "headline": "Qatar ports handle 73,000 containers in May",
       "summary": "Qatar ports handle more than 73,000 containers in May as trade activity surges",
       "source": "The Peninsula Qatar",
       "url": "https://thepeninsulaqatar.com/article/01/06/2026/qatar-ports-handle-more-than-73000-containers-in-may-as-trade-activity-surges",
@@ -617,20 +617,12 @@
       "metric_label": "Containers handled in May"
     },
     {
-      "headline": "QSE index gains 52.10 points Sunday morning",
+      "headline": "QSE index gains 52.10 points at Sunday trading",
       "summary": "QSE index gains 52.10 points at start of Sunday's trading",
       "source": "The Peninsula Qatar",
       "url": "https://thepeninsulaqatar.com/article/31/05/2026/qse-index-gains-5210-points-at-start-of-sundays-trading",
       "metric": "52.10 points",
-      "metric_label": "QSE opening gain"
-    },
-    {
-      "headline": "QSE index closes lower",
-      "summary": "QSE index closes lower",
-      "source": "The Peninsula Qatar",
-      "url": "https://thepeninsulaqatar.com/article/31/05/2026/qse-index-closes-lower-24",
-      "metric": "Lower close",
-      "metric_label": "QSE daily performance"
+      "metric_label": "QSE opening gains"
     }
   ],
   "kpis": [
@@ -657,52 +649,52 @@
   ],
   "market_drivers": [
     {
-      "source": "New York Times",
-      "url": "https://www.nytimes.com/live/2026/06/02/world/iran-war-trump-israel-lebanon",
-      "headline": "Brent oil tests $100 resistance; break confirms energy equity rotation",
-      "summary": "Brent's 30% surge since February 28 brings key $100 psychological level into focus. Sustained break above targets $105-108 range, supporting energy overweight versus defensives. Watch Strait of Hormuz closure risk for $120+ scenario.",
+      "source": "CNBC",
+      "url": "https://www.cnbc.com/2026/06/01/oil-prices-wti-brent-crude-israel-lebanon-hezbollah-iran-trump-us.html",
+      "headline": "Brent crude tests 96.16 resistance; break above 98 targets 102-105 zone",
+      "summary": "Trump dismisses Iran talks while Brent holds +58.03% YTD gains. Hormuz closure risk premium pushes through 96 handle. Sustained break above 98 activates momentum toward 102-105 target zone, pressuring airline/transport margins.",
       "metric": "96.16",
       "metric_label": "Brent spot"
     },
     {
       "source": "CNBC",
       "url": "https://www.cnbc.com/2026/06/01/treasury-yields-us-iran-war-oil.html",
-      "headline": "UST10Y breakout above 4.50% pressures duration-sensitive allocations",
-      "summary": "Iran tension-driven yield spike tests key 4.50% resistance on 10-year Treasury. Break confirms bear steepening trade, rotating from REITs/utilities into financials. Watch 4.65% for acceleration signal targeting 4.80-5.00% range.",
-      "metric": "4.50%",
+      "headline": "UST10Y breakout above 4.6% pressures duration-sensitive allocations",
+      "summary": "Iran communication halt lifts yields through key resistance. Sustained close above 4.6% triggers rotation from REITs, utilities into financials. Watch for accelerated selling if yields breach 4.75% on risk-off positioning.",
+      "metric": "4.6%",
       "metric_label": "UST10Y"
     },
     {
       "source": "AP News",
       "url": "https://apnews.com/article/iran-us-irael-war-kuwait-strikes-88daa9f90b48baaa7beb18e35515c59d",
-      "headline": "Kuwait Premier surge signals regional safe-haven rotation from energy risk",
-      "summary": "Kuwait's exceptional +4.75% gain amid Iran missile interception reflects flight-to-quality within GCC markets. Kuwait Premier at 9,233 approaches 9,500 technical target. Regional divergence favors Kuwait/UAE over exposed Qatari energy names.",
-      "metric": "4.75%",
-      "metric_label": "KSE gain"
+      "headline": "Kuwait Premier at 9233.8 vulnerable below 9000 on missile strikes",
+      "summary": "Iran missiles target Kuwait despite +4.75% rally. Geopolitical escalation threatens 9000 support level. Break below triggers defensive rotation into Saudi/UAE proxies. Monitor 8800-9000 zone for tactical entries.",
+      "metric": "9233.8",
+      "metric_label": "Kuwait Premier"
     },
     {
       "source": "CNBC",
-      "url": "https://www.cnbc.com/2026/05/31/stock-market-today-live-updates.html",
-      "headline": "S&P 500 at 7,600 tests all-time highs; energy divergence key",
-      "summary": "Record close at 7,599.96 maintains tech leadership despite oil shock. Key resistance at 7,620-7,650 zone. Energy sector outperformance versus tech creates rotation opportunity if geopolitical premium sustains above current 5-7% oil risk premium.",
-      "metric": "7599.96",
-      "metric_label": "S&P 500"
-    },
-    {
-      "source": "Reuters",
-      "url": "https://www.reuters.com/business/us-job-openings-jump-near-two-year-high-april-2026-06-02/",
-      "headline": "Jobs surge reinforces Fed hawkish pivot; watch JOLTS-driven yields",
-      "summary": "Strongest job openings growth since 2021 reduces rate cut probability, supporting USD strength. DXY holding above 99.00 support targets 100.50-101.00 range. Correlates with yield steepening and emerging market outflow risk.",
+      "url": "https://www.cnbc.com/amp/2026/06/02/dollar-steady-as-traders-await-progress-on-middle-east-peace-talks.html",
+      "headline": "DXY consolidation at 99.21 ahead of 100 breakout on haven flows",
+      "summary": "Dollar steady despite Middle East tensions. Peace talk uncertainty keeps DXY range-bound. Break above 100 psychological level triggers EM FX pressure, particularly vulnerable GCC pegs facing dual oil/dollar strength.",
       "metric": "99.21",
       "metric_label": "USD Index"
     },
     {
       "source": "Arab News",
       "url": "https://www.arabnews.com/node/2645649/business-economy",
-      "headline": "GCC markets 1.3% May decline signals broader EM vulnerability pattern",
-      "summary": "Regional -1.3% underperformance led by Oman's -7.3% confirms EM stress amid Hormuz disruption fears. Hong Kong's +2.52% bounce suggests China reopening divergence from oil-exposed markets. Watch DFM below 5,700 for acceleration.",
+      "headline": "GCC equity index -1.3% signals rotation despite global tech rally",
+      "summary": "Gulf markets underperform despite AI rally elsewhere. Hormuz disruption risk overrides tech momentum. Watch for defensive flows into Oman (+32.2% YTD) if regional tensions escalate further. Dubai DFM vulnerable below 5700.",
       "metric": "-1.3%",
-      "metric_label": "GCC May"
+      "metric_label": "GCC equity"
+    },
+    {
+      "source": "Reuters",
+      "url": "https://www.reuters.com/business/us-job-openings-jump-near-two-year-high-april-2026-06-02/",
+      "headline": "Job openings surge supports Fed hawkish pivot; watch 4.8% UST10Y",
+      "summary": "Strongest job openings since 2021 despite weak hiring signals labor market resilience. Supports Fed patience narrative, anchoring yields higher. UST10Y break above 4.8% pressures growth stocks and emerging market debt flows.",
+      "metric": "4.8%",
+      "metric_label": "UST10Y target"
     }
   ],
   "validation_issues": [
