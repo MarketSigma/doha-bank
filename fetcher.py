@@ -299,7 +299,7 @@ PRICE_RANGES = {
     "TASI": (8000, 16000),
     "DFMGI": (3000, 9000),
     "FADGI": (7000, 13000),
-    "BKA": (6000, 12000),
+    "BKA": (7000, 12000),
     "OMAN": (3000, 11000),
     "BHSEASI": (1500, 2500),
     "DXY": (80, 120),
@@ -385,7 +385,7 @@ EXPECTED_INSTRUMENTS = [
     {"code": "TASI", "name": "Saudi Tadawul", "symbol": "^TASI.SR", "report_section": "GCC & REGIONAL INDICES", "display_order": 2},
     {"code": "DFMGI", "name": "Dubai DFM", "symbol": "DFMGI", "report_section": "GCC & REGIONAL INDICES", "display_order": 3},
     {"code": "FADGI", "name": "Abu Dhabi ADX", "symbol": "FADGI", "report_section": "GCC & REGIONAL INDICES", "display_order": 4},
-    {"code": "BKA", "name": "Kuwait Boursa", "symbol": "BKA", "report_section": "GCC & REGIONAL INDICES", "display_order": 5},
+    {"code": "BKA", "name": "Kuwait", "symbol": "^BKP.KW", "report_section": "GCC & REGIONAL INDICES", "display_order": 5},
     {"code": "OMAN", "name": "Oman", "symbol": "MSX30", "report_section": "GCC & REGIONAL INDICES", "display_order": 6},
     {"code": "BHSEASI", "name": "Bahrain", "symbol": "BHSEASI", "report_section": "GCC & REGIONAL INDICES", "display_order": 7},
 
