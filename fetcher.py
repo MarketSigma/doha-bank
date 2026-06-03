@@ -728,15 +728,30 @@ def _get_history_rows_for_calculations(as_of_date: datetime.date) -> List[Dict[s
     year_start = datetime.date(as_of_date.year, 1, 1)
     history_start = year_start - datetime.timedelta(days=10)
 
-    params = {
-        "select": "instrument_code,px_last,change_1d_pct,as_of_date,status,source",
-        "as_of_date": f"gte.{history_start.isoformat()}",
-        "order": "instrument_code.asc,as_of_date.asc",
-        "limit": "10000",
-    }
+    all_rows = []
+    batch_size = 1000
+    offset = 0
 
-    rows = _supabase_get(SUPABASE_TABLE, params=params)
-    return rows or []
+    while True:
+        params = {
+            "select": "instrument_code,px_last,change_1d_pct,as_of_date,status,source",
+            "as_of_date": f"gte.{history_start.isoformat()}",
+            "order": "instrument_code.asc,as_of_date.asc",
+            "limit": str(batch_size),
+            "offset": str(offset),
+        }
+
+        rows = _supabase_get(SUPABASE_TABLE, params=params) or []
+        all_rows.extend(rows)
+
+        if len(rows) < batch_size:
+            break
+
+        offset += batch_size
+
+    print(f"  · history rows loaded for calculations: {len(all_rows)}")
+
+    return all_rows
 
 
 def _group_history_by_code(rows: List[Dict[str, Any]]) -> Dict[str, List[Dict[str, Any]]]:
