@@ -16,7 +16,7 @@
       "market_drivers": true
     }
   },
-  "generated_at": "2026-06-03T20:42:34Z",
+  "generated_at": "2026-06-03T21:12:36Z",
   "generated_display_time": "",
   "global_indices": [
     {
@@ -220,8 +220,8 @@
       "name": "USD/CHF",
       "ticker": "CHF=X",
       "px_last": 0.7921,
-      "change_1d": "N/A",
-      "mtd": "+1.03%",
+      "change_1d": "+0.67%",
+      "mtd": "+1.50%",
       "ytd": "+3.08%",
       "as_of": "2026-06-03",
       "source": "yahoo_chart_structured",
@@ -232,9 +232,9 @@
       "name": "USD/JPY",
       "ticker": "JPY=X",
       "px_last": 160.014,
-      "change_1d": "N/A",
-      "mtd": "N/A",
-      "ytd": "N/A",
+      "change_1d": "+0.06%",
+      "mtd": "+0.44%",
+      "ytd": "+2.30%",
       "as_of": "2026-06-03",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
@@ -244,9 +244,9 @@
       "name": "USD/CNY",
       "ticker": "CNY=X",
       "px_last": 6.7687,
-      "change_1d": "N/A",
-      "mtd": "N/A",
-      "ytd": "N/A",
+      "change_1d": "+0.10%",
+      "mtd": "+0.04%",
+      "ytd": "-3.25%",
       "as_of": "2026-06-03",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
@@ -258,9 +258,9 @@
       "name": "USD/QAR",
       "ticker": "QAR=X",
       "px_last": 3.64,
-      "change_1d": "N/A",
-      "mtd": "N/A",
-      "ytd": "N/A",
+      "change_1d": "+0.00%",
+      "mtd": "+0.00%",
+      "ytd": "+0.00%",
       "as_of": "2026-06-03",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
@@ -294,8 +294,8 @@
       "name": "CHF/QAR",
       "ticker": "CHFQAR",
       "px_last": 4.5954,
-      "change_1d": "N/A",
-      "mtd": "-1.14%",
+      "change_1d": "-0.67%",
+      "mtd": "-1.48%",
       "ytd": "-3.02%",
       "as_of": "2026-06-03",
       "source": "derived_from_usdqar_and_spot_fx_runtime",
@@ -306,8 +306,8 @@
       "name": "CNY/QAR",
       "ticker": "CNYQAR",
       "px_last": 0.5378,
-      "change_1d": "N/A",
-      "mtd": "+0.48%",
+      "change_1d": "-0.10%",
+      "mtd": "-0.04%",
       "ytd": "+3.36%",
       "as_of": "2026-06-03",
       "source": "derived_from_usdqar_and_spot_fx_runtime",
@@ -320,9 +320,9 @@
       "name": "UST 5-Year",
       "ticker": "^FVX",
       "px_last": 4.211,
-      "change_1d": "N/A",
-      "mtd": "N/A",
-      "ytd": "N/A",
+      "change_1d": "+0.81%",
+      "mtd": "+1.49%",
+      "ytd": "+13.14%",
       "as_of": "2026-06-03",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
@@ -332,9 +332,9 @@
       "name": "UST 10-Year",
       "ticker": "^TNX",
       "px_last": 4.489,
-      "change_1d": "N/A",
-      "mtd": "N/A",
-      "ytd": "N/A",
+      "change_1d": "+0.76%",
+      "mtd": "+0.81%",
+      "ytd": "+7.83%",
       "as_of": "2026-06-03",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
@@ -503,90 +503,90 @@
   "market_as_of_date": "2026-06-03",
   "global_news": [
     {
-      "headline": "S&P 500 hits record high above 7,600",
-      "summary": "S&P 500 rose 0.13% to close at 7,609.78, marking first close above 7,600. Nasdaq gained 0.03% while Dow added 228.91 points for 0.45% increase.",
-      "source": "CNBC",
-      "url": "https://www.cnbc.com/2026/06/01/stock-market-today-live-updates.html",
-      "metric": "7,609.78",
-      "metric_label": "S&P 500 record close"
-    },
-    {
-      "headline": "Fed leadership transition with Warsh revolution coming",
-      "summary": "Analysis suggests Warsh revolution approaching at Federal Reserve. Powell won't stand in the way as savings rates drop without Fed cuts.",
-      "source": "CNBC",
-      "url": "https://www.cnbc.com/federal-reserve/",
-      "metric": "June 16-17",
-      "metric_label": "Next Fed meeting dates"
-    },
-    {
-      "headline": "Dow drops 600 points on yields pressure",
-      "summary": "Dow fell 620.72 points or 1.21% to 50,687.07. S&P 500 declined 0.74% while Nasdaq dropped 0.89% amid rising Treasury yields.",
+      "headline": "Dow drops 620 points on Treasury yields pressure",
+      "summary": "Dow Jones fell 1.21% to 50,687, S&P 500 declined 0.74% to 7,554, Nasdaq dropped 0.89% to 26,854 amid rising yields and oil prices.",
       "source": "CNBC",
       "url": "https://www.cnbc.com/2026/06/02/stock-market-today-live-updates.html",
-      "metric": "-620.72",
-      "metric_label": "Dow points decline"
+      "metric": "620 points",
+      "metric_label": "Dow decline"
     },
     {
-      "headline": "IMF warns Iran war affects Saudi outlook",
-      "summary": "IMF says prolonged Iran war could weigh on Saudi Arabia's medium-term economic outlook despite economy's resilience and modest fiscal adjustments.",
+      "headline": "Fed expected to hold rates at June meeting",
+      "summary": "Federal Reserve likely to maintain current interest rates when policymakers gather June 16-17 for first meeting under new Fed chair.",
+      "source": "Reuters",
+      "url": "https://www.reuters.com/markets/us/federal-reserve/",
+      "metric": "June 16-17",
+      "metric_label": "Fed meeting dates"
+    },
+    {
+      "headline": "US job openings rise most since 2021",
+      "summary": "Job openings jumped to near two-year high in April, though hiring remains weak amid economic uncertainty and unemployment steady at 4.3%.",
+      "source": "Reuters",
+      "url": "https://www.reuters.com/business/us-job-openings-jump-near-two-year-high-april-2026-06-02/",
+      "metric": "4.3%",
+      "metric_label": "Unemployment rate"
+    },
+    {
+      "headline": "IMF warns Iran war could impact Saudi outlook",
+      "summary": "International Monetary Fund says prolonged Iran conflict could weigh on Saudi Arabia's medium-term economic outlook despite current resilience.",
       "source": "The National",
       "url": "https://www.thenationalnews.com/business/economy/2026/06/03/imf-says-prolonged-iran-war-could-weigh-on-saudi-arabias-medium-term-outlook/",
       "metric": "2026",
-      "metric_label": "Fiscal adjustment year"
+      "metric_label": "Target year for deficit reductio"
     },
     {
-      "headline": "Saudi economy draws wartime Gulf business investment",
-      "summary": "PIF recalibrates investment strategy focusing on tourism, industry, AI and logistics. Vision 2030 logistics targets accelerated by current conflict dynamics.",
+      "headline": "Saudi economy attracts wartime Gulf business pivot",
+      "summary": "PIF recalibrating investment strategy focusing on tourism, industry, AI and logistics as regional businesses seek stability during conflict.",
       "source": "Reuters",
       "url": "https://www.reuters.com/world/middle-east/resilient-saudi-economy-proves-draw-wartime-gulf-business-2026-06-03/",
       "metric": "2026-2030",
       "metric_label": "New PIF strategy period"
     },
     {
-      "headline": "UAE PMI shows growth amid regional contractions",
-      "summary": "UAE stayed in expansion territory while Egypt and Kuwait remained in contraction. Supply disruptions and geopolitical tensions weighed on conditions.",
+      "headline": "UAE PMI shows growth while Kuwait contracts",
+      "summary": "UAE non-oil private sector stayed in expansion territory in May, while Kuwait remained below 50 no-change mark despite easing decline.",
       "source": "Arab News",
       "url": "https://www.arabnews.com/node/2645874/business-economy",
       "metric": "50",
       "metric_label": "PMI no-change threshold"
     },
     {
-      "headline": "Oil prices jump 6% on Hormuz tensions",
-      "summary": "International oil prices up 6% on Monday as Middle East tensions build. Analysts warn prices could climb higher if Strait of Hormuz remains closed.",
-      "source": "New York Times",
-      "url": "https://www.nytimes.com/2026/06/01/business/energy-environment/iran-war-oil-prices.html",
-      "metric": "6%",
-      "metric_label": "Oil price increase Monday"
-    },
-    {
-      "headline": "Brent crude surges 30% since February conflict",
-      "summary": "Oil disruption sends Brent up nearly 30% since February 28. Iranian drone strikes on Kuwait airport escalate regional tensions affecting energy markets.",
+      "headline": "Oil prices surge 30% since February tensions",
+      "summary": "Brent crude up nearly 30% since Feb 28 due to Middle East disruptions, with analysts warning further rises if Hormuz remains closed.",
       "source": "New York Times",
       "url": "https://www.nytimes.com/live/2026/06/02/world/iran-war-trump-israel-lebanon",
       "metric": "30%",
-      "metric_label": "Brent increase since Feb 28"
-    },
-    {
-      "headline": "Iran threatens Bab al-Mandab strait closure",
-      "summary": "Iran threatened to close strategic waterway in response to Israel's Lebanon attacks. Oil prices rose sharply on potential trade disruption concerns.",
-      "source": "CNN",
-      "url": "https://www.cnn.com/2026/06/01/world/live-news/iran-trump-lebanon-war-news",
-      "metric": "Bab al-Mandab",
-      "metric_label": "Strategic strait threatened"
+      "metric_label": "Brent crude increase since Feb 2"
     },
     {
       "headline": "Iranian drone strikes hit Kuwait airport",
-      "summary": "Iran attacked Kuwait airport in retaliation for US strikes on Iranian oil tanker and island. One killed and dozens injured in the strikes.",
+      "summary": "One killed, dozens injured in Iranian attack on Kuwait airport. Iran claims retaliation for earlier US strikes on Iranian tanker.",
       "source": "BBC World",
       "url": "https://www.bbc.com/news/articles/c5yx135yg53o?at_medium=RSS&at_campaign=rss",
       "metric": "1",
-      "metric_label": "Fatalities in Kuwait strike"
+      "metric_label": "Fatalities reported"
+    },
+    {
+      "headline": "Rubio says Hormuz opening key Iran condition",
+      "summary": "US Secretary of State says opening Strait of Hormuz is first condition in talks with Iran, along with uranium negotiations.",
+      "source": "The Guardian",
+      "url": "https://www.theguardian.com/world/live/2026/jun/02/iran-us-israel-lebanon-trump-netanyahu-hezbollah-beirut-hormuz-talks-oil-latest-news-updates",
+      "metric": "1st",
+      "metric_label": "Priority condition for talks"
+    },
+    {
+      "headline": "Israeli strikes kill nine in Lebanon",
+      "summary": "Nine killed in Israeli strikes in Lebanon as Hezbollah fires rockets across border, straining partial ceasefire agreed Monday.",
+      "source": "BBC World",
+      "url": "https://www.bbc.com/news/articles/c5y01pdqvkgo?at_medium=RSS&at_campaign=rss",
+      "metric": "9",
+      "metric_label": "Casualties in Lebanon"
     }
   ],
   "qatar_news": [
     {
       "headline": "QIB wins four top honours at Global Finance Awards 2026",
-      "summary": "Qatar Islamic Bank received four top honours at the Global Finance Awards 2026.",
+      "summary": "Qatar Islamic Bank receives four top honours at Global Finance Awards 2026, marking significant recognition for the banking institution.",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/237339/business/qib-wins-four-top-honours-at-global-finance-awards-2026",
       "metric": "4",
@@ -594,15 +594,15 @@
     },
     {
       "headline": "Qatar boosts private sector role to drive economic diversification",
-      "summary": "Qatar is enhancing the private sector's role to drive economic diversification efforts.",
+      "summary": "Qatar enhances private sector involvement as part of strategy to diversify economy beyond traditional sectors.",
       "source": "The Peninsula Qatar",
       "url": "https://thepeninsulaqatar.com/article/03/06/2026/qatar-boosts-private-sector-role-to-drive-economic-diversification",
-      "metric": "Private sector",
+      "metric": "Private Sector",
       "metric_label": "Economic diversification focus"
     },
     {
       "headline": "Qatar ports handle more than 73,000 containers in May",
-      "summary": "Qatar ports processed over 73,000 containers in May amid surging trade activity.",
+      "summary": "Qatar's ports processed over 73,000 containers during May as trade activity experiences surge in operations.",
       "source": "The Peninsula Qatar",
       "url": "https://thepeninsulaqatar.com/article/01/06/2026/qatar-ports-handle-more-than-73000-containers-in-may-as-trade-activity-surges",
       "metric": "73,000+",
@@ -610,19 +610,19 @@
     },
     {
       "headline": "Qatar Stock Exchange index closes lower",
-      "summary": "The Qatar Stock Exchange index finished trading lower.",
+      "summary": "Qatar Stock Exchange index ended trading session with decline in market performance.",
       "source": "The Peninsula Qatar",
       "url": "https://thepeninsulaqatar.com/article/02/06/2026/qatar-stock-exchange-index-closes-lower-6",
       "metric": "Lower",
-      "metric_label": "QSE index performance"
+      "metric_label": "QSE index direction"
     },
     {
-      "headline": "Qatar, Uzbekistan chambers discuss activation of joint business council",
-      "summary": "Business chambers from Qatar and Uzbekistan discussed activating their joint business council.",
+      "headline": "Qatar, Uzbekistan chambers discuss joint business council activation",
+      "summary": "Business chambers from Qatar and Uzbekistan engage in discussions regarding activation of joint business council initiatives.",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/237156/business/qatar-uzbekistan-chambers-discuss-activation-of-joint-business-council",
-      "metric": "Joint council",
-      "metric_label": "Qatar-Uzbekistan business cooper"
+      "metric": "2",
+      "metric_label": "Countries in business talks"
     }
   ],
   "kpis": [
@@ -649,52 +649,52 @@
   ],
   "market_drivers": [
     {
-      "source": "New York Times",
-      "url": "https://www.nytimes.com/2026/06/01/business/energy-environment/iran-war-oil-prices.html",
-      "headline": "Brent above $97.99 tests $105 resistance; Hormuz closure triggers $130 target",
-      "summary": "Oil's +6% surge on Hormuz threats places Brent at critical $98 level. Break above $105 activates energy sector rotation and EM FX pressure. Sustained closure scenario targets $130, inflating global equity valuations by 8-12%.",
-      "metric": "$97.99",
-      "metric_label": "Brent crude"
-    },
-    {
       "source": "CNBC",
       "url": "https://www.cnbc.com/2026/06/02/stock-market-today-live-updates.html",
-      "headline": "Treasury yield surge triggers 620-point Dow drop; watch 4.8% UST10Y break",
-      "summary": "Rising yields drove 1.21% Dow decline as rate-sensitive sectors underperformed. Critical level at 4.8% on 10-year Treasury would accelerate rotation out of growth/duration plays into financials and energy.",
-      "metric": "620.72",
-      "metric_label": "Dow points"
+      "headline": "UST 10Y above 4.48% pressures tech; Nasdaq 26,200 support critical",
+      "summary": "10Y yield surge to 4.489% (+76bp) triggers growth multiple compression. Nasdaq 26,854 level vulnerable if yields sustain above 4.50%. Tech P/E re-rating accelerates on duration risk.",
+      "metric": "4.489%",
+      "metric_label": "UST10Y"
     },
     {
-      "source": "CNN",
-      "url": "https://www.cnn.com/2026/06/01/world/live-news/iran-trump-lebanon-war-news",
-      "headline": "Bab al-Mandab closure risk pressures LNG to $20; shipping costs spike",
-      "summary": "Iranian strait threat elevates LNG Japan/Korea +1.13% to $18.82. Break above $20 signals supply crisis, benefiting US exporters while pressuring Asian manufacturing margins. Baltic Dry Index acceleration expected.",
-      "metric": "$18.82",
-      "metric_label": "LNG JP/KR"
+      "source": "New York Times",
+      "url": "https://www.nytimes.com/live/2026/06/02/world/iran-war-trump-israel-lebanon",
+      "headline": "Brent 98-105 range if Hormuz closure; 30% surge validates momentum",
+      "summary": "30% rally since February establishes bullish trend. Current 97.99 level holds monthly breakout. Hormuz disruption scenarios target 105-110 range with knock-on inflation implications for bonds.",
+      "metric": "97.99",
+      "metric_label": "Brent spot"
     },
     {
-      "source": "The National",
-      "url": "https://www.thenationalnews.com/business/economy/2026/06/03/imf-says-prolonged-iran-war-could-weigh-on-saudi-arabias-medium-term-outlook/",
-      "headline": "Gulf equity divergence: Dubai -0.80% vs stabilizing Saudi fundamentals",
-      "summary": "IMF warning creates regional dispersion as Dubai DFM underperforms at 5686. Saudi resilience supports relative outperformance. Watch 5500 level on DFM as critical support; break triggers broader GCC contagion risk.",
-      "metric": "5686.41",
-      "metric_label": "Dubai DFM"
-    },
-    {
-      "source": "CNBC",
-      "url": "https://www.cnbc.com/federal-reserve/",
-      "headline": "USD Index 99.53 approaches 102 ceiling as Fed transition risk builds",
-      "summary": "Warsh transition speculation strengthens dollar +0.33% to 99.53. Critical resistance at 102 level coincides with EM stress threshold. EUR/USD 1.1602 faces 1.15 downside if DXY breaks higher.",
+      "source": "Reuters",
+      "url": "https://www.reuters.com/business/us-job-openings-jump-near-two-year-high-april-2026-06-02/",
+      "headline": "Job openings surge threatens Fed pivot; DXY 100+ on hawkish repricing",
+      "summary": "Two-year high in openings with 4.3% unemployment floor suggests wage pressure persistence. DXY 99.53 approaching key 100 resistance. Fed pause extending supports dollar strength vs majors.",
       "metric": "99.53",
-      "metric_label": "USD Index"
+      "metric_label": "DXY"
+    },
+    {
+      "source": "BBC World",
+      "url": "https://www.bbc.com/news/articles/c5yx135yg53o?at_medium=RSS&at_campaign=rss",
+      "headline": "Kuwait airport strike elevates GCC risk premium; ADX 9,400 downside",
+      "summary": "Iranian strike extends conflict beyond Levant, pressuring regional equities. ADX -0.41% at 9,582 tests monthly support at 9,400. Broader GCC selloff if escalation continues beyond current scope.",
+      "metric": "9582.12",
+      "metric_label": "ADX"
     },
     {
       "source": "Arab News",
       "url": "https://www.arabnews.com/node/2645874/business-economy",
-      "headline": "UAE PMI expansion supports HSI 25633 while regional PMIs contract",
-      "summary": "UAE's manufacturing resilience contrasts with Kuwait/Egypt contractions, supporting Hong Kong's -1.56% decline as contained. Critical support at 25000 for HSI; break below signals broader EM Asia deterioration.",
-      "metric": "25633.21",
-      "metric_label": "Hong Kong HSI"
+      "headline": "UAE PMI expansion sustains; divergence from Kuwait contraction widens",
+      "summary": "UAE maintaining above-50 expansion while Kuwait contracts creates performance divergence within GCC. Portfolio rotation favors UAE exposure over broader regional allocations amid conflict uncertainty.",
+      "metric": "50+",
+      "metric_label": "UAE PMI"
+    },
+    {
+      "source": "The Guardian",
+      "url": "https://www.theguardian.com/world/live/2026/jun/02/iran-us-israel-lebanon-trump-netanyahu-hezbollah-beirut-hormuz-talks-oil-latest-news-updates",
+      "headline": "Hormuz reopening as precondition caps LNG upside; 19-20 resistance",
+      "summary": "US diplomatic stance linking talks to Hormuz suggests eventual reopening timeline. LNG JP/KR at 18.82 (+95% YTD) approaching technical resistance at 19-20 level. Position sizing critical on volatility.",
+      "metric": "18.82",
+      "metric_label": "LNG JP/KR"
     }
   ],
   "validation_issues": [
