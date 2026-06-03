@@ -732,6 +732,7 @@ def _get_history_rows_for_calculations(as_of_date: datetime.date) -> List[Dict[s
         "select": "instrument_code,px_last,change_1d_pct,as_of_date,status,source",
         "as_of_date": f"gte.{history_start.isoformat()}",
         "order": "instrument_code.asc,as_of_date.asc",
+        "limit": "10000",
     }
 
     rows = _supabase_get(SUPABASE_TABLE, params=params)
