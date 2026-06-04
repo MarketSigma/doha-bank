@@ -1,7 +1,7 @@
 {
   "config": {
     "client_name": "Doha Bank",
-    "report_date": "03 June 2026",
+    "report_date": "04 June 2026",
     "delivery_time_ast": "07:00",
     "sections": {
       "global_indices": true,
@@ -16,7 +16,7 @@
       "market_drivers": true
     }
   },
-  "generated_at": "2026-06-03T21:12:36Z",
+  "generated_at": "2026-06-04T04:57:28Z",
   "generated_display_time": "",
   "global_indices": [
     {
@@ -503,126 +503,110 @@
   "market_as_of_date": "2026-06-03",
   "global_news": [
     {
-      "headline": "Dow drops 620 points on Treasury yields pressure",
-      "summary": "Dow Jones fell 1.21% to 50,687, S&P 500 declined 0.74% to 7,554, Nasdaq dropped 0.89% to 26,854 amid rising yields and oil prices.",
+      "headline": "Dow drops 600 points on rising yields",
+      "summary": "Dow fell 620.72 points to 50,687.07. S&P 500 declined 0.74% to 7,553.68, while Nasdaq dropped 0.89% to 26,853.98.",
       "source": "CNBC",
       "url": "https://www.cnbc.com/2026/06/02/stock-market-today-live-updates.html",
-      "metric": "620 points",
-      "metric_label": "Dow decline"
+      "metric": "-1.21%",
+      "metric_label": "Dow daily decline"
     },
     {
-      "headline": "Fed expected to hold rates at June meeting",
-      "summary": "Federal Reserve likely to maintain current interest rates when policymakers gather June 16-17 for first meeting under new Fed chair.",
-      "source": "Reuters",
-      "url": "https://www.reuters.com/markets/us/federal-reserve/",
-      "metric": "June 16-17",
-      "metric_label": "Fed meeting dates"
+      "headline": "10-year Treasury yield nears 4.5% after jobs",
+      "summary": "30-year Treasury yield up more than 2 basis points at 4.989% following strong jobs data and rising oil prices.",
+      "source": "CNBC",
+      "url": "https://www.cnbc.com/2026/06/03/treasury-yields-edge-higher-as-traders-await-economic-data.html",
+      "metric": "4.989%",
+      "metric_label": "30-year Treasury yield"
     },
     {
-      "headline": "US job openings rise most since 2021",
-      "summary": "Job openings jumped to near two-year high in April, though hiring remains weak amid economic uncertainty and unemployment steady at 4.3%.",
-      "source": "Reuters",
-      "url": "https://www.reuters.com/business/us-job-openings-jump-near-two-year-high-april-2026-06-02/",
-      "metric": "4.3%",
-      "metric_label": "Unemployment rate"
+      "headline": "ADP payrolls increase by 122,000 in May",
+      "summary": "May payrolls grew by 122,000, exceeding Wall Street consensus of 80,000. Federal Reserve watching jobs data ahead of June meeting.",
+      "source": "CNBC",
+      "url": "https://www.cnbc.com/amp/2026/06/03/adp-jobs-report-may-2026-payrolls-increase-by-122000.html",
+      "metric": "122,000",
+      "metric_label": "May payrolls added"
     },
     {
-      "headline": "IMF warns Iran war could impact Saudi outlook",
-      "summary": "International Monetary Fund says prolonged Iran conflict could weigh on Saudi Arabia's medium-term economic outlook despite current resilience.",
+      "headline": "IMF warns Iran war could hurt Saudi",
+      "summary": "IMF says prolonged Iran conflict could weigh on Saudi Arabia's medium-term economic outlook despite economy's current resilience.",
       "source": "The National",
       "url": "https://www.thenationalnews.com/business/economy/2026/06/03/imf-says-prolonged-iran-war-could-weigh-on-saudi-arabias-medium-term-outlook/",
-      "metric": "2026",
-      "metric_label": "Target year for deficit reductio"
+      "metric": "2026-2030",
+      "metric_label": "Strategy period affected"
     },
     {
-      "headline": "Saudi economy attracts wartime Gulf business pivot",
-      "summary": "PIF recalibrating investment strategy focusing on tourism, industry, AI and logistics as regional businesses seek stability during conflict.",
+      "headline": "Saudi economy draws wartime Gulf business",
+      "summary": "New 2026-2030 strategy focuses on tourism, industry, AI and logistics with Public Investment Fund driving much of the investment.",
       "source": "Reuters",
       "url": "https://www.reuters.com/world/middle-east/resilient-saudi-economy-proves-draw-wartime-gulf-business-2026-06-03/",
       "metric": "2026-2030",
       "metric_label": "New PIF strategy period"
     },
     {
-      "headline": "UAE PMI shows growth while Kuwait contracts",
-      "summary": "UAE non-oil private sector stayed in expansion territory in May, while Kuwait remained below 50 no-change mark despite easing decline.",
-      "source": "Arab News",
-      "url": "https://www.arabnews.com/node/2645874/business-economy",
-      "metric": "50",
-      "metric_label": "PMI no-change threshold"
-    },
-    {
-      "headline": "Oil prices surge 30% since February tensions",
-      "summary": "Brent crude up nearly 30% since Feb 28 due to Middle East disruptions, with analysts warning further rises if Hormuz remains closed.",
+      "headline": "Oil prices soar on Hormuz disruption",
+      "summary": "Brent crude up nearly 30 percent since Feb. 28 as Iran disruption sends oil prices soaring amid Hormuz shipping concerns.",
       "source": "New York Times",
       "url": "https://www.nytimes.com/live/2026/06/02/world/iran-war-trump-israel-lebanon",
       "metric": "30%",
-      "metric_label": "Brent crude increase since Feb 2"
+      "metric_label": "Brent crude rise since Feb 28"
     },
     {
-      "headline": "Iranian drone strikes hit Kuwait airport",
-      "summary": "One killed, dozens injured in Iranian attack on Kuwait airport. Iran claims retaliation for earlier US strikes on Iranian tanker.",
-      "source": "BBC World",
-      "url": "https://www.bbc.com/news/articles/c5yx135yg53o?at_medium=RSS&at_campaign=rss",
-      "metric": "1",
-      "metric_label": "Fatalities reported"
-    },
-    {
-      "headline": "Rubio says Hormuz opening key Iran condition",
-      "summary": "US Secretary of State says opening Strait of Hormuz is first condition in talks with Iran, along with uranium negotiations.",
+      "headline": "Rubio says opening Hormuz first condition",
+      "summary": "US Secretary of State says opening Strait of Hormuz is first condition in talks with Iran regarding nuclear negotiations.",
       "source": "The Guardian",
       "url": "https://www.theguardian.com/world/live/2026/jun/02/iran-us-israel-lebanon-trump-netanyahu-hezbollah-beirut-hormuz-talks-oil-latest-news-updates",
-      "metric": "1st",
-      "metric_label": "Priority condition for talks"
+      "metric": "First",
+      "metric_label": "Condition priority for Iran talk"
     },
     {
-      "headline": "Israeli strikes kill nine in Lebanon",
-      "summary": "Nine killed in Israeli strikes in Lebanon as Hezbollah fires rockets across border, straining partial ceasefire agreed Monday.",
-      "source": "BBC World",
-      "url": "https://www.bbc.com/news/articles/c5y01pdqvkgo?at_medium=RSS&at_campaign=rss",
-      "metric": "9",
-      "metric_label": "Casualties in Lebanon"
+      "headline": "Kuwait reports casualties in Iranian airport attack",
+      "summary": "Kuwait says one killed and dozens injured in Iranian attack on airport as military strikes cast doubt on Hormuz reopening.",
+      "source": "New York Times",
+      "url": "https://www.nytimes.com/live/2026/06/03/world/iran-war-trump-israel-lebanon",
+      "metric": "1",
+      "metric_label": "Deaths in Kuwait airport attack"
     }
   ],
   "qatar_news": [
     {
-      "headline": "QIB wins four top honours at Global Finance Awards 2026",
-      "summary": "Qatar Islamic Bank receives four top honours at Global Finance Awards 2026, marking significant recognition for the banking institution.",
-      "source": "Qatar Tribune",
-      "url": "https://www.qatar-tribune.com/article/237339/business/qib-wins-four-top-honours-at-global-finance-awards-2026",
-      "metric": "4",
-      "metric_label": "Awards won by QIB"
-    },
-    {
       "headline": "Qatar boosts private sector role to drive economic diversification",
-      "summary": "Qatar enhances private sector involvement as part of strategy to diversify economy beyond traditional sectors.",
+      "summary": "Qatar enhances private sector involvement to support economic diversification efforts.",
       "source": "The Peninsula Qatar",
       "url": "https://thepeninsulaqatar.com/article/03/06/2026/qatar-boosts-private-sector-role-to-drive-economic-diversification",
       "metric": "Private Sector",
       "metric_label": "Economic diversification focus"
     },
     {
-      "headline": "Qatar ports handle more than 73,000 containers in May",
-      "summary": "Qatar's ports processed over 73,000 containers during May as trade activity experiences surge in operations.",
+      "headline": "Qatar ports handle 73,000 containers in May",
+      "summary": "Qatar ports processed more than 73,000 containers in May amid surging trade activity.",
       "source": "The Peninsula Qatar",
       "url": "https://thepeninsulaqatar.com/article/01/06/2026/qatar-ports-handle-more-than-73000-containers-in-may-as-trade-activity-surges",
       "metric": "73,000+",
       "metric_label": "Containers handled in May"
     },
     {
-      "headline": "Qatar Stock Exchange index closes lower",
-      "summary": "Qatar Stock Exchange index ended trading session with decline in market performance.",
+      "headline": "Qatar, Uzbekistan chambers discuss Joint Business Council",
+      "summary": "Qatar and Uzbekistan chambers of commerce discuss activating Joint Business Council.",
       "source": "The Peninsula Qatar",
-      "url": "https://thepeninsulaqatar.com/article/02/06/2026/qatar-stock-exchange-index-closes-lower-6",
-      "metric": "Lower",
-      "metric_label": "QSE index direction"
+      "url": "https://thepeninsulaqatar.com/article/02/06/2026/qatar-uzbekistan-chambers-discuss-activating-joint-business-council",
+      "metric": "Joint Council",
+      "metric_label": "Qatar-Uzbekistan business cooper"
     },
     {
-      "headline": "Qatar, Uzbekistan chambers discuss joint business council activation",
-      "summary": "Business chambers from Qatar and Uzbekistan engage in discussions regarding activation of joint business council initiatives.",
-      "source": "Qatar Tribune",
-      "url": "https://www.qatar-tribune.com/article/237156/business/qatar-uzbekistan-chambers-discuss-activation-of-joint-business-council",
-      "metric": "2",
-      "metric_label": "Countries in business talks"
+      "headline": "QSE index gains 52.10 points at trading start",
+      "summary": "Qatar Stock Exchange index gained 52.10 points at the start of Sunday's trading session.",
+      "source": "The Peninsula Qatar",
+      "url": "https://thepeninsulaqatar.com/article/31/05/2026/qse-index-gains-5210-points-at-start-of-sundays-trading",
+      "metric": "+52.10",
+      "metric_label": "QSE points gained"
+    },
+    {
+      "headline": "Qatar shares advance on long-term growth focus",
+      "summary": "Qatar shares advanced as investors focus on long-term growth prospects.",
+      "source": "The Peninsula Qatar",
+      "url": "https://thepeninsulaqatar.com/article/29/05/2026/qatar-shares-advance-as-investors-focus-on-long-term-growth",
+      "metric": "Advance",
+      "metric_label": "Share price movement"
     }
   ],
   "kpis": [
@@ -650,54 +634,55 @@
   "market_drivers": [
     {
       "source": "CNBC",
-      "url": "https://www.cnbc.com/2026/06/02/stock-market-today-live-updates.html",
-      "headline": "UST 10Y above 4.48% pressures tech; Nasdaq 26,200 support critical",
-      "summary": "10Y yield surge to 4.489% (+76bp) triggers growth multiple compression. Nasdaq 26,854 level vulnerable if yields sustain above 4.50%. Tech P/E re-rating accelerates on duration risk.",
+      "url": "https://www.cnbc.com/2026/06/03/treasury-yields-edge-higher-as-traders-await-economic-data.html",
+      "headline": "UST10Y at 4.489% tests resistance; break above 4.50% pressures equities",
+      "summary": "10-year yield approaching 4.5% ceiling after strong payrolls. Break above this level would trigger systematic deleveraging in growth names and further equity multiple compression. 30-year at 4.989% signals duration risk acceleration.",
       "metric": "4.489%",
       "metric_label": "UST10Y"
     },
     {
       "source": "New York Times",
       "url": "https://www.nytimes.com/live/2026/06/02/world/iran-war-trump-israel-lebanon",
-      "headline": "Brent 98-105 range if Hormuz closure; 30% surge validates momentum",
-      "summary": "30% rally since February establishes bullish trend. Current 97.99 level holds monthly breakout. Hormuz disruption scenarios target 105-110 range with knock-on inflation implications for bonds.",
-      "metric": "97.99",
-      "metric_label": "Brent spot"
+      "headline": "Brent at $97.99 targets $105 on Hormuz closure; energy allocations vulnerable",
+      "summary": "Oil up 61% YTD on Iran disruption threatens $105 psychological resistance. Hormuz shipping concerns create asymmetric risk for energy-heavy portfolios. Watch for momentum acceleration above $100 triggering systematic CTA flows.",
+      "metric": "$97.99",
+      "metric_label": "Brent crude"
     },
     {
-      "source": "Reuters",
-      "url": "https://www.reuters.com/business/us-job-openings-jump-near-two-year-high-april-2026-06-02/",
-      "headline": "Job openings surge threatens Fed pivot; DXY 100+ on hawkish repricing",
-      "summary": "Two-year high in openings with 4.3% unemployment floor suggests wage pressure persistence. DXY 99.53 approaching key 100 resistance. Fed pause extending supports dollar strength vs majors.",
-      "metric": "99.53",
-      "metric_label": "DXY"
+      "source": "CNBC",
+      "url": "https://www.cnbc.com/amp/2026/06/03/adp-jobs-report-may-2026-payrolls-increase-by-122000.html",
+      "headline": "ADP 122K vs 80K consensus shifts Fed pivot; USD index targeting 100.50",
+      "summary": "Payroll beat delays rate cut expectations, strengthening dollar momentum. USD index at 99.53 approaches key 100.50 resistance. Break higher pressures emerging market currencies and commodity exporters through funding channel.",
+      "metric": "122K",
+      "metric_label": "ADP payrolls"
     },
     {
-      "source": "BBC World",
-      "url": "https://www.bbc.com/news/articles/c5yx135yg53o?at_medium=RSS&at_campaign=rss",
-      "headline": "Kuwait airport strike elevates GCC risk premium; ADX 9,400 downside",
-      "summary": "Iranian strike extends conflict beyond Levant, pressuring regional equities. ADX -0.41% at 9,582 tests monthly support at 9,400. Broader GCC selloff if escalation continues beyond current scope.",
-      "metric": "9582.12",
-      "metric_label": "ADX"
+      "source": "CNBC",
+      "url": "https://www.cnbc.com/2026/06/02/stock-market-today-live-updates.html",
+      "headline": "Dow -620 points tests 50,500 support; defensives outperform growth rotation",
+      "summary": "Yield surge triggers equity selloff with Nasdaq underperforming at -0.89%. S&P 500 at 7,553 approaches 7,500 technical support. Rising real rates favor value over growth in sector allocation models.",
+      "metric": "-620",
+      "metric_label": "Dow points"
     },
     {
-      "source": "Arab News",
-      "url": "https://www.arabnews.com/node/2645874/business-economy",
-      "headline": "UAE PMI expansion sustains; divergence from Kuwait contraction widens",
-      "summary": "UAE maintaining above-50 expansion while Kuwait contracts creates performance divergence within GCC. Portfolio rotation favors UAE exposure over broader regional allocations amid conflict uncertainty.",
-      "metric": "50+",
-      "metric_label": "UAE PMI"
+      "source": "The National",
+      "url": "https://www.thenationalnews.com/business/economy/2026/06/03/imf-says-prolonged-iran-war-could-weigh-on-saudi-arabias-medium-term-outlook/",
+      "headline": "Gulf equity weakness accelerates; regional allocations face duration risk",
+      "summary": "IMF Iran war warning pressures GCC markets. Dubai DFM -5.96% YTD and Abu Dhabi ADX -4.11% YTD signal sustained outflows. Prolonged conflict scenario threatens tourism and diversification strategies across regional allocations.",
+      "metric": "-5.96%",
+      "metric_label": "Dubai DFM YTD"
     },
     {
-      "source": "The Guardian",
-      "url": "https://www.theguardian.com/world/live/2026/jun/02/iran-us-israel-lebanon-trump-netanyahu-hezbollah-beirut-hormuz-talks-oil-latest-news-updates",
-      "headline": "Hormuz reopening as precondition caps LNG upside; 19-20 resistance",
-      "summary": "US diplomatic stance linking talks to Hormuz suggests eventual reopening timeline. LNG JP/KR at 18.82 (+95% YTD) approaching technical resistance at 19-20 level. Position sizing critical on volatility.",
-      "metric": "18.82",
+      "source": "New York Times",
+      "url": "https://www.nytimes.com/live/2026/06/03/world/iran-war-trump-israel-lebanon",
+      "headline": "LNG at $18.82 tests $20 resistance; energy infrastructure trades diverge",
+      "summary": "LNG prices up 95.84% YTD approach $20 psychological level on supply disruption fears. Kuwait airport attack escalates regional risk premium. Infrastructure and shipping names face asymmetric upside in energy transition portfolios.",
+      "metric": "$18.82",
       "metric_label": "LNG JP/KR"
     }
   ],
   "validation_issues": [
+    "Using latest available Supabase market date 2026-06-03, not today 2026-06-04",
     "Kuwait Boursa missing or invalid"
   ],
   "report_status": "NEEDS_REVIEW",
