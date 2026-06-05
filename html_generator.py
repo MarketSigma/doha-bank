@@ -743,7 +743,7 @@ def generate(data, output_path):
     )
 
     news_global  = render_news_cards("Regional & Global News", None, data.get("global_news", [])[:4])
-    news_qatar   = render_news_cards("Qatar News",             None, data.get("qatar_news",  [])[:3])
+    news_qatar   = render_news_cards("Qatar News",             None, data.get("qatar_news",  [])[:4])
     news_drivers = render_news_cards("Market Drivers", "What Moved Markets", data.get("market_drivers", [])[:3])
 
     output = HTML_TEMPLATE.format(
