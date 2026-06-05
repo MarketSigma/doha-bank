@@ -742,9 +742,9 @@ def generate(data, output_path):
         render_table("Commodities & Energy",    "USD",       ["Asset",          "PX Last", "1D %", "MTD %", "YTD %"], section_rows(data, "commodities"))
     )
 
-    news_global  = render_news_cards("Regional & Global News", None, data.get("global_news", [])[:6])
-    news_qatar   = render_news_cards("Qatar News",             None, data.get("qatar_news",  [])[:4])
-    news_drivers = render_news_cards("Market Drivers", "What Moved Markets", data.get("market_drivers", [])[:4])
+    news_global  = render_news_cards("Regional & Global News", None, data.get("global_news", [])[:4])
+    news_qatar   = render_news_cards("Qatar News",             None, data.get("qatar_news",  [])[:3])
+    news_drivers = render_news_cards("Market Drivers", "What Moved Markets", data.get("market_drivers", [])[:3])
 
     output = HTML_TEMPLATE.format(
         title=f"Doha Bank Market Updates – {e(report_date)}",
