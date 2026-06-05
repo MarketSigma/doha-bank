@@ -34,12 +34,12 @@ EXPECTED_INSTRUMENT_COUNT = 39
 STALE_DATA_WARNING_DAYS = 3
 USD_QAR_SUSPICIOUS_MOVE_THRESHOLD = 10.0
 
-QATAR_NEWS_TARGET_COUNT = 8
-QATAR_NEWS_MIN_VALID_COUNT = 4
+QATAR_NEWS_TARGET_COUNT = 6
+QATAR_NEWS_MIN_VALID_COUNT = 3
 QATAR_NEWS_MAX_AGE_HOURS = 24
 
-GLOBAL_NEWS_TARGET_COUNT = 10
-GLOBAL_NEWS_MIN_FLOOR = 8       # hard minimum — past-week top-up fires if pass-1 yields fewer
+GLOBAL_NEWS_TARGET_COUNT = 8
+GLOBAL_NEWS_MIN_FLOOR = 4       # hard minimum — past-week top-up fires if pass-1 yields fewer
 GLOBAL_NEWS_MAX_AGE_HOURS = 36
 
 # ------------------------------------------------------------
@@ -1925,8 +1925,8 @@ def build_kpis(market_data: Dict[str, Any]) -> List[Dict[str, Any]]:
 # render them with the existing news-card vocabulary.
 # ============================================================
 
-MARKET_DRIVERS_TARGET_COUNT = 6
-MARKET_DRIVERS_MIN_COUNT    = 4
+MARKET_DRIVERS_TARGET_COUNT = 4
+MARKET_DRIVERS_MIN_COUNT    = 3
 
 
 def build_market_drivers(data: Dict[str, Any]) -> List[Dict[str, Any]]:
