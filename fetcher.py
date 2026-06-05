@@ -2254,6 +2254,7 @@ def run() -> Dict[str, Any]:
             f"CRITICAL: Qatar news has only {data.get('_qatar_valid_news_count', 0)} valid recent business news items, minimum required {QATAR_NEWS_MIN_VALID_COUNT}"
         )
     data["validation_issues"] = validation_issues
+    data["validation_issue_count"] = len(validation_issues)
     data["report_status"] = "ok" if not validation_issues else "needs_review"
 
     if "_supabase_issues" in data:
