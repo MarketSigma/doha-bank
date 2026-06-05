@@ -429,7 +429,7 @@ def build_email_body(data: Dict[str, Any]) -> str:
     ))
     sections.append(_news_section_block(
         "Qatar News", "",
-        data.get("qatar_news", [])[:3],
+        data.get("qatar_news", [])[:4],
     ))
     sections.append(_news_section_block(
         "Market Drivers", "What Moved Markets",
