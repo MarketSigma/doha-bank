@@ -24,6 +24,10 @@ TO_HEADER_EMAIL = os.environ.get(
 MARKET_DATA_PATH = Path("market_data.json")
 SCHEDULE_ID = "main"
 QATAR_TZ = ZoneInfo("Asia/Qatar")
+VALIDATION_ALERT_RECIPIENTS = [
+    "smajari@dohabank.com.qa",
+    "salam.majari@gmail.com",
+]
 
 
 def load_market_data() -> dict:
@@ -119,7 +123,34 @@ def mark_schedule_sent(status: str, message: str) -> None:
     except Exception as exc:
         print(f"[WARN] Could not update schedule last_sent marker: {exc}")
 
+def send_validation_alert(data: dict) -> None:
+    issues = data.get("validation_issues") or []
 
+    if not issues:
+        return
+
+    body = (
+        "The Doha Bank Market Updates report was sent successfully.\n\n"
+        "However, validation issues were detected:\n\n"
+        + "\n".join(f"- {i}" for i in issues)
+    )
+
+    payload = {
+        "from": FROM_EMAIL,
+        "to": VALIDATION_ALERT_RECIPIENTS,
+        "subject": "Doha Bank Dashboard Validation Alert",
+        "text": body,
+    }
+
+    requests.post(
+        "https://api.resend.com/emails",
+        headers={
+            "Authorization": f"Bearer {RESEND_API_KEY}",
+            "Content-Type": "application/json",
+        },
+        json=payload,
+        timeout=30,
+    )
 def send() -> None:
     data = load_market_data()
     report_date = report_date_from_data(data)
@@ -165,6 +196,8 @@ def send() -> None:
             "sent",
             f"Email sent — {len(recipients)} BCC recipient(s) — body-only",
         )
+        if data.get("report_status") == "needs_review":
+            send_validation_alert(data)
         return
 
     print(f"[ERROR] Resend API: {resp.status_code} - {resp.text}")
