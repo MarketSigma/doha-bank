@@ -425,15 +425,15 @@ def build_email_body(data: Dict[str, Any]) -> str:
     # News sections — keep the same counts the PDF uses
     sections.append(_news_section_block(
         "Regional & Global News", "",
-        data.get("global_news", [])[:6],
+        data.get("global_news", [])[:4],
     ))
     sections.append(_news_section_block(
         "Qatar News", "",
-        data.get("qatar_news", [])[:4],
+        data.get("qatar_news", [])[:3],
     ))
     sections.append(_news_section_block(
         "Market Drivers", "What Moved Markets",
-        data.get("market_drivers", [])[:4],
+        data.get("market_drivers", [])[:3],
     ))
 
     sections.append(_footer(report_date))
