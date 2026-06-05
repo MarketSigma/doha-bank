@@ -714,14 +714,41 @@ def _get_latest_available_date(today: datetime.date) -> Optional[datetime.date]:
 
 
 def _get_rows_for_date(as_of_date: datetime.date) -> List[Dict[str, Any]]:
-    params = {
-        "select": "*",
-        "as_of_date": f"eq.{as_of_date.isoformat()}",
-        "order": "report_section.asc,display_order.asc,instrument_code.asc",
-    }
+    """
+    Get one usable row per expected instrument.
 
-    rows = _supabase_get(SUPABASE_TABLE, params=params)
-    return rows or []
+    Primary logic:
+    - Prefer exact as_of_date.
+    - If missing, carry forward the latest available row before as_of_date.
+    - Do not carry forward rows older than 5 days.
+    """
+
+    expected_codes = [item["code"] for item in EXPECTED_INSTRUMENTS]
+    rows_out = []
+
+    for code in expected_codes:
+        params = {
+            "select": "*",
+            "instrument_code": f"eq.{code}",
+            "as_of_date": f"lte.{as_of_date.isoformat()}",
+            "order": "as_of_date.desc",
+            "limit": "1",
+        }
+
+        rows = _supabase_get(SUPABASE_TABLE, params=params) or []
+
+        if rows:
+            rows_out.append(rows[0])
+
+    rows_out.sort(
+        key=lambda r: (
+            str(r.get("report_section") or ""),
+            _to_int(r.get("display_order")),
+            str(r.get("instrument_code") or ""),
+        )
+    )
+
+    return rows_out
 
 
 def _get_history_rows_for_calculations(as_of_date: datetime.date) -> List[Dict[str, Any]]:
@@ -1010,7 +1037,20 @@ def fetch_market_data_from_supabase(today: datetime.date) -> tuple[Dict[str, Lis
 
     rows = _get_rows_for_date(effective_date)
     rows = _derive_missing_qar_cross_rows_for_date(rows, effective_date)
+    carried_forward = []
 
+    for row in rows:
+        row_date = _parse_date(row.get("as_of_date"))
+        code = row.get("instrument_code")
+
+        if row_date and row_date < effective_date:
+            days_old = (effective_date - row_date).days
+
+            carried_forward.append(
+                f"{code} carried forward from {row_date.isoformat()} ({days_old} day(s) old)"
+            )
+
+            row["status"] = f"carry_forward_previous_available_{days_old}d"
     history_rows = _get_history_rows_for_calculations(effective_date)
     history_rows = _derive_missing_qar_cross_history_rows(history_rows)
     history_by_code = _group_history_by_code(history_rows)
@@ -1026,7 +1066,8 @@ def fetch_market_data_from_supabase(today: datetime.date) -> tuple[Dict[str, Lis
 
     if missing_codes:
         issues.append(f"Missing instruments from Supabase: {', '.join(missing_codes)}")
-
+    if carried_forward:
+        issues.extend(carried_forward)
     if extra_codes:
         issues.append(f"Unexpected instruments in Supabase: {', '.join(extra_codes)}")
 
