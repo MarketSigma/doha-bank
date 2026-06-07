@@ -1,7 +1,7 @@
 {
   "config": {
     "client_name": "Doha Bank",
-    "report_date": "06 June 2026",
+    "report_date": "07 June 2026",
     "delivery_time_ast": "07:00",
     "sections": {
       "global_indices": true,
@@ -16,18 +16,18 @@
       "market_drivers": true
     }
   },
-  "generated_at": "2026-06-06T04:57:32Z",
+  "generated_at": "2026-06-07T04:57:33Z",
   "generated_display_time": "",
   "global_indices": [
     {
       "code": "SPX",
       "name": "US S&P 500",
       "ticker": "^GSPC",
-      "px_last": 7391.23,
-      "change_1d": "-2.68%",
-      "mtd": "-2.49%",
-      "ytd": "+7.97%",
-      "as_of": "2026-06-05",
+      "px_last": 7383.74,
+      "change_1d": "-0.10%",
+      "mtd": "-2.59%",
+      "ytd": "+7.86%",
+      "as_of": "2026-06-06",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
     },
@@ -36,10 +36,10 @@
       "name": "UK FTSE 100",
       "ticker": "^FTSE",
       "px_last": 10368.05,
-      "change_1d": "+0.07%",
+      "change_1d": "+0.00%",
       "mtd": "-0.40%",
       "ytd": "+4.40%",
-      "as_of": "2026-06-05",
+      "as_of": "2026-06-06",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
     },
@@ -48,10 +48,10 @@
       "name": "Japan Nikkei",
       "ticker": "^N225",
       "px_last": 66588.12,
-      "change_1d": "-1.31%",
+      "change_1d": "+0.00%",
       "mtd": "+0.39%",
       "ytd": "+32.28%",
-      "as_of": "2026-06-05",
+      "as_of": "2026-06-06",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
     },
@@ -60,10 +60,10 @@
       "name": "Germany DAX",
       "ticker": "^GDAXI",
       "px_last": 24759.05,
-      "change_1d": "-0.75%",
+      "change_1d": "+0.00%",
       "mtd": "-1.38%",
       "ytd": "+1.10%",
-      "as_of": "2026-06-05",
+      "as_of": "2026-06-06",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
     },
@@ -72,10 +72,10 @@
       "name": "Hong Kong HSI",
       "ticker": "^HSI",
       "px_last": 24961.95,
-      "change_1d": "-1.15%",
+      "change_1d": "+0.00%",
       "mtd": "-0.88%",
       "ytd": "-2.61%",
-      "as_of": "2026-06-05",
+      "as_of": "2026-06-06",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
     },
@@ -84,10 +84,10 @@
       "name": "India Nifty 50",
       "ticker": "^NSEI",
       "px_last": 23366.7,
-      "change_1d": "-0.21%",
+      "change_1d": "+0.00%",
       "mtd": "-0.77%",
       "ytd": "-9.55%",
-      "as_of": "2026-06-05",
+      "as_of": "2026-06-06",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
     }
@@ -101,7 +101,7 @@
       "change_1d": "+0.00%",
       "mtd": "-2.08%",
       "ytd": "-3.96%",
-      "as_of": "2026-06-05",
+      "as_of": "2026-06-06",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
     },
@@ -113,7 +113,7 @@
       "change_1d": "+0.00%",
       "mtd": "-0.79%",
       "ytd": "+4.76%",
-      "as_of": "2026-06-05",
+      "as_of": "2026-06-06",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
     },
@@ -122,10 +122,10 @@
       "name": "Dubai DFM",
       "ticker": "DFMGI.AE",
       "px_last": 5767.77,
-      "change_1d": "+0.86%",
+      "change_1d": "+0.00%",
       "mtd": "+0.18%",
       "ytd": "-4.62%",
-      "as_of": "2026-06-05",
+      "as_of": "2026-06-06",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
     },
@@ -134,10 +134,10 @@
       "name": "Abu Dhabi ADX",
       "ticker": "FADGI.FGI",
       "px_last": 9614.11,
-      "change_1d": "+0.30%",
+      "change_1d": "+0.00%",
       "mtd": "-0.91%",
       "ytd": "-3.79%",
-      "as_of": "2026-06-05",
+      "as_of": "2026-06-06",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
     },
@@ -149,7 +149,7 @@
       "change_1d": "+0.00%",
       "mtd": "-0.86%",
       "ytd": "-2.89%",
-      "as_of": "2026-06-05",
+      "as_of": "2026-06-06",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
     },
@@ -161,19 +161,19 @@
       "change_1d": "+0.00%",
       "mtd": "-1.28%",
       "ytd": "+30.53%",
-      "as_of": "2026-06-05",
+      "as_of": "2026-06-06",
       "source": "tradingeconomics_direct_page",
-      "status": "manual_corrected_after_regex_error"
+      "status": "valid_te_direct_page"
     },
     {
       "code": "BHSEASI",
       "name": "Bahrain",
       "ticker": "BHSEASI",
       "px_last": 1982.0,
-      "change_1d": "-0.05%",
+      "change_1d": "+0.00%",
       "mtd": "+0.15%",
       "ytd": "-4.09%",
-      "as_of": "2026-06-05",
+      "as_of": "2026-06-06",
       "source": "tradingeconomics_direct_page",
       "status": "valid_te_direct_page"
     }
@@ -184,10 +184,10 @@
       "name": "USD Index",
       "ticker": "DX-Y.NYB",
       "px_last": 100.07,
-      "change_1d": "+0.66%",
+      "change_1d": "+0.00%",
       "mtd": "+1.14%",
       "ytd": "+1.82%",
-      "as_of": "2026-06-05",
+      "as_of": "2026-06-06",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
     },
@@ -195,11 +195,11 @@
       "code": "EURUSD",
       "name": "EUR/USD",
       "ticker": "EURUSD=X",
-      "px_last": 1.1522,
-      "change_1d": "-0.81%",
-      "mtd": "-1.18%",
-      "ytd": "-1.92%",
-      "as_of": "2026-06-05",
+      "px_last": 1.1527,
+      "change_1d": "+0.04%",
+      "mtd": "-1.13%",
+      "ytd": "-1.88%",
+      "as_of": "2026-06-06",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
     },
@@ -207,11 +207,11 @@
       "code": "GBPUSD",
       "name": "GBP/USD",
       "ticker": "GBPUSD=X",
-      "px_last": 1.3334,
-      "change_1d": "-0.66%",
-      "mtd": "-0.88%",
-      "ytd": "-0.99%",
-      "as_of": "2026-06-05",
+      "px_last": 1.3336,
+      "change_1d": "+0.01%",
+      "mtd": "-0.86%",
+      "ytd": "-0.97%",
+      "as_of": "2026-06-06",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
     },
@@ -219,11 +219,11 @@
       "code": "USDCHF",
       "name": "USD/CHF",
       "ticker": "CHF=X",
-      "px_last": 0.7965,
-      "change_1d": "+0.90%",
-      "mtd": "+2.06%",
-      "ytd": "+3.66%",
-      "as_of": "2026-06-05",
+      "px_last": 0.7962,
+      "change_1d": "-0.04%",
+      "mtd": "+2.02%",
+      "ytd": "+3.62%",
+      "as_of": "2026-06-06",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
     },
@@ -231,11 +231,11 @@
       "code": "USDJPY",
       "name": "USD/JPY",
       "ticker": "JPY=X",
-      "px_last": 160.178,
-      "change_1d": "+0.10%",
-      "mtd": "+0.54%",
-      "ytd": "+2.41%",
-      "as_of": "2026-06-05",
+      "px_last": 160.293,
+      "change_1d": "+0.07%",
+      "mtd": "+0.61%",
+      "ytd": "+2.48%",
+      "as_of": "2026-06-06",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
     },
@@ -243,11 +243,11 @@
       "code": "USDCNY",
       "name": "USD/CNY",
       "ticker": "CNY=X",
-      "px_last": 6.765,
-      "change_1d": "-0.12%",
-      "mtd": "-0.01%",
-      "ytd": "-3.30%",
-      "as_of": "2026-06-05",
+      "px_last": 6.766,
+      "change_1d": "+0.01%",
+      "mtd": "+0.00%",
+      "ytd": "-3.29%",
+      "as_of": "2026-06-06",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
     }
@@ -261,7 +261,7 @@
       "change_1d": "+0.00%",
       "mtd": "+0.00%",
       "ytd": "+0.00%",
-      "as_of": "2026-06-05",
+      "as_of": "2026-06-06",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
     },
@@ -269,11 +269,11 @@
       "code": "EURQAR",
       "name": "EUR/QAR",
       "ticker": "EURQAR=X",
-      "px_last": 4.2024,
-      "change_1d": "-0.70%",
-      "mtd": "-1.00%",
-      "ytd": "-1.72%",
-      "as_of": "2026-06-05",
+      "px_last": 4.1934,
+      "change_1d": "-0.21%",
+      "mtd": "-1.21%",
+      "ytd": "-1.93%",
+      "as_of": "2026-06-06",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
     },
@@ -281,11 +281,11 @@
       "code": "GBPQAR",
       "name": "GBP/QAR",
       "ticker": "GBPQAR=X",
-      "px_last": 4.8682,
-      "change_1d": "-0.45%",
-      "mtd": "-0.63%",
-      "ytd": "-0.69%",
-      "as_of": "2026-06-05",
+      "px_last": 4.854,
+      "change_1d": "-0.29%",
+      "mtd": "-0.92%",
+      "ytd": "-0.98%",
+      "as_of": "2026-06-06",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
     },
@@ -294,24 +294,24 @@
       "name": "CHF/QAR",
       "ticker": "CHFQAR",
       "px_last": 4.6485,
-      "change_1d": "+0.81%",
+      "change_1d": "+1.72%",
       "mtd": "-0.34%",
       "ytd": "-1.89%",
       "as_of": "2026-05-11",
       "source": "client_alignment_prior_day_baseline",
-      "status": "carry_forward_previous_available_25d"
+      "status": "carry_forward_previous_available_26d"
     },
     {
       "code": "CNYQAR",
       "name": "CNY/QAR",
       "ticker": "CNYQAR",
       "px_last": 0.5352,
-      "change_1d": "-0.41%",
+      "change_1d": "-0.53%",
       "mtd": "-0.52%",
       "ytd": "+2.87%",
       "as_of": "2026-05-07",
       "source": "derived_from_yahoo_fx_daily",
-      "status": "carry_forward_previous_available_29d"
+      "status": "carry_forward_previous_available_30d"
     }
   ],
   "fixed_income": [
@@ -319,11 +319,11 @@
       "code": "UST5Y",
       "name": "UST 5-Year",
       "ticker": "^FVX",
-      "px_last": 4.278,
-      "change_1d": "+2.25%",
-      "mtd": "+3.11%",
-      "ytd": "+14.94%",
-      "as_of": "2026-06-05",
+      "px_last": 4.28,
+      "change_1d": "+0.05%",
+      "mtd": "+3.16%",
+      "ytd": "+14.99%",
+      "as_of": "2026-06-06",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
     },
@@ -332,10 +332,10 @@
       "name": "UST 10-Year",
       "ticker": "^TNX",
       "px_last": 4.536,
-      "change_1d": "+1.41%",
+      "change_1d": "+0.00%",
       "mtd": "+1.86%",
       "ytd": "+8.96%",
-      "as_of": "2026-06-05",
+      "as_of": "2026-06-06",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
     }
@@ -349,7 +349,7 @@
       "change_1d": "+0.00%",
       "mtd": "-4.63%",
       "ytd": "-9.60%",
-      "as_of": "2026-06-05",
+      "as_of": "2026-06-06",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
     },
@@ -361,7 +361,7 @@
       "change_1d": "+0.00%",
       "mtd": "-3.69%",
       "ytd": "-2.31%",
-      "as_of": "2026-06-05",
+      "as_of": "2026-06-06",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
     },
@@ -373,7 +373,7 @@
       "change_1d": "+0.00%",
       "mtd": "-1.86%",
       "ytd": "-0.18%",
-      "as_of": "2026-06-05",
+      "as_of": "2026-06-06",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
     },
@@ -385,7 +385,7 @@
       "change_1d": "+0.00%",
       "mtd": "-0.76%",
       "ytd": "-3.18%",
-      "as_of": "2026-06-05",
+      "as_of": "2026-06-06",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
     },
@@ -397,7 +397,7 @@
       "change_1d": "+0.00%",
       "mtd": "+0.76%",
       "ytd": "-8.08%",
-      "as_of": "2026-06-05",
+      "as_of": "2026-06-06",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
     },
@@ -409,7 +409,7 @@
       "change_1d": "+0.00%",
       "mtd": "+2.41%",
       "ytd": "+5.44%",
-      "as_of": "2026-06-05",
+      "as_of": "2026-06-06",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
     },
@@ -421,7 +421,7 @@
       "change_1d": "+0.00%",
       "mtd": "-2.26%",
       "ytd": "-7.29%",
-      "as_of": "2026-06-05",
+      "as_of": "2026-06-06",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
     },
@@ -433,7 +433,7 @@
       "change_1d": "+0.00%",
       "mtd": "-0.89%",
       "ytd": "-3.78%",
-      "as_of": "2026-06-05",
+      "as_of": "2026-06-06",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
     },
@@ -445,7 +445,7 @@
       "change_1d": "+0.00%",
       "mtd": "+5.58%",
       "ytd": "+14.16%",
-      "as_of": "2026-06-05",
+      "as_of": "2026-06-06",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
     }
@@ -456,22 +456,22 @@
       "name": "LNG JP/KR",
       "ticker": "LNG JKM",
       "px_last": 18.78,
-      "change_1d": "+0.05%",
+      "change_1d": "+0.00%",
       "mtd": "+2.62%",
       "ytd": "+95.42%",
-      "as_of": "2026-06-05",
-      "source": "manual_tradingeconomics",
-      "status": "valid_manual_corrected"
+      "as_of": "2026-06-06",
+      "source": "tradingeconomics_direct_page",
+      "status": "valid_te_direct_page"
     },
     {
       "code": "BRENT",
       "name": "Brent Crude",
       "ticker": "BZ=F",
-      "px_last": 92.98,
-      "change_1d": "-2.44%",
-      "mtd": "+2.04%",
-      "ytd": "+52.80%",
-      "as_of": "2026-06-05",
+      "px_last": 93.09,
+      "change_1d": "+0.12%",
+      "mtd": "+2.16%",
+      "ytd": "+52.98%",
+      "as_of": "2026-06-06",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
     },
@@ -479,11 +479,11 @@
       "code": "SILVER",
       "name": "Silver",
       "ticker": "SI=F",
-      "px_last": 68.42,
-      "change_1d": "-7.81%",
-      "mtd": "-9.82%",
-      "ytd": "-2.44%",
-      "as_of": "2026-06-05",
+      "px_last": 69.1,
+      "change_1d": "+0.99%",
+      "mtd": "-8.93%",
+      "ytd": "-1.47%",
+      "as_of": "2026-06-06",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
     },
@@ -491,110 +491,118 @@
       "code": "GOLD",
       "name": "Gold",
       "ticker": "GC=F",
-      "px_last": 4348.7,
-      "change_1d": "-3.47%",
-      "mtd": "-5.32%",
-      "ytd": "-1.12%",
-      "as_of": "2026-06-05",
+      "px_last": 4365.3,
+      "change_1d": "+0.38%",
+      "mtd": "-4.96%",
+      "ytd": "-0.74%",
+      "as_of": "2026-06-06",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
     }
   ],
-  "market_as_of_date": "2026-06-05",
+  "market_as_of_date": "2026-06-06",
   "global_news": [
     {
-      "headline": "US payrolls rose 172,000 in May, unemployment 4.3%",
-      "summary": "Nonfarm payrolls jumped 172,000 in May, far above the 80,000 consensus estimate. Unemployment rate held steady at 4.3% as expected.",
-      "source": "CNBC",
-      "url": "https://www.cnbc.com/2026/06/05/jobs-report-may-2026.html",
-      "metric": "172,000",
-      "metric_label": "May payrolls added"
-    },
-    {
-      "headline": "Nasdaq falls 4% in worst day since April 2025",
-      "summary": "Nasdaq lost 4.18% to close at 25,709.43. S&P 500 dropped 2.64% to 7,383.74, while Dow fell 695.15 points to 50,866.78.",
+      "headline": "Nasdaq Falls 4% in Worst Day Since April",
+      "summary": "Nasdaq dropped 4.18% to 25,709.43 as traders fled chip stocks. S&P 500 fell 2.64% and Dow lost 695 points in broad market selloff.",
       "source": "CNBC",
       "url": "https://www.cnbc.com/2026/06/04/stock-market-today-live-updates.html",
       "metric": "-4.18%",
-      "metric_label": "Nasdaq daily decline"
+      "metric_label": "Nasdaq decline"
     },
     {
-      "headline": "UAE's Al Mubarak discusses US partnerships and AI",
-      "summary": "During Washington visit, UAE official discusses partnerships and investments. US praised Abu Dhabi AI company G42 for transparency commitments.",
-      "source": "The National",
-      "url": "https://www.thenationalnews.com/future/technology/2026/06/05/uae-us-khaldoon-al-mubarak-ai/",
-      "metric": "G42",
-      "metric_label": "UAE AI company highlighted"
+      "headline": "US Jobs Market Beats Expectations in May",
+      "summary": "Employers added 172,000 jobs in May, exceeding forecasts, while unemployment rate held steady at 4.3% for third consecutive month.",
+      "source": "New York Times",
+      "url": "https://www.nytimes.com/article/what-to-know-about-the-jobs-report.html",
+      "metric": "172,000",
+      "metric_label": "Jobs added in May"
     },
     {
-      "headline": "Iran launches missiles at Kuwait and Bahrain",
-      "summary": "Iran fired seven ballistic missiles at Kuwait and Bahrain in sharp Gulf escalation. Oman halted oil loading after explosion near terminal.",
+      "headline": "Iran Launches Ballistic Missiles at Kuwait, Bahrain",
+      "summary": "Iran fired seven ballistic missiles at Kuwait and Bahrain facilities, escalating Gulf tensions. Oman halted oil loading after terminal explosion.",
       "source": "Gulf News",
       "url": "https://gulfnews.com/world/mena/middle-east-tensions-omans-explosion-hit-oil-terminal-resumes-operations-hezbollah-israel-trade-fresh-strikes-1.500563951",
       "metric": "7",
-      "metric_label": "Missiles launched by Iran"
+      "metric_label": "Missiles fired at Gulf states"
     },
     {
-      "headline": "Strait of Hormuz standoff flips energy security debate",
-      "summary": "US-Israeli war against Iran rattled global energy markets and triggered inflation fears. Supply disruptions hit Europe and Africa hard.",
+      "headline": "Red Sea Choke Point Threatens Oil Markets",
+      "summary": "Iran's threats against Bab el-Mandeb strait could cut Saudi oil flows to Asia, potentially escalating market impact amid ongoing conflict.",
       "source": "CNBC",
-      "url": "https://www.cnbc.com/amp/2026/06/05/iran-war-strait-of-hormuz-renewables-oil-gas.html",
-      "metric": "Hormuz",
-      "metric_label": "Critical energy chokepoint"
+      "url": "https://www.cnbc.com/2026/06/05/iran-war-oil-price-strait-hormuz-bab-el-mandeb-chokepoint.html",
+      "metric": "Key",
+      "metric_label": "Strategic chokepoint at risk"
     },
     {
-      "headline": "Iran threatens Red Sea oil chokepoint Bab el-Mandeb",
-      "summary": "Tehran's threats to close Bab el-Mandeb would cut Saudi oil flows to Asia, escalating market impact beyond current levels.",
-      "source": "CNBC",
-      "url": "https://www.cnbc.com/amp/2026/06/05/iran-war-oil-price-strait-hormuz-bab-el-mandeb-chokepoint.html",
-      "metric": "Bab el-Mandeb",
-      "metric_label": "Red Sea chokepoint threatened"
+      "headline": "US Iran Exchange Strikes Testing Gulf Ceasefire",
+      "summary": "US military struck Iranian drones and radar sites while Tehran targeted US bases in Kuwait and Bahrain during ceasefire period.",
+      "source": "BBC World",
+      "url": "https://www.bbc.com/news/articles/cvgzgyjk2weo?at_medium=RSS&at_campaign=rss",
+      "metric": "Multiple",
+      "metric_label": "Strike exchanges"
+    },
+    {
+      "headline": "Pentagon Raises Israel Spying Threat to Critical",
+      "summary": "Department reports raise concerns about increased Israeli espionage activity amid US-Israeli war with Iran and ongoing ceasefire negotiations.",
+      "source": "Al Jazeera",
+      "url": "https://www.aljazeera.com/news/2026/6/6/pentagon-said-to-raise-threat-level-on-israel-spying-to-critical?traffic_source=rss",
+      "metric": "Critical",
+      "metric_label": "Threat level raised"
+    },
+    {
+      "headline": "Ukrainian Drones Hit St Petersburg Unprecedented Attack",
+      "summary": "Residents of Russia's second-largest city urged to stay indoors for first time since war started following drone strikes.",
+      "source": "BBC World",
+      "url": "https://www.bbc.com/news/articles/cg7498kz808o?at_medium=RSS&at_campaign=rss",
+      "metric": "First",
+      "metric_label": "Indoor warning since war began"
     }
   ],
   "qatar_news": [
     {
-      "headline": "Promising green investment opportunities for Qatari investors in Jordan",
+      "headline": "ZABCO celebrates 10 years of growth in Qatar",
+      "summary": "ZABCO marks a decade of operations and service delivery in Qatar.",
+      "source": "Qatar Tribune",
+      "url": "https://www.qatar-tribune.com/article/237827/business/zabco-celebrates-10-years-of-growth-and-service-in-qatar",
+      "metric": "10 years",
+      "metric_label": "Years of operations"
+    },
+    {
+      "headline": "Qatari Diar opens SEVEN at Southbank Place London",
+      "summary": "Qatari Diar celebrates the opening of SEVEN development at Southbank Place in London.",
+      "source": "Qatar Tribune",
+      "url": "https://www.qatar-tribune.com/article/237866/business/qatari-diar-celebrates-opening-of-seven-at-southbank-place-development-in-london",
+      "metric": "1 project",
+      "metric_label": "London development opened"
+    },
+    {
+      "headline": "Green investment opportunities for Qataris in Jordan",
       "summary": "ABJ CEO highlights promising green investment opportunities available for Qatari investors in Jordan.",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/237661/business/promising-green-investment-opportunities-for-qatari--investors-in-jordan-abj-ceo",
-      "metric": "Green Investment",
-      "metric_label": "Investment opportunity type"
+      "metric": "Jordan market",
+      "metric_label": "Investment destination"
     },
     {
-      "headline": "Public-private partnership key to Qatar's economic success",
-      "summary": "Qatar Chamber emphasizes public-private partnerships as crucial for Qatar's economic success amid global uncertainty.",
+      "headline": "Public-private partnerships key to Qatar's economic success",
+      "summary": "Qatar Chamber emphasizes importance of public-private partnerships for economic success amid global uncertainty.",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/237644/business/public-private-partnership-key-to-qatars-economic-success-amid-global-uncertainty-qc",
-      "metric": "Partnership Stra",
-      "metric_label": "Economic approach"
-    },
-    {
-      "headline": "Qatar's diversification drive fuels economic expansion",
-      "summary": "Qatar's diversification efforts driving economic expansion and attracting strong investment flows.",
-      "source": "The Peninsula Qatar",
-      "url": "https://thepeninsulaqatar.com/article/04/06/2026/qatars-diversification-drive-fuels-economic-expansion-attracts-strong-investment-flows",
-      "metric": "Economic Expansi",
-      "metric_label": "Growth driver"
-    },
-    {
-      "headline": "QSE index opens higher",
-      "summary": "Qatar Stock Exchange index opens higher in trading session.",
-      "source": "The Peninsula Qatar",
-      "url": "https://thepeninsulaqatar.com/article/04/06/2026/qse-index-opens-higher-11",
-      "metric": "Market Opening",
-      "metric_label": "Stock market direction"
+      "metric": "PPP model",
+      "metric_label": "Economic strategy"
     }
   ],
   "kpis": [
     {
       "value": "18.78",
       "label": "LNG JP/KR",
-      "sublabel": "+0.05% today \u00b7 USD/MMBtu"
+      "sublabel": "+0.00% today \u00b7 USD/MMBtu"
     },
     {
-      "value": "4,348.70",
+      "value": "4,365.30",
       "label": "Gold",
-      "sublabel": "-3.47% today \u00b7 -1.12% YTD"
+      "sublabel": "+0.38% today \u00b7 -0.74% YTD"
     },
     {
       "value": "10,335.86",
@@ -610,41 +618,41 @@
   "market_drivers": [
     {
       "source": "CNBC",
-      "url": "https://www.cnbc.com/2026/06/05/jobs-report-may-2026.html",
-      "headline": "UST 5Y at 4.278% tests resistance; break above 4.30% pressures duration",
-      "summary": "Strong 172K payrolls vs 80K estimate drives yields higher. 5Y at 4.278% approaches technical resistance at 4.30%. Sustained break triggers outflows from long-duration assets and emerging market bonds.",
-      "metric": "4.278%",
+      "url": "https://www.cnbc.com/2026/06/04/stock-market-today-live-updates.html",
+      "headline": "S&P 500 at 7383 tests 200-day MA support; tech rotation accelerates",
+      "summary": "Nasdaq's 4.18% plunge signals broader tech derisking. S&P 500's -2.59% MTD move approaches 7300 technical floor. Portfolio reallocations from growth to value intensifying as semiconductor complex breaks key support levels.",
+      "metric": "7383.74",
+      "metric_label": "S&P 500"
+    },
+    {
+      "source": "New York Times",
+      "url": "https://www.nytimes.com/article/what-to-know-about-the-jobs-report.html",
+      "headline": "UST 5Y yield ceiling at 4.35% caps duration risk in portfolios",
+      "summary": "Jobs beat (172k vs forecasts) with 4.3% unemployment sustains Fed patience narrative. Current 4.28% 5Y yield positioning suggests limited upside past 4.35% resistance. Fixed income allocations remain defensive until next employment cycle signal.",
+      "metric": "4.28%",
       "metric_label": "UST 5Y"
     },
     {
       "source": "CNBC",
-      "url": "https://www.cnbc.com/2026/06/04/stock-market-today-live-updates.html",
-      "headline": "S&P 500 at 7391 retests December support; breakdown targets 7200",
-      "summary": "Technology selloff drove 2.68% decline to 7391. Index testing critical support zone around 7380-7400. Break below signals deeper correction toward 7200 level with growth stocks most vulnerable.",
-      "metric": "7391.23",
-      "metric_label": "S&P 500"
+      "url": "https://www.cnbc.com/2026/06/05/iran-war-oil-price-strait-hormuz-bab-el-mandeb-chokepoint.html",
+      "headline": "Brent crude targeting 95-100 range on Red Sea choke point risk",
+      "summary": "Bab el-Mandeb strait closure threats amplify current 93.09 Brent positioning. Saudi-Asia flow disruption scenario supports tactical 95-100 range targeting. Energy sector rotations accelerate on supply security premium expanding beyond current +52.98% YTD gains.",
+      "metric": "93.09",
+      "metric_label": "Brent crude"
     },
     {
-      "source": "CNBC",
-      "url": "https://www.cnbc.com/amp/2026/06/05/iran-war-strait-of-hormuz-renewables-oil-gas.html",
-      "headline": "Brent at $92.98 builds base; geopolitical premium targets $100-105 range",
-      "summary": "Hormuz tensions support crude despite 2.44% daily decline. Current consolidation around $93 establishes launching pad for move toward $100-105 if supply disruptions materialize. Energy equities outperforming.",
-      "metric": "$92.98",
-      "metric_label": "Brent"
-    },
-    {
-      "source": "CNBC",
-      "url": "https://www.cnbc.com/amp/2026/06/05/iran-war-oil-price-strait-hormuz-bab-el-mandeb-chokepoint.html",
-      "headline": "Silver at $68.42 breaks key support; $65 failure triggers washout",
-      "summary": "Risk-off sentiment drove 7.81% silver collapse below $70 support. Current level at $68.42 critical; failure to hold $65 triggers momentum selling toward $60-62 range with industrial demand weakening.",
-      "metric": "$68.42",
-      "metric_label": "Silver"
+      "source": "Gulf News",
+      "url": "https://gulfnews.com/world/mena/middle-east-tensions-omans-explosion-hit-oil-terminal-resumes-operations-hezbollah-israel-trade-fresh-strikes-1.500563951",
+      "headline": "GCC equity indices diverge; Qatar QE -3.96% YTD underperforms regional",
+      "summary": "Missile strikes on Kuwait/Bahrain facilities create tactical rotation within GCC allocations. Qatar's -3.96% YTD vs Saudi +4.76% suggests defensive positioning. Dubai's -4.62% YTD indicates broader Gulf geopolitical discount persisting through conflict escalation.",
+      "metric": "10335.86",
+      "metric_label": "Qatar QE"
     }
   ],
   "validation_issues": [
-    "Using latest available Supabase market date 2026-06-05, not today 2026-06-06",
-    "CHFQAR carried forward from 2026-05-11 (25 day(s) old)",
-    "CNYQAR carried forward from 2026-05-07 (29 day(s) old)",
+    "Using latest available Supabase market date 2026-06-06, not today 2026-06-07",
+    "CHFQAR carried forward from 2026-05-11 (26 day(s) old)",
+    "CNYQAR carried forward from 2026-05-07 (30 day(s) old)",
     "Kuwait Boursa missing or invalid"
   ],
   "validation_issue_count": 4,
