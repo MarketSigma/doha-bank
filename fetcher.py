@@ -1806,7 +1806,7 @@ News:
 
     try:
         response = client.messages.create(
-            model=os.environ.get("ANTHROPIC_MODEL", "claude-sonnet-4-20250514"),
+            model=os.environ.get("ANTHROPIC_MODEL", "claude-sonnet-4-6"),
             max_tokens=1600,
             system=system,
             messages=[{"role": "user", "content": prompt}],
@@ -2082,7 +2082,7 @@ Strict rules:
     try:
         client = anthropic.Anthropic(api_key=api_key)
         response = client.messages.create(
-            model=os.environ.get("ANTHROPIC_MODEL", "claude-sonnet-4-20250514"),
+            model=os.environ.get("ANTHROPIC_MODEL", "claude-sonnet-4-6"),
             max_tokens=1800,
             system=system,
             messages=[{"role": "user", "content": prompt}],
