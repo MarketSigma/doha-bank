@@ -425,7 +425,7 @@ def build_email_body(data: Dict[str, Any]) -> str:
     # News sections — keep the same counts the PDF uses
     sections.append(_news_section_block(
         "Regional & Global News", "",
-        data.get("global_news", [])[:4],
+        data.get("global_news", [])[:5],
     ))
     sections.append(_news_section_block(
         "Qatar News", "",
