@@ -16,7 +16,7 @@
       "market_drivers": true
     }
   },
-  "generated_at": "2026-07-20T04:51:23Z",
+  "generated_at": "2026-07-20T04:57:29Z",
   "generated_display_time": "",
   "global_indices": [
     {
@@ -503,56 +503,48 @@
   "market_as_of_date": "2026-07-19",
   "global_news": [
     {
-      "headline": "US Strikes Iran for Ninth Consecutive Night",
-      "summary": "US military carried out its ninth consecutive night of strikes on Iran, as the conflict expands with three American service members killed in Jordan and Iraq, rattling oil and stock markets.",
-      "source": "Al Jazeera",
-      "url": "https://www.aljazeera.com/video/newsfeed/2026/7/20/us-releases-footage-of-ninth-consecutive-night-of-strikes-on-iran?traffic_source=rss",
-      "metric": "9 nights",
-      "metric_label": "Consecutive US strike nights on "
-    },
-    {
-      "headline": "Iran-US War Hits Hormuz Shipping, Lifts Oil Prices",
-      "summary": "Oil prices rose as US-Iran conflict deepens; shipping through the Strait of Hormuz has dropped considerably. Iran warns energy exports will be 'for everyone or for no one' if routes are blocked.",
+      "headline": "US-Iran War Expands; Hormuz Shipping Drops Sharply",
+      "summary": "At least three US service members killed in Jordan and Iraq following Iranian attacks. Oil prices rose, Hormuz shipping fell considerably, and US is sending more warplanes to the Middle East.",
       "source": "New York Times",
       "url": "https://www.nytimes.com/live/2026/07/19/world/iran-war-strikes-trump-hormuz/heres-the-latest",
-      "metric": "\u2191 Rising",
-      "metric_label": "Oil price direction amid Hormuz "
+      "metric": "\u2191 Oil prices",
+      "metric_label": "Market reaction to US-Iran confl"
     },
     {
-      "headline": "Iran Targets US Fifth Fleet Base in Bahrain",
-      "summary": "Iran's Revolutionary Guards targeted the US Fifth Fleet in Bahrain, warning that if the US blocks regional oil and gas exports via maritime routes, other export routes serving US and allied interests could be closed.",
+      "headline": "Iran Targets US Fifth Fleet in Bahrain Amid Hormuz Standoff",
+      "summary": "Iran's Guards struck US Fifth Fleet in Bahrain, warning that regional energy exports would be 'for everyone or for no one' if Washington sought to control Hormuz shipping routes.",
       "source": "The Guardian",
       "url": "https://www.theguardian.com/world/live/2026/jul/14/us-iran-war-live-updates-strikes-strait-of-hormuz-middle-east-crisis-trump-latest-news",
-      "metric": "Bahrain",
-      "metric_label": "US Fifth Fleet base targeted by "
+      "metric": "Hormuz shipping ",
+      "metric_label": "Regional shipping disruption"
     },
     {
-      "headline": "Wall Street Posts Losing Week; Futures Mixed",
-      "summary": "S&P 500 futures fell 0.1% after Wall Street's losing week. Nasdaq-100 futures edged up 0.1% while Dow futures shed 63 points as Iran conflict weighs on sentiment.",
+      "headline": "S&P 500 Futures Slip After Wall Street's Losing Week",
+      "summary": "S&P 500 futures fell 0.1% and Dow futures shed 63 points after Wall Street posted a losing week. Nasdaq-100 futures edged up 0.1%.",
       "source": "CNBC",
       "url": "https://www.cnbc.com/2026/07/19/stock-market-today-live-updates.html",
-      "metric": "-0.1%",
-      "metric_label": "S&P 500 futures move"
+      "metric": "S&P -0.1% / Nasd",
+      "metric_label": "Sunday evening futures"
     },
     {
-      "headline": "Foreign Investors Favour Saudi Market Amid GCC Outflows",
-      "summary": "Foreign investors continued net buying in Saudi Arabia while GCC peers including Oman ($161.3M net selling) and Bahrain ($3.1M) saw outflows. H1 2026 net GCC buying totalled $1.2B, down 83.1% year-on-year.",
+      "headline": "Foreign Investors Favour Saudi Market as GCC Sees Outflows",
+      "summary": "Foreign investors showed preference for Saudi Arabia while GCC peers recorded outflows. Oman saw net selling of $161.3M; Bahrain $3.1M. H1 2026 GCC net buying totalled $1.2B, down 83.1% year-on-year.",
       "source": "Arab News",
       "url": "https://www.arabnews.com/node/2651498/business-economy",
-      "metric": "$1.2B",
-      "metric_label": "GCC net foreign buying H1 2026"
+      "metric": "$1.2B net buying",
+      "metric_label": "GCC H1 2026 foreign flows, -83.1"
     },
     {
       "headline": "Gold Surpasses US Treasuries in Central Bank Reserves",
-      "summary": "Gold has overtaken US Treasuries in central bank reserves as the dollar's share declines. The US Dollar Index slipped to 100.81 after a 0.35% daily fall, its biggest single-day drop in nearly two weeks.",
+      "summary": "Gold overtook US Treasuries in central bank reserves as the US Dollar Index slipped to 100.81, falling 0.35% in the prior session, its largest daily decline in nearly two weeks.",
       "source": "Gulf News",
       "url": "https://gulfnews.com/business/markets/us-dollar-loosens-grip-on-central-bank-reserves-worldwide-as-gold-takes-over-1.500613257",
-      "metric": "100.81",
+      "metric": "DXY 100.81",
       "metric_label": "US Dollar Index level"
     },
     {
       "headline": "Russia Launches Major Ballistic Missile Attack on Ukraine",
-      "summary": "Russia struck multiple Ukrainian cities with ballistic missiles and drones, killing eight people and injuring dozens, while Kyiv continued its own assault on Russian infrastructure.",
+      "summary": "Russia struck several Ukrainian cities with ballistic missiles and drones, killing eight people and injuring dozens, while Kyiv continued its own assault on Russian infrastructure.",
       "source": "BBC World",
       "url": "https://www.bbc.co.uk/news/articles/c2el7xpnzrpo?at_medium=RSS&at_campaign=rss",
       "metric": "8 killed",
@@ -562,15 +554,15 @@
   "qatar_news": [
     {
       "headline": "Qatar Banks Maintain Strong Liquidity Amid Resilient Deposits",
-      "summary": "Qatar banks continue to demonstrate strong liquidity positions as lending and deposit levels remain resilient, signalling stability in the country's banking sector.",
+      "summary": "Qatar banks continue to show strong liquidity positions as lending activity and deposit levels remain resilient, signalling stability in the banking sector.",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/245056/business/qatar-banks-maintain-strong-liquidity-as-lending-deposits-remain-resilient",
       "metric": "Resilient",
-      "metric_label": "Banking Sector Liquidity Status"
+      "metric_label": "Bank Liquidity Status"
     },
     {
       "headline": "Qatar Banks Resilient as Lending Growth Moderates",
-      "summary": "Qatar's banking sector remains resilient even as lending growth shows signs of moderation, reflecting a stable but cautious credit environment.",
+      "summary": "Qatar's banking sector remains resilient despite a moderation in lending growth, reflecting a stable financial environment amid evolving credit conditions.",
       "source": "The Peninsula Qatar",
       "url": "https://thepeninsulaqatar.com/article/17/07/2026/qatar-banks-remain-resilient-as-lending-growth-moderates",
       "metric": "Moderating",
@@ -578,27 +570,27 @@
     },
     {
       "headline": "Qatar E-Commerce and POS Transactions See Strong Growth",
-      "summary": "Qatar records strong growth in e-commerce activity and point-of-sale transactions, highlighting increasing digital payment adoption across the economy.",
+      "summary": "Qatar records strong growth in e-commerce activity and point-of-sale transactions, reflecting increasing digital payment adoption across the economy.",
       "source": "The Peninsula Qatar",
       "url": "https://thepeninsulaqatar.com/article/19/07/2026/qatar-sees-strong-growth-in-e-commerce-pos-transactions",
       "metric": "Strong Growth",
       "metric_label": "E-Commerce & POS Activity"
     },
     {
-      "headline": "Qatar Expands Global Footprint With Innovation-Led Investments",
-      "summary": "Qatar is broadening its international presence through innovation-driven investment strategies, reinforcing its ambition to diversify economic partnerships globally.",
+      "headline": "Qatar Expands Global Footprint with Innovation-Led Investments",
+      "summary": "Qatar is broadening its international presence through innovation-driven investments, reinforcing its strategy to diversify economic influence beyond the region.",
       "source": "The Peninsula Qatar",
       "url": "https://thepeninsulaqatar.com/article/16/07/2026/qatar-expands-international-footprint-with-innovation-led-investments",
       "metric": "Expanding",
-      "metric_label": "International Investment Footpri"
+      "metric_label": "International Investment Reach"
     },
     {
-      "headline": "Father Amir's Legacy Tied to Qatar-US Economic Partnership",
-      "summary": "Qatar's economic transformation and strengthened US partnership are framed as part of the enduring legacy of the Father Amir, underscoring long-term strategic ties.",
+      "headline": "Father Amir's Legacy Tied to Qatar's Economic Transformation",
+      "summary": "Qatar's ongoing economic transformation and its strengthening partnership with the US are linked to the enduring legacy of the Father Amir.",
       "source": "The Peninsula Qatar",
       "url": "https://thepeninsulaqatar.com/article/14/07/2026/father-amirs-legacy-lives-on-through-qatars-economic-transformation-us-partnership",
-      "metric": "Strategic",
-      "metric_label": "Qatar-US Partnership Status"
+      "metric": "US Partnership",
+      "metric_label": "Economic Diplomacy Focus"
     }
   ],
   "kpis": [
@@ -627,34 +619,34 @@
     {
       "source": "New York Times",
       "url": "https://www.nytimes.com/live/2026/07/19/world/iran-war-strikes-trump-hormuz/heres-the-latest",
-      "headline": "Brent at $88.10 with Hormuz choke risk; $95-100 next resistance band",
-      "summary": "Hormuz throughput disruption with Iran's 'all-or-nothing' export threat maps to a 15-20% supply shock scenario. Brent's +20.09% MTD and +44.78% YTD move signals trend exhaustion absent new escalation, but a confirmed closure would target $95-$100. LNG JP/KR at $20.99 (+118.42% YT",
+      "headline": "Brent at $88.10 eyes $95-100 corridor; Hormuz closure risk reprices energy tail",
+      "summary": "With Brent already +44.78% YTD and +20.09% MTD, a sustained Hormuz disruption shifts the distribution to $95-100. LNG JP/KR at $20.99 (+118.42% YTD) confirms energy complex repricing. Portfolio managers should stress-test commodity-importing EM exposure and long-duration bonds ag",
       "metric": "$88.10",
-      "metric_label": "Brent spot"
-    },
-    {
-      "source": "Al Jazeera",
-      "url": "https://www.aljazeera.com/video/newsfeed/2026/7/20/us-releases-footage-of-ninth-consecutive-night-of-strikes-on-iran?traffic_source=rss",
-      "headline": "QE Index at 9,954 tests 9,900 support; -7.50% YTD flags structural outflow",
-      "summary": "Nine consecutive nights of US strikes on Iran create direct geopolitical proximity risk for GCC equities. Qatar QE at 9,954 (-1.47% 1D, -2.80% MTD, -7.50% YTD) approaches key 9,900 technical support; a weekly close below opens 9,700. Three US service member fatalities signal esca",
-      "metric": "9,954",
-      "metric_label": "Qatar QE Index"
-    },
-    {
-      "source": "Gulf News",
-      "url": "https://gulfnews.com/business/markets/us-dollar-loosens-grip-on-central-bank-reserves-worldwide-as-gold-takes-over-1.500613257",
-      "headline": "DXY 100.75 near critical 100 support; gold reserve shift accelerates dollar debasement",
-      "summary": "Gold overtaking US Treasuries in central bank reserves is a structural reserve-diversification signal. DXY at 100.75 (-0.42% MTD) is approaching the 100.00 psychological floor; a sustained break would pressure USD/CHF below 0.8067 and reinforce EUR/USD's hold above 1.1446. UST 10",
-      "metric": "100.75",
-      "metric_label": "USD Index"
+      "metric_label": "Brent Spot"
     },
     {
       "source": "Arab News",
       "url": "https://www.arabnews.com/node/2651498/business-economy",
-      "headline": "GCC foreign flows bifurcate; Saudi outperforms as $161M Oman outflow signals fragility",
-      "summary": "H1 2026 net GCC foreign buying of $1.2B represents an 83.1% YoY collapse, exposing broad regional risk-off. Oman's $161.3M net selling and Bahrain's $3.1M outflow contrast with Saudi net inflows; Tadawul at 10,716 (-0.77% MTD) holds its 2.16% YTD gain as a relative safe haven wit",
-      "metric": "-83.1% YoY",
-      "metric_label": "GCC Foreign Flows"
+      "headline": "QE Index breaks -7.5% YTD; GCC outflow acceleration threatens 9,900 support",
+      "summary": "H1 2026 GCC net foreign buying collapsed 83.1% YoY to $1.2B. Qatar QE at 9,954 is -2.80% MTD with Bahrain recording $3.1M net selling pressure. A breach of 9,900 opens the 9,700 level. Oman's $161.3M net selling signals broad GCC risk-off; allocators should monitor Saudi Tadawul ",
+      "metric": "9,954.84",
+      "metric_label": "QE Index"
+    },
+    {
+      "source": "Gulf News",
+      "url": "https://gulfnews.com/business/markets/us-dollar-loosens-grip-on-central-bank-reserves-worldwide-as-gold-takes-over-1.500613257",
+      "headline": "DXY at 100.75 tests critical 100.50 support; gold/Treasury reserve flip signals structural USD bear",
+      "summary": "USD Index at 100.75 is -0.42% MTD after a 0.35% single-session drop. The structural shift of gold overtaking USTs in central bank reserves reduces marginal USD demand. A confirmed break below 100.50 targets 98.50-99.00. EUR/USD at 1.1446 and USD/CHF at 0.8067 (-0.02% daily) are t",
+      "metric": "100.75",
+      "metric_label": "USD Index"
+    },
+    {
+      "source": "CNBC",
+      "url": "https://www.cnbc.com/2026/07/19/stock-market-today-live-updates.html",
+      "headline": "S&P 500 at 7,457 stalls post-losing week; 10Y at 4.54% caps risk appetite recovery",
+      "summary": "S&P 500 flat on the day but -0.61% MTD with futures off 0.1% post-losing week. UST 10Y at 4.541% (+2.83% MTD, +9.08% YTD) and 5Y at 4.273% compress equity risk premium. A 10Y close above 4.60% would historically pressure growth multiples; watch whether 7,400 holds as near-term te",
+      "metric": "4.541%",
+      "metric_label": "UST 10Y"
     }
   ],
   "validation_issues": [
