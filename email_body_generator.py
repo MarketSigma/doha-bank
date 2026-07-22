@@ -144,10 +144,11 @@ def _kpi_change_inline(sub: str) -> str:
 # Section blocks
 # ============================================================
 
-def _masthead(report_title: str, report_date: str, page_meta: str) -> str:
+def _masthead(report_date: str, generated_display_time: str) -> str:
+    brief_label = generated_display_time or "DAILY MARKET BRIEF"
     return f"""
 <tr>
-  <td style="background:{BRAND_BLUE};padding:17px 22px;">
+  <td style="background:{BRAND_BLUE};padding:16px 22px;">
     <table cellpadding="0" cellspacing="0" border="0" width="100%">
       <tr>
         <td align="right"
@@ -161,27 +162,16 @@ def _masthead(report_title: str, report_date: str, page_meta: str) -> str:
 </tr>
 
 <tr>
-  <td style="background:{WHITE};padding:22px 22px 18px;">
+  <td style="background:{WHITE};padding:22px 22px 18px;
+             border-bottom:2px solid #D4B58A;">
     <table cellpadding="0" cellspacing="0" border="0" width="100%">
       <tr>
-        <td width="72" valign="middle" style="padding-right:20px;">
-          <svg width="68" height="95" viewBox="0 0 60 84"
-               xmlns="http://www.w3.org/2000/svg"
-               role="img" aria-label="Doha Bank logo"
-               style="display:block;border:0;">
-            <path fill="#062E63"
-                  d="M8 3 A39.7 39.7 0 1 1 14 81 A39.4 39.4 0 0 0 8 3 Z"/>
-            <path fill="#C2A57E"
-                  d="M10 14 A33 33 0 0 1 10 80 Z"/>
-          </svg>
-        </td>
-
         <td valign="middle">
           <div class="eb-title"
                style="font-family:{TITLE_FONT};color:{BRAND_BLUE};
                       font-size:30px;font-weight:700;line-height:1.05;
                       letter-spacing:-0.025em;margin:0;">
-            {_e(report_title)}
+            Market Intelligence
           </div>
 
           <div style="margin-top:7px;white-space:nowrap;">
@@ -195,20 +185,12 @@ def _masthead(report_title: str, report_date: str, page_meta: str) -> str:
             </span>
             <span style="font-family:{SANS};font-size:13px;font-weight:600;
                          letter-spacing:0.08em;color:{MID_BLUE};">
-              {_e(page_meta)}
+              {_e(brief_label)}
             </span>
           </div>
         </td>
       </tr>
     </table>
-  </td>
-</tr>
-
-<tr>
-  <td style="background:{WHITE};padding:0 22px;">
-    <div style="border-bottom:2px solid #D4B58A;line-height:0;font-size:0;">
-      &nbsp;
-    </div>
   </td>
 </tr>
 """
@@ -423,14 +405,11 @@ def build_email_body(data: Dict[str, Any]) -> str:
     Returns a single string ready to assign to the 'html' field of
     the email payload sent to Resend.
     """
-    cfg                     = data.get("config", {})
-    report_date             = cfg.get("report_date", "")
-    report_title            = cfg.get("report_title", "Market Intelligence")
-    generated_display_time  = data.get("generated_display_time", "")
-    page_meta               = generated_display_time if generated_display_time else "DAILY MARKET BRIEF"
+    report_date            = data.get("config", {}).get("report_date", "")
+    generated_display_time = data.get("generated_display_time", "")
 
     sections = []
-    sections.append(_masthead(report_title, report_date, page_meta))
+    sections.append(_masthead(report_date, generated_display_time))
     sections.append(_kpi_block(data.get("kpis", [])))
 
     # 7 data tables — same order as the browser HTML
