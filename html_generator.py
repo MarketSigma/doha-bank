@@ -296,13 +296,13 @@ body {
 }
 
 /* ---------------- Masthead ----------------
-   Annual-report minimal: small lockup top-left, full-width serif
-   title, gold baseline rule with edition label left / date right. */
+   Logo + title adjacent (the mark stands alone, no wordmark),
+   gold baseline rule below with edition label left / date right. */
 
 .masthead {
   background: #FFFFFF;
   color: var(--navy);
-  padding: 22px 18px 0;
+  padding: 20px 18px 0;
 }
 
 .masthead-inner {
@@ -313,27 +313,20 @@ body {
 .brand-top {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 22px;
 }
 
 .mast-logo {
-  width: 31px;
-  height: 43px;
+  width: 68px;
+  height: 95px;
   flex: 0 0 auto;
-}
-
-.masthead .brand-wordmark {
-  font-size: 11px;
-  color: var(--brand-blue);
-  letter-spacing: 0.26em;
-  font-weight: 700;
 }
 
 .masthead h1 {
   font-family: var(--serif);
   font-weight: 600;
   font-size: clamp(30px, 6.5vw, 52px);
-  margin: 14px 0 0;
+  margin: 0;
   line-height: 1.02;
   letter-spacing: -0.02em;
   color: var(--brand-blue);
@@ -346,7 +339,8 @@ body {
   gap: 10px;
   flex-wrap: wrap;
   border-bottom: 2px solid var(--gold);
-  padding: 12px 0 10px;
+  margin-top: 12px;
+  padding: 0 0 10px;
   font-size: 12px;
 }
 
@@ -737,9 +731,8 @@ HTML_TEMPLATE = """<!DOCTYPE html>
         <path fill="#062E63" d="M8 3 A39.7 39.7 0 1 1 14 81 A39.4 39.4 0 0 0 8 3 Z"/>
         <path fill="#C2A57E" d="M10 14 A33 33 0 0 1 10 80 Z"/>
       </svg>
-      <span class="brand-wordmark">DOHA BANK</span>
+      <h1>{report_title}</h1>
     </div>
-    <h1>{report_title}</h1>
     <div class="baseline-rule">
       <span class="edition-label">{page_meta}</span>
       <span class="report-date">{report_date}</span>
