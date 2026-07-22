@@ -273,6 +273,7 @@ CSS = r"""
 
   --serif: "Source Serif 4", "Cambria", "Georgia", serif;
   --sans:  "DM Sans", "Calibri", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --segoe: "Segoe UI", "Segoe UI Variable", Tahoma, Arial, sans-serif;
 
   --shadow-soft: 0 8px 24px rgba(3, 36, 79, 0.07);
   --shadow-card: 0 3px 12px rgba(3, 36, 79, 0.06);
@@ -287,7 +288,6 @@ html, body {
 }
 
 body {
-  border-top: 5px solid var(--brand-blue); /* logo navy #062E63 */
   color: var(--navy);
   font-family: var(--sans);
   font-size: 16px;
@@ -295,10 +295,33 @@ body {
   -webkit-text-size-adjust: 100%;
 }
 
-/* ---------------- Masthead ----------------
-   Logo left; title beside it; beneath the title one row with
-   DOHA BANK + DAILY MARKET BRIEF on the left and the date far
-   right; a clean gold rule closes the header (no text on it). */
+/* ---------------- Navy strip + Masthead ----------------
+   The navy band across the top now carries the date on its right.
+   Below it: logo, large title, and the wordmark/brief line. */
+
+.navy-strip {
+  background: var(--brand-blue);
+  height: 75px;
+  display: flex;
+  align-items: center;
+}
+
+.navy-strip-inner {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 18px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.navy-strip .report-date {
+  font-size: clamp(14px, 2.2vw, 19px);
+  font-weight: 700;
+  color: #E4D3B4; /* light gold on navy */
+  letter-spacing: 0.06em;
+}
 
 .masthead {
   background: #FFFFFF;
@@ -316,59 +339,63 @@ body {
 .brand-top {
   display: flex;
   align-items: center;
-  gap: 24px;
+  gap: 28px;
 }
 
 .mast-logo {
-  width: 68px;
-  height: 95px;
+  width: 70px;
+  height: 98px;
   flex: 0 0 auto;
 }
 
 .title-block {
   flex: 1;
   min-width: 0;
+  padding-top: 4px;
 }
 
 .masthead h1 {
-  font-family: var(--serif);
+  font-family: var(--segoe);
   font-weight: 600;
-  font-size: clamp(30px, 6.5vw, 52px);
+  font-size: clamp(42px, 7vw, 60px);
   margin: 0;
-  line-height: 1.04;
-  letter-spacing: -0.02em;
+  line-height: 1.02;
+  letter-spacing: -0.03em;
   color: var(--brand-blue);
 }
 
 .sub-row {
   display: flex;
-  align-items: baseline;
-  gap: 12px;
+  align-items: center;
+  gap: 14px;
   flex-wrap: wrap;
-  margin-top: 8px;
+  margin-top: 6px;
+}
+
+.masthead .brand-wordmark,
+.edition-label {
+  font-family: var(--segoe);
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
 }
 
 .masthead .brand-wordmark {
-  font-family: var(--serif);
-  font-size: 13.5px;
-  font-weight: 700;
   color: var(--brand-blue);
-  letter-spacing: 0.06em;
 }
 
 .edition-label {
-  font-size: 12px;
-  letter-spacing: 0.16em;
-  font-weight: 700;
-  color: var(--mid-blue);
+  color: #5E7FA2;
 }
 
-.report-date {
-  margin-left: auto;
-  font-size: 13px;
-  font-weight: 700;
-  color: #8A6F4A; /* deep gold */
-  letter-spacing: 0.05em;
+@media (max-width: 520px) {
+  .navy-strip { height: 58px; }
+  .masthead .brand-wordmark,
+  .edition-label {
+    font-size: 12px;
+    letter-spacing: 0.12em;
+  }
 }
 
 /* ---------------- Main container ---------------- */
@@ -383,9 +410,13 @@ main {
 
 .kpi-strip {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(215px, 1fr));
+  grid-template-columns: repeat(2, 1fr);   /* two per row on phones */
   gap: 10px;
   margin-bottom: 24px;
+}
+
+@media (min-width: 1000px) {
+  .kpi-strip { grid-template-columns: repeat(4, 1fr); }
 }
 
 .kpi-card {
@@ -436,6 +467,14 @@ main {
 }
 
 .kpi-change .glyph { font-weight: 700; margin-right: 2px; }
+
+@media (max-width: 520px) {
+  .kpi-card  { padding: 11px 12px; }
+  .kpi-label { font-size: 9.5px; letter-spacing: 0.10em; }
+  .kpi-value { font-size: clamp(19px, 5.6vw, 26px); }
+  .kpi-sub   { font-size: 10.5px; }
+  .kpi-label::before { width: 7px; height: 10px; margin-right: 5px; }
+}
 
 /* ---------------- Section header ---------------- */
 
@@ -488,7 +527,6 @@ main {
 
 table {
   width: 100%;
-  min-width: 380px;
   border-collapse: collapse;
   font-size: 13.5px;
 }
@@ -545,6 +583,16 @@ td.pct-zero { color: var(--mid-blue); }
 td.pct-zero .glyph { color: var(--gold); }
 
 td.pct-na { color: var(--muted); }
+
+/* Compact tables on phones: all five columns fit, no side-scroll */
+@media (max-width: 520px) {
+  table    { font-size: 11px; }
+  thead th { font-size: 8.5px; letter-spacing: 0.06em; padding: 6px 4px; }
+  tbody td { padding: 7px 4px; }
+  td.col-name { min-width: 0; font-size: 11px; }
+  td.pct .glyph { margin-right: 2px; font-size: 9px; }
+  .table-card { padding: 10px; }
+}
 
 /* ---------------- News sections ---------------- */
 
@@ -739,6 +787,12 @@ HTML_TEMPLATE = """<!DOCTYPE html>
 </head>
 <body>
 
+<div class="navy-strip">
+  <div class="navy-strip-inner">
+    <span class="report-date">{report_date}</span>
+  </div>
+</div>
+
 <header class="masthead">
   <div class="masthead-inner">
     <div class="brand-top">
@@ -751,7 +805,6 @@ HTML_TEMPLATE = """<!DOCTYPE html>
         <div class="sub-row">
           <span class="brand-wordmark">DOHA BANK</span>
           <span class="edition-label">{page_meta}</span>
-          <span class="report-date">{report_date}</span>
         </div>
       </div>
     </div>
@@ -854,3 +907,5 @@ if __name__ == "__main__":
     else:
         print("Usage: python html_generator.py market_data.json report.html")
         raise SystemExit(1)
+
+    
