@@ -296,96 +296,70 @@ body {
 }
 
 /* ---------------- Masthead ----------------
-   White field with navy text (guaranteed contrast at every width),
-   and the brand arc artwork pinned to the right edge as a scalable
-   SVG. Text is additionally protected by a white fade overlay and a
-   reserved right padding, so title and arcs can never collide. */
+   Annual-report minimal: small lockup top-left, full-width serif
+   title, gold baseline rule with edition label left / date right. */
 
 .masthead {
-  position: relative;
-  overflow: hidden;
   background: #FFFFFF;
   color: var(--navy);
-  padding: 20px 18px 24px;
-  border-bottom: 1px solid var(--border);
-}
-
-.mast-art {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  right: clamp(10px, 4vw, 64px);
-  height: 86%;
-  aspect-ratio: 60 / 84;
-  z-index: 0;
-  pointer-events: none;
-}
-
-.masthead::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(90deg, #FFFFFF 0 42%, rgba(255,255,255,0) 58%);
-  z-index: 1;
-  pointer-events: none;
+  padding: 22px 18px 0;
 }
 
 .masthead-inner {
-  position: relative;
-  z-index: 2;
   max-width: 1200px;
   margin: 0 auto;
-  padding-right: clamp(120px, 28vw, 300px);
 }
 
-.brand-row {
+.brand-top {
   display: flex;
-  justify-content: flex-start;
   align-items: center;
-  gap: 10px;
-  font-size: 11px;
-  letter-spacing: 0.17em;
-  font-weight: 700;
-  margin-bottom: 11px;
+  gap: 12px;
+}
+
+.mast-logo {
+  width: 31px;
+  height: 43px;
+  flex: 0 0 auto;
 }
 
 .masthead .brand-wordmark {
+  font-size: 11px;
   color: var(--brand-blue);
-  letter-spacing: 0.24em;
+  letter-spacing: 0.26em;
   font-weight: 700;
-  text-shadow: none;
 }
 
-.page-meta {
-  color: var(--mid-blue);
-  font-weight: 500;
-  letter-spacing: 0.12em;
-}
-
-.title-row {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 4px;
-}
-
-.title-row h1 {
+.masthead h1 {
   font-family: var(--serif);
   font-weight: 600;
-  font-size: clamp(28px, 7vw, 54px);
-  margin: 0;
-  line-height: 1.04;
+  font-size: clamp(30px, 6.5vw, 52px);
+  margin: 14px 0 0;
+  line-height: 1.02;
   letter-spacing: -0.02em;
   color: var(--brand-blue);
 }
 
+.baseline-rule {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  border-bottom: 2px solid var(--gold);
+  padding: 12px 0 10px;
+  font-size: 12px;
+}
+
+.edition-label {
+  letter-spacing: 0.16em;
+  font-weight: 700;
+  color: var(--muted);
+}
+
 .report-date {
-  font-family: var(--sans);
-  font-style: normal;
   font-weight: 600;
-  font-size: clamp(13px, 3.4vw, 18px);
-  color: #8A6F4A; /* deep gold, readable on white */
-  letter-spacing: 0.04em;
+  color: #8A6F4A; /* deep gold */
+  letter-spacing: 0.05em;
 }
 
 /* ---------------- Main container ---------------- */
@@ -393,7 +367,7 @@ body {
 main {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 18px 16px;
+  padding: 14px 16px 18px;
 }
 
 /* ---------------- KPI strip ---------------- */
@@ -730,7 +704,7 @@ footer .brand-wordmark {
   main { max-width: none; padding: 8mm; }
   .masthead, footer { padding: 8mm; }
   .news-card, .kpi-card, .table-card { break-inside: avoid; box-shadow: none; }
-  .mast-art, footer::after { display: none; }
+  footer::after { display: none; }
   .masthead::before { display: none; }
 }
 """
@@ -747,6 +721,9 @@ HTML_TEMPLATE = """<!DOCTYPE html>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#062E63">
 <title>{title}</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap" rel="stylesheet">
 <style>
 {css}
 </style>
@@ -754,17 +731,17 @@ HTML_TEMPLATE = """<!DOCTYPE html>
 <body>
 
 <header class="masthead">
-  <svg class="mast-art" viewBox="0 0 60 84" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false">
-    <path fill="#062E63" d="M8 3 A39.7 39.7 0 1 1 14 81 A39.4 39.4 0 0 0 8 3 Z"/>
-    <path fill="#C2A57E" d="M10 14 A33 33 0 0 1 10 80 Z"/>
-  </svg>
   <div class="masthead-inner">
-    <div class="brand-row">
+    <div class="brand-top">
+      <svg class="mast-logo" viewBox="0 0 60 84" aria-hidden="true" focusable="false">
+        <path fill="#062E63" d="M8 3 A39.7 39.7 0 1 1 14 81 A39.4 39.4 0 0 0 8 3 Z"/>
+        <path fill="#C2A57E" d="M10 14 A33 33 0 0 1 10 80 Z"/>
+      </svg>
       <span class="brand-wordmark">DOHA BANK</span>
-      <span class="page-meta">{page_meta}</span>
     </div>
-    <div class="title-row">
-      <h1>Market Updates</h1>
+    <h1>{report_title}</h1>
+    <div class="baseline-rule">
+      <span class="edition-label">{page_meta}</span>
       <span class="report-date">{report_date}</span>
     </div>
   </div>
@@ -788,7 +765,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
 <footer>
   <div class="footer-inner">
     <span class="brand-wordmark">DOHA BANK</span>
-    <span>MARKET UPDATES &middot; {report_date}</span>
+    <span>{report_title_upper} &middot; {report_date}</span>
   </div>
 </footer>
 
@@ -798,10 +775,19 @@ HTML_TEMPLATE = """<!DOCTYPE html>
 
 
 def generate(data, output_path):
-    report_date            = data.get("config", {}).get("report_date", dt.today().strftime("%d %B %Y"))
+    cfg                    = data.get("config", {})
+    report_date            = cfg.get("report_date", dt.today().strftime("%d %B %Y"))
+    # Prepend weekday when the date parses cleanly: "Wednesday \u2022 22 July 2026"
+    try:
+        from datetime import datetime as _dtm
+        _parsed = _dtm.strptime(report_date.strip(), "%d %B %Y")
+        display_date = f"{_parsed.strftime('%A')} \u2022 {report_date.strip()}"
+    except Exception:
+        display_date = report_date
+    report_title           = cfg.get("report_title", "Market Intelligence")
     generated_display_time = data.get("generated_display_time", "")
 
-    page_meta = f"\u00b7 {generated_display_time}" if generated_display_time else ""
+    page_meta = generated_display_time if generated_display_time else "DAILY MARKET BRIEF"
 
     kpi_html = render_kpis(data.get("kpis", []))
 
@@ -825,10 +811,12 @@ def generate(data, output_path):
     news_drivers = render_news_cards("Market Drivers", "What Moved Markets", data.get("market_drivers", [])[:3])
 
     output = HTML_TEMPLATE.format(
-        title=f"Doha Bank Market Updates – {e(report_date)}",
+        title=f"Doha Bank {e(report_title)} – {e(report_date)}",
+        report_title=e(report_title),
+        report_title_upper=e(report_title.upper()),
         css=CSS,
         page_meta=e(page_meta),
-        report_date=e(report_date),
+        report_date=e(display_date),
         kpi_section=kpi_html,
         table_html_left=table_html_left,
         table_html_right=table_html_right,
@@ -855,5 +843,3 @@ if __name__ == "__main__":
     else:
         print("Usage: python html_generator.py market_data.json report.html")
         raise SystemExit(1)
-
-    
