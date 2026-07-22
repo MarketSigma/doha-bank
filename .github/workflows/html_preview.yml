@@ -18,14 +18,17 @@ jobs:
         run: |
           pip install -r requirements.txt
 
+      - name: Confirm input file exists
+        run: |
+          ls -la
+          test -f market_data.json
+
       - name: Generate preview HTML
         run: |
-          python html_generator.py
+          python html_generator.py market_data.json report.html
 
       - name: Upload preview
         uses: actions/upload-artifact@v4
         with:
           name: html-preview
-          path: |
-            report.html
-            *.html
+          path: report.html
