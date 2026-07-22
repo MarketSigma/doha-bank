@@ -250,25 +250,32 @@ def render_news_cards(title, meta, items):
 
 CSS = r"""
 :root {
-  --brand-blue: #1B5FA5;
-  --sky-blue:   #38B6FF;
-  --hdr-sub:    #C5DCEF;
-  --hdr-meta:   #9EBEDF;
+  /* Doha Bank "A New Era" inspired palette */
+  --brand-blue:   #062E63;
+  --brand-deep:   #03244F;
+  --brand-mid:    #1E5791;
+  --gold:         #D4B58A;
+  --gold-soft:    #E9D9C1;
+  --silver:       #C8D4E2;
+  --silver-light: #E9EEF4;
 
-  --navy:        #0A2540;
-  --mid-blue:    #4677B0;
-  --accent-blue: #6595CB;
-  --light-blue:  #9EBEDF;
-  --muted:       #88A5C2;
+  --navy:        #082C5D;
+  --mid-blue:    #45698F;
+  --accent-blue: #7392B3;
+  --light-blue:  #AFC1D4;
+  --muted:       #7B8EA3;
 
-  --white: #FFFFFF;
-  --tint:  #F5F9FC;
-  --kpi-bg: #F1F6FB;
-  --border: #E8F0F8;
-  --page-bg: #FBFCFE;
+  --white:   #FFFFFF;
+  --tint:    #F7F9FC;
+  --kpi-bg:  #FFFFFF;
+  --border:  #E3E9F0;
+  --page-bg: #F3F5F8;
 
-  --serif: "Caladea", "Cambria", "Georgia", serif;
-  --sans:  "Carlito", "Calibri", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --serif: "Source Serif 4", "Cambria", "Georgia", serif;
+  --sans:  "DM Sans", "Calibri", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  --shadow-soft: 0 8px 24px rgba(3, 36, 79, 0.07);
+  --shadow-card: 0 3px 12px rgba(3, 36, 79, 0.06);
 }
 
 * { box-sizing: border-box; }
@@ -277,58 +284,108 @@ html, body {
   margin: 0;
   padding: 0;
   background: var(--page-bg);
+}
+
+body {
+  border-top: 5px solid var(--brand-blue); /* logo navy #062E63 */
   color: var(--navy);
   font-family: var(--sans);
   font-size: 16px;
-  line-height: 1.45;
+  line-height: 1.48;
   -webkit-text-size-adjust: 100%;
 }
 
-/* ---------------- Masthead ---------------- */
+/* ---------------- Masthead ----------------
+   White field with navy text (guaranteed contrast at every width),
+   and the brand arc artwork pinned to the right edge as a scalable
+   SVG. Text is additionally protected by a white fade overlay and a
+   reserved right padding, so title and arcs can never collide. */
 
 .masthead {
-  background: var(--brand-blue);
-  color: var(--white);
-  padding: 14px 18px 18px;
+  position: relative;
+  overflow: hidden;
+  background: #FFFFFF;
+  color: var(--navy);
+  padding: 20px 18px 24px;
+  border-bottom: 1px solid var(--border);
 }
 
-.masthead-inner { max-width: 1200px; margin: 0 auto; }
+.mast-art {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: clamp(10px, 4vw, 64px);
+  height: 86%;
+  aspect-ratio: 60 / 84;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.masthead::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, #FFFFFF 0 42%, rgba(255,255,255,0) 58%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.masthead-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-right: clamp(120px, 28vw, 300px);
+}
 
 .brand-row {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
+  gap: 10px;
   font-size: 11px;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.17em;
   font-weight: 700;
-  margin-bottom: 10px;
+  margin-bottom: 11px;
 }
 
-.brand-wordmark { color: var(--sky-blue); letter-spacing: 0.32em; }
-.page-meta      { color: var(--hdr-meta); font-weight: 400; letter-spacing: 0.14em; }
+.masthead .brand-wordmark {
+  color: var(--brand-blue);
+  letter-spacing: 0.24em;
+  font-weight: 700;
+  text-shadow: none;
+}
+
+.page-meta {
+  color: var(--mid-blue);
+  font-weight: 500;
+  letter-spacing: 0.12em;
+}
 
 .title-row {
   display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  flex-wrap: wrap;
-  gap: 6px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
 }
 
 .title-row h1 {
   font-family: var(--serif);
-  font-weight: 700;
-  font-size: clamp(28px, 7vw, 56px);
+  font-weight: 600;
+  font-size: clamp(28px, 7vw, 54px);
   margin: 0;
-  line-height: 1.05;
-  letter-spacing: -0.005em;
+  line-height: 1.04;
+  letter-spacing: -0.02em;
+  color: var(--brand-blue);
 }
 
 .report-date {
-  font-family: var(--serif);
-  font-style: italic;
-  font-size: clamp(14px, 3.6vw, 22px);
-  color: var(--hdr-sub);
+  font-family: var(--sans);
+  font-style: normal;
+  font-weight: 600;
+  font-size: clamp(13px, 3.4vw, 18px);
+  color: #8A6F4A; /* deep gold, readable on white */
+  letter-spacing: 0.04em;
 }
 
 /* ---------------- Main container ---------------- */
@@ -336,56 +393,63 @@ html, body {
 main {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 16px;
+  padding: 18px 16px;
 }
 
 /* ---------------- KPI strip ---------------- */
 
 .kpi-strip {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(215px, 1fr));
   gap: 10px;
-  margin-bottom: 22px;
-}
-
-@media (min-width: 520px) {
-  .kpi-strip { grid-template-columns: repeat(2, 1fr); }
-}
-@media (min-width: 900px) {
-  .kpi-strip { grid-template-columns: repeat(4, 1fr); }
-}
-@media (min-width: 1100px) {
-  .kpi-strip { grid-template-columns: repeat(5, 1fr); }
+  margin-bottom: 24px;
 }
 
 .kpi-card {
+  position: relative;
+  overflow: hidden;
   background: var(--kpi-bg);
-  border-left: 3px solid var(--brand-blue);
-  padding: 12px 14px;
-  border-radius: 2px;
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--gold);
+  padding: 13px 14px;
+  border-radius: 8px;
+  box-shadow: var(--shadow-card);
+}
+
+/* Branded bullet: a small solid Doha Bank crescent before each KPI label */
+.kpi-label::before {
+  content: "";
+  display: inline-block;
+  width: 9px;
+  height: 13px;
+  margin-right: 7px;
+  vertical-align: -2px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 84'%3E%3Cpath fill='%23062E63' d='M8 3 A39.7 39.7 0 1 1 14 81 A39.4 39.4 0 0 0 8 3 Z'/%3E%3Cpath fill='%23C2A57E' d='M10 14 A33 33 0 0 1 10 80 Z'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
 .kpi-label {
   font-size: 10.5px;
   font-weight: 700;
   color: var(--mid-blue);
-  letter-spacing: 0.16em;
-  margin-bottom: 4px;
+  letter-spacing: 0.14em;
+  margin-bottom: 5px;
 }
 
 .kpi-value {
   font-family: var(--serif);
-  font-weight: 700;
-  font-size: clamp(22px, 5.4vw, 36px);
+  font-weight: 600;
+  font-size: clamp(23px, 5.4vw, 35px);
   color: var(--navy);
-  letter-spacing: -0.01em;
-  line-height: 1.1;
+  letter-spacing: -0.02em;
+  line-height: 1.08;
 }
 
 .kpi-sub {
   font-size: 12px;
   color: var(--mid-blue);
-  margin-top: 4px;
+  margin-top: 5px;
 }
 
 .kpi-change .glyph { font-weight: 700; margin-right: 2px; }
@@ -396,11 +460,11 @@ main {
   font-size: 11px;
   font-weight: 700;
   color: var(--navy);
-  letter-spacing: 0.22em;
+  letter-spacing: 0.19em;
   text-transform: uppercase;
   margin: 0 0 10px 0;
-  padding-bottom: 6px;
-  border-bottom: 1.5px solid var(--brand-blue);
+  padding-bottom: 7px;
+  border-bottom: 2px solid var(--gold);
   display: flex;
   justify-content: space-between;
   align-items: baseline;
@@ -408,9 +472,9 @@ main {
 
 .section-meta {
   color: var(--accent-blue);
-  font-weight: 400;
+  font-weight: 600;
   font-size: 10px;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.14em;
 }
 
 /* ---------------- Tables ---------------- */
@@ -426,7 +490,13 @@ main {
   .tables-grid { grid-template-columns: repeat(2, 1fr); gap: 22px; }
 }
 
-.table-card { background: var(--white); }
+.table-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 14px;
+  box-shadow: var(--shadow-card);
+}
 
 .table-scroll {
   overflow-x: auto;
@@ -443,11 +513,11 @@ table {
 thead th {
   font-size: 10px;
   font-weight: 700;
-  color: var(--accent-blue);
-  letter-spacing: 0.14em;
+  color: var(--mid-blue);
+  letter-spacing: 0.12em;
   text-align: right;
   padding: 8px 10px;
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid var(--silver);
   white-space: nowrap;
 }
 
@@ -461,11 +531,10 @@ tbody td {
 }
 
 tbody tr:nth-child(even) { background: var(--tint); }
-
 tbody tr:last-child td { border-bottom: none; }
 
 td.col-name {
-  font-weight: 700;
+  font-weight: 600;
   color: var(--navy);
   text-align: left;
   white-space: normal;
@@ -480,20 +549,19 @@ td.num {
 
 td.px-last { color: var(--navy); }
 
-/* Percentage cells: glyph + number, right-aligned */
 td.pct .value { font-variant-numeric: tabular-nums; }
 td.pct .glyph { margin-right: 4px; font-weight: 700; }
 
-td.pct-up   { color: var(--navy); font-weight: 700; }
-td.pct-up   .glyph { color: var(--navy); }
+td.pct-up { color: var(--navy); font-weight: 700; }
+td.pct-up .glyph { color: var(--brand-mid); }
 
 td.pct-down { color: var(--mid-blue); }
 td.pct-down .glyph { color: var(--light-blue); }
 
 td.pct-zero { color: var(--mid-blue); }
-td.pct-zero .glyph { color: var(--accent-blue); }
+td.pct-zero .glyph { color: var(--gold); }
 
-td.pct-na   { color: var(--muted); }
+td.pct-na { color: var(--muted); }
 
 /* ---------------- News sections ---------------- */
 
@@ -512,25 +580,26 @@ td.pct-na   { color: var(--muted); }
 .news-card {
   background: var(--white);
   border: 1px solid var(--border);
-  border-left: 3px solid var(--brand-blue);
+  border-left: 3px solid var(--gold);
   padding: 16px 18px;
-  border-radius: 2px;
+  border-radius: 8px;
+  box-shadow: var(--shadow-card);
 }
 
 .news-source {
   font-size: 11.5px;
   font-weight: 700;
   color: var(--accent-blue);
-  letter-spacing: 0.16em;
+  letter-spacing: 0.14em;
   margin-bottom: 7px;
 }
 
 .news-headline {
   font-family: var(--serif);
-  font-weight: 700;
-  font-size: clamp(18px, 4.5vw, 26px);
+  font-weight: 600;
+  font-size: clamp(18px, 4.5vw, 25px);
   color: var(--navy);
-  line-height: 1.28;
+  line-height: 1.27;
   margin: 0 0 9px 0;
 }
 
@@ -542,13 +611,13 @@ td.pct-na   { color: var(--muted); }
 
 .news-link:hover,
 .news-link:focus {
-  color: var(--brand-blue);
+  color: var(--brand-mid);
   text-decoration: underline;
   text-decoration-thickness: 1.5px;
   text-underline-offset: 2px;
 }
 
-.news-link:focus { outline: 2px solid var(--accent-blue); outline-offset: 2px; }
+.news-link:focus { outline: 2px solid var(--gold); outline-offset: 2px; }
 
 .news-summary {
   font-size: 15px;
@@ -564,9 +633,9 @@ td.pct-na   { color: var(--muted); }
   font-family: var(--sans);
   font-size: 12.5px;
   font-weight: 700;
-  color: var(--accent-blue);
+  color: var(--brand-mid);
   text-decoration: none;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.03em;
   transition: color 0.15s ease, text-decoration-color 0.15s ease;
 }
 
@@ -578,7 +647,7 @@ td.pct-na   { color: var(--muted); }
   text-underline-offset: 2px;
 }
 
-.news-more:focus { outline: 2px solid var(--accent-blue); outline-offset: 2px; }
+.news-more:focus { outline: 2px solid var(--gold); outline-offset: 2px; }
 
 .news-empty {
   color: var(--muted);
@@ -589,15 +658,33 @@ td.pct-na   { color: var(--muted); }
 /* ---------------- Footer ---------------- */
 
 footer {
-  background: var(--brand-blue);
-  color: var(--hdr-meta);
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--brand-deep), var(--brand-blue));
+  color: var(--silver);
   padding: 14px 18px;
   margin-top: 24px;
   font-size: 11px;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.14em;
+}
+
+footer::after {
+  content: "";
+  position: absolute;
+  width: 74px;
+  height: 104px;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 84'%3E%3Cpath fill='%23FFFFFF' d='M8 3 A39.7 39.7 0 1 1 14 81 A39.4 39.4 0 0 0 8 3 Z'/%3E%3Cpath fill='%23C2A57E' d='M10 14 A33 33 0 0 1 10 80 Z'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0.22;
 }
 
 footer .footer-inner {
+  position: relative;
+  z-index: 1;
   max-width: 1200px;
   margin: 0 auto;
   display: flex;
@@ -608,43 +695,32 @@ footer .footer-inner {
 }
 
 footer .brand-wordmark {
-  color: var(--sky-blue);
+  color: var(--gold-soft);
   font-weight: 700;
-  letter-spacing: 0.28em;
+  letter-spacing: 0.27em;
 }
 
 /* ---------------- Desktop bump ---------------- */
-/* Mobile sizes are tuned for ~380px phones. On laptops and larger we
-   scale the fixed-pixel elements up so the report reads comfortably from
-   a typical viewing distance. The clamped elements (h1, kpi-value,
-   news-headline, report-date) already grow with viewport — this block
-   handles the rest. */
 
 @media (min-width: 1024px) {
   body { font-size: 17px; }
 
-  /* Masthead chrome */
-  .brand-row     { font-size: 12.5px; }
-
-  /* Section header */
+  .brand-row { font-size: 12.5px; }
   .section-header { font-size: 12.5px; padding-bottom: 8px; }
-  .section-meta   { font-size: 11.5px; }
+  .section-meta { font-size: 11.5px; }
 
-  /* KPI strip */
-  .kpi-card  { padding: 16px 18px; }
+  .kpi-card { padding: 16px 18px; }
   .kpi-label { font-size: 12px; }
-  .kpi-sub   { font-size: 14px; margin-top: 6px; }
+  .kpi-sub { font-size: 14px; margin-top: 6px; }
 
-  /* Data tables */
-  table      { font-size: 15.5px; }
-  thead th   { font-size: 11.5px; padding: 10px 12px; }
-  tbody td   { padding: 11px 12px; }
+  table { font-size: 15.5px; }
+  thead th { font-size: 11.5px; padding: 10px 12px; }
+  tbody td { padding: 11px 12px; }
 
-  /* News cards */
-  .news-card     { padding: 18px 22px; }
-  .news-source   { font-size: 13px; margin-bottom: 8px; }
-  .news-summary  { font-size: 17px; line-height: 1.6; }
-  .news-more     { font-size: 14px; margin-top: 12px; }
+  .news-card { padding: 18px 22px; }
+  .news-source { font-size: 13px; margin-bottom: 8px; }
+  .news-summary { font-size: 17px; line-height: 1.6; }
+  .news-more { font-size: 14px; margin-top: 12px; }
 }
 
 /* ---------------- Print ---------------- */
@@ -653,8 +729,9 @@ footer .brand-wordmark {
   body { background: #fff; font-size: 11pt; }
   main { max-width: none; padding: 8mm; }
   .masthead, footer { padding: 8mm; }
-  .news-card, .kpi-card { break-inside: avoid; }
-  .table-card  { break-inside: avoid; }
+  .news-card, .kpi-card, .table-card { break-inside: avoid; box-shadow: none; }
+  .mast-art, footer::after { display: none; }
+  .masthead::before { display: none; }
 }
 """
 
@@ -668,11 +745,8 @@ HTML_TEMPLATE = """<!DOCTYPE html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#1B5FA5">
+<meta name="theme-color" content="#062E63">
 <title>{title}</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Caladea:ital,wght@0,400;0,700;1,400&family=Carlito:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 <style>
 {css}
 </style>
@@ -680,6 +754,10 @@ HTML_TEMPLATE = """<!DOCTYPE html>
 <body>
 
 <header class="masthead">
+  <svg class="mast-art" viewBox="0 0 60 84" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false">
+    <path fill="#062E63" d="M8 3 A39.7 39.7 0 1 1 14 81 A39.4 39.4 0 0 0 8 3 Z"/>
+    <path fill="#C2A57E" d="M10 14 A33 33 0 0 1 10 80 Z"/>
+  </svg>
   <div class="masthead-inner">
     <div class="brand-row">
       <span class="brand-wordmark">DOHA BANK</span>
@@ -723,7 +801,7 @@ def generate(data, output_path):
     report_date            = data.get("config", {}).get("report_date", dt.today().strftime("%d %B %Y"))
     generated_display_time = data.get("generated_display_time", "")
 
-    page_meta = generated_display_time if generated_display_time else ""
+    page_meta = f"\u00b7 {generated_display_time}" if generated_display_time else ""
 
     kpi_html = render_kpis(data.get("kpis", []))
 
@@ -777,3 +855,5 @@ if __name__ == "__main__":
     else:
         print("Usage: python html_generator.py market_data.json report.html")
         raise SystemExit(1)
+
+    
