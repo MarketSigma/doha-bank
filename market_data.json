@@ -16,7 +16,7 @@
       "market_drivers": true
     }
   },
-  "generated_at": "2026-07-22T22:41:39Z",
+  "generated_at": "2026-07-22T22:49:10Z",
   "generated_display_time": "",
   "global_indices": [
     {
@@ -503,102 +503,102 @@
   "market_as_of_date": "2026-07-22",
   "global_news": [
     {
-      "headline": "US-Iran War Escalates; Iran Warns No Infrastructure Safe",
-      "summary": "US launches new strikes as Iran's chief negotiator warns regional turmoil will follow if attacks persist, threatening infrastructure safety globally amid deepening conflict.",
-      "source": "Al Jazeera",
-      "url": "https://www.aljazeera.com/news/2026/7/22/iran-warns-of-regional-turmoil-if-us-threats-and-attacks-do-not?traffic_source=rss",
-      "metric": "$37.5bn",
-      "metric_label": "Estimated US Iran war cost (Hegs"
-    },
-    {
-      "headline": "Oil Tops $95 as Middle East Conflict Escalates",
-      "summary": "Crude prices surged above $95, the fastest rise since US-Israeli attacks on Tehran disrupted Gulf exports via Hormuz. Analysts warn $120/barrel possible by year-end if Hormuz remains disrupted.",
-      "source": "The Guardian",
-      "url": "https://www.theguardian.com/world/2026/jul/22/oil-price-increases-middle-east-conflict-escalates-us-iran",
-      "metric": "$95+",
-      "metric_label": "Brent crude price ($/barrel)"
-    },
-    {
-      "headline": "US Signs Landmark Nuclear Cooperation Deal With Saudi Arabia",
-      "summary": "The US and Saudi Arabia announced a nuclear cooperation agreement, with the Trump administration calling it historic, reinforcing nonproliferation standards and opening Saudi nuclear sector to US firms.",
-      "source": "Al Jazeera",
-      "url": "https://www.aljazeera.com/news/2026/7/22/us-and-saudi-arabia-announce-nuclear-cooperation-deal?traffic_source=rss",
-      "metric": "Historic",
-      "metric_label": "US-Saudi nuclear deal status"
-    },
-    {
-      "headline": "Treasury Yields Rise as Traders Reassess Fed Rate Hike Bets",
-      "summary": "US Treasury yields moved higher as investors weighed escalating Middle East tensions and reassessed Federal Reserve rate hike expectations amid geopolitical risk repricing.",
+      "headline": "US Treasury Yields Rise on Middle East Escalation",
+      "summary": "US Treasury yields moved higher as investors mapped escalating Middle East tensions, with traders also reassessing Federal Reserve rate hike expectations amid ongoing US-Iran conflict.",
       "source": "CNBC",
       "url": "https://www.cnbc.com/2026/07/22/treasury-yields-fed-rate-hike-bets.html",
       "metric": "Rising",
-      "metric_label": "US 10-year Treasury yield direct"
+      "metric_label": "US 10-yr Treasury yield directio"
     },
     {
-      "headline": "US Inflation Eases to 3.5% Annually in June",
-      "summary": "June CPI fell to 3.5% annually, moving closer to the Fed's 2% target as a lull in US-Iran fighting eased energy prices, though risks remain from renewed conflict.",
-      "source": "CNBC",
-      "url": "https://www.cnbc.com/video/2026/07/14/inflation-eases-to-3point5percent-annually-in-june-despite-iran-war-and-ai-boom.html",
-      "metric": "3.5%",
-      "metric_label": "US CPI annual rate (June)"
-    },
-    {
-      "headline": "S&P 500 Dips as Higher Oil Pressures Stocks",
-      "summary": "S&P 500 fell 0.14% to 7,498.96, Nasdaq lost 0.57% to 25,690.90, and the Dow shed 6 points as elevated oil prices weighed on equities amid Middle East tensions.",
+      "headline": "S&P 500 Dips as Higher Oil Prices Pressure Stocks",
+      "summary": "S&P 500 fell 0.14% to 7,498.96, Nasdaq shed 0.57% to 25,690.90, and the Dow dipped 6 points as elevated oil prices weighed on equities.",
       "source": "CNBC",
       "url": "https://www.cnbc.com/2026/07/21/stock-market-today-live-updates.html",
       "metric": "7,498.96",
-      "metric_label": "S&P 500 close"
+      "metric_label": "S&P 500 closing level"
     },
     {
-      "headline": "Houthis Claim Attack on Two Saudi Oil Tankers",
-      "summary": "Yemen's Houthis claimed attacks on two Saudi oil tankers, days after announcing a naval embargo on Saudi vessels, with ship-tracking data showing sharp U-turns by tankers near Saudi ports.",
-      "source": "Al Jazeera",
-      "url": "https://www.aljazeera.com/news/2026/7/22/yemens-houthis-claim-attack-on-two-saudi-oil-tankers?traffic_source=rss",
-      "metric": "2 tankers",
-      "metric_label": "Saudi vessels claimed attacked"
+      "headline": "US Inflation Eases to 3.5% Annually in June",
+      "summary": "June CPI fell to 3.5% annually, moving closer to the Fed's 2% target as a lull in US-Iran fighting eased energy prices, despite ongoing geopolitical and AI-driven cost pressures.",
+      "source": "CNBC",
+      "url": "https://www.cnbc.com/video/2026/07/14/inflation-eases-to-3point5percent-annually-in-june-despite-iran-war-and-ai-boom.html",
+      "metric": "3.5%",
+      "metric_label": "US CPI annual rate, June"
     },
     {
-      "headline": "ADNOC Commits $6.2bn to Umm Shaif Gas Cap Project",
-      "summary": "ADNOC announced a $6.2 billion investment in the Umm Shaif gas cap project, aimed at harnessing natural gas from the field as UAE intensifies energy output expansion.",
+      "headline": "US Signs Landmark Nuclear Deal With Saudi Arabia",
+      "summary": "The US Department of Energy signed a peaceful co-operation agreement giving US firms significant access to Saudi Arabia's nuclear energy programme.",
+      "source": "BBC World",
+      "url": "https://www.bbc.co.uk/news/articles/cj03r59z73po?at_medium=RSS&at_campaign=rss",
+      "metric": "New Deal",
+      "metric_label": "US-Saudi nuclear co-operation pa"
+    },
+    {
+      "headline": "ADNOC Commits $6.2bn to Umm Shaif Gas Project",
+      "summary": "ADNOC announced a $6.2 billion investment in the Umm Shaif gas cap project to harness natural gas accumulating above crude oil reserves, intensifying UAE's energy output.",
       "source": "The National",
       "url": "https://www.thenationalnews.com/opinion/editorial/2026/07/22/adnoc-gas-lng-uae-energy/",
       "metric": "$6.2bn",
       "metric_label": "ADNOC Umm Shaif gas investment"
+    },
+    {
+      "headline": "Oil Tops $95 as Middle East Conflict Deepens",
+      "summary": "Crude surged above $95 in the fastest monthly rise since US-Israeli strikes on Tehran disrupted Hormuz flows in March, with analysts warning of $120/bbl by year-end if exports remain disrupted.",
+      "source": "The Guardian",
+      "url": "https://www.theguardian.com/world/2026/jul/22/oil-price-increases-middle-east-conflict-escalates-us-iran",
+      "metric": ">$95",
+      "metric_label": "Brent crude price level"
+    },
+    {
+      "headline": "Houthis Attack Two Saudi Oil Tankers",
+      "summary": "Yemen's Houthis claimed attacks on two Saudi oil tankers days after announcing a naval embargo on Saudi vessels, with ship-tracking data showing tankers making sharp U-turns near Saudi ports.",
+      "source": "Al Jazeera",
+      "url": "https://www.aljazeera.com/news/2026/7/22/yemens-houthis-claim-attack-on-two-saudi-oil-tankers?traffic_source=rss",
+      "metric": "2 Tankers",
+      "metric_label": "Saudi vessels claimed attacked"
+    },
+    {
+      "headline": "Trump Threatens Iran Bridges and Power Plants Over Hormuz",
+      "summary": "President Trump warned the US will respond militarily if Iranian forces attack ships in the Strait of Hormuz, threatening to target Iran's bridges and power plants.",
+      "source": "BBC World",
+      "url": "https://www.bbc.co.uk/news/articles/cdrv0p37k8jo?at_medium=RSS&at_campaign=rss",
+      "metric": "Escalating",
+      "metric_label": "US-Iran Hormuz military threat l"
     }
   ],
   "qatar_news": [
     {
       "headline": "QIB Wins 3 Euromoney Awards Including Best Bank",
-      "summary": "Qatar Islamic Bank has won three Euromoney awards, including the prestigious Qatar's best bank award, recognising its leading position in the country's banking sector.",
+      "summary": "Qatar Islamic Bank has won three Euromoney awards, including the prestigious Qatar's best bank award, recognising its outstanding performance in the banking sector.",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/245325/business/qib-wins-3-euromoney-awards-including-qatars-best-bank-award",
       "metric": "3",
       "metric_label": "Euromoney Awards Won"
     },
     {
-      "headline": "Doha Bank Unveils New Corporate Identity for Growth",
-      "summary": "Doha Bank has launched a new corporate identity reflecting its strategic transformation and future vision, signalling a repositioning to drive growth.",
+      "headline": "Doha Bank Launches New Corporate Identity for Growth",
+      "summary": "Doha Bank has unveiled a new corporate identity reflecting its strategic transformation and future vision, signalling a repositioning of the bank for future growth.",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/245468/latest-news/doha-bank-unveils-new-corporate-identity-reflecting-its-strategic-transformation-future-vision",
-      "metric": "Rebrand",
-      "metric_label": "Strategic Identity Overhaul"
-    },
-    {
-      "headline": "QCB Governor Holds Meeting With UAE Ambassador",
-      "summary": "Qatar Central Bank governor held a meeting with the Ambassador of the UAE to Qatar, underscoring continued bilateral financial and diplomatic engagement between the two Gulf states.",
-      "source": "Qatar Tribune",
-      "url": "https://www.qatar-tribune.com/article/245498/business/qcb-governor-meets-with-ambassador-of-uae-to-qatar",
-      "metric": "QCB\u2013UAE",
-      "metric_label": "Bilateral Financial Meeting"
+      "metric": "Rebranded",
+      "metric_label": "Corporate Identity Status"
     },
     {
       "headline": "QFC and CCI France Qatar Sign Trade Agreement",
-      "summary": "Qatar Financial Centre and CCI France Qatar have signed an agreement aimed at boosting trade ties, strengthening economic cooperation between Qatar and France.",
+      "summary": "Qatar Financial Centre and CCI France Qatar have signed an agreement aimed at strengthening trade and business ties between Qatar and France.",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/245332/business/qfc-cci-france-qatar-sign-agreement-to-boost-trade-ties",
-      "metric": "MoU Signed",
-      "metric_label": "Qatar\u2013France Trade Pact"
+      "metric": "Signed",
+      "metric_label": "QFC-France Trade Agreement"
+    },
+    {
+      "headline": "QCB Governor Meets UAE Ambassador to Qatar",
+      "summary": "The Qatar Central Bank governor held a meeting with the Ambassador of the UAE to Qatar, indicating ongoing bilateral financial and diplomatic engagement between the two Gulf states.",
+      "source": "Qatar Tribune",
+      "url": "https://www.qatar-tribune.com/article/245498/business/qcb-governor-meets-with-ambassador-of-uae-to-qatar",
+      "metric": "Bilateral",
+      "metric_label": "QCB-UAE Diplomatic Meeting"
     }
   ],
   "kpis": [
@@ -627,34 +627,34 @@
     {
       "source": "The Guardian",
       "url": "https://www.theguardian.com/world/2026/jul/22/oil-price-increases-middle-east-conflict-escalates-us-iran",
-      "headline": "Brent $94.31 eyes $95 breakout; Hormuz disruption opens $120 path",
-      "summary": "Brent's +3.39% single-day surge and +54.99% YTD move reflects Hormuz risk premium repricing. A sustained close above $95 removes near-term technical resistance; analyst consensus targets $120 by year-end if Strait remains disrupted. Energy-importing EM equity books (Nifty -7.11% ",
+      "headline": "Brent at $94.31 eyes $95 breakout; $120 tail risk reshapes energy allocation",
+      "summary": "Brent's +28.56% MTD surge and +3.39% daily move place spot at $94.31, just below the psychologically significant $95 level. Analyst consensus targets $120/bbl on sustained Hormuz disruption. A confirmed close above $95 triggers cost-push inflation transmission into UST breakevens",
       "metric": "$94.31",
       "metric_label": "Brent spot"
     },
     {
       "source": "CNBC",
       "url": "https://www.cnbc.com/2026/07/22/treasury-yields-fed-rate-hike-bets.html",
-      "headline": "UST 10Y at 4.654%; geopolitical risk premium steepening 5s10s spread",
-      "summary": "10Y at 4.654% (+5.39% MTD) and 5Y at 4.402% (+5.29% MTD) signals bear-steepening as geopolitical risk repricing overrides the June CPI 3.5% print. The 5s10s spread near 25bps is a key watch \u2014 further steepening above 30bps pressures duration-heavy sovereign and IG fixed income al",
+      "headline": "UST 10Y at 4.654%; 5s10s steepening signals duration risk re-pricing",
+      "summary": "10Y UST at 4.654% (+5.39% MTD) and 5Y at 4.402% (+5.29% MTD) with the 5s10s spread at ~25bp and widening. Geopolitical risk premium compounding Fed re-pricing creates a bearish duration environment. Portfolios with EM or long-duration overlays face mark-to-market pressure; watch ",
       "metric": "4.654%",
       "metric_label": "UST 10Y"
     },
     {
       "source": "Al Jazeera",
       "url": "https://www.aljazeera.com/news/2026/7/22/yemens-houthis-claim-attack-on-two-saudi-oil-tankers?traffic_source=rss",
-      "headline": "Houthi tanker strikes put Red Sea freight premium at risk; DFM at -4.33% YTD support",
-      "summary": "Houthi attacks on two Saudi oil tankers compound the Hormuz risk vector with a Red Sea shipping lane threat. Saudi Tadawul's +0.72% session gain masks vulnerability \u2014 a sustained naval embargo widens Gulf equity risk premia. DFM at 5,785 (-4.33% YTD) and QE Index at 10,067 (-6.47",
-      "metric": "5,785.31",
-      "metric_label": "Dubai DFM"
+      "headline": "Tadawul holds 10,775 amid tanker attacks; shipping risk premium expands",
+      "summary": "Houthi attacks on Saudi tankers introduce a direct shipping-lane risk premium into GCC equity and freight markets. Tadawul at 10,775 (+0.72% daily) shows relative resilience but the -0.23% MTD drift signals uncertainty. LNG JKM at $21.34 (+122.06% YTD) confirms energy route disru",
+      "metric": "10,775.46",
+      "metric_label": "Saudi Tadawul"
     },
     {
-      "source": "Al Jazeera",
-      "url": "https://www.aljazeera.com/news/2026/7/22/us-and-saudi-arabia-announce-nuclear-cooperation-deal?traffic_source=rss",
-      "headline": "US-Saudi nuclear deal re-rates Tadawul utilities; LNG at $21.34 frames energy diversification premium",
-      "summary": "The US-Saudi nuclear cooperation agreement opens Saudi's nuclear sector to US firms, structurally altering the Kingdom's long-term energy mix. Near-term, LNG JP/KR at $21.34 (+122.06% YTD, +34.89% MTD) prices in acute gas supply tightness. Tadawul at 10,775 holds YTD gains (+2.71",
-      "metric": "$21.34",
-      "metric_label": "LNG JP/KR"
+      "source": "CNBC",
+      "url": "https://www.cnbc.com/video/2026/07/14/inflation-eases-to-3point5percent-annually-in-june-despite-iran-war-and-ai-boom.html",
+      "headline": "CPI at 3.5% vs. Fed 2% target; oil re-acceleration threatens disinflationary path",
+      "summary": "June CPI printed 3.5% YoY, 150bp above the Fed's 2% target. With Brent +28.56% MTD, the energy re-acceleration risk to August CPI is material. EUR/USD at 1.1414 (-2.84% YTD) limits import-deflation offset for the US. A CPI re-acceleration above 3.7% would close the door on any 20",
+      "metric": "3.5%",
+      "metric_label": "US CPI YoY"
     }
   ],
   "validation_issues": [
