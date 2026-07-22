@@ -26,21 +26,22 @@ from typing import Any, Dict, List
 # Brand palette — hardcoded; email clients ignore CSS variables
 # ============================================================
 
-BRAND_BLUE  = "#1B5FA5"
-SKY_BLUE    = "#38B6FF"
-NAVY        = "#0A2540"
-MID_BLUE    = "#4677B0"
-ACCENT_BLUE = "#6595CB"
-LIGHT_BLUE  = "#9EBEDF"
-MUTED       = "#88A5C2"
+BRAND_BLUE  = "#062E63"
+SKY_BLUE    = "#D4B58A"
+NAVY        = "#082C5D"
+MID_BLUE    = "#45698F"
+ACCENT_BLUE = "#7392B3"
+LIGHT_BLUE  = "#AFC1D4"
+MUTED       = "#7B8EA3"
 WHITE       = "#FFFFFF"
-TINT        = "#F5F9FC"
-KPI_BG      = "#F1F6FB"
-BORDER      = "#E8F0F8"
-PAGE_BG     = "#FBFCFE"
+TINT        = "#F7F9FC"
+KPI_BG      = "#FFFFFF"
+BORDER      = "#E3E9F0"
+PAGE_BG     = "#F3F5F8"
 
 SERIF = "Georgia, 'Times New Roman', serif"
-SANS  = "-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif"
+SANS  = "'Segoe UI', Tahoma, Arial, sans-serif"
+TITLE_FONT = "Arial, Helvetica, sans-serif"
 
 
 # ============================================================
@@ -144,29 +145,55 @@ def _kpi_change_inline(sub: str) -> str:
 # ============================================================
 
 def _masthead(report_date: str, generated_display_time: str) -> str:
-    return f'''
-<tr><td style="background:{BRAND_BLUE};padding:18px 22px 22px;">
-  <table cellpadding="0" cellspacing="0" border="0" width="100%">
-    <tr>
-      <td style="font-family:{SANS};color:{SKY_BLUE};font-size:11px;font-weight:700;letter-spacing:0.28em;">
-        DOHA BANK
-      </td>
-      <td align="right" style="font-family:{SANS};color:#9EBEDF;font-size:10px;letter-spacing:0.14em;">
-        {_e(generated_display_time)}
-      </td>
-    </tr>
-    <tr><td colspan="2" height="10" style="line-height:0;font-size:0;">&nbsp;</td></tr>
-    <tr>
-      <td class="eb-title" style="font-family:{SERIF};color:{WHITE};font-size:30px;font-weight:700;line-height:1.05;">
-        Market Updates
-      </td>
-      <td align="right" class="eb-date" style="font-family:{SERIF};color:#C5DCEF;font-size:14px;font-style:italic;">
-        {_e(report_date)}
-      </td>
-    </tr>
-  </table>
-</td></tr>
-'''
+    brief_label = generated_display_time or "DAILY MARKET BRIEF"
+    return f"""
+<tr>
+  <td style="background:{BRAND_BLUE};padding:16px 22px;">
+    <table cellpadding="0" cellspacing="0" border="0" width="100%">
+      <tr>
+        <td align="right"
+            style="font-family:{SANS};color:#E4D3B4;font-size:14px;
+                   font-weight:700;letter-spacing:0.06em;">
+          {_e(report_date)}
+        </td>
+      </tr>
+    </table>
+  </td>
+</tr>
+
+<tr>
+  <td style="background:{WHITE};padding:22px 22px 18px;
+             border-bottom:2px solid #D4B58A;">
+    <table cellpadding="0" cellspacing="0" border="0" width="100%">
+      <tr>
+        <td valign="middle">
+          <div class="eb-title"
+               style="font-family:{TITLE_FONT};color:{BRAND_BLUE};
+                      font-size:30px;font-weight:700;line-height:1.05;
+                      letter-spacing:-0.025em;margin:0;">
+            Market Intelligence
+          </div>
+
+          <div style="margin-top:7px;white-space:nowrap;">
+            <span style="font-family:{SANS};font-size:13px;font-weight:600;
+                         letter-spacing:0.08em;color:{BRAND_BLUE};">
+              DOHA BANK
+            </span>
+            <span style="font-family:{SANS};font-size:13px;font-weight:400;
+                         color:#D4B58A;padding:0 8px;">
+              |
+            </span>
+            <span style="font-family:{SANS};font-size:13px;font-weight:600;
+                         letter-spacing:0.08em;color:{MID_BLUE};">
+              {_e(brief_label)}
+            </span>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </td>
+</tr>
+"""
 
 
 def _kpi_block(kpis: List[Dict[str, Any]]) -> str:
@@ -323,7 +350,7 @@ def _news_card_block(item: Dict[str, Any]) -> str:
   <tr><td style="padding:12px 14px;">
     <div class="eb-news-source" style="font-family:{SANS};font-size:10.5px;font-weight:700;color:{ACCENT_BLUE};
                 letter-spacing:0.16em;margin-bottom:5px;">{_e(src)}</div>
-    <div class="eb-news-head" style="font-family:{SERIF};font-size:16px;font-weight:700;color:{NAVY};
+    <div class="eb-news-head" style="font-family:{SANS};font-size:16px;font-weight:700;color:{NAVY};
                 line-height:1.3;margin-bottom:6px;">{headline_html}</div>
     <div class="eb-news-summ" style="font-family:{SANS};font-size:13px;color:{MID_BLUE};line-height:1.5;">
       {summary}
@@ -360,7 +387,7 @@ def _footer(report_date: str) -> str:
                  letter-spacing:0.24em;">DOHA BANK</td>
       <td align="right" style="font-family:{SANS};font-size:10px;color:#9EBEDF;
                                letter-spacing:0.14em;">
-        MARKET UPDATES &middot; {_e(report_date)}
+        MARKET INTELLIGENCE &middot; {_e(report_date)}
       </td>
     </tr>
   </table>
@@ -496,3 +523,5 @@ if __name__ == "__main__":
         # Wrap in minimal full-HTML scaffolding for standalone preview
         f.write(f'<!doctype html><html><body>{body}</body></html>')
     print(f"Email body written to {out_path} ({len(body)} chars)")
+
+    
