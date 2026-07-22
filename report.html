@@ -3,33 +3,41 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#1B5FA5">
-<title>Doha Bank Market Updates – 22 July 2026</title>
+<meta name="theme-color" content="#062E63">
+<title>Doha Bank Market Intelligence – 22 July 2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Caladea:ital,wght@0,400;0,700;1,400&family=Carlito:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap" rel="stylesheet">
 <style>
 
 :root {
-  --brand-blue: #1B5FA5;
-  --sky-blue:   #38B6FF;
-  --hdr-sub:    #C5DCEF;
-  --hdr-meta:   #9EBEDF;
+  /* Doha Bank "A New Era" inspired palette */
+  --brand-blue:   #062E63;
+  --brand-deep:   #03244F;
+  --brand-mid:    #1E5791;
+  --gold:         #D4B58A;
+  --gold-soft:    #E9D9C1;
+  --silver:       #C8D4E2;
+  --silver-light: #E9EEF4;
 
-  --navy:        #0A2540;
-  --mid-blue:    #4677B0;
-  --accent-blue: #6595CB;
-  --light-blue:  #9EBEDF;
-  --muted:       #88A5C2;
+  --navy:        #082C5D;
+  --mid-blue:    #45698F;
+  --accent-blue: #7392B3;
+  --light-blue:  #AFC1D4;
+  --muted:       #7B8EA3;
 
-  --white: #FFFFFF;
-  --tint:  #F5F9FC;
-  --kpi-bg: #F1F6FB;
-  --border: #E8F0F8;
-  --page-bg: #FBFCFE;
+  --white:   #FFFFFF;
+  --tint:    #F7F9FC;
+  --kpi-bg:  #FFFFFF;
+  --border:  #E3E9F0;
+  --page-bg: #F3F5F8;
 
-  --serif: "Caladea", "Cambria", "Georgia", serif;
-  --sans:  "Carlito", "Calibri", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --serif: "Source Serif 4", "Cambria", "Georgia", serif;
+  --sans:  "DM Sans", "Calibri", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --segoe: "Segoe UI", "Segoe UI Variable", Tahoma, Arial, sans-serif;
+
+  --shadow-soft: 0 8px 24px rgba(3, 36, 79, 0.07);
+  --shadow-card: 0 3px 12px rgba(3, 36, 79, 0.06);
 }
 
 * { box-sizing: border-box; }
@@ -38,58 +46,133 @@ html, body {
   margin: 0;
   padding: 0;
   background: var(--page-bg);
+}
+
+body {
   color: var(--navy);
   font-family: var(--sans);
   font-size: 16px;
-  line-height: 1.45;
+  line-height: 1.48;
   -webkit-text-size-adjust: 100%;
 }
 
-/* ---------------- Masthead ---------------- */
+/* ---------------- Navy strip + Masthead ----------------
+   The navy band across the top now carries the date on its right.
+   Below it: logo, large title, and the wordmark/brief line. */
+
+.navy-strip {
+  background: var(--brand-blue);
+  height: 75px;
+  display: flex;
+  align-items: center;
+}
+
+.navy-strip-inner {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 18px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.navy-strip .report-date {
+  font-size: clamp(14px, 2.2vw, 19px);
+  font-weight: 700;
+  color: #E4D3B4; /* light gold on navy */
+  letter-spacing: 0.06em;
+}
 
 .masthead {
-  background: var(--brand-blue);
-  color: var(--white);
-  padding: 14px 18px 18px;
+  background: #FFFFFF;
+  color: var(--navy);
+  padding: 22px 18px 0;
 }
 
-.masthead-inner { max-width: 1200px; margin: 0 auto; }
+.masthead-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  border-bottom: 2px solid var(--gold);
+  padding-bottom: 18px;
+}
 
-.brand-row {
+.brand-top {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  font-size: 11px;
-  letter-spacing: 0.18em;
-  font-weight: 700;
-  margin-bottom: 10px;
+  gap: 28px;
 }
 
-.brand-wordmark { color: var(--sky-blue); letter-spacing: 0.32em; }
-.page-meta      { color: var(--hdr-meta); font-weight: 400; letter-spacing: 0.14em; }
-
-.title-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  flex-wrap: wrap;
-  gap: 6px;
+.mast-logo {
+  width: 70px;
+  height: 98px;
+  flex: 0 0 auto;
 }
 
-.title-row h1 {
-  font-family: var(--serif);
+.title-block {
+  flex: 1;
+  min-width: 0;
+  padding-top: 4px;
+}
+
+.masthead h1 {
+  font-family: Arial, Helvetica, sans-serif;
   font-weight: 700;
-  font-size: clamp(28px, 7vw, 56px);
+  font-size: clamp(42px, 7vw, 60px);
   margin: 0;
-  line-height: 1.05;
-  letter-spacing: -0.005em;
+  line-height: 1.02;
+  letter-spacing: -0.025em;
+  color: var(--brand-blue);
 }
 
-.report-date {
-  font-family: var(--serif);
-  font-style: italic;
-  font-size: clamp(14px, 3.6vw, 22px);
-  color: var(--hdr-sub);
+.sub-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 6px;
+}
+
+.masthead .brand-wordmark,
+.edition-label,
+.sub-separator {
+  font-family: var(--segoe);
+  font-size: 15px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.masthead .brand-wordmark,
+.edition-label {
+  letter-spacing: 0.08em;
+}
+
+.sub-separator {
+  color: var(--gold);
+  letter-spacing: 0;
+  font-weight: 400;
+}
+
+.masthead .brand-wordmark {
+  color: var(--brand-blue);
+}
+
+.edition-label {
+  color: #5E7FA2;
+}
+
+@media (max-width: 520px) {
+  .navy-strip { height: 58px; }
+  .masthead .brand-wordmark,
+  .edition-label,
+  .sub-separator {
+    font-size: 12px;
+  }
+
+  .masthead .brand-wordmark,
+  .edition-label {
+    letter-spacing: 0.08em;
+  }
 }
 
 /* ---------------- Main container ---------------- */
@@ -97,59 +180,78 @@ html, body {
 main {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 16px;
+  padding: 14px 16px 18px;
 }
 
 /* ---------------- KPI strip ---------------- */
 
 .kpi-strip {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: repeat(2, 1fr);   /* two per row on phones */
   gap: 10px;
-  margin-bottom: 22px;
+  margin-bottom: 24px;
 }
 
-@media (min-width: 520px) {
-  .kpi-strip { grid-template-columns: repeat(2, 1fr); }
-}
-@media (min-width: 900px) {
+@media (min-width: 1000px) {
   .kpi-strip { grid-template-columns: repeat(4, 1fr); }
-}
-@media (min-width: 1100px) {
-  .kpi-strip { grid-template-columns: repeat(5, 1fr); }
 }
 
 .kpi-card {
+  position: relative;
+  overflow: hidden;
   background: var(--kpi-bg);
-  border-left: 3px solid var(--brand-blue);
-  padding: 12px 14px;
-  border-radius: 2px;
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--gold);
+  padding: 13px 14px;
+  border-radius: 8px;
+  box-shadow: var(--shadow-card);
+}
+
+/* Branded bullet: a small solid Doha Bank crescent before each KPI label */
+.kpi-label::before {
+  content: "";
+  display: inline-block;
+  width: 9px;
+  height: 13px;
+  margin-right: 7px;
+  vertical-align: -2px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 84'%3E%3Cpath fill='%23062E63' d='M8 3 A39.7 39.7 0 1 1 14 81 A39.4 39.4 0 0 0 8 3 Z'/%3E%3Cpath fill='%23C2A57E' d='M10 14 A33 33 0 0 1 10 80 Z'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
 .kpi-label {
   font-size: 10.5px;
   font-weight: 700;
   color: var(--mid-blue);
-  letter-spacing: 0.16em;
-  margin-bottom: 4px;
+  letter-spacing: 0.14em;
+  margin-bottom: 5px;
 }
 
 .kpi-value {
   font-family: var(--serif);
-  font-weight: 700;
-  font-size: clamp(22px, 5.4vw, 36px);
+  font-weight: 600;
+  font-size: clamp(23px, 5.4vw, 35px);
   color: var(--navy);
-  letter-spacing: -0.01em;
-  line-height: 1.1;
+  letter-spacing: -0.02em;
+  line-height: 1.08;
 }
 
 .kpi-sub {
   font-size: 12px;
   color: var(--mid-blue);
-  margin-top: 4px;
+  margin-top: 5px;
 }
 
 .kpi-change .glyph { font-weight: 700; margin-right: 2px; }
+
+@media (max-width: 520px) {
+  .kpi-card  { padding: 11px 12px; }
+  .kpi-label { font-size: 9.5px; letter-spacing: 0.10em; }
+  .kpi-value { font-size: clamp(19px, 5.6vw, 26px); }
+  .kpi-sub   { font-size: 10.5px; }
+  .kpi-label::before { width: 7px; height: 10px; margin-right: 5px; }
+}
 
 /* ---------------- Section header ---------------- */
 
@@ -157,11 +259,11 @@ main {
   font-size: 11px;
   font-weight: 700;
   color: var(--navy);
-  letter-spacing: 0.22em;
+  letter-spacing: 0.19em;
   text-transform: uppercase;
   margin: 0 0 10px 0;
-  padding-bottom: 6px;
-  border-bottom: 1.5px solid var(--brand-blue);
+  padding-bottom: 7px;
+  border-bottom: 2px solid var(--gold);
   display: flex;
   justify-content: space-between;
   align-items: baseline;
@@ -169,9 +271,9 @@ main {
 
 .section-meta {
   color: var(--accent-blue);
-  font-weight: 400;
+  font-weight: 600;
   font-size: 10px;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.14em;
 }
 
 /* ---------------- Tables ---------------- */
@@ -187,7 +289,13 @@ main {
   .tables-grid { grid-template-columns: repeat(2, 1fr); gap: 22px; }
 }
 
-.table-card { background: var(--white); }
+.table-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 14px;
+  box-shadow: var(--shadow-card);
+}
 
 .table-scroll {
   overflow-x: auto;
@@ -196,7 +304,6 @@ main {
 
 table {
   width: 100%;
-  min-width: 380px;
   border-collapse: collapse;
   font-size: 13.5px;
 }
@@ -204,11 +311,11 @@ table {
 thead th {
   font-size: 10px;
   font-weight: 700;
-  color: var(--accent-blue);
-  letter-spacing: 0.14em;
+  color: var(--mid-blue);
+  letter-spacing: 0.12em;
   text-align: right;
   padding: 8px 10px;
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid var(--silver);
   white-space: nowrap;
 }
 
@@ -222,11 +329,10 @@ tbody td {
 }
 
 tbody tr:nth-child(even) { background: var(--tint); }
-
 tbody tr:last-child td { border-bottom: none; }
 
 td.col-name {
-  font-weight: 700;
+  font-weight: 600;
   color: var(--navy);
   text-align: left;
   white-space: normal;
@@ -241,20 +347,29 @@ td.num {
 
 td.px-last { color: var(--navy); }
 
-/* Percentage cells: glyph + number, right-aligned */
 td.pct .value { font-variant-numeric: tabular-nums; }
 td.pct .glyph { margin-right: 4px; font-weight: 700; }
 
-td.pct-up   { color: var(--navy); font-weight: 700; }
-td.pct-up   .glyph { color: var(--navy); }
+td.pct-up { color: var(--navy); font-weight: 700; }
+td.pct-up .glyph { color: var(--brand-mid); }
 
 td.pct-down { color: var(--mid-blue); }
 td.pct-down .glyph { color: var(--light-blue); }
 
 td.pct-zero { color: var(--mid-blue); }
-td.pct-zero .glyph { color: var(--accent-blue); }
+td.pct-zero .glyph { color: var(--gold); }
 
-td.pct-na   { color: var(--muted); }
+td.pct-na { color: var(--muted); }
+
+/* Compact tables on phones: all five columns fit, no side-scroll */
+@media (max-width: 520px) {
+  table    { font-size: 11px; }
+  thead th { font-size: 8.5px; letter-spacing: 0.06em; padding: 6px 4px; }
+  tbody td { padding: 7px 4px; }
+  td.col-name { min-width: 0; font-size: 11px; }
+  td.pct .glyph { margin-right: 2px; font-size: 9px; }
+  .table-card { padding: 10px; }
+}
 
 /* ---------------- News sections ---------------- */
 
@@ -273,25 +388,26 @@ td.pct-na   { color: var(--muted); }
 .news-card {
   background: var(--white);
   border: 1px solid var(--border);
-  border-left: 3px solid var(--brand-blue);
+  border-left: 3px solid var(--gold);
   padding: 16px 18px;
-  border-radius: 2px;
+  border-radius: 8px;
+  box-shadow: var(--shadow-card);
 }
 
 .news-source {
   font-size: 11.5px;
   font-weight: 700;
   color: var(--accent-blue);
-  letter-spacing: 0.16em;
+  letter-spacing: 0.14em;
   margin-bottom: 7px;
 }
 
 .news-headline {
   font-family: var(--serif);
-  font-weight: 700;
-  font-size: clamp(18px, 4.5vw, 26px);
+  font-weight: 600;
+  font-size: clamp(18px, 4.5vw, 25px);
   color: var(--navy);
-  line-height: 1.28;
+  line-height: 1.27;
   margin: 0 0 9px 0;
 }
 
@@ -303,13 +419,13 @@ td.pct-na   { color: var(--muted); }
 
 .news-link:hover,
 .news-link:focus {
-  color: var(--brand-blue);
+  color: var(--brand-mid);
   text-decoration: underline;
   text-decoration-thickness: 1.5px;
   text-underline-offset: 2px;
 }
 
-.news-link:focus { outline: 2px solid var(--accent-blue); outline-offset: 2px; }
+.news-link:focus { outline: 2px solid var(--gold); outline-offset: 2px; }
 
 .news-summary {
   font-size: 15px;
@@ -325,9 +441,9 @@ td.pct-na   { color: var(--muted); }
   font-family: var(--sans);
   font-size: 12.5px;
   font-weight: 700;
-  color: var(--accent-blue);
+  color: var(--brand-mid);
   text-decoration: none;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.03em;
   transition: color 0.15s ease, text-decoration-color 0.15s ease;
 }
 
@@ -339,7 +455,7 @@ td.pct-na   { color: var(--muted); }
   text-underline-offset: 2px;
 }
 
-.news-more:focus { outline: 2px solid var(--accent-blue); outline-offset: 2px; }
+.news-more:focus { outline: 2px solid var(--gold); outline-offset: 2px; }
 
 .news-empty {
   color: var(--muted);
@@ -350,15 +466,33 @@ td.pct-na   { color: var(--muted); }
 /* ---------------- Footer ---------------- */
 
 footer {
-  background: var(--brand-blue);
-  color: var(--hdr-meta);
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--brand-deep), var(--brand-blue));
+  color: var(--silver);
   padding: 14px 18px;
   margin-top: 24px;
   font-size: 11px;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.14em;
+}
+
+footer::after {
+  content: "";
+  position: absolute;
+  width: 74px;
+  height: 104px;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 84'%3E%3Cpath fill='%23FFFFFF' d='M8 3 A39.7 39.7 0 1 1 14 81 A39.4 39.4 0 0 0 8 3 Z'/%3E%3Cpath fill='%23C2A57E' d='M10 14 A33 33 0 0 1 10 80 Z'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0.22;
 }
 
 footer .footer-inner {
+  position: relative;
+  z-index: 1;
   max-width: 1200px;
   margin: 0 auto;
   display: flex;
@@ -369,43 +503,32 @@ footer .footer-inner {
 }
 
 footer .brand-wordmark {
-  color: var(--sky-blue);
+  color: var(--gold-soft);
   font-weight: 700;
-  letter-spacing: 0.28em;
+  letter-spacing: 0.27em;
 }
 
 /* ---------------- Desktop bump ---------------- */
-/* Mobile sizes are tuned for ~380px phones. On laptops and larger we
-   scale the fixed-pixel elements up so the report reads comfortably from
-   a typical viewing distance. The clamped elements (h1, kpi-value,
-   news-headline, report-date) already grow with viewport — this block
-   handles the rest. */
 
 @media (min-width: 1024px) {
   body { font-size: 17px; }
 
-  /* Masthead chrome */
-  .brand-row     { font-size: 12.5px; }
-
-  /* Section header */
+  .brand-row { font-size: 12.5px; }
   .section-header { font-size: 12.5px; padding-bottom: 8px; }
-  .section-meta   { font-size: 11.5px; }
+  .section-meta { font-size: 11.5px; }
 
-  /* KPI strip */
-  .kpi-card  { padding: 16px 18px; }
+  .kpi-card { padding: 16px 18px; }
   .kpi-label { font-size: 12px; }
-  .kpi-sub   { font-size: 14px; margin-top: 6px; }
+  .kpi-sub { font-size: 14px; margin-top: 6px; }
 
-  /* Data tables */
-  table      { font-size: 15.5px; }
-  thead th   { font-size: 11.5px; padding: 10px 12px; }
-  tbody td   { padding: 11px 12px; }
+  table { font-size: 15.5px; }
+  thead th { font-size: 11.5px; padding: 10px 12px; }
+  tbody td { padding: 11px 12px; }
 
-  /* News cards */
-  .news-card     { padding: 18px 22px; }
-  .news-source   { font-size: 13px; margin-bottom: 8px; }
-  .news-summary  { font-size: 17px; line-height: 1.6; }
-  .news-more     { font-size: 14px; margin-top: 12px; }
+  .news-card { padding: 18px 22px; }
+  .news-source { font-size: 13px; margin-bottom: 8px; }
+  .news-summary { font-size: 17px; line-height: 1.6; }
+  .news-more { font-size: 14px; margin-top: 12px; }
 }
 
 /* ---------------- Print ---------------- */
@@ -414,46 +537,59 @@ footer .brand-wordmark {
   body { background: #fff; font-size: 11pt; }
   main { max-width: none; padding: 8mm; }
   .masthead, footer { padding: 8mm; }
-  .news-card, .kpi-card { break-inside: avoid; }
-  .table-card  { break-inside: avoid; }
+  .news-card, .kpi-card, .table-card { break-inside: avoid; box-shadow: none; }
+  footer::after { display: none; }
+  .masthead::before { display: none; }
 }
 
 </style>
 </head>
 <body>
 
+<div class="navy-strip">
+  <div class="navy-strip-inner">
+    <span class="report-date">Wednesday • 22 July 2026</span>
+  </div>
+</div>
+
 <header class="masthead">
   <div class="masthead-inner">
-    <div class="brand-row">
-      <span class="brand-wordmark">DOHA BANK</span>
-      <span class="page-meta"></span>
-    </div>
-    <div class="title-row">
-      <h1>Market Updates</h1>
-      <span class="report-date">22 July 2026</span>
+    <div class="brand-top">
+      <svg class="mast-logo" viewBox="0 0 60 84" aria-hidden="true" focusable="false">
+        <path fill="#062E63" d="M8 3 A39.7 39.7 0 1 1 14 81 A39.4 39.4 0 0 0 8 3 Z"/>
+        <path fill="#C2A57E" d="M10 14 A33 33 0 0 1 10 80 Z"/>
+      </svg>
+      <div class="title-block">
+        <h1>Market Intelligence</h1>
+        <div class="sub-row">
+          <span class="brand-wordmark">DOHA BANK</span>
+          <span class="sub-separator" aria-hidden="true">|</span>
+          <span class="edition-label">DAILY MARKET BRIEF</span>
+        </div>
+      </div>
     </div>
   </div>
 </header>
 
 <main>
 
-<section class="kpi-strip"><div class="kpi-card"><div class="kpi-label">LNG JP/KR</div><div class="kpi-value">21.03</div><div class="kpi-sub"><span class="kpi-change pct-up"><span class="glyph">▲</span> 0.19% today · USD/MMBtu</span></div></div><div class="kpi-card"><div class="kpi-label">GOLD</div><div class="kpi-value">4,086.70</div><div class="kpi-sub"><span class="kpi-change pct-up"><span class="glyph">▲</span> 1.87% today · -7.08% YTD</span></div></div><div class="kpi-card"><div class="kpi-label">QSE INDEX</div><div class="kpi-value">10,107.36</div><div class="kpi-sub"><span class="kpi-change pct-up"><span class="glyph">▲</span> 0.23% today · -6.09% YTD</span></div></div><div class="kpi-card"><div class="kpi-label">DOHA BANK PX LAST</div><div class="kpi-value">2.90</div><div class="kpi-sub"><span class="kpi-change pct-up"><span class="glyph">▲</span> 0.69% today · +1.05% YTD</span></div></div></section>
+<section class="kpi-strip"><div class="kpi-card"><div class="kpi-label">LNG JP/KR</div><div class="kpi-value">21.34</div><div class="kpi-sub"><span class="kpi-change pct-up"><span class="glyph">▲</span> 1.47% today · USD/MMBtu</span></div></div><div class="kpi-card"><div class="kpi-label">GOLD</div><div class="kpi-value">4,141.90</div><div class="kpi-sub"><span class="kpi-change pct-up"><span class="glyph">▲</span> 1.35% today · -5.82% YTD</span></div></div><div class="kpi-card"><div class="kpi-label">QSE INDEX</div><div class="kpi-value">10,066.51</div><div class="kpi-sub"><span class="kpi-change pct-down"><span class="glyph">▼</span> 0.40% today · -6.47% YTD</span></div></div><div class="kpi-card"><div class="kpi-label">DOHA BANK PX LAST</div><div class="kpi-value">2.91</div><div class="kpi-sub"><span class="kpi-change pct-up"><span class="glyph">▲</span> 0.34% today · +1.39% YTD</span></div></div></section>
 
 <div class="tables-grid">
-<section class="table-card"><h2 class="section-header">GLOBAL INDICES<span class="section-meta">USD</span></h2><div class="table-scroll"><table><thead><tr><th class="col-name">MARKET / INDEX</th><th class="num">PX LAST</th><th class="num">1D %</th><th class="num">MTD %</th><th class="num">YTD %</th></tr></thead><tbody><tr><td class="col-name">US S&amp;P 500</td><td class="num px-last">7,507.42</td><td class="num pct pct-up"><span class="glyph">▲</span><span class="value">0.76%</span></td><td class="num pct pct-up"><span class="glyph">▲</span><span class="value">0.06%</span></td><td class="num pct pct-up"><span class="glyph">▲</span><span class="value">9.67%</span></td></tr><tr><td class="col-name">UK FTSE 100</td><td class="num px-last">10,585.91</td><td class="num pct pct-up"><span class="glyph">▲</span><span class="value">0.58%</span></td><td class="num pct pct-up"><span class="glyph">▲</span><span class="value">0.85%</span></td><td class="num pct pct-up"><span class="glyph">▲</span><span class="value">6.59%</span></td></tr><tr><td class="col-name">Japan Nikkei</td><td class="num px-last">66,232.19</td><td class="num pct pct-up"><span class="glyph">▲</span><span class="value">3.26%</span></td><td class="num pct pct-down"><span class="glyph">▼</span><span class="value">5.47%</span></td><td class="num pct pct-up"><span class="glyph">▲</span><span class="value">31.57%</span></td></tr><tr><td class="col-name">Germany DAX</td><td class="num px-last">25,011.35</td><td class="num pct pct-up"><span class="glyph">▲</span><span class="value">0.66%</span></td><td class="num pct pct-up"><span class="glyph">▲</span><span class="value">0.06%</span></td><td class="num pct pct-up"><span class="glyph">▲</span><span class="value">2.13%</span></td></tr><tr><td class="col-name">Hong Kong HSI</td><td class="num px-last">25,132.29</td><td class="num pct pct-down"><span class="glyph">▼</span><span class="value">0.04%</span></td><td class="num pct pct-up"><span class="glyph">▲</span><span class="value">9.84%</span></td><td class="num pct pct-down"><span class="glyph">▼</span><span class="value">1.94%</span></td></tr><tr><td class="col-name">India Nifty 50</td><td class="num px-last">24,187.70</td><td class="num pct pct-down"><span class="glyph">▼</span><span class="value">0.21%</span></td><td class="num pct pct-up"><span class="glyph">▲</span><span class="value">1.35%</span></td><td class="num pct pct-down"><span class="glyph">▼</span><span class="value">6.37%</span></td></tr></tbody></table></div></section><section class="table-card"><h2 class="section-header">SPOT CURRENCY<span class="section-meta">FX</span></h2><div class="table-scroll"><table><thead><tr><th class="col-name">PAIR</th><th class="num">PX LAST</th><th class="num">1D %</th><th class="num">MTD %</th><th class="num">YTD %</th></tr></thead><tbody><tr><td class="col-name">USD Index</td><td class="num px-last">101.18</td><td class="num pct pct-up"><span class="glyph">▲</span><span class="value">0.22%</span></td><td class="num pct pct-zero"><span class="glyph">●</span><span class="value">0.00%</span></td><td class="num pct pct-up"><span class="glyph">▲</span><span class="value">2.95%</span></td></tr><tr><td class="col-name">EUR/USD</td><td class="num px-last">1.1406</td><td class="num pct pct-down"><span class="glyph">▼</span><span class="value">0.11%</span></td><td class="num pct pct-down"><span class="glyph">▼</span><span class="value">0.15%</span></td><td class="num pct pct-down"><span class="glyph">▼</span><span class="value">2.91%</span></td></tr><tr><td class="col-name">GBP/USD</td><td class="num px-last">1.3381</td><td class="num pct pct-down"><span class="glyph">▼</span><span class="value">0.39%</span></td><td class="num pct pct-up"><span class="glyph">▲</span><span class="value">0.96%</span></td><td class="num pct pct-down"><span class="glyph">▼</span><span class="value">0.64%</span></td></tr><tr><td class="col-name">USD/CHF</td><td class="num px-last">0.8129</td><td class="num pct pct-up"><span class="glyph">▲</span><span class="value">0.36%</span></td><td class="num pct pct-up"><span class="glyph">▲</span><span class="value">0.57%</span></td><td class="num pct pct-up"><span class="glyph">▲</span><span class="value">5.79%</span></td></tr><tr><td class="col-name">USD/JPY</td><td class="num px-last">163.19</td><td class="num pct pct-up"><span class="glyph">▲</span><span class="value">0.44%</span></td><td class="num pct pct-up"><span class="glyph">▲</span><span class="value">0.37%</span></td><td class="num pct pct-up"><span class="glyph">▲</span><span class="value">4.33%</span></td></tr><tr><td class="col-name">USD/CNY</td><td class="num px-last">6.7569</td><td class="num pct pct-down"><span class="glyph">▼</span><span class="value">0.01%</span></td><td class="num pct pct-down"><span class="glyph">▼</span><span class="value">0.41%</span></td><td class="num pct pct-down"><span class="glyph">▼</span><span class="value">3.42%</span></td></tr></tbody></table></div></section><section class="table-card"><h2 class="section-header">QAR CROSS RATES<span class="section-meta">QAR</span></h2><div class="table-scroll"><table><thead><tr><th class="col-name">PAIR</th><th class="num">PX LAST</th><th class="num">1D %</th><th class="num">MTD %</th><th class="num">YTD %</th></tr></thead><tbody><tr><td class="col-name">USD/QAR</td><td class="num px-last">3.6400</td><td class="num pct pct-zero"><span class="glyph">●</span><span class="value">0.00%</span></td><td class="num pct pct-zero"><span class="glyph">●</span><span class="value">0.00%</span></td><td class="num pct pct-zero"><span class="glyph">●</span><span class="value">0.00%</span></td></tr><tr><td class="col-name">EUR/QAR</td><td class="num px-last">4.1506</td><td class="num pct pct-down"><span class="glyph">▼</span><span class="value">0.11%</span></td><td class="num pct pct-down"><span class="glyph">▼</span><span class="value">0.14%</span></td><td class="num pct pct-down"><span class="glyph">▼</span><span class="value">2.93%</span></td></tr><tr><td class="col-name">GBP/QAR</td><td class="num px-last">4.8700</td><td class="num pct pct-down"><span class="glyph">▼</span><span class="value">0.42%</span></td><td class="num pct pct-up"><span class="glyph">▲</span><span class="value">0.95%</span></td><td class="num pct pct-down"><span class="glyph">▼</span><span class="value">0.65%</span></td></tr><tr><td class="col-name">CHF/QAR</td><td class="num px-last">4.48</td><td class="num pct pct-down"><span class="glyph">▼</span><span class="value">0.36%</span></td><td class="num pct pct-down"><span class="glyph">▼</span><span class="value">0.57%</span></td><td class="num pct pct-down"><span class="glyph">▼</span><span class="value">5.47%</span></td></tr><tr><td class="col-name">CNY/QAR</td><td class="num px-last">0.5387</td><td class="num pct pct-up"><span class="glyph">▲</span><span class="value">0.01%</span></td><td class="num pct pct-up"><span class="glyph">▲</span><span class="value">0.41%</span></td><td class="num pct pct-up"><span class="glyph">▲</span><span class="value">3.54%</span></td></tr></tbody></table></div></section><section class="table-card"><h2 class="section-header">FIXED INCOME · UST YIELDS<span class="section-meta">YIELD %</span></h2><div class="table-scroll"><table><thead><tr><th class="col-name">INSTRUMENT</th><th class="num">YIELD</th><th class="num">1D %</th><th class="num">MTD %</th><th class="num">YTD %</th></tr></thead><tbody><tr><td class="col-name">UST 5-Year</td><td class="num px-last">4.3710</td><td class="num pct pct-up"><span class="glyph">▲</span><span class="value">0.95%</span></td><td class="num pct pct-up"><span class="glyph">▲</span><span class="value">4.54%</span></td><td class="num pct pct-up"><span class="glyph">▲</span><span class="value">17.44%</span></td></tr><tr><td class="col-name">UST 10-Year</td><td class="num px-last">4.6300</td><td class="num pct pct-up"><span class="glyph">▲</span><span class="value">0.65%</span></td><td class="num pct pct-up"><span class="glyph">▲</span><span class="value">4.85%</span></td><td class="num pct pct-up"><span class="glyph">▲</span><span class="value">11.22%</span></td></tr></tbody></table></div></section>
-<section class="table-card"><h2 class="section-header">GCC &amp; REGIONAL INDICES<span class="section-meta">LOCAL CCY</span></h2><div class="table-scroll"><table><thead><tr><th class="col-name">MARKET / INDEX</th><th class="num">PX LAST</th><th class="num">1D %</th><th class="num">MTD %</th><th class="num">YTD %</th></tr></thead><tbody><tr><td class="col-name">Qatar QE Index</td><td class="num px-last">10,107.36</td><td class="num pct pct-up"><span class="glyph">▲</span><span class="value">0.23%</span></td><td class="num pct pct-down"><span class="glyph">▼</span><span class="value">1.31%</span></td><td class="num pct pct-down"><span class="glyph">▼</span><span class="value">6.09%</span></td></tr><tr><td class="col-name">Saudi Tadawul</td><td class="num px-last">10,698.81</td><td class="num pct pct-down"><span class="glyph">▼</span><span class="value">0.40%</span></td><td class="num pct pct-down"><span class="glyph">▼</span><span class="value">0.94%</span></td><td class="num pct pct-up"><span class="glyph">▲</span><span class="value">1.98%</span></td></tr><tr><td class="col-name">Dubai DFM</td><td class="num px-last">5,812.37</td><td class="num pct pct-up"><span class="glyph">▲</span><span class="value">0.28%</span></td><td class="num pct pct-down"><span class="glyph">▼</span><span class="value">2.40%</span></td><td class="num pct pct-down"><span class="glyph">▼</span><span class="value">3.88%</span></td></tr><tr><td class="col-name">Abu Dhabi ADX</td><td class="num px-last">9,784.62</td><td class="num pct pct-up"><span class="glyph">▲</span><span class="value">0.35%</span></td><td class="num pct pct-down"><span class="glyph">▼</span><span class="value">0.20%</span></td><td class="num pct pct-down"><span class="glyph">▼</span><span class="value">2.08%</span></td></tr><tr><td class="col-name">Kuwait</td><td class="num px-last">9,039.94</td><td class="num pct pct-down"><span class="glyph">▼</span><span class="value">0.05%</span></td><td class="num pct pct-down"><span class="glyph">▼</span><span class="value">0.47%</span></td><td class="num pct pct-down"><span class="glyph">▼</span><span class="value">4.83%</span></td></tr><tr><td class="col-name">Oman</td><td class="num px-last">7,091.00</td><td class="num pct pct-down"><span class="glyph">▼</span><span class="value">0.85%</span></td><td class="num pct pct-down"><span class="glyph">▼</span><span class="value">5.55%</span></td><td class="num pct pct-up"><span class="glyph">▲</span><span class="value">20.87%</span></td></tr><tr><td class="col-name">Bahrain</td><td class="num px-last">1,965.00</td><td class="num pct pct-down"><span class="glyph">▼</span><span class="value">1.01%</span></td><td class="num pct pct-down"><span class="glyph">▼</span><span class="value">3.68%</span></td><td class="num pct pct-down"><span class="glyph">▼</span><span class="value">4.91%</span></td></tr></tbody></table></div></section><section class="table-card"><h2 class="section-header">QATARI BANKS<span class="section-meta">QAR</span></h2><div class="table-scroll"><table><thead><tr><th class="col-name">BANK</th><th class="num">PX LAST</th><th class="num">1D %</th><th class="num">MTD %</th><th class="num">YTD %</th></tr></thead><tbody><tr><td class="col-name">QIB</td><td class="num px-last">21.71</td><td class="num pct pct-up"><span class="glyph">▲</span><span class="value">0.60%</span></td><td class="num pct pct-down"><span class="glyph">▼</span><span class="value">0.64%</span></td><td class="num pct pct-down"><span class="glyph">▼</span><span class="value">9.35%</span></td></tr><tr><td class="col-name">CBQ</td><td class="num px-last">4.075</td><td class="num pct pct-down"><span class="glyph">▼</span><span class="value">0.37%</span></td><td class="num pct pct-up"><span class="glyph">▲</span><span class="value">0.64%</span></td><td class="num pct pct-down"><span class="glyph">▼</span><span class="value">2.98%</span></td></tr><tr><td class="col-name">QIIB</td><td class="num px-last">11.120</td><td class="num pct pct-up"><span class="glyph">▲</span><span class="value">0.18%</span></td><td class="num pct pct-up"><span class="glyph">▲</span><span class="value">0.09%</span></td><td class="num pct pct-down"><span class="glyph">▼</span><span class="value">0.09%</span></td></tr><tr><td class="col-name">Dukhan</td><td class="num px-last">3.363</td><td class="num pct pct-up"><span class="glyph">▲</span><span class="value">0.69%</span></td><td class="num pct pct-up"><span class="glyph">▲</span><span class="value">0.72%</span></td><td class="num pct pct-down"><span class="glyph">▼</span><span class="value">3.80%</span></td></tr><tr><td class="col-name">Doha</td><td class="num px-last">2.900</td><td class="num pct pct-up"><span class="glyph">▲</span><span class="value">0.69%</span></td><td class="num pct pct-down"><span class="glyph">▼</span><span class="value">6.42%</span></td><td class="num pct pct-up"><span class="glyph">▲</span><span class="value">1.05%</span></td></tr><tr><td class="col-name">Ahli</td><td class="num px-last">3.961</td><td class="num pct pct-zero"><span class="glyph">●</span><span class="value">0.00%</span></td><td class="num pct pct-down"><span class="glyph">▼</span><span class="value">2.92%</span></td><td class="num pct pct-up"><span class="glyph">▲</span><span class="value">5.65%</span></td></tr><tr><td class="col-name">QNB</td><td class="num px-last">16.70</td><td class="num pct pct-zero"><span class="glyph">●</span><span class="value">0.00%</span></td><td class="num pct pct-down"><span class="glyph">▼</span><span class="value">3.19%</span></td><td class="num pct pct-down"><span class="glyph">▼</span><span class="value">10.50%</span></td></tr><tr><td class="col-name">Al Rayan</td><td class="num px-last">2.000</td><td class="num pct pct-down"><span class="glyph">▼</span><span class="value">0.10%</span></td><td class="num pct pct-down"><span class="glyph">▼</span><span class="value">2.63%</span></td><td class="num pct pct-down"><span class="glyph">▼</span><span class="value">8.84%</span></td></tr><tr><td class="col-name">Lesha</td><td class="num px-last">2.87</td><td class="num pct pct-up"><span class="glyph">▲</span><span class="value">0.67%</span></td><td class="num pct pct-down"><span class="glyph">▼</span><span class="value">3.40%</span></td><td class="num pct pct-up"><span class="glyph">▲</span><span class="value">53.19%</span></td></tr></tbody></table></div></section><section class="table-card"><h2 class="section-header">COMMODITIES &amp; ENERGY<span class="section-meta">USD</span></h2><div class="table-scroll"><table><thead><tr><th class="col-name">ASSET</th><th class="num">PX LAST</th><th class="num">1D %</th><th class="num">MTD %</th><th class="num">YTD %</th></tr></thead><tbody><tr><td class="col-name">LNG JP/KR</td><td class="num px-last">21.03</td><td class="num pct pct-up"><span class="glyph">▲</span><span class="value">0.19%</span></td><td class="num pct pct-up"><span class="glyph">▲</span><span class="value">32.93%</span></td><td class="num pct pct-up"><span class="glyph">▲</span><span class="value">118.83%</span></td></tr><tr><td class="col-name">Brent Crude</td><td class="num px-last">91.22</td><td class="num pct pct-up"><span class="glyph">▲</span><span class="value">1.96%</span></td><td class="num pct pct-up"><span class="glyph">▲</span><span class="value">24.35%</span></td><td class="num pct pct-up"><span class="glyph">▲</span><span class="value">49.91%</span></td></tr><tr><td class="col-name">Silver</td><td class="num px-last">59.16</td><td class="num pct pct-up"><span class="glyph">▲</span><span class="value">4.04%</span></td><td class="num pct pct-down"><span class="glyph">▼</span><span class="value">1.80%</span></td><td class="num pct pct-down"><span class="glyph">▼</span><span class="value">15.65%</span></td></tr><tr><td class="col-name">Gold</td><td class="num px-last">4,086.70</td><td class="num pct pct-up"><span class="glyph">▲</span><span class="value">1.87%</span></td><td class="num pct pct-up"><span class="glyph">▲</span><span class="value">1.04%</span></td><td class="num pct pct-down"><span class="glyph">▼</span><span class="value">7.08%</span></td></tr></tbody></table></div></section>
+<section class="table-card"><h2 class="section-header">GLOBAL INDICES<span class="section-meta">USD</span></h2><div class="table-scroll"><table><thead><tr><th class="col-name">MARKET / INDEX</th><th class="num">PX LAST</th><th class="num">1D %</th><th class="num">MTD %</th><th class="num">YTD %</th></tr></thead><tbody><tr><td class="col-name">US S&amp;P 500</td><td class="num px-last">7,507.89</td><td class="num pct pct-up"><span class="glyph">▲</span><span class="value">0.01%</span></td><td class="num pct pct-up"><span class="glyph">▲</span><span class="value">0.06%</span></td><td class="num pct pct-up"><span class="glyph">▲</span><span class="value">9.68%</span></td></tr><tr><td class="col-name">UK FTSE 100</td><td class="num px-last">10,716.97</td><td class="num pct pct-up"><span class="glyph">▲</span><span class="value">1.24%</span></td><td class="num pct pct-up"><span class="glyph">▲</span><span class="value">2.09%</span></td><td class="num pct pct-up"><span class="glyph">▲</span><span class="value">7.91%</span></td></tr><tr><td class="col-name">Japan Nikkei</td><td class="num px-last">66,115.60</td><td class="num pct pct-down"><span class="glyph">▼</span><span class="value">0.18%</span></td><td class="num pct pct-down"><span class="glyph">▼</span><span class="value">5.63%</span></td><td class="num pct pct-up"><span class="glyph">▲</span><span class="value">31.34%</span></td></tr><tr><td class="col-name">Germany DAX</td><td class="num px-last">25,155.41</td><td class="num pct pct-up"><span class="glyph">▲</span><span class="value">0.58%</span></td><td class="num pct pct-up"><span class="glyph">▲</span><span class="value">0.64%</span></td><td class="num pct pct-up"><span class="glyph">▲</span><span class="value">2.72%</span></td></tr><tr><td class="col-name">Hong Kong HSI</td><td class="num px-last">24,892.66</td><td class="num pct pct-down"><span class="glyph">▼</span><span class="value">0.95%</span></td><td class="num pct pct-up"><span class="glyph">▲</span><span class="value">8.79%</span></td><td class="num pct pct-down"><span class="glyph">▼</span><span class="value">2.88%</span></td></tr><tr><td class="col-name">India Nifty 50</td><td class="num px-last">23,996.25</td><td class="num pct pct-down"><span class="glyph">▼</span><span class="value">0.79%</span></td><td class="num pct pct-up"><span class="glyph">▲</span><span class="value">0.55%</span></td><td class="num pct pct-down"><span class="glyph">▼</span><span class="value">7.11%</span></td></tr></tbody></table></div></section><section class="table-card"><h2 class="section-header">SPOT CURRENCY<span class="section-meta">FX</span></h2><div class="table-scroll"><table><thead><tr><th class="col-name">PAIR</th><th class="num">PX LAST</th><th class="num">1D %</th><th class="num">MTD %</th><th class="num">YTD %</th></tr></thead><tbody><tr><td class="col-name">USD Index</td><td class="num px-last">101.13</td><td class="num pct pct-down"><span class="glyph">▼</span><span class="value">0.05%</span></td><td class="num pct pct-down"><span class="glyph">▼</span><span class="value">0.05%</span></td><td class="num pct pct-up"><span class="glyph">▲</span><span class="value">2.90%</span></td></tr><tr><td class="col-name">EUR/USD</td><td class="num px-last">1.1414</td><td class="num pct pct-up"><span class="glyph">▲</span><span class="value">0.07%</span></td><td class="num pct pct-down"><span class="glyph">▼</span><span class="value">0.08%</span></td><td class="num pct pct-down"><span class="glyph">▼</span><span class="value">2.84%</span></td></tr><tr><td class="col-name">GBP/USD</td><td class="num px-last">1.3374</td><td class="num pct pct-down"><span class="glyph">▼</span><span class="value">0.05%</span></td><td class="num pct pct-up"><span class="glyph">▲</span><span class="value">0.91%</span></td><td class="num pct pct-down"><span class="glyph">▼</span><span class="value">0.69%</span></td></tr><tr><td class="col-name">USD/CHF</td><td class="num px-last">0.8148</td><td class="num pct pct-up"><span class="glyph">▲</span><span class="value">0.23%</span></td><td class="num pct pct-up"><span class="glyph">▲</span><span class="value">0.80%</span></td><td class="num pct pct-up"><span class="glyph">▲</span><span class="value">6.04%</span></td></tr><tr><td class="col-name">USD/JPY</td><td class="num px-last">163.12</td><td class="num pct pct-down"><span class="glyph">▼</span><span class="value">0.04%</span></td><td class="num pct pct-up"><span class="glyph">▲</span><span class="value">0.33%</span></td><td class="num pct pct-up"><span class="glyph">▲</span><span class="value">4.29%</span></td></tr><tr><td class="col-name">USD/CNY</td><td class="num px-last">6.7720</td><td class="num pct pct-up"><span class="glyph">▲</span><span class="value">0.22%</span></td><td class="num pct pct-down"><span class="glyph">▼</span><span class="value">0.19%</span></td><td class="num pct pct-down"><span class="glyph">▼</span><span class="value">3.20%</span></td></tr></tbody></table></div></section><section class="table-card"><h2 class="section-header">QAR CROSS RATES<span class="section-meta">QAR</span></h2><div class="table-scroll"><table><thead><tr><th class="col-name">PAIR</th><th class="num">PX LAST</th><th class="num">1D %</th><th class="num">MTD %</th><th class="num">YTD %</th></tr></thead><tbody><tr><td class="col-name">USD/QAR</td><td class="num px-last">3.6400</td><td class="num pct pct-zero"><span class="glyph">●</span><span class="value">0.00%</span></td><td class="num pct pct-zero"><span class="glyph">●</span><span class="value">0.00%</span></td><td class="num pct pct-zero"><span class="glyph">●</span><span class="value">0.00%</span></td></tr><tr><td class="col-name">EUR/QAR</td><td class="num px-last">4.1531</td><td class="num pct pct-up"><span class="glyph">▲</span><span class="value">0.06%</span></td><td class="num pct pct-down"><span class="glyph">▼</span><span class="value">0.08%</span></td><td class="num pct pct-down"><span class="glyph">▼</span><span class="value">2.87%</span></td></tr><tr><td class="col-name">GBP/QAR</td><td class="num px-last">4.8674</td><td class="num pct pct-down"><span class="glyph">▼</span><span class="value">0.05%</span></td><td class="num pct pct-up"><span class="glyph">▲</span><span class="value">0.90%</span></td><td class="num pct pct-down"><span class="glyph">▼</span><span class="value">0.71%</span></td></tr><tr><td class="col-name">CHF/QAR</td><td class="num px-last">4.47</td><td class="num pct pct-down"><span class="glyph">▼</span><span class="value">0.23%</span></td><td class="num pct pct-down"><span class="glyph">▼</span><span class="value">0.80%</span></td><td class="num pct pct-down"><span class="glyph">▼</span><span class="value">5.69%</span></td></tr><tr><td class="col-name">CNY/QAR</td><td class="num px-last">0.5375</td><td class="num pct pct-down"><span class="glyph">▼</span><span class="value">0.22%</span></td><td class="num pct pct-up"><span class="glyph">▲</span><span class="value">0.19%</span></td><td class="num pct pct-up"><span class="glyph">▲</span><span class="value">3.31%</span></td></tr></tbody></table></div></section><section class="table-card"><h2 class="section-header">FIXED INCOME · UST YIELDS<span class="section-meta">YIELD %</span></h2><div class="table-scroll"><table><thead><tr><th class="col-name">INSTRUMENT</th><th class="num">YIELD</th><th class="num">1D %</th><th class="num">MTD %</th><th class="num">YTD %</th></tr></thead><tbody><tr><td class="col-name">UST 5-Year</td><td class="num px-last">4.4020</td><td class="num pct pct-up"><span class="glyph">▲</span><span class="value">0.71%</span></td><td class="num pct pct-up"><span class="glyph">▲</span><span class="value">5.29%</span></td><td class="num pct pct-up"><span class="glyph">▲</span><span class="value">18.27%</span></td></tr><tr><td class="col-name">UST 10-Year</td><td class="num px-last">4.6540</td><td class="num pct pct-up"><span class="glyph">▲</span><span class="value">0.52%</span></td><td class="num pct pct-up"><span class="glyph">▲</span><span class="value">5.39%</span></td><td class="num pct pct-up"><span class="glyph">▲</span><span class="value">11.79%</span></td></tr></tbody></table></div></section>
+<section class="table-card"><h2 class="section-header">GCC &amp; REGIONAL INDICES<span class="section-meta">LOCAL CCY</span></h2><div class="table-scroll"><table><thead><tr><th class="col-name">MARKET / INDEX</th><th class="num">PX LAST</th><th class="num">1D %</th><th class="num">MTD %</th><th class="num">YTD %</th></tr></thead><tbody><tr><td class="col-name">Qatar QE Index</td><td class="num px-last">10,066.51</td><td class="num pct pct-down"><span class="glyph">▼</span><span class="value">0.40%</span></td><td class="num pct pct-down"><span class="glyph">▼</span><span class="value">1.71%</span></td><td class="num pct pct-down"><span class="glyph">▼</span><span class="value">6.47%</span></td></tr><tr><td class="col-name">Saudi Tadawul</td><td class="num px-last">10,775.46</td><td class="num pct pct-up"><span class="glyph">▲</span><span class="value">0.72%</span></td><td class="num pct pct-down"><span class="glyph">▼</span><span class="value">0.23%</span></td><td class="num pct pct-up"><span class="glyph">▲</span><span class="value">2.71%</span></td></tr><tr><td class="col-name">Dubai DFM</td><td class="num px-last">5,785.31</td><td class="num pct pct-down"><span class="glyph">▼</span><span class="value">0.47%</span></td><td class="num pct pct-down"><span class="glyph">▼</span><span class="value">2.86%</span></td><td class="num pct pct-down"><span class="glyph">▼</span><span class="value">4.33%</span></td></tr><tr><td class="col-name">Abu Dhabi ADX</td><td class="num px-last">9,771.47</td><td class="num pct pct-down"><span class="glyph">▼</span><span class="value">0.13%</span></td><td class="num pct pct-down"><span class="glyph">▼</span><span class="value">0.33%</span></td><td class="num pct pct-down"><span class="glyph">▼</span><span class="value">2.21%</span></td></tr><tr><td class="col-name">Kuwait</td><td class="num px-last">9,029.46</td><td class="num pct pct-down"><span class="glyph">▼</span><span class="value">0.12%</span></td><td class="num pct pct-down"><span class="glyph">▼</span><span class="value">0.59%</span></td><td class="num pct pct-down"><span class="glyph">▼</span><span class="value">4.94%</span></td></tr><tr><td class="col-name">Oman</td><td class="num px-last">7,111.00</td><td class="num pct pct-up"><span class="glyph">▲</span><span class="value">0.28%</span></td><td class="num pct pct-down"><span class="glyph">▼</span><span class="value">5.29%</span></td><td class="num pct pct-up"><span class="glyph">▲</span><span class="value">21.21%</span></td></tr><tr><td class="col-name">Bahrain</td><td class="num px-last">1,965.00</td><td class="num pct pct-zero"><span class="glyph">●</span><span class="value">0.00%</span></td><td class="num pct pct-down"><span class="glyph">▼</span><span class="value">3.68%</span></td><td class="num pct pct-down"><span class="glyph">▼</span><span class="value">4.91%</span></td></tr></tbody></table></div></section><section class="table-card"><h2 class="section-header">QATARI BANKS<span class="section-meta">QAR</span></h2><div class="table-scroll"><table><thead><tr><th class="col-name">BANK</th><th class="num">PX LAST</th><th class="num">1D %</th><th class="num">MTD %</th><th class="num">YTD %</th></tr></thead><tbody><tr><td class="col-name">QIB</td><td class="num px-last">21.60</td><td class="num pct pct-down"><span class="glyph">▼</span><span class="value">0.51%</span></td><td class="num pct pct-down"><span class="glyph">▼</span><span class="value">1.14%</span></td><td class="num pct pct-down"><span class="glyph">▼</span><span class="value">9.81%</span></td></tr><tr><td class="col-name">CBQ</td><td class="num px-last">4.030</td><td class="num pct pct-down"><span class="glyph">▼</span><span class="value">1.10%</span></td><td class="num pct pct-down"><span class="glyph">▼</span><span class="value">0.47%</span></td><td class="num pct pct-down"><span class="glyph">▼</span><span class="value">4.05%</span></td></tr><tr><td class="col-name">QIIB</td><td class="num px-last">11.040</td><td class="num pct pct-down"><span class="glyph">▼</span><span class="value">0.72%</span></td><td class="num pct pct-down"><span class="glyph">▼</span><span class="value">0.63%</span></td><td class="num pct pct-down"><span class="glyph">▼</span><span class="value">0.81%</span></td></tr><tr><td class="col-name">Dukhan</td><td class="num px-last">3.360</td><td class="num pct pct-down"><span class="glyph">▼</span><span class="value">0.09%</span></td><td class="num pct pct-up"><span class="glyph">▲</span><span class="value">0.63%</span></td><td class="num pct pct-down"><span class="glyph">▼</span><span class="value">3.89%</span></td></tr><tr><td class="col-name">Doha</td><td class="num px-last">2.910</td><td class="num pct pct-up"><span class="glyph">▲</span><span class="value">0.34%</span></td><td class="num pct pct-down"><span class="glyph">▼</span><span class="value">6.10%</span></td><td class="num pct pct-up"><span class="glyph">▲</span><span class="value">1.39%</span></td></tr><tr><td class="col-name">Ahli</td><td class="num px-last">4.069</td><td class="num pct pct-up"><span class="glyph">▲</span><span class="value">2.73%</span></td><td class="num pct pct-down"><span class="glyph">▼</span><span class="value">0.27%</span></td><td class="num pct pct-up"><span class="glyph">▲</span><span class="value">8.54%</span></td></tr><tr><td class="col-name">QNB</td><td class="num px-last">16.55</td><td class="num pct pct-down"><span class="glyph">▼</span><span class="value">0.90%</span></td><td class="num pct pct-down"><span class="glyph">▼</span><span class="value">4.06%</span></td><td class="num pct pct-down"><span class="glyph">▼</span><span class="value">11.31%</span></td></tr><tr><td class="col-name">Al Rayan</td><td class="num px-last">1.990</td><td class="num pct pct-down"><span class="glyph">▼</span><span class="value">0.50%</span></td><td class="num pct pct-down"><span class="glyph">▼</span><span class="value">3.12%</span></td><td class="num pct pct-down"><span class="glyph">▼</span><span class="value">9.30%</span></td></tr><tr><td class="col-name">Lesha</td><td class="num px-last">2.87</td><td class="num pct pct-up"><span class="glyph">▲</span><span class="value">0.14%</span></td><td class="num pct pct-down"><span class="glyph">▼</span><span class="value">3.27%</span></td><td class="num pct pct-up"><span class="glyph">▲</span><span class="value">53.41%</span></td></tr></tbody></table></div></section><section class="table-card"><h2 class="section-header">COMMODITIES &amp; ENERGY<span class="section-meta">USD</span></h2><div class="table-scroll"><table><thead><tr><th class="col-name">ASSET</th><th class="num">PX LAST</th><th class="num">1D %</th><th class="num">MTD %</th><th class="num">YTD %</th></tr></thead><tbody><tr><td class="col-name">LNG JP/KR</td><td class="num px-last">21.34</td><td class="num pct pct-up"><span class="glyph">▲</span><span class="value">1.47%</span></td><td class="num pct pct-up"><span class="glyph">▲</span><span class="value">34.89%</span></td><td class="num pct pct-up"><span class="glyph">▲</span><span class="value">122.06%</span></td></tr><tr><td class="col-name">Brent Crude</td><td class="num px-last">94.31</td><td class="num pct pct-up"><span class="glyph">▲</span><span class="value">3.39%</span></td><td class="num pct pct-up"><span class="glyph">▲</span><span class="value">28.56%</span></td><td class="num pct pct-up"><span class="glyph">▲</span><span class="value">54.99%</span></td></tr><tr><td class="col-name">Silver</td><td class="num px-last">60.23</td><td class="num pct pct-up"><span class="glyph">▲</span><span class="value">1.83%</span></td><td class="num pct pct-down"><span class="glyph">▼</span><span class="value">0.01%</span></td><td class="num pct pct-down"><span class="glyph">▼</span><span class="value">14.11%</span></td></tr><tr><td class="col-name">Gold</td><td class="num px-last">4,141.90</td><td class="num pct pct-up"><span class="glyph">▲</span><span class="value">1.35%</span></td><td class="num pct pct-up"><span class="glyph">▲</span><span class="value">2.41%</span></td><td class="num pct pct-down"><span class="glyph">▼</span><span class="value">5.82%</span></td></tr></tbody></table></div></section>
 </div>
 
-<section class="news-section"><h2 class="section-header">REGIONAL &amp; GLOBAL NEWS</h2><div class="news-grid"><article class="news-card"><div class="news-source">CNBC</div><h3 class="news-headline"><a class="news-link" href="https://www.cnbc.com/2026/07/21/treasury-yields-bonds-iran-us-politics.html" target="_blank" rel="noopener noreferrer">Treasury Yields Rise as Middle East Tensions Escalate</a></h3><p class="news-summary">U.S. Treasury yields moved higher across the curve as investors assessed escalating geopolitical risks in the Middle East, reflecting ongoing uncertainty tied to the Iran conflict.</p><a class="news-more" href="https://www.cnbc.com/2026/07/21/treasury-yields-bonds-iran-us-politics.html" target="_blank" rel="noopener noreferrer">Read more &rarr;</a></article><article class="news-card"><div class="news-source">CNBC</div><h3 class="news-headline"><a class="news-link" href="https://www.cnbc.com/video/2026/07/14/inflation-eases-to-3point5percent-annually-in-june-despite-iran-war-and-ai-boom.html" target="_blank" rel="noopener noreferrer">US June Inflation Eases to 3.5% Annually</a></h3><p class="news-summary">June CPI came in below expectations at 3.5%, moving closer to the Fed&#x27;s 2% target. A lull in US-Iran fighting helped ease energy prices, taking a July Fed rate rise off the table.</p><a class="news-more" href="https://www.cnbc.com/video/2026/07/14/inflation-eases-to-3point5percent-annually-in-june-despite-iran-war-and-ai-boom.html" target="_blank" rel="noopener noreferrer">Read more &rarr;</a></article><article class="news-card"><div class="news-source">REUTERS</div><h3 class="news-headline"><a class="news-link" href="https://www.reuters.com/markets/us/" target="_blank" rel="noopener noreferrer">S&amp;P 500, Nasdaq Post Biggest Quarterly Gains Since 2020</a></h3><p class="news-summary">The S&amp;P 500 and Nasdaq finished June with their largest quarterly gains since 2020, as investors remained upbeat on economic and earnings growth despite ongoing Middle East conflict.</p><a class="news-more" href="https://www.reuters.com/markets/us/" target="_blank" rel="noopener noreferrer">Read more &rarr;</a></article><article class="news-card"><div class="news-source">CNBC</div><h3 class="news-headline"><a class="news-link" href="https://www.cnbc.com/2026/07/20/stock-market-today-live-updates.html" target="_blank" rel="noopener noreferrer">Dow Gains 400 Points; S&amp;P 500 Snaps Losing Streak</a></h3><p class="news-summary">The Dow Jones added nearly 400 points while the S&amp;P 500 rose 0.6% and Nasdaq gained 1%, snapping a three-day losing run as chip stocks advanced.</p><a class="news-more" href="https://www.cnbc.com/2026/07/20/stock-market-today-live-updates.html" target="_blank" rel="noopener noreferrer">Read more &rarr;</a></article><article class="news-card"><div class="news-source">BBC WORLD</div><h3 class="news-headline"><a class="news-link" href="https://www.bbc.co.uk/news/articles/cdrv0p37k8jo?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener noreferrer">US Renews Strikes on Iran, Threatens Underground Nuclear Site</a></h3><p class="news-summary">The US carried out its 11th consecutive night of strikes on Iran, with President Trump threatening to target a key underground Iranian nuclear facility, intensifying regional tensions.</p><a class="news-more" href="https://www.bbc.co.uk/news/articles/cdrv0p37k8jo?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener noreferrer">Read more &rarr;</a></article></div></section>
-<section class="news-section"><h2 class="section-header">QATAR NEWS</h2><div class="news-grid"><article class="news-card"><div class="news-source">THE PENINSULA QATAR</div><h3 class="news-headline"><a class="news-link" href="https://thepeninsulaqatar.com/article/21/07/2026/qse-index-jumps-129-points-as-all-seven-sector-indices-end-in-green" target="_blank" rel="noopener noreferrer">QSE Index Jumps 129 Points, All Sectors Green</a></h3><p class="news-summary">Qatar Stock Exchange index surged 129 points with all seven sector indices closing in positive territory, reflecting broad-based market optimism.</p><a class="news-more" href="https://thepeninsulaqatar.com/article/21/07/2026/qse-index-jumps-129-points-as-all-seven-sector-indices-end-in-green" target="_blank" rel="noopener noreferrer">Read more &rarr;</a></article><article class="news-card"><div class="news-source">THE PENINSULA QATAR</div><h3 class="news-headline"><a class="news-link" href="https://thepeninsulaqatar.com/article/20/07/2026/qatar-banks-lending-tops-qr147-trillion-deposits-hold-steady-in-may" target="_blank" rel="noopener noreferrer">Qatar Banks&#x27; Lending Tops QR1.47 Trillion in May</a></h3><p class="news-summary">Qatar&#x27;s banking sector lending exceeded QR1.47 trillion in May while deposits remained steady, signalling continued credit expansion across the economy.</p><a class="news-more" href="https://thepeninsulaqatar.com/article/20/07/2026/qatar-banks-lending-tops-qr147-trillion-deposits-hold-steady-in-may" target="_blank" rel="noopener noreferrer">Read more &rarr;</a></article><article class="news-card"><div class="news-source">QATAR TRIBUNE</div><h3 class="news-headline"><a class="news-link" href="https://www.qatar-tribune.com/article/245325/business/qib-wins-3-euromoney-awards-including-qatars-best-bank-award" target="_blank" rel="noopener noreferrer">QIB Wins Three Euromoney Awards Including Best Bank</a></h3><p class="news-summary">Qatar Islamic Bank received three Euromoney awards, highlighted by the prestigious Qatar&#x27;s Best Bank title, reinforcing its leading position in the local banking sector.</p><a class="news-more" href="https://www.qatar-tribune.com/article/245325/business/qib-wins-3-euromoney-awards-including-qatars-best-bank-award" target="_blank" rel="noopener noreferrer">Read more &rarr;</a></article><article class="news-card"><div class="news-source">QATAR TRIBUNE</div><h3 class="news-headline"><a class="news-link" href="https://www.qatar-tribune.com/article/245332/business/qfc-cci-france-qatar-sign-agreement-to-boost-trade-ties" target="_blank" rel="noopener noreferrer">QFC and CCI France Qatar Sign Trade Agreement</a></h3><p class="news-summary">Qatar Financial Centre and CCI France Qatar signed a new agreement aimed at strengthening bilateral trade and business ties between Qatar and France.</p><a class="news-more" href="https://www.qatar-tribune.com/article/245332/business/qfc-cci-france-qatar-sign-agreement-to-boost-trade-ties" target="_blank" rel="noopener noreferrer">Read more &rarr;</a></article></div></section>
-<section class="news-section"><h2 class="section-header">MARKET DRIVERS<span class="section-meta">WHAT MOVED MARKETS</span></h2><div class="news-grid"><article class="news-card"><div class="news-source">BBC WORLD</div><h3 class="news-headline"><a class="news-link" href="https://www.bbc.co.uk/news/articles/cdrv0p37k8jo?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener noreferrer">Brent at $91.22 after +49.9% YTD; $95 next resistance as Hormuz risk escalates</a></h3><p class="news-summary">11 consecutive nights of US strikes on Iran with threat to underground nuclear sites sustains geopolitical premium. Brent +1.96% on the day, +24.35% MTD. A move through $95 would reprice GCC energy revenues and extend UST yield upside; Hormuz disruption scenario targets $100-105.</p><a class="news-more" href="https://www.bbc.co.uk/news/articles/cdrv0p37k8jo?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener noreferrer">Read more &rarr;</a></article><article class="news-card"><div class="news-source">CNBC</div><h3 class="news-headline"><a class="news-link" href="https://www.cnbc.com/2026/07/21/treasury-yields-bonds-iran-us-politics.html" target="_blank" rel="noopener noreferrer">UST 10Y at 4.63%, +4.85% MTD; break above 4.70% pressures risk duration</a></h3><p class="news-summary">Geopolitical risk premium driving curve steepening: 5Y at 4.371% (+4.54% MTD), 10Y at 4.63% (+4.85% MTD). A sustained close above 4.70% on the 10Y would trigger negative convexity in long-duration portfolios and tighten GCC USD-pegged sovereign spread buffers. Watch 5s10s spread </p><a class="news-more" href="https://www.cnbc.com/2026/07/21/treasury-yields-bonds-iran-us-politics.html" target="_blank" rel="noopener noreferrer">Read more &rarr;</a></article><article class="news-card"><div class="news-source">CNN</div><h3 class="news-headline"><a class="news-link" href="https://www.cnn.com/2026/07/21/business/oil-demand-iran-china" target="_blank" rel="noopener noreferrer">Hormuz crude discount divergence: Brent premium vs. distressed ME spot flags demand destruction risk</a></h3><p class="news-summary">Hundreds of millions of barrels requiring heavy discounts to clear signals demand destruction beneath the headline Brent rally. GCC equity underperformance — Bahrain -1.01% / -4.91% YTD, Oman -0.85% / -5.55% MTD — reflects this bifurcation. Tadawul at 10,698 (-0.94% MTD) vulnerab</p><a class="news-more" href="https://www.cnn.com/2026/07/21/business/oil-demand-iran-china" target="_blank" rel="noopener noreferrer">Read more &rarr;</a></article></div></section>
+<section class="news-section"><h2 class="section-header">REGIONAL &amp; GLOBAL NEWS</h2><div class="news-grid"><article class="news-card"><div class="news-source">AL JAZEERA</div><h3 class="news-headline"><a class="news-link" href="https://www.aljazeera.com/news/2026/7/22/iran-warns-of-regional-turmoil-if-us-threats-and-attacks-do-not?traffic_source=rss" target="_blank" rel="noopener noreferrer">US-Iran War Escalates; Iran Warns No Infrastructure Safe</a></h3><p class="news-summary">US launches new strikes as Iran&#x27;s chief negotiator warns regional turmoil will follow if attacks persist, threatening infrastructure safety globally amid deepening conflict.</p><a class="news-more" href="https://www.aljazeera.com/news/2026/7/22/iran-warns-of-regional-turmoil-if-us-threats-and-attacks-do-not?traffic_source=rss" target="_blank" rel="noopener noreferrer">Read more &rarr;</a></article><article class="news-card"><div class="news-source">THE GUARDIAN</div><h3 class="news-headline"><a class="news-link" href="https://www.theguardian.com/world/2026/jul/22/oil-price-increases-middle-east-conflict-escalates-us-iran" target="_blank" rel="noopener noreferrer">Oil Tops $95 as Middle East Conflict Escalates</a></h3><p class="news-summary">Crude prices surged above $95, the fastest rise since US-Israeli attacks on Tehran disrupted Gulf exports via Hormuz. Analysts warn $120/barrel possible by year-end if Hormuz remains disrupted.</p><a class="news-more" href="https://www.theguardian.com/world/2026/jul/22/oil-price-increases-middle-east-conflict-escalates-us-iran" target="_blank" rel="noopener noreferrer">Read more &rarr;</a></article><article class="news-card"><div class="news-source">AL JAZEERA</div><h3 class="news-headline"><a class="news-link" href="https://www.aljazeera.com/news/2026/7/22/us-and-saudi-arabia-announce-nuclear-cooperation-deal?traffic_source=rss" target="_blank" rel="noopener noreferrer">US Signs Landmark Nuclear Cooperation Deal With Saudi Arabia</a></h3><p class="news-summary">The US and Saudi Arabia announced a nuclear cooperation agreement, with the Trump administration calling it historic, reinforcing nonproliferation standards and opening Saudi nuclear sector to US firms.</p><a class="news-more" href="https://www.aljazeera.com/news/2026/7/22/us-and-saudi-arabia-announce-nuclear-cooperation-deal?traffic_source=rss" target="_blank" rel="noopener noreferrer">Read more &rarr;</a></article><article class="news-card"><div class="news-source">CNBC</div><h3 class="news-headline"><a class="news-link" href="https://www.cnbc.com/2026/07/22/treasury-yields-fed-rate-hike-bets.html" target="_blank" rel="noopener noreferrer">Treasury Yields Rise as Traders Reassess Fed Rate Hike Bets</a></h3><p class="news-summary">US Treasury yields moved higher as investors weighed escalating Middle East tensions and reassessed Federal Reserve rate hike expectations amid geopolitical risk repricing.</p><a class="news-more" href="https://www.cnbc.com/2026/07/22/treasury-yields-fed-rate-hike-bets.html" target="_blank" rel="noopener noreferrer">Read more &rarr;</a></article><article class="news-card"><div class="news-source">CNBC</div><h3 class="news-headline"><a class="news-link" href="https://www.cnbc.com/video/2026/07/14/inflation-eases-to-3point5percent-annually-in-june-despite-iran-war-and-ai-boom.html" target="_blank" rel="noopener noreferrer">US Inflation Eases to 3.5% Annually in June</a></h3><p class="news-summary">June CPI fell to 3.5% annually, moving closer to the Fed&#x27;s 2% target as a lull in US-Iran fighting eased energy prices, though risks remain from renewed conflict.</p><a class="news-more" href="https://www.cnbc.com/video/2026/07/14/inflation-eases-to-3point5percent-annually-in-june-despite-iran-war-and-ai-boom.html" target="_blank" rel="noopener noreferrer">Read more &rarr;</a></article></div></section>
+<section class="news-section"><h2 class="section-header">QATAR NEWS</h2><div class="news-grid"><article class="news-card"><div class="news-source">QATAR TRIBUNE</div><h3 class="news-headline"><a class="news-link" href="https://www.qatar-tribune.com/article/245325/business/qib-wins-3-euromoney-awards-including-qatars-best-bank-award" target="_blank" rel="noopener noreferrer">QIB Wins 3 Euromoney Awards Including Best Bank</a></h3><p class="news-summary">Qatar Islamic Bank has won three Euromoney awards, including the prestigious Qatar&#x27;s best bank award, recognising its leading position in the country&#x27;s banking sector.</p><a class="news-more" href="https://www.qatar-tribune.com/article/245325/business/qib-wins-3-euromoney-awards-including-qatars-best-bank-award" target="_blank" rel="noopener noreferrer">Read more &rarr;</a></article><article class="news-card"><div class="news-source">QATAR TRIBUNE</div><h3 class="news-headline"><a class="news-link" href="https://www.qatar-tribune.com/article/245468/latest-news/doha-bank-unveils-new-corporate-identity-reflecting-its-strategic-transformation-future-vision" target="_blank" rel="noopener noreferrer">Doha Bank Unveils New Corporate Identity for Growth</a></h3><p class="news-summary">Doha Bank has launched a new corporate identity reflecting its strategic transformation and future vision, signalling a repositioning to drive growth.</p><a class="news-more" href="https://www.qatar-tribune.com/article/245468/latest-news/doha-bank-unveils-new-corporate-identity-reflecting-its-strategic-transformation-future-vision" target="_blank" rel="noopener noreferrer">Read more &rarr;</a></article><article class="news-card"><div class="news-source">QATAR TRIBUNE</div><h3 class="news-headline"><a class="news-link" href="https://www.qatar-tribune.com/article/245498/business/qcb-governor-meets-with-ambassador-of-uae-to-qatar" target="_blank" rel="noopener noreferrer">QCB Governor Holds Meeting With UAE Ambassador</a></h3><p class="news-summary">Qatar Central Bank governor held a meeting with the Ambassador of the UAE to Qatar, underscoring continued bilateral financial and diplomatic engagement between the two Gulf states.</p><a class="news-more" href="https://www.qatar-tribune.com/article/245498/business/qcb-governor-meets-with-ambassador-of-uae-to-qatar" target="_blank" rel="noopener noreferrer">Read more &rarr;</a></article><article class="news-card"><div class="news-source">QATAR TRIBUNE</div><h3 class="news-headline"><a class="news-link" href="https://www.qatar-tribune.com/article/245332/business/qfc-cci-france-qatar-sign-agreement-to-boost-trade-ties" target="_blank" rel="noopener noreferrer">QFC and CCI France Qatar Sign Trade Agreement</a></h3><p class="news-summary">Qatar Financial Centre and CCI France Qatar have signed an agreement aimed at boosting trade ties, strengthening economic cooperation between Qatar and France.</p><a class="news-more" href="https://www.qatar-tribune.com/article/245332/business/qfc-cci-france-qatar-sign-agreement-to-boost-trade-ties" target="_blank" rel="noopener noreferrer">Read more &rarr;</a></article></div></section>
+<section class="news-section"><h2 class="section-header">MARKET DRIVERS<span class="section-meta">WHAT MOVED MARKETS</span></h2><div class="news-grid"><article class="news-card"><div class="news-source">THE GUARDIAN</div><h3 class="news-headline"><a class="news-link" href="https://www.theguardian.com/world/2026/jul/22/oil-price-increases-middle-east-conflict-escalates-us-iran" target="_blank" rel="noopener noreferrer">Brent $94.31 eyes $95 breakout; Hormuz disruption opens $120 path</a></h3><p class="news-summary">Brent&#x27;s +3.39% single-day surge and +54.99% YTD move reflects Hormuz risk premium repricing. A sustained close above $95 removes near-term technical resistance; analyst consensus targets $120 by year-end if Strait remains disrupted. Energy-importing EM equity books (Nifty -7.11% </p><a class="news-more" href="https://www.theguardian.com/world/2026/jul/22/oil-price-increases-middle-east-conflict-escalates-us-iran" target="_blank" rel="noopener noreferrer">Read more &rarr;</a></article><article class="news-card"><div class="news-source">CNBC</div><h3 class="news-headline"><a class="news-link" href="https://www.cnbc.com/2026/07/22/treasury-yields-fed-rate-hike-bets.html" target="_blank" rel="noopener noreferrer">UST 10Y at 4.654%; geopolitical risk premium steepening 5s10s spread</a></h3><p class="news-summary">10Y at 4.654% (+5.39% MTD) and 5Y at 4.402% (+5.29% MTD) signals bear-steepening as geopolitical risk repricing overrides the June CPI 3.5% print. The 5s10s spread near 25bps is a key watch — further steepening above 30bps pressures duration-heavy sovereign and IG fixed income al</p><a class="news-more" href="https://www.cnbc.com/2026/07/22/treasury-yields-fed-rate-hike-bets.html" target="_blank" rel="noopener noreferrer">Read more &rarr;</a></article><article class="news-card"><div class="news-source">AL JAZEERA</div><h3 class="news-headline"><a class="news-link" href="https://www.aljazeera.com/news/2026/7/22/yemens-houthis-claim-attack-on-two-saudi-oil-tankers?traffic_source=rss" target="_blank" rel="noopener noreferrer">Houthi tanker strikes put Red Sea freight premium at risk; DFM at -4.33% YTD support</a></h3><p class="news-summary">Houthi attacks on two Saudi oil tankers compound the Hormuz risk vector with a Red Sea shipping lane threat. Saudi Tadawul&#x27;s +0.72% session gain masks vulnerability — a sustained naval embargo widens Gulf equity risk premia. DFM at 5,785 (-4.33% YTD) and QE Index at 10,067 (-6.47</p><a class="news-more" href="https://www.aljazeera.com/news/2026/7/22/yemens-houthis-claim-attack-on-two-saudi-oil-tankers?traffic_source=rss" target="_blank" rel="noopener noreferrer">Read more &rarr;</a></article></div></section>
 
 </main>
 
 <footer>
   <div class="footer-inner">
     <span class="brand-wordmark">DOHA BANK</span>
-    <span>MARKET UPDATES &middot; 22 July 2026</span>
+    <span>MARKET INTELLIGENCE &middot; Wednesday • 22 July 2026</span>
   </div>
 </footer>
 
