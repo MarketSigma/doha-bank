@@ -355,12 +355,12 @@ body {
 }
 
 .masthead h1 {
-  font-family: var(--segoe);
-  font-weight: 600;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 700;
   font-size: clamp(42px, 7vw, 60px);
   margin: 0;
   line-height: 1.02;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.025em;
   color: var(--brand-blue);
 }
 
@@ -373,12 +373,23 @@ body {
 }
 
 .masthead .brand-wordmark,
-.edition-label {
+.edition-label,
+.sub-separator {
   font-family: var(--segoe);
   font-size: 15px;
   font-weight: 600;
-  letter-spacing: 0.18em;
   text-transform: uppercase;
+}
+
+.masthead .brand-wordmark,
+.edition-label {
+  letter-spacing: 0.08em;
+}
+
+.sub-separator {
+  color: var(--gold);
+  letter-spacing: 0;
+  font-weight: 400;
 }
 
 .masthead .brand-wordmark {
@@ -392,9 +403,14 @@ body {
 @media (max-width: 520px) {
   .navy-strip { height: 58px; }
   .masthead .brand-wordmark,
-  .edition-label {
+  .edition-label,
+  .sub-separator {
     font-size: 12px;
-    letter-spacing: 0.12em;
+  }
+
+  .masthead .brand-wordmark,
+  .edition-label {
+    letter-spacing: 0.08em;
   }
 }
 
@@ -804,6 +820,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
         <h1>{report_title}</h1>
         <div class="sub-row">
           <span class="brand-wordmark">DOHA BANK</span>
+          <span class="sub-separator" aria-hidden="true">|</span>
           <span class="edition-label">{page_meta}</span>
         </div>
       </div>
