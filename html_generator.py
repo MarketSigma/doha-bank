@@ -296,24 +296,27 @@ body {
 }
 
 /* ---------------- Masthead ----------------
-   Logo + title adjacent (the mark stands alone, no wordmark),
-   gold baseline rule below with edition label left / date right. */
+   Logo left; title beside it; beneath the title one row with
+   DOHA BANK + DAILY MARKET BRIEF on the left and the date far
+   right; a clean gold rule closes the header (no text on it). */
 
 .masthead {
   background: #FFFFFF;
   color: var(--navy);
-  padding: 20px 18px 0;
+  padding: 22px 18px 0;
 }
 
 .masthead-inner {
   max-width: 1200px;
   margin: 0 auto;
+  border-bottom: 2px solid var(--gold);
+  padding-bottom: 18px;
 }
 
 .brand-top {
   display: flex;
   align-items: center;
-  gap: 22px;
+  gap: 24px;
 }
 
 .mast-logo {
@@ -322,36 +325,48 @@ body {
   flex: 0 0 auto;
 }
 
+.title-block {
+  flex: 1;
+  min-width: 0;
+}
+
 .masthead h1 {
   font-family: var(--serif);
   font-weight: 600;
   font-size: clamp(30px, 6.5vw, 52px);
   margin: 0;
-  line-height: 1.02;
+  line-height: 1.04;
   letter-spacing: -0.02em;
   color: var(--brand-blue);
 }
 
-.baseline-rule {
+.sub-row {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 10px;
+  align-items: baseline;
+  gap: 12px;
   flex-wrap: wrap;
-  border-bottom: 2px solid var(--gold);
-  margin-top: 12px;
-  padding: 0 0 10px;
-  font-size: 12px;
+  margin-top: 8px;
+}
+
+.masthead .brand-wordmark {
+  font-family: var(--serif);
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--brand-blue);
+  letter-spacing: 0.06em;
 }
 
 .edition-label {
+  font-size: 12px;
   letter-spacing: 0.16em;
   font-weight: 700;
-  color: var(--muted);
+  color: var(--mid-blue);
 }
 
 .report-date {
-  font-weight: 600;
+  margin-left: auto;
+  font-size: 13px;
+  font-weight: 700;
   color: #8A6F4A; /* deep gold */
   letter-spacing: 0.05em;
 }
@@ -731,11 +746,14 @@ HTML_TEMPLATE = """<!DOCTYPE html>
         <path fill="#062E63" d="M8 3 A39.7 39.7 0 1 1 14 81 A39.4 39.4 0 0 0 8 3 Z"/>
         <path fill="#C2A57E" d="M10 14 A33 33 0 0 1 10 80 Z"/>
       </svg>
-      <h1>{report_title}</h1>
-    </div>
-    <div class="baseline-rule">
-      <span class="edition-label">{page_meta}</span>
-      <span class="report-date">{report_date}</span>
+      <div class="title-block">
+        <h1>{report_title}</h1>
+        <div class="sub-row">
+          <span class="brand-wordmark">DOHA BANK</span>
+          <span class="edition-label">{page_meta}</span>
+          <span class="report-date">{report_date}</span>
+        </div>
+      </div>
     </div>
   </div>
 </header>
