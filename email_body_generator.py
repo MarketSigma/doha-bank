@@ -179,7 +179,7 @@ def _masthead(report_date: str, generated_display_time: str,
     if logo_url:
         # Logo | gold divider | title + brief, all on one line.
         brand_row = f"""
-    <table cellpadding="0" cellspacing="0" border="0" width="100%">
+    <table cellpadding="0" cellspacing="0" border="0" width="100%" style="mso-table-lspace:0pt;mso-table-rspace:0pt;">
       <tr>
         <td class="eb-logo-cell" width="160" valign="middle"
             style="padding-right:16px;">
@@ -206,7 +206,7 @@ def _masthead(report_date: str, generated_display_time: str,
     return f"""
 <tr>
   <td class="eb-gutter" style="background:{BRAND_BLUE};padding:26px 22px;">
-    <table cellpadding="0" cellspacing="0" border="0" width="100%">
+    <table cellpadding="0" cellspacing="0" border="0" width="100%" style="mso-table-lspace:0pt;mso-table-rspace:0pt;">
       <tr>
         <td align="right" class="eb-date"
             style="font-family:{SANS};color:{GOLD_LIGHT};font-size:17px;
@@ -222,10 +222,15 @@ def _masthead(report_date: str, generated_display_time: str,
   <td class="eb-gutter" style="background:{PAGE_BG};padding:22px 22px 0;">
     {brand_row}
 
-    <table cellpadding="0" cellspacing="0" border="0" width="100%"
-           style="margin-top:16px;">
-      <tr><td style="font-size:0;line-height:0;height:2px;
-                     background:{GOLD};">&nbsp;</td></tr>
+    <table role="presentation" cellpadding="0" cellspacing="0" border="0"
+           width="100%" style="border-collapse:collapse;
+                               mso-table-lspace:0pt;mso-table-rspace:0pt;">
+      <tr><td height="16" style="height:16px;line-height:16px;font-size:0;
+                                 mso-line-height-rule:exactly;">&#8203;</td></tr>
+      <tr><td height="2" bgcolor="{GOLD}"
+              style="height:2px;line-height:2px;font-size:0;
+                     mso-line-height-rule:exactly;
+                     background-color:{GOLD};">&#8203;</td></tr>
     </table>
   </td>
 </tr>
@@ -243,8 +248,8 @@ def _kpi_block(kpis: List[Dict[str, Any]]) -> str:
         sub   = _kpi_change_inline(str(k.get("sublabel", "")))
         cells.append(f'''
 <td valign="top" style="padding:5px;" width="50%">
-  <table cellpadding="0" cellspacing="0" border="0" width="100%"
-         style="background:{KPI_BG};border:1px solid {BORDER};
+  <table class="eb-kpi-card" cellpadding="0" cellspacing="0" border="0" width="100%"
+         style="mso-table-lspace:0pt;mso-table-rspace:0pt;background:{KPI_BG};border:1px solid {BORDER};
                 border-top:3px solid {GOLD};border-radius:8px;">
     <tr><td style="padding:13px 14px;">
       <div class="eb-kpi-label" style="font-family:{SANS};font-size:10.5px;font-weight:700;color:{MID_BLUE};letter-spacing:0.14em;">
@@ -270,7 +275,7 @@ def _kpi_block(kpis: List[Dict[str, Any]]) -> str:
 
     return f'''
 <tr><td class="eb-gutter-kpi" style="padding:16px 17px 6px;">
-  <table cellpadding="0" cellspacing="0" border="0" width="100%">
+  <table cellpadding="0" cellspacing="0" border="0" width="100%" style="mso-table-lspace:0pt;mso-table-rspace:0pt;">
     {rows_html}
   </table>
 </td></tr>
@@ -284,8 +289,8 @@ def _section_header_row(title: str, meta: str = "") -> str:
         if meta else ""
     )
     return f'''
-<table cellpadding="0" cellspacing="0" border="0" width="100%"
-       style="border-bottom:2px solid {GOLD};margin-bottom:10px;">
+<table cellpadding="0" cellspacing="0" border="0" width="100%" 
+       style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-bottom:2px solid {GOLD};margin-bottom:10px;">
   <tr>
     <td class="eb-section-hdr" style="font-family:{SANS};font-size:11px;color:{NAVY};font-weight:700;
                letter-spacing:0.19em;padding:0 0 7px 0;">
@@ -335,11 +340,11 @@ def _data_table_block(title: str, meta: str, headers: List[str],
     return f'''
 <tr><td class="eb-gutter" style="padding:8px 22px 6px;">
   <table cellpadding="0" cellspacing="0" border="0" width="100%"
-         style="background:{WHITE};border:1px solid {BORDER};border-radius:8px;">
+         style="mso-table-lspace:0pt;mso-table-rspace:0pt;background:{WHITE};border:1px solid {BORDER};border-radius:8px;">
     <tr><td class="eb-card" style="padding:14px;">
       {_section_header_row(title, meta)}
-      <table cellpadding="0" cellspacing="0" border="0" width="100%"
-             style="border-collapse:collapse;">
+      <table cellpadding="0" cellspacing="0" border="0" width="100%" 
+             style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;">
         <thead><tr>{"".join(hdr_cells)}</tr></thead>
         <tbody>{"".join(body_rows)}</tbody>
       </table>
@@ -386,8 +391,8 @@ def _news_card_block(item: Dict[str, Any]) -> str:
         more_html = ""
 
     return f'''
-<table cellpadding="0" cellspacing="0" border="0" width="100%"
-       style="background:{WHITE};border:1px solid {BORDER};border-left:3px solid {GOLD};
+<table cellpadding="0" cellspacing="0" border="0" width="100%" 
+       style="mso-table-lspace:0pt;mso-table-rspace:0pt;background:{WHITE};border:1px solid {BORDER};border-left:3px solid {GOLD};
               margin-bottom:10px;">
   <tr><td style="padding:12px 14px;">
     <div class="eb-news-source" style="font-family:{SANS};font-size:10.5px;font-weight:700;color:{ACCENT_BLUE};
@@ -424,7 +429,7 @@ def _footer(report_date: str, report_title: str = "Market Intelligence") -> str:
     return f'''
 <tr><td class="eb-gutter" style="background:{BRAND_BLUE};padding:16px 22px;
                border-top:3px solid {GOLD};">
-  <table cellpadding="0" cellspacing="0" border="0" width="100%">
+  <table cellpadding="0" cellspacing="0" border="0" width="100%" style="mso-table-lspace:0pt;mso-table-rspace:0pt;">
     <tr>
       <td style="font-family:{SERIF};font-size:12px;font-weight:700;color:{GOLD};
                  letter-spacing:0.14em;">DOHA BANK</td>
@@ -530,6 +535,33 @@ def build_email_body(data: Dict[str, Any]) -> str:
     # just no bump for those recipients.
     style_block = '''
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!--[if mso]>
+<style type="text/css">
+  /* Outlook desktop (Word engine) only. Ignored by Gmail, web Outlook,
+     Apple Mail and every other client, so nothing else is affected. */
+
+  /* Word has no Cambria fallback chain and renders serif stacks
+     unpredictably; pin the two families explicitly. */
+  .eb-title, .eb-kpi-value      { font-family: Georgia, serif !important; }
+  .eb-cell-name, .eb-cell-num,
+  .eb-thead, .eb-kpi-label,
+  .eb-kpi-sub, .eb-section-hdr,
+  .eb-section-meta, .eb-date     { font-family: Arial, sans-serif !important; }
+
+  /* Word inflates every line box to the font's default leading, which is
+     what pushes the rules and card padding out of shape. */
+  table, tr, td                  { mso-line-height-rule: exactly; }
+  table                          { border-collapse: collapse;
+                                   mso-table-lspace: 0pt;
+                                   mso-table-rspace: 0pt; }
+
+  /* border-radius is unsupported in Word; square corners are expected,
+     but the border itself must stay visible on all four sides. */
+  .eb-card, .eb-kpi-card         { border-radius: 0 !important; }
+</style>
+<![endif]-->
+
 <style>
   /* Phones: let the 600px design reflow inside the screen instead of
      forcing a horizontal scroll. */
@@ -573,8 +605,8 @@ def build_email_body(data: Dict[str, Any]) -> str:
     # Outer container: 600px max, centred, light page background. The HTML
     # shell is minimal because Resend / clients wrap their own boilerplate.
     return style_block + f'''
-<table cellpadding="0" cellspacing="0" border="0" width="100%"
-       style="background:{PAGE_BG};padding:8px 0;">
+<table cellpadding="0" cellspacing="0" border="0" width="100%" 
+       style="mso-table-lspace:0pt;mso-table-rspace:0pt;background:{PAGE_BG};padding:8px 0;">
   <tr><td align="center">
     <table cellpadding="0" cellspacing="0" border="0" width="600"
            style="max-width:600px;width:100%;background:{PAGE_BG};">
@@ -599,5 +631,3 @@ if __name__ == "__main__":
         # Wrap in minimal full-HTML scaffolding for standalone preview
         f.write(f'<!doctype html><html><body>{body}</body></html>')
     print(f"Email body written to {out_path} ({len(body)} chars)")
-
-    
