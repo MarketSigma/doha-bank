@@ -19,7 +19,13 @@ Email-safe means:
 """
 
 import html
+import os
 from typing import Any, Dict, List
+
+# Fallback logo source when config.logo_url is not supplied by the
+# sender. Set LOGO_URL=cid:doha-logo (with a matching attachment) or
+# to a hosted https:// URL.
+DEFAULT_LOGO_URL = os.environ.get("LOGO_URL", "")
 
 
 # ============================================================
@@ -433,7 +439,7 @@ def build_email_body(data: Dict[str, Any]) -> str:
     cfg                    = data.get("config", {})
     report_date            = cfg.get("report_date", "")
     report_title           = cfg.get("report_title", "Market Intelligence")
-    logo_url               = cfg.get("logo_url", "")
+    logo_url               = cfg.get("logo_url") or DEFAULT_LOGO_URL
     generated_display_time = data.get("generated_display_time", "")
 
     # "Wednesday \u2022 22 July 2026" — same treatment as the browser HTML
