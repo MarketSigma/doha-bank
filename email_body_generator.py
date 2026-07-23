@@ -614,7 +614,7 @@ def build_email_body(data: Dict[str, Any]) -> str:
     # shell is minimal because Resend / clients wrap their own boilerplate.
     return style_block + f'''
 <table cellpadding="0" cellspacing="0" border="0" width="100%" 
-       style="mso-table-lspace:0pt;mso-table-rspace:0pt;background:{PAGE_BG};padding:8px 0;">
+       style="mso-table-lspace:0pt;mso-table-rspace:0pt;background:#FFFFFF;padding:8px 0;">
   <tr><td align="center">
     <table cellpadding="0" cellspacing="0" border="0" width="600"
            style="max-width:600px;width:100%;background:{PAGE_BG};">
