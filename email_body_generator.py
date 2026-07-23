@@ -183,7 +183,7 @@ def _masthead(report_date: str, generated_display_time: str,
       <tr>
         <td class="eb-logo-cell" width="160" valign="middle"
             style="padding-right:16px;">
-          <img src="{_e(logo_url)}" width="150" height="52" alt="Doha Bank"
+          <img class="eb-logo-img" src="{_e(logo_url)}" width="150" height="52" alt="Doha Bank"
                style="display:block;border:0;outline:none;
                       text-decoration:none;width:150px;height:52px;" />
         </td>
@@ -566,22 +566,30 @@ def build_email_body(data: Dict[str, Any]) -> str:
   /* Phones: let the 600px design reflow inside the screen instead of
      forcing a horizontal scroll. */
   @media only screen and (max-width: 480px) {
-    /* Stack the lockup above the title on narrow phones */
-    .eb-logo-cell  { display: block !important; width: 100% !important;
-                     padding: 0 0 12px 0 !important; }
-    .eb-divider    { display: none !important; }
-    .eb-text-cell  { display: block !important; width: 100% !important;
-                     padding-left: 0 !important; }
+    /* Keep the lockup beside the title on phones — scale it down rather
+       than stacking, so the header reads the same on every device. */
+    .eb-logo-cell  { width: 124px !important; padding-right: 11px !important; }
+    .eb-logo-img   { width: 116px !important; height: 40px !important; }
+    .eb-text-cell  { padding-left: 11px !important; }
+    .eb-title      { font-size: 20px !important; }
+    .eb-section-meta { font-size: 10px !important;
+                       letter-spacing: 0.10em !important; }
     .eb-gutter                  { padding-left: 12px !important; padding-right: 12px !important; }
     .eb-gutter-kpi              { padding-left: 7px !important;  padding-right: 7px !important; }
     .eb-card                    { padding: 10px !important; }
     .eb-cell-name, .eb-cell-num { font-size: 10.5px !important; padding: 6px 2px !important; }
     .eb-thead                   { font-size: 8.5px !important; padding: 6px 3px !important;
                                   letter-spacing: 0.04em !important; }
-    .eb-title                   { font-size: 26px !important; }
     .eb-kpi-value               { font-size: 22px !important; }
     .eb-kpi-label               { font-size: 9px !important; letter-spacing: 0.10em !important; }
     .eb-kpi-sub                 { font-size: 10px !important; }
+  }
+  @media only screen and (max-width: 360px) {
+    .eb-logo-cell  { width: 104px !important; padding-right: 9px !important; }
+    .eb-logo-img   { width: 98px !important; height: 34px !important; }
+    .eb-text-cell  { padding-left: 9px !important; }
+    .eb-title      { font-size: 17px !important; }
+    .eb-section-meta { font-size: 9px !important; letter-spacing: 0.06em !important; }
   }
   @media only screen and (min-width: 700px) {
     .eb-title       { font-size: 30px !important; }
@@ -631,3 +639,5 @@ if __name__ == "__main__":
         # Wrap in minimal full-HTML scaffolding for standalone preview
         f.write(f'<!doctype html><html><body>{body}</body></html>')
     print(f"Email body written to {out_path} ({len(body)} chars)")
+
+    
