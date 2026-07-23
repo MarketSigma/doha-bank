@@ -1,7 +1,7 @@
 {
   "config": {
     "client_name": "Doha Bank",
-    "report_date": "22 July 2026",
+    "report_date": "23 July 2026",
     "delivery_time_ast": "07:00",
     "sections": {
       "global_indices": true,
@@ -16,7 +16,7 @@
       "market_drivers": true
     }
   },
-  "generated_at": "2026-07-22T23:10:03Z",
+  "generated_at": "2026-07-23T04:57:33Z",
   "generated_display_time": "",
   "global_indices": [
     {
@@ -503,102 +503,102 @@
   "market_as_of_date": "2026-07-22",
   "global_news": [
     {
-      "headline": "US Treasury Yields Rise on Middle East Tension",
-      "summary": "US Treasury yields moved higher as investors mapped escalating Middle East tensions, with traders also reassessing Federal Reserve rate hike expectations amid the ongoing US-Iran conflict.",
+      "headline": "US Treasury Yields Rise on Middle East Tensions",
+      "summary": "US 10-year Treasury yields moved higher as investors reassessed Fed rate hike bets amid escalating Middle East tensions, adding pressure to broader financial markets.",
       "source": "CNBC",
       "url": "https://www.cnbc.com/2026/07/22/treasury-yields-fed-rate-hike-bets.html",
-      "metric": "Rising",
-      "metric_label": "10-yr Treasury yield direction"
+      "metric": "10-yr yield \u2191",
+      "metric_label": "US Treasury yield direction"
     },
     {
-      "headline": "S&P 500 Snaps Losing Run as Chip Stocks Rally",
-      "summary": "The Dow gained, the S&P 500 rose 0.6% and Nasdaq added 1% as chip stocks lifted markets, snapping a three-day losing streak despite elevated oil prices.",
+      "headline": "S&P 500 Slips as Higher Oil Prices Weigh",
+      "summary": "S&P 500 fell 0.14% to 7,498.96, Nasdaq shed 0.57% to 25,690.90, and the Dow dipped 6 points as rising oil prices kept equities under pressure.",
       "source": "CNBC",
-      "url": "https://www.cnbc.com/2026/07/20/stock-market-today-live-updates.html",
-      "metric": "+0.6%",
-      "metric_label": "S&P 500 session gain"
-    },
-    {
-      "headline": "US Gas Prices Drive June CPI Lower",
-      "summary": "US inflation fell in June driven by lower gas prices, though concerns remain that renewed Middle East conflict could push energy costs higher again.",
-      "source": "BBC",
-      "url": "https://www.bbc.com/news/articles/c98289j7lg7o",
-      "metric": "Down",
-      "metric_label": "US CPI June direction"
+      "url": "https://www.cnbc.com/2026/07/21/stock-market-today-live-updates.html",
+      "metric": "S&P 7,498.96 (-0",
+      "metric_label": "S&P 500 closing level"
     },
     {
       "headline": "US Signs Nuclear Energy Deal With Saudi Arabia",
-      "summary": "The US Department of Energy signed a peaceful cooperation agreement granting US firms access to Saudi Arabia's nuclear energy programme.",
+      "summary": "The US Department of Energy signed a peaceful nuclear cooperation agreement with Saudi Arabia, granting US firms significant access to the Kingdom's growing nuclear energy programme.",
       "source": "BBC World",
       "url": "https://www.bbc.co.uk/news/articles/cj03r59z73po?at_medium=RSS&at_campaign=rss",
-      "metric": "New deal",
-      "metric_label": "US-Saudi nuclear cooperation"
+      "metric": "US-KSA Nuclear P",
+      "metric_label": "Bilateral energy agreement signe"
     },
     {
-      "headline": "ADNOC Commits $6.2bn to Umm Shaif Gas Project",
-      "summary": "ADNOC announced a $6.2 billion investment in the Umm Shaif gas cap project, intensifying UAE gas production to meet growing global energy demand.",
-      "source": "The National",
-      "url": "https://www.thenationalnews.com/opinion/editorial/2026/07/22/adnoc-gas-lng-uae-energy/",
-      "metric": "$6.2bn",
-      "metric_label": "ADNOC gas investment"
-    },
-    {
-      "headline": "Oil Surpasses $95 as Middle East Conflict Escalates",
-      "summary": "Crude prices crossed $95 a barrel in the fastest monthly surge since US-Israeli strikes on Tehran disrupted Gulf exports, with analysts warning of $120 oil if Hormuz flows remain blocked.",
+      "headline": "Oil Tops $95 as Middle East Conflict Escalates",
+      "summary": "Crude surged above $95 per barrel, marking the fastest monthly rise since US-Israeli attacks on Tehran disrupted Hormuz flows in March, with analysts warning of $120 by year-end.",
       "source": "The Guardian",
       "url": "https://www.theguardian.com/world/2026/jul/22/oil-price-increases-middle-east-conflict-escalates-us-iran",
-      "metric": ">$95",
+      "metric": ">$95/bbl",
       "metric_label": "Brent crude price level"
     },
     {
-      "headline": "Houthis Claim Attack on Two Saudi Oil Tankers",
-      "summary": "Yemen's Houthis claimed attacks on two Saudi oil tankers, days after announcing a naval embargo on Saudi vessels, causing ships to make sharp course changes.",
-      "source": "Al Jazeera",
-      "url": "https://www.aljazeera.com/news/2026/7/22/yemens-houthis-claim-attack-on-two-saudi-oil-tankers?traffic_source=rss",
-      "metric": "2 tankers",
-      "metric_label": "Saudi vessels reportedly attacke"
+      "headline": "Iran War Cost Hits $37.5bn; Hormuz Chokes Oil Trade",
+      "summary": "Hegseth estimates the Iran war now costs $37.5bn. Hormuz blockade has cut Iraqi output and disrupted global energy markets; Bab el-Mandeb petroleum transit jumped to 7 million bpd.",
+      "source": "The Guardian",
+      "url": "https://www.theguardian.com/world/live/2026/jul/21/us-iran-war-live-updates-strait-of-hormuz-attacks-houthis-blockade-red-sea-middle-east-crisis-latest-news",
+      "metric": "$37.5bn war cost",
+      "metric_label": "Estimated US Iran war expenditur"
     },
     {
-      "headline": "Iran Warns of Regional Turmoil as US Strikes Continue",
-      "summary": "Iran's chief negotiator warned no infrastructure would be safe if Iran's security is not ensured, as the US launched new strikes and Iranian missiles killed three US soldiers at a Jordan base.",
-      "source": "Al Jazeera",
-      "url": "https://www.aljazeera.com/news/2026/7/22/iran-warns-of-regional-turmoil-if-us-threats-and-attacks-do-not?traffic_source=rss",
-      "metric": "3 killed",
-      "metric_label": "US soldiers killed at Jordan bas"
+      "headline": "Houthis Attack Oil Tankers, US Strikes Iran Again",
+      "summary": "Houthis claimed attacks on oil tankers in the Red Sea, their first since declaring a maritime embargo on Saudi Arabia, as the US launched further strikes on Iran.",
+      "source": "BBC World",
+      "url": "https://www.bbc.co.uk/news/articles/cpw9xzx9r4ko?at_medium=RSS&at_campaign=rss",
+      "metric": "Red Sea embargo ",
+      "metric_label": "Houthi maritime threat status"
+    },
+    {
+      "headline": "Tankers U-Turn Away From Saudi Ports After Houthi Threat",
+      "summary": "Ship-tracking data shows multiple tankers bound for or departing Saudi ports reversed course following Houthi threats, signalling immediate disruption to Saudi-linked shipping routes.",
+      "source": "BBC World",
+      "url": "https://www.bbc.co.uk/news/articles/cn0n127lpzgo?at_medium=RSS&at_campaign=rss",
+      "metric": "Multiple vessels",
+      "metric_label": "Saudi-port tanker diversions"
+    },
+    {
+      "headline": "GCC States Advance AI Integration Into Economic Plans",
+      "summary": "Bahrain, Kuwait, and Oman are classified as AI practitioners focused on implementation, while all GCC states are embedding artificial intelligence into national economic strategies, according to Arab News analysis.",
+      "source": "Arab News",
+      "url": "https://www.arabnews.com/node/2651908/middle-east",
+      "metric": "GCC AI adoption:",
+      "metric_label": "Regional AI readiness classifica"
     }
   ],
   "qatar_news": [
     {
-      "headline": "QIB wins 3 Euromoney awards including best bank",
-      "summary": "Qatar Islamic Bank has won three Euromoney awards, including the prestigious Qatar's best bank award, recognising its performance and leadership in the local banking sector.",
+      "headline": "QIB Wins 3 Euromoney Awards Including Best Bank",
+      "summary": "Qatar Islamic Bank won three Euromoney awards, including the title of Qatar's best bank, recognising its performance and standing in the local banking sector.",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/245325/business/qib-wins-3-euromoney-awards-including-qatars-best-bank-award",
       "metric": "3",
       "metric_label": "Euromoney Awards Won"
     },
     {
-      "headline": "QCB governor meets UAE ambassador to Qatar",
-      "summary": "Qatar Central Bank governor held a meeting with the Ambassador of the UAE to Qatar, signalling ongoing bilateral financial and diplomatic engagement between the two Gulf states.",
-      "source": "Qatar Tribune",
-      "url": "https://www.qatar-tribune.com/article/245498/business/qcb-governor-meets-with-ambassador-of-uae-to-qatar",
-      "metric": "QCB\u2013UAE",
-      "metric_label": "Bilateral Meeting"
-    },
-    {
-      "headline": "Doha Bank launches new corporate identity for growth",
-      "summary": "Doha Bank has unveiled a new corporate identity reflecting its strategic transformation and future vision, marking a significant rebranding milestone aimed at driving future growth.",
+      "headline": "Doha Bank Launches New Corporate Identity for Growth",
+      "summary": "Doha Bank unveiled a new corporate identity reflecting its strategic transformation and future vision, signalling a repositioning of the bank's brand direction.",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/245468/latest-news/doha-bank-unveils-new-corporate-identity-reflecting-its-strategic-transformation-future-vision",
       "metric": "Rebrand",
-      "metric_label": "Strategic Transformation"
+      "metric_label": "Corporate Identity Update"
     },
     {
-      "headline": "QFC and CCI France Qatar sign trade agreement",
-      "summary": "Qatar Financial Centre and CCI France Qatar have signed an agreement aimed at strengthening trade and economic ties between Qatar and France.",
+      "headline": "QFC and CCI France Qatar Sign Trade Agreement",
+      "summary": "Qatar Financial Centre and CCI France Qatar signed an agreement aimed at strengthening trade and business ties between Qatar and France.",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/245332/business/qfc-cci-france-qatar-sign-agreement-to-boost-trade-ties",
-      "metric": "QFC\u2013France",
-      "metric_label": "Trade Agreement Signed"
+      "metric": "MOU Signed",
+      "metric_label": "Bilateral Trade Agreement"
+    },
+    {
+      "headline": "QCB Governor Meets UAE Ambassador to Qatar",
+      "summary": "Qatar Central Bank Governor held a meeting with the Ambassador of the UAE to Qatar, underscoring ongoing financial and diplomatic engagement between the two Gulf states.",
+      "source": "Qatar Tribune",
+      "url": "https://www.qatar-tribune.com/article/245498/business/qcb-governor-meets-with-ambassador-of-uae-to-qatar",
+      "metric": "QCB\u2013UAE",
+      "metric_label": "Central Bank Diplomatic Meeting"
     }
   ],
   "kpis": [
@@ -627,40 +627,41 @@
     {
       "source": "The Guardian",
       "url": "https://www.theguardian.com/world/2026/jul/22/oil-price-increases-middle-east-conflict-escalates-us-iran",
-      "headline": "Brent at $94.31 eyes $95 break; $120 tail risk if Hormuz flows blocked",
-      "summary": "Brent +28.56% MTD and +54.99% YTD signals structural supply-risk repricing, not cyclical demand. Analyst consensus flags $120/bbl if Strait of Hormuz throughput remains disrupted. Portfolios long GCC energy equities should mark stop-losses below $88; energy importers (India Nifty",
+      "headline": "Brent $94.31 eyes $95 breakout; analyst $120 target implies 27% upside risk",
+      "summary": "Brent has surged 28.56% MTD and 55% YTD \u2014 the fastest monthly advance since March Hormuz disruption. A sustained break and close above $95 opens a measured-move target toward $120 (analyst consensus). Energy-importing EM sovereigns and airline balance sheets are most exposed; GCC",
       "metric": "$94.31",
       "metric_label": "Brent spot"
     },
     {
+      "source": "The Guardian",
+      "url": "https://www.theguardian.com/world/live/2026/jul/21/us-iran-war-live-updates-strait-of-hormuz-attacks-houthis-blockade-red-sea-middle-east-crisis-latest-news",
+      "headline": "Hormuz blockade + 7 mln bpd Bab el-Mandeb rerouting pressures LNG/UST correlation",
+      "summary": "Hormuz choke has cut Iraqi throughput while Bab el-Mandeb petroleum transit surged to 7 mln bpd, amplifying freight and insurance costs. LNG JP/KR at $21.34 (+122% YTD) confirms energy re-routing into spot markets. Rising geopolitical risk premium is keeping UST 10Y at 4.654% (+5",
+      "metric": "7 mln bpd",
+      "metric_label": "Bab el-Mandeb flow"
+    },
+    {
       "source": "CNBC",
       "url": "https://www.cnbc.com/2026/07/22/treasury-yields-fed-rate-hike-bets.html",
-      "headline": "UST 10Y at 4.654%; 5s10s steepening signals stagflation risk regime shift",
-      "summary": "UST 10Y +5.39% MTD and 5Y at 4.402% (+5.29% MTD) with 5s10s spread at ~25bps. Geopolitical risk premium layered on top of Fed re-pricing creates dual duration pressure. A close above 4.70% on the 10Y would accelerate EM capital outflows and stress GCC dollar-peg sovereign spreads",
+      "headline": "UST 5Y/10Y spread at 4.40/4.65%; curve steepening signals re-pricing of terminal rate",
+      "summary": "UST 5Y at 4.402% and 10Y at 4.654% \u2014 both up ~5.3% MTD \u2014 indicate the market is repricing Fed terminal rate higher, not just a geopolitical risk-premium move. The 25bp 5s/10s spread is the key pivot: a steepening beyond 30bp would signal stagflation pricing, pressuring duration-h",
       "metric": "4.654%",
       "metric_label": "UST 10Y yield"
     },
     {
-      "source": "Al Jazeera",
-      "url": "https://www.aljazeera.com/news/2026/7/22/yemens-houthis-claim-attack-on-two-saudi-oil-tankers?traffic_source=rss",
-      "headline": "Houthi tanker attacks pressure DFM -4.33% YTD; Tadawul insurance/shipping spreads widen",
-      "summary": "Houthi naval embargo and confirmed tanker strikes introduce a discrete-event freight risk premium. Tadawul +0.72% 1D masks intra-sector divergence; shipping, insurance and downstream logistics names face spread widening. DFM at 5,785 (-2.86% MTD) risks testing 5,650 if Red Sea ro",
-      "metric": "5,785.31",
-      "metric_label": "Dubai DFM"
-    },
-    {
-      "source": "The National",
-      "url": "https://www.thenationalnews.com/opinion/editorial/2026/07/22/adnoc-gas-lng-uae-energy/",
-      "headline": "LNG JP/KR +122.06% YTD; ADNOC $6.2bn Umm Shaif capex anchors long-dated supply curve",
-      "summary": "LNG Japan/Korea marker at $21.34 (+34.89% MTD, +122.06% YTD) reflects acute spot tightness. ADNOC's $6.2bn Umm Shaif gas commitment is a multi-year supply signal but provides no near-term relief. Sovereign wealth allocators should note that LNG price volatility at these levels co",
-      "metric": "$21.34",
-      "metric_label": "LNG JP/KR spot"
+      "source": "BBC World",
+      "url": "https://www.bbc.co.uk/news/articles/cn0n127lpzgo?at_medium=RSS&at_campaign=rss",
+      "headline": "Tanker reversals from Saudi ports: DFM -4.33% YTD, Tadawul divergence widens",
+      "summary": "Ship-tracking confirmation of tanker U-turns at Saudi ports introduces a direct freight-disruption risk to Saudi oil export revenues, pressuring the Tadawul's +2.71% YTD buffer. The Tadawul/DFM spread (Tadawul +2.71% vs DFM -4.33% YTD) could compress sharply if shipping insurance",
+      "metric": "10,775.46",
+      "metric_label": "Tadawul level"
     }
   ],
   "validation_issues": [
+    "Using latest available Supabase market date 2026-07-22, not today 2026-07-23",
     "Kuwait Boursa missing or invalid"
   ],
-  "validation_issue_count": 1,
+  "validation_issue_count": 2,
   "report_status": "NEEDS_REVIEW",
   "email_send_allowed": false
 }
