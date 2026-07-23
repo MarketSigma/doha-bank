@@ -25,9 +25,34 @@ TO_HEADER_EMAIL = os.environ.get(
 MARKET_DATA_PATH = Path("market_data.json")
 
 # Doha Bank lockup, embedded inline via CID so recipients never depend on an
-# external image host. Sits next to this script in the repo.
-LOGO_PATH = Path(os.environ.get("LOGO_PATH", "doha_bank_logo@2x.png"))
+# external image host. Resolved against several likely locations (repo root,
+# docs/, alongside this script) so it works regardless of the working
+# directory the workflow runs from. Override with LOGO_PATH if needed.
+LOGO_FILENAME = "doha_bank_logo@2x.png"
 LOGO_CID = "doha-logo"
+
+
+def resolve_logo_path() -> Path | None:
+    """Find the logo wherever it lives in the repo. Returns None if absent."""
+    override = os.environ.get("LOGO_PATH")
+    if override:
+        p = Path(override)
+        return p if p.exists() else None
+
+    here = Path(__file__).resolve().parent
+    candidates = [
+        Path(LOGO_FILENAME),                 # cwd
+        Path("docs") / LOGO_FILENAME,        # cwd/docs
+        here / LOGO_FILENAME,                # next to this script
+        here / "docs" / LOGO_FILENAME,       # repo docs/ folder
+    ]
+    for c in candidates:
+        if c.exists():
+            return c
+    return None
+
+
+LOGO_PATH = resolve_logo_path()
 
 SCHEDULE_ID = "main"
 QATAR_TZ = ZoneInfo("Asia/Qatar")
@@ -92,12 +117,13 @@ def build_logo_attachment() -> dict | None:
     """Return a Resend attachment dict for the inline logo, or None if the
     file is missing. Missing logo is not fatal: the email body falls back to
     the wordmark set in type rather than showing a broken image."""
-    if not LOGO_PATH.exists():
-        print(f"[WARN] Logo not found at {LOGO_PATH}. Sending without inline logo.")
+    if LOGO_PATH is None:
+        print(f"[WARN] Logo '{LOGO_FILENAME}' not found (looked in cwd, docs/, "
+              f"and beside send_email.py). Sending without inline logo.")
         return None
 
     encoded = base64.b64encode(LOGO_PATH.read_bytes()).decode()
-    print(f"[INFO] Inline logo attached: {LOGO_PATH.name} ({LOGO_PATH.stat().st_size:,} bytes)")
+    print(f"[INFO] Inline logo attached: {LOGO_PATH} ({LOGO_PATH.stat().st_size:,} bytes)")
     return {
         "content": encoded,
         "filename": LOGO_PATH.name,
