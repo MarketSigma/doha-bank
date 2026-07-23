@@ -1,3 +1,4 @@
+import base64
 import datetime
 import json
 import os
@@ -22,6 +23,12 @@ TO_HEADER_EMAIL = os.environ.get(
     "DB Strategy Team <updates@market-sigma.com>",
 )
 MARKET_DATA_PATH = Path("market_data.json")
+
+# Doha Bank lockup, embedded inline via CID so recipients never depend on an
+# external image host. Sits next to this script in the repo.
+LOGO_PATH = Path(os.environ.get("LOGO_PATH", "doha_bank_logo@2x.png"))
+LOGO_CID = "doha-logo"
+
 SCHEDULE_ID = "main"
 QATAR_TZ = ZoneInfo("Asia/Qatar")
 VALIDATION_ALERT_RECIPIENTS = [
@@ -81,6 +88,23 @@ def report_date_from_data(data: dict) -> str:
     return format_email_date(configured_date)
 
 
+def build_logo_attachment() -> dict | None:
+    """Return a Resend attachment dict for the inline logo, or None if the
+    file is missing. Missing logo is not fatal: the email body falls back to
+    the wordmark set in type rather than showing a broken image."""
+    if not LOGO_PATH.exists():
+        print(f"[WARN] Logo not found at {LOGO_PATH}. Sending without inline logo.")
+        return None
+
+    encoded = base64.b64encode(LOGO_PATH.read_bytes()).decode()
+    print(f"[INFO] Inline logo attached: {LOGO_PATH.name} ({LOGO_PATH.stat().st_size:,} bytes)")
+    return {
+        "content": encoded,
+        "filename": LOGO_PATH.name,
+        "content_id": LOGO_CID,
+    }
+
+
 def load_email_recipients() -> list[str]:
     sb = get_supabase()
     resp = (
@@ -123,6 +147,7 @@ def mark_schedule_sent(status: str, message: str) -> None:
     except Exception as exc:
         print(f"[WARN] Could not update schedule last_sent marker: {exc}")
 
+
 def send_validation_alert(data: dict) -> None:
     issues = data.get("validation_issues") or []
 
@@ -130,7 +155,7 @@ def send_validation_alert(data: dict) -> None:
         return
 
     body = (
-        "The Doha Bank Market Updates report was sent successfully.\n\n"
+        "The Doha Bank Market Intelligence report was sent successfully.\n\n"
         "However, validation issues were detected:\n\n"
         + "\n".join(f"- {i}" for i in issues)
     )
@@ -151,6 +176,8 @@ def send_validation_alert(data: dict) -> None:
         json=payload,
         timeout=30,
     )
+
+
 def send() -> None:
     data = load_market_data()
     report_date = report_date_from_data(data)
@@ -161,10 +188,18 @@ def send() -> None:
         mark_schedule_sent("no_recipients", "No active email recipients found in Supabase")
         return
 
+    # Attach the logo inline and point the renderer at its CID. Done before
+    # build_email_body so the <img src="cid:..."> lands in the markup.
+    logo_attachment = build_logo_attachment()
+    config = data.setdefault("config", {})
+    config["logo_url"] = f"cid:{LOGO_CID}" if logo_attachment else ""
+
+    report_title = config.get("report_title", "Market Intelligence")
+
     # Full report is embedded in the email body via email_body_generator.
-    # No attachments — recipients read the report inline. The PDF that the
-    # workflow still generates is retained for the dashboard / archive
-    # only; it does not go out via email anymore.
+    # No attachments other than the inline logo — recipients read the report
+    # inline. The PDF that the workflow still generates is retained for the
+    # dashboard / archive only; it does not go out via email anymore.
     body_html = build_email_body(data)
     print(f"[INFO] Email body rendered: {len(body_html):,} characters")
 
@@ -176,9 +211,11 @@ def send() -> None:
         "from": FROM_EMAIL,
         "to": [TO_HEADER_EMAIL],
         "bcc": recipients,
-        "subject": f"Doha Bank Market updates - {report_date}",
+        "subject": f"Doha Bank {report_title} - {report_date}",
         "html": body_html,
     }
+    if logo_attachment:
+        payload["attachments"] = [logo_attachment]
 
     resp = requests.post(
         "https://api.resend.com/emails",
@@ -196,7 +233,8 @@ def send() -> None:
             "sent",
             f"Email sent — {len(recipients)} BCC recipient(s) — body-only",
         )
-        if data.get("report_status") == "needs_review":
+        # Case-insensitive: the pipeline writes "NEEDS_REVIEW" in upper case.
+        if str(data.get("report_status") or "").strip().lower() == "needs_review":
             send_validation_alert(data)
         return
 
