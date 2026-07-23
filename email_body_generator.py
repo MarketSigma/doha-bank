@@ -27,11 +27,16 @@ from typing import Any, Dict, List
 # ============================================================
 
 BRAND_BLUE  = "#062E63"
+BRAND_DEEP  = "#03244F"
+GOLD        = "#D4B58A"
+GOLD_LIGHT  = "#E4D3B4"
+GOLD_DEEP   = "#8A6F4A"
 SKY_BLUE    = "#D4B58A"
 NAVY        = "#082C5D"
 MID_BLUE    = "#45698F"
 ACCENT_BLUE = "#7392B3"
 LIGHT_BLUE  = "#AFC1D4"
+SILVER      = "#C8D4E2"
 MUTED       = "#7B8EA3"
 WHITE       = "#FFFFFF"
 TINT        = "#F7F9FC"
@@ -39,9 +44,10 @@ KPI_BG      = "#FFFFFF"
 BORDER      = "#E3E9F0"
 PAGE_BG     = "#F3F5F8"
 
-SERIF = "Georgia, 'Times New Roman', serif"
-SANS  = "'Segoe UI', Tahoma, Arial, sans-serif"
-TITLE_FONT = "Arial, Helvetica, sans-serif"
+# Cambria/Georgia stand in for Source Serif 4; Calibri/Segoe for DM Sans.
+SERIF = "Cambria, Georgia, 'Times New Roman', serif"
+SANS  = "Calibri, 'Segoe UI', Tahoma, Arial, sans-serif"
+TITLE_FONT = SERIF
 
 
 # ============================================================
@@ -144,16 +150,36 @@ def _kpi_change_inline(sub: str) -> str:
 # Section blocks
 # ============================================================
 
-def _masthead(report_date: str, generated_display_time: str) -> str:
+def _masthead(report_date: str, generated_display_time: str,
+              logo_url: str = "", report_title: str = "Market Intelligence") -> str:
+    """Navy strip with the date, then the official Doha Bank lockup, the
+    title, and the brief label above a gold rule — mirrors the browser HTML."""
     brief_label = generated_display_time or "DAILY MARKET BRIEF"
+
+    # Email clients strip inline SVG and block data-URI images, so the lockup
+    # needs a hosted (or CID) URL. Without one we fall back to the wordmark
+    # set in type rather than showing a broken image.
+    if logo_url:
+        brand_block = (
+            f'<img src="{_e(logo_url)}" width="204" height="70" alt="Doha Bank" '
+            f'style="display:block;border:0;outline:none;text-decoration:none;'
+            f'width:204px;height:70px;margin-bottom:14px;" />'
+        )
+    else:
+        brand_block = (
+            f'<div style="font-family:{SERIF};font-size:22px;font-weight:700;'
+            f'letter-spacing:0.06em;color:{BRAND_BLUE};margin-bottom:12px;">'
+            f'DOHA BANK</div>'
+        )
+
     return f"""
 <tr>
-  <td style="background:{BRAND_BLUE};padding:16px 22px;">
+  <td style="background:{BRAND_BLUE};padding:26px 22px;">
     <table cellpadding="0" cellspacing="0" border="0" width="100%">
       <tr>
-        <td align="right"
-            style="font-family:{SANS};color:#E4D3B4;font-size:14px;
-                   font-weight:700;letter-spacing:0.06em;">
+        <td align="right" class="eb-date"
+            style="font-family:{SANS};color:{GOLD_LIGHT};font-size:17px;
+                   font-weight:700;letter-spacing:0.06em;line-height:1.2;">
           {_e(report_date)}
         </td>
       </tr>
@@ -162,34 +188,26 @@ def _masthead(report_date: str, generated_display_time: str) -> str:
 </tr>
 
 <tr>
-  <td style="background:{WHITE};padding:22px 22px 18px;
-             border-bottom:2px solid #D4B58A;">
-    <table cellpadding="0" cellspacing="0" border="0" width="100%">
-      <tr>
-        <td valign="middle">
-          <div class="eb-title"
-               style="font-family:{TITLE_FONT};color:{BRAND_BLUE};
-                      font-size:30px;font-weight:700;line-height:1.05;
-                      letter-spacing:-0.025em;margin:0;">
-            Market Intelligence
-          </div>
+  <td style="background:{WHITE};padding:24px 22px 0;">
+    {brand_block}
 
-          <div style="margin-top:7px;white-space:nowrap;">
-            <span style="font-family:{SANS};font-size:13px;font-weight:600;
-                         letter-spacing:0.08em;color:{BRAND_BLUE};">
-              DOHA BANK
-            </span>
-            <span style="font-family:{SANS};font-size:13px;font-weight:400;
-                         color:#D4B58A;padding:0 8px;">
-              |
-            </span>
-            <span style="font-family:{SANS};font-size:13px;font-weight:600;
-                         letter-spacing:0.08em;color:{MID_BLUE};">
-              {_e(brief_label)}
-            </span>
-          </div>
-        </td>
-      </tr>
+    <div class="eb-title"
+         style="font-family:{TITLE_FONT};color:{BRAND_BLUE};
+                font-size:40px;font-weight:700;line-height:1.04;
+                letter-spacing:-0.02em;margin:0;">
+      {_e(report_title)}
+    </div>
+
+    <div class="eb-section-meta"
+         style="font-family:{SANS};font-size:14px;font-weight:700;
+                letter-spacing:0.16em;color:{MID_BLUE};margin-top:10px;">
+      {_e(brief_label)}
+    </div>
+
+    <table cellpadding="0" cellspacing="0" border="0" width="100%"
+           style="margin-top:18px;">
+      <tr><td style="font-size:0;line-height:0;height:2px;
+                     background:{GOLD};">&nbsp;</td></tr>
     </table>
   </td>
 </tr>
@@ -206,14 +224,15 @@ def _kpi_block(kpis: List[Dict[str, Any]]) -> str:
         value = str(k.get("value", "—"))
         sub   = _kpi_change_inline(str(k.get("sublabel", "")))
         cells.append(f'''
-<td valign="top" style="padding:6px;" width="50%">
+<td valign="top" style="padding:5px;" width="50%">
   <table cellpadding="0" cellspacing="0" border="0" width="100%"
-         style="background:{KPI_BG};border-left:3px solid {BRAND_BLUE};">
-    <tr><td style="padding:12px 14px;">
-      <div class="eb-kpi-label" style="font-family:{SANS};font-size:10.5px;font-weight:700;color:{MID_BLUE};letter-spacing:0.16em;">
+         style="background:{KPI_BG};border:1px solid {BORDER};
+                border-top:3px solid {GOLD};border-radius:8px;">
+    <tr><td style="padding:13px 14px;">
+      <div class="eb-kpi-label" style="font-family:{SANS};font-size:10.5px;font-weight:700;color:{MID_BLUE};letter-spacing:0.14em;">
         {_e(label)}
       </div>
-      <div class="eb-kpi-value" style="font-family:{SERIF};font-size:24px;font-weight:700;color:{NAVY};margin-top:4px;line-height:1.1;">
+      <div class="eb-kpi-value" style="font-family:{SERIF};font-size:28px;font-weight:700;color:{NAVY};margin-top:5px;line-height:1.08;letter-spacing:-0.02em;">
         {_e(value)}
       </div>
       <div class="eb-kpi-sub" style="font-family:{SANS};font-size:12px;color:{MID_BLUE};margin-top:5px;">
@@ -248,10 +267,10 @@ def _section_header_row(title: str, meta: str = "") -> str:
     )
     return f'''
 <table cellpadding="0" cellspacing="0" border="0" width="100%"
-       style="border-bottom:1.5px solid {BRAND_BLUE};margin-bottom:6px;">
+       style="border-bottom:2px solid {GOLD};margin-bottom:10px;">
   <tr>
     <td class="eb-section-hdr" style="font-family:{SANS};font-size:11px;color:{NAVY};font-weight:700;
-               letter-spacing:0.22em;padding:0 0 6px 0;">
+               letter-spacing:0.19em;padding:0 0 7px 0;">
       {_e(title.upper())}
     </td>
     {meta_html}
@@ -267,9 +286,9 @@ def _data_table_block(title: str, meta: str, headers: List[str],
     for i, h in enumerate(headers):
         align = "left" if i == 0 else "right"
         hdr_cells.append(
-            f'<th align="{align}" class="eb-thead" style="font-family:{SANS};font-size:10px;color:{ACCENT_BLUE};'
-            f'font-weight:700;letter-spacing:0.14em;padding:8px 10px;'
-            f'border-bottom:1px solid {BORDER};white-space:nowrap;">{_e(h.upper())}</th>'
+            f'<th align="{align}" class="eb-thead" style="font-family:{SANS};font-size:10px;color:{MID_BLUE};'
+            f'font-weight:700;letter-spacing:0.12em;padding:8px 10px;'
+            f'border-bottom:1px solid {SILVER};white-space:nowrap;">{_e(h.upper())}</th>'
         )
 
     body_rows = []
@@ -296,12 +315,17 @@ def _data_table_block(title: str, meta: str, headers: List[str],
         body_rows.append(f'<tr bgcolor="{bg}">{"".join(cells)}</tr>')
 
     return f'''
-<tr><td style="padding:14px 16px 4px;">
-  {_section_header_row(title, meta)}
+<tr><td style="padding:10px 16px 6px;">
   <table cellpadding="0" cellspacing="0" border="0" width="100%"
-         style="border-collapse:collapse;">
-    <thead><tr>{"".join(hdr_cells)}</tr></thead>
-    <tbody>{"".join(body_rows)}</tbody>
+         style="background:{WHITE};border:1px solid {BORDER};border-radius:8px;">
+    <tr><td style="padding:14px;">
+      {_section_header_row(title, meta)}
+      <table cellpadding="0" cellspacing="0" border="0" width="100%"
+             style="border-collapse:collapse;">
+        <thead><tr>{"".join(hdr_cells)}</tr></thead>
+        <tbody>{"".join(body_rows)}</tbody>
+      </table>
+    </td></tr>
   </table>
 </td></tr>
 '''
@@ -345,7 +369,7 @@ def _news_card_block(item: Dict[str, Any]) -> str:
 
     return f'''
 <table cellpadding="0" cellspacing="0" border="0" width="100%"
-       style="background:{WHITE};border:1px solid {BORDER};border-left:3px solid {BRAND_BLUE};
+       style="background:{WHITE};border:1px solid {BORDER};border-left:3px solid {GOLD};
               margin-bottom:10px;">
   <tr><td style="padding:12px 14px;">
     <div class="eb-news-source" style="font-family:{SANS};font-size:10.5px;font-weight:700;color:{ACCENT_BLUE};
@@ -378,16 +402,17 @@ def _news_section_block(title: str, meta: str, items: List[Dict[str, Any]]) -> s
 '''
 
 
-def _footer(report_date: str) -> str:
+def _footer(report_date: str, report_title: str = "Market Intelligence") -> str:
     return f'''
-<tr><td style="background:{BRAND_BLUE};padding:14px 18px;">
+<tr><td style="background:{BRAND_BLUE};padding:14px 18px;
+               border-top:3px solid {GOLD};">
   <table cellpadding="0" cellspacing="0" border="0" width="100%">
     <tr>
-      <td style="font-family:{SANS};font-size:11px;font-weight:700;color:{SKY_BLUE};
-                 letter-spacing:0.24em;">DOHA BANK</td>
-      <td align="right" style="font-family:{SANS};font-size:10px;color:#9EBEDF;
+      <td style="font-family:{SERIF};font-size:12px;font-weight:700;color:{GOLD};
+                 letter-spacing:0.14em;">DOHA BANK</td>
+      <td align="right" style="font-family:{SANS};font-size:10px;color:{SILVER};
                                letter-spacing:0.14em;">
-        MARKET INTELLIGENCE &middot; {_e(report_date)}
+        {_e(report_title.upper())} &middot; {_e(report_date)}
       </td>
     </tr>
   </table>
@@ -405,11 +430,23 @@ def build_email_body(data: Dict[str, Any]) -> str:
     Returns a single string ready to assign to the 'html' field of
     the email payload sent to Resend.
     """
-    report_date            = data.get("config", {}).get("report_date", "")
+    cfg                    = data.get("config", {})
+    report_date            = cfg.get("report_date", "")
+    report_title           = cfg.get("report_title", "Market Intelligence")
+    logo_url               = cfg.get("logo_url", "")
     generated_display_time = data.get("generated_display_time", "")
 
+    # "Wednesday \u2022 22 July 2026" — same treatment as the browser HTML
+    try:
+        from datetime import datetime as _dtm
+        _parsed = _dtm.strptime(report_date.strip(), "%d %B %Y")
+        display_date = f"{_parsed.strftime('%A')} \u2022 {report_date.strip()}"
+    except Exception:
+        display_date = report_date
+
     sections = []
-    sections.append(_masthead(report_date, generated_display_time))
+    sections.append(_masthead(display_date, generated_display_time,
+                              logo_url, report_title))
     sections.append(_kpi_block(data.get("kpis", [])))
 
     # 7 data tables — same order as the browser HTML
@@ -463,7 +500,7 @@ def build_email_body(data: Dict[str, Any]) -> str:
         data.get("market_drivers", [])[:3],
     ))
 
-    sections.append(_footer(report_date))
+    sections.append(_footer(display_date, report_title))
 
     inner = "".join(sections)
 
@@ -476,10 +513,10 @@ def build_email_body(data: Dict[str, Any]) -> str:
     style_block = '''
 <style>
   @media only screen and (min-width: 700px) {
-    .eb-title       { font-size: 38px !important; }
+    .eb-title       { font-size: 52px !important; }
     .eb-date        { font-size: 18px !important; }
     .eb-kpi-label   { font-size: 12px !important; }
-    .eb-kpi-value   { font-size: 30px !important; }
+    .eb-kpi-value   { font-size: 34px !important; }
     .eb-kpi-sub     { font-size: 14px !important; }
     .eb-section-hdr { font-size: 13px !important; }
     .eb-section-meta{ font-size: 11.5px !important; }
