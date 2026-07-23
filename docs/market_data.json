@@ -16,7 +16,7 @@
       "market_drivers": true
     }
   },
-  "generated_at": "2026-07-23T20:22:23Z",
+  "generated_at": "2026-07-23T20:33:13Z",
   "generated_display_time": "",
   "global_indices": [
     {
@@ -503,110 +503,110 @@
   "market_as_of_date": "2026-07-23",
   "global_news": [
     {
-      "headline": "Brent Crude Tops $100 as Middle East War Escalates",
-      "summary": "Brent crude rose more than 6% as Middle East conflict intensifies. Oil passes $100 a barrel again, with analysts warning of $120 by year-end unless Hormuz exports restart.",
+      "headline": "Brent Crude Surges Past $100 as Middle East War Escalates",
+      "summary": "Brent crude rose more than 6% as Middle East conflict deepens. Analysts warn prices could reach $120 by year-end unless Hormuz exports resume, marking fastest monthly oil price surge since US-Israeli attacks on Tehran.",
       "source": "BBC World",
       "url": "https://www.bbc.co.uk/news/articles/cx2djnzrqk2o?at_medium=RSS&at_campaign=rss",
       "metric": "$100+",
-      "metric_label": "Brent crude price level"
+      "metric_label": "Brent Crude Price"
     },
     {
       "headline": "10-Year Treasury Yield Hits Highest Since January 2025",
-      "summary": "US Treasury yields advanced as Brent crude surged above $100, stoking inflation fears. The 30-year yield stood at 5.161% and the 2-year at 4.317%.",
+      "summary": "US Treasury yields advanced as Brent crude surpassing $100 per barrel reignited inflation fears. The 10-year yield climbed to its highest level since January 2025, pressuring rate expectations.",
       "source": "CNBC",
       "url": "https://www.cnbc.com/2026/07/23/treasury-yields-oil-prices-jobless-claims.html",
-      "metric": "5.161%",
-      "metric_label": "30-year Treasury bond yield"
+      "metric": "Highest since Ja",
+      "metric_label": "10-Year Treasury Yield"
     },
     {
-      "headline": "Dow Drops 500 Points as Alphabet, Tesla Earnings Disappoint",
-      "summary": "Dow lost 507 points, S&P 500 dropped 1.2%, Nasdaq fell 2.2%, dragged by a 7% drop in Alphabet and 14% loss in Tesla following earnings reports, as Brent surged above $100.",
+      "headline": "Dow Drops 500 Points as Oil Surges; Tech Stocks Tank",
+      "summary": "Dow fell 507 points (0.97%), S&P 500 lost 1.21% and Nasdaq dropped 2.15% as Brent crude surged above $100. Alphabet and Tesla were among the hardest-hit stocks.",
       "source": "CNBC",
       "url": "https://www.cnbc.com/2026/07/22/stock-market-today-live-updates.html",
-      "metric": "-2.2%",
-      "metric_label": "Nasdaq Composite daily loss"
+      "metric": "-1.21%",
+      "metric_label": "S&P 500 Daily Move"
     },
     {
       "headline": "US Jobless Claims Fall to Lowest Level Since 1969",
-      "summary": "First-time US unemployment benefit applications fell to their lowest since 1969 last week, signalling layoffs remain muted and the labour market stays stable.",
+      "summary": "First-time applications for US unemployment benefits fell last week to the lowest level since 1969, signalling layoffs remain muted and the labour market remains stable.",
       "source": "Bloomberg",
       "url": "https://www.bloomberg.com/news/articles/2026-07-23/us-initial-jobless-claims-fall-to-lowest-level-since-1969",
       "metric": "Lowest since 196",
-      "metric_label": "US weekly initial jobless claims"
+      "metric_label": "US Initial Jobless Claims"
     },
     {
-      "headline": "Trump: Saudi Nuclear Deal Tied to Israel Recognition",
-      "summary": "Trump says the US agreement to help Saudi Arabia develop nuclear energy is contingent on Riyadh joining the Abraham Accords and recognising Israel.",
+      "headline": "Trump Links Saudi Nuclear Deal to Israel Recognition",
+      "summary": "Trump says the landmark agreement to help Saudi Arabia develop nuclear energy is contingent on the kingdom joining the Abraham Accords by recognising Israel.",
       "source": "BBC World",
       "url": "https://www.bbc.co.uk/news/articles/cwye71yq8wwo?at_medium=RSS&at_campaign=rss",
       "metric": "Conditional",
-      "metric_label": "Saudi nuclear deal status"
+      "metric_label": "Saudi Nuclear Deal Status"
     },
     {
       "headline": "Houthis Attack Saudi Tanker as US Strikes Iran",
-      "summary": "Yemen's Houthis attacked a Saudi tanker and claimed hitting another vessel, enforcing a maritime embargo against Saudi Arabia as the US launched further strikes on Iran.",
+      "summary": "Yemen's Houthis attacked a Saudi tanker in the Red Sea amid a declared maritime embargo against Saudi Arabia, while the US launched additional strikes on Iran, escalating regional conflict.",
       "source": "BBC World",
       "url": "https://www.bbc.co.uk/news/articles/cpw9xzx9r4ko?at_medium=RSS&at_campaign=rss",
-      "metric": "2 vessels",
-      "metric_label": "Ships targeted by Houthis"
+      "metric": "Bab al-Mandab Bl",
+      "metric_label": "Red Sea Shipping Risk"
     },
     {
-      "headline": "Bab al-Mandab Blockade Threat Helped Push Oil Above $100",
-      "summary": "The Bab al-Mandab route carries 4.1 million barrels daily \u2014 roughly 5% of global supply. Houthi blockade threats on this chokepoint contributed to oil's return above $100.",
+      "headline": "Bab al-Mandab Threat Helps Push Oil Above $100",
+      "summary": "The Bab al-Mandab route carries 4.1 million barrels daily, roughly 5% of global supply. Houthi blockade threats on this bypass to Hormuz were a key factor driving oil back above $100.",
       "source": "The Guardian",
       "url": "https://www.theguardian.com/business/2026/jul/23/bab-al-mandab-blockade-push-oil-100-houthi-ships",
       "metric": "4.1m bbl/day",
-      "metric_label": "Bab al-Mandab daily oil flow"
+      "metric_label": "Bab al-Mandab Daily Oil Flow"
     },
     {
-      "headline": "Fed Uncertainty Grows as Oil Rekindles Inflation Fears",
-      "summary": "Minneapolis Fed president Kashkari said policymakers must stay open-minded on rates given Middle East uncertainty. The Fed's preferred inflation gauge climbed to 4.1% in May.",
+      "headline": "Fed Officials Signal Open Mind on Rates Amid Middle East Uncertainty",
+      "summary": "Minneapolis Fed President Kashkari said officials must remain open-minded on rate direction given Middle East uncertainty. Fed's preferred inflation gauge climbed to 4.1% in May, a three-year high.",
       "source": "CBS News",
       "url": "https://www.cbsnews.com/tag/interest-rates/",
       "metric": "4.1%",
-      "metric_label": "Fed preferred inflation gauge (M"
+      "metric_label": "Fed's Preferred Inflation Gauge "
     }
   ],
   "qatar_news": [
     {
-      "headline": "QIB Wins Three Euromoney Awards Including Best Bank",
-      "summary": "Qatar Islamic Bank won three Euromoney awards, including the title of Qatar's best bank, recognising its strong performance in the local banking sector.",
+      "headline": "QIB wins 3 Euromoney awards including best bank",
+      "summary": "Qatar Islamic Bank has won three Euromoney awards, including the award for Qatar's best bank, marking a significant recognition of the bank's performance.",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/245325/business/qib-wins-3-euromoney-awards-including-qatars-best-bank-award",
       "metric": "3",
       "metric_label": "Euromoney Awards Won"
     },
     {
-      "headline": "Doha Bank Launches New Corporate Identity",
-      "summary": "Doha Bank unveiled a new corporate identity aimed at driving future growth, signalling a strategic repositioning of the institution's brand.",
+      "headline": "Doha Bank unveils new corporate identity for growth",
+      "summary": "Doha Bank has launched a new corporate identity as part of a strategic move to drive future growth and reposition the bank.",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/245520/business/doha-bank-unveils-new-corporate-identity-to-drive-future-growth",
-      "metric": "Rebrand",
-      "metric_label": "Corporate Identity Update"
+      "metric": "New Brand",
+      "metric_label": "Corporate Identity Launch"
     },
     {
-      "headline": "QCB Governor Meets UAE Ambassador to Qatar",
-      "summary": "The Qatar Central Bank governor held a meeting with the Ambassador of the UAE to Qatar, reinforcing bilateral financial and diplomatic ties.",
+      "headline": "QCB governor meets UAE ambassador to Qatar",
+      "summary": "Qatar Central Bank governor held a meeting with the Ambassador of the UAE to Qatar, signalling continued bilateral financial and diplomatic engagement.",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/245498/business/qcb-governor-meets-with-ambassador-of-uae-to-qatar",
       "metric": "QCB\u2013UAE",
       "metric_label": "Bilateral Meeting"
     },
     {
-      "headline": "QFC and CCI France Qatar Sign Trade Agreement",
-      "summary": "The Qatar Financial Centre and CCI France Qatar signed a cooperation agreement aimed at strengthening trade and business ties between Qatar and France.",
+      "headline": "QFC and CCI France Qatar sign trade agreement",
+      "summary": "Qatar Financial Centre and CCI France Qatar have signed an agreement aimed at boosting trade ties between Qatar and France.",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/245332/business/qfc-cci-france-qatar-sign-agreement-to-boost-trade-ties",
       "metric": "MoU Signed",
-      "metric_label": "QFC\u2013France Trade Deal"
+      "metric_label": "QFC\u2013France Trade Pact"
     },
     {
-      "headline": "MoT and QSE Sign MoU on Land Transportation",
-      "summary": "Qatar's Ministry of Transport and the Qatar Stock Exchange signed a memorandum of understanding focused on land transportation consultations.",
+      "headline": "MoT and QSE sign MoU on land transportation",
+      "summary": "Qatar's Ministry of Transport and Qatar Stock Exchange have signed a memorandum of understanding focused on land transportation consultations.",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/245635/latest-news/mot-qse-sign-mou-on-land-transportation-consultations",
       "metric": "MoU Signed",
-      "metric_label": "Transport Sector Cooperation"
+      "metric_label": "Transport Consultations Pact"
     }
   ],
   "kpis": [
@@ -635,32 +635,32 @@
     {
       "source": "BBC World",
       "url": "https://www.bbc.co.uk/news/articles/cx2djnzrqk2o?at_medium=RSS&at_campaign=rss",
-      "headline": "Brent $100.62 breakout: $120 analyst target puts GCC energy revenues at inflection",
-      "summary": "Brent's +6.69% 1D surge and +65.36% YTD move through $100 opens technical path to $120 per sell-side consensus. For GCC sovereign allocators, fiscal breakeven models re-rate positively; however, sustained $100+ amplifies imported inflation risk across non-oil GCC sectors and pres",
+      "headline": "Brent $100.62 breakout: $120 target opens; Hormuz closure is tail risk",
+      "summary": "Brent's +6.69% single-day surge and +37.16% MTD move confirm breakout above $100 psychological resistance. Analyst consensus targets $120 on sustained Hormuz disruption. Energy portfolio overweights warranted; aviation, petrochemical and power-intensive equity exposures face 15-2",
       "metric": "$100.62",
       "metric_label": "Brent spot"
     },
     {
       "source": "CNBC",
       "url": "https://www.cnbc.com/2026/07/23/treasury-yields-oil-prices-jobless-claims.html",
-      "headline": "UST 10Y at 4.705% \u2014 5.0% re-test risk as oil-inflation feedback loop intensifies",
-      "summary": "10Y UST at 4.705% (+6.54% MTD) with 30Y at 5.161% and 2Y at 4.317% compresses the curve inversion. Oil-driven PCE at 4.1% blocks Fed easing; a 10Y close above 4.80% triggers duration unwinds across EM bond portfolios and pressures USD-pegged GCC sovereign debt mark-to-market.",
+      "headline": "UST 10Y at 4.705%; 4.75% ceiling critical as stagflation premium builds",
+      "summary": "10Y yield +1.10% on the day, +6.54% MTD, now at highest since Jan 2025. With PCE at 4.1% (3-year high) and Brent above $100, a sustained close above 4.75% would re-price duration risk across EM sovereign and GCC USD-pegged bond portfolios. Reduce long-duration exposure ahead of n",
       "metric": "4.705%",
       "metric_label": "UST 10Y yield"
     },
     {
-      "source": "BBC World",
-      "url": "https://www.bbc.co.uk/news/articles/cpw9xzx9r4ko?at_medium=RSS&at_campaign=rss",
-      "headline": "Houthi tanker strikes and Bab al-Mandab risk: LNG at $22 signals supply premium expansion",
-      "summary": "Houthi attacks on Saudi tankers, combined with the Bab al-Mandab chokepoint threat (4.1 mb/d, ~5% global supply), have driven LNG JP/KR to $22 (+128.93% YTD, +39.06% MTD). Asian LNG import cost escalation pressures petrochemical margins and elevates Qatar's LNG spot premium; watc",
+      "source": "The Guardian",
+      "url": "https://www.theguardian.com/business/2026/jul/23/bab-al-mandab-blockade-push-oil-100-houthi-ships",
+      "headline": "Bab al-Mandab blockade threatens 4.1 mb/d; LNG JP/KR +128.93% YTD flags supply shock",
+      "summary": "Bab al-Mandab carries 4.1 mb/d (~5% of global supply). Blockade risk compounds Hormuz pressure, driving LNG JP/KR to $22.0 (+3.09% daily, +39.06% MTD, +128.93% YTD). Asian LNG importers face acute spot-price exposure; GCC LNG exporters (Qatar) hold strategic leverage. QE Index -6",
       "metric": "$22.0",
       "metric_label": "LNG JP/KR spot"
     },
     {
       "source": "Bloomberg",
       "url": "https://www.bloomberg.com/news/articles/2026-07-23/us-initial-jobless-claims-fall-to-lowest-level-since-1969",
-      "headline": "Record-low jobless claims lock Fed out of cuts; USD Index 101.46 tests 102 resistance",
-      "summary": "Jobless claims at a 57-year low remove labour-market justification for Fed easing, reinforcing a higher-for-longer rate path atop oil-driven inflation (PCE 4.1%). USD Index at 101.46 (+3.23% YTD) targets 102.0\u2013102.5 technical resistance; a sustained break pressures USDJPY beyond ",
+      "headline": "Jobless claims at 1969 lows keep Fed hawkish; USD Index 101.46 holds bid",
+      "summary": "Labour market resilience at multi-decade lows removes Fed's recession cover, anchoring USD Index at 101.46 (+0.32% daily). USD/JPY at 163.8 risks BoJ intervention threshold; GBP/USD 1.3316 faces further downside if DXY breaks above 102. GCC USD-pegged sovereigns benefit from carr",
       "metric": "101.46",
       "metric_label": "USD Index"
     }
