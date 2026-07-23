@@ -158,25 +158,50 @@ def _kpi_change_inline(sub: str) -> str:
 
 def _masthead(report_date: str, generated_display_time: str,
               logo_url: str = "", report_title: str = "Market Intelligence") -> str:
-    """Navy strip with the date, then the official Doha Bank lockup, the
-    title, and the brief label above a gold rule — mirrors the browser HTML."""
+    """Navy strip with the date, then the Doha Bank lockup, a thin gold
+    divider, and the title + brief beside it. On narrow phones the media
+    query in the style block stacks the logo back above the text."""
     brief_label = generated_display_time or "DAILY MARKET BRIEF"
 
-    # Email clients strip inline SVG and block data-URI images, so the lockup
-    # needs a hosted (or CID) URL. Without one we fall back to the wordmark
-    # set in type rather than showing a broken image.
+    title_and_brief = f"""
+      <div class="eb-title"
+           style="font-family:{TITLE_FONT};color:{BRAND_BLUE};
+                  font-size:26px;font-weight:700;line-height:1.05;
+                  letter-spacing:-0.02em;margin:0;">
+        {_e(report_title)}
+      </div>
+      <div class="eb-section-meta"
+           style="font-family:{SANS};font-size:12px;font-weight:700;
+                  letter-spacing:0.16em;color:{MID_BLUE};margin-top:6px;">
+        {_e(brief_label)}
+      </div>"""
+
     if logo_url:
-        brand_block = (
-            f'<img src="{_e(logo_url)}" width="204" height="70" alt="Doha Bank" '
-            f'style="display:block;border:0;outline:none;text-decoration:none;'
-            f'width:204px;height:70px;margin-bottom:14px;" />'
-        )
+        # Logo | gold divider | title + brief, all on one line.
+        brand_row = f"""
+    <table cellpadding="0" cellspacing="0" border="0" width="100%">
+      <tr>
+        <td class="eb-logo-cell" width="160" valign="middle"
+            style="padding-right:16px;">
+          <img src="{_e(logo_url)}" width="150" height="52" alt="Doha Bank"
+               style="display:block;border:0;outline:none;
+                      text-decoration:none;width:150px;height:52px;" />
+        </td>
+        <td class="eb-divider" width="1" valign="middle"
+            style="background:{GOLD};font-size:0;line-height:0;">&nbsp;</td>
+        <td class="eb-text-cell" valign="middle" style="padding-left:16px;">
+          {title_and_brief}
+        </td>
+      </tr>
+    </table>"""
     else:
-        brand_block = (
-            f'<div style="font-family:{SERIF};font-size:22px;font-weight:700;'
-            f'letter-spacing:0.06em;color:{BRAND_BLUE};margin-bottom:12px;">'
-            f'DOHA BANK</div>'
-        )
+        # No logo supplied: wordmark in type, stacked as before.
+        brand_row = f"""
+    <div style="font-family:{SERIF};font-size:20px;font-weight:700;
+                letter-spacing:0.06em;color:{BRAND_BLUE};margin-bottom:12px;">
+      DOHA BANK
+    </div>
+    {title_and_brief}"""
 
     return f"""
 <tr>
@@ -195,23 +220,10 @@ def _masthead(report_date: str, generated_display_time: str,
 
 <tr>
   <td class="eb-gutter" style="background:{PAGE_BG};padding:22px 22px 0;">
-    {brand_block}
-
-    <div class="eb-title"
-         style="font-family:{TITLE_FONT};color:{BRAND_BLUE};
-                font-size:31px;font-weight:700;line-height:1.06;
-                letter-spacing:-0.02em;margin:0;">
-      {_e(report_title)}
-    </div>
-
-    <div class="eb-section-meta"
-         style="font-family:{SANS};font-size:14px;font-weight:700;
-                letter-spacing:0.16em;color:{MID_BLUE};margin-top:10px;">
-      {_e(brief_label)}
-    </div>
+    {brand_row}
 
     <table cellpadding="0" cellspacing="0" border="0" width="100%"
-           style="margin-top:18px;">
+           style="margin-top:16px;">
       <tr><td style="font-size:0;line-height:0;height:2px;
                      background:{GOLD};">&nbsp;</td></tr>
     </table>
@@ -522,6 +534,12 @@ def build_email_body(data: Dict[str, Any]) -> str:
   /* Phones: let the 600px design reflow inside the screen instead of
      forcing a horizontal scroll. */
   @media only screen and (max-width: 480px) {
+    /* Stack the lockup above the title on narrow phones */
+    .eb-logo-cell  { display: block !important; width: 100% !important;
+                     padding: 0 0 12px 0 !important; }
+    .eb-divider    { display: none !important; }
+    .eb-text-cell  { display: block !important; width: 100% !important;
+                     padding-left: 0 !important; }
     .eb-gutter                  { padding-left: 12px !important; padding-right: 12px !important; }
     .eb-gutter-kpi              { padding-left: 7px !important;  padding-right: 7px !important; }
     .eb-card                    { padding: 10px !important; }
@@ -534,7 +552,7 @@ def build_email_body(data: Dict[str, Any]) -> str:
     .eb-kpi-sub                 { font-size: 10px !important; }
   }
   @media only screen and (min-width: 700px) {
-    .eb-title       { font-size: 44px !important; }
+    .eb-title       { font-size: 30px !important; }
     .eb-date        { font-size: 18px !important; }
     .eb-kpi-label   { font-size: 12px !important; }
     .eb-kpi-value   { font-size: 34px !important; }
