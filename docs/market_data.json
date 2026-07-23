@@ -16,7 +16,7 @@
       "market_drivers": true
     }
   },
-  "generated_at": "2026-07-23T04:57:33Z",
+  "generated_at": "2026-07-23T18:40:16Z",
   "generated_display_time": "",
   "global_indices": [
     {
@@ -503,102 +503,110 @@
   "market_as_of_date": "2026-07-22",
   "global_news": [
     {
-      "headline": "US Treasury Yields Rise on Middle East Tensions",
-      "summary": "US 10-year Treasury yields moved higher as investors reassessed Fed rate hike bets amid escalating Middle East tensions, adding pressure to broader financial markets.",
+      "headline": "Dow Drops 600 Points as Brent Tops $100",
+      "summary": "Dow lost 611 points, S&P 500 fell 1.4%, Nasdaq shed 2.3% after Brent crude surpassed $100. Alphabet dropped 6% and Tesla tumbled 14% following earnings.",
       "source": "CNBC",
-      "url": "https://www.cnbc.com/2026/07/22/treasury-yields-fed-rate-hike-bets.html",
-      "metric": "10-yr yield \u2191",
-      "metric_label": "US Treasury yield direction"
+      "url": "https://www.cnbc.com/2026/07/22/stock-market-today-live-updates.html",
+      "metric": "-1.4%",
+      "metric_label": "S&P 500 Daily Move"
     },
     {
-      "headline": "S&P 500 Slips as Higher Oil Prices Weigh",
-      "summary": "S&P 500 fell 0.14% to 7,498.96, Nasdaq shed 0.57% to 25,690.90, and the Dow dipped 6 points as rising oil prices kept equities under pressure.",
+      "headline": "10-Year Treasury Yield Hits Highest Since January 2025",
+      "summary": "Surging oil prices rekindled inflation fears, pushing the 10-year yield higher. The 2-year rose to 4.364% and the 30-year reached 5.185%, as traders reassess Fed rate hike bets.",
       "source": "CNBC",
-      "url": "https://www.cnbc.com/2026/07/21/stock-market-today-live-updates.html",
-      "metric": "S&P 7,498.96 (-0",
-      "metric_label": "S&P 500 closing level"
+      "url": "https://www.cnbc.com/2026/07/23/treasury-yields-oil-prices-jobless-claims.html",
+      "metric": "5.185%",
+      "metric_label": "30-Year Treasury Yield"
     },
     {
-      "headline": "US Signs Nuclear Energy Deal With Saudi Arabia",
-      "summary": "The US Department of Energy signed a peaceful nuclear cooperation agreement with Saudi Arabia, granting US firms significant access to the Kingdom's growing nuclear energy programme.",
+      "headline": "US Jobless Claims Fall to Lowest Since 1969",
+      "summary": "First-time US unemployment filings fell to 187,000 last week, the lowest level since 1969, signalling layoffs remain muted and the labour market remains stable.",
+      "source": "Bloomberg",
+      "url": "https://www.bloomberg.com/news/articles/2026-07-23/us-initial-jobless-claims-fall-to-lowest-level-since-1969",
+      "metric": "187,000",
+      "metric_label": "Weekly Jobless Claims"
+    },
+    {
+      "headline": "Trump Links Saudi Nuclear Deal to Israel Recognition",
+      "summary": "Trump says the US-Saudi nuclear energy agreement is conditional on Saudi Arabia joining the Abraham Accords and recognising Israel, raising regional diplomatic stakes.",
       "source": "BBC World",
-      "url": "https://www.bbc.co.uk/news/articles/cj03r59z73po?at_medium=RSS&at_campaign=rss",
-      "metric": "US-KSA Nuclear P",
-      "metric_label": "Bilateral energy agreement signe"
+      "url": "https://www.bbc.co.uk/news/articles/cwye71yq8wwo?at_medium=RSS&at_campaign=rss",
+      "metric": "Conditional",
+      "metric_label": "Deal Status"
     },
     {
-      "headline": "Oil Tops $95 as Middle East Conflict Escalates",
-      "summary": "Crude surged above $95 per barrel, marking the fastest monthly rise since US-Israeli attacks on Tehran disrupted Hormuz flows in March, with analysts warning of $120 by year-end.",
-      "source": "The Guardian",
-      "url": "https://www.theguardian.com/world/2026/jul/22/oil-price-increases-middle-east-conflict-escalates-us-iran",
-      "metric": ">$95/bbl",
-      "metric_label": "Brent crude price level"
-    },
-    {
-      "headline": "Iran War Cost Hits $37.5bn; Hormuz Chokes Oil Trade",
-      "summary": "Hegseth estimates the Iran war now costs $37.5bn. Hormuz blockade has cut Iraqi output and disrupted global energy markets; Bab el-Mandeb petroleum transit jumped to 7 million bpd.",
-      "source": "The Guardian",
-      "url": "https://www.theguardian.com/world/live/2026/jul/21/us-iran-war-live-updates-strait-of-hormuz-attacks-houthis-blockade-red-sea-middle-east-crisis-latest-news",
-      "metric": "$37.5bn war cost",
-      "metric_label": "Estimated US Iran war expenditur"
-    },
-    {
-      "headline": "Houthis Attack Oil Tankers, US Strikes Iran Again",
-      "summary": "Houthis claimed attacks on oil tankers in the Red Sea, their first since declaring a maritime embargo on Saudi Arabia, as the US launched further strikes on Iran.",
+      "headline": "Houthis Strike Saudi Tanker, US Launches Iran Strikes",
+      "summary": "Yemen's Houthis attacked a Saudi oil tanker amid a declared maritime embargo against Saudi Arabia, while the US launched further strikes on Iran, escalating Red Sea tensions.",
       "source": "BBC World",
       "url": "https://www.bbc.co.uk/news/articles/cpw9xzx9r4ko?at_medium=RSS&at_campaign=rss",
-      "metric": "Red Sea embargo ",
-      "metric_label": "Houthi maritime threat status"
+      "metric": "Active",
+      "metric_label": "Red Sea Conflict Status"
     },
     {
-      "headline": "Tankers U-Turn Away From Saudi Ports After Houthi Threat",
-      "summary": "Ship-tracking data shows multiple tankers bound for or departing Saudi ports reversed course following Houthi threats, signalling immediate disruption to Saudi-linked shipping routes.",
-      "source": "BBC World",
-      "url": "https://www.bbc.co.uk/news/articles/cn0n127lpzgo?at_medium=RSS&at_campaign=rss",
-      "metric": "Multiple vessels",
-      "metric_label": "Saudi-port tanker diversions"
+      "headline": "Brent Crude Surges Past $100 on Middle East Escalation",
+      "summary": "Brent rose more than 6% as Houthis struck Saudi tankers in the Red Sea. Oil has surged over 30% this month amid Middle East fighting and Hormuz disruption fears.",
+      "source": "Al Jazeera",
+      "url": "https://www.aljazeera.com/news/2026/7/23/oil-surges-past-100-in-a-first-since-may-as-middle-east-conflicts-rage?traffic_source=rss",
+      "metric": ">$100/bbl",
+      "metric_label": "Brent Crude Price"
     },
     {
-      "headline": "GCC States Advance AI Integration Into Economic Plans",
-      "summary": "Bahrain, Kuwait, and Oman are classified as AI practitioners focused on implementation, while all GCC states are embedding artificial intelligence into national economic strategies, according to Arab News analysis.",
-      "source": "Arab News",
-      "url": "https://www.arabnews.com/node/2651908/middle-east",
-      "metric": "GCC AI adoption:",
-      "metric_label": "Regional AI readiness classifica"
+      "headline": "Hormuz Blockade Drives Oil Toward $120 Forecast",
+      "summary": "The Guardian reports this month's crude price jump is the fastest since US-Israeli attacks on Tehran disrupted Hormuz flows in March, with $120/barrel forecast by year-end if exports remain blocked.",
+      "source": "The Guardian",
+      "url": "https://www.theguardian.com/business/2026/jul/23/oil-price-passes-100-a-barrel-again-as-middle-east-conflict-escalates",
+      "metric": "$120/bbl",
+      "metric_label": "Year-End Oil Price Forecast"
+    },
+    {
+      "headline": "Fed Officials Signal Openness on Rate Path Amid Middle East Uncertainty",
+      "summary": "Minneapolis Fed President Kashkari said officials must be open-minded on rate direction given Middle East uncertainty. Fed's preferred inflation gauge climbed to 4.1% in May, a three-year high.",
+      "source": "CBS News",
+      "url": "https://www.cbsnews.com/tag/interest-rates/",
+      "metric": "4.1%",
+      "metric_label": "Fed Preferred Inflation Gauge (M"
     }
   ],
   "qatar_news": [
     {
-      "headline": "QIB Wins 3 Euromoney Awards Including Best Bank",
-      "summary": "Qatar Islamic Bank won three Euromoney awards, including the title of Qatar's best bank, recognising its performance and standing in the local banking sector.",
+      "headline": "QIB wins 3 Euromoney awards including best bank",
+      "summary": "Qatar Islamic Bank secured three Euromoney awards, including the title of Qatar's best bank, highlighting its strong performance in the local banking sector.",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/245325/business/qib-wins-3-euromoney-awards-including-qatars-best-bank-award",
       "metric": "3",
       "metric_label": "Euromoney Awards Won"
     },
     {
-      "headline": "Doha Bank Launches New Corporate Identity for Growth",
-      "summary": "Doha Bank unveiled a new corporate identity reflecting its strategic transformation and future vision, signalling a repositioning of the bank's brand direction.",
+      "headline": "Doha Bank launches new corporate identity for growth",
+      "summary": "Doha Bank unveiled a new corporate identity as part of a strategic repositioning aimed at driving future growth and reinforcing its market presence.",
       "source": "Qatar Tribune",
-      "url": "https://www.qatar-tribune.com/article/245468/latest-news/doha-bank-unveils-new-corporate-identity-reflecting-its-strategic-transformation-future-vision",
-      "metric": "Rebrand",
-      "metric_label": "Corporate Identity Update"
+      "url": "https://www.qatar-tribune.com/article/245520/business/doha-bank-unveils-new-corporate-identity-to-drive-future-growth",
+      "metric": "Rebranded",
+      "metric_label": "Corporate Identity Status"
     },
     {
-      "headline": "QFC and CCI France Qatar Sign Trade Agreement",
-      "summary": "Qatar Financial Centre and CCI France Qatar signed an agreement aimed at strengthening trade and business ties between Qatar and France.",
-      "source": "Qatar Tribune",
-      "url": "https://www.qatar-tribune.com/article/245332/business/qfc-cci-france-qatar-sign-agreement-to-boost-trade-ties",
-      "metric": "MOU Signed",
-      "metric_label": "Bilateral Trade Agreement"
-    },
-    {
-      "headline": "QCB Governor Meets UAE Ambassador to Qatar",
-      "summary": "Qatar Central Bank Governor held a meeting with the Ambassador of the UAE to Qatar, underscoring ongoing financial and diplomatic engagement between the two Gulf states.",
+      "headline": "QCB governor holds talks with UAE ambassador",
+      "summary": "Qatar Central Bank governor met with the Ambassador of the UAE to Qatar, signalling continued bilateral engagement between the two Gulf financial authorities.",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/245498/business/qcb-governor-meets-with-ambassador-of-uae-to-qatar",
-      "metric": "QCB\u2013UAE",
-      "metric_label": "Central Bank Diplomatic Meeting"
+      "metric": "Bilateral",
+      "metric_label": "QCB-UAE Diplomatic Meeting"
+    },
+    {
+      "headline": "QFC and CCI France Qatar sign trade agreement",
+      "summary": "Qatar Financial Centre and CCI France Qatar signed an agreement to strengthen trade and economic ties between Qatar and France.",
+      "source": "Qatar Tribune",
+      "url": "https://www.qatar-tribune.com/article/245332/business/qfc-cci-france-qatar-sign-agreement-to-boost-trade-ties",
+      "metric": "MoU Signed",
+      "metric_label": "QFC-France Trade Agreement"
+    },
+    {
+      "headline": "MoT and QSE sign MoU on land transportation",
+      "summary": "Qatar's Ministry of Transport and Qatar Stock Exchange signed a memorandum of understanding focused on land transportation consultations and cooperation.",
+      "source": "Qatar Tribune",
+      "url": "https://www.qatar-tribune.com/article/245635/latest-news/mot-qse-sign-mou-on-land-transportation-consultations",
+      "metric": "MoU Signed",
+      "metric_label": "Transport-QSE Cooperation"
     }
   ],
   "kpis": [
@@ -625,36 +633,36 @@
   ],
   "market_drivers": [
     {
-      "source": "The Guardian",
-      "url": "https://www.theguardian.com/world/2026/jul/22/oil-price-increases-middle-east-conflict-escalates-us-iran",
-      "headline": "Brent $94.31 eyes $95 breakout; analyst $120 target implies 27% upside risk",
-      "summary": "Brent has surged 28.56% MTD and 55% YTD \u2014 the fastest monthly advance since March Hormuz disruption. A sustained break and close above $95 opens a measured-move target toward $120 (analyst consensus). Energy-importing EM sovereigns and airline balance sheets are most exposed; GCC",
-      "metric": "$94.31",
+      "source": "Al Jazeera",
+      "url": "https://www.aljazeera.com/news/2026/7/23/oil-surges-past-100-in-a-first-since-may-as-middle-east-conflicts-rage?traffic_source=rss",
+      "headline": "Brent breaks $100 resistance; $120 target active if Hormuz exports stay blocked",
+      "summary": "Brent's +30% MTD surge and $100 breach confirms structural uptrend. Next technical resistance at $120 (Guardian year-end forecast). Energy-importing GCC sovereign portfolios face mark-to-market drag; long energy equities and Brent futures remain the momentum trade. Stop below $94",
+      "metric": "$100+",
       "metric_label": "Brent spot"
     },
     {
-      "source": "The Guardian",
-      "url": "https://www.theguardian.com/world/live/2026/jul/21/us-iran-war-live-updates-strait-of-hormuz-attacks-houthis-blockade-red-sea-middle-east-crisis-latest-news",
-      "headline": "Hormuz blockade + 7 mln bpd Bab el-Mandeb rerouting pressures LNG/UST correlation",
-      "summary": "Hormuz choke has cut Iraqi throughput while Bab el-Mandeb petroleum transit surged to 7 mln bpd, amplifying freight and insurance costs. LNG JP/KR at $21.34 (+122% YTD) confirms energy re-routing into spot markets. Rising geopolitical risk premium is keeping UST 10Y at 4.654% (+5",
-      "metric": "7 mln bpd",
-      "metric_label": "Bab el-Mandeb flow"
-    },
-    {
       "source": "CNBC",
-      "url": "https://www.cnbc.com/2026/07/22/treasury-yields-fed-rate-hike-bets.html",
-      "headline": "UST 5Y/10Y spread at 4.40/4.65%; curve steepening signals re-pricing of terminal rate",
-      "summary": "UST 5Y at 4.402% and 10Y at 4.654% \u2014 both up ~5.3% MTD \u2014 indicate the market is repricing Fed terminal rate higher, not just a geopolitical risk-premium move. The 25bp 5s/10s spread is the key pivot: a steepening beyond 30bp would signal stagflation pricing, pressuring duration-h",
+      "url": "https://www.cnbc.com/2026/07/23/treasury-yields-oil-prices-jobless-claims.html",
+      "headline": "UST 10Y at 4.654%; break above 4.70% risks duration selloff and EM outflows",
+      "summary": "10Y yield +11.79% YTD with 5Y at 4.402% \u2014 curve steepening driven by oil-reignited inflation fears and PCE at 4.1% (3-year high). A sustained close above 4.70% on the 10Y would reprice EM duration and pressure GCC USD-pegged sovereign bond spreads. 30Y already at 5.185%.",
       "metric": "4.654%",
       "metric_label": "UST 10Y yield"
     },
     {
+      "source": "Bloomberg",
+      "url": "https://www.bloomberg.com/news/articles/2026-07-23/us-initial-jobless-claims-fall-to-lowest-level-since-1969",
+      "headline": "Claims at 187K \u2014 tightest labour market since 1969 narrows Fed easing window",
+      "summary": "Jobless claims at 187K eliminate near-term Fed pivot optionality; combined with PCE at 4.1%, the Fed's reaction function is asymmetrically hawkish. Portfolio managers should reduce duration exposure \u2014 UST 5Y at 4.402% likely floors here. USD/CHF +6.04% YTD confirms dollar strengt",
+      "metric": "187K",
+      "metric_label": "US jobless claims"
+    },
+    {
       "source": "BBC World",
-      "url": "https://www.bbc.co.uk/news/articles/cn0n127lpzgo?at_medium=RSS&at_campaign=rss",
-      "headline": "Tanker reversals from Saudi ports: DFM -4.33% YTD, Tadawul divergence widens",
-      "summary": "Ship-tracking confirmation of tanker U-turns at Saudi ports introduces a direct freight-disruption risk to Saudi oil export revenues, pressuring the Tadawul's +2.71% YTD buffer. The Tadawul/DFM spread (Tadawul +2.71% vs DFM -4.33% YTD) could compress sharply if shipping insurance",
-      "metric": "10,775.46",
-      "metric_label": "Tadawul level"
+      "url": "https://www.bbc.co.uk/news/articles/cpw9xzx9r4ko?at_medium=RSS&at_campaign=rss",
+      "headline": "Red Sea tanker strike pressures LNG +122% YTD; GCC equity risk premiums repricing",
+      "summary": "Houthi attack on Saudi tanker and US strikes on Iran widen Hormuz/Red Sea risk premium. LNG JKM at $21.34 (+122% YTD, +34.89% MTD) signals sustained energy supply disruption. Saudi Tadawul +2.71% YTD is decoupling from Dubai DFM (-4.33%) and Qatar QE (-6.47%) \u2014 asymmetric intra-G",
+      "metric": "$21.34",
+      "metric_label": "LNG JP/KR spot"
     }
   ],
   "validation_issues": [
