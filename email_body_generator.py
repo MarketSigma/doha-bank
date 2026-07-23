@@ -174,7 +174,7 @@ def _masthead(report_date: str, generated_display_time: str,
 
     return f"""
 <tr>
-  <td style="background:{BRAND_BLUE};padding:26px 22px;">
+  <td class="eb-gutter" style="background:{BRAND_BLUE};padding:26px 22px;">
     <table cellpadding="0" cellspacing="0" border="0" width="100%">
       <tr>
         <td align="right" class="eb-date"
@@ -188,12 +188,12 @@ def _masthead(report_date: str, generated_display_time: str,
 </tr>
 
 <tr>
-  <td style="background:{WHITE};padding:24px 22px 0;">
+  <td class="eb-gutter" style="background:{PAGE_BG};padding:22px 22px 0;">
     {brand_block}
 
     <div class="eb-title"
          style="font-family:{TITLE_FONT};color:{BRAND_BLUE};
-                font-size:40px;font-weight:700;line-height:1.04;
+                font-size:31px;font-weight:700;line-height:1.06;
                 letter-spacing:-0.02em;margin:0;">
       {_e(report_title)}
     </div>
@@ -251,7 +251,7 @@ def _kpi_block(kpis: List[Dict[str, Any]]) -> str:
         rows_html += f'<tr>{"".join(pair)}</tr>'
 
     return f'''
-<tr><td style="padding:18px 16px 8px;">
+<tr><td class="eb-gutter-kpi" style="padding:16px 17px 6px;">
   <table cellpadding="0" cellspacing="0" border="0" width="100%">
     {rows_html}
   </table>
@@ -287,7 +287,7 @@ def _data_table_block(title: str, meta: str, headers: List[str],
         align = "left" if i == 0 else "right"
         hdr_cells.append(
             f'<th align="{align}" class="eb-thead" style="font-family:{SANS};font-size:10px;color:{MID_BLUE};'
-            f'font-weight:700;letter-spacing:0.12em;padding:8px 10px;'
+            f'font-weight:700;letter-spacing:0.08em;padding:7px 5px;'
             f'border-bottom:1px solid {SILVER};white-space:nowrap;">{_e(h.upper())}</th>'
         )
 
@@ -298,27 +298,27 @@ def _data_table_block(title: str, meta: str, headers: List[str],
         for ci, cell in enumerate(row):
             if ci == 0:
                 cells.append(
-                    f'<td class="eb-cell-name" style="font-family:{SANS};font-size:13px;font-weight:700;color:{NAVY};'
-                    f'padding:8px 10px;border-bottom:1px solid {BORDER};">{_e(cell)}</td>'
+                    f'<td class="eb-cell-name" style="font-family:{SANS};font-size:12px;font-weight:700;color:{NAVY};'
+                    f'padding:7px 5px;border-bottom:1px solid {BORDER};">{_e(cell)}</td>'
                 )
             elif ci == 1:
                 cells.append(
-                    f'<td align="right" class="eb-cell-num" style="font-family:{SANS};font-size:13px;color:{NAVY};'
-                    f'padding:8px 10px;border-bottom:1px solid {BORDER};white-space:nowrap;">{_e(cell)}</td>'
+                    f'<td align="right" class="eb-cell-num" style="font-family:{SANS};font-size:12px;color:{NAVY};'
+                    f'padding:7px 5px;border-bottom:1px solid {BORDER};white-space:nowrap;">{_e(cell)}</td>'
                 )
             else:
                 cells.append(
-                    f'<td align="right" class="eb-cell-num" style="font-family:{SANS};font-size:13px;'
-                    f'padding:8px 10px;border-bottom:1px solid {BORDER};white-space:nowrap;">'
+                    f'<td align="right" class="eb-cell-num" style="font-family:{SANS};font-size:12px;'
+                    f'padding:7px 5px;border-bottom:1px solid {BORDER};white-space:nowrap;">'
                     f'{_pct_inline(cell)}</td>'
                 )
         body_rows.append(f'<tr bgcolor="{bg}">{"".join(cells)}</tr>')
 
     return f'''
-<tr><td style="padding:10px 16px 6px;">
+<tr><td class="eb-gutter" style="padding:8px 22px 6px;">
   <table cellpadding="0" cellspacing="0" border="0" width="100%"
          style="background:{WHITE};border:1px solid {BORDER};border-radius:8px;">
-    <tr><td style="padding:14px;">
+    <tr><td class="eb-card" style="padding:14px;">
       {_section_header_row(title, meta)}
       <table cellpadding="0" cellspacing="0" border="0" width="100%"
              style="border-collapse:collapse;">
@@ -404,7 +404,7 @@ def _news_section_block(title: str, meta: str, items: List[Dict[str, Any]]) -> s
 
 def _footer(report_date: str, report_title: str = "Market Intelligence") -> str:
     return f'''
-<tr><td style="background:{BRAND_BLUE};padding:14px 18px;
+<tr><td class="eb-gutter" style="background:{BRAND_BLUE};padding:16px 22px;
                border-top:3px solid {GOLD};">
   <table cellpadding="0" cellspacing="0" border="0" width="100%">
     <tr>
@@ -511,9 +511,24 @@ def build_email_body(data: Dict[str, Any]) -> str:
     # desktop on Windows strips it and keeps the mobile sizing — no crash,
     # just no bump for those recipients.
     style_block = '''
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
+  /* Phones: let the 600px design reflow inside the screen instead of
+     forcing a horizontal scroll. */
+  @media only screen and (max-width: 480px) {
+    .eb-gutter                  { padding-left: 12px !important; padding-right: 12px !important; }
+    .eb-gutter-kpi              { padding-left: 7px !important;  padding-right: 7px !important; }
+    .eb-card                    { padding: 10px !important; }
+    .eb-cell-name, .eb-cell-num { font-size: 10.5px !important; padding: 6px 2px !important; }
+    .eb-thead                   { font-size: 8.5px !important; padding: 6px 3px !important;
+                                  letter-spacing: 0.04em !important; }
+    .eb-title                   { font-size: 26px !important; }
+    .eb-kpi-value               { font-size: 22px !important; }
+    .eb-kpi-label               { font-size: 9px !important; letter-spacing: 0.10em !important; }
+    .eb-kpi-sub                 { font-size: 10px !important; }
+  }
   @media only screen and (min-width: 700px) {
-    .eb-title       { font-size: 52px !important; }
+    .eb-title       { font-size: 44px !important; }
     .eb-date        { font-size: 18px !important; }
     .eb-kpi-label   { font-size: 12px !important; }
     .eb-kpi-value   { font-size: 34px !important; }
