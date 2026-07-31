@@ -87,6 +87,13 @@ GLOBAL_EXCLUDE_KEYWORDS = [
     "school", "teacher", "health", "weather", "traffic",
     "entertainment", "celebrity", "movie", "film", "music", "album",
     "award show", "fashion", "lifestyle", "recipe", "horoscope",
+
+    # Crime / entertainment
+    "rapper", "crime", "sexual assault",
+    "murder", "kidnap", "kidnapping", "arrest", "police",
+
+    # Disaster / human-interest
+    "climber"
 ]
 
 # Brave Search fallback queries — used if the RSS feeds return too few
