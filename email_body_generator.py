@@ -434,8 +434,8 @@ def _footer(report_date: str, report_title: str = "Market Intelligence") -> str:
       <td style="font-family:{SERIF};font-size:12px;font-weight:700;color:{GOLD};
                  letter-spacing:0.14em;">DOHA BANK</td>
       <td align="right" style="font-family:{SANS};font-size:10px;color:{SILVER};
-                               letter-spacing:0.14em;">
-        {_e(report_title.upper())} &middot; {_e(report_date)}
+                               letter-spacing:0.08em;font-weight:600;">
+        Powered by Strategy &amp; Transformation
       </td>
     </tr>
   </table>
