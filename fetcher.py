@@ -1967,6 +1967,112 @@ MARKET_DRIVERS_TARGET_COUNT = 4
 MARKET_DRIVERS_MIN_COUNT    = 3
 
 
+def _fallback_market_drivers(data: Dict[str, Any]) -> List[Dict[str, Any]]:
+    """
+    Build deterministic market-driver cards from the actual market tables.
+
+    This is used only when the Anthropic API is unavailable, returns invalid
+    output, or produces fewer than the minimum number of usable drivers.
+    It does not invent external news facts: every number comes from the current
+    report data already loaded from Supabase.
+    """
+    section_labels = {
+        "global_indices": "Global Equities",
+        "gcc_indices": "GCC Markets",
+        "commodities": "Commodities",
+        "spot_currency": "FX",
+        "fixed_income": "Fixed Income",
+        "qatari_banks": "Qatari Banks",
+    }
+
+    candidates: List[Dict[str, Any]] = []
+
+    for section, section_label in section_labels.items():
+        for row in data.get(section, []) or []:
+            raw_change = str(row.get("change_1d") or "").strip()
+            if raw_change.lower() in {"", "n/a", "na", "pegged", "none", "—"}:
+                continue
+
+            try:
+                numeric_change = float(
+                    raw_change.replace("%", "").replace("+", "").strip()
+                )
+            except (ValueError, TypeError):
+                continue
+
+            candidates.append({
+                "absolute_change": abs(numeric_change),
+                "numeric_change": numeric_change,
+                "section_label": section_label,
+                "name": str(row.get("name") or row.get("code") or "Market"),
+                "price": str(row.get("px_last") or "N/A"),
+                "change_1d": raw_change,
+                "mtd": str(row.get("mtd") or "N/A"),
+                "ytd": str(row.get("ytd") or "N/A"),
+            })
+
+    candidates.sort(key=lambda item: item["absolute_change"], reverse=True)
+
+    drivers: List[Dict[str, Any]] = []
+    used_sections = set()
+
+    # First pass: favour variety across asset classes.
+    for candidate in candidates:
+        section_label = candidate["section_label"]
+        if section_label in used_sections:
+            continue
+
+        direction = "advanced" if candidate["numeric_change"] > 0 else "declined"
+        drivers.append({
+            "source": "Doha Bank Market Data",
+            "url": "",
+            "headline": (
+                f"{candidate['name']} {direction} {candidate['change_1d']} as momentum shifts"
+            )[:140],
+            "summary": (
+                f"{candidate['name']} closed at {candidate['price']}, with a "
+                f"{candidate['change_1d']} daily move. Performance stands at "
+                f"{candidate['mtd']} MTD and {candidate['ytd']} YTD. Monitor "
+                f"whether the move extends or reverses in the next session."
+            )[:280],
+            "metric": candidate["change_1d"][:16],
+            "metric_label": section_label[:32],
+        })
+        used_sections.add(section_label)
+
+        if len(drivers) >= MARKET_DRIVERS_TARGET_COUNT:
+            return drivers
+
+    # Second pass: fill remaining slots with the next-largest moves.
+    existing_names = {driver["headline"].split(" advanced ")[0].split(" declined ")[0] for driver in drivers}
+    for candidate in candidates:
+        if candidate["name"] in existing_names:
+            continue
+
+        direction = "advanced" if candidate["numeric_change"] > 0 else "declined"
+        drivers.append({
+            "source": "Doha Bank Market Data",
+            "url": "",
+            "headline": (
+                f"{candidate['name']} {direction} {candidate['change_1d']} as momentum shifts"
+            )[:140],
+            "summary": (
+                f"{candidate['name']} closed at {candidate['price']}, with a "
+                f"{candidate['change_1d']} daily move. Performance stands at "
+                f"{candidate['mtd']} MTD and {candidate['ytd']} YTD. Monitor "
+                f"whether the move extends or reverses in the next session."
+            )[:280],
+            "metric": candidate["change_1d"][:16],
+            "metric_label": candidate["section_label"][:32],
+        })
+        existing_names.add(candidate["name"])
+
+        if len(drivers) >= MARKET_DRIVERS_TARGET_COUNT:
+            break
+
+    return drivers
+
+
 def build_market_drivers(data: Dict[str, Any]) -> List[Dict[str, Any]]:
     """
     Technical analysis section anchored to today's news.
@@ -1984,8 +2090,8 @@ def build_market_drivers(data: Dict[str, Any]) -> List[Dict[str, Any]]:
     """
     api_key = os.environ.get("ANTHROPIC_API_KEY")
     if not api_key:
-        print("[WARN] ANTHROPIC_API_KEY not set — skipping market drivers.")
-        return []
+        print("[WARN] ANTHROPIC_API_KEY not set — using market-data fallback drivers.")
+        return _fallback_market_drivers(data)
 
     # --- Aggregate news as the candidate pool of trigger items ---
     # Each driver must anchor to one of these, so we have a real
@@ -2009,8 +2115,8 @@ def build_market_drivers(data: Dict[str, Any]) -> List[Dict[str, Any]]:
     all_news = [n for n in all_news if n["source"] and n["headline"]]
 
     if not all_news:
-        print("  · [WARN] no news items available — skipping market drivers.")
-        return []
+        print("  · [WARN] no news items available — using market-data fallback drivers.")
+        return _fallback_market_drivers(data)
 
     # --- Compact representation of biggest movers across sections ---
     def top_movers(rows: List[Dict[str, Any]], n: int = 3) -> List[Dict[str, Any]]:
@@ -2190,14 +2296,38 @@ Strict rules:
         print(f"  · market drivers accepted after validation: {len(cleaned)}")
 
         if len(cleaned) < MARKET_DRIVERS_MIN_COUNT:
-            print(f"  · [WARN] market drivers returned only {len(cleaned)} items — "
-                  f"below the {MARKET_DRIVERS_MIN_COUNT}-card minimum.")
+            print(
+                f"  · [WARN] market drivers returned only {len(cleaned)} items — "
+                f"adding market-data fallback drivers."
+            )
 
-        return cleaned
+            fallback_drivers = _fallback_market_drivers(data)
+            existing_keys = {
+                (str(driver.get("headline") or "").strip().lower(),
+                 str(driver.get("metric") or "").strip().lower())
+                for driver in cleaned
+            }
+
+            for fallback_driver in fallback_drivers:
+                key = (
+                    str(fallback_driver.get("headline") or "").strip().lower(),
+                    str(fallback_driver.get("metric") or "").strip().lower(),
+                )
+                if key in existing_keys:
+                    continue
+                cleaned.append(fallback_driver)
+                existing_keys.add(key)
+                if len(cleaned) >= MARKET_DRIVERS_MIN_COUNT:
+                    break
+
+        print(f"  · market drivers final count: {len(cleaned)}")
+        return cleaned[:MARKET_DRIVERS_TARGET_COUNT]
 
     except Exception as e:
         print(f"[WARN] Market drivers generation failed: {e}")
-        return []
+        fallback_drivers = _fallback_market_drivers(data)
+        print(f"  · using {len(fallback_drivers)} market-data fallback drivers")
+        return fallback_drivers[:MARKET_DRIVERS_TARGET_COUNT]
 
 
 def run() -> Dict[str, Any]:
@@ -2343,6 +2473,8 @@ if __name__ == "__main__":
         json.dump(result, f, indent=2, default=str)
 
     print("✓ Data written to market_data.json")
+
+    
 
     
 
