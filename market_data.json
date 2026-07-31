@@ -16,7 +16,7 @@
       "market_drivers": true
     }
   },
-  "generated_at": "2026-07-31T20:32:03Z",
+  "generated_at": "2026-07-31T20:42:12Z",
   "generated_display_time": "",
   "global_indices": [
     {
@@ -512,7 +512,7 @@
     },
     {
       "headline": "\u2018Strategic partner\u2019: Peru\u2019s Fujimori plans to intensify ties with the US",
-      "summary": "Peru&#039;s newly inaugurated president indicates her government will join Trump&#039;s Shield of the Americas coalition.",
+      "summary": "Peru's newly inaugurated president indicates her government will join Trump's Shield of the Americas coalition.",
       "source": "Al Jazeera",
       "url": "https://www.aljazeera.com/news/2026/7/31/strategic-partner-perus-fujimori-plans-to-intensify-ties-with-the-us?traffic_source=rss",
       "metric": "AL JAZEE",
@@ -520,7 +520,7 @@
     },
     {
       "headline": "Poland protests to Russian ambassador over missile incursion",
-      "summary": "Warsaw asserts missile recently made, illustrating Russia&#039;s nightly barrage against Ukraine is draining arsenal.",
+      "summary": "Warsaw asserts missile recently made, illustrating Russia's nightly barrage against Ukraine is draining arsenal.",
       "source": "Al Jazeera",
       "url": "https://www.aljazeera.com/news/2026/7/31/poland-protests-to-russian-ambassador-over-missile-incursion?traffic_source=rss",
       "metric": "AL JAZEE",
@@ -593,14 +593,6 @@
       "metric_label": "Sector"
     },
     {
-      "headline": "Qatar Business",
-      "summary": "Qatar Business",
-      "source": "The Peninsula Qatar",
-      "url": "https://thepeninsulaqatar.com/category/Qatar-Business",
-      "metric": "QATAR",
-      "metric_label": "Domestic"
-    },
-    {
       "headline": "RTGS settles 497 million large value electronic transactions worth QR10.26 trillion in 2025: QCB",
       "summary": "RTGS settles 497 million large value electronic transactions worth QR10.26 trillion in 2025: QCB",
       "source": "The Peninsula Qatar",
@@ -615,6 +607,14 @@
       "url": "https://thepeninsulaqatar.com/article/30/07/2026/qatar-strengthens-lng-leadership-as-exports-reach-record-high-in-2025",
       "metric": "QATAR",
       "metric_label": "Domestic"
+    },
+    {
+      "headline": "AlRayan Bank launches Individual Development Plan programme to empower Qatari talent",
+      "summary": "AlRayan Bank launches Individual Development Plan programme to empower Qatari talent",
+      "source": "The Peninsula Qatar",
+      "url": "https://thepeninsulaqatar.com/article/30/07/2026/alrayan-bank-launches-individual-development-plan-programme-to-empower-qatari-talent",
+      "metric": "BANK",
+      "metric_label": "Sector"
     }
   ],
   "kpis": [
