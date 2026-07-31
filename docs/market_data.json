@@ -16,7 +16,7 @@
       "market_drivers": true
     }
   },
-  "generated_at": "2026-07-31T20:42:12Z",
+  "generated_at": "2026-07-31T20:53:02Z",
   "generated_display_time": "",
   "global_indices": [
     {
@@ -519,30 +519,6 @@
       "metric_label": "Source"
     },
     {
-      "headline": "Poland protests to Russian ambassador over missile incursion",
-      "summary": "Warsaw asserts missile recently made, illustrating Russia's nightly barrage against Ukraine is draining arsenal.",
-      "source": "Al Jazeera",
-      "url": "https://www.aljazeera.com/news/2026/7/31/poland-protests-to-russian-ambassador-over-missile-incursion?traffic_source=rss",
-      "metric": "AL JAZEE",
-      "metric_label": "Source"
-    },
-    {
-      "headline": "Trump says US has \u2018understanding\u2019 with Israel on Hamas disarmament deal",
-      "summary": "Israel has not yet agreed to plan for Hamas to surrender weapons in exchange for full Israeli withdrawal from Gaza.",
-      "source": "Al Jazeera",
-      "url": "https://www.aljazeera.com/news/2026/7/31/trump-says-us-has-understanding-with-israel-on-hamas-disarmament-deal?traffic_source=rss",
-      "metric": "AL JAZEE",
-      "metric_label": "Source"
-    },
-    {
-      "headline": "World reacts with cautious optimism to Hamas disarmament agreement",
-      "summary": "Deal for Hamas to disarm in stages in return for Israeli withdrawal has been announced, but implementation will be key.",
-      "source": "Al Jazeera",
-      "url": "https://www.aljazeera.com/news/2026/7/31/world-reacts-with-cautious-optimism-to-hamas-disarmament-agreement?traffic_source=rss",
-      "metric": "AL JAZEE",
-      "metric_label": "Source"
-    },
-    {
       "headline": "Fed meeting recap: Warsh says Fed won't hesitate to stop inflation, but bond market has doubts",
       "summary": "He added that while the central bank decided not to alter interest rates today, this is merely the beginning of a story, not the end. ... Federal Reserve Chair Kevin Warsh speaks during a news conference at Federal Reserve Headquarters on J",
       "source": "CNBC",
@@ -565,6 +541,30 @@
       "url": "https://apnews.com/article/federal-reserve-inflation-interest-rates-iran-war-ad10c177cb8d96f9e3ed122e12352a74",
       "metric": "AP NEWS",
       "metric_label": "Source"
+    },
+    {
+      "headline": "Federal Reserve Board - News & Events",
+      "summary": "The Federal Reserve has announced five task forces to examine areas central to the broad conduct of monetary policy.",
+      "source": "Federal Reserve",
+      "url": "https://www.federalreserve.gov/newsevents.htm",
+      "metric": "POLICY",
+      "metric_label": "Theme"
+    },
+    {
+      "headline": "US interest rates held as Fed boss says 'no magic wand' to tackle high prices",
+      "summary": "The Federal Reserve's decision, which was broadly expected, means rates remain between the 3.5% and 3.75%.",
+      "source": "BBC",
+      "url": "https://www.bbc.com/news/articles/cy07wgqjv08o",
+      "metric": "BBC",
+      "metric_label": "Source"
+    },
+    {
+      "headline": "Federal Reserve Board - H.15 - Selected Interest Rates (Daily) - July 30, 2026",
+      "summary": "Additional information on both nominal and inflation-indexed yields may be found at home.treasury.gov/policy-issues/financing-the-government/interest-rate-statistics. 11. Based on the unweighted average bid yields for all TIPS with remainin",
+      "source": "Federal Reserve",
+      "url": "https://www.federalreserve.gov/releases/h15/",
+      "metric": "POLICY",
+      "metric_label": "Theme"
     }
   ],
   "qatar_news": [
@@ -639,7 +639,40 @@
       "sublabel": "+0.00% today \u00b7 +0.98% YTD"
     }
   ],
-  "market_drivers": [],
+  "market_drivers": [
+    {
+      "source": "Doha Bank Market Data",
+      "url": "",
+      "headline": "Japan Nikkei advanced +4.03% as momentum shifts",
+      "summary": "Japan Nikkei closed at 64362.02, with a +4.03% daily move. Performance stands at -8.14% MTD and +27.86% YTD. Monitor whether the move extends or reverses in the next session.",
+      "metric": "+4.03%",
+      "metric_label": "Global Equities"
+    },
+    {
+      "source": "Doha Bank Market Data",
+      "url": "",
+      "headline": "UST 5-Year advanced +1.85% as momentum shifts",
+      "summary": "UST 5-Year closed at 4.456, with a +1.85% daily move. Performance stands at +6.58% MTD and +19.72% YTD. Monitor whether the move extends or reverses in the next session.",
+      "metric": "+1.85%",
+      "metric_label": "Fixed Income"
+    },
+    {
+      "source": "Doha Bank Market Data",
+      "url": "",
+      "headline": "Silver declined -1.62% as momentum shifts",
+      "summary": "Silver closed at 58.12, with a -1.62% daily move. Performance stands at -3.51% MTD and -17.12% YTD. Monitor whether the move extends or reverses in the next session.",
+      "metric": "-1.62%",
+      "metric_label": "Commodities"
+    },
+    {
+      "source": "Doha Bank Market Data",
+      "url": "",
+      "headline": "USD/CHF advanced +0.47% as momentum shifts",
+      "summary": "USD/CHF closed at 0.8081, with a +0.47% daily move. Performance stands at -0.02% MTD and +5.17% YTD. Monitor whether the move extends or reverses in the next session.",
+      "metric": "+0.47%",
+      "metric_label": "FX"
+    }
+  ],
   "validation_issues": [
     "Kuwait Boursa missing or invalid"
   ],
