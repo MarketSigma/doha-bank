@@ -2,6 +2,7 @@ import json
 import os
 import re
 import datetime
+import html
 from email.utils import parsedate_to_datetime
 from typing import Optional, List, Dict, Any
 
@@ -604,7 +605,13 @@ def _fmt_pct_number(current: Optional[float], base: Optional[float], digits: int
 def _clean_text(text: str) -> str:
     if not text:
         return ""
+
+    # Some RSS/search sources return HTML entities once or twice encoded,
+    # for example Egypt&amp;#039;s or Egypt&#039;s. Normalise before and after
+    # stripping tags, then collapse whitespace.
+    text = html.unescape(str(text))
     text = re.sub(r"<[^>]+>", "", text)
+    text = html.unescape(text)
     text = re.sub(r"\s+", " ", text).strip()
     return text
 
@@ -1480,7 +1487,16 @@ def _extract_qatar_page_items() -> List[Dict[str, Any]]:
                 title = _clean_text(anchor_html)
                 if len(title) < 12:
                     continue
-                if title.lower() in {"business", "read more", "home", "next", "previous"}:
+                if title.lower() in {
+                    "business",
+                    "qatar business",
+                    "business news",
+                    "qatar business news",
+                    "read more",
+                    "home",
+                    "next",
+                    "previous",
+                }:
                     continue
                 if href.startswith("/"):
                     base = "https://www.qatar-tribune.com" if "qatar-tribune" in page_url else "https://thepeninsulaqatar.com"
@@ -1552,9 +1568,24 @@ def _brave_qatar_news() -> List[Dict[str, Any]]:
     return out
 
 
+def _is_qatar_section_heading(item: Dict[str, Any]) -> bool:
+    """Reject category/navigation labels that are not actual Qatar news stories."""
+    title = _clean_text(
+        item.get("title") or item.get("headline") or ""
+    ).strip().lower()
+
+    return title in {
+        "business",
+        "qatar business",
+        "business news",
+        "qatar business news",
+    }
+
+
 def fetch_qatar_business_news() -> List[Dict[str, Any]]:
     now_utc = datetime.datetime.now(datetime.timezone.utc)
     raw = dedupe_news(fetch_news(NEWS_FEEDS["qatar"]) + _extract_qatar_page_items())
+    raw = [item for item in raw if not _is_qatar_section_heading(item)]
     print(f"    [qatar] RSS + scrape raw items (deduped): {len(raw)}")
 
     filtered = [item for item in raw if _is_recent_qatar_business_item(item, now_utc)]
@@ -2102,6 +2133,8 @@ Strict rules:
         if not isinstance(parsed, list):
             raise ValueError("Claude did not return a list")
 
+        print(f"  · market drivers raw model output count: {len(parsed)}")
+
         cleaned = []
         for item in parsed[:MARKET_DRIVERS_TARGET_COUNT]:
             headline = (item.get("headline") or "").strip()
@@ -2111,12 +2144,32 @@ Strict rules:
             if not headline or not summary:
                 continue
 
-            # Defensive: source must match an actual publication from the
-            # news pool. Stops the model from regressing to category tags.
+            # Defensive: source should match a real publication from the
+            # news pool. If the model slightly changes the source label,
+            # recover the exact source using the matching URL instead of
+            # deleting an otherwise valid driver.
             if source not in allowed_sources:
-                print(f"  · [WARN] dropping driver with unrecognised source "
-                      f"'{source}' (not in news pool)")
-                continue
+                matched_source = ""
+                item_url = (item.get("url") or "").strip()
+
+                if item_url:
+                    for news_item in all_news:
+                        if news_item.get("url", "").strip() == item_url:
+                            matched_source = news_item.get("source", "").strip()
+                            break
+
+                if matched_source:
+                    print(
+                        f"  · correcting market-driver source "
+                        f"'{source}' to '{matched_source}' using matching URL"
+                    )
+                    source = matched_source
+                else:
+                    print(
+                        f"  · [WARN] dropping driver with unrecognised source "
+                        f"'{source}' and no matching URL"
+                    )
+                    continue
 
             # Defensive: URL must match one we actually showed Claude.
             # If Claude returns a fabricated URL, blank it out — keep the
@@ -2133,6 +2186,8 @@ Strict rules:
                 "metric":       (item.get("metric") or "")[:16],
                 "metric_label": (item.get("metric_label") or "")[:32],
             })
+
+        print(f"  · market drivers accepted after validation: {len(cleaned)}")
 
         if len(cleaned) < MARKET_DRIVERS_MIN_COUNT:
             print(f"  · [WARN] market drivers returned only {len(cleaned)} items — "
@@ -2288,6 +2343,8 @@ if __name__ == "__main__":
         json.dump(result, f, indent=2, default=str)
 
     print("✓ Data written to market_data.json")
+
+    
 
     
 
