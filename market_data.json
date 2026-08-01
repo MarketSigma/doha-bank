@@ -1,7 +1,7 @@
 {
   "config": {
     "client_name": "Doha Bank",
-    "report_date": "31 July 2026",
+    "report_date": "01 August 2026",
     "delivery_time_ast": "07:00",
     "sections": {
       "global_indices": true,
@@ -16,7 +16,7 @@
       "market_drivers": true
     }
   },
-  "generated_at": "2026-07-31T21:01:53Z",
+  "generated_at": "2026-08-01T04:57:23Z",
   "generated_display_time": "",
   "global_indices": [
     {
@@ -503,114 +503,114 @@
   "market_as_of_date": "2026-07-31",
   "global_news": [
     {
-      "headline": "Fed Holds Rates at 3.6% Amid Inflation Overshoot",
-      "summary": "The Fed kept rates unchanged at 3.5\u20133.75% in a 9-3 vote, marking five straight holds. Chair Warsh warned against complacency on inflation, which has exceeded the 2% target for five years.",
-      "source": "AP News",
-      "url": "https://apnews.com/article/federal-reserve-inflation-interest-rates-iran-war-ad10c177cb8d96f9e3ed122e12352a74",
-      "metric": "3.5\u20133.75%",
-      "metric_label": "Fed Funds Rate (unchanged)"
-    },
-    {
-      "headline": "30-Year Treasury Yield Hits Near 2007 High",
-      "summary": "The 30-year Treasury yield jumped 6 basis points to above 5.2% after the Fed's divided decision, as bond markets questioned the central bank's inflation credibility.",
-      "source": "CNBC",
-      "url": "https://www.cnbc.com/2026/07/30/us-treasury-yields-divided-fed-interest-rates-hold-steady-.html",
-      "metric": ">5.2%",
-      "metric_label": "30-Year Treasury Yield"
-    },
-    {
-      "headline": "PCE Inflation Cools to 3.7% in June",
-      "summary": "The Fed's preferred inflation gauge dropped 0.1% month-on-month in June, bringing the annual PCE rate to 3.7% from 4.1%, though analysts warn relief may be temporary.",
+      "headline": "Fed Holds Rates; Three Officials Dissent for Hike",
+      "summary": "The Fed held rates steady for the fifth consecutive meeting, but three regional Fed presidents dissented in favor of a quarter-point hike, signaling deepening internal divisions over inflation.",
       "source": "CNN",
-      "url": "https://www.cnn.com/2026/07/30/economy/us-pce-inflation-consumer-spending-june",
-      "metric": "3.7%",
-      "metric_label": "June PCE Annual Rate"
+      "url": "https://www.cnn.com/2026/07/31/business/fed-interest-rates-dissents",
+      "metric": "5th Hold",
+      "metric_label": "Consecutive Fed Rate Pauses"
     },
     {
-      "headline": "Nasdaq Snaps Six-Day Losing Streak, S&P Rises",
-      "summary": "Wall Street rebounded sharply: Nasdaq rose 2.8% to 25,122, the S&P 500 gained 1.7% to 7,437, and the Dow surged 614 points, recovering from post-Fed selloff losses.",
+      "headline": "Treasury Yields Rise as Fed Officials Back Rate Hikes",
+      "summary": "The 10-year Treasury yield rose over 4 basis points to 4.273% and the 30-year surged to 5.249% as Fed officials signaled further rate hikes may be necessary to tame inflation.",
+      "source": "CNBC",
+      "url": "https://www.cnbc.com/2026/07/31/treasury-yields-inflation-interest-rates-federal-reserve.html",
+      "metric": "4.273%",
+      "metric_label": "10-Year Treasury Yield"
+    },
+    {
+      "headline": "Wall Street Rallies; Nasdaq Snaps Six-Day Losing Streak",
+      "summary": "Nasdaq surged 2.8% to 25,122, the Dow gained 614 points, and the S&P 500 rose 1.7% to 7,437, as markets rebounded sharply from the post-Fed selloff.",
       "source": "CNBC",
       "url": "https://www.cnbc.com/2026/07/29/stock-market-today-live-updates.html",
       "metric": "+2.8%",
-      "metric_label": "Nasdaq Composite Daily Gain"
+      "metric_label": "Nasdaq Single-Day Gain"
     },
     {
-      "headline": "ADNOC Buys Five VLCCs for $590 Million",
-      "summary": "ADNOC has acquired five very large crude carriers for approximately $590 million, expanding its tanker fleet as conflicts in the Red Sea and Strait of Hormuz tighten shipping supply.",
+      "headline": "ADNOC Buys Five VLCCs for $590M Amid Hormuz Tensions",
+      "summary": "ADNOC acquired five very large crude carriers for approximately $590 million, expanding its tanker fleet as conflicts in the Red Sea and Strait of Hormuz tighten global tanker supply.",
       "source": "AGBI",
       "url": "https://www.agbi.com/shipping/2026/07/adnoc-expands-tanker-fleet-as-conflicts-tighten-shipping/",
       "metric": "$590M",
       "metric_label": "ADNOC VLCC Acquisition Cost"
     },
     {
-      "headline": "Saudi Arabia Proposes Naval Coalition for Hormuz, Red Sea",
-      "summary": "Riyadh proposed a naval coalition to protect key trade routes as Iran and allies attack shipping in the Red Sea and Strait of Hormuz, prompting an initial dip in oil prices.",
-      "source": "CNBC",
-      "url": "https://www.cnbc.com/2026/07/30/oil-prices-us-iran-war.html",
-      "metric": "N/A",
-      "metric_label": "Saudi Naval Coalition Proposal"
-    },
-    {
       "headline": "Iran Attacks Two Tankers in Strait of Hormuz",
-      "summary": "Iran claimed attacks on two tankers transiting the Strait of Hormuz, pushing WTI above $84.67 and Brent to $90.12, both gaining over 1%, despite a more than 5% weekly decline.",
+      "summary": "Iran's IRGC struck two tankers transiting the Strait of Hormuz under US military escort. Brent crude settled above $90 per barrel and WTI closed at $84.67, both gaining over 1%.",
       "source": "CNBC",
       "url": "https://www.cnbc.com/2026/07/31/oil-prices-today-brent-wti-hormuz-trump-iran-.html",
       "metric": "$90.12",
-      "metric_label": "Brent Crude Settlement (per barr"
+      "metric_label": "Brent Crude Settlement ($/bbl)"
     },
     {
-      "headline": "Trump Claims US-Israel 'Understanding' on Hamas Disarmament",
-      "summary": "Trump stated the US has an 'understanding' with Israel on a plan for Hamas to surrender weapons in exchange for full Israeli withdrawal from Gaza, though Israel has not yet agreed.",
+      "headline": "US-Iran War Drives Oil Profits for Major Companies",
+      "summary": "US and Iranian fighting has driven energy prices higher, with diesel up 41% in the US. Major oil companies are reaping massive profits as refineries run at near-full capacity.",
+      "source": "AP News",
+      "url": "https://apnews.com/article/oil-companies-profits-exxon-chevron-9375fbf8f6f40426f7428e07d54000c7",
+      "metric": "+41%",
+      "metric_label": "US Diesel Price Increase vs Pre-"
+    },
+    {
+      "headline": "US Prepares New Iran Strikes as Hormuz Standoff Continues",
+      "summary": "The US is preparing new strikes against Iran alongside Israel. Iran's IRGC confirmed hitting two tankers at Hormuz, while Iran signaled gradual resumption of approved transits once stability returns.",
+      "source": "CBS News",
+      "url": "https://www.cbsnews.com/live-updates/iran-war-us-trump-strait-of-hormuz-kuwait-jordan-air-base/",
+      "metric": "Ongoing",
+      "metric_label": "US-Iran Military Conflict Status"
+    },
+    {
+      "headline": "Houthis Deny Plans to Charge Ships in Red Sea",
+      "summary": "Yemen's Houthis rejected reports that they planned to impose fees on ships transiting the Red Sea, insisting the route remains free to use.",
       "source": "Al Jazeera",
-      "url": "https://www.aljazeera.com/news/2026/7/31/trump-says-us-has-understanding-with-israel-on-hamas-disarmament-deal?traffic_source=rss",
-      "metric": "N/A",
-      "metric_label": "Gaza Diplomacy Status"
+      "url": "https://www.aljazeera.com/news/2026/8/1/yemens-houthis-deny-plan-to-charge-ships-transiting-red-sea?traffic_source=rss",
+      "metric": "Denied",
+      "metric_label": "Houthi Red Sea Fee Proposal"
     }
   ],
   "qatar_news": [
     {
-      "headline": "Qatar LNG exports reach record high in 2025",
-      "summary": "Qatar strengthens its LNG leadership position as exports hit a record high in 2025, reinforcing the country's status as a top global liquefied natural gas supplier.",
+      "headline": "Qatar LNG Exports Hit Record High in 2025",
+      "summary": "Qatar strengthens its LNG leadership position as export volumes reach a record high in 2025, reinforcing the country's dominant role in global liquefied natural gas markets.",
       "source": "The Peninsula Qatar",
       "url": "https://thepeninsulaqatar.com/article/30/07/2026/qatar-strengthens-lng-leadership-as-exports-reach-record-high-in-2025",
       "metric": "Record High",
-      "metric_label": "2025 LNG Export Level"
+      "metric_label": "Qatar LNG Exports 2025"
     },
     {
-      "headline": "RTGS settles QR10.26 trillion in transactions in 2025",
-      "summary": "Qatar's RTGS system processed 497 million large-value electronic transactions worth QR10.26 trillion in 2025, according to Qatar Central Bank data.",
+      "headline": "QCB: RTGS Settles QR10.26 Trillion in 2025",
+      "summary": "Qatar Central Bank reports RTGS system settled 497 million large-value electronic transactions worth QR10.26 trillion in 2025, highlighting the scale of Qatar's payment infrastructure.",
       "source": "The Peninsula Qatar",
       "url": "https://thepeninsulaqatar.com/article/31/07/2026/rtgs-settles-497-million-large-value-electronic-transactions-worth-qr1026-trillion-in-2025-qcb",
       "metric": "QR10.26 tn",
       "metric_label": "RTGS Transaction Value 2025"
     },
     {
-      "headline": "Qatar real estate trade tops QR805 mn in two weeks",
-      "summary": "Qatar's real estate market recorded transactions exceeding QR805 million over a two-week period, signalling continued momentum in the property sector.",
+      "headline": "Qatar Real Estate Trade Tops QR805 mn in Two Weeks",
+      "summary": "Real estate transactions in Qatar exceeded QR805 million over a two-week period, reflecting sustained activity and investor interest in the country's property market.",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/246746/business/qatar-real-estate-trade-tops-qr805-mn-in-two-weeks",
       "metric": "QR805 mn",
       "metric_label": "Real Estate Trade (2 Weeks)"
     },
     {
-      "headline": "QSE dip presents attractive buying opportunity",
-      "summary": "Analysts suggest the Qatar Stock Exchange offers an attractive buying opportunity for investors despite recording a weekly decline in index performance.",
+      "headline": "QSE Dip Seen as Attractive Buying Opportunity",
+      "summary": "Analysts suggest the Qatar Stock Exchange presents an attractive buying opportunity for investors despite recording a weekly decline, signalling positive underlying market sentiment.",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/246744/business/qse-offers-attractive-buying-opportunity-despite-weekly-dip",
-      "metric": "Buy Opportunity",
-      "metric_label": "QSE Weekly Sentiment"
+      "metric": "Weekly Dip",
+      "metric_label": "QSE Market Signal"
     },
     {
-      "headline": "QatarEnergy sets fuel prices for August",
-      "summary": "QatarEnergy has announced updated fuel prices for August, impacting consumers and businesses across Qatar.",
+      "headline": "QatarEnergy Announces August Fuel Prices",
+      "summary": "QatarEnergy has released its official fuel prices for August, providing consumers and businesses with updated pricing for the month ahead.",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/246832/latest-news/qatarenergy-announces-fuel-prices-for-august",
       "metric": "August 2026",
-      "metric_label": "Fuel Price Revision Month"
+      "metric_label": "QatarEnergy Fuel Price Update"
     },
     {
-      "headline": "AlRayan Bank launches Qatari talent development programme",
-      "summary": "AlRayan Bank has introduced an Individual Development Plan programme aimed at empowering and upskilling Qatari national employees within the organisation.",
+      "headline": "AlRayan Bank Launches Qatari Talent Development Programme",
+      "summary": "AlRayan Bank has introduced an Individual Development Plan programme aimed at empowering and upskilling Qatari talent, supporting nationalisation efforts within the banking sector.",
       "source": "The Peninsula Qatar",
       "url": "https://thepeninsulaqatar.com/article/30/07/2026/alrayan-bank-launches-individual-development-plan-programme-to-empower-qatari-talent",
       "metric": "New Programme",
@@ -642,41 +642,42 @@
   "market_drivers": [
     {
       "source": "CNBC",
-      "url": "https://www.cnbc.com/2026/07/30/us-treasury-yields-divided-fed-interest-rates-hold-steady-.html",
-      "headline": "30Y UST above 5.20%; 5Y at 4.456% \u2014 duration pain not over",
-      "summary": "30Y yield at near-2007 highs above 5.20% after 9-3 Fed hold signals fractured inflation credibility. UST 5Y at 4.456% (+6.58% MTD), 10Y at 4.743% (+7.40% MTD). Portfolio risk: long-duration fixed income drawdown accelerates on any hawkish Fed dissent; EM sovereign spreads vulnera",
-      "metric": "5.20%",
-      "metric_label": "UST 30Y yield"
-    },
-    {
-      "source": "CNBC",
       "url": "https://www.cnbc.com/2026/07/31/oil-prices-today-brent-wti-hormuz-trump-iran-.html",
-      "headline": "Brent at $90.12 resistance; Hormuz disruption risk keeps $84\u2013$92 range live",
-      "summary": "Iranian tanker attacks pushed Brent to $90.12 (+1.27% 1D, +22.85% MTD, +48.10% YTD). WTI cleared $84.67. Despite 5%-plus weekly pullback, geopolitical premium is structurally re-priced. GCC energy equity and petrodollar FX flows benefit; watch $92 as next technical resistance. A ",
+      "headline": "Brent $90 breakout confirmed; $95 next resistance as Hormuz premium widens",
+      "summary": "IRGC tanker strikes lock in a geopolitical risk premium. Brent settled above $90 (+1.27% day, +22.85% MTD, +48.10% YTD); next technical resistance at $95. GCC energy equity books and refinery-linked credits benefit; tanker insurance spreads and energy import-dependent EM sovereig",
       "metric": "$90.12",
       "metric_label": "Brent spot"
     },
     {
-      "source": "AP News",
-      "url": "https://apnews.com/article/federal-reserve-inflation-interest-rates-iran-war-ad10c177cb8d96f9e3ed122e12352a74",
-      "headline": "USD/JPY holds 158.98 as Fed hold at 3.5\u20133.75% delays BoJ re-pricing",
-      "summary": "Five consecutive Fed holds at 3.5\u20133.75% compress rate-differential narrowing expected by JPY longs. USD/JPY at 158.984 (-2.22% MTD but +1.64% YTD) sits above key 157.50 support. Nikkei's +4.03% 1D surge (px 64,362) reflects carry trade resilience; break of 160 would pressure BoJ ",
-      "metric": "158.984",
+      "source": "CNBC",
+      "url": "https://www.cnbc.com/2026/07/31/treasury-yields-inflation-interest-rates-federal-reserve.html",
+      "headline": "UST 10Y at 4.743%; three-dissent Fed structure threatens 5.00% retest",
+      "summary": "Three Fed presidents dissenting for a hike creates an asymmetric hawkish tail. The 10Y is up 7.40% MTD and 13.93% YTD, now at 4.743%; the 5Y at 4.456% implies curve flattening pressure. A sustained close above 4.80% on the 10Y would reprice duration-heavy GCC sovereign and IG bon",
+      "metric": "4.743%",
+      "metric_label": "UST 10Y yield"
+    },
+    {
+      "source": "CNN",
+      "url": "https://www.cnn.com/2026/07/31/business/fed-interest-rates-dissents",
+      "headline": "Nikkei +4.03% on rate-hold relief; USD/JPY 158.98 caps upside reentry window",
+      "summary": "Fed hold without a hike triggered a 4.03% Nikkei rebound, but the index remains -8.14% MTD, keeping it technically oversold. USD/JPY at 158.98 (-2.22% MTD) limits BoJ intervention risk for now. Exporters' earnings remain leveraged to yen weakness; a break below 155.00 on USD/JPY ",
+      "metric": "\u00a5158.984",
       "metric_label": "USD/JPY"
     },
     {
       "source": "The Peninsula Qatar",
       "url": "https://thepeninsulaqatar.com/article/30/07/2026/qatar-strengthens-lng-leadership-as-exports-reach-record-high-in-2025",
-      "headline": "Qatar record LNG volumes reinforce ADX/QSE energy credit premium at current oil levels",
-      "summary": "Record Qatar LNG export volumes in 2025 lock in revenue visibility for QatarEnergy-linked credits with Brent above $90. ADX at 9,914 (+1.13% MTD) outperforms DFM (-2.68% MTD). For sovereign wealth allocators, GCC energy equity offers a structural hedge against UST duration losses",
-      "metric": "9,914.62",
-      "metric_label": "ADX General Index"
+      "headline": "Qatar LNG record output; Hormuz escalation widens QatarEnergy spot premium risk",
+      "summary": "Record 2025 LNG export volumes from Qatar, combined with active Hormuz interdiction risk, create a structural upside scenario for Qatari LNG spot pricing and QatarEnergy-linked equity. However, sustained Strait disruption introduces shipping-delay risk for contracted volumes, pot",
+      "metric": "Record high",
+      "metric_label": "Qatar LNG exports"
     }
   ],
   "validation_issues": [
+    "Using latest available Supabase market date 2026-07-31, not today 2026-08-01",
     "Kuwait Boursa missing or invalid"
   ],
-  "validation_issue_count": 1,
+  "validation_issue_count": 2,
   "report_status": "NEEDS_REVIEW",
   "email_send_allowed": false
 }
