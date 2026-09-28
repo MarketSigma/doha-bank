@@ -131,9 +131,15 @@ def kpi_change(sub):
         body = f'{e(display)} {e(rest)}'.strip()
         return f'<span class="kpi-change pct-zero"><span class="glyph">●</span> {body}</span>'
     if sub.startswith("+"):
-        return f'<span class="kpi-change pct-up"><span class="glyph">▲</span> {e(sub.lstrip("+"))}</span>'
+        parts = sub.split(" ", 1)
+        movement = parts[0].lstrip("+")
+        rest = parts[1] if len(parts) > 1 else ""
+        return f'<span class="kpi-change pct-up"><span class="glyph">▲</span> {e(movement)}</span>{(" " + e(rest)) if rest else ""}'
     if sub.startswith("-"):
-        return f'<span class="kpi-change pct-down"><span class="glyph">▼</span> {e(sub.lstrip("-"))}</span>'
+        parts = sub.split(" ", 1)
+        movement = parts[0].lstrip("-")
+        rest = parts[1] if len(parts) > 1 else ""
+        return f'<span class="kpi-change pct-down"><span class="glyph">▼</span> {e(movement)}</span>{(" " + e(rest)) if rest else ""}'
     return f'<span class="kpi-change">{e(sub)}</span>'
 
 
@@ -264,6 +270,8 @@ CSS = r"""
   --accent-blue: #7392B3;
   --light-blue:  #AFC1D4;
   --muted:       #7B8EA3;
+  --rag-green:   #18864B;
+  --rag-red:     #C62828;
 
   --white:   #FFFFFF;
   --tint:    #F7F9FC;
@@ -589,11 +597,14 @@ td.px-last { color: var(--navy); }
 td.pct .value { font-variant-numeric: tabular-nums; }
 td.pct .glyph { margin-right: 4px; font-weight: 700; }
 
-td.pct-up { color: var(--navy); font-weight: 700; }
-td.pct-up .glyph { color: var(--brand-mid); }
+td.pct-up { color: var(--rag-green); font-weight: 700; }
+td.pct-up .glyph { color: var(--rag-green); }
 
-td.pct-down { color: var(--mid-blue); }
-td.pct-down .glyph { color: var(--light-blue); }
+td.pct-down { color: var(--rag-red); font-weight: 700; }
+td.pct-down .glyph { color: var(--rag-red); }
+
+.kpi-change.pct-up { color: var(--rag-green); font-weight: 700; }
+.kpi-change.pct-down { color: var(--rag-red); font-weight: 700; }
 
 td.pct-zero { color: var(--mid-blue); }
 td.pct-zero .glyph { color: var(--gold); }
@@ -924,5 +935,7 @@ if __name__ == "__main__":
     else:
         print("Usage: python html_generator.py market_data.json report.html")
         raise SystemExit(1)
+
+    
 
     
