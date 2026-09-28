@@ -44,6 +44,8 @@ ACCENT_BLUE = "#7392B3"
 LIGHT_BLUE  = "#AFC1D4"
 SILVER      = "#C8D4E2"
 MUTED       = "#7B8EA3"
+RAG_GREEN   = "#18864B"
+RAG_RED     = "#C62828"
 WHITE       = "#FFFFFF"
 TINT        = "#F7F9FC"
 KPI_BG      = "#FFFFFF"
@@ -117,14 +119,14 @@ def _pct_inline(value: Any) -> str:
         )
     if raw.startswith("+"):
         return (
-            f'<span style="color:{NAVY};font-weight:700;white-space:nowrap;">'
-            f'<span style="color:{NAVY};">▲</span> {_e(raw.lstrip("+"))}'
+            f'<span style="color:{RAG_GREEN};font-weight:700;white-space:nowrap;">'
+            f'<span style="color:{RAG_GREEN};">▲</span> {_e(raw.lstrip("+"))}'
             '</span>'
         )
     if raw.startswith("-"):
         return (
-            f'<span style="color:{MID_BLUE};white-space:nowrap;">'
-            f'<span style="color:{LIGHT_BLUE};font-weight:700;">▼</span> {_e(raw.lstrip("-"))}'
+            f'<span style="color:{RAG_RED};font-weight:700;white-space:nowrap;">'
+            f'<span style="color:{RAG_RED};font-weight:700;">▼</span> {_e(raw.lstrip("-"))}'
             '</span>'
         )
     if raw in ("", "N/A", "n/a", "—"):
@@ -146,9 +148,15 @@ def _kpi_change_inline(sub: str) -> str:
         body = f'{_e(display)} {_e(rest)}'.strip()
         return f'<span style="color:{ACCENT_BLUE};font-weight:700;">●</span> {body}'
     if sub.startswith("+"):
-        return f'<span style="color:{NAVY};font-weight:700;">▲</span> {_e(sub.lstrip("+"))}'
+        parts = sub.split(" ", 1)
+        movement = parts[0].lstrip("+")
+        rest = parts[1] if len(parts) > 1 else ""
+        return f'<span style="color:{RAG_GREEN};font-weight:700;">▲ {_e(movement)}</span>{(" " + _e(rest)) if rest else ""}'
     if sub.startswith("-"):
-        return f'<span style="color:{LIGHT_BLUE};font-weight:700;">▼</span> {_e(sub.lstrip("-"))}'
+        parts = sub.split(" ", 1)
+        movement = parts[0].lstrip("-")
+        rest = parts[1] if len(parts) > 1 else ""
+        return f'<span style="color:{RAG_RED};font-weight:700;">▼ {_e(movement)}</span>{(" " + _e(rest)) if rest else ""}'
     return _e(sub)
 
 
@@ -639,5 +647,7 @@ if __name__ == "__main__":
         # Wrap in minimal full-HTML scaffolding for standalone preview
         f.write(f'<!doctype html><html><body>{body}</body></html>')
     print(f"Email body written to {out_path} ({len(body)} chars)")
+
+    
 
     
