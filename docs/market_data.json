@@ -1,7 +1,7 @@
 {
   "config": {
     "client_name": "Doha Bank",
-    "report_date": "28 September 2026",
+    "report_date": "29 September 2026",
     "delivery_time_ast": "07:00",
     "sections": {
       "global_indices": true,
@@ -16,7 +16,7 @@
       "market_drivers": true
     }
   },
-  "generated_at": "2026-09-28T22:00:59Z",
+  "generated_at": "2026-09-29T05:02:48Z",
   "generated_display_time": "",
   "global_indices": [
     {
@@ -503,110 +503,110 @@
   "market_as_of_date": "2026-09-28",
   "global_news": [
     {
-      "headline": "Dow Slides 347 Points as Treasury Yields Pressure Stocks",
-      "summary": "Dow fell nearly 0.7% to 51,481; S&P 500 dropped 0.8% to 7,683.69; Nasdaq shed 0.9% to 26,820.38 as rising Treasury yields weighed on equities.",
-      "source": "CNBC",
-      "url": "https://www.cnbc.com/2026/09/27/stock-market-today-live-updates.html",
-      "metric": "-347 pts",
-      "metric_label": "Dow Jones session decline"
-    },
-    {
-      "headline": "Treasury Yields March to Multiyear Highs",
-      "summary": "10-year Treasury yield rose above 5.234%; 30-year hit highest since 2004, sustaining a broad bond market selloff pressuring mortgage, auto and credit card borrowing costs.",
+      "headline": "Treasury yields hit multiyear highs, stocks slide",
+      "summary": "The 30-year Treasury yield rose to 5.552% and the 10-year hit ~5.20%, its highest since 2007, pressuring equities. The Dow fell more than 300 points as the bond selloff continued.",
       "source": "CNBC",
       "url": "https://www.cnbc.com/2026/09/28/treasury-yields-bonds-selloff.html",
-      "metric": "5.234%",
-      "metric_label": "10-year Treasury yield"
+      "metric": "5.552%",
+      "metric_label": "30-Year Treasury Yield"
     },
     {
-      "headline": "30-Year Treasury Yield Hits 19-Year High",
-      "summary": "30-year Treasury yield surged more than 9 basis points to 5.398%, its highest since June 2007, as the bond market rout deepened amid oil and inflation pressures.",
+      "headline": "Dow drops 300+ points on yield surge",
+      "summary": "Wall Street fell sharply as soaring US Treasury yields weighed on stocks. The 10-year yield reached its highest level since 2007, rattling equity markets at the start of the week.",
       "source": "CNBC",
-      "url": "https://www.cnbc.com/2026/09/23/treasury-yields-oil-inflation-fed.html",
-      "metric": "5.398%",
-      "metric_label": "30-year Treasury yield"
+      "url": "https://www.cnbc.com/2026/09/27/stock-market-today-live-updates.html",
+      "metric": "-300+ pts",
+      "metric_label": "Dow Jones Decline"
     },
     {
-      "headline": "US Jobs Report Forecast: 90,000 Payrolls, 4.1% Unemployment",
-      "summary": "Economists project 90,000 new payrolls in the upcoming US jobs report, with unemployment expected to hold at a one-year low of 4.1%.",
-      "source": "Bloomberg",
-      "url": "https://www.bloomberg.com/news/articles/2026-09-26/us-jobs-report-seen-showing-90-000-payrolls-4-1-unemployment-rate",
-      "metric": "90,000",
-      "metric_label": "Forecast US payrolls added"
+      "headline": "Trump economy pitch falls flat ahead of US midterms",
+      "summary": "With US GDP growth at a modest 1.5% in Q2, voters are unconvinced by Trump's economic boasts as midterm elections approach, according to The Guardian.",
+      "source": "The Guardian",
+      "url": "https://www.theguardian.com/business/2026/sep/28/trump-us-economy-midterm-elections",
+      "metric": "1.5%",
+      "metric_label": "US GDP Growth Q2"
     },
     {
-      "headline": "Stocks Fall as Oil Prices and Treasury Yields Weigh",
-      "summary": "US equities declined as higher oil prices and surging Treasury yields combined to dampen investor sentiment across major Wall Street indices.",
-      "source": "US Markets",
-      "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxOMG5ieTU4M0RYMC1lQi0wbDVONnJJbW5NS3pya2xkLXUxSFF3ajh5ZWlER3B5ZW1IR0J3ZjRxZFFCTDd2ajh4ZnVHZ2xqY1U2c0pIamh2MGhzWVlIMVVieHpOXzg0bnJwRFlTaEg4dVdycUc1X25ZQlZkUUsxUGZ3TGc1RDlNWjg2U1RFQ3JEUWx2NGIxb0ZvZXJJb0F6MjcxOER2WHFIdmtSei1fZHdBS29YcGhvUFk?oc=5",
-      "metric": "Negative",
-      "metric_label": "Wall Street session sentiment"
-    },
-    {
-      "headline": "Brent Rises to $105.28 on Saudi Pipeline Restart",
-      "summary": "Brent crude gained 96 cents to $105.28 per barrel after Saudi Arabia reportedly resumed operations on its critical East-West pipeline following repairs.",
+      "headline": "Brent crude rises to $105.28 amid Middle East fears",
+      "summary": "Brent crude gained 96 cents to close at $105.28 per barrel as Saudi Arabia ramped up its East-West pipeline after repairs, while Middle East supply concerns persisted.",
       "source": "CNBC",
       "url": "https://www.cnbc.com/2026/09/28/oil-price-today-wti-brent-trump-iran.html",
       "metric": "$105.28",
-      "metric_label": "Brent crude close (per barrel)"
+      "metric_label": "Brent Crude (per barrel)"
     },
     {
-      "headline": "Gold Hits Seven-Week Low as Dollar and Oil Rise",
-      "summary": "Gold dropped to a seven-week low amid a stronger US dollar and rising oil prices; silver followed with a nearly 5% loss.",
+      "headline": "Rubio and Saudi FM hold talks on Yemen, Hormuz Strait",
+      "summary": "Top US and Saudi diplomats met to discuss security cooperation, including the Houthi conflict in Yemen and tensions over the strategically critical Hormuz Strait.",
       "source": "Al Jazeera",
-      "url": "https://www.aljazeera.com/economy/2026/9/28/gold-falls-amid-rising-oil-prices-and-higher-us-dollar?traffic_source=rss",
-      "metric": "-5%",
-      "metric_label": "Silver weekly decline"
+      "url": "https://www.aljazeera.com/news/2026/9/29/rubio-saudi-arabias-foreign-minister-hold-talks-on-yemen-hormuz-strait?traffic_source=rss",
+      "metric": "Hormuz",
+      "metric_label": "Key Strait Under Discussion"
     },
     {
-      "headline": "EU to Ban Russian LNG Sales Even to Non-EU Buyers",
-      "summary": "EU-based companies will be prohibited from selling Russian LNG next year even when buyers are located outside the EU, according to a letter seen by Reuters.",
+      "headline": "US-Iran mediated talks held as Mideast oil exports rebound",
+      "summary": "Middle Eastern crude exports rebounded to near their highest level since the war began, at around 80% of pre-conflict levels, as US-Iran indirect negotiations continued through mediators.",
+      "source": "CNBC",
+      "url": "https://www.cnbc.com/2026/09/29/us-iran-war-trump-hormuz-.html",
+      "metric": "~80%",
+      "metric_label": "Mideast Crude Exports vs Pre-War"
+    },
+    {
+      "headline": "Oil extends gains on Hormuz supply threat",
+      "summary": "Crude prices extended gains as the Strait of Hormuz, through which 20% of global oil supply transited pre-war, remained closely watched. Trump rejected Tehran's conditional proposal to reopen the strait.",
+      "source": "CNBC",
+      "url": "https://www.cnbc.com/2026/09/29/oil-prices-today-brent-wti-hormuz.html",
+      "metric": "20%",
+      "metric_label": "Global Oil via Hormuz (Pre-War)"
+    },
+    {
+      "headline": "SpaceX, Aramco IPOs headline mega-listing wave",
+      "summary": "Reuters reports on the world's biggest IPOs as Anthropic's blockbuster listing looms, placing SpaceX's $75 billion haul alongside Saudi Aramco in the ranks of historic public offerings.",
       "source": "Reuters",
-      "url": "https://www.reuters.com/business/energy/",
-      "metric": "2027",
-      "metric_label": "Year EU Russian LNG ban takes ef"
+      "url": "https://www.reuters.com/legal/transactional/elon-musks-spacex-kicks-off-mega-ipo-wave-with-75-billion-haul-2026-09-28/",
+      "metric": "$75B",
+      "metric_label": "SpaceX IPO Valuation"
     }
   ],
   "qatar_news": [
     {
       "headline": "Qatar Completes USD 3 Billion Dual-Tranche Bond Issuance",
-      "summary": "Qatar successfully completes a USD 3 billion dual-tranche bond issuance, signalling strong sovereign debt market access and investor confidence in the country's creditworthiness.",
+      "summary": "Qatar successfully completed a USD 3 billion dual-tranche bond issuance, marking a significant sovereign debt market transaction.",
       "source": "The Peninsula Qatar",
       "url": "https://thepeninsulaqatar.com/article/28/09/2026/qatar-successfully-completes-usd-3-billion-dual-tranche-bond-sssuance",
       "metric": "USD 3B",
       "metric_label": "Bond Issuance Size"
     },
     {
-      "headline": "Qatar Real Estate Sales Rise 21.5% in 39th Week",
-      "summary": "Qatar's real estate market recorded a 21.5% increase in sales during the 39th week, reflecting continued momentum in the property sector.",
+      "headline": "Qatar Signs Financial Cooperation MoU With Kuwait",
+      "summary": "Qatar and Kuwait signed a memorandum of understanding on financial cooperation, deepening bilateral economic ties between the two Gulf states.",
       "source": "Qatar Tribune",
-      "url": "https://www.qatar-tribune.com/article/256321/business/qatar-real-estate-sales-rise-215-in-39th-week",
-      "metric": "+21.5%",
-      "metric_label": "Weekly Real Estate Sales Growth"
-    },
-    {
-      "headline": "Qatar and Kuwait Sign Financial Cooperation MoU",
-      "summary": "Qatar and Kuwait have signed a Memorandum of Understanding on financial cooperation, strengthening bilateral economic ties between the two Gulf states.",
-      "source": "Qatar Tribune",
-      "url": "https://www.qatar-tribune.com/article/256437/latest-news/qatar-kuwait-sign-mou-on-financial-cooperation",
+      "url": "https://www.qatar-tribune.com/article/256489/business/qatar-signs-mou-with-kuwait-on-financial-cooperation",
       "metric": "MoU Signed",
-      "metric_label": "Qatar-Kuwait Financial Agreement"
+      "metric_label": "Qatar-Kuwait Financial Pact"
     },
     {
-      "headline": "QIIB Named Best Islamic Sustainable Finance Bank in Qatar",
-      "summary": "QIIB has been awarded the title of Best Islamic Sustainable Finance Bank in Qatar for 2026, recognising its leadership in sustainable Islamic banking.",
+      "headline": "QIIB Wins Best Islamic Sustainable Finance Bank 2026",
+      "summary": "QIIB received the 'Best Islamic Sustainable Finance Bank in Qatar 2026' award, recognising its leadership in sustainable Islamic banking.",
       "source": "The Peninsula Qatar",
       "url": "https://thepeninsulaqatar.com/article/28/09/2026/qiib-wins-best-islamic-sustainable-finance-bank-in-qatar-2026-award",
-      "metric": "2026 Award",
+      "metric": "Award Won",
       "metric_label": "Best Islamic Sustainable Finance"
     },
     {
-      "headline": "QCB Governor Meets Algerian Finance Minister",
-      "summary": "Qatar Central Bank Governor held a meeting with Algeria's Minister of Finance, indicating steps toward strengthened financial and economic relations between the two countries.",
+      "headline": "QBA Explores Investment Partnerships With Hong Kong",
+      "summary": "The Qatari Businessmen Association held discussions aimed at strengthening investment partnerships with Hong Kong, targeting new bilateral economic opportunities.",
+      "source": "The Peninsula Qatar",
+      "url": "https://thepeninsulaqatar.com/article/27/09/2026/qatari-businessmen-association-discusses-strengthening-investment-partnerships-with-hong-kong",
+      "metric": "Bilateral Talks",
+      "metric_label": "Qatar-Hong Kong Investment Drive"
+    },
+    {
+      "headline": "Qatar Investors Urged to Explore Colombo Port City",
+      "summary": "Qatar investors were encouraged to explore opportunities in Colombo Port City, highlighting the project as an attractive destination for Gulf capital.",
       "source": "Qatar Tribune",
-      "url": "https://www.qatar-tribune.com/article/256295/business/qcb-governor-meets-with-algerian-minister-of-finance",
-      "metric": "Bilateral Meetin",
-      "metric_label": "QCB-Algeria Financial Engagement"
+      "url": "https://www.qatar-tribune.com/article/256463/business/qatar-investors-urged-to-explore-colombo-port-city-opportunities",
+      "metric": "Investment Push",
+      "metric_label": "Colombo Port City Outreach"
     }
   ],
   "kpis": [
@@ -635,40 +635,41 @@
     {
       "source": "CNBC",
       "url": "https://www.cnbc.com/2026/09/28/treasury-yields-bonds-selloff.html",
-      "headline": "UST10Y breach of 5.242% resistance opens path to 5.40%; duration pain accelerates",
-      "summary": "10Y yield at 5.242% (+10.22% MTD, +25.92% YTD) with 30Y at 5.398% \u2014 a 19-year high. Sustained close above 5.25% on the 10Y pressures equity multiples (S&P P/E compression) and GCC sovereign bond spreads. Key watch: 5.40% on 30Y as next technical resistance; a break re-prices mort",
+      "headline": "UST10Y at 5.242%, 30Y at 5.552%; multi-year breakout threatens global equity re-rating",
+      "summary": "10Y at 5.242% (+25.92% YTD) and 30Y at 5.552% mark 2007-era highs. Duration premium compression is transmitting into equity multiples \u2014 S&P -0.65% daily. Risk: sustained 10Y above 5.25% forces P/E contraction across GCC sovereign wealth equity allocations; watch 5.35% as next tec",
       "metric": "5.242%",
       "metric_label": "UST 10Y Yield"
     },
     {
       "source": "CNBC",
-      "url": "https://www.cnbc.com/2026/09/28/oil-price-today-wti-brent-trump-iran.html",
-      "headline": "Brent at $97.81 after Saudi pipeline restart; $105.28 near-term resistance in focus",
-      "summary": "Brent +60.74% YTD and +10.86% MTD; intraday spike to $105.28 on Saudi East-West pipeline restart signals structural supply tightness. For GCC sovereign allocators, sustained Brent above $95 materially improves fiscal breakeven comfort. Key risk: pullback below $95 support would t",
+      "url": "https://www.cnbc.com/2026/09/29/oil-prices-today-brent-wti-hormuz.html",
+      "headline": "Brent +60.74% YTD at $97.81; Hormuz closure risk creates $105 retest scenario",
+      "summary": "Brent +10.86% MTD with Hormuz carrying 20% of pre-war global supply still constrained. CNBC reports Trump rejected Tehran's conditional strait reopening. Middle East exports at ~80% of pre-conflict levels. A supply disruption spike toward $105.28 (recent close per news [4]) would",
       "metric": "$97.81",
       "metric_label": "Brent Spot"
     },
     {
-      "source": "Al Jazeera",
-      "url": "https://www.aljazeera.com/economy/2026/9/28/gold-falls-amid-rising-oil-prices-and-higher-us-dollar?traffic_source=rss",
-      "headline": "Gold breaks to seven-week low at $4,172.8; $4,100 structural support now in scope",
-      "summary": "Gold -3.43% on the session, -6.88% MTD, -5.12% YTD; silver -4.93% intraday confirms broad precious metals liquidation. USD/CHF +8.28% YTD and USD Index at 101.19 (+2.96% YTD) are headwinds. For portfolio managers with gold as inflation hedge, the risk-reward deteriorates if $4,10",
-      "metric": "$4,172.8",
-      "metric_label": "Gold Spot"
-    },
-    {
       "source": "The Peninsula Qatar",
       "url": "https://thepeninsulaqatar.com/article/28/09/2026/qatar-successfully-completes-usd-3-billion-dual-tranche-bond-sssuance",
-      "headline": "Qatar $3B dual-tranche print tests sovereign spread resilience vs. 5.242% UST benchmark",
-      "summary": "Qatar's $3B dual-tranche issuance demonstrates sovereign market access despite QE Index at 9,410 (-12.57% YTD, -4.04% MTD). Critical analytical question: spread compression or widening relative to UST10Y at 5.242%. Successful absorption signals SWF and institutional demand remain",
+      "headline": "Qatar $3B dual-tranche issuance tests GCC sovereign spread resilience at 5%+ UST base",
+      "summary": "Qatar sovereign pricing a dual-tranche $3B deal into a 10Y UST at 5.242% \u2014 the highest base rate in nearly two decades. QE Index -4.04% MTD and -12.57% YTD signals domestic risk-off. Spread compression risk: if UST yields push above 5.35%, GCC sovereign issuance costs escalate ma",
       "metric": "$3B",
       "metric_label": "Qatar Bond Issuance"
+    },
+    {
+      "source": "CNBC",
+      "url": "https://www.cnbc.com/2026/09/28/oil-price-today-wti-brent-trump-iran.html",
+      "headline": "Gold -6.88% MTD, Silver -7.84% MTD; haven unwind signals real-rate pain trade",
+      "summary": "Gold at $4,172.8 (-3.43% daily, -5.12% YTD) and Silver at $61.6 (-4.93% daily) are de-correlating from geopolitical risk as surging real yields dominate. USD/CHF +8.28% YTD confirms CHF haven substitution fading. Rising 5Y UST at 5.068% (+36.16% YTD) is the key transmission mecha",
+      "metric": "$4,172.8",
+      "metric_label": "Gold Spot"
     }
   ],
   "validation_issues": [
+    "Using latest available Supabase market date 2026-09-28, not today 2026-09-29",
     "Kuwait Boursa missing or invalid"
   ],
-  "validation_issue_count": 1,
+  "validation_issue_count": 2,
   "report_status": "NEEDS_REVIEW",
   "email_send_allowed": false
 }
