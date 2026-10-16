@@ -16,7 +16,7 @@
       "market_drivers": true
     }
   },
-  "generated_at": "2026-10-16T04:54:52Z",
+  "generated_at": "2026-10-16T05:03:05Z",
   "generated_display_time": "",
   "global_indices": [
     {
@@ -503,114 +503,114 @@
   "market_as_of_date": "2026-10-15",
   "global_news": [
     {
-      "headline": "Hot PPI Signals Fed's Inflation Fight Far From Over",
-      "summary": "Core PCE inflation has risen above target since 2021, accelerating after April 2025 tariffs and further since the Iran war began, with economists saying the Fed's work is not done.",
-      "source": "CNBC",
-      "url": "https://www.cnbc.com/2026/10/15/pce-ppi-september-fed-reserve-rate-hike.html",
-      "metric": "Above 2% target",
-      "metric_label": "Core PCE inflation trajectory"
-    },
-    {
-      "headline": "Treasury Yields Slide as Investors Flee to Bond Safety",
-      "summary": "The 10-year Treasury yield tumbled over 10 basis points to 5.089%, while the 30-year fell over 9 basis points to 5.428%, as investors rotated into bonds amid a tech rout.",
+      "headline": "Treasury Yields Slide as Tech Rout Spurs Safety Bid",
+      "summary": "The 10-year Treasury yield tumbled over 10 basis points to 5.089%, the 30-year fell to 5.428%, and the 2-year dropped to 4.757% as investors fled to bonds amid a tech selloff.",
       "source": "CNBC",
       "url": "https://www.cnbc.com/2026/10/15/us-treasury-yields-investors-economic-data-.html",
       "metric": "5.089%",
       "metric_label": "10-Year Treasury Yield"
     },
     {
-      "headline": "Dow Jumps 556 Points as Investors Rotate From AI Trade",
-      "summary": "The Dow rose 1.08% to 52,177.69, S&P 500 gained 0.33% to 7,744.06, and Nasdaq edged up just 0.08% to 26,713.03 as investors shifted away from AI stocks.",
+      "headline": "Hot PPI Signals Fed's Inflation Fight Far From Over",
+      "summary": "Headline and core PCE inflation have exceeded target since 2021, rising steadily since April 2025 tariffs and accelerating further since the Iran war began, economists warn Fed work is unfinished.",
       "source": "CNBC",
-      "url": "https://www.cnbc.com/2026/10/14/stock-market-today-live-updates.html",
-      "metric": "52,177.69",
-      "metric_label": "Dow Jones Industrial Average"
+      "url": "https://www.cnbc.com/2026/10/15/pce-ppi-september-fed-reserve-rate-hike.html",
+      "metric": "Above target",
+      "metric_label": "Core PCE Inflation Status"
     },
     {
-      "headline": "Soaring Energy Prices Spike US Inflation to 3.4%",
-      "summary": "Three-month annualised inflation surged to 3.4%, sharply above the 2% rate recorded in August, driven by soaring energy prices, according to the New York Times.",
+      "headline": "Soaring Energy Prices Drive 3-Month Inflation Spike",
+      "summary": "US inflation momentum spiked to a 3.4% annualised rate over three months, sharply up from a 2% rate in August, driven by surging energy prices.",
       "source": "New York Times",
       "url": "https://www.nytimes.com/live/2026/10/14/business/inflation-cpi-report-september",
       "metric": "3.4%",
       "metric_label": "3-Month Annualised Inflation Rat"
     },
     {
-      "headline": "ADIPEC 2026 Draws 239,000 Visitors, Shapes Energy Future",
-      "summary": "ADIPEC 2026 in Abu Dhabi attracted 239,000 visitors from 170 countries, featuring ADNOC, Masdar, TAQA, Mubadala Energy, and Bapco Energies among leading regional energy firms.",
+      "headline": "Dow Jumps 556 Points as Investors Rotate From AI",
+      "summary": "The Dow rose 556 points or 1.08% to 52,177.69. The S&P 500 gained 0.33% to 7,744.06 and the Nasdaq edged up 0.08% to 26,713.03 as investors rotated away from the AI trade.",
+      "source": "CNBC",
+      "url": "https://www.cnbc.com/2026/10/14/stock-market-today-live-updates.html",
+      "metric": "52,177.69",
+      "metric_label": "Dow Jones Industrial Average"
+    },
+    {
+      "headline": "ADIPEC 2026 Draws 239,000 Visitors, ADNOC Leads Lineup",
+      "summary": "ADIPEC 2026 in Abu Dhabi attracted 239,000 visitors from 170 countries, featuring major regional energy players including ADNOC, Masdar, TAQA, Mubadala Energy, and Bapco Energies.",
       "source": "Gulf News",
       "url": "https://gulfnews.com/uae/abu-dhabi/adipec-2026-in-abu-dhabi-to-attract-239000-visitors-from-170-countries-1.500712264",
       "metric": "239,000",
-      "metric_label": "ADIPEC 2026 Visitor Count"
+      "metric_label": "ADIPEC 2026 Visitors"
     },
     {
-      "headline": "WTI Rises 3%, Brent Slips as Oil Markets Shift",
-      "summary": "WTI November futures gained about 3%, closing at $97.97 per barrel, while Brent crude for December fell 14 cents to settle at $105.92 per barrel.",
+      "headline": "WTI Rises 3%, Brent Slips as Oil Markets Stay Volatile",
+      "summary": "WTI crude for November gained about 3% or $2.88 to close at $97.97 per barrel, while Brent for December fell 14 cents to settle at $105.92 per barrel.",
       "source": "CNBC",
       "url": "https://www.cnbc.com/2026/10/15/oil-prices-today-brent-wti.html",
-      "metric": "$105.92 / $97.97",
-      "metric_label": "Brent / WTI Settlement Price"
+      "metric": "$105.92",
+      "metric_label": "Brent Crude (Dec. Settlement)"
     },
     {
-      "headline": "Hormuz Crude Shipments Rise to Post-War High After Ceasefire",
-      "summary": "Crude shipments through the Strait of Hormuz rose to their highest level since the US-Israeli conflict with Iran began in February, following a ceasefire deal that reopened the waterway.",
+      "headline": "Hormuz Crude Shipments Hit Post-Ceasefire High",
+      "summary": "Crude shipments through the Strait of Hormuz rose to their highest level since the US-Israeli conflict with Iran began in February, after a ceasefire deal reopened the critical waterway.",
       "source": "Reuters",
       "url": "https://www.reuters.com/world/iran/",
-      "metric": "Post-war high",
-      "metric_label": "Hormuz Crude Shipments Volume"
+      "metric": "Post-ceasefire h",
+      "metric_label": "Hormuz Crude Shipment Volume"
     },
     {
-      "headline": "Ukraine Resumes Energy Site Strikes After Russian Attacks",
-      "summary": "Ukraine's President Zelensky announced a pause on striking energy infrastructure is over following renewed Russian attacks, with Russia accusing Ukraine of hitting an oil refinery.",
-      "source": "BBC World",
-      "url": "https://www.bbc.co.uk/news/articles/cqwyrnwd9dw1o?at_medium=RSS&at_campaign=rss",
-      "metric": "Strikes resumed",
-      "metric_label": "Ukraine Energy Infrastructure Co"
+      "headline": "EU to Ban Russian LNG Sales Even Outside Bloc",
+      "summary": "EU-based companies will be prohibited from selling Russian liquefied natural gas next year, even to buyers located outside the European Union, according to a letter seen by Reuters.",
+      "source": "Reuters",
+      "url": "https://www.reuters.com/business/energy/",
+      "metric": "2027",
+      "metric_label": "EU Russian LNG Ban Effective Yea"
     }
   ],
   "qatar_news": [
     {
-      "headline": "Qatar calls for global cooperation at G20 meet",
-      "summary": "Qatar urged global cooperation and economic resilience at the G20 meeting, reinforcing its role in international financial diplomacy.",
+      "headline": "Qatar Calls for Global Cooperation at G20 Meet",
+      "summary": "Qatar advocated for global cooperation and economic resilience at the G20 meeting, reinforcing its role in shaping international financial dialogue.",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/259391/business/qatar-calls-for-global-cooperation-economic-resilience-at-g20-meet",
       "metric": "G20",
-      "metric_label": "Forum Attended"
+      "metric_label": "Forum Represented"
     },
     {
-      "headline": "QCB Governor meets Central Bank of Malaysia Governor",
-      "summary": "Qatar Central Bank Governor held a bilateral meeting with the Governor of the Central Bank of Malaysia, strengthening financial ties.",
+      "headline": "Activate Capital Joins QIA Fund-of-Funds Programme",
+      "summary": "Activate Capital has joined the Qatar Investment Authority's Fund-of-Funds programme, expanding QIA's network of investment partnerships.",
+      "source": "Qatar Tribune",
+      "url": "https://www.qatar-tribune.com/article/259393/business/activate-capital-joins-qias-fund-of-funds-programme",
+      "metric": "QIA FoF",
+      "metric_label": "Programme Expanded"
+    },
+    {
+      "headline": "QSE Eyes Rebound Amid Market Volatility",
+      "summary": "The Qatar Stock Exchange is targeting a rebound as global market volatility continues to weigh on investor sentiment and equity performance.",
+      "source": "Qatar Tribune",
+      "url": "https://www.qatar-tribune.com/article/259397/business/qse-eyes-rebound-amid-market-volatility",
+      "metric": "QSE",
+      "metric_label": "Exchange Under Watch"
+    },
+    {
+      "headline": "QCB Governor Meets Central Bank of Malaysia Governor",
+      "summary": "The Qatar Central Bank Governor held a bilateral meeting with the Governor of the Central Bank of Malaysia, strengthening financial ties between the two nations.",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/259374/business/qcb-governor-meets-with-governor-of-central-bank-of-malaysia",
       "metric": "QCB",
       "metric_label": "Bilateral Meeting"
     },
     {
-      "headline": "QCB Governor meets UBS Global Wealth Management Co-President",
-      "summary": "Qatar Central Bank Governor met with the Co-President of UBS Global Wealth Management, signalling ongoing engagement with major international financial institutions.",
+      "headline": "QCB Governor Meets UBS Global Wealth Management Co-President",
+      "summary": "Qatar Central Bank Governor met with the Co-President of UBS Global Wealth Management, signalling continued engagement with leading global financial institutions.",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/259378/business/qcb-governor-meets-ubs-global-wealth-management-co-president",
-      "metric": "UBS",
-      "metric_label": "Institution Met"
+      "metric": "UBS GWM",
+      "metric_label": "Key Engagement"
     },
     {
-      "headline": "Activate Capital joins QIA Fund-of-Funds programme",
-      "summary": "Activate Capital has joined the Qatar Investment Authority's Fund-of-Funds programme, expanding QIA's private capital investment network.",
-      "source": "Qatar Tribune",
-      "url": "https://www.qatar-tribune.com/article/259393/business/activate-capital-joins-qias-fund-of-funds-programme",
-      "metric": "QIA FoF",
-      "metric_label": "New Programme Member"
-    },
-    {
-      "headline": "QSE eyes rebound amid market volatility",
-      "summary": "The Qatar Stock Exchange is positioning for a rebound as broader market volatility continues to weigh on regional equity markets.",
-      "source": "Qatar Tribune",
-      "url": "https://www.qatar-tribune.com/article/259397/business/qse-eyes-rebound-amid-market-volatility",
-      "metric": "QSE",
-      "metric_label": "Market Outlook"
-    },
-    {
-      "headline": "Qatar joins MENAP finance ministers' meeting",
-      "summary": "Qatar participated in a meeting of MENAP finance chiefs, engaging in regional economic policy discussions.",
+      "headline": "Qatar Joins MENAP Finance Chiefs' Meeting",
+      "summary": "Qatar participated in a MENAP regional meeting of finance ministers and central bank governors, contributing to regional economic policy discussions.",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/259240/business/qatar-joins-menap-finance-chiefs-meeting",
       "metric": "MENAP",
@@ -643,34 +643,34 @@
     {
       "source": "CNBC",
       "url": "https://www.cnbc.com/2026/10/15/us-treasury-yields-investors-economic-data-.html",
-      "headline": "UST 10Y at 5.083%; hold below 5.10% confirms duration bid, next support 4.95%",
-      "summary": "Ten-year yields dropped ~10bp intraday to 5.089%, breaking the recent upward momentum. A sustained close below 5.10% opens a technical path toward 4.95% (5Y currently 4.894%). Duration-sensitive allocations \u2014 GCC sovereign bonds, EM debt \u2014 should reassess hedge ratios; a reversal",
+      "headline": "UST 10Y at 5.083%; safety bid compresses yield 10bp \u2014 duration risk live",
+      "summary": "10Y yield at 5.083% after a 10bp intraday flush driven by equity-to-bond rotation. MTD compression of 4.00% from peak signals a potential range top near 5.30%. Portfolios long EM duration or rate-sensitive credit face mark-to-market relief short-term, but inflationary overhang (N",
       "metric": "5.083%",
-      "metric_label": "UST 10Y yield"
-    },
-    {
-      "source": "CNBC",
-      "url": "https://www.cnbc.com/2026/10/15/pce-ppi-september-fed-reserve-rate-hike.html",
-      "headline": "Core PCE re-acceleration post-April tariffs; 3.4% CPI threatens Fed pivot repricing",
-      "summary": "Three-month annualised CPI at 3.4% vs. August's 2.0% signals tariff and energy pass-through is broadening. With core PCE above 2% target since 2021, the Fed easing timeline is at risk. Portfolios long rate-sensitive equities or short USD face mean-reversion exposure; the dollar's",
-      "metric": "3.4%",
-      "metric_label": "3M Ann. CPI"
+      "metric_label": "UST 10Y Yield"
     },
     {
       "source": "CNBC",
       "url": "https://www.cnbc.com/2026/10/15/oil-prices-today-brent-wti.html",
-      "headline": "WTI $97.97 vs. Brent $105.92; $8 spread compression is the tactical trigger to watch",
-      "summary": "WTI gained ~3% to $97.97 while Brent dipped 14 cents to $105.92, widening the Brent-WTI spread to ~$7.95. Hormuz re-opening (Reuters) should structurally narrow this spread; a move below $6 would signal logistical normalisation. GCC equity risk (QE Index -18.14% YTD) remains elev",
+      "headline": "WTI $97.97 vs Brent $105.92; $8 spread signals Hormuz re-opening arbitrage",
+      "summary": "WTI gained 3% ($2.88) to $97.97 while Brent settled at $105.92, a $7.95 spread that reflects post-ceasefire Hormuz flow normalization (News [7]). WTI break above $100 would reprice Gulf sovereign breakevens and compress QE Index further from -18.14% YTD. LNG JP/KR at $26.39 (+174",
       "metric": "$97.97",
-      "metric_label": "WTI front-month"
+      "metric_label": "WTI Spot"
     },
     {
       "source": "Reuters",
-      "url": "https://www.reuters.com/world/iran/",
-      "headline": "Hormuz re-opening compresses LNG/crude risk premium; JKM +174% YTD flags residual supply fragility",
-      "summary": "Post-ceasefire Hormuz shipment recovery should ease Brent's geopolitical premium, but JKM LNG at $26.39/MMBtu (+174.61% YTD) confirms energy markets remain structurally tight. Ukraine's resumed energy-site strikes (BBC) add a second supply-shock vector. Qatar LNG export revenues ",
+      "url": "https://www.reuters.com/business/energy/",
+      "headline": "EU Russian LNG ban 2027: $26.39 JP/KR spot +175% YTD, re-rating GCC LNG premia",
+      "summary": "EU prohibition on resale of Russian LNG \u2014 including to non-EU buyers \u2014 structurally redirects spot demand to Middle East and US suppliers. LNG JP/KR at $26.39 (+3.73% MTD, +174.61% YTD) already prices scarcity. Qatar QE at -18.14% YTD appears dislocated versus this LNG revenue wi",
       "metric": "$26.39",
-      "metric_label": "LNG JKM spot"
+      "metric_label": "LNG JP/KR Spot"
+    },
+    {
+      "source": "CNBC",
+      "url": "https://www.cnbc.com/2026/10/15/pce-ppi-september-fed-reserve-rate-hike.html",
+      "headline": "3-Month CPI at 3.4% annualised; USD/CHF 0.8271 signals haven demand overriding USD bid",
+      "summary": "Core PCE running above target since 2021 with 3-month momentum at 3.4% annualised (News [3]) leaves Fed rate-cut pricing highly vulnerable. Yet USD/CHF at 0.8271 (-0.86% 1D, -1.03% MTD) signals CHF haven demand overriding the USD inflation-premium bid. EUR/USD 1.1215 and GBP/USD ",
+      "metric": "0.8271",
+      "metric_label": "USD/CHF"
     }
   ],
   "validation_issues": [
