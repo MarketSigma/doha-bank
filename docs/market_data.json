@@ -1,7 +1,7 @@
 {
   "config": {
     "client_name": "Doha Bank",
-    "report_date": "21 November 2026",
+    "report_date": "22 November 2026",
     "delivery_time_ast": "07:00",
     "sections": {
       "global_indices": true,
@@ -16,18 +16,18 @@
       "market_drivers": true
     }
   },
-  "generated_at": "2026-11-21T05:02:13Z",
+  "generated_at": "2026-11-22T05:02:23Z",
   "generated_display_time": "",
   "global_indices": [
     {
       "code": "SPX",
       "name": "US S&P 500",
       "ticker": "^GSPC",
-      "px_last": 7024.78,
-      "change_1d": "-2.55%",
-      "mtd": "-7.33%",
-      "ytd": "+2.62%",
-      "as_of": "2026-11-20",
+      "px_last": 6910.39,
+      "change_1d": "-1.63%",
+      "mtd": "-8.83%",
+      "ytd": "+0.95%",
+      "as_of": "2026-11-21",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
     },
@@ -36,10 +36,10 @@
       "name": "UK FTSE 100",
       "ticker": "^FTSE",
       "px_last": 10346.34,
-      "change_1d": "-1.02%",
+      "change_1d": "+0.00%",
       "mtd": "-3.57%",
       "ytd": "+4.18%",
-      "as_of": "2026-11-20",
+      "as_of": "2026-11-21",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
     },
@@ -48,10 +48,10 @@
       "name": "Japan Nikkei",
       "ticker": "^N225",
       "px_last": 56436.65,
-      "change_1d": "-5.06%",
+      "change_1d": "+0.00%",
       "mtd": "-10.83%",
       "ytd": "+12.11%",
-      "as_of": "2026-11-20",
+      "as_of": "2026-11-21",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
     },
@@ -60,10 +60,10 @@
       "name": "Germany DAX",
       "ticker": "^GDAXI",
       "px_last": 24802.78,
-      "change_1d": "-2.60%",
+      "change_1d": "+0.00%",
       "mtd": "-3.93%",
       "ytd": "+1.28%",
-      "as_of": "2026-11-20",
+      "as_of": "2026-11-21",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
     },
@@ -72,10 +72,10 @@
       "name": "Hong Kong HSI",
       "ticker": "^HSI",
       "px_last": 22410.8,
-      "change_1d": "-1.89%",
+      "change_1d": "+0.00%",
       "mtd": "-3.79%",
       "ytd": "-12.56%",
-      "as_of": "2026-11-20",
+      "as_of": "2026-11-21",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
     },
@@ -84,10 +84,10 @@
       "name": "India Nifty 50",
       "ticker": "^NSEI",
       "px_last": 25800.6,
-      "change_1d": "+1.12%",
+      "change_1d": "+0.00%",
       "mtd": "+11.92%",
       "ytd": "-0.13%",
-      "as_of": "2026-11-20",
+      "as_of": "2026-11-21",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
     }
@@ -101,7 +101,7 @@
       "change_1d": "+0.00%",
       "mtd": "+9.96%",
       "ytd": "-6.50%",
-      "as_of": "2026-11-20",
+      "as_of": "2026-11-21",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
     },
@@ -113,7 +113,7 @@
       "change_1d": "+0.00%",
       "mtd": "+2.39%",
       "ytd": "-3.16%",
-      "as_of": "2026-11-20",
+      "as_of": "2026-11-21",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
     },
@@ -122,10 +122,10 @@
       "name": "Dubai DFM",
       "ticker": "DFMGI.AE",
       "px_last": 6226.19,
-      "change_1d": "+0.07%",
+      "change_1d": "+0.00%",
       "mtd": "+7.89%",
       "ytd": "+2.96%",
-      "as_of": "2026-11-20",
+      "as_of": "2026-11-21",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
     },
@@ -134,10 +134,10 @@
       "name": "Abu Dhabi ADX",
       "ticker": "FADGI.FGI",
       "px_last": 9760.61,
-      "change_1d": "-0.37%",
+      "change_1d": "+0.00%",
       "mtd": "+3.11%",
       "ytd": "-2.32%",
-      "as_of": "2026-11-20",
+      "as_of": "2026-11-21",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
     },
@@ -149,7 +149,7 @@
       "change_1d": "+0.00%",
       "mtd": "+0.72%",
       "ytd": "-5.71%",
-      "as_of": "2026-11-20",
+      "as_of": "2026-11-21",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
     },
@@ -158,10 +158,10 @@
       "name": "Oman",
       "ticker": "MSX30",
       "px_last": 7260.0,
-      "change_1d": "-0.74%",
+      "change_1d": "+0.00%",
       "mtd": "-1.48%",
       "ytd": "+23.75%",
-      "as_of": "2026-11-20",
+      "as_of": "2026-11-21",
       "source": "tradingeconomics_direct_page",
       "status": "valid_te_direct_page"
     },
@@ -170,10 +170,10 @@
       "name": "Bahrain",
       "ticker": "BHSEASI",
       "px_last": 1824.0,
-      "change_1d": "+0.27%",
+      "change_1d": "+0.00%",
       "mtd": "-0.33%",
       "ytd": "-11.74%",
-      "as_of": "2026-11-20",
+      "as_of": "2026-11-21",
       "source": "tradingeconomics_direct_page",
       "status": "valid_te_direct_page"
     }
@@ -184,10 +184,10 @@
       "name": "USD Index",
       "ticker": "DX-Y.NYB",
       "px_last": 103.84,
-      "change_1d": "-0.01%",
+      "change_1d": "+0.00%",
       "mtd": "+1.84%",
       "ytd": "+5.66%",
-      "as_of": "2026-11-20",
+      "as_of": "2026-11-21",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
     },
@@ -195,11 +195,11 @@
       "code": "EURUSD",
       "name": "EUR/USD",
       "ticker": "EURUSD=X",
-      "px_last": 1.0971,
-      "change_1d": "-0.06%",
-      "mtd": "-1.75%",
-      "ytd": "-6.61%",
-      "as_of": "2026-11-20",
+      "px_last": 1.0975,
+      "change_1d": "+0.04%",
+      "mtd": "-1.71%",
+      "ytd": "-6.57%",
+      "as_of": "2026-11-21",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
     },
@@ -207,11 +207,11 @@
       "code": "GBPUSD",
       "name": "GBP/USD",
       "ticker": "GBPUSD=X",
-      "px_last": 1.3095,
-      "change_1d": "-0.05%",
-      "mtd": "-2.23%",
-      "ytd": "-2.76%",
-      "as_of": "2026-11-20",
+      "px_last": 1.3082,
+      "change_1d": "-0.10%",
+      "mtd": "-2.32%",
+      "ytd": "-2.86%",
+      "as_of": "2026-11-21",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
     },
@@ -219,11 +219,11 @@
       "code": "USDCHF",
       "name": "USD/CHF",
       "ticker": "CHF=X",
-      "px_last": 0.8402,
-      "change_1d": "-0.44%",
-      "mtd": "+1.85%",
-      "ytd": "+9.34%",
-      "as_of": "2026-11-20",
+      "px_last": 0.8396,
+      "change_1d": "-0.07%",
+      "mtd": "+1.78%",
+      "ytd": "+9.27%",
+      "as_of": "2026-11-21",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
     },
@@ -231,11 +231,11 @@
       "code": "USDJPY",
       "name": "USD/JPY",
       "ticker": "JPY=X",
-      "px_last": 158.82,
-      "change_1d": "-0.59%",
-      "mtd": "+0.83%",
-      "ytd": "+1.54%",
-      "as_of": "2026-11-20",
+      "px_last": 158.512,
+      "change_1d": "-0.19%",
+      "mtd": "+0.63%",
+      "ytd": "+1.34%",
+      "as_of": "2026-11-21",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
     },
@@ -244,10 +244,10 @@
       "name": "USD/CNY",
       "ticker": "CNY=X",
       "px_last": 6.6623,
-      "change_1d": "-0.31%",
+      "change_1d": "+0.00%",
       "mtd": "+0.26%",
       "ytd": "-4.77%",
-      "as_of": "2026-11-20",
+      "as_of": "2026-11-21",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
     }
@@ -261,7 +261,7 @@
       "change_1d": "+0.00%",
       "mtd": "+0.00%",
       "ytd": "+0.00%",
-      "as_of": "2026-11-20",
+      "as_of": "2026-11-21",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
     },
@@ -269,11 +269,11 @@
       "code": "EURQAR",
       "name": "EUR/QAR",
       "ticker": "EURQAR=X",
-      "px_last": 3.9933,
-      "change_1d": "-0.05%",
-      "mtd": "-1.76%",
-      "ytd": "-6.61%",
-      "as_of": "2026-11-20",
+      "px_last": 3.9893,
+      "change_1d": "-0.10%",
+      "mtd": "-1.86%",
+      "ytd": "-6.71%",
+      "as_of": "2026-11-21",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
     },
@@ -281,11 +281,11 @@
       "code": "GBPQAR",
       "name": "GBP/QAR",
       "ticker": "GBPQAR=X",
-      "px_last": 4.7676,
-      "change_1d": "+0.01%",
-      "mtd": "-2.22%",
-      "ytd": "-2.74%",
-      "as_of": "2026-11-20",
+      "px_last": 4.7595,
+      "change_1d": "-0.17%",
+      "mtd": "-2.39%",
+      "ytd": "-2.91%",
+      "as_of": "2026-11-21",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
     },
@@ -293,11 +293,11 @@
       "code": "CHFQAR",
       "name": "CHF/QAR",
       "ticker": "CHFQAR",
-      "px_last": 4.3323,
-      "change_1d": "+0.44%",
-      "mtd": "-1.82%",
-      "ytd": "-8.54%",
-      "as_of": "2026-11-20",
+      "px_last": 4.3354,
+      "change_1d": "+0.07%",
+      "mtd": "-1.75%",
+      "ytd": "-8.48%",
+      "as_of": "2026-11-21",
       "source": "derived_from_usdqar_and_spot_fx_runtime",
       "status": "valid_runtime_derived_fx"
     },
@@ -306,10 +306,10 @@
       "name": "CNY/QAR",
       "ticker": "CNYQAR",
       "px_last": 0.5464,
-      "change_1d": "+0.31%",
+      "change_1d": "+0.00%",
       "mtd": "-0.26%",
       "ytd": "+5.01%",
-      "as_of": "2026-11-20",
+      "as_of": "2026-11-21",
       "source": "derived_from_usdqar_and_spot_fx_runtime",
       "status": "valid_runtime_derived_fx"
     }
@@ -319,11 +319,11 @@
       "code": "UST5Y",
       "name": "UST 5-Year",
       "ticker": "^FVX",
-      "px_last": 4.746,
-      "change_1d": "-2.55%",
-      "mtd": "+0.53%",
-      "ytd": "+27.51%",
-      "as_of": "2026-11-20",
+      "px_last": 4.701,
+      "change_1d": "-0.95%",
+      "mtd": "-0.42%",
+      "ytd": "+26.30%",
+      "as_of": "2026-11-21",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
     },
@@ -331,11 +331,11 @@
       "code": "UST10Y",
       "name": "UST 10-Year",
       "ticker": "^TNX",
-      "px_last": 4.946,
-      "change_1d": "-2.18%",
-      "mtd": "+0.34%",
-      "ytd": "+18.81%",
-      "as_of": "2026-11-20",
+      "px_last": 4.912,
+      "change_1d": "-0.69%",
+      "mtd": "-0.34%",
+      "ytd": "+17.99%",
+      "as_of": "2026-11-21",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
     }
@@ -349,7 +349,7 @@
       "change_1d": "+0.00%",
       "mtd": "+10.06%",
       "ytd": "-8.14%",
-      "as_of": "2026-11-20",
+      "as_of": "2026-11-21",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
     },
@@ -361,7 +361,7 @@
       "change_1d": "+0.00%",
       "mtd": "+12.40%",
       "ytd": "+3.57%",
-      "as_of": "2026-11-20",
+      "as_of": "2026-11-21",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
     },
@@ -373,7 +373,7 @@
       "change_1d": "+0.00%",
       "mtd": "+3.33%",
       "ytd": "+0.45%",
-      "as_of": "2026-11-20",
+      "as_of": "2026-11-21",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
     },
@@ -385,7 +385,7 @@
       "change_1d": "+0.00%",
       "mtd": "+10.59%",
       "ytd": "-3.20%",
-      "as_of": "2026-11-20",
+      "as_of": "2026-11-21",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
     },
@@ -397,7 +397,7 @@
       "change_1d": "+0.00%",
       "mtd": "+7.76%",
       "ytd": "-10.45%",
-      "as_of": "2026-11-20",
+      "as_of": "2026-11-21",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
     },
@@ -409,7 +409,7 @@
       "change_1d": "+0.00%",
       "mtd": "+47.24%",
       "ytd": "+57.06%",
-      "as_of": "2026-11-20",
+      "as_of": "2026-11-21",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
     },
@@ -421,7 +421,7 @@
       "change_1d": "+0.00%",
       "mtd": "+10.43%",
       "ytd": "-2.95%",
-      "as_of": "2026-11-20",
+      "as_of": "2026-11-21",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
     },
@@ -433,7 +433,7 @@
       "change_1d": "+0.00%",
       "mtd": "+10.13%",
       "ytd": "-8.84%",
-      "as_of": "2026-11-20",
+      "as_of": "2026-11-21",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
     },
@@ -445,7 +445,7 @@
       "change_1d": "+0.00%",
       "mtd": "+11.62%",
       "ytd": "+65.15%",
-      "as_of": "2026-11-20",
+      "as_of": "2026-11-21",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
     }
@@ -455,11 +455,11 @@
       "code": "LNGJK",
       "name": "LNG JP/KR",
       "ticker": "LNG JKM",
-      "px_last": 27.52,
-      "change_1d": "+3.85%",
-      "mtd": "-16.20%",
-      "ytd": "+186.37%",
-      "as_of": "2026-11-20",
+      "px_last": 28.42,
+      "change_1d": "+3.27%",
+      "mtd": "-13.46%",
+      "ytd": "+195.73%",
+      "as_of": "2026-11-21",
       "source": "tradingeconomics_direct_page",
       "status": "valid_te_direct_page"
     },
@@ -467,11 +467,11 @@
       "code": "BRENT",
       "name": "Brent Crude",
       "ticker": "BZ=F",
-      "px_last": 89.51,
-      "change_1d": "-0.21%",
-      "mtd": "-21.09%",
-      "ytd": "+47.10%",
-      "as_of": "2026-11-20",
+      "px_last": 89.95,
+      "change_1d": "+0.49%",
+      "mtd": "-20.70%",
+      "ytd": "+47.82%",
+      "as_of": "2026-11-21",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
     },
@@ -479,11 +479,11 @@
       "code": "SILVER",
       "name": "Silver",
       "ticker": "SI=F",
-      "px_last": 41.38,
-      "change_1d": "-6.74%",
-      "mtd": "-16.02%",
-      "ytd": "-41.00%",
-      "as_of": "2026-11-20",
+      "px_last": 41.07,
+      "change_1d": "-0.75%",
+      "mtd": "-16.65%",
+      "ytd": "-41.44%",
+      "as_of": "2026-11-21",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
     },
@@ -491,142 +491,142 @@
       "code": "GOLD",
       "name": "Gold",
       "ticker": "GC=F",
-      "px_last": 3535.6,
-      "change_1d": "-3.99%",
-      "mtd": "-9.32%",
-      "ytd": "-19.61%",
-      "as_of": "2026-11-20",
+      "px_last": 3515.4,
+      "change_1d": "-0.57%",
+      "mtd": "-9.84%",
+      "ytd": "-20.07%",
+      "as_of": "2026-11-21",
       "source": "yahoo_chart_structured",
       "status": "valid_yahoo_structured"
     }
   ],
-  "market_as_of_date": "2026-11-20",
+  "market_as_of_date": "2026-11-21",
   "global_news": [
     {
-      "headline": "Tech Selloff Pushes S&P 500 and Dow Into Correction",
-      "summary": "US markets fell sharply as tech stocks sold off and Anthropic shares slid, dragging the S&P 500 and Dow Jones Industrial Average into correction territory.",
-      "source": "BBC World",
-      "url": "https://www.bbc.co.uk/news/articles/c6808ym10vzgo?at_medium=RSS&at_campaign=rss",
-      "metric": "Correction",
-      "metric_label": "S&P 500 & Dow Status"
+      "headline": "S&P 500, Nasdaq Rally on AI Chip Stocks Surge",
+      "summary": "S&P 500 and Nasdaq ended sharply higher as Broadcom and chip stocks rallied, driven by investor optimism around AI companies expected to deliver strong earnings.",
+      "source": "Reuters",
+      "url": "https://www.reuters.com/markets/",
+      "metric": "Sharp Rally",
+      "metric_label": "Wall Street Session Direction"
     },
     {
-      "headline": "Treasury Yields Plunge as Investors Flee to Safe Havens",
-      "summary": "US Treasuries rallied sharply as the AI-driven stock selloff sparked haven demand, pushing 2-year yields down more than 14-15 basis points to around 4.634%.",
+      "headline": "Nvidia Stock Plunges 14%, Longest Losing Streak Since 2008",
+      "summary": "Nvidia shares fell 14%, capping its longest weekly losing streak since the 2008 financial crisis, even as executives sought to reassure staff and analysts.",
       "source": "CNBC",
-      "url": "https://www.cnbc.com/2026/11/20/treasury-yields-bonds-inflation.html",
-      "metric": "4.634%",
+      "url": "https://www.cnbc.com/2026/11/20/nvidias-7-week-losing-streak-is-longest-since-2008-financial-crisis.html",
+      "metric": "-14%",
+      "metric_label": "Nvidia Weekly Stock Move"
+    },
+    {
+      "headline": "US PCE Inflation Report Due; Savings Bonds Yield 5.51%",
+      "summary": "October PCE report due Wednesday amid elevated prices. Meanwhile, inflation-protected US savings bonds are paying 5.51%, well above federally insured savings account rates.",
+      "source": "AP News",
+      "url": "https://apnews.com/article/inflation-consumer-confidence-economy-6c207f517113ab0e65c60ac3ee66440e",
+      "metric": "5.51%",
+      "metric_label": "US Savings Bond Yield"
+    },
+    {
+      "headline": "2-Year Treasury Yield Falls 4 Basis Points to 5.361%",
+      "summary": "The 2-year Treasury note yield dropped 4 basis points to 5.361%, reflecting shifting geopolitical and macro sentiment in US fixed income markets.",
+      "source": "CNBC",
+      "url": "https://www.cnbc.com/2026/11/19/stock-market-today-live-updates.html",
+      "metric": "5.361%",
       "metric_label": "2-Year Treasury Yield"
     },
     {
-      "headline": "Fed Governor Waller Signals Possible 50bp Rate Hike",
-      "summary": "Fed Governor Christopher Waller said he was prepared to 'shock people' with a half-point rate hike at the next meeting amid six years of elevated inflation, though analysts warn against aggressive tightening.",
-      "source": "Bloomberg",
-      "url": "https://www.bloomberg.com/opinion/articles/2026-11-20/federal-reserve-should-avoid-aggressive-rate-hikes-in-this-economy",
-      "metric": "+50 bps",
-      "metric_label": "Potential Fed Rate Hike"
+      "headline": "Gold Slides to $3,500; Wall Street Turns Bearish",
+      "summary": "Wall Street sentiment turned bearish after gold fell to $3,500, with Main Street pessimism deepening heading into the holiday week.",
+      "source": "US Markets",
+      "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxPMzNZSEhWdkUzUk5sejZ4cDNvV3YyZ1I5d1RSUFdrLXNILVZIS1RmZU1ROTE3RG5fZllqc2lZNzh0UkpyYmk1Uk5GUjlxOGVxdW81WTdsRFZzMlpQdkJNUjhLM1EwZlg0Y2ZXb0VJLTB6U0FtMjlxVUF2UkFGNEVYNWZ1THNBM1cxTkxCd2hUY3Y3ckRrUE9zZFpkbHphdkN0aDhWOE5LT1RwMTFYRVVLeE05Ti1remM?oc=5",
+      "metric": "$3,500",
+      "metric_label": "Gold Price Level"
     },
     {
-      "headline": "UAE Highlights $1 Trillion in US Investment Commitments",
-      "summary": "At the Abu Dhabi Investment Forum in New York, UAE showcased $1 trillion in US investments. ADNOC and G42 also signed a multiyear partnership with OpenAI to expand its UAE presence.",
-      "source": "The National",
-      "url": "https://www.thenationalnews.com/business/2026/11/19/abu-dhabi-investment-forum-new-york/",
-      "metric": "$1 Trillion",
-      "metric_label": "UAE Commitments in US"
+      "headline": "Oman Affirmed BBB- by S&P; Growth Forecast Raised to 3.5%",
+      "summary": "S&P affirmed Oman's BBB- rating with stable outlook and raised 2026 real GDP growth forecast to 3.5%, though economy remains heavily reliant on energy revenues.",
+      "source": "Asharq Al-Awsat",
+      "url": "https://english.aawsat.com/gulf/5343847-oman-marks-national-day-amid-economic-diversification-push-diplomatic-efforts-ease",
+      "metric": "BBB- / 3.5%",
+      "metric_label": "S&P Rating / GDP Growth Forecast"
     },
     {
-      "headline": "Gulf States Increase Subsidies Amid Supply-Chain Disruptions",
-      "summary": "GCC governments are boosting household subsidies as inflation ranges from 1.9% to over 3% across the region, with supply-chain pressures linked to the US-Israeli war on Iran.",
-      "source": "AGBI",
-      "url": "https://www.agbi.com/analysis/finance/2026/11/gulf-states-beef-up-subsidies-to-help-households-pay-their-bills/",
-      "metric": "1.9\u20133%+",
-      "metric_label": "GCC Inflation Range"
-    },
-    {
-      "headline": "Brent Crude Heads for Third Straight Weekly Decline",
-      "summary": "Brent crude futures edged up 0.26% to $92.22 per barrel but remained on track for a third consecutive weekly decline despite ongoing Strait of Hormuz tensions.",
+      "headline": "Brent Crude at $92.22 on Third Straight Weekly Decline",
+      "summary": "Brent crude edged up 0.26% to $92.22 per barrel but remains on track for a third consecutive weekly decline amid easing Middle East export flow concerns.",
       "source": "CNBC",
       "url": "https://www.cnbc.com/2026/11/20/oil-wti-brent-hormuz.html",
       "metric": "$92.22",
       "metric_label": "Brent Crude ($/bbl)"
     },
     {
-      "headline": "Houthi Missiles Target Riyadh for Third Consecutive Night",
-      "summary": "Saudi Arabia's emergency alerts were activated in Riyadh for a third night as a Saudi-led coalition intercepted three Houthi missiles. Houthis also threatened ports and power stations.",
-      "source": "Al Jazeera",
-      "url": "https://www.aljazeera.com/news/2026/11/21/saudi-led-coalition-intercepts-three-houthi-missiles-headed-for-riyadh?traffic_source=rss",
-      "metric": "3 Nights",
-      "metric_label": "Consecutive Riyadh Alerts"
-    },
-    {
-      "headline": "Iran Escalation Risk Grows as Oil Leverage Weakens",
-      "summary": "Falling oil prices are reducing Iran's economic leverage despite ongoing attacks on Hormuz shipping, raising concerns Tehran may escalate to target Gulf energy infrastructure to restore economic pressure.",
-      "source": "CNN",
-      "url": "https://edition.cnn.com/2026/11/19/middleeast/iran-war-oil-flow-escalation-intl",
-      "metric": "Falling",
-      "metric_label": "Iran Oil Price Leverage"
+      "headline": "Hormuz Crude Shipments Hit Highest Level Since Iran Conflict Began",
+      "summary": "Crude shipments through the Strait of Hormuz reached their highest level since the US-Israeli conflict with Iran began in February, following a ceasefire deal that reopened the waterway.",
+      "source": "Reuters",
+      "url": "https://www.reuters.com/world/iran/",
+      "metric": "Post-Ceasefire H",
+      "metric_label": "Hormuz Crude Flow Level"
     }
   ],
   "qatar_news": [
     {
-      "headline": "QSE Index Gains 0.34% Amid Cautious Sentiment",
-      "summary": "Qatar Stock Exchange index rose 0.34% as investors maintained a cautious approach during the latest trading session.",
+      "headline": "QIA, Brookfield Explore EUR15bn Germany Investment",
+      "summary": "QIA and Brookfield are exploring EUR15 billion in investment opportunities across Germany's critical industries, signalling a major Gulf capital commitment to European industrial assets.",
       "source": "Qatar Tribune",
-      "url": "https://www.qatar-tribune.com/article/265528/business/qse-index-gains-034-amid-cautious-investor-sentiment",
-      "metric": "+0.34%",
-      "metric_label": "QSE Index Daily Change"
+      "url": "https://www.qatar-tribune.com/article/265672/business/qia-brookfield-explore-eur15-bn-investment-opportunities-in-germanys-critical-industries",
+      "metric": "EUR 15bn",
+      "metric_label": "Potential Investment Size"
     },
     {
-      "headline": "Qatar-Germany Ties Set to Deepen Via Investment, Tech",
-      "summary": "Experts say Qatar-Germany relations are poised to expand across investment, technology and industrial cooperation, signalling stronger bilateral economic engagement.",
+      "headline": "Qatar Launches Economic Dialogue With Germany",
+      "summary": "Qatar and Germany have launched a formal economic dialogue aimed at boosting bilateral trade and investment ties, deepening financial and industrial collaboration between the two nations.",
+      "source": "Qatar Tribune",
+      "url": "https://www.qatar-tribune.com/article/265638/latest-news/qatar-germany-launch-economic-dialogue-to-boost-trade-and-investment-ties",
+      "metric": "New",
+      "metric_label": "Economic Dialogue Status"
+    },
+    {
+      "headline": "Qatar Signs Economic Pact With North Rhine-Westphalia",
+      "summary": "Qatar and the German state of North Rhine-Westphalia have agreed to expand economic cooperation, broadening the scope of Qatar's regional engagement within Germany.",
+      "source": "Qatar Tribune",
+      "url": "https://www.qatar-tribune.com/article/265639/latest-news/qatar-german-state-of-north-rhine-westphalia-agree-to-expand-economic-cooperation",
+      "metric": "Bilateral",
+      "metric_label": "Cooperation Agreement Type"
+    },
+    {
+      "headline": "Qatar Strengthens Tech and Investment Ties at US Summit",
+      "summary": "Qatar reinforced global technology and investment partnerships at a US summit, underscoring the country's strategy to diversify economic relationships across key international markets.",
+      "source": "Qatar Tribune",
+      "url": "https://www.qatar-tribune.com/article/265661/business/qatar-strengthens-global-tech-investment-ties-at-us-summit",
+      "metric": "Global",
+      "metric_label": "Summit Engagement Scope"
+    },
+    {
+      "headline": "Doha Bank Wins Dual Honours for Innovation",
+      "summary": "Doha Bank secured two industry awards recognising its achievements in digital transformation and innovation, highlighting continued progress in the Qatari banking sector's modernisation drive.",
+      "source": "Qatar Tribune",
+      "url": "https://www.qatar-tribune.com/article/265640/business/doha-bank-secures-dual-honours-for-transformation-and-innovation",
+      "metric": "2",
+      "metric_label": "Awards Won"
+    },
+    {
+      "headline": "Qatar-Germany Investment and Tech Cooperation Set to Deepen",
+      "summary": "Experts say Qatar-Germany ties are poised to strengthen across investment, technology, and industrial cooperation, reflecting growing strategic alignment between the Gulf state and Europe's largest economy.",
       "source": "Qatar Tribune",
       "url": "https://www.qatar-tribune.com/article/265522/business/qatar-germany-ties-poised-to-deepen-through-investment-technology-and-industrial-cooperation-say-experts",
       "metric": "3 Sectors",
-      "metric_label": "Key Cooperation Areas"
-    },
-    {
-      "headline": "Amir's Germany Visit to Unlock New Investment Avenues",
-      "summary": "QBA chairman says the Amir's visit to Germany is expected to open new avenues for bilateral investment ties between the two countries.",
-      "source": "Qatar Tribune",
-      "url": "https://www.qatar-tribune.com/article/265517/business/amirs-germany-visit-to-open-new-avenues-for-qatar-germany-investment-ties-qba-chairman",
-      "metric": "Bilateral",
-      "metric_label": "Investment Focus"
-    },
-    {
-      "headline": "Qatar, Malaysia Target Doubling Trade to QR5 Billion",
-      "summary": "Qatar and Malaysia are seeking to double their bilateral trade volume to QR5 billion, reflecting growing economic ambitions between the two nations.",
-      "source": "Qatar Tribune",
-      "url": "https://www.qatar-tribune.com/article/265442/business/qatar-malaysia-seek-to-double-bilateral-trade-to-qr5-billion",
-      "metric": "QR5 Billion",
-      "metric_label": "Bilateral Trade Target"
-    },
-    {
-      "headline": "Qatar Investment, Germany Industry Form Long-Term Partnership",
-      "summary": "Qatar's investment capabilities and Germany's industrial strength are seen as complementary foundations for building a durable long-term economic partnership.",
-      "source": "The Peninsula Qatar",
-      "url": "https://thepeninsulaqatar.com/article/20/11/2026/qatars-investment-capabilities-germanys-industrial-strength-lay-foundations-for-long-term-partnership",
-      "metric": "Long-Term",
-      "metric_label": "Partnership Horizon"
-    },
-    {
-      "headline": "QCB Governor Meets South Sudan Acting Minister",
-      "summary": "The Qatar Central Bank governor held a meeting with South Sudan's acting minister, underscoring Qatar's engagement in bilateral financial diplomacy.",
-      "source": "Qatar Tribune",
-      "url": "https://www.qatar-tribune.com/article/265235/business/qcb-governor-meets-with-acting-minister-of-south-sudan",
-      "metric": "Bilateral",
-      "metric_label": "Central Bank Diplomacy"
+      "metric_label": "Cooperation Focus Areas"
     }
   ],
   "kpis": [
     {
-      "value": "27.52",
+      "value": "28.42",
       "label": "LNG JP/KR",
-      "sublabel": "+3.85% today \u00b7 USD/MMBtu"
+      "sublabel": "+3.27% today \u00b7 USD/MMBtu"
     },
     {
-      "value": "3,535.60",
+      "value": "3,515.40",
       "label": "Gold",
-      "sublabel": "-3.99% today \u00b7 -19.61% YTD"
+      "sublabel": "-0.57% today \u00b7 -20.07% YTD"
     },
     {
       "value": "10,062.79",
@@ -641,40 +641,40 @@
   ],
   "market_drivers": [
     {
-      "source": "Bloomberg",
-      "url": "https://www.bloomberg.com/opinion/articles/2026-11-20/federal-reserve-should-avoid-aggressive-rate-hikes-in-this-economy",
-      "headline": "UST 5Y at 4.746%; Waller 50bp hike threat puts 5.00% in play",
-      "summary": "A realised 50bp hike would reprice the front-to-belly of the curve materially. UST 5Y at 4.746% is already +27.51% YTD; a break above 5.00% would stress EM sovereign spreads, GCC dollar-pegged funding costs and duration-heavy SWF allocations. Monitor 2Y/10Y spread compression as ",
-      "metric": "4.746%",
-      "metric_label": "UST 5Y yield"
+      "source": "CNBC",
+      "url": "https://www.cnbc.com/2026/11/20/nvidias-7-week-losing-streak-is-longest-since-2008-financial-crisis.html",
+      "headline": "S&P 500 at 6910; -8.83% MTD breach flags 6800 as next structural support",
+      "summary": "Nvidia's 14% single-session drop and 7-week losing streak signal semis are still in distribution, not accumulation. S&P 500 at 6910 is -8.83% MTD; a close below 6800 would confirm the monthly range break and expose 6600. Tech-heavy portfolios should reassess beta ahead of AI earn",
+      "metric": "6910.39",
+      "metric_label": "S&P 500 spot"
     },
     {
-      "source": "CNBC",
-      "url": "https://www.cnbc.com/2026/11/20/oil-wti-brent-hormuz.html",
-      "headline": "Brent $92.22 at three-week decline low; Hormuz escalation asymmetry widens",
-      "summary": "Brent's third consecutive weekly decline despite active Hormuz tension signals demand-side overriding geopolitical risk premium. The key technical level is $90.00 \u2014 a break below resets GCC fiscal breakeven assumptions. CNN's escalation scenario (news [8]) introduces a tail-risk ",
+      "source": "US Markets",
+      "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxPMzNZSEhWdkUzUk5sejZ4cDNvV3YyZ1I5d1RSUFdrLXNILVZIS1RmZU1ROTE3RG5fZllqc2lZNzh0UkpyYmk1Uk5GUjlxOGVxdW81WTdsRFZzMlpQdkJNUjhLM1EwZlg0Y2ZXb0VJLTB6U0FtMjlxVUF2UkFGNEVYNWZ1THNBM1cxTkxCd2hUY3Y3ckRrUE9zZFpkbHphdkN0aDhWOE5LT1RwMTFYRVVLeE05Ti1remM?oc=5",
+      "headline": "Gold consolidating at $3,500-$3,515; -9.84% MTD correction tests bull trend",
+      "summary": "Gold at $3,515.40 is -9.84% MTD and -0.57% intraday. The $3,500 level is an immediate technical floor; a weekly close below it reopens $3,400. For sovereign allocators, the -20.07% YTD figure on the data appears inconsistent with spot \u2014 monitor real yield moves on the UST 5Y (4.7",
+      "metric": "$3,515.40",
+      "metric_label": "Gold spot"
+    },
+    {
+      "source": "Reuters",
+      "url": "https://www.reuters.com/world/iran/",
+      "headline": "Brent $92.22 capped; Hormuz flow recovery risks third weekly close below $93",
+      "summary": "Ceasefire-driven Hormuz reopening is structurally bearish for the geopolitical risk premium embedded in Brent. At $92.22, Brent is on track for a third consecutive weekly decline. Gulf energy exporters (Tadawul +2.39% MTD, QE +9.96% MTD) have so far decoupled, but a sustained Bre",
       "metric": "$92.22",
       "metric_label": "Brent spot"
     },
     {
-      "source": "BBC World",
-      "url": "https://www.bbc.co.uk/news/articles/c6808ym10vzgo?at_medium=RSS&at_campaign=rss",
-      "headline": "S&P 500 -7.33% MTD at 7024.78; correction depth tests 6,800 support",
-      "summary": "S&P 500 in confirmed correction at 7024.78 (-7.33% MTD). Nikkei's -10.83% MTD and -5.06% single-session move signals cross-asset deleveraging. Next technical support circa 6,800; a close below that level would force systematic rebalancing in SWF equity overlays and trigger stop-l",
-      "metric": "7024.78",
-      "metric_label": "S&P 500"
-    },
-    {
-      "source": "The National",
-      "url": "https://www.thenationalnews.com/business/2026/11/19/abu-dhabi-investment-forum-new-york/",
-      "headline": "ADX -2.32% YTD despite $1T US commitment; divergence flags rerating risk",
-      "summary": "UAE's $1 trillion US investment showcase has not translated into ADX price support (-2.32% YTD, -0.37% today at 9760.61). The disconnect between deal-flow momentum and index performance suggests capital is flowing outward, not into domestic equities. Watch 9,500 on ADX as the str",
-      "metric": "9760.61",
-      "metric_label": "ADX General Index"
+      "source": "Qatar Tribune",
+      "url": "https://www.qatar-tribune.com/article/265672/business/qia-brookfield-explore-eur15-bn-investment-opportunities-in-germanys-critical-industries",
+      "headline": "QIA EUR15bn Germany deployment: GCC capital rotation into European industrials accelerates",
+      "summary": "QIA-Brookfield's EUR15bn pipeline into German critical industries, alongside the formal Qatar-Germany economic dialogue and NRW pact, signals sustained GCC sovereign capital outflow from US equities into European hard assets. For treasury desks, monitor EUR/USD and German Bund sp",
+      "metric": "EUR 15bn",
+      "metric_label": "QIA deployment"
     }
   ],
   "validation_issues": [
-    "Using latest available Supabase market date 2026-11-20, not today 2026-11-21",
+    "Using latest available Supabase market date 2026-11-21, not today 2026-11-22",
     "Kuwait Boursa missing or invalid"
   ],
   "validation_issue_count": 2,
